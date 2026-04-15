@@ -234,7 +234,7 @@
     }
 
     .grid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .pronoun-grid,
@@ -475,6 +475,10 @@
     }
 
     @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
       .two-col {
         grid-template-columns: 1fr;
       }
@@ -482,7 +486,7 @@
 
     @media (max-width: 640px) {
       .grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .row-card {
@@ -495,7 +499,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 0 to 100, subject pronouns, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus a dedicated tab for core French articles and determiners.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, subject pronouns, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -528,15 +532,16 @@
 
     <div class="section-shell">
       <div class="tabs">
-        <button class="tab-btn active" type="button" data-tab="numbers">Numbers 0–100</button>
+        <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
         <button class="tab-btn" type="button" data-tab="grammar">Pronouns + Être/Avoir</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
+        <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
       </div>
 
       <section id="numbersSection" class="section active">
         <div class="section-header">
           <div>
-            <h2 class="section-title">French Numbers 0–100</h2>
+            <h2 class="section-title">French Numbers 1–100</h2>
             <p class="section-desc">Click any number card to hear it. You can also use search to find forms like <em>vingt et un</em> or <em>quatre-vingt-dix-neuf</em>.</p>
           </div>
           <div class="action-row">
@@ -544,7 +549,7 @@
           </div>
         </div>
 
-        <p class="hint">Examples: <strong>zéro</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
+        <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
         <div id="grid" class="grid"></div>
 
         <div class="two-col">
@@ -559,6 +564,12 @@
             <p>These are the forms that usually need extra repetition: teens, <strong>et un</strong>, and the unusual <strong>70 / 80 / 90</strong> patterns.</p>
             <div id="trickyNumbersGrid" class="grid"></div>
           </div>
+        </div>
+
+        <div class="panel" style="margin-top: 18px;">
+          <h3>Calculation Operators</h3>
+          <p>Learn the basic math words used in simple calculations. Click a card to hear the operator, then a short example.</p>
+          <div id="operatorGrid" class="determiner-subgrid"></div>
         </div>
       </section>
 
@@ -688,6 +699,58 @@
           </div>
         </div>
       </section>
+
+      <section id="calendarSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Days, Months &amp; Seasons</h2>
+            <p class="section-desc">Practice common calendar words with short example phrases. Click any card to hear the word first, then the example.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playWeekdays">Play days</button>
+            <button class="action-btn" type="button" id="playMonths">Play months</button>
+            <button class="action-btn" type="button" id="playSeasons">Play seasons</button>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 16px;">
+          <h3>Quick Notes</h3>
+          <div class="summary-chips">
+            <div class="summary-chip">
+              <strong>Lowercase in French</strong>
+              <span>Days, months, and seasons are usually lowercase: <strong>lundi</strong>, <strong>janvier</strong>, <strong>hiver</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Months</strong>
+              <span>French commonly uses <strong>en</strong> for months: <strong>en janvier</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Seasons</strong>
+              <span>French usually uses <strong>en</strong>, but spring is very often <strong>au printemps</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="determiner-sections">
+          <div class="category-panel">
+            <h3>Days of the Week</h3>
+            <p>Use these for everyday planning, schedules, and talking about routines.</p>
+            <div id="weekdaysGrid" class="determiner-subgrid"></div>
+          </div>
+
+          <div class="category-panel">
+            <h3>Months</h3>
+            <p>These often appear with <strong>en</strong> when you mean “in January,” “in May,” and so on.</p>
+            <div id="monthsGrid" class="determiner-subgrid"></div>
+          </div>
+
+          <div class="category-panel">
+            <h3>Seasons</h3>
+            <p>For “in summer / in winter,” French usually uses <strong>en</strong>, while spring is very often <strong>au printemps</strong>.</p>
+            <div id="seasonsGrid" class="determiner-subgrid"></div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <p class="footer-note">
@@ -805,6 +868,38 @@
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir" }
     ];
 
+    const weekdays = [
+      { fr: "lundi", en: "Monday", note: "day of the week", example: "le lundi", exampleEn: "on Mondays" },
+      { fr: "mardi", en: "Tuesday", note: "day of the week", example: "le mardi", exampleEn: "on Tuesdays" },
+      { fr: "mercredi", en: "Wednesday", note: "day of the week", example: "le mercredi", exampleEn: "on Wednesdays" },
+      { fr: "jeudi", en: "Thursday", note: "day of the week", example: "le jeudi", exampleEn: "on Thursdays" },
+      { fr: "vendredi", en: "Friday", note: "day of the week", example: "le vendredi", exampleEn: "on Fridays" },
+      { fr: "samedi", en: "Saturday", note: "day of the week", example: "le samedi", exampleEn: "on Saturdays" },
+      { fr: "dimanche", en: "Sunday", note: "day of the week", example: "le dimanche", exampleEn: "on Sundays" }
+    ];
+
+    const months = [
+      { fr: "janvier", en: "January", note: "month", example: "en janvier", exampleEn: "in January" },
+      { fr: "février", en: "February", note: "month", example: "en février", exampleEn: "in February" },
+      { fr: "mars", en: "March", note: "month", example: "en mars", exampleEn: "in March" },
+      { fr: "avril", en: "April", note: "month", example: "en avril", exampleEn: "in April" },
+      { fr: "mai", en: "May", note: "month", example: "en mai", exampleEn: "in May" },
+      { fr: "juin", en: "June", note: "month", example: "en juin", exampleEn: "in June" },
+      { fr: "juillet", en: "July", note: "month", example: "en juillet", exampleEn: "in July" },
+      { fr: "août", en: "August", note: "month", example: "en août", exampleEn: "in August" },
+      { fr: "septembre", en: "September", note: "month", example: "en septembre", exampleEn: "in September" },
+      { fr: "octobre", en: "October", note: "month", example: "en octobre", exampleEn: "in October" },
+      { fr: "novembre", en: "November", note: "month", example: "en novembre", exampleEn: "in November" },
+      { fr: "décembre", en: "December", note: "month", example: "en décembre", exampleEn: "in December" }
+    ];
+
+    const seasons = [
+      { fr: "printemps", en: "spring", note: "spring often uses au", example: "au printemps", exampleEn: "in spring" },
+      { fr: "été", en: "summer", note: "usually uses en", example: "en été", exampleEn: "in summer" },
+      { fr: "automne", en: "autumn / fall", note: "usually uses en", example: "en automne", exampleEn: "in autumn" },
+      { fr: "hiver", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
+    ];
+
     const determinerCategories = {
       definite: [
         { fr: "le", en: "the", note: "before a singular masculine noun", example: "le livre", exampleEn: "the book" },
@@ -901,22 +996,36 @@
       })))
     ];
 
-    const numberItems = Array.from({ length: 101 }, (_, n) => ({
-      number: n,
-      word: frenchNumber(n),
-      speech: frenchNumber(n),
-      search: `${n} ${frenchNumber(n)}`.toLowerCase()
-    }));
+    const numberItems = Array.from({ length: 100 }, (_, index) => {
+      const n = index + 1;
+      return {
+        number: n,
+        word: frenchNumber(n),
+        speech: frenchNumber(n),
+        search: `${n} ${frenchNumber(n)}`.toLowerCase()
+      };
+    });
+    const calculationOperators = [
+      { fr: "plus", en: "plus / add", note: "used for addition", example: "deux plus trois égal cinq", exampleEn: "two plus three equals five" },
+      { fr: "moins", en: "minus / subtract", note: "used for subtraction", example: "dix moins quatre égal six", exampleEn: "ten minus four equals six" },
+      { fr: "fois", en: "times / multiply", note: "used for multiplication", example: "trois fois quatre égal douze", exampleEn: "three times four equals twelve" },
+      { fr: "divisé par", en: "divided by", note: "used for division", example: "huit divisé par deux égal quatre", exampleEn: "eight divided by two equals four" },
+      { fr: "égal", en: "equals", note: "used to give the result", example: "sept plus un égal huit", exampleEn: "seven plus one equals eight" }
+    ];
     const tensNumberSet = new Set([20, 30, 40, 50, 60, 70, 80, 90]);
     const trickyNumberSet = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 31, 41, 51, 61, 70, 71, 72, 79, 80, 81, 90, 91, 99]);
 
     const grid = document.getElementById("grid");
     const tensGrid = document.getElementById("tensGrid");
     const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
+    const operatorGrid = document.getElementById("operatorGrid");
     const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
     const exampleGrid = document.getElementById("exampleGrid");
+    const weekdaysGrid = document.getElementById("weekdaysGrid");
+    const monthsGrid = document.getElementById("monthsGrid");
+    const seasonsGrid = document.getElementById("seasonsGrid");
 
     const definiteGrid = document.getElementById("definiteGrid");
     const indefiniteGrid = document.getElementById("indefiniteGrid");
@@ -935,6 +1044,7 @@
     const numbersSection = document.getElementById("numbersSection");
     const grammarSection = document.getElementById("grammarSection");
     const determinersSection = document.getElementById("determinersSection");
+    const calendarSection = document.getElementById("calendarSection");
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
     const playPronounsBtn = document.getElementById("playPronouns");
@@ -942,6 +1052,9 @@
     const playAvoirBtn = document.getElementById("playAvoir");
     const playDeterminersBtn = document.getElementById("playDeterminers");
     const playPossessivesBtn = document.getElementById("playPossessives");
+    const playWeekdaysBtn = document.getElementById("playWeekdays");
+    const playMonthsBtn = document.getElementById("playMonths");
+    const playSeasonsBtn = document.getElementById("playSeasons");
 
     let voices = [];
     let currentCard = null;
@@ -1030,6 +1143,28 @@
       );
     }
 
+    function renderOperators(list = calculationOperators) {
+      operatorGrid.innerHTML = "";
+      if (!list.length) {
+        operatorGrid.innerHTML = `<div class="empty-state">No operators match this search.</div>`;
+        return;
+      }
+      list.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="french-line">${item.fr}</div>
+          <div class="translation">${item.en}</div>
+          <div class="grammar-note">${item.note}</div>
+          <div class="translation"><strong>Example:</strong> ${item.example}</div>
+          <div class="translation">${item.exampleEn}</div>
+        `;
+        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
+        operatorGrid.appendChild(button);
+      });
+    }
+
     function renderPronouns(list = pronouns) {
       pronounGrid.innerHTML = "";
       list.forEach(item => {
@@ -1081,6 +1216,28 @@
         `;
         button.addEventListener("click", () => speak(item.fr, button));
         exampleGrid.appendChild(button);
+      });
+    }
+
+    function renderCalendarCards(container, list, emptyMessage) {
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
+        return;
+      }
+      list.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="french-line">${item.fr}</div>
+          <div class="translation">${item.en}</div>
+          <div class="grammar-note">${item.note}</div>
+          <div class="translation"><strong>Example:</strong> ${item.example}</div>
+          <div class="translation">${item.exampleEn}</div>
+        `;
+        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
+        container.appendChild(button);
       });
     }
 
@@ -1234,6 +1391,7 @@
       numbersSection.classList.toggle("active", tabName === "numbers");
       grammarSection.classList.toggle("active", tabName === "grammar");
       determinersSection.classList.toggle("active", tabName === "determiners");
+      calendarSection.classList.toggle("active", tabName === "calendar");
     }
 
     function getSearchMatches(q) {
@@ -1254,10 +1412,14 @@
 
       return {
         numbers: numberItems.filter(item => item.search.includes(q)),
+        operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         pronouns: pronouns.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
+        weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         definite: determinerCategories.definite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         indefinite: determinerCategories.indefinite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         partitive: determinerCategories.partitive.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -1271,10 +1433,14 @@
 
       if (!q) {
         renderNumbers();
+        renderOperators();
         renderPronouns();
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
         renderExamples();
+        renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
+        renderCalendarCards(monthsGrid, months, "No months match this search.");
+        renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
         renderDeterminerCards(definiteGrid, determinerCategories.definite);
         renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
         renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
@@ -1285,18 +1451,23 @@
 
       const matches = getSearchMatches(q);
       renderNumbers(matches.numbers);
+      renderOperators(matches.operators);
       renderPronouns(matches.pronouns);
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
       renderExamples(matches.examples);
+      renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
+      renderCalendarCards(monthsGrid, matches.months, "No months match this search.");
+      renderCalendarCards(seasonsGrid, matches.seasons, "No seasons match this search.");
       renderDeterminerCards(definiteGrid, matches.definite);
       renderDeterminerCards(indefiniteGrid, matches.indefinite);
       renderDeterminerCards(partitiveGrid, matches.partitive);
       renderDeterminerCards(demonstrativeGrid, matches.demonstrative);
       renderPossessives(matches.possessives);
 
-      const hasNumberResults = matches.numbers.length > 0;
+      const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
       const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
+      const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
         matches.definite.length > 0 ||
         matches.indefinite.length > 0 ||
@@ -1306,12 +1477,19 @@
 
       if (activeTab === "numbers" && !hasNumberResults) {
         if (hasGrammarResults) activateTab("grammar");
+        else if (hasCalendarResults) activateTab("calendar");
         else if (hasDeterminerResults) activateTab("determiners");
       } else if (activeTab === "grammar" && !hasGrammarResults) {
+        if (hasCalendarResults) activateTab("calendar");
+        else if (hasDeterminerResults) activateTab("determiners");
+        else if (hasNumberResults) activateTab("numbers");
+      } else if (activeTab === "calendar" && !hasCalendarResults) {
         if (hasDeterminerResults) activateTab("determiners");
+        else if (hasGrammarResults) activateTab("grammar");
         else if (hasNumberResults) activateTab("numbers");
       } else if (activeTab === "determiners" && !hasDeterminerResults) {
-        if (hasGrammarResults) activateTab("grammar");
+        if (hasCalendarResults) activateTab("calendar");
+        else if (hasGrammarResults) activateTab("grammar");
         else if (hasNumberResults) activateTab("numbers");
       }
     }
@@ -1380,12 +1558,37 @@
       );
     });
 
+    playWeekdaysBtn.addEventListener("click", () => {
+      speakSequence(weekdays.flatMap(item => ([
+        { text: item.fr },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
+    playMonthsBtn.addEventListener("click", () => {
+      speakSequence(months.flatMap(item => ([
+        { text: item.fr },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
+    playSeasonsBtn.addEventListener("click", () => {
+      speakSequence(seasons.flatMap(item => ([
+        { text: item.fr },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
     initTheme();
     renderNumbers();
+    renderOperators();
     renderPronouns();
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
     renderExamples();
+    renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
+    renderCalendarCards(monthsGrid, months, "No months match this search.");
+    renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
     renderDeterminerCards(definiteGrid, determinerCategories.definite);
     renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
     renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
