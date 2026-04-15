@@ -520,6 +520,10 @@
       <div class="control-group theme-wrap">
         <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌙 Dark mode</button>
       </div>
+
+      <div class="control-group theme-wrap">
+        <button id="stopAudio" class="theme-btn" type="button">Stop audio</button>
+      </div>
     </div>
 
     <div class="section-shell">
@@ -536,12 +540,26 @@
             <p class="section-desc">Click any number card to hear it. You can also use search to find forms like <em>vingt et un</em> or <em>quatre-vingt-dix-neuf</em>.</p>
           </div>
           <div class="action-row">
-            <button class="action-btn" type="button" id="playNumberSamples">Play sample numbers</button>
+            <button class="action-btn" type="button" id="playNumberSamples">Play all numbers</button>
           </div>
         </div>
 
         <p class="hint">Examples: <strong>zéro</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
         <div id="grid" class="grid"></div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Tens You’ll Use Constantly</h3>
+            <p>Focus on the core decade numbers first: <strong>20, 30, 40</strong> and up through <strong>90</strong>.</p>
+            <div id="tensGrid" class="grid"></div>
+          </div>
+
+          <div class="panel">
+            <h3>Tricky Numbers for Beginners</h3>
+            <p>These are the forms that usually need extra repetition: teens, <strong>et un</strong>, and the unusual <strong>70 / 80 / 90</strong> patterns.</p>
+            <div id="trickyNumbersGrid" class="grid"></div>
+          </div>
+        </div>
       </section>
 
       <section id="grammarSection" class="section">
@@ -747,10 +765,10 @@
       { fr: "il", en: "he / it", note: "masculine singular", speech: "il" },
       { fr: "elle", en: "she / it", note: "feminine singular", speech: "elle" },
       { fr: "nous", en: "we", note: "first person plural", speech: "nous" },
-      { fr: "on", en: "we / one / people in general", note: "very common in everyday spoken French", speech: "on" },
       { fr: "vous", en: "you (formal singular / plural)", note: "formal or more than one person", speech: "vous" },
       { fr: "ils", en: "they (masculine or mixed)", note: "masculine or mixed group", speech: "ils" },
-      { fr: "elles", en: "they (feminine)", note: "all-female group", speech: "elles" }
+      { fr: "elles", en: "they (feminine)", note: "all-female group", speech: "elles" },
+      { fr: "on", en: "we / one / people in general", note: "very common in everyday spoken French", speech: "on" }
     ];
 
     const etreRows = [
@@ -889,8 +907,12 @@
       speech: frenchNumber(n),
       search: `${n} ${frenchNumber(n)}`.toLowerCase()
     }));
+    const tensNumberSet = new Set([20, 30, 40, 50, 60, 70, 80, 90]);
+    const trickyNumberSet = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 31, 41, 51, 61, 70, 71, 72, 79, 80, 81, 90, 91, 99]);
 
     const grid = document.getElementById("grid");
+    const tensGrid = document.getElementById("tensGrid");
+    const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
     const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
@@ -907,6 +929,7 @@
     const rateValue = document.getElementById("rateValue");
     const searchInput = document.getElementById("search");
     const themeToggle = document.getElementById("themeToggle");
+    const stopAudioBtn = document.getElementById("stopAudio");
 
     const tabButtons = document.querySelectorAll(".tab-btn");
     const numbersSection = document.getElementById("numbersSection");
@@ -923,10 +946,25 @@
     let voices = [];
     let currentCard = null;
     let activeTab = "numbers";
+    const examplePauseMs = 900;
+    let playbackToken = 0;
+    let playbackTimeout = null;
 
     function clearPlaying() {
       if (currentCard) currentCard.classList.remove("playing");
       currentCard = null;
+    }
+
+    function stopPlayback() {
+      playbackToken += 1;
+      if (playbackTimeout) {
+        clearTimeout(playbackTimeout);
+        playbackTimeout = null;
+      }
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      clearPlaying();
     }
 
     function setPlaying(card) {
@@ -959,8 +997,12 @@
       updateThemeButton();
     }
 
-    function renderNumbers(list = numberItems) {
-      grid.innerHTML = "";
+    function renderNumberCards(container, list, emptyMessage) {
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
+        return;
+      }
       list.forEach(item => {
         const button = document.createElement("button");
         button.className = "card";
@@ -970,8 +1012,22 @@
           <div class="word">${item.word}</div>
         `;
         button.addEventListener("click", () => speak(item.word, button));
-        grid.appendChild(button);
+        container.appendChild(button);
       });
+    }
+
+    function renderNumbers(list = numberItems) {
+      renderNumberCards(grid, list, "No numbers match this search.");
+      renderNumberCards(
+        tensGrid,
+        list.filter(item => tensNumberSet.has(item.number)),
+        "No tens match this search."
+      );
+      renderNumberCards(
+        trickyNumbersGrid,
+        list.filter(item => trickyNumberSet.has(item.number)),
+        "No tricky numbers match this search."
+      );
     }
 
     function renderPronouns(list = pronouns) {
@@ -1007,7 +1063,7 @@
             <div class="translation">${item.exampleEn}</div>
           </div>
         `;
-        button.addEventListener("click", () => speak(`${item.full}. ${item.example}`, button));
+        button.addEventListener("click", () => speakWithPause(item.full, item.example, button));
         container.appendChild(button);
       });
     }
@@ -1045,7 +1101,7 @@
           <div class="translation"><strong>Example:</strong> ${item.example}</div>
           <div class="translation">${item.exampleEn}</div>
         `;
-        button.addEventListener("click", () => speak(`${item.fr}. ${item.example}`, button));
+        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
         container.appendChild(button);
       });
     }
@@ -1079,7 +1135,7 @@
             <span class="poss-example">${form.example}</span>
             <span class="poss-example">${form.exampleEn}</span>
           `;
-          button.addEventListener("click", () => speak(`${form.form}. ${form.example}`, button));
+          button.addEventListener("click", () => speakWithPause(form.form, form.example, button));
           rowEl.appendChild(button);
         });
 
@@ -1114,48 +1170,58 @@
     }
 
     function speak(text, card) {
+      speakSequence([{ text }], card);
+    }
+
+    function speakWithPause(firstText, secondText, card) {
+      const items = [{ text: firstText }];
+      if (secondText) items.push({ text: secondText, pauseBefore: examplePauseMs });
+      speakSequence(items, card);
+    }
+
+    function speakSequence(items, activeCard = null) {
       if (!window.speechSynthesis) {
         alert("Your browser does not support speech synthesis.");
         return;
       }
-
-      window.speechSynthesis.cancel();
-      setPlaying(card);
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "fr-FR";
-      utterance.rate = Number(rateInput.value);
-
-      const voice = getSelectedVoice();
-      if (voice) utterance.voice = voice;
-
-      utterance.onend = clearPlaying;
-      utterance.onerror = clearPlaying;
-
-      window.speechSynthesis.speak(utterance);
-    }
-
-    function speakSequence(items) {
-      if (!window.speechSynthesis || !items.length) return;
-      window.speechSynthesis.cancel();
+      if (!items.length) {
+        clearPlaying();
+        return;
+      }
+      stopPlayback();
+      const runToken = playbackToken;
 
       const queue = [...items];
       const voice = getSelectedVoice();
       const rate = Number(rateInput.value);
 
       function next() {
+        if (runToken !== playbackToken) return;
         if (!queue.length) {
           clearPlaying();
           return;
         }
         const current = queue.shift();
-        setPlaying(current.card || null);
+        setPlaying(current.card || activeCard || null);
         const utterance = new SpeechSynthesisUtterance(current.text);
         utterance.lang = "fr-FR";
         utterance.rate = rate;
         if (voice) utterance.voice = voice;
-        utterance.onend = next;
-        utterance.onerror = next;
+        utterance.onend = () => {
+          if (runToken !== playbackToken) return;
+          if (current.pauseBefore) {
+            playbackTimeout = setTimeout(() => {
+              playbackTimeout = null;
+              next();
+            }, current.pauseBefore);
+            return;
+          }
+          next();
+        };
+        utterance.onerror = () => {
+          if (runToken !== playbackToken) return;
+          next();
+        };
         window.speechSynthesis.speak(utterance);
       }
 
@@ -1251,7 +1317,10 @@
     }
 
     tabButtons.forEach(btn => {
-      btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+      btn.addEventListener("click", () => {
+        stopPlayback();
+        activateTab(btn.dataset.tab);
+      });
     });
 
     rateInput.addEventListener("input", () => {
@@ -1259,27 +1328,22 @@
     });
 
     searchInput.addEventListener("input", (e) => {
+      stopPlayback();
       applySearch(e.target.value);
     });
 
     themeToggle.addEventListener("click", () => {
+      stopPlayback();
       const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
       setTheme(nextTheme);
     });
 
+    stopAudioBtn.addEventListener("click", () => {
+      stopPlayback();
+    });
+
     playNumberSamplesBtn.addEventListener("click", () => {
-      speakSequence([
-        { text: "zéro" },
-        { text: "un" },
-        { text: "deux" },
-        { text: "dix" },
-        { text: "vingt et un" },
-        { text: "trente-deux" },
-        { text: "soixante et onze" },
-        { text: "quatre-vingts" },
-        { text: "quatre-vingt-dix-neuf" },
-        { text: "cent" }
-      ]);
+      speakSequence(numberItems.map(item => ({ text: item.speech })));
     });
 
     playPronounsBtn.addEventListener("click", () => {
@@ -1287,20 +1351,32 @@
     });
 
     playEtreBtn.addEventListener("click", () => {
-      speakSequence(etreRows.map(item => ({ text: `${item.full}. ${item.example}` })));
+      speakSequence(etreRows.flatMap(item => ([
+        { text: item.full },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
     });
 
     playAvoirBtn.addEventListener("click", () => {
-      speakSequence(avoirRows.map(item => ({ text: `${item.full}. ${item.example}` })));
+      speakSequence(avoirRows.flatMap(item => ([
+        { text: item.full },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
     });
 
     playDeterminersBtn.addEventListener("click", () => {
-      speakSequence(allDeterminerItems.map(item => ({ text: `${item.fr}. ${item.example}` })));
+      speakSequence(allDeterminerItems.flatMap(item => ([
+        { text: item.fr },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
     });
 
     playPossessivesBtn.addEventListener("click", () => {
       speakSequence(
-        possessiveRows.flatMap(row => row.forms.map(form => ({ text: `${form.form}. ${form.example}` })))
+        possessiveRows.flatMap(row => row.forms.flatMap(form => ([
+          { text: form.form },
+          { text: form.example, pauseBefore: examplePauseMs }
+        ])))
       );
     });
 
