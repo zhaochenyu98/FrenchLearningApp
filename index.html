@@ -535,6 +535,7 @@
         <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
         <button class="tab-btn" type="button" data-tab="grammar">Pronouns + Être/Avoir</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
+        <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
       </div>
 
@@ -697,6 +698,42 @@
             </div>
             <div id="possessiveGrid" class="possessive-grid"></div>
           </div>
+        </div>
+      </section>
+
+      <section id="questionsSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Question Words</h2>
+            <p class="section-desc">Learn the core words for asking who, what, when, where, why, how, which, and how much/many. Click any card to hear the question word plus an example.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playQuestionWords">Play question words</button>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 16px;">
+          <h3>Quick Pattern Notes</h3>
+          <div class="summary-chips">
+            <div class="summary-chip">
+              <strong>Informal speech</strong>
+              <span>French often places question words at the end: <strong>Tu fais quoi ?</strong></span>
+            </div>
+            <div class="summary-chip">
+              <strong>Before nouns</strong>
+              <span><strong>Quel</strong> changes form to match the noun: <strong>quel, quelle, quels, quelles</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>With vowels</strong>
+              <span><strong>Que</strong> becomes <strong>qu’</strong> before a vowel sound: <strong>Qu’est-ce que c’est ?</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Common Question Words</h3>
+          <p>Start with these high-frequency words and phrases for everyday questions.</p>
+          <div id="questionWordsGrid" class="determiner-subgrid"></div>
         </div>
       </section>
 
@@ -868,6 +905,19 @@
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir" }
     ];
 
+    const questionWords = [
+      { fr: "qui", en: "who", note: "asks about a person", example: "Qui est-ce ?", exampleEn: "Who is it?" },
+      { fr: "quand", en: "when", note: "asks about time", example: "Quand arrives-tu ?", exampleEn: "When are you arriving?" },
+      { fr: "où", en: "where", note: "asks about place", example: "Où est la gare ?", exampleEn: "Where is the train station?" },
+      { fr: "comment", en: "how", note: "asks about manner or condition", example: "Comment ça va ?", exampleEn: "How are you?" },
+      { fr: "quoi", en: "what", note: "common in informal questions", example: "Tu fais quoi ?", exampleEn: "What are you doing?" },
+      { fr: "que / qu’", en: "what", note: "used before a verb; qu’ before a vowel sound", example: "Que veux-tu ?", exampleEn: "What do you want?", speech: "que" },
+      { fr: "pourquoi", en: "why", note: "asks for a reason", example: "Pourquoi tu pars ?", exampleEn: "Why are you leaving?" },
+      { fr: "quel / quelle", en: "which / what", note: "changes to match the noun", example: "Quel jour sommes-nous ?", exampleEn: "What day is it?", speech: "quel" },
+      { fr: "combien", en: "how much / how many", note: "asks about quantity or price", example: "Combien ça coûte ?", exampleEn: "How much does it cost?" },
+      { fr: "à quelle heure", en: "at what time", note: "asks for a specific time", example: "À quelle heure commence le cours ?", exampleEn: "What time does the class start?" }
+    ];
+
     const weekdays = [
       { fr: "lundi", en: "Monday", note: "day of the week", example: "le lundi", exampleEn: "on Mondays" },
       { fr: "mardi", en: "Tuesday", note: "day of the week", example: "le mardi", exampleEn: "on Tuesdays" },
@@ -930,54 +980,54 @@
         owner: "my",
         note: "for one owner",
         forms: [
-          { form: "mon", label: "masculine singular", example: "mon livre", exampleEn: "my book" },
-          { form: "ma", label: "feminine singular", example: "ma maison", exampleEn: "my house" },
-          { form: "mes", label: "plural", example: "mes livres", exampleEn: "my books" }
+          { form: "mon", label: "masculine singular", example: "mon téléphone", exampleEn: "my phone" },
+          { form: "ma", label: "feminine singular", example: "ma voiture", exampleEn: "my car" },
+          { form: "mes", label: "plural", example: "mes clés", exampleEn: "my keys" }
         ]
       },
       {
         owner: "your (informal)",
         note: "for one person you know well",
         forms: [
-          { form: "ton", label: "masculine singular", example: "ton livre", exampleEn: "your book" },
-          { form: "ta", label: "feminine singular", example: "ta maison", exampleEn: "your house" },
-          { form: "tes", label: "plural", example: "tes livres", exampleEn: "your books" }
+          { form: "ton", label: "masculine singular", example: "ton sac", exampleEn: "your bag" },
+          { form: "ta", label: "feminine singular", example: "ta chaise", exampleEn: "your chair" },
+          { form: "tes", label: "plural", example: "tes chaussures", exampleEn: "your shoes" }
         ]
       },
       {
         owner: "his / her / its",
         note: "depends on the noun, not the owner’s gender",
         forms: [
-          { form: "son", label: "masculine singular", example: "son livre", exampleEn: "his/her book" },
-          { form: "sa", label: "feminine singular", example: "sa maison", exampleEn: "his/her house" },
-          { form: "ses", label: "plural", example: "ses livres", exampleEn: "his/her books" }
+          { form: "son", label: "masculine singular", example: "son ami", exampleEn: "his/her friend" },
+          { form: "sa", label: "feminine singular", example: "sa famille", exampleEn: "his/her family" },
+          { form: "ses", label: "plural", example: "ses enfants", exampleEn: "his/her children" }
         ]
       },
       {
         owner: "our",
         note: "same singular form for masculine and feminine",
         forms: [
-          { form: "notre", label: "masculine singular", example: "notre livre", exampleEn: "our book" },
-          { form: "notre", label: "feminine singular", example: "notre maison", exampleEn: "our house" },
-          { form: "nos", label: "plural", example: "nos livres", exampleEn: "our books" }
+          { form: "notre", label: "masculine singular", example: "notre appartement", exampleEn: "our apartment" },
+          { form: "notre", label: "feminine singular", example: "notre école", exampleEn: "our school" },
+          { form: "nos", label: "plural", example: "nos amis", exampleEn: "our friends" }
         ]
       },
       {
         owner: "your (formal / plural)",
         note: "formal singular or more than one person",
         forms: [
-          { form: "votre", label: "masculine singular", example: "votre livre", exampleEn: "your book" },
-          { form: "votre", label: "feminine singular", example: "votre maison", exampleEn: "your house" },
-          { form: "vos", label: "plural", example: "vos livres", exampleEn: "your books" }
+          { form: "votre", label: "masculine singular", example: "votre stylo", exampleEn: "your pen" },
+          { form: "votre", label: "feminine singular", example: "votre question", exampleEn: "your question" },
+          { form: "vos", label: "plural", example: "vos documents", exampleEn: "your documents" }
         ]
       },
       {
         owner: "their",
         note: "same singular form for masculine and feminine",
         forms: [
-          { form: "leur", label: "masculine singular", example: "leur livre", exampleEn: "their book" },
-          { form: "leur", label: "feminine singular", example: "leur maison", exampleEn: "their house" },
-          { form: "leurs", label: "plural", example: "leurs livres", exampleEn: "their books" }
+          { form: "leur", label: "masculine singular", example: "leur chien", exampleEn: "their dog" },
+          { form: "leur", label: "feminine singular", example: "leur chambre", exampleEn: "their room" },
+          { form: "leurs", label: "plural", example: "leurs parents", exampleEn: "their parents" }
         ]
       }
     ];
@@ -1023,6 +1073,7 @@
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
     const exampleGrid = document.getElementById("exampleGrid");
+    const questionWordsGrid = document.getElementById("questionWordsGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");
@@ -1044,6 +1095,7 @@
     const numbersSection = document.getElementById("numbersSection");
     const grammarSection = document.getElementById("grammarSection");
     const determinersSection = document.getElementById("determinersSection");
+    const questionsSection = document.getElementById("questionsSection");
     const calendarSection = document.getElementById("calendarSection");
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
@@ -1052,6 +1104,7 @@
     const playAvoirBtn = document.getElementById("playAvoir");
     const playDeterminersBtn = document.getElementById("playDeterminers");
     const playPossessivesBtn = document.getElementById("playPossessives");
+    const playQuestionWordsBtn = document.getElementById("playQuestionWords");
     const playWeekdaysBtn = document.getElementById("playWeekdays");
     const playMonthsBtn = document.getElementById("playMonths");
     const playSeasonsBtn = document.getElementById("playSeasons");
@@ -1216,6 +1269,28 @@
         `;
         button.addEventListener("click", () => speak(item.fr, button));
         exampleGrid.appendChild(button);
+      });
+    }
+
+    function renderQuestionWords(list = questionWords) {
+      questionWordsGrid.innerHTML = "";
+      if (!list.length) {
+        questionWordsGrid.innerHTML = `<div class="empty-state">No question words match this search.</div>`;
+        return;
+      }
+      list.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="french-line">${item.fr}</div>
+          <div class="translation">${item.en}</div>
+          <div class="grammar-note">${item.note}</div>
+          <div class="translation"><strong>Example:</strong> ${item.example}</div>
+          <div class="translation">${item.exampleEn}</div>
+        `;
+        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
+        questionWordsGrid.appendChild(button);
       });
     }
 
@@ -1391,6 +1466,7 @@
       numbersSection.classList.toggle("active", tabName === "numbers");
       grammarSection.classList.toggle("active", tabName === "grammar");
       determinersSection.classList.toggle("active", tabName === "determiners");
+      questionsSection.classList.toggle("active", tabName === "questions");
       calendarSection.classList.toggle("active", tabName === "calendar");
     }
 
@@ -1417,6 +1493,7 @@
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
+        questionWords: questionWords.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -1438,6 +1515,7 @@
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
         renderExamples();
+        renderQuestionWords();
         renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
         renderCalendarCards(monthsGrid, months, "No months match this search.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
@@ -1456,6 +1534,7 @@
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
       renderExamples(matches.examples);
+      renderQuestionWords(matches.questionWords);
       renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
       renderCalendarCards(monthsGrid, matches.months, "No months match this search.");
       renderCalendarCards(seasonsGrid, matches.seasons, "No seasons match this search.");
@@ -1467,6 +1546,7 @@
 
       const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
       const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
+      const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
         matches.definite.length > 0 ||
@@ -1477,18 +1557,27 @@
 
       if (activeTab === "numbers" && !hasNumberResults) {
         if (hasGrammarResults) activateTab("grammar");
+        else if (hasDeterminerResults) activateTab("determiners");
+        else if (hasQuestionResults) activateTab("questions");
         else if (hasCalendarResults) activateTab("calendar");
-        else if (hasDeterminerResults) activateTab("determiners");
       } else if (activeTab === "grammar" && !hasGrammarResults) {
-        if (hasCalendarResults) activateTab("calendar");
-        else if (hasDeterminerResults) activateTab("determiners");
-        else if (hasNumberResults) activateTab("numbers");
-      } else if (activeTab === "calendar" && !hasCalendarResults) {
         if (hasDeterminerResults) activateTab("determiners");
-        else if (hasGrammarResults) activateTab("grammar");
+        else if (hasQuestionResults) activateTab("questions");
+        else if (hasCalendarResults) activateTab("calendar");
         else if (hasNumberResults) activateTab("numbers");
       } else if (activeTab === "determiners" && !hasDeterminerResults) {
+        if (hasQuestionResults) activateTab("questions");
+        else if (hasCalendarResults) activateTab("calendar");
+        else if (hasGrammarResults) activateTab("grammar");
+        else if (hasNumberResults) activateTab("numbers");
+      } else if (activeTab === "questions" && !hasQuestionResults) {
         if (hasCalendarResults) activateTab("calendar");
+        else if (hasDeterminerResults) activateTab("determiners");
+        else if (hasGrammarResults) activateTab("grammar");
+        else if (hasNumberResults) activateTab("numbers");
+      } else if (activeTab === "calendar" && !hasCalendarResults) {
+        if (hasQuestionResults) activateTab("questions");
+        else if (hasDeterminerResults) activateTab("determiners");
         else if (hasGrammarResults) activateTab("grammar");
         else if (hasNumberResults) activateTab("numbers");
       }
@@ -1558,6 +1647,13 @@
       );
     });
 
+    playQuestionWordsBtn.addEventListener("click", () => {
+      speakSequence(questionWords.flatMap(item => ([
+        { text: item.speech || item.fr },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
     playWeekdaysBtn.addEventListener("click", () => {
       speakSequence(weekdays.flatMap(item => ([
         { text: item.fr },
@@ -1586,6 +1682,7 @@
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
     renderExamples();
+    renderQuestionWords();
     renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
     renderCalendarCards(monthsGrid, months, "No months match this search.");
     renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
