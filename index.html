@@ -137,6 +137,7 @@
     .row-card,
     .pronoun-card,
     .example-card,
+    .question-row-card,
     .theme-btn,
     .poss-cell-btn {
       font: inherit;
@@ -247,6 +248,7 @@
     .row-card,
     .pronoun-card,
     .example-card,
+    .question-row-card,
     .poss-cell-btn {
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -359,6 +361,82 @@
       grid-template-columns: 120px 1fr;
       gap: 10px;
       align-items: start;
+    }
+
+    .question-table {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .question-table-header,
+    .question-row-card {
+      display: grid;
+      grid-template-columns: minmax(130px, 0.8fr) minmax(150px, 1fr) minmax(320px, 2.2fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .question-table-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .question-row-card {
+      padding: 14px;
+      cursor: default;
+    }
+
+    .question-cell-label {
+      display: none;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .question-examples {
+      display: grid;
+      gap: 8px;
+    }
+
+    .question-example {
+      border-left: 3px solid var(--accent-border);
+      padding-left: 10px;
+    }
+
+    .question-word-btn,
+    .question-example-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      padding: 8px 10px;
+      text-align: left;
+      transition: background 0.15s ease;
+    }
+
+    .question-word-btn {
+      padding: 8px 0;
+    }
+
+    .question-word-btn .french-line {
+      margin-bottom: 4px;
+    }
+
+    .question-word-btn:hover,
+    .question-example-btn:hover {
+      background: var(--accent-soft);
     }
 
     .row-left {
@@ -477,6 +555,18 @@
     @media (max-width: 860px) {
       .grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .question-table-header {
+        display: none;
+      }
+
+      .question-row-card {
+        grid-template-columns: 1fr;
+      }
+
+      .question-cell-label {
+        display: block;
       }
 
       .two-col {
@@ -705,7 +795,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Question Words</h2>
-            <p class="section-desc">Learn the core words for asking who, what, when, where, why, how, which, and how much/many. Click any card to hear the question word plus an example.</p>
+            <p class="section-desc">Learn the core words for asking who, what, when, where, why, how, which, how much/many, and yes/no questions. Click any row to hear the question word plus examples.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playQuestionWords">Play question words</button>
@@ -727,13 +817,17 @@
               <strong>With vowels</strong>
               <span><strong>Que</strong> becomes <strong>qu’</strong> before a vowel sound: <strong>Qu’est-ce que c’est ?</strong></span>
             </div>
+            <div class="summary-chip">
+              <strong>Yes/no questions</strong>
+              <span><strong>Est-ce que</strong> starts a yes/no question. <strong>N’est-ce pas</strong> works like “isn’t it?” or “right?”</span>
+            </div>
           </div>
         </div>
 
         <div class="category-panel">
           <h3>Common Question Words</h3>
           <p>Start with these high-frequency words and phrases for everyday questions.</p>
-          <div id="questionWordsGrid" class="determiner-subgrid"></div>
+          <div id="questionWordsGrid" class="question-table"></div>
         </div>
       </section>
 
@@ -906,16 +1000,128 @@
     ];
 
     const questionWords = [
-      { fr: "qui", en: "who", note: "asks about a person", example: "Qui est-ce ?", exampleEn: "Who is it?" },
-      { fr: "quand", en: "when", note: "asks about time", example: "Quand arrives-tu ?", exampleEn: "When are you arriving?" },
-      { fr: "où", en: "where", note: "asks about place", example: "Où est la gare ?", exampleEn: "Where is the train station?" },
-      { fr: "comment", en: "how", note: "asks about manner or condition", example: "Comment ça va ?", exampleEn: "How are you?" },
-      { fr: "quoi", en: "what", note: "common in informal questions", example: "Tu fais quoi ?", exampleEn: "What are you doing?" },
-      { fr: "que / qu’", en: "what", note: "used before a verb; qu’ before a vowel sound", example: "Que veux-tu ?", exampleEn: "What do you want?", speech: "que" },
-      { fr: "pourquoi", en: "why", note: "asks for a reason", example: "Pourquoi tu pars ?", exampleEn: "Why are you leaving?" },
-      { fr: "quel / quelle", en: "which / what", note: "changes to match the noun", example: "Quel jour sommes-nous ?", exampleEn: "What day is it?", speech: "quel" },
-      { fr: "combien", en: "how much / how many", note: "asks about quantity or price", example: "Combien ça coûte ?", exampleEn: "How much does it cost?" },
-      { fr: "à quelle heure", en: "at what time", note: "asks for a specific time", example: "À quelle heure commence le cours ?", exampleEn: "What time does the class start?" }
+      {
+        fr: "qui",
+        en: "who",
+        note: "asks about a person",
+        examples: [
+          { fr: "Qui est-ce ?", en: "Who is it?" },
+          { fr: "Qui parle français ?", en: "Who speaks French?" },
+          { fr: "Tu connais qui ?", en: "Who do you know?" }
+        ]
+      },
+      {
+        fr: "quand",
+        en: "when",
+        note: "asks about time",
+        examples: [
+          { fr: "Quand arrives-tu ?", en: "When are you arriving?" },
+          { fr: "Quand commence le cours ?", en: "When does the class start?" },
+          { fr: "Tu pars quand ?", en: "When are you leaving?" }
+        ]
+      },
+      {
+        fr: "où",
+        en: "where",
+        note: "asks about place",
+        examples: [
+          { fr: "Où est la gare ?", en: "Where is the train station?" },
+          { fr: "Où habites-tu ?", en: "Where do you live?" },
+          { fr: "On va où ?", en: "Where are we going?" }
+        ]
+      },
+      {
+        fr: "comment",
+        en: "how",
+        note: "asks about manner or condition",
+        examples: [
+          { fr: "Comment ça va ?", en: "How are you?" },
+          { fr: "Comment tu t’appelles ?", en: "What is your name?" },
+          { fr: "Comment dit-on ça en français ?", en: "How do you say that in French?" }
+        ]
+      },
+      {
+        fr: "quoi",
+        en: "what",
+        note: "common in informal questions",
+        examples: [
+          { fr: "Tu fais quoi ?", en: "What are you doing?" },
+          { fr: "C’est quoi ?", en: "What is it?" },
+          { fr: "Tu veux quoi ?", en: "What do you want?" }
+        ]
+      },
+      {
+        fr: "que / qu’",
+        en: "what",
+        note: "used before a verb; qu’ before a vowel sound",
+        speech: "que",
+        examples: [
+          { fr: "Que veux-tu ?", en: "What do you want?" },
+          { fr: "Qu’est-ce que c’est ?", en: "What is it?" },
+          { fr: "Que fais-tu ?", en: "What are you doing?" }
+        ]
+      },
+      {
+        fr: "pourquoi",
+        en: "why",
+        note: "asks for a reason",
+        examples: [
+          { fr: "Pourquoi tu pars ?", en: "Why are you leaving?" },
+          { fr: "Pourquoi est-ce important ?", en: "Why is it important?" },
+          { fr: "Pourquoi pas ?", en: "Why not?" }
+        ]
+      },
+      {
+        fr: "quel / quelle",
+        en: "which / what",
+        note: "changes to match the noun",
+        speech: "quel",
+        examples: [
+          { fr: "Quel jour sommes-nous ?", en: "What day is it?" },
+          { fr: "Quelle heure est-il ?", en: "What time is it?" },
+          { fr: "Quels livres aimes-tu ?", en: "Which books do you like?" }
+        ]
+      },
+      {
+        fr: "combien",
+        en: "how much / how many",
+        note: "asks about quantity or price",
+        examples: [
+          { fr: "Combien ça coûte ?", en: "How much does it cost?" },
+          { fr: "Combien de frères as-tu ?", en: "How many brothers do you have?" },
+          { fr: "Il y a combien de personnes ?", en: "How many people are there?" }
+        ]
+      },
+      {
+        fr: "à quelle heure",
+        en: "at what time",
+        note: "asks for a specific time",
+        examples: [
+          { fr: "À quelle heure commence le cours ?", en: "What time does the class start?" },
+          { fr: "À quelle heure tu arrives ?", en: "What time are you arriving?" },
+          { fr: "À quelle heure part le train ?", en: "What time does the train leave?" }
+        ]
+      },
+      {
+        fr: "est-ce que",
+        en: "yes/no question starter",
+        note: "turns a statement into a yes/no question",
+        examples: [
+          { fr: "Est-ce que tu es prêt ?", en: "Are you ready?" },
+          { fr: "Est-ce que vous parlez anglais ?", en: "Do you speak English?" },
+          { fr: "Est-ce qu’il pleut ?", en: "Is it raining?" }
+        ]
+      },
+      {
+        fr: "n’est-ce pas",
+        en: "isn’t it / right",
+        note: "adds a confirming tag question",
+        examples: [
+          { fr: "Tu viens demain, n’est-ce pas ?", en: "You’re coming tomorrow, right?" },
+          { fr: "C’est facile, n’est-ce pas ?", en: "It’s easy, isn’t it?" },
+          { fr: "Elle est française, n’est-ce pas ?", en: "She is French, isn’t she?" }
+        ]
+      }
     ];
 
     const weekdays = [
@@ -1278,19 +1484,51 @@
         questionWordsGrid.innerHTML = `<div class="empty-state">No question words match this search.</div>`;
         return;
       }
+      questionWordsGrid.innerHTML = `
+        <div class="question-table-header">
+          <div>French question word</div>
+          <div>English equivalent</div>
+          <div>Example sentences</div>
+        </div>
+      `;
       list.forEach(item => {
-        const button = document.createElement("button");
-        button.className = "example-card";
-        button.type = "button";
-        button.innerHTML = `
-          <div class="french-line">${item.fr}</div>
-          <div class="translation">${item.en}</div>
-          <div class="grammar-note">${item.note}</div>
-          <div class="translation"><strong>Example:</strong> ${item.example}</div>
-          <div class="translation">${item.exampleEn}</div>
+        const row = document.createElement("div");
+        row.className = "question-row-card";
+        const examplesMarkup = item.examples.map((example, index) => `
+          <div class="question-example">
+            <button class="question-example-btn" type="button" data-example-index="${index}">
+              <div class="translation"><strong>${example.fr}</strong></div>
+              <div class="translation">${example.en}</div>
+            </button>
+          </div>
+        `).join("");
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">French</span>
+            <button class="question-word-btn" type="button">
+              <div class="french-line">${item.fr}</div>
+              <div class="grammar-note">${item.note}</div>
+            </button>
+          </div>
+          <div>
+            <span class="question-cell-label">English</span>
+            <div class="translation">${item.en}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="question-examples">${examplesMarkup}</div>
+          </div>
         `;
-        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
-        questionWordsGrid.appendChild(button);
+        row.querySelector(".question-word-btn").addEventListener("click", (event) => {
+          speak(item.speech || item.fr, event.currentTarget);
+        });
+        row.querySelectorAll(".question-example-btn").forEach(exampleButton => {
+          exampleButton.addEventListener("click", () => {
+            const example = item.examples[Number(exampleButton.dataset.exampleIndex)];
+            speak(example.fr, exampleButton);
+          });
+        });
+        questionWordsGrid.appendChild(row);
       });
     }
 
@@ -1411,6 +1649,13 @@
       speakSequence(items, card);
     }
 
+    function speakWithExamples(firstText, examples, card) {
+      speakSequence([
+        { text: firstText },
+        ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+      ], card);
+    }
+
     function speakSequence(items, activeCard = null) {
       if (!window.speechSynthesis) {
         alert("Your browser does not support speech synthesis.");
@@ -1493,7 +1738,9 @@
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
-        questionWords: questionWords.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        questionWords: questionWords.filter(item =>
+          `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => `${example.fr} ${example.en}`).join(" ")}`.toLowerCase().includes(q)
+        ),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -1650,7 +1897,7 @@
     playQuestionWordsBtn.addEventListener("click", () => {
       speakSequence(questionWords.flatMap(item => ([
         { text: item.speech || item.fr },
-        { text: item.example, pauseBefore: examplePauseMs }
+        ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
       ])));
     });
 
