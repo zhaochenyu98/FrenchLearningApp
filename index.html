@@ -439,6 +439,12 @@
       background: var(--accent-soft);
     }
 
+    .question-variant {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+    }
+
     .row-left {
       font-weight: 700;
     }
@@ -1007,7 +1013,13 @@
         examples: [
           { fr: "Qui est-ce ?", en: "Who is it?" },
           { fr: "Qui parle français ?", en: "Who speaks French?" },
-          { fr: "Tu connais qui ?", en: "Who do you know?" }
+          {
+            fr: "Tu connais qui ?",
+            en: "Who do you know?",
+            variants: [
+              { fr: "Qui connais-tu ?", en: "Who do you know?" }
+            ]
+          }
         ]
       },
       {
@@ -1015,9 +1027,27 @@
         en: "when",
         note: "asks about time",
         examples: [
-          { fr: "Quand arrives-tu ?", en: "When are you arriving?" },
-          { fr: "Quand commence le cours ?", en: "When does the class start?" },
-          { fr: "Tu pars quand ?", en: "When are you leaving?" }
+          {
+            fr: "Quand arrives-tu ?",
+            en: "When are you arriving?",
+            variants: [
+              { fr: "Tu arrives quand ?", en: "When are you arriving?" }
+            ]
+          },
+          {
+            fr: "Quand commence le cours ?",
+            en: "When does the class start?",
+            variants: [
+              { fr: "Le cours commence quand ?", en: "When does the class start?" }
+            ]
+          },
+          {
+            fr: "Tu pars quand ?",
+            en: "When are you leaving?",
+            variants: [
+              { fr: "Quand pars-tu ?", en: "When are you leaving?" }
+            ]
+          }
         ]
       },
       {
@@ -1025,9 +1055,27 @@
         en: "where",
         note: "asks about place",
         examples: [
-          { fr: "Où est la gare ?", en: "Where is the train station?" },
-          { fr: "Où habites-tu ?", en: "Where do you live?" },
-          { fr: "On va où ?", en: "Where are we going?" }
+          {
+            fr: "Où est la gare ?",
+            en: "Where is the train station?",
+            variants: [
+              { fr: "La gare est où ?", en: "Where is the train station?" }
+            ]
+          },
+          {
+            fr: "Où habites-tu ?",
+            en: "Where do you live?",
+            variants: [
+              { fr: "Tu habites où ?", en: "Where do you live?" }
+            ]
+          },
+          {
+            fr: "On va où ?",
+            en: "Where are we going?",
+            variants: [
+              { fr: "Où va-t-on ?", en: "Where are we going?" }
+            ]
+          }
         ]
       },
       {
@@ -1036,8 +1084,20 @@
         note: "asks about manner or condition",
         examples: [
           { fr: "Comment ça va ?", en: "How are you?" },
-          { fr: "Comment tu t’appelles ?", en: "What is your name?" },
-          { fr: "Comment dit-on ça en français ?", en: "How do you say that in French?" }
+          {
+            fr: "Comment tu t’appelles ?",
+            en: "What is your name?",
+            variants: [
+              { fr: "Tu t’appelles comment ?", en: "What is your name?" }
+            ]
+          },
+          {
+            fr: "Comment dit-on ça en français ?",
+            en: "How do you say that in French?",
+            variants: [
+              { fr: "On dit ça comment en français ?", en: "How do you say that in French?" }
+            ]
+          }
         ]
       },
       {
@@ -1045,9 +1105,27 @@
         en: "what",
         note: "common in informal questions",
         examples: [
-          { fr: "Tu fais quoi ?", en: "What are you doing?" },
-          { fr: "C’est quoi ?", en: "What is it?" },
-          { fr: "Tu veux quoi ?", en: "What do you want?" }
+          {
+            fr: "Tu fais quoi ?",
+            en: "What are you doing?",
+            variants: [
+              { fr: "Que fais-tu ?", en: "What are you doing?" }
+            ]
+          },
+          {
+            fr: "C’est quoi ?",
+            en: "What is it?",
+            variants: [
+              { fr: "Qu’est-ce que c’est ?", en: "What is it?" }
+            ]
+          },
+          {
+            fr: "Tu veux quoi ?",
+            en: "What do you want?",
+            variants: [
+              { fr: "Que veux-tu ?", en: "What do you want?" }
+            ]
+          }
         ]
       },
       {
@@ -1056,9 +1134,27 @@
         note: "used before a verb; qu’ before a vowel sound",
         speech: "que",
         examples: [
-          { fr: "Que veux-tu ?", en: "What do you want?" },
-          { fr: "Qu’est-ce que c’est ?", en: "What is it?" },
-          { fr: "Que fais-tu ?", en: "What are you doing?" }
+          {
+            fr: "Que veux-tu ?",
+            en: "What do you want?",
+            variants: [
+              { fr: "Tu veux quoi ?", en: "What do you want?" }
+            ]
+          },
+          {
+            fr: "Qu’est-ce que c’est ?",
+            en: "What is it?",
+            variants: [
+              { fr: "C’est quoi ?", en: "What is it?" }
+            ]
+          },
+          {
+            fr: "Que fais-tu ?",
+            en: "What are you doing?",
+            variants: [
+              { fr: "Tu fais quoi ?", en: "What are you doing?" }
+            ]
+          }
         ]
       },
       {
@@ -1066,8 +1162,20 @@
         en: "why",
         note: "asks for a reason",
         examples: [
-          { fr: "Pourquoi tu pars ?", en: "Why are you leaving?" },
-          { fr: "Pourquoi est-ce important ?", en: "Why is it important?" },
+          {
+            fr: "Pourquoi tu pars ?",
+            en: "Why are you leaving?",
+            variants: [
+              { fr: "Tu pars pourquoi ?", en: "Why are you leaving?" }
+            ]
+          },
+          {
+            fr: "Pourquoi est-ce important ?",
+            en: "Why is it important?",
+            variants: [
+              { fr: "C’est important pourquoi ?", en: "Why is it important?" }
+            ]
+          },
           { fr: "Pourquoi pas ?", en: "Why not?" }
         ]
       },
@@ -1077,9 +1185,27 @@
         note: "changes to match the noun",
         speech: "quel",
         examples: [
-          { fr: "Quel jour sommes-nous ?", en: "What day is it?" },
-          { fr: "Quelle heure est-il ?", en: "What time is it?" },
-          { fr: "Quels livres aimes-tu ?", en: "Which books do you like?" }
+          {
+            fr: "Quel jour sommes-nous ?",
+            en: "What day is it?",
+            variants: [
+              { fr: "Nous sommes quel jour ?", en: "What day is it?" }
+            ]
+          },
+          {
+            fr: "Quelle heure est-il ?",
+            en: "What time is it?",
+            variants: [
+              { fr: "Il est quelle heure ?", en: "What time is it?" }
+            ]
+          },
+          {
+            fr: "Quels livres aimes-tu ?",
+            en: "Which books do you like?",
+            variants: [
+              { fr: "Tu aimes quels livres ?", en: "Which books do you like?" }
+            ]
+          }
         ]
       },
       {
@@ -1087,8 +1213,20 @@
         en: "how much / how many",
         note: "asks about quantity or price",
         examples: [
-          { fr: "Combien ça coûte ?", en: "How much does it cost?" },
-          { fr: "Combien de frères as-tu ?", en: "How many brothers do you have?" },
+          {
+            fr: "Combien ça coûte ?",
+            en: "How much does it cost?",
+            variants: [
+              { fr: "Ça coûte combien ?", en: "How much does it cost?" }
+            ]
+          },
+          {
+            fr: "Combien de frères as-tu ?",
+            en: "How many brothers do you have?",
+            variants: [
+              { fr: "Tu as combien de frères ?", en: "How many brothers do you have?" }
+            ]
+          },
           { fr: "Il y a combien de personnes ?", en: "How many people are there?" }
         ]
       },
@@ -1097,9 +1235,27 @@
         en: "at what time",
         note: "asks for a specific time",
         examples: [
-          { fr: "À quelle heure commence le cours ?", en: "What time does the class start?" },
-          { fr: "À quelle heure tu arrives ?", en: "What time are you arriving?" },
-          { fr: "À quelle heure part le train ?", en: "What time does the train leave?" }
+          {
+            fr: "À quelle heure commence le cours ?",
+            en: "What time does the class start?",
+            variants: [
+              { fr: "Le cours commence à quelle heure ?", en: "What time does the class start?" }
+            ]
+          },
+          {
+            fr: "À quelle heure tu arrives ?",
+            en: "What time are you arriving?",
+            variants: [
+              { fr: "Tu arrives à quelle heure ?", en: "What time are you arriving?" }
+            ]
+          },
+          {
+            fr: "À quelle heure part le train ?",
+            en: "What time does the train leave?",
+            variants: [
+              { fr: "Le train part à quelle heure ?", en: "What time does the train leave?" }
+            ]
+          }
         ]
       },
       {
@@ -1107,9 +1263,30 @@
         en: "yes/no question starter",
         note: "turns a statement into a yes/no question",
         examples: [
-          { fr: "Est-ce que tu es prêt ?", en: "Are you ready?" },
-          { fr: "Est-ce que vous parlez anglais ?", en: "Do you speak English?" },
-          { fr: "Est-ce qu’il pleut ?", en: "Is it raining?" }
+          {
+            fr: "Est-ce que tu es prêt ?",
+            en: "Are you ready?",
+            variants: [
+              { fr: "Tu es prêt ?", en: "Are you ready?" },
+              { fr: "Es-tu prêt ?", en: "Are you ready?" }
+            ]
+          },
+          {
+            fr: "Est-ce que vous parlez anglais ?",
+            en: "Do you speak English?",
+            variants: [
+              { fr: "Vous parlez anglais ?", en: "Do you speak English?" },
+              { fr: "Parlez-vous anglais ?", en: "Do you speak English?" }
+            ]
+          },
+          {
+            fr: "Est-ce qu’il pleut ?",
+            en: "Is it raining?",
+            variants: [
+              { fr: "Il pleut ?", en: "Is it raining?" },
+              { fr: "Pleut-il ?", en: "Is it raining?" }
+            ]
+          }
         ]
       },
       {
@@ -1497,8 +1674,12 @@
         const examplesMarkup = item.examples.map((example, index) => `
           <div class="question-example">
             <button class="question-example-btn" type="button" data-example-index="${index}">
-              <div class="translation"><strong>${example.fr}</strong></div>
-              <div class="translation">${example.en}</div>
+              ${getExampleVariants(example).map((variant, variantIndex) => `
+                <div class="${variantIndex ? "question-variant" : ""}">
+                  <div class="translation"><strong>${variant.fr}</strong></div>
+                  <div class="translation">${variant.en}</div>
+                </div>
+              `).join("")}
             </button>
           </div>
         `).join("");
@@ -1525,7 +1706,10 @@
         row.querySelectorAll(".question-example-btn").forEach(exampleButton => {
           exampleButton.addEventListener("click", () => {
             const example = item.examples[Number(exampleButton.dataset.exampleIndex)];
-            speak(example.fr, exampleButton);
+            speakSequence(getExampleVariants(example).map((variant, index) => ({
+              text: variant.fr,
+              pauseBefore: index ? examplePauseMs : 0
+            })), exampleButton);
           });
         });
         questionWordsGrid.appendChild(row);
@@ -1656,6 +1840,10 @@
       ], card);
     }
 
+    function getExampleVariants(example) {
+      return [example, ...(example.variants || [])];
+    }
+
     function speakSequence(items, activeCard = null) {
       if (!window.speechSynthesis) {
         alert("Your browser does not support speech synthesis.");
@@ -1739,7 +1927,7 @@
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         questionWords: questionWords.filter(item =>
-          `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => `${example.fr} ${example.en}`).join(" ")}`.toLowerCase().includes(q)
+          `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => getExampleVariants(example).map(variant => `${variant.fr} ${variant.en}`).join(" ")).join(" ")}`.toLowerCase().includes(q)
         ),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -1897,7 +2085,9 @@
     playQuestionWordsBtn.addEventListener("click", () => {
       speakSequence(questionWords.flatMap(item => ([
         { text: item.speech || item.fr },
-        ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+        ...item.examples.flatMap(example =>
+          getExampleVariants(example).map(variant => ({ text: variant.fr, pauseBefore: examplePauseMs }))
+        )
       ])));
     });
 
