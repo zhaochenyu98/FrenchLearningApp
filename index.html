@@ -747,6 +747,10 @@
               <span>du, de la, de l’ = “some”</span>
             </div>
             <div class="summary-chip">
+              <strong>De + Articles</strong>
+              <span>de + le = du, de + les = des; negatives often use de / d’</span>
+            </div>
+            <div class="summary-chip">
               <strong>Demonstrative</strong>
               <span>ce, cet, cette, ces = “this / that / these / those”</span>
             </div>
@@ -774,6 +778,12 @@
             <h3>Partitive articles</h3>
             <p>Use these for <strong>some</strong> with things like food, drinks, and other uncountable nouns.</p>
             <div id="partitiveGrid" class="determiner-subgrid"></div>
+          </div>
+
+          <div class="category-panel">
+            <h3>Partitive Article: de + articles</h3>
+            <p><strong>De</strong> can mean <strong>of / from</strong>, and it combines with some definite articles: <strong>de + le = du</strong>, <strong>de + les = des</strong>. In many negative sentences, indefinite and partitive articles become <strong>de</strong> or <strong>d’</strong>.</p>
+            <div id="deArticleGrid" class="determiner-subgrid"></div>
           </div>
 
           <div class="category-panel">
@@ -1358,6 +1368,56 @@
       ]
     };
 
+    const deArticleRules = [
+      {
+        fr: "de + le → du",
+        en: "of / from the",
+        note: "Use du before a masculine singular noun.",
+        example: "Je viens du marché.",
+        exampleEn: "I come from the market.",
+        speech: "du"
+      },
+      {
+        fr: "de + la → de la",
+        en: "of / from the",
+        note: "De la stays separate before a feminine singular noun.",
+        example: "La porte de la cuisine est ouverte.",
+        exampleEn: "The kitchen door is open.",
+        speech: "de la"
+      },
+      {
+        fr: "de + l’ → de l’",
+        en: "of / from the",
+        note: "Use de l’ before a vowel sound.",
+        example: "Il parle de l’école.",
+        exampleEn: "He is talking about the school.",
+        speech: "de l"
+      },
+      {
+        fr: "de + les → des",
+        en: "of / from the",
+        note: "Use des before plural nouns.",
+        example: "Le sac des enfants est ici.",
+        exampleEn: "The children’s bag is here.",
+        speech: "des"
+      },
+      {
+        fr: "ne ... pas de",
+        en: "not any / no",
+        note: "Negation rule: indefinite and partitive articles usually become de after pas.",
+        example: "Je ne mange pas de pain.",
+        exampleEn: "I am not eating any bread."
+      },
+      {
+        fr: "ne ... pas d’",
+        en: "not any / no",
+        note: "Use d’ before a vowel sound in negative sentences.",
+        example: "Elle ne boit pas d’eau.",
+        exampleEn: "She is not drinking any water.",
+        speech: "d"
+      }
+    ];
+
     const possessiveRows = [
       {
         owner: "my",
@@ -1419,6 +1479,7 @@
       ...determinerCategories.definite,
       ...determinerCategories.indefinite,
       ...determinerCategories.partitive,
+      ...deArticleRules,
       ...determinerCategories.demonstrative,
       ...possessiveRows.flatMap(row => row.forms.map(form => ({
         fr: form.form,
@@ -1464,6 +1525,7 @@
     const definiteGrid = document.getElementById("definiteGrid");
     const indefiniteGrid = document.getElementById("indefiniteGrid");
     const partitiveGrid = document.getElementById("partitiveGrid");
+    const deArticleGrid = document.getElementById("deArticleGrid");
     const demonstrativeGrid = document.getElementById("demonstrativeGrid");
     const possessiveGrid = document.getElementById("possessiveGrid");
 
@@ -1596,7 +1658,7 @@
           <div class="translation"><strong>Example:</strong> ${item.example}</div>
           <div class="translation">${item.exampleEn}</div>
         `;
-        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
+        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
         operatorGrid.appendChild(button);
       });
     }
@@ -1733,7 +1795,7 @@
           <div class="translation"><strong>Example:</strong> ${item.example}</div>
           <div class="translation">${item.exampleEn}</div>
         `;
-        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
+        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
         container.appendChild(button);
       });
     }
@@ -1755,7 +1817,7 @@
           <div class="translation"><strong>Example:</strong> ${item.example}</div>
           <div class="translation">${item.exampleEn}</div>
         `;
-        button.addEventListener("click", () => speakWithPause(item.fr, item.example, button));
+        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
         container.appendChild(button);
       });
     }
@@ -1935,6 +1997,7 @@
         definite: determinerCategories.definite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         indefinite: determinerCategories.indefinite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         partitive: determinerCategories.partitive.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        deArticles: deArticleRules.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         demonstrative: determinerCategories.demonstrative.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         possessives: filteredPossessives
       };
@@ -1957,6 +2020,7 @@
         renderDeterminerCards(definiteGrid, determinerCategories.definite);
         renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
         renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
+        renderDeterminerCards(deArticleGrid, deArticleRules);
         renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
         renderPossessives();
         return;
@@ -1976,6 +2040,7 @@
       renderDeterminerCards(definiteGrid, matches.definite);
       renderDeterminerCards(indefiniteGrid, matches.indefinite);
       renderDeterminerCards(partitiveGrid, matches.partitive);
+      renderDeterminerCards(deArticleGrid, matches.deArticles);
       renderDeterminerCards(demonstrativeGrid, matches.demonstrative);
       renderPossessives(matches.possessives);
 
@@ -1987,6 +2052,7 @@
         matches.definite.length > 0 ||
         matches.indefinite.length > 0 ||
         matches.partitive.length > 0 ||
+        matches.deArticles.length > 0 ||
         matches.demonstrative.length > 0 ||
         matches.possessives.length > 0;
 
@@ -2068,7 +2134,7 @@
 
     playDeterminersBtn.addEventListener("click", () => {
       speakSequence(allDeterminerItems.flatMap(item => ([
-        { text: item.fr },
+        { text: item.speech || item.fr },
         { text: item.example, pauseBefore: examplePauseMs }
       ])));
     });
@@ -2126,6 +2192,7 @@
     renderDeterminerCards(definiteGrid, determinerCategories.definite);
     renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
     renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
+    renderDeterminerCards(deArticleGrid, deArticleRules);
     renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
     renderPossessives();
     loadVoices();
