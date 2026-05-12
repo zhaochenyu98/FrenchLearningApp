@@ -779,7 +779,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronunciation Rules</h2>
-            <p class="section-desc">Practice the vowel spelling patterns from your chart. Click any example word to hear it, or play the whole set for repetition.</p>
+            <p class="section-desc">Practice the vowel and consonant spelling patterns from your charts. Click any example word to hear it, or play the whole set for repetition.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playPronunciationRules">Play all example words</button>
@@ -787,11 +787,18 @@
         </div>
 
         <div class="panel" style="margin-bottom: 16px;">
-          <h3>Six Core Vowel Sounds</h3>
-          <p>Each row groups one IPA sound with spelling rules and the example words from the chart.</p>
+          <h3>6个元音</h3>
+          <p>每一行对应一个音标、中文发音规则，以及可点击朗读的例词。</p>
         </div>
 
         <div id="pronunciationGrid" class="pronunciation-grid"></div>
+
+        <div class="panel" style="margin: 18px 0 16px;">
+          <h3>10个辅音</h3>
+          <p>继续使用原图中的中文规则说明；每个例词都带中文意思并可单独朗读。</p>
+        </div>
+
+        <div id="consonantPronunciationGrid" class="pronunciation-grid"></div>
       </section>
 
       <section id="grammarSection" class="section">
@@ -1342,6 +1349,261 @@
       }
     ];
 
+    const consonantPronunciationRules = [
+      {
+        sound: "[p]",
+        rules: [
+          {
+            rule: "字母p, pp",
+            examples: [
+              { fr: "papa", zh: "爸爸" },
+              { fr: "porte", zh: "门" },
+              { fr: "pomme", zh: "苹果" },
+              { fr: "pipe", zh: "烟斗" },
+              { fr: "appel", zh: "电话；呼叫" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[t]",
+        rules: [
+          {
+            rule: "字母t, tt",
+            examples: [
+              { fr: "tu", zh: "你" },
+              { fr: "toi", zh: "你" },
+              { fr: "table", zh: "桌子" },
+              { fr: "tête", zh: "头" },
+              { fr: "attaque", zh: "攻击" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[k]",
+        rules: [
+          {
+            rule: "字母c在字母a, o, u之前",
+            examples: [
+              { fr: "café", zh: "咖啡；咖啡馆" },
+              { fr: "carte", zh: "卡片；地图" },
+              { fr: "cassette", zh: "盒式磁带" },
+              { fr: "cou", zh: "脖子" },
+              { fr: "cube", zh: "立方体" }
+            ]
+          },
+          {
+            rule: "字母c在辅音字母前或在词末时",
+            examples: [
+              { fr: "clé", zh: "钥匙" },
+              { fr: "crème", zh: "奶油" },
+              { fr: "acte", zh: "行为；法令" },
+              { fr: "sac", zh: "包" },
+              { fr: "avec", zh: "和；跟" },
+              { fr: "parc", zh: "公园" }
+            ]
+          },
+          {
+            rule: "字母组合ch在少数单词中",
+            examples: [
+              { fr: "technique", zh: "技术；技巧" },
+              { fr: "orchestre", zh: "管弦乐队" },
+              { fr: "écho", zh: "回声" },
+              { fr: "chronique", zh: "纪事；专栏" },
+              { fr: "archéologie", zh: "考古学" }
+            ]
+          },
+          {
+            rule: "字母k",
+            examples: [
+              { fr: "kilo", zh: "公斤" },
+              { fr: "kiwi", zh: "猕猴桃" },
+              { fr: "parking", zh: "停车场" },
+              { fr: "kayak", zh: "皮划艇" },
+              { fr: "kaki", zh: "卡其色；柿子" }
+            ]
+          },
+          {
+            rule: "字母q在词末",
+            examples: [
+              { fr: "coq", zh: "公鸡" },
+              { fr: "cinq", zh: "五" },
+              { fr: "faq", zh: "常见问题" }
+            ]
+          },
+          {
+            rule: "字母组合qu在元音字母e, i, y前",
+            examples: [
+              { fr: "quel", zh: "哪个；什么" },
+              { fr: "qui", zh: "谁" },
+              { fr: "question", zh: "问题" },
+              { fr: "quitter", zh: "离开" },
+              { fr: "casque", zh: "头盔；耳机" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[f]",
+        rules: [
+          {
+            rule: "字母f, ff",
+            examples: [
+              { fr: "faire", zh: "做" },
+              { fr: "femme", zh: "女人；妻子" },
+              { fr: "frère", zh: "兄弟" },
+              { fr: "paf", zh: "啪的一声" },
+              { fr: "effet", zh: "效果" }
+            ]
+          },
+          {
+            rule: "字母组合ph",
+            examples: [
+              { fr: "photo", zh: "照片" },
+              { fr: "téléphone", zh: "电话" },
+              { fr: "pharmacie", zh: "药店" },
+              { fr: "phare", zh: "灯塔；车灯" },
+              { fr: "Sisyphe", zh: "西西弗斯" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[s]",
+        rules: [
+          {
+            rule: "字母c在字母e, i, y前",
+            examples: [
+              { fr: "ce", zh: "这个" },
+              { fr: "cinq", zh: "五" },
+              { fr: "ici", zh: "这里" },
+              { fr: "merci", zh: "谢谢" },
+              { fr: "cycle", zh: "周期；自行车" },
+              { fr: "cesser", zh: "停止" }
+            ]
+          },
+          {
+            rule: "字母ç",
+            examples: [
+              { fr: "ça", zh: "这；那" },
+              { fr: "français", zh: "法语；法国的" },
+              { fr: "garçon", zh: "男孩；服务员" },
+              { fr: "leçon", zh: "课；教训" },
+              { fr: "reçu", zh: "收据；收到的" }
+            ]
+          },
+          {
+            rule: "字母s（不在两个元音之间）, ss",
+            examples: [
+              { fr: "salut", zh: "你好；再见" },
+              { fr: "site", zh: "地点；网站" },
+              { fr: "sac", zh: "包" },
+              { fr: "passe", zh: "经过；通行证" },
+              { fr: "classe", zh: "班级；教室" }
+            ]
+          },
+          {
+            rule: "字母组合ti遇到另外一个元音字母时t读[s]",
+            examples: [
+              { fr: "nation", zh: "国家；民族" },
+              { fr: "station", zh: "车站；站点" },
+              { fr: "attention", zh: "注意" },
+              { fr: "initiative", zh: "主动性；倡议" },
+              { fr: "partiel", zh: "部分的；期中考试" }
+            ]
+          },
+          {
+            rule: "字母x在少数情况下",
+            examples: [
+              { fr: "six", zh: "六" },
+              { fr: "dix", zh: "十" },
+              { fr: "soixante", zh: "六十" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[ʃ]",
+        rules: [
+          {
+            rule: "字母组合ch, sch",
+            examples: [
+              { fr: "chat", zh: "猫" },
+              { fr: "chien", zh: "狗" },
+              { fr: "chercher", zh: "寻找" },
+              { fr: "cher", zh: "亲爱的；贵的" },
+              { fr: "fiche", zh: "卡片；表格" },
+              { fr: "schéma", zh: "图表；方案" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[l]",
+        rules: [
+          {
+            rule: "字母l, ll",
+            examples: [
+              { fr: "la", zh: "阴性定冠词“the”" },
+              { fr: "les", zh: "复数定冠词“the”" },
+              { fr: "livre", zh: "书" },
+              { fr: "elle", zh: "她" },
+              { fr: "animal", zh: "动物" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[m]",
+        rules: [
+          {
+            rule: "字母m, mm",
+            examples: [
+              { fr: "maman", zh: "妈妈" },
+              { fr: "maison", zh: "房子" },
+              { fr: "manger", zh: "吃" },
+              { fr: "masse", zh: "大量；质量" },
+              { fr: "lime", zh: "锉刀；青柠" },
+              { fr: "immaculé", zh: "洁白无瑕的" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[n]",
+        rules: [
+          {
+            rule: "字母n, nn",
+            examples: [
+              { fr: "non", zh: "不" },
+              { fr: "nous", zh: "我们" },
+              { fr: "nuit", zh: "夜晚" },
+              { fr: "nul", zh: "无效的；差劲的" },
+              { fr: "année", zh: "年" },
+              { fr: "bonne", zh: "好的（阴性）" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[r]",
+        rules: [
+          {
+            rule: "字母r, rr",
+            examples: [
+              { fr: "rue", zh: "街道" },
+              { fr: "rouge", zh: "红色的" },
+              { fr: "frère", zh: "兄弟" },
+              { fr: "rire", zh: "笑" },
+              { fr: "hurle", zh: "喊叫" },
+              { fr: "terrible", zh: "可怕的；很棒的" }
+            ]
+          }
+        ]
+      }
+    ];
+
     const questionWords = [
       {
         fr: "qui",
@@ -1841,6 +2103,7 @@
     const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
     const operatorGrid = document.getElementById("operatorGrid");
     const pronunciationGrid = document.getElementById("pronunciationGrid");
+    const consonantPronunciationGrid = document.getElementById("consonantPronunciationGrid");
     const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
@@ -1997,8 +2260,8 @@
       return `${rule.rule} ${rule.examples.map(example => `${example.fr} ${example.zh}`).join(" ")}`.toLowerCase();
     }
 
-    function getMatchingPronunciationRules(q) {
-      return pronunciationRules
+    function getMatchingPronunciationGroups(groups, q) {
+      return groups
         .map(group => {
           const soundMatches = group.sound.toLowerCase().includes(q);
           const matchingRules = soundMatches
@@ -2009,14 +2272,22 @@
         .filter(group => group.rules.length > 0);
     }
 
-    function getPronunciationExamples(list = pronunciationRules) {
-      return list.flatMap(group => group.rules.flatMap(rule => rule.examples.map(example => example.fr)));
+    function getMatchingPronunciationRules(q) {
+      return getMatchingPronunciationGroups(pronunciationRules, q);
     }
 
-    function renderPronunciationRules(list = pronunciationRules) {
-      pronunciationGrid.innerHTML = "";
+    function getMatchingConsonantPronunciationRules(q) {
+      return getMatchingPronunciationGroups(consonantPronunciationRules, q);
+    }
+
+    function getPronunciationExamples(lists = [pronunciationRules, consonantPronunciationRules]) {
+      return lists.flatMap(list => list.flatMap(group => group.rules.flatMap(rule => rule.examples.map(example => example.fr))));
+    }
+
+    function renderPronunciationRuleGroups(container, list, emptyMessage) {
+      container.innerHTML = "";
       if (!list.length) {
-        pronunciationGrid.innerHTML = `<div class="empty-state">No pronunciation rules match this search.</div>`;
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
@@ -2053,8 +2324,16 @@
             speak(example.fr, button);
           });
         });
-        pronunciationGrid.appendChild(row);
+        container.appendChild(row);
       });
+    }
+
+    function renderPronunciationRules(list = pronunciationRules) {
+      renderPronunciationRuleGroups(pronunciationGrid, list, "No vowel pronunciation rules match this search.");
+    }
+
+    function renderConsonantPronunciationRules(list = consonantPronunciationRules) {
+      renderPronunciationRuleGroups(consonantPronunciationGrid, list, "No consonant pronunciation rules match this search.");
     }
 
     function renderPronouns(list = pronouns) {
@@ -2380,6 +2659,7 @@
         numbers: numberItems.filter(item => item.search.includes(q)),
         operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         pronunciation: getMatchingPronunciationRules(q),
+        consonantPronunciation: getMatchingConsonantPronunciationRules(q),
         pronouns: pronouns.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -2406,6 +2686,7 @@
         renderNumbers();
         renderOperators();
         renderPronunciationRules();
+        renderConsonantPronunciationRules();
         renderPronouns();
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
@@ -2427,6 +2708,7 @@
       renderNumbers(matches.numbers);
       renderOperators(matches.operators);
       renderPronunciationRules(matches.pronunciation);
+      renderConsonantPronunciationRules(matches.consonantPronunciation);
       renderPronouns(matches.pronouns);
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
@@ -2443,7 +2725,7 @@
       renderPossessives(matches.possessives);
 
       const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
-      const hasPronunciationResults = matches.pronunciation.length > 0;
+      const hasPronunciationResults = matches.pronunciation.length > 0 || matches.consonantPronunciation.length > 0;
       const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
       const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
@@ -2571,6 +2853,7 @@
     renderNumbers();
     renderOperators();
     renderPronunciationRules();
+    renderConsonantPronunciationRules();
     renderPronouns();
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
