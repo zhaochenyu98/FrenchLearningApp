@@ -452,7 +452,7 @@
 
     .pronunciation-row {
       display: grid;
-      grid-template-columns: 90px minmax(220px, 1fr) minmax(320px, 1.35fr);
+      grid-template-columns: 90px minmax(0, 1fr);
       gap: 14px;
       align-items: stretch;
       border: 1px solid var(--border);
@@ -476,13 +476,11 @@
       min-height: 100%;
     }
 
-    .pronunciation-rules,
     .pronunciation-examples {
       display: grid;
       gap: 10px;
     }
 
-    .pronunciation-rule,
     .pronunciation-example-group {
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -490,17 +488,10 @@
       padding: 10px 12px;
     }
 
-    .pronunciation-rule strong,
     .pronunciation-example-group strong {
       display: block;
       color: var(--accent);
       margin-bottom: 4px;
-    }
-
-    .pronunciation-rule span {
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.4;
     }
 
     .pronunciation-word-list {
@@ -512,7 +503,7 @@
 
     .pronunciation-word-btn {
       border: 1px solid var(--accent-border);
-      border-radius: 999px;
+      border-radius: 12px;
       background: var(--card);
       color: var(--text);
       cursor: pointer;
@@ -539,6 +530,20 @@
       font-weight: 500;
       line-height: 1.3;
       margin-top: 2px;
+    }
+
+    .pronunciation-word-ipa {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+      margin-top: 6px;
+      padding: 3px 8px;
     }
 
     .row-left {
@@ -1604,6 +1609,176 @@
       }
     ];
 
+    const pronunciationIpa = {
+      "la": "/la/",
+      "papa": "/papa/",
+      "table": "/tabl/",
+      "chat": "/ʃa/",
+      "là": "/la/",
+      "âge": "/aʒ/",
+      "pâte": "/pat/",
+      "âne": "/an/",
+      "femme": "/fam/",
+      "évidemment": "/evidamɑ̃/",
+      "apparemment": "/apaʁamɑ̃/",
+      "récemment": "/ʁesamɑ̃/",
+      "mère": "/mɛʁ/",
+      "frère": "/fʁɛʁ/",
+      "fête": "/fɛt/",
+      "Noël": "/nɔɛl/",
+      "sel": "/sɛl/",
+      "merci": "/mɛʁsi/",
+      "avec": "/avɛk/",
+      "mer": "/mɛʁ/",
+      "elle": "/ɛl/",
+      "cette": "/sɛt/",
+      "belle": "/bɛl/",
+      "baguette": "/baɡɛt/",
+      "ticket": "/tikɛ/",
+      "billet": "/bijɛ/",
+      "paquet": "/pakɛ/",
+      "poulet": "/pulɛ/",
+      "mai": "/mɛ/",
+      "maison": "/mɛzɔ̃/",
+      "lait": "/lɛ/",
+      "neige": "/nɛʒ/",
+      "peine": "/pɛn/",
+      "maître": "/mɛtʁ/",
+      "seize": "/sɛz/",
+      "Orsay": "/ɔʁsɛ/",
+      "jersey": "/ʒɛʁzɛ/",
+      "été": "/ete/",
+      "café": "/kafe/",
+      "bébé": "/bebe/",
+      "école": "/ekɔl/",
+      "effet": "/efɛ/",
+      "essai": "/esɛ/",
+      "essayer": "/eseje/",
+      "effacer": "/efase/",
+      "ellipse": "/elips/",
+      "quai": "/ke/",
+      "j’ai": "/ʒe/",
+      "j’irai": "/ʒiʁe/",
+      "j’aurai": "/ʒoʁe/",
+      "je serai": "/ʒə səʁe/",
+      "parler": "/paʁle/",
+      "manger": "/mɑ̃ʒe/",
+      "aller": "/ale/",
+      "aimer": "/eme/",
+      "écouter": "/ekute/",
+      "laisser": "/lese/",
+      "répéter": "/ʁepete/",
+      "les": "/le/",
+      "des": "/de/",
+      "mes": "/me/",
+      "tes": "/te/",
+      "ses": "/se/",
+      "chez": "/ʃe/",
+      "allez": "/ale/",
+      "avez": "/ave/",
+      "voulez": "/vule/",
+      "prenez": "/pʁəne/",
+      "si": "/si/",
+      "ici": "/isi/",
+      "lit": "/li/",
+      "île": "/il/",
+      "maïs": "/ma.is/",
+      "lycée": "/lise/",
+      "tu": "/ty/",
+      "une": "/yn/",
+      "sur": "/syʁ/",
+      "sûr": "/syʁ/",
+      "lune": "/lyn/",
+      "nous": "/nu/",
+      "vous": "/vu/",
+      "pour": "/puʁ/",
+      "où": "/u/",
+      "coût": "/ku/",
+      "août": "/ut/",
+      "porte": "/pɔʁt/",
+      "pomme": "/pɔm/",
+      "pipe": "/pip/",
+      "appel": "/apɛl/",
+      "toi": "/twa/",
+      "tête": "/tɛt/",
+      "attaque": "/atak/",
+      "carte": "/kaʁt/",
+      "cassette": "/kasɛt/",
+      "cou": "/ku/",
+      "cube": "/kyb/",
+      "clé": "/kle/",
+      "crème": "/kʁɛm/",
+      "acte": "/akt/",
+      "sac": "/sak/",
+      "parc": "/paʁk/",
+      "technique": "/tɛknik/",
+      "orchestre": "/ɔʁkɛstʁ/",
+      "écho": "/eko/",
+      "chronique": "/kʁɔnik/",
+      "archéologie": "/aʁkeɔlɔʒi/",
+      "kilo": "/kilo/",
+      "kiwi": "/kiwi/",
+      "parking": "/paʁkiŋ/",
+      "kayak": "/kajak/",
+      "kaki": "/kaki/",
+      "coq": "/kɔk/",
+      "cinq": "/sɛ̃k/",
+      "faq": "/fak/",
+      "quel": "/kɛl/",
+      "qui": "/ki/",
+      "question": "/kɛstjɔ̃/",
+      "quitter": "/kite/",
+      "casque": "/kask/",
+      "faire": "/fɛʁ/",
+      "paf": "/paf/",
+      "photo": "/foto/",
+      "téléphone": "/telefɔn/",
+      "pharmacie": "/faʁmasi/",
+      "phare": "/faʁ/",
+      "Sisyphe": "/sizif/",
+      "ce": "/sə/",
+      "cycle": "/sikl/",
+      "cesser": "/sese/",
+      "ça": "/sa/",
+      "français": "/fʁɑ̃sɛ/",
+      "garçon": "/ɡaʁsɔ̃/",
+      "leçon": "/ləsɔ̃/",
+      "reçu": "/ʁəsy/",
+      "salut": "/saly/",
+      "site": "/sit/",
+      "passe": "/pas/",
+      "classe": "/klas/",
+      "nation": "/nasjɔ̃/",
+      "station": "/stasjɔ̃/",
+      "attention": "/atɑ̃sjɔ̃/",
+      "initiative": "/inisjativ/",
+      "partiel": "/paʁsjɛl/",
+      "six": "/sis/",
+      "dix": "/dis/",
+      "soixante": "/swasɑ̃t/",
+      "chien": "/ʃjɛ̃/",
+      "chercher": "/ʃɛʁʃe/",
+      "cher": "/ʃɛʁ/",
+      "fiche": "/fiʃ/",
+      "schéma": "/ʃema/",
+      "livre": "/livʁ/",
+      "animal": "/animal/",
+      "maman": "/mamɑ̃/",
+      "masse": "/mas/",
+      "lime": "/lim/",
+      "immaculé": "/imakyle/",
+      "non": "/nɔ̃/",
+      "nuit": "/nɥi/",
+      "nul": "/nyl/",
+      "année": "/ane/",
+      "bonne": "/bɔn/",
+      "rue": "/ʁy/",
+      "rouge": "/ʁuʒ/",
+      "rire": "/ʁiʁ/",
+      "hurle": "/yʁl/",
+      "terrible": "/tɛʁibl/"
+    };
+
     const questionWords = [
       {
         fr: "qui",
@@ -2257,7 +2432,11 @@
     }
 
     function getPronunciationRuleSearchText(rule) {
-      return `${rule.rule} ${rule.examples.map(example => `${example.fr} ${example.zh}`).join(" ")}`.toLowerCase();
+      return `${rule.rule} ${rule.examples.map(example => `${example.fr} ${getPronunciationIpa(example)} ${example.zh}`).join(" ")}`.toLowerCase();
+    }
+
+    function getPronunciationIpa(example) {
+      return example.ipa || pronunciationIpa[example.fr] || "";
     }
 
     function getMatchingPronunciationGroups(groups, q) {
@@ -2294,11 +2473,6 @@
       list.forEach(group => {
         const row = document.createElement("div");
         row.className = "pronunciation-row";
-        const ruleMarkup = group.rules.map(rule => `
-          <div class="pronunciation-rule">
-            <strong>${rule.rule}</strong>
-          </div>
-        `).join("");
         const examplesMarkup = group.rules.map((rule, ruleIndex) => `
           <div class="pronunciation-example-group">
             <strong>${rule.rule}</strong>
@@ -2306,6 +2480,7 @@
               ${rule.examples.map((example, exampleIndex) => `
                 <button class="pronunciation-word-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
                   <span>${example.fr}</span>
+                  <span class="pronunciation-word-ipa">${getPronunciationIpa(example)}</span>
                   <span class="pronunciation-word-zh">${example.zh}</span>
                 </button>
               `).join("")}
@@ -2314,7 +2489,6 @@
         `).join("");
         row.innerHTML = `
           <div class="pronunciation-sound">${group.sound}</div>
-          <div class="pronunciation-rules">${ruleMarkup}</div>
           <div class="pronunciation-examples">${examplesMarkup}</div>
         `;
         row.querySelectorAll(".pronunciation-word-btn").forEach(button => {
@@ -2537,25 +2711,47 @@
       const frenchVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith("fr"));
       const usable = frenchVoices.length ? frenchVoices : voices;
       const previousValue = voiceSelect.value;
+      const preferredVoice = getPreferredVoice(usable);
       voiceSelect.innerHTML = "";
 
-      usable.forEach((voice, index) => {
+      usable.forEach((voice) => {
         const option = document.createElement("option");
         option.value = voice.name;
         option.textContent = `${voice.name} (${voice.lang})`;
-        if (!previousValue && index === 0) option.selected = true;
+        if (!previousValue && preferredVoice && voice.name === preferredVoice.name) option.selected = true;
         voiceSelect.appendChild(option);
       });
 
       if (previousValue) {
         const match = Array.from(voiceSelect.options).find(o => o.value === previousValue);
         if (match) match.selected = true;
+      } else if (preferredVoice) {
+        voiceSelect.value = preferredVoice.name;
       }
+    }
+
+    function isFrenchVoice(voice) {
+      return voice.lang && voice.lang.toLowerCase().startsWith("fr");
+    }
+
+    function isGoogleVoice(voice) {
+      return /google/i.test(`${voice.name} ${voice.voiceURI || ""}`);
+    }
+
+    function getPreferredVoice(list = voices) {
+      const frenchVoices = list.filter(isFrenchVoice);
+      return (
+        frenchVoices.find(isGoogleVoice) ||
+        frenchVoices[0] ||
+        list.find(isGoogleVoice) ||
+        list[0] ||
+        null
+      );
     }
 
     function getSelectedVoice() {
       const selectedName = voiceSelect.value;
-      return voices.find(v => v.name === selectedName) || voices.find(v => v.lang && v.lang.toLowerCase().startsWith("fr")) || null;
+      return voices.find(v => v.name === selectedName) || getPreferredVoice(voices);
     }
 
     function speak(text, card) {
