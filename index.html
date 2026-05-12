@@ -445,6 +445,102 @@
       border-top: 1px dashed var(--border);
     }
 
+    .pronunciation-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pronunciation-row {
+      display: grid;
+      grid-template-columns: 90px minmax(220px, 1fr) minmax(320px, 1.35fr);
+      gap: 14px;
+      align-items: stretch;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    .pronunciation-sound {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--accent-border);
+      border-radius: 18px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      min-height: 100%;
+    }
+
+    .pronunciation-rules,
+    .pronunciation-examples {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pronunciation-rule,
+    .pronunciation-example-group {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+      padding: 10px 12px;
+    }
+
+    .pronunciation-rule strong,
+    .pronunciation-example-group strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .pronunciation-rule span {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.4;
+    }
+
+    .pronunciation-word-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pronunciation-word-btn {
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font: inherit;
+      font-weight: 800;
+      padding: 8px 12px;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .pronunciation-word-btn:hover,
+    .pronunciation-word-btn.playing {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .pronunciation-word-zh {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+
     .row-left {
       font-weight: 700;
     }
@@ -571,6 +667,14 @@
         grid-template-columns: 1fr;
       }
 
+      .pronunciation-row {
+        grid-template-columns: 1fr;
+      }
+
+      .pronunciation-sound {
+        min-height: 76px;
+      }
+
       .question-cell-label {
         display: block;
       }
@@ -595,7 +699,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, subject pronouns, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, subject pronouns, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -614,7 +718,7 @@
 
       <div class="control-group">
         <label for="search">Search</label>
-        <input id="search" type="text" placeholder="Search numbers, pronouns, verbs, or determiners" />
+        <input id="search" type="text" placeholder="Search numbers, pronunciation, pronouns, verbs, or determiners" />
       </div>
 
       <div class="control-group theme-wrap">
@@ -629,6 +733,7 @@
     <div class="section-shell">
       <div class="tabs">
         <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
+        <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="grammar">Pronouns + Être/Avoir</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
@@ -668,6 +773,25 @@
           <p>Learn the basic math words used in simple calculations. Click a card to hear the operator, then a short example.</p>
           <div id="operatorGrid" class="determiner-subgrid"></div>
         </div>
+      </section>
+
+      <section id="pronunciationSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Pronunciation Rules</h2>
+            <p class="section-desc">Practice the vowel spelling patterns from your chart. Click any example word to hear it, or play the whole set for repetition.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playPronunciationRules">Play all example words</button>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 16px;">
+          <h3>Six Core Vowel Sounds</h3>
+          <p>Each row groups one IPA sound with spelling rules and the example words from the chart.</p>
+        </div>
+
+        <div id="pronunciationGrid" class="pronunciation-grid"></div>
       </section>
 
       <section id="grammarSection" class="section">
@@ -1013,6 +1137,209 @@
       { fr: "J’ai vingt-huit ans.", en: "I am twenty-eight years old.", note: "French uses avoir for age" },
       { fr: "Vous avez un stylo.", en: "You have a pen.", note: "possession" },
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir" }
+    ];
+
+    const pronunciationRules = [
+      {
+        sound: "[a]",
+        rules: [
+          {
+            rule: "字母a",
+            examples: [
+              { fr: "la", zh: "阴性定冠词“the”" },
+              { fr: "papa", zh: "爸爸" },
+              { fr: "table", zh: "桌子" },
+              { fr: "chat", zh: "猫" }
+            ]
+          },
+          {
+            rule: "字母à, â",
+            examples: [
+              { fr: "là", zh: "那里" },
+              { fr: "âge", zh: "年龄" },
+              { fr: "pâte", zh: "面团；意面" },
+              { fr: "âne", zh: "驴" }
+            ]
+          },
+          {
+            rule: "字母e在字母mm前",
+            examples: [
+              { fr: "femme", zh: "女人；妻子" },
+              { fr: "évidemment", zh: "当然" },
+              { fr: "apparemment", zh: "看起来；显然" },
+              { fr: "récemment", zh: "最近" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[ɛ]",
+        rules: [
+          {
+            rule: "字母è, ê, ë",
+            examples: [
+              { fr: "mère", zh: "妈妈；母亲" },
+              { fr: "frère", zh: "兄弟" },
+              { fr: "fête", zh: "节日；派对" },
+              { fr: "Noël", zh: "圣诞节" }
+            ]
+          },
+          {
+            rule: "字母e在闭音节中",
+            examples: [
+              { fr: "sel", zh: "盐" },
+              { fr: "merci", zh: "谢谢" },
+              { fr: "avec", zh: "和；跟" },
+              { fr: "mer", zh: "海" }
+            ]
+          },
+          {
+            rule: "字母e在两个相同的辅音字母前",
+            examples: [
+              { fr: "elle", zh: "她" },
+              { fr: "cette", zh: "这个；这位（阴性）" },
+              { fr: "belle", zh: "漂亮的（阴性）" },
+              { fr: "baguette", zh: "法棍" }
+            ]
+          },
+          {
+            rule: "字母组合et在词末",
+            examples: [
+              { fr: "ticket", zh: "票" },
+              { fr: "billet", zh: "票" },
+              { fr: "paquet", zh: "包裹；一包" },
+              { fr: "poulet", zh: "鸡肉；鸡" }
+            ]
+          },
+          {
+            rule: "字母组合ai, aî, ei, ay, ey",
+            examples: [
+              { fr: "mai", zh: "五月" },
+              { fr: "maison", zh: "房子" },
+              { fr: "lait", zh: "牛奶" },
+              { fr: "neige", zh: "雪" },
+              { fr: "peine", zh: "难过；麻烦" },
+              { fr: "maître", zh: "老师；大师" },
+              { fr: "seize", zh: "十六" },
+              { fr: "Orsay", zh: "奥赛（地名）" },
+              { fr: "jersey", zh: "运动衫；泽西" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[e]",
+        rules: [
+          {
+            rule: "字母é",
+            examples: [
+              { fr: "été", zh: "夏天" },
+              { fr: "café", zh: "咖啡；咖啡馆" },
+              { fr: "bébé", zh: "婴儿" },
+              { fr: "école", zh: "学校" }
+            ]
+          },
+          {
+            rule: "字母e在词首且后面接-ff, -ss, -ll时",
+            examples: [
+              { fr: "effet", zh: "效果" },
+              { fr: "essai", zh: "尝试；试验" },
+              { fr: "essayer", zh: "尝试" },
+              { fr: "effacer", zh: "擦掉；删除" },
+              { fr: "ellipse", zh: "椭圆" }
+            ]
+          },
+          {
+            rule: "字母组合ai在少数词词末或作为动词第一人称变位的结尾",
+            examples: [
+              { fr: "quai", zh: "站台；码头" },
+              { fr: "j’ai", zh: "我有" },
+              { fr: "j’irai", zh: "我会去" },
+              { fr: "j’aurai", zh: "我会有" },
+              { fr: "je serai", zh: "我会是" }
+            ]
+          },
+          {
+            rule: "字母组合er在包含两个或多个音节的单词词末时",
+            examples: [
+              { fr: "parler", zh: "说话" },
+              { fr: "manger", zh: "吃" },
+              { fr: "aller", zh: "去" },
+              { fr: "aimer", zh: "喜欢；爱" },
+              { fr: "écouter", zh: "听" },
+              { fr: "laisser", zh: "让；留下" },
+              { fr: "répéter", zh: "重复" }
+            ]
+          },
+          {
+            rule: "字母组合es在单音节词末",
+            examples: [
+              { fr: "les", zh: "复数定冠词“the”" },
+              { fr: "des", zh: "一些" },
+              { fr: "mes", zh: "我的（复数）" },
+              { fr: "tes", zh: "你的（复数）" },
+              { fr: "ses", zh: "他/她的（复数）" }
+            ]
+          },
+          {
+            rule: "字母组合ez在词末",
+            examples: [
+              { fr: "chez", zh: "在……家；在……处" },
+              { fr: "allez", zh: "去吧；你们去" },
+              { fr: "avez", zh: "你/你们有" },
+              { fr: "voulez", zh: "你/你们想要" },
+              { fr: "prenez", zh: "拿；乘坐" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[i]",
+        rules: [
+          {
+            rule: "字母i, î, ï, y",
+            examples: [
+              { fr: "si", zh: "如果；是的" },
+              { fr: "ici", zh: "这里" },
+              { fr: "lit", zh: "床" },
+              { fr: "île", zh: "岛" },
+              { fr: "maïs", zh: "玉米" },
+              { fr: "lycée", zh: "高中" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[y]",
+        rules: [
+          {
+            rule: "字母u, û",
+            examples: [
+              { fr: "tu", zh: "你" },
+              { fr: "une", zh: "一个（阴性）" },
+              { fr: "sur", zh: "在……上" },
+              { fr: "sûr", zh: "确定的" },
+              { fr: "lune", zh: "月亮" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[u]",
+        rules: [
+          {
+            rule: "字母组合ou, où, oû, août",
+            examples: [
+              { fr: "nous", zh: "我们" },
+              { fr: "vous", zh: "您；你们" },
+              { fr: "pour", zh: "为了；给" },
+              { fr: "où", zh: "哪里" },
+              { fr: "coût", zh: "费用" },
+              { fr: "août", zh: "八月" }
+            ]
+          }
+        ]
+      }
     ];
 
     const questionWords = [
@@ -1513,6 +1840,7 @@
     const tensGrid = document.getElementById("tensGrid");
     const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
     const operatorGrid = document.getElementById("operatorGrid");
+    const pronunciationGrid = document.getElementById("pronunciationGrid");
     const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
@@ -1538,12 +1866,14 @@
 
     const tabButtons = document.querySelectorAll(".tab-btn");
     const numbersSection = document.getElementById("numbersSection");
+    const pronunciationSection = document.getElementById("pronunciationSection");
     const grammarSection = document.getElementById("grammarSection");
     const determinersSection = document.getElementById("determinersSection");
     const questionsSection = document.getElementById("questionsSection");
     const calendarSection = document.getElementById("calendarSection");
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
+    const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
     const playPronounsBtn = document.getElementById("playPronouns");
     const playEtreBtn = document.getElementById("playEtre");
     const playAvoirBtn = document.getElementById("playAvoir");
@@ -1660,6 +1990,70 @@
         `;
         button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
         operatorGrid.appendChild(button);
+      });
+    }
+
+    function getPronunciationRuleSearchText(rule) {
+      return `${rule.rule} ${rule.examples.map(example => `${example.fr} ${example.zh}`).join(" ")}`.toLowerCase();
+    }
+
+    function getMatchingPronunciationRules(q) {
+      return pronunciationRules
+        .map(group => {
+          const soundMatches = group.sound.toLowerCase().includes(q);
+          const matchingRules = soundMatches
+            ? group.rules
+            : group.rules.filter(rule => getPronunciationRuleSearchText(rule).includes(q));
+          return { sound: group.sound, rules: matchingRules };
+        })
+        .filter(group => group.rules.length > 0);
+    }
+
+    function getPronunciationExamples(list = pronunciationRules) {
+      return list.flatMap(group => group.rules.flatMap(rule => rule.examples.map(example => example.fr)));
+    }
+
+    function renderPronunciationRules(list = pronunciationRules) {
+      pronunciationGrid.innerHTML = "";
+      if (!list.length) {
+        pronunciationGrid.innerHTML = `<div class="empty-state">No pronunciation rules match this search.</div>`;
+        return;
+      }
+
+      list.forEach(group => {
+        const row = document.createElement("div");
+        row.className = "pronunciation-row";
+        const ruleMarkup = group.rules.map(rule => `
+          <div class="pronunciation-rule">
+            <strong>${rule.rule}</strong>
+          </div>
+        `).join("");
+        const examplesMarkup = group.rules.map((rule, ruleIndex) => `
+          <div class="pronunciation-example-group">
+            <strong>${rule.rule}</strong>
+            <div class="pronunciation-word-list">
+              ${rule.examples.map((example, exampleIndex) => `
+                <button class="pronunciation-word-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
+                  <span>${example.fr}</span>
+                  <span class="pronunciation-word-zh">${example.zh}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `).join("");
+        row.innerHTML = `
+          <div class="pronunciation-sound">${group.sound}</div>
+          <div class="pronunciation-rules">${ruleMarkup}</div>
+          <div class="pronunciation-examples">${examplesMarkup}</div>
+        `;
+        row.querySelectorAll(".pronunciation-word-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const rule = group.rules[Number(button.dataset.ruleIndex)];
+            const example = rule.examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        pronunciationGrid.appendChild(row);
       });
     }
 
@@ -1959,6 +2353,7 @@
       activeTab = tabName;
       tabButtons.forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabName));
       numbersSection.classList.toggle("active", tabName === "numbers");
+      pronunciationSection.classList.toggle("active", tabName === "pronunciation");
       grammarSection.classList.toggle("active", tabName === "grammar");
       determinersSection.classList.toggle("active", tabName === "determiners");
       questionsSection.classList.toggle("active", tabName === "questions");
@@ -1984,6 +2379,7 @@
       return {
         numbers: numberItems.filter(item => item.search.includes(q)),
         operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        pronunciation: getMatchingPronunciationRules(q),
         pronouns: pronouns.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -2009,6 +2405,7 @@
       if (!q) {
         renderNumbers();
         renderOperators();
+        renderPronunciationRules();
         renderPronouns();
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
@@ -2029,6 +2426,7 @@
       const matches = getSearchMatches(q);
       renderNumbers(matches.numbers);
       renderOperators(matches.operators);
+      renderPronunciationRules(matches.pronunciation);
       renderPronouns(matches.pronouns);
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
@@ -2045,6 +2443,7 @@
       renderPossessives(matches.possessives);
 
       const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
+      const hasPronunciationResults = matches.pronunciation.length > 0;
       const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
       const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
@@ -2056,31 +2455,17 @@
         matches.demonstrative.length > 0 ||
         matches.possessives.length > 0;
 
-      if (activeTab === "numbers" && !hasNumberResults) {
-        if (hasGrammarResults) activateTab("grammar");
-        else if (hasDeterminerResults) activateTab("determiners");
-        else if (hasQuestionResults) activateTab("questions");
-        else if (hasCalendarResults) activateTab("calendar");
-      } else if (activeTab === "grammar" && !hasGrammarResults) {
-        if (hasDeterminerResults) activateTab("determiners");
-        else if (hasQuestionResults) activateTab("questions");
-        else if (hasCalendarResults) activateTab("calendar");
-        else if (hasNumberResults) activateTab("numbers");
-      } else if (activeTab === "determiners" && !hasDeterminerResults) {
-        if (hasQuestionResults) activateTab("questions");
-        else if (hasCalendarResults) activateTab("calendar");
-        else if (hasGrammarResults) activateTab("grammar");
-        else if (hasNumberResults) activateTab("numbers");
-      } else if (activeTab === "questions" && !hasQuestionResults) {
-        if (hasCalendarResults) activateTab("calendar");
-        else if (hasDeterminerResults) activateTab("determiners");
-        else if (hasGrammarResults) activateTab("grammar");
-        else if (hasNumberResults) activateTab("numbers");
-      } else if (activeTab === "calendar" && !hasCalendarResults) {
-        if (hasQuestionResults) activateTab("questions");
-        else if (hasDeterminerResults) activateTab("determiners");
-        else if (hasGrammarResults) activateTab("grammar");
-        else if (hasNumberResults) activateTab("numbers");
+      const tabResults = {
+        numbers: hasNumberResults,
+        pronunciation: hasPronunciationResults,
+        grammar: hasGrammarResults,
+        determiners: hasDeterminerResults,
+        questions: hasQuestionResults,
+        calendar: hasCalendarResults
+      };
+      const firstMatchingTab = Object.entries(tabResults).find(([, hasResults]) => hasResults);
+      if (!tabResults[activeTab] && firstMatchingTab) {
+        activateTab(firstMatchingTab[0]);
       }
     }
 
@@ -2112,6 +2497,10 @@
 
     playNumberSamplesBtn.addEventListener("click", () => {
       speakSequence(numberItems.map(item => ({ text: item.speech })));
+    });
+
+    playPronunciationRulesBtn.addEventListener("click", () => {
+      speakSequence(getPronunciationExamples().map(word => ({ text: word })));
     });
 
     playPronounsBtn.addEventListener("click", () => {
@@ -2181,6 +2570,7 @@
     initTheme();
     renderNumbers();
     renderOperators();
+    renderPronunciationRules();
     renderPronouns();
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
