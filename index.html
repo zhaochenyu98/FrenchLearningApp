@@ -546,6 +546,54 @@
       padding: 3px 8px;
     }
 
+    .pronunciation-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 18px;
+    }
+
+    .pronunciation-matrix {
+      display: grid;
+      grid-template-columns: 82px repeat(6, minmax(150px, 1fr));
+      gap: 1px;
+      min-width: 980px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .pronunciation-matrix-cell,
+    .pronunciation-matrix-header,
+    .pronunciation-matrix-row-label {
+      background: var(--card);
+      padding: 10px;
+    }
+
+    .pronunciation-matrix-header,
+    .pronunciation-matrix-row-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .pronunciation-matrix-header {
+      background: var(--accent-soft);
+    }
+
+    .pronunciation-matrix-row-label {
+      background: var(--panel);
+    }
+
+    .pronunciation-matrix .pronunciation-word-btn {
+      width: 100%;
+      min-height: 94px;
+    }
+
     .row-left {
       font-weight: 700;
     }
@@ -804,6 +852,15 @@
         </div>
 
         <div id="consonantPronunciationGrid" class="pronunciation-grid"></div>
+
+        <div class="panel" style="margin: 18px 0 16px;">
+          <h3>辅音 + 元音拼读表</h3>
+          <p>按左侧辅音和上方元音组合练习。每个单词都可以单独点击朗读。</p>
+        </div>
+
+        <div class="pronunciation-table-wrap">
+          <div id="pronunciationMatrixGrid" class="pronunciation-matrix"></div>
+        </div>
 
         <div class="panel" style="margin: 18px 0 16px;">
           <h3>建议练习</h3>
@@ -2195,6 +2252,120 @@
       }
     ];
 
+    const pronunciationMatrixColumns = ["[a]", "[e]", "[ɛ]", "[i]", "[y]", "[u]"];
+    const pronunciationMatrixRows = [
+      {
+        sound: "[p]",
+        cells: [
+          { fr: "pape", ipa: "/pap/", zh: "教皇" },
+          { fr: "épée", ipa: "/epe/", zh: "剑" },
+          { fr: "père", ipa: "/pɛʁ/", zh: "父亲" },
+          { fr: "pipe", ipa: "/pip/", zh: "烟斗" },
+          { fr: "puce", ipa: "/pys/", zh: "跳蚤；芯片" },
+          { fr: "pour", ipa: "/puʁ/", zh: "为了；给" }
+        ]
+      },
+      {
+        sound: "[t]",
+        cells: [
+          { fr: "tasse", ipa: "/tas/", zh: "杯子" },
+          { fr: "été", ipa: "/ete/", zh: "夏天；曾经是" },
+          { fr: "terre", ipa: "/tɛʁ/", zh: "土地；地球" },
+          { fr: "style", ipa: "/stil/", zh: "风格" },
+          { fr: "têtu", ipa: "/tety/", zh: "固执的" },
+          { fr: "toute", ipa: "/tut/", zh: "全部的（阴性）" }
+        ]
+      },
+      {
+        sound: "[k]",
+        cells: [
+          { fr: "car", ipa: "/kaʁ/", zh: "因为；长途汽车" },
+          { fr: "pique-niquer", ipa: "/piknike/", zh: "野餐" },
+          { fr: "caisse", ipa: "/kɛs/", zh: "箱子；收银台" },
+          { fr: "qui", ipa: "/ki/", zh: "谁" },
+          { fr: "piqûre", ipa: "/pikyʁ/", zh: "针刺；叮咬" },
+          { fr: "écouter", ipa: "/ekute/", zh: "听" }
+        ]
+      },
+      {
+        sound: "[f]",
+        cells: [
+          { fr: "phare", ipa: "/faʁ/", zh: "灯塔；车灯" },
+          { fr: "fée", ipa: "/fe/", zh: "仙女" },
+          { fr: "fête", ipa: "/fɛt/", zh: "节日；派对" },
+          { fr: "fil", ipa: "/fil/", zh: "线" },
+          { fr: "futur", ipa: "/fytyʁ/", zh: "未来的" },
+          { fr: "fou", ipa: "/fu/", zh: "疯狂的" }
+        ]
+      },
+      {
+        sound: "[s]",
+        cells: [
+          { fr: "salle", ipa: "/sal/", zh: "房间；大厅" },
+          { fr: "cesser", ipa: "/sese/", zh: "停止" },
+          { fr: "Seine", ipa: "/sɛn/", zh: "塞纳河" },
+          { fr: "système", ipa: "/sistɛm/", zh: "系统" },
+          { fr: "sur", ipa: "/syʁ/", zh: "在……上" },
+          { fr: "soupe", ipa: "/sup/", zh: "汤" }
+        ]
+      },
+      {
+        sound: "[ʃ]",
+        cells: [
+          { fr: "chasse", ipa: "/ʃas/", zh: "打猎" },
+          { fr: "chercher", ipa: "/ʃɛʁʃe/", zh: "寻找" },
+          { fr: "chaîne", ipa: "/ʃɛn/", zh: "链条；频道" },
+          { fr: "schisme", ipa: "/ʃism/", zh: "分裂" },
+          { fr: "chute", ipa: "/ʃyt/", zh: "坠落；下跌" },
+          { fr: "chouchou", ipa: "/ʃuʃu/", zh: "宠儿；最喜欢的人/物" }
+        ]
+      },
+      {
+        sound: "[l]",
+        cells: [
+          { fr: "la", ipa: "/la/", zh: "阴性定冠词“the”" },
+          { fr: "les", ipa: "/le/", zh: "复数定冠词“the”" },
+          { fr: "laine", ipa: "/lɛn/", zh: "羊毛" },
+          { fr: "Lille", ipa: "/lil/", zh: "里尔" },
+          { fr: "lune", ipa: "/lyn/", zh: "月亮" },
+          { fr: "louche", ipa: "/luʃ/", zh: "汤勺；可疑的" }
+        ]
+      },
+      {
+        sound: "[m]",
+        cells: [
+          { fr: "ma", ipa: "/ma/", zh: "我的（阴性）" },
+          { fr: "mes", ipa: "/me/", zh: "我的（复数）" },
+          { fr: "mer", ipa: "/mɛʁ/", zh: "海" },
+          { fr: "mille", ipa: "/mil/", zh: "一千" },
+          { fr: "mur", ipa: "/myʁ/", zh: "墙" },
+          { fr: "mouche", ipa: "/muʃ/", zh: "苍蝇" }
+        ]
+      },
+      {
+        sound: "[n]",
+        cells: [
+          { fr: "nappe", ipa: "/nap/", zh: "桌布" },
+          { fr: "nez", ipa: "/ne/", zh: "鼻子" },
+          { fr: "nef", ipa: "/nɛf/", zh: "中殿；船" },
+          { fr: "Nice", ipa: "/nis/", zh: "尼斯" },
+          { fr: "nul", ipa: "/nyl/", zh: "差劲的；无效的" },
+          { fr: "nourrice", ipa: "/nuʁis/", zh: "保姆；奶妈" }
+        ]
+      },
+      {
+        sound: "[r]",
+        cells: [
+          { fr: "rare", ipa: "/ʁaʁ/", zh: "稀有的" },
+          { fr: "réel", ipa: "/ʁeɛl/", zh: "真实的" },
+          { fr: "reste", ipa: "/ʁɛst/", zh: "剩余；其余" },
+          { fr: "rime", ipa: "/ʁim/", zh: "押韵" },
+          { fr: "ruche", ipa: "/ʁyʃ/", zh: "蜂箱" },
+          { fr: "route", ipa: "/ʁut/", zh: "路" }
+        ]
+      }
+    ];
+
     const questionWords = [
       {
         fr: "qui",
@@ -2695,6 +2866,7 @@
     const operatorGrid = document.getElementById("operatorGrid");
     const pronunciationGrid = document.getElementById("pronunciationGrid");
     const consonantPronunciationGrid = document.getElementById("consonantPronunciationGrid");
+    const pronunciationMatrixGrid = document.getElementById("pronunciationMatrixGrid");
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
     const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
@@ -2889,12 +3061,24 @@
         .filter(group => group.words.length > 0);
     }
 
+    function getPronunciationMatrixSearchText(row) {
+      return `${row.sound} ${row.cells.map(item => `${item.fr} ${getPronunciationIpa(item)} ${item.zh}`).join(" ")}`.toLowerCase();
+    }
+
+    function getMatchingPronunciationMatrixRows(q) {
+      return pronunciationMatrixRows.filter(row => getPronunciationMatrixSearchText(row).includes(q));
+    }
+
     function getPronunciationExamples(lists = [pronunciationRules, consonantPronunciationRules]) {
       return lists.flatMap(list => list.flatMap(group => group.rules.flatMap(rule => rule.examples.map(example => example.fr))));
     }
 
     function getPronunciationPracticeWords(groups = pronunciationPracticeGroups) {
       return groups.flatMap(group => group.words.map(item => item.fr));
+    }
+
+    function getPronunciationMatrixWords(rows = pronunciationMatrixRows) {
+      return rows.flatMap(row => row.cells.map(item => item.fr));
     }
 
     function renderPronunciationRuleGroups(container, list, emptyMessage) {
@@ -2942,6 +3126,43 @@
 
     function renderConsonantPronunciationRules(list = consonantPronunciationRules) {
       renderPronunciationRuleGroups(consonantPronunciationGrid, list, "No consonant pronunciation rules match this search.");
+    }
+
+    function renderPronunciationMatrix(rows = pronunciationMatrixRows) {
+      pronunciationMatrixGrid.innerHTML = "";
+      if (!rows.length) {
+        pronunciationMatrixGrid.innerHTML = `<div class="empty-state">No pronunciation table words match this search.</div>`;
+        return;
+      }
+
+      pronunciationMatrixGrid.innerHTML = `
+        <div class="pronunciation-matrix-header"></div>
+        ${pronunciationMatrixColumns.map(column => `<div class="pronunciation-matrix-header">${column}</div>`).join("")}
+      `;
+
+      rows.forEach((row, rowIndex) => {
+        const rowLabel = document.createElement("div");
+        rowLabel.className = "pronunciation-matrix-row-label";
+        rowLabel.textContent = row.sound;
+        pronunciationMatrixGrid.appendChild(rowLabel);
+
+        row.cells.forEach((item, cellIndex) => {
+          const cell = document.createElement("div");
+          cell.className = "pronunciation-matrix-cell";
+          cell.innerHTML = `
+            <button class="pronunciation-word-btn" type="button" data-row-index="${rowIndex}" data-cell-index="${cellIndex}">
+              <span>${item.fr}</span>
+              <span class="pronunciation-word-ipa">${getPronunciationIpa(item)}</span>
+              <span class="pronunciation-word-zh">${item.zh}</span>
+            </button>
+          `;
+          cell.querySelector(".pronunciation-word-btn").addEventListener("click", (event) => {
+            const word = rows[Number(event.currentTarget.dataset.rowIndex)].cells[Number(event.currentTarget.dataset.cellIndex)];
+            speak(word.fr, event.currentTarget);
+          });
+          pronunciationMatrixGrid.appendChild(cell);
+        });
+      });
     }
 
     function renderPronunciationPractice(groups = pronunciationPracticeGroups) {
@@ -3322,6 +3543,7 @@
         operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         pronunciation: getMatchingPronunciationRules(q),
         consonantPronunciation: getMatchingConsonantPronunciationRules(q),
+        pronunciationMatrix: getMatchingPronunciationMatrixRows(q),
         pronunciationPractice: getMatchingPronunciationPracticeGroups(q),
         pronouns: pronouns.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -3350,6 +3572,7 @@
         renderOperators();
         renderPronunciationRules();
         renderConsonantPronunciationRules();
+        renderPronunciationMatrix();
         renderPronunciationPractice();
         renderPronouns();
         renderVerbTable(etreTable, etreRows);
@@ -3373,6 +3596,7 @@
       renderOperators(matches.operators);
       renderPronunciationRules(matches.pronunciation);
       renderConsonantPronunciationRules(matches.consonantPronunciation);
+      renderPronunciationMatrix(matches.pronunciationMatrix);
       renderPronunciationPractice(matches.pronunciationPractice);
       renderPronouns(matches.pronouns);
       renderVerbTable(etreTable, matches.etre);
@@ -3390,7 +3614,11 @@
       renderPossessives(matches.possessives);
 
       const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
-      const hasPronunciationResults = matches.pronunciation.length > 0 || matches.consonantPronunciation.length > 0 || matches.pronunciationPractice.length > 0;
+      const hasPronunciationResults =
+        matches.pronunciation.length > 0 ||
+        matches.consonantPronunciation.length > 0 ||
+        matches.pronunciationMatrix.length > 0 ||
+        matches.pronunciationPractice.length > 0;
       const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
       const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
@@ -3447,7 +3675,7 @@
     });
 
     playPronunciationRulesBtn.addEventListener("click", () => {
-      speakSequence([...getPronunciationExamples(), ...getPronunciationPracticeWords()].map(word => ({ text: word })));
+      speakSequence([...getPronunciationExamples(), ...getPronunciationMatrixWords(), ...getPronunciationPracticeWords()].map(word => ({ text: word })));
     });
 
     playPronounsBtn.addEventListener("click", () => {
@@ -3519,6 +3747,7 @@
     renderOperators();
     renderPronunciationRules();
     renderConsonantPronunciationRules();
+    renderPronunciationMatrix();
     renderPronunciationPractice();
     renderPronouns();
     renderVerbTable(etreTable, etreRows);
