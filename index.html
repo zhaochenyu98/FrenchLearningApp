@@ -314,6 +314,20 @@
       font-weight: 700;
     }
 
+    .number-ipa {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.86rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
     .translation,
     .grammar-note {
       font-size: 0.94rem;
@@ -1134,6 +1148,33 @@
       60: "soixante"
     };
 
+    const basicNumberIpa = {
+      1: "œ̃",
+      2: "dø",
+      3: "tʁwa",
+      4: "katʁ",
+      5: "sɛ̃k",
+      6: "sis",
+      7: "sɛt",
+      8: "ɥit",
+      9: "nœf",
+      10: "dis",
+      11: "ɔ̃z",
+      12: "duz",
+      13: "tʁɛz",
+      14: "katɔʁz",
+      15: "kɛ̃z",
+      16: "sɛz"
+    };
+
+    const tensNumberIpa = {
+      20: { base: "vɛ̃", stem: "vɛ̃t", etUn: "vɛ̃.te.œ̃" },
+      30: { base: "tʁɑ̃t", stem: "tʁɑ̃t", etUn: "tʁɑ̃.te.œ̃" },
+      40: { base: "kaʁɑ̃t", stem: "kaʁɑ̃t", etUn: "kaʁɑ̃.te.œ̃" },
+      50: { base: "sɛ̃.kɑ̃t", stem: "sɛ̃.kɑ̃t", etUn: "sɛ̃.kɑ̃.te.œ̃" },
+      60: { base: "swa.sɑ̃t", stem: "swa.sɑ̃t", etUn: "swa.sɑ̃.te.œ̃" }
+    };
+
     function frenchNumber(n) {
       if (n in basic) return basic[n];
       if (n === 100) return "cent";
@@ -1167,6 +1208,37 @@
       }
 
       return String(n);
+    }
+
+    function frenchNumberIpa(n) {
+      if (n in basicNumberIpa) return `/${basicNumberIpa[n]}/`;
+      if (n === 17) return "/dis.sɛt/";
+      if (n === 18) return "/diz.ɥit/";
+      if (n === 19) return "/diz.nœf/";
+      if (n === 100) return "/sɑ̃/";
+
+      if (n >= 20 && n <= 69) {
+        const ten = Math.floor(n / 10) * 10;
+        const unit = n % 10;
+        const tenIpa = tensNumberIpa[ten];
+        if (unit === 0) return `/${tenIpa.base}/`;
+        if (unit === 1) return `/${tenIpa.etUn}/`;
+        return `/${tenIpa.stem}.${basicNumberIpa[unit]}/`;
+      }
+
+      if (n >= 70 && n <= 79) {
+        const remainder = n - 60;
+        if (remainder === 11) return "/swa.sɑ̃.te.ɔ̃z/";
+        return `/swa.sɑ̃t.${frenchNumberIpa(remainder).slice(1, -1)}/`;
+      }
+
+      if (n === 80) return "/katʁə.vɛ̃/";
+
+      if (n >= 81 && n <= 99) {
+        return `/katʁə.vɛ̃.${frenchNumberIpa(n - 80).slice(1, -1)}/`;
+      }
+
+      return "";
     }
 
     const pronouns = [
@@ -2284,6 +2356,37 @@
           { fr: "soir", ipa: "/swaʁ/", zh: "晚上" },
           { fr: "chinois", ipa: "/ʃinwa/", zh: "中文；中国的" }
         ]
+      },
+      {
+        label: "今日作业 5/18 第 1 组",
+        words: [
+          { fr: "entrer", ipa: "/ɑ̃tʁe/", zh: "进入" },
+          { fr: "création", ipa: "/kʁeasjɔ̃/", zh: "创造；创作" },
+          { fr: "prendre", ipa: "/pʁɑ̃dʁ/", zh: "拿；乘坐；吃喝" },
+          { fr: "métro", ipa: "/metʁo/", zh: "地铁" },
+          { fr: "propre", ipa: "/pʁɔpʁ/", zh: "干净的；自己的" },
+          { fr: "crépuscule", ipa: "/kʁepyskyl/", zh: "黄昏" }
+        ]
+      },
+      {
+        label: "今日作业 5/18 第 2 组",
+        words: [
+          { fr: "expliquer", ipa: "/ɛksplike/", zh: "解释" },
+          { fr: "exister", ipa: "/ɛɡziste/", zh: "存在" },
+          { fr: "exprimer", ipa: "/ɛkspʁime/", zh: "表达" },
+          { fr: "exagérer", ipa: "/ɛɡzaʒeʁe/", zh: "夸张；夸大" },
+          { fr: "expédier", ipa: "/ɛkspedje/", zh: "寄出；发送" },
+          { fr: "excellent", ipa: "/ɛksɛlɑ̃/", zh: "优秀的；极好的" }
+        ]
+      },
+      {
+        label: "今日作业 5/18 第 3 组",
+        words: [
+          { fr: "un ami", ipa: "/œ̃n‿ami/", zh: "一个男朋友；一个男性朋友" },
+          { fr: "une amie", ipa: "/yn ami/", zh: "一个女朋友；一个女性朋友" },
+          { fr: "des amis", ipa: "/dez‿ami/", zh: "一些朋友（阳性或混合）" },
+          { fr: "des amies", ipa: "/dez‿ami/", zh: "一些女性朋友" }
+        ]
       }
     ];
 
@@ -2881,8 +2984,9 @@
       return {
         number: n,
         word: frenchNumber(n),
+        ipa: frenchNumberIpa(n),
         speech: frenchNumber(n),
-        search: `${n} ${frenchNumber(n)}`.toLowerCase()
+        search: `${n} ${frenchNumber(n)} ${frenchNumberIpa(n)}`.toLowerCase()
       };
     });
     const calculationOperators = [
@@ -3013,6 +3117,7 @@
         button.innerHTML = `
           <div class="num">${item.number}</div>
           <div class="word">${item.word}</div>
+          <div class="number-ipa">${item.ipa}</div>
         `;
         button.addEventListener("click", () => speak(item.word, button));
         container.appendChild(button);
