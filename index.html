@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>French Study App: Numbers + Pronouns + Être/Avoir + Articles</title>
+  <title>French Study App: Numbers + Être/Avoir + Articles</title>
   <style>
     :root {
       --bg-top: #f9fafb;
@@ -135,6 +135,7 @@
     .mini-btn,
     .card,
     .row-card,
+    .verb-cell-btn,
     .pronoun-card,
     .example-card,
     .question-row-card,
@@ -246,6 +247,7 @@
 
     .card,
     .row-card,
+    .verb-cell-btn,
     .pronoun-card,
     .example-card,
     .question-row-card,
@@ -264,6 +266,7 @@
 
     .card:hover,
     .row-card:hover,
+    .verb-cell-btn:hover,
     .pronoun-card:hover,
     .example-card:hover,
     .poss-cell-btn:hover {
@@ -273,6 +276,7 @@
 
     .card:active,
     .row-card:active,
+    .verb-cell-btn:active,
     .pronoun-card:active,
     .example-card:active,
     .poss-cell-btn:active {
@@ -335,6 +339,68 @@
       margin-top: 6px;
     }
 
+    .flashcard-panel {
+      margin-top: 18px;
+    }
+
+    .flashcard-toolbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .flashcard-toolbar p {
+      max-width: 760px;
+    }
+
+    .flashcard {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      font: inherit;
+      gap: 10px;
+      min-height: 170px;
+      padding: 18px;
+      text-align: left;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.25s ease;
+      width: 100%;
+    }
+
+    .flashcard:hover,
+    .flashcard.revealed {
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .flashcard-prompt {
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .flashcard-answer {
+      border-top: 1px dashed var(--accent-border);
+      gap: 6px;
+      padding-top: 12px;
+    }
+
+    .flashcard-answer:not([hidden]) {
+      display: grid;
+    }
+
+    .flashcard-answer .french-line {
+      color: var(--accent);
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    }
+
     .two-col {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -375,6 +441,40 @@
       grid-template-columns: 120px 1fr;
       gap: 10px;
       align-items: start;
+    }
+
+    .verb-panel {
+      margin-top: 18px;
+    }
+
+    .verb-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .verb-column {
+      display: grid;
+      gap: 10px;
+    }
+
+    .verb-column-title {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 10px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .verb-cell-btn {
+      border-radius: 16px;
+      min-height: 136px;
+      padding: 14px;
     }
 
     .question-table {
@@ -734,6 +834,10 @@
         grid-template-columns: 1fr;
       }
 
+      .verb-matrix {
+        grid-template-columns: 1fr;
+      }
+
       .pronunciation-row {
         grid-template-columns: 1fr;
       }
@@ -766,7 +870,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, subject pronouns, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -783,11 +887,6 @@
         </div>
       </div>
 
-      <div class="control-group">
-        <label for="search">Search</label>
-        <input id="search" type="text" placeholder="Search numbers, pronunciation, pronouns, verbs, or determiners" />
-      </div>
-
       <div class="control-group theme-wrap">
         <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌙 Dark mode</button>
       </div>
@@ -801,7 +900,7 @@
       <div class="tabs">
         <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
         <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
-        <button class="tab-btn" type="button" data-tab="grammar">Pronouns + Être/Avoir</button>
+        <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
@@ -887,34 +986,47 @@
       <section id="grammarSection" class="section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Subject Pronouns + Être / Avoir</h2>
-            <p class="section-desc">Start with the subject pronouns, then study the two most important verbs. Click any card or row to hear the full phrase.</p>
+            <h2 class="section-title">Être / Avoir Practice</h2>
+            <p class="section-desc">Test yourself with flashcards, then study the two most important French verbs in singular and plural patterns.</p>
           </div>
           <div class="action-row">
-            <button class="action-btn" type="button" id="playPronouns">Play pronouns</button>
             <button class="action-btn" type="button" id="playEtre">Play être</button>
             <button class="action-btn" type="button" id="playAvoir">Play avoir</button>
           </div>
         </div>
 
-        <div class="panel" style="margin-bottom: 16px;">
-          <h3>Core subject pronouns</h3>
-          <p>These are the pronouns you combine with verbs like <strong>être</strong> and <strong>avoir</strong>.</p>
-          <div id="pronounGrid" class="pronoun-grid"></div>
+        <div class="panel flashcard-panel">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Être / Avoir flash card test</h3>
+              <p>Read the English sentence first. Click the card to reveal the French translation and hear the audio.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="previousGrammarFlashcard">Before</button>
+              <button class="action-btn" type="button" id="nextGrammarFlashcard">Next</button>
+            </div>
+          </div>
+
+          <button id="grammarFlashcard" class="flashcard" type="button" aria-expanded="false">
+            <span id="grammarFlashcardEnglish" class="flashcard-prompt"></span>
+            <span id="grammarFlashcardHint" class="translation">Click to reveal the French answer.</span>
+            <span id="grammarFlashcardAnswer" class="flashcard-answer" hidden>
+              <span id="grammarFlashcardFrench" class="french-line"></span>
+              <span class="translation">Click again to replay the audio.</span>
+            </span>
+          </button>
         </div>
 
-        <div class="two-col">
-          <div class="panel">
-            <h3>Être — to be</h3>
-            <p>Use <strong>être</strong> for identity, state, nationality, location, and descriptions.</p>
-            <div id="etreTable" class="table-wrap"></div>
-          </div>
+        <div class="panel verb-panel">
+          <h3>Être — to be</h3>
+          <p>Use <strong>être</strong> for identity, state, nationality, location, and descriptions.</p>
+          <div id="etreTable" class="verb-matrix"></div>
+        </div>
 
-          <div class="panel">
-            <h3>Avoir — to have</h3>
-            <p>Use <strong>avoir</strong> for possession, age, and many common expressions.</p>
-            <div id="avoirTable" class="table-wrap"></div>
-          </div>
+        <div class="panel verb-panel">
+          <h3>Avoir — to have</h3>
+          <p>Use <strong>avoir</strong> for possession, age, and many common expressions.</p>
+          <div id="avoirTable" class="verb-matrix"></div>
         </div>
 
         <div class="two-col">
@@ -1285,6 +1397,24 @@
       { fr: "J’ai vingt-huit ans.", en: "I am twenty-eight years old.", note: "French uses avoir for age" },
       { fr: "Vous avez un stylo.", en: "You have a pen.", note: "possession" },
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir" }
+    ];
+
+    const grammarFlashcards = [
+      ...etreRows.map(item => ({
+        fr: item.example,
+        en: item.exampleEn,
+        source: `être: ${item.full}`
+      })),
+      ...avoirRows.map(item => ({
+        fr: item.example,
+        en: item.exampleEn,
+        source: `avoir: ${item.full}`
+      })),
+      ...exampleSentences.map(item => ({
+        fr: item.fr,
+        en: item.en,
+        source: item.note
+      }))
     ];
 
     const pronunciationRules = [
@@ -3007,10 +3137,14 @@
     const consonantPronunciationGrid = document.getElementById("consonantPronunciationGrid");
     const pronunciationMatrixGrid = document.getElementById("pronunciationMatrixGrid");
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
-    const pronounGrid = document.getElementById("pronounGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
     const exampleGrid = document.getElementById("exampleGrid");
+    const grammarFlashcard = document.getElementById("grammarFlashcard");
+    const grammarFlashcardEnglish = document.getElementById("grammarFlashcardEnglish");
+    const grammarFlashcardHint = document.getElementById("grammarFlashcardHint");
+    const grammarFlashcardAnswer = document.getElementById("grammarFlashcardAnswer");
+    const grammarFlashcardFrench = document.getElementById("grammarFlashcardFrench");
     const questionWordsGrid = document.getElementById("questionWordsGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
@@ -3026,7 +3160,6 @@
     const voiceSelect = document.getElementById("voiceSelect");
     const rateInput = document.getElementById("rate");
     const rateValue = document.getElementById("rateValue");
-    const searchInput = document.getElementById("search");
     const themeToggle = document.getElementById("themeToggle");
     const stopAudioBtn = document.getElementById("stopAudio");
 
@@ -3040,9 +3173,10 @@
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
     const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
-    const playPronounsBtn = document.getElementById("playPronouns");
     const playEtreBtn = document.getElementById("playEtre");
     const playAvoirBtn = document.getElementById("playAvoir");
+    const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");
+    const nextGrammarFlashcardBtn = document.getElementById("nextGrammarFlashcard");
     const playDeterminersBtn = document.getElementById("playDeterminers");
     const playPossessivesBtn = document.getElementById("playPossessives");
     const playQuestionWordsBtn = document.getElementById("playQuestionWords");
@@ -3052,6 +3186,9 @@
 
     let voices = [];
     let currentCard = null;
+    let currentGrammarFlashcard = null;
+    let currentGrammarFlashcardIndex = 0;
+    let grammarFlashcardRevealed = false;
     let activeTab = "numbers";
     const examplePauseMs = 900;
     let playbackToken = 0;
@@ -3337,41 +3474,49 @@
       });
     }
 
-    function renderPronouns(list = pronouns) {
-      pronounGrid.innerHTML = "";
-      list.forEach(item => {
-        const button = document.createElement("button");
-        button.className = "pronoun-card";
-        button.type = "button";
-        button.innerHTML = `
-          <div class="pronoun-main">${item.fr}</div>
-          <div class="translation">${item.en}</div>
-          <div class="grammar-note">${item.note}</div>
-        `;
-        button.addEventListener("click", () => speak(item.speech, button));
-        pronounGrid.appendChild(button);
-      });
-    }
-
     function renderVerbTable(container, rows) {
       container.innerHTML = "";
-      rows.forEach(item => {
-        const button = document.createElement("button");
-        button.className = "row-card";
-        button.type = "button";
-        button.innerHTML = `
-          <div class="row-left">
+      if (!rows.length) {
+        container.innerHTML = `<div class="empty-state">No conjugations match this search.</div>`;
+        return;
+      }
+
+      const columns = [
+        { title: "Singular", order: ["je", "j’", "tu", "il", "elle"] },
+        { title: "Plural", order: ["nous", "vous", "ils", "elles"] }
+      ].map(column => ({
+        title: column.title,
+        items: column.order
+          .map(pronoun => rows.find(item => item.pronoun === pronoun))
+          .filter(Boolean)
+      }));
+
+      if (!columns.some(column => column.items.length)) {
+        container.innerHTML = `<div class="empty-state">No singular or plural conjugations match this search.</div>`;
+        return;
+      }
+
+      columns.forEach(column => {
+        const columnEl = document.createElement("div");
+        columnEl.className = "verb-column";
+        columnEl.innerHTML = `<div class="verb-column-title">${column.title}</div>`;
+
+        column.items.forEach(item => {
+          const button = document.createElement("button");
+          button.className = "verb-cell-btn";
+          button.type = "button";
+          button.innerHTML = `
             <div class="tiny-label">Pronoun + verb</div>
             <div class="conjugation-main">${item.full}</div>
-          </div>
-          <div class="row-right">
             <div class="translation">${item.en}</div>
             <div class="grammar-note"><strong>Example:</strong> ${item.example}</div>
             <div class="translation">${item.exampleEn}</div>
-          </div>
-        `;
-        button.addEventListener("click", () => speakWithPause(item.full, item.example, button));
-        container.appendChild(button);
+          `;
+          button.addEventListener("click", () => speakWithPause(item.full, item.example, button));
+          columnEl.appendChild(button);
+        });
+
+        container.appendChild(columnEl);
       });
     }
 
@@ -3389,6 +3534,38 @@
         button.addEventListener("click", () => speak(item.fr, button));
         exampleGrid.appendChild(button);
       });
+    }
+
+    function updateGrammarFlashcard() {
+      if (!currentGrammarFlashcard) return;
+      grammarFlashcardEnglish.textContent = currentGrammarFlashcard.en;
+      grammarFlashcardFrench.textContent = currentGrammarFlashcard.fr;
+      grammarFlashcardAnswer.hidden = !grammarFlashcardRevealed;
+      grammarFlashcardHint.textContent = grammarFlashcardRevealed
+        ? "Answer revealed. Click the card again to replay audio."
+        : "Click to reveal the French answer.";
+      grammarFlashcard.classList.toggle("revealed", grammarFlashcardRevealed);
+      grammarFlashcard.setAttribute("aria-expanded", String(grammarFlashcardRevealed));
+    }
+
+    function showGrammarFlashcard(index = currentGrammarFlashcardIndex) {
+      if (!grammarFlashcards.length) return;
+      currentGrammarFlashcardIndex = (index + grammarFlashcards.length) % grammarFlashcards.length;
+      currentGrammarFlashcard = grammarFlashcards[currentGrammarFlashcardIndex];
+      grammarFlashcardRevealed = false;
+      updateGrammarFlashcard();
+    }
+
+    function moveGrammarFlashcard(step) {
+      stopPlayback();
+      showGrammarFlashcard(currentGrammarFlashcardIndex + step);
+    }
+
+    function revealGrammarFlashcard() {
+      if (!currentGrammarFlashcard) showGrammarFlashcard();
+      grammarFlashcardRevealed = true;
+      updateGrammarFlashcard();
+      speak(currentGrammarFlashcard.fr, grammarFlashcard);
     }
 
     function renderQuestionWords(list = questionWords) {
@@ -3685,7 +3862,6 @@
         consonantPronunciation: getMatchingConsonantPronunciationRules(q),
         pronunciationMatrix: getMatchingPronunciationMatrixRows(q),
         pronunciationPractice: getMatchingPronunciationPracticeGroups(q),
-        pronouns: pronouns.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
@@ -3714,7 +3890,6 @@
         renderConsonantPronunciationRules();
         renderPronunciationMatrix();
         renderPronunciationPractice();
-        renderPronouns();
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
         renderExamples();
@@ -3738,7 +3913,6 @@
       renderConsonantPronunciationRules(matches.consonantPronunciation);
       renderPronunciationMatrix(matches.pronunciationMatrix);
       renderPronunciationPractice(matches.pronunciationPractice);
-      renderPronouns(matches.pronouns);
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
       renderExamples(matches.examples);
@@ -3759,7 +3933,7 @@
         matches.consonantPronunciation.length > 0 ||
         matches.pronunciationMatrix.length > 0 ||
         matches.pronunciationPractice.length > 0;
-      const hasGrammarResults = matches.pronouns.length > 0 || matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
+      const hasGrammarResults = matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
       const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
@@ -3795,11 +3969,6 @@
       rateValue.textContent = `${Number(rateInput.value).toFixed(2)}x`;
     });
 
-    searchInput.addEventListener("input", (e) => {
-      stopPlayback();
-      applySearch(e.target.value);
-    });
-
     themeToggle.addEventListener("click", () => {
       stopPlayback();
       const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
@@ -3810,16 +3979,24 @@
       stopPlayback();
     });
 
+    grammarFlashcard.addEventListener("click", () => {
+      revealGrammarFlashcard();
+    });
+
+    previousGrammarFlashcardBtn.addEventListener("click", () => {
+      moveGrammarFlashcard(-1);
+    });
+
+    nextGrammarFlashcardBtn.addEventListener("click", () => {
+      moveGrammarFlashcard(1);
+    });
+
     playNumberSamplesBtn.addEventListener("click", () => {
       speakSequence(numberItems.map(item => ({ text: item.speech })));
     });
 
     playPronunciationRulesBtn.addEventListener("click", () => {
       speakSequence([...getPronunciationExamples(), ...getPronunciationMatrixWords(), ...getPronunciationPracticeWords()].map(word => ({ text: word })));
-    });
-
-    playPronounsBtn.addEventListener("click", () => {
-      speakSequence(pronouns.map(item => ({ text: item.speech })));
     });
 
     playEtreBtn.addEventListener("click", () => {
@@ -3889,10 +4066,10 @@
     renderConsonantPronunciationRules();
     renderPronunciationMatrix();
     renderPronunciationPractice();
-    renderPronouns();
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
     renderExamples();
+    showGrammarFlashcard();
     renderQuestionWords();
     renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
     renderCalendarCards(monthsGrid, months, "No months match this search.");
