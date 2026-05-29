@@ -901,6 +901,7 @@
         <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
         <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
+        <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
@@ -1008,7 +1009,7 @@
           <div class="flashcard-toolbar">
             <div>
               <h3>Être / Avoir flash card test</h3>
-              <p>Read the English sentence first. Click the card to reveal the French translation and hear the audio.</p>
+              <p>Read the English sentence first. The practice deck is shuffled so the order stays less predictable. Click the card to reveal the French translation and hear the audio.</p>
             </div>
             <div class="action-row">
               <button class="action-btn" type="button" id="previousGrammarFlashcard">Before</button>
@@ -1051,6 +1052,31 @@
             <h3>Clickable example sentences</h3>
             <div id="exampleGrid" class="example-grid"></div>
           </div>
+        </div>
+      </section>
+
+      <section id="verbsSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Present Tense Verbs</h2>
+            <p class="section-desc">Compare one common irregular verb and one regular -er verb in the same 2-column pattern: singular on the left, plural on the right.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playAller">Play aller</button>
+            <button class="action-btn" type="button" id="playHabiter">Play habiter</button>
+          </div>
+        </div>
+
+        <div class="panel verb-panel">
+          <h3>Aller — to go <span class="translation">(irregular)</span></h3>
+          <p><strong>Aller</strong> changes a lot in the present tense, so it is best memorized as a core pattern.</p>
+          <div id="allerTable" class="verb-matrix"></div>
+        </div>
+
+        <div class="panel verb-panel">
+          <h3>Habiter — to live <span class="translation">(regular -er)</span></h3>
+          <p><strong>Habiter</strong> follows the regular -er pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. The <strong>je</strong> form becomes <strong>j’habite</strong>.</p>
+          <div id="habiterTable" class="verb-matrix"></div>
         </div>
       </section>
 
@@ -1431,6 +1457,28 @@
       { pronoun: "elles", form: "ont", full: "elles ont", en: "they have", example: "Elles ont faim.", exampleEn: "They are hungry." }
     ];
 
+    const allerRows = [
+      { pronoun: "je", form: "vais", full: "je vais", en: "I go / I am going", example: "Je vais au travail.", exampleEn: "I am going to work." },
+      { pronoun: "tu", form: "vas", full: "tu vas", en: "you go / you are going", example: "Tu vas à l’école.", exampleEn: "You are going to school." },
+      { pronoun: "il", form: "va", full: "il va", en: "he goes / he is going", example: "Il va au marché.", exampleEn: "He is going to the market." },
+      { pronoun: "elle", form: "va", full: "elle va", en: "she goes / she is going", example: "Elle va à la maison.", exampleEn: "She is going home." },
+      { pronoun: "nous", form: "allons", full: "nous allons", en: "we go / we are going", example: "Nous allons au parc.", exampleEn: "We are going to the park." },
+      { pronoun: "vous", form: "allez", full: "vous allez", en: "you go / you are going", example: "Vous allez à Paris.", exampleEn: "You are going to Paris." },
+      { pronoun: "ils", form: "vont", full: "ils vont", en: "they go / they are going", example: "Ils vont au restaurant.", exampleEn: "They are going to the restaurant." },
+      { pronoun: "elles", form: "vont", full: "elles vont", en: "they go / they are going", example: "Elles vont à la plage.", exampleEn: "They are going to the beach." }
+    ];
+
+    const habiterRows = [
+      { pronoun: "j’", form: "habite", full: "j’habite", en: "I live", example: "J’habite en Californie.", exampleEn: "I live in California." },
+      { pronoun: "tu", form: "habites", full: "tu habites", en: "you live", example: "Tu habites ici.", exampleEn: "You live here." },
+      { pronoun: "il", form: "habite", full: "il habite", en: "he lives", example: "Il habite à New York.", exampleEn: "He lives in New York." },
+      { pronoun: "elle", form: "habite", full: "elle habite", en: "she lives", example: "Elle habite près d’ici.", exampleEn: "She lives near here." },
+      { pronoun: "nous", form: "habitons", full: "nous habitons", en: "we live", example: "Nous habitons ensemble.", exampleEn: "We live together." },
+      { pronoun: "vous", form: "habitez", full: "vous habitez", en: "you live", example: "Vous habitez où ?", exampleEn: "Where do you live?" },
+      { pronoun: "ils", form: "habitent", full: "ils habitent", en: "they live", example: "Ils habitent dans cette rue.", exampleEn: "They live on this street." },
+      { pronoun: "elles", form: "habitent", full: "elles habitent", en: "they live", example: "Elles habitent à côté.", exampleEn: "They live nearby." }
+    ];
+
     const exampleSentences = [
       { fr: "Je suis chinois.", en: "I am Chinese.", note: "identity / nationality" },
       { fr: "Tu es à la maison.", en: "You are at home.", note: "location" },
@@ -1439,6 +1487,59 @@
       { fr: "J’ai vingt-huit ans.", en: "I am twenty-eight years old.", note: "French uses avoir for age" },
       { fr: "Vous avez un stylo.", en: "You have a pen.", note: "possession" },
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir" }
+    ];
+
+    const extraGrammarFlashcards = [
+      { fr: "Je suis au café.", en: "I am at the café.", source: "être: location" },
+      { fr: "Je suis prêt.", en: "I am ready.", source: "être: state" },
+      { fr: "Je suis en avance.", en: "I am early.", source: "être: time/state" },
+      { fr: "Tu es très calme.", en: "You are very calm.", source: "être: description" },
+      { fr: "Tu es dans la cuisine.", en: "You are in the kitchen.", source: "être: location" },
+      { fr: "Tu es mon ami.", en: "You are my friend.", source: "être: identity" },
+      { fr: "Il est malade.", en: "He is sick.", source: "être: state" },
+      { fr: "Il est au bureau.", en: "He is at the office.", source: "être: location" },
+      { fr: "Il est neuf heures.", en: "It is nine o’clock.", source: "être: time" },
+      { fr: "Elle est professeur.", en: "She is a teacher.", source: "être: profession" },
+      { fr: "Elle est en classe.", en: "She is in class.", source: "être: location" },
+      { fr: "Elle est très gentille.", en: "She is very kind.", source: "être: description" },
+      { fr: "Nous sommes à la gare.", en: "We are at the train station.", source: "être: location" },
+      { fr: "Nous sommes prêts.", en: "We are ready.", source: "être: state" },
+      { fr: "Nous sommes en vacances.", en: "We are on vacation.", source: "être: situation" },
+      { fr: "Vous êtes les bienvenus.", en: "You are welcome.", source: "être: expression" },
+      { fr: "Vous êtes près de la porte.", en: "You are near the door.", source: "être: location" },
+      { fr: "Vous êtes très patient.", en: "You are very patient.", source: "être: description" },
+      { fr: "Ils sont dans le jardin.", en: "They are in the garden.", source: "être: location" },
+      { fr: "Ils sont en réunion.", en: "They are in a meeting.", source: "être: situation" },
+      { fr: "Elles sont à la bibliothèque.", en: "They are at the library.", source: "être: location" },
+      { fr: "Elles sont très occupées.", en: "They are very busy.", source: "être: state" },
+      { fr: "J’ai faim.", en: "I am hungry.", source: "avoir expression" },
+      { fr: "J’ai soif.", en: "I am thirsty.", source: "avoir expression" },
+      { fr: "J’ai froid.", en: "I am cold.", source: "avoir expression" },
+      { fr: "J’ai chaud.", en: "I am hot.", source: "avoir expression" },
+      { fr: "J’ai besoin d’aide.", en: "I need help.", source: "avoir expression" },
+      { fr: "J’ai envie d’un café.", en: "I feel like having a coffee.", source: "avoir expression" },
+      { fr: "Tu as raison.", en: "You are right.", source: "avoir expression" },
+      { fr: "Tu as tort.", en: "You are wrong.", source: "avoir expression" },
+      { fr: "Tu as le temps.", en: "You have time.", source: "avoir: possession" },
+      { fr: "Tu as une question.", en: "You have a question.", source: "avoir: possession" },
+      { fr: "Il a peur.", en: "He is afraid.", source: "avoir expression" },
+      { fr: "Il a sommeil.", en: "He is sleepy.", source: "avoir expression" },
+      { fr: "Il a une voiture.", en: "He has a car.", source: "avoir: possession" },
+      { fr: "Elle a un rendez-vous.", en: "She has an appointment.", source: "avoir: schedule" },
+      { fr: "Elle a beaucoup de travail.", en: "She has a lot of work.", source: "avoir: possession" },
+      { fr: "Elle a de la chance.", en: "She is lucky.", source: "avoir expression" },
+      { fr: "Nous avons une réservation.", en: "We have a reservation.", source: "avoir: possession" },
+      { fr: "Nous avons des billets.", en: "We have tickets.", source: "avoir: possession" },
+      { fr: "Nous avons trente minutes.", en: "We have thirty minutes.", source: "avoir: time" },
+      { fr: "Vous avez une minute ?", en: "Do you have a minute?", source: "avoir: question" },
+      { fr: "Vous avez une adresse ?", en: "Do you have an address?", source: "avoir: question" },
+      { fr: "Vous avez une bonne idée.", en: "You have a good idea.", source: "avoir: possession" },
+      { fr: "Ils ont deux enfants.", en: "They have two children.", source: "avoir: family" },
+      { fr: "Ils ont peur du chien.", en: "They are afraid of the dog.", source: "avoir expression" },
+      { fr: "Ils ont rendez-vous demain.", en: "They have an appointment tomorrow.", source: "avoir: schedule" },
+      { fr: "Elles ont une maison.", en: "They have a house.", source: "avoir: possession" },
+      { fr: "Elles ont faim.", en: "They are hungry.", source: "avoir expression" },
+      { fr: "Elles ont des devoirs.", en: "They have homework.", source: "avoir: possession" }
     ];
 
     const grammarFlashcards = [
@@ -1456,7 +1557,8 @@
         fr: item.fr,
         en: item.en,
         source: item.note
-      }))
+      })),
+      ...extraGrammarFlashcards
     ];
 
     const pronunciationRules = [
@@ -3192,6 +3294,8 @@
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
+    const allerTable = document.getElementById("allerTable");
+    const habiterTable = document.getElementById("habiterTable");
     const exampleGrid = document.getElementById("exampleGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
     const grammarFlashcardEnglish = document.getElementById("grammarFlashcardEnglish");
@@ -3220,6 +3324,7 @@
     const numbersSection = document.getElementById("numbersSection");
     const pronunciationSection = document.getElementById("pronunciationSection");
     const grammarSection = document.getElementById("grammarSection");
+    const verbsSection = document.getElementById("verbsSection");
     const determinersSection = document.getElementById("determinersSection");
     const questionsSection = document.getElementById("questionsSection");
     const calendarSection = document.getElementById("calendarSection");
@@ -3229,6 +3334,8 @@
     const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
     const playEtreBtn = document.getElementById("playEtre");
     const playAvoirBtn = document.getElementById("playAvoir");
+    const playAllerBtn = document.getElementById("playAller");
+    const playHabiterBtn = document.getElementById("playHabiter");
     const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");
     const nextGrammarFlashcardBtn = document.getElementById("nextGrammarFlashcard");
     const playDeterminersBtn = document.getElementById("playDeterminers");
@@ -3241,6 +3348,7 @@
     let voices = [];
     let currentCard = null;
     let currentGrammarFlashcard = null;
+    let grammarFlashcardDeck = [];
     let currentGrammarFlashcardIndex = 0;
     let grammarFlashcardRevealed = false;
     let activeTab = "numbers";
@@ -3595,6 +3703,23 @@
       });
     }
 
+    function shuffleFlashcards(list) {
+      const shuffled = [...list];
+      for (let index = shuffled.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+      }
+      return shuffled;
+    }
+
+    function resetGrammarFlashcardDeck(avoidFirstCard = null) {
+      grammarFlashcardDeck = shuffleFlashcards(grammarFlashcards);
+      if (avoidFirstCard && grammarFlashcardDeck.length > 1 && grammarFlashcardDeck[0] === avoidFirstCard) {
+        grammarFlashcardDeck.push(grammarFlashcardDeck.shift());
+      }
+      currentGrammarFlashcardIndex = 0;
+    }
+
     function updateGrammarFlashcard() {
       if (!currentGrammarFlashcard) return;
       grammarFlashcardEnglish.textContent = currentGrammarFlashcard.en;
@@ -3609,14 +3734,21 @@
 
     function showGrammarFlashcard(index = currentGrammarFlashcardIndex) {
       if (!grammarFlashcards.length) return;
-      currentGrammarFlashcardIndex = (index + grammarFlashcards.length) % grammarFlashcards.length;
-      currentGrammarFlashcard = grammarFlashcards[currentGrammarFlashcardIndex];
+      if (!grammarFlashcardDeck.length) resetGrammarFlashcardDeck();
+      currentGrammarFlashcardIndex = (index + grammarFlashcardDeck.length) % grammarFlashcardDeck.length;
+      currentGrammarFlashcard = grammarFlashcardDeck[currentGrammarFlashcardIndex];
       grammarFlashcardRevealed = false;
       updateGrammarFlashcard();
     }
 
     function moveGrammarFlashcard(step) {
       stopPlayback();
+      if (!grammarFlashcardDeck.length) resetGrammarFlashcardDeck();
+      if (step > 0 && currentGrammarFlashcardIndex >= grammarFlashcardDeck.length - 1) {
+        resetGrammarFlashcardDeck(currentGrammarFlashcard);
+        showGrammarFlashcard(0);
+        return;
+      }
       showGrammarFlashcard(currentGrammarFlashcardIndex + step);
     }
 
@@ -3893,6 +4025,7 @@
       numbersSection.classList.toggle("active", tabName === "numbers");
       pronunciationSection.classList.toggle("active", tabName === "pronunciation");
       grammarSection.classList.toggle("active", tabName === "grammar");
+      verbsSection.classList.toggle("active", tabName === "verbs");
       determinersSection.classList.toggle("active", tabName === "determiners");
       questionsSection.classList.toggle("active", tabName === "questions");
       calendarSection.classList.toggle("active", tabName === "calendar");
@@ -3924,6 +4057,8 @@
         pronunciationPractice: getMatchingPronunciationPracticeGroups(q),
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        aller: allerRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} aller irregular present tense`.toLowerCase().includes(q)),
+        habiter: habiterRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} habiter regular present tense`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         questionWords: questionWords.filter(item =>
           `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => getExampleVariants(example).map(variant => `${variant.fr} ${variant.en}`).join(" ")).join(" ")}`.toLowerCase().includes(q)
@@ -3953,6 +4088,8 @@
         renderPronunciationPractice();
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
+        renderVerbTable(allerTable, allerRows);
+        renderVerbTable(habiterTable, habiterRows);
         renderExamples();
         renderQuestionWords();
         renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
@@ -3977,6 +4114,8 @@
       renderPronunciationPractice(matches.pronunciationPractice);
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
+      renderVerbTable(allerTable, matches.aller);
+      renderVerbTable(habiterTable, matches.habiter);
       renderExamples(matches.examples);
       renderQuestionWords(matches.questionWords);
       renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
@@ -3996,6 +4135,7 @@
         matches.pronunciationMatrix.length > 0 ||
         matches.pronunciationPractice.length > 0;
       const hasGrammarResults = matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
+      const hasVerbResults = matches.aller.length > 0 || matches.habiter.length > 0;
       const hasQuestionResults = matches.questionWords.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
@@ -4010,6 +4150,7 @@
         numbers: hasNumberResults,
         pronunciation: hasPronunciationResults,
         grammar: hasGrammarResults,
+        verbs: hasVerbResults,
         determiners: hasDeterminerResults,
         questions: hasQuestionResults,
         calendar: hasCalendarResults
@@ -4079,6 +4220,20 @@
       ])));
     });
 
+    playAllerBtn.addEventListener("click", () => {
+      speakSequence(allerRows.flatMap(item => ([
+        { text: item.full },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
+    playHabiterBtn.addEventListener("click", () => {
+      speakSequence(habiterRows.flatMap(item => ([
+        { text: item.full },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
     playDeterminersBtn.addEventListener("click", () => {
       speakSequence(allDeterminerItems.flatMap(item => ([
         { text: item.speech || item.fr },
@@ -4135,6 +4290,8 @@
     renderPronunciationPractice();
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
+    renderVerbTable(allerTable, allerRows);
+    renderVerbTable(habiterTable, habiterRows);
     renderExamples();
     showGrammarFlashcard();
     renderQuestionWords();
