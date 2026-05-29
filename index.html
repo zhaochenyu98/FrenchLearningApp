@@ -139,6 +139,7 @@
     .pronoun-card,
     .example-card,
     .question-row-card,
+    .noun-example-btn,
     .theme-btn,
     .poss-cell-btn {
       font: inherit;
@@ -251,6 +252,7 @@
     .pronoun-card,
     .example-card,
     .question-row-card,
+    .noun-example-btn,
     .poss-cell-btn {
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -269,6 +271,7 @@
     .verb-cell-btn:hover,
     .pronoun-card:hover,
     .example-card:hover,
+    .noun-example-btn:hover,
     .poss-cell-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent-border);
@@ -279,6 +282,7 @@
     .verb-cell-btn:active,
     .pronoun-card:active,
     .example-card:active,
+    .noun-example-btn:active,
     .poss-cell-btn:active {
       transform: translateY(0);
     }
@@ -436,6 +440,46 @@
       gap: 14px;
     }
 
+    .article-combo-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .article-combo-columns h4 {
+      margin: 0 0 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .article-combo-columns .determiner-subgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .article-comparison-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 10px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .article-comparison-cell {
+      min-height: 132px;
+    }
+
     .row-card {
       display: grid;
       grid-template-columns: 120px 1fr;
@@ -521,9 +565,165 @@
       gap: 8px;
     }
 
+    .noun-rules-table {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .noun-rule-header,
+    .noun-rule-card {
+      display: grid;
+      grid-template-columns: minmax(130px, 0.8fr) minmax(210px, 1.2fr) minmax(320px, 2fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .noun-rule-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .noun-rule-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .noun-example-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .noun-example-btn {
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .noun-example-main {
+      display: block;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
     .question-example {
       border-left: 3px solid var(--accent-border);
       padding-left: 10px;
+    }
+
+    .quel-forms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .quel-form-card {
+      min-height: 126px;
+    }
+
+    .quel-form-main {
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin: 4px 0;
+    }
+
+    .quel-examples-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .quel-comparison-header,
+    .quel-comparison-row {
+      display: grid;
+      grid-template-columns: minmax(135px, 0.7fr) repeat(3, minmax(165px, 1fr));
+      gap: 10px;
+    }
+
+    .quel-comparison-header {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .quel-comparison-header > div {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .quel-comparison-header span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.35;
+      margin-top: 4px;
+      text-transform: none;
+    }
+
+    .quel-comparison-row {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: 10px;
+    }
+
+    .quel-comparison-topic {
+      align-content: center;
+      display: grid;
+      gap: 4px;
+      min-height: 100%;
+      padding: 8px 10px;
+    }
+
+    .quel-comparison-topic strong {
+      color: var(--accent);
+      display: block;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .quel-comparison-topic span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .quel-comparison-cell {
+      align-content: stretch;
+      display: grid;
+      gap: 8px;
+    }
+
+    .quel-comparison-cell-label {
+      color: var(--muted);
+      display: none;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .quel-comparison-cell .question-example-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      height: 100%;
     }
 
     .question-word-btn,
@@ -830,7 +1030,15 @@
         display: none;
       }
 
+      .noun-rule-header {
+        display: none;
+      }
+
       .question-row-card {
+        grid-template-columns: 1fr;
+      }
+
+      .noun-rule-card {
         grid-template-columns: 1fr;
       }
 
@@ -853,6 +1061,30 @@
       .two-col {
         grid-template-columns: 1fr;
       }
+
+      .article-combo-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .quel-forms-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quel-comparison-header {
+        display: none;
+      }
+
+      .quel-comparison-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quel-comparison-topic {
+        padding: 4px 2px;
+      }
+
+      .quel-comparison-cell-label {
+        display: block;
+      }
     }
 
     @media (max-width: 640px) {
@@ -870,7 +1102,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations for <strong>être</strong> and <strong>avoir</strong>, plus dedicated tabs for core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations, noun plural patterns, core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -902,6 +1134,7 @@
         <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
+        <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
@@ -1063,6 +1296,7 @@
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playAller">Play aller</button>
+            <button class="action-btn" type="button" id="playVenir">Play venir</button>
             <button class="action-btn" type="button" id="playHabiter">Play habiter</button>
           </div>
         </div>
@@ -1074,9 +1308,40 @@
         </div>
 
         <div class="panel verb-panel">
+          <h3>Venir — to come <span class="translation">(irregular)</span></h3>
+          <p><strong>Venir</strong> is another common irregular verb. Notice the stem changes: <strong>viens / vient</strong>, <strong>venons</strong>, <strong>venez</strong>, <strong>viennent</strong>.</p>
+          <div id="venirTable" class="verb-matrix"></div>
+        </div>
+
+        <div class="panel verb-panel">
           <h3>Habiter — to live <span class="translation">(regular -er)</span></h3>
           <p><strong>Habiter</strong> follows the regular -er pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. The <strong>je</strong> form becomes <strong>j’habite</strong>.</p>
           <div id="habiterTable" class="verb-matrix"></div>
+        </div>
+      </section>
+
+      <section id="nounsSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Nouns</h2>
+            <p class="section-desc">Practice the most common written plural patterns for French nouns. Click any example pair to hear the singular form, then the plural form.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playNounPlurals">Play noun plurals</button>
+            <button class="action-btn" type="button" id="playJobNounGenders">Play job noun genders</button>
+          </div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Plural Rules</h3>
+          <p>These rules cover the beginner patterns you’ll see constantly: add <strong>-s</strong>, change some endings to <strong>-x</strong>, leave <strong>-s / -x / -z</strong> unchanged, and change many <strong>-al</strong> nouns to <strong>-aux</strong>.</p>
+          <div id="nounRulesGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Masculine → Feminine Job Nouns</h3>
+          <p>Many job and person nouns change endings for feminine forms. Click any pair to hear the masculine form, then the feminine form.</p>
+          <div id="jobGenderRulesGrid" class="noun-rules-table"></div>
         </div>
       </section>
 
@@ -1097,19 +1362,15 @@
           <div class="summary-chips">
             <div class="summary-chip">
               <strong>Definite</strong>
-              <span>le, la, l’, les = “the”</span>
+              <span>le, la, les = “the”</span>
             </div>
             <div class="summary-chip">
               <strong>Indefinite</strong>
               <span>un, une, des = “a / an / some”</span>
             </div>
             <div class="summary-chip">
-              <strong>Partitive</strong>
-              <span>du, de la, de l’ = “some”</span>
-            </div>
-            <div class="summary-chip">
-              <strong>De + Articles</strong>
-              <span>de + le = du, de + les = des; negatives often use de / d’</span>
+              <strong>À / De + Articles</strong>
+              <span>à + le = au, à + les = aux; de + le = du, de + les = des</span>
             </div>
             <div class="summary-chip">
               <strong>Demonstrative</strong>
@@ -1124,27 +1385,26 @@
 
         <div class="determiner-sections">
           <div class="category-panel">
-            <h3>Definite articles</h3>
-            <p>Use these when you mean <strong>the</strong>. Choose by gender, number, and whether the next word begins with a vowel sound.</p>
-            <div id="definiteGrid" class="determiner-subgrid"></div>
+            <h3>Definite vs Indefinite Articles</h3>
+            <p>Compare <strong>the</strong> with <strong>a / an / some</strong> in three aligned rows. <strong>L’</strong> is omitted here to keep the beginner table aligned.</p>
+            <div id="articleComparisonGrid" class="article-comparison-grid"></div>
           </div>
 
           <div class="category-panel">
-            <h3>Indefinite articles</h3>
-            <p>Use these for <strong>a / an / some</strong> with countable nouns.</p>
-            <div id="indefiniteGrid" class="determiner-subgrid"></div>
-          </div>
-
-          <div class="category-panel">
-            <h3>Partitive articles</h3>
-            <p>Use these for <strong>some</strong> with things like food, drinks, and other uncountable nouns.</p>
-            <div id="partitiveGrid" class="determiner-subgrid"></div>
-          </div>
-
-          <div class="category-panel">
-            <h3>Partitive Article: de + articles</h3>
-            <p><strong>De</strong> can mean <strong>of / from</strong>, and it combines with some definite articles: <strong>de + le = du</strong>, <strong>de + les = des</strong>. In many negative sentences, indefinite and partitive articles become <strong>de</strong> or <strong>d’</strong>.</p>
-            <div id="deArticleGrid" class="determiner-subgrid"></div>
+            <h3>Partitive Article: à / de + articles</h3>
+            <p><strong>À</strong> can mean <strong>to / at / in</strong>; <strong>de</strong> can mean <strong>of / from</strong>. Both combine with some definite articles.</p>
+            <div class="article-combo-columns">
+              <div>
+                <h4>À + articles</h4>
+                <p><strong>À + le = au</strong>, <strong>à + les = aux</strong>. <strong>À la</strong> and <strong>à l’</strong> stay separate.</p>
+                <div id="aArticleGrid" class="determiner-subgrid"></div>
+              </div>
+              <div>
+                <h4>De + articles</h4>
+                <p><strong>De + le = du</strong>, <strong>de + les = des</strong>. <strong>De la</strong> and <strong>de l’</strong> stay separate.</p>
+                <div id="deArticleGrid" class="determiner-subgrid"></div>
+              </div>
+            </div>
           </div>
 
           <div class="category-panel">
@@ -1156,7 +1416,6 @@
           <div class="category-panel">
             <h3>Possessive determiners</h3>
             <p>These agree with the noun being possessed, not with the owner. Click any form to hear it with an example.</p>
-            <p><strong>Vowel-sound tip:</strong> before a feminine singular noun starting with a vowel sound, French often uses <strong>mon / ton / son</strong>: <strong>mon amie</strong>, <strong>ton idée</strong>, <strong>son école</strong>.</p>
             <div class="poss-header-row">
               <div class="poss-header-cell">Owner</div>
               <div class="poss-header-cell">Masculine singular</div>
@@ -1164,6 +1423,12 @@
               <div class="poss-header-cell">Plural</div>
             </div>
             <div id="possessiveGrid" class="possessive-grid"></div>
+          </div>
+
+          <div class="category-panel">
+            <h3>Possessive Exceptions Before Vowels</h3>
+            <p>Before a feminine singular noun starting with a vowel sound, use <strong>mon / ton / son</strong> instead of <strong>ma / ta / sa</strong>. This makes pronunciation smoother.</p>
+            <div id="possessiveExceptionGrid" class="determiner-subgrid"></div>
           </div>
         </div>
       </section>
@@ -1199,6 +1464,13 @@
               <span><strong>Est-ce que</strong> starts a yes/no question. <strong>N’est-ce pas</strong> works like “isn’t it?” or “right?”</span>
             </div>
           </div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Quel Deep Dive</h3>
+          <p><strong>Quel</strong> means “which / what” before a noun. It agrees with the noun: masculine/feminine and singular/plural.</p>
+          <div id="quelFormsGrid" class="quel-forms-grid"></div>
+          <div id="quelExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
         <div class="category-panel">
@@ -1466,6 +1738,17 @@
       { pronoun: "vous", form: "allez", full: "vous allez", en: "you go / you are going", example: "Vous allez à Paris.", exampleEn: "You are going to Paris." },
       { pronoun: "ils", form: "vont", full: "ils vont", en: "they go / they are going", example: "Ils vont au restaurant.", exampleEn: "They are going to the restaurant." },
       { pronoun: "elles", form: "vont", full: "elles vont", en: "they go / they are going", example: "Elles vont à la plage.", exampleEn: "They are going to the beach." }
+    ];
+
+    const venirRows = [
+      { pronoun: "je", form: "viens", full: "je viens", en: "I come / I am coming", example: "Je viens de la maison.", exampleEn: "I am coming from home." },
+      { pronoun: "tu", form: "viens", full: "tu viens", en: "you come / you are coming", example: "Tu viens avec moi ?", exampleEn: "Are you coming with me?" },
+      { pronoun: "il", form: "vient", full: "il vient", en: "he comes / he is coming", example: "Il vient du bureau.", exampleEn: "He is coming from the office." },
+      { pronoun: "elle", form: "vient", full: "elle vient", en: "she comes / she is coming", example: "Elle vient à la fête.", exampleEn: "She is coming to the party." },
+      { pronoun: "nous", form: "venons", full: "nous venons", en: "we come / we are coming", example: "Nous venons de Paris.", exampleEn: "We are coming from Paris." },
+      { pronoun: "vous", form: "venez", full: "vous venez", en: "you come / you are coming", example: "Vous venez ce soir ?", exampleEn: "Are you coming tonight?" },
+      { pronoun: "ils", form: "viennent", full: "ils viennent", en: "they come / they are coming", example: "Ils viennent en train.", exampleEn: "They are coming by train." },
+      { pronoun: "elles", form: "viennent", full: "elles viennent", en: "they come / they are coming", example: "Elles viennent demain.", exampleEn: "They are coming tomorrow." }
     ];
 
     const habiterRows = [
@@ -3074,6 +3357,74 @@
       }
     ];
 
+    const quelForms = [
+      { form: "quel", gender: "Masculine", number: "Singular", example: "quel livre", exampleEn: "which book / what book" },
+      { form: "quelle", gender: "Feminine", number: "Singular", example: "quelle ville", exampleEn: "which city / what city" },
+      { form: "quels", gender: "Masculine", number: "Plural", example: "quels livres", exampleEn: "which books / what books" },
+      { form: "quelles", gender: "Feminine", number: "Plural", example: "quelles villes", exampleEn: "which cities / what cities" }
+    ];
+
+    const quelExampleColumns = [
+      {
+        key: "etre",
+        title: "Quel + être",
+        note: "Uses être to identify the noun choice."
+      },
+      {
+        key: "end",
+        title: "Quel at the end",
+        note: "Common in everyday spoken French."
+      },
+      {
+        key: "front",
+        title: "Quel at the front",
+        note: "A more textbook / formal order."
+      }
+    ];
+
+    const quelExampleRows = [
+      {
+        topic: "Book choice",
+        agreement: "Masculine singular",
+        en: "Which book do you prefer?",
+        examples: {
+          etre: { fr: "Quel est le livre que tu préfères ?", en: "Which is the book that you prefer?" },
+          end: { fr: "Tu préfères quel livre ?", en: "Which book do you prefer? (spoken)" },
+          front: { fr: "Quel livre préfères-tu ?", en: "Which book do you prefer?" }
+        }
+      },
+      {
+        topic: "City",
+        agreement: "Feminine singular",
+        en: "Which city does she live in?",
+        examples: {
+          etre: { fr: "Quelle est la ville où elle habite ?", en: "Which is the city where she lives?" },
+          end: { fr: "Elle habite dans quelle ville ?", en: "Which city does she live in? (spoken)" },
+          front: { fr: "Dans quelle ville habite-t-elle ?", en: "Which city does she live in?" }
+        }
+      },
+      {
+        topic: "Movies",
+        agreement: "Masculine plural",
+        en: "Which movies do you like?",
+        examples: {
+          etre: { fr: "Quels sont les films que vous aimez ?", en: "Which are the movies that you like?" },
+          end: { fr: "Vous aimez quels films ?", en: "Which movies do you like? (spoken)" },
+          front: { fr: "Quels films aimez-vous ?", en: "Which movies do you like?" }
+        }
+      },
+      {
+        topic: "Shoes",
+        agreement: "Feminine plural",
+        en: "Which shoes are you wearing?",
+        examples: {
+          etre: { fr: "Quelles sont les chaussures que tu portes ?", en: "Which are the shoes that you are wearing?" },
+          end: { fr: "Tu portes quelles chaussures ?", en: "Which shoes are you wearing? (spoken)" },
+          front: { fr: "Quelles chaussures portes-tu ?", en: "Which shoes are you wearing?" }
+        }
+      }
+    ];
+
     const weekdays = [
       { fr: "lundi", en: "Monday", note: "day of the week", example: "le lundi", exampleEn: "on Mondays" },
       { fr: "mardi", en: "Tuesday", note: "day of the week", example: "le mardi", exampleEn: "on Tuesdays" },
@@ -3106,22 +3457,130 @@
       { fr: "hiver", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
     ];
 
+    const nounPluralRules = [
+      {
+        rule: "+s",
+        pattern: "Most nouns add -s in writing. The final -s is usually silent.",
+        examples: [
+          { singular: "un livre", plural: "des livres", en: "a book / books" },
+          { singular: "une table", plural: "des tables", en: "a table / tables" },
+          { singular: "un ami", plural: "des amis", en: "a friend / friends" }
+        ]
+      },
+      {
+        rule: "-au / -eau / -eu → +x",
+        pattern: "Many nouns ending in -au, -eau, or -eu add -x in the plural.",
+        examples: [
+          { singular: "un tuyau", plural: "des tuyaux", en: "a pipe / pipes" },
+          { singular: "un bateau", plural: "des bateaux", en: "a boat / boats" },
+          { singular: "un jeu", plural: "des jeux", en: "a game / games" }
+        ]
+      },
+      {
+        rule: "-s / -x / -z → no change",
+        pattern: "If the noun already ends in -s, -x, or -z, the written plural usually stays the same.",
+        examples: [
+          { singular: "un pays", plural: "des pays", en: "a country / countries" },
+          { singular: "un prix", plural: "des prix", en: "a price / prices" },
+          { singular: "un nez", plural: "des nez", en: "a nose / noses" }
+        ]
+      },
+      {
+        rule: "-al → -aux",
+        pattern: "Many nouns ending in -al change to -aux in the plural.",
+        examples: [
+          { singular: "un animal", plural: "des animaux", en: "an animal / animals" },
+          { singular: "un journal", plural: "des journaux", en: "a newspaper / newspapers" },
+          { singular: "un cheval", plural: "des chevaux", en: "a horse / horses" }
+        ]
+      }
+    ];
+
+    const jobGenderRules = [
+      {
+        rule: "-eur → -euse",
+        pattern: "Many masculine job nouns ending in -eur become -euse.",
+        examples: [
+          { masculine: "un serveur", feminine: "une serveuse", en: "a waiter / waitress; server" },
+          { masculine: "un vendeur", feminine: "une vendeuse", en: "a salesperson" },
+          { masculine: "un coiffeur", feminine: "une coiffeuse", en: "a hairdresser" }
+        ]
+      },
+      {
+        rule: "-er → -ère",
+        pattern: "Many masculine job nouns ending in -er add an accent and become -ère.",
+        examples: [
+          { masculine: "un boulanger", feminine: "une boulangère", en: "a baker" },
+          { masculine: "un infirmier", feminine: "une infirmière", en: "a nurse" },
+          { masculine: "un cuisinier", feminine: "une cuisinière", en: "a cook" }
+        ]
+      },
+      {
+        rule: "-f → -ve",
+        pattern: "Some person nouns ending in -f change to -ve. This is less common for everyday job names.",
+        examples: [
+          { masculine: "un sportif", feminine: "une sportive", en: "an athlete / sporty person" },
+          { masculine: "un créatif", feminine: "une créative", en: "a creative professional" },
+          { masculine: "un actif", feminine: "une active", en: "an active worker / active person" }
+        ]
+      },
+      {
+        rule: "-ien → -ienne",
+        pattern: "Masculine job nouns ending in -ien usually double the n and add -e.",
+        examples: [
+          { masculine: "un musicien", feminine: "une musicienne", en: "a musician" },
+          { masculine: "un comédien", feminine: "une comédienne", en: "an actor / actress" },
+          { masculine: "un technicien", feminine: "une technicienne", en: "a technician" }
+        ]
+      },
+      {
+        rule: "-teur → -trice",
+        pattern: "Many job nouns ending in -teur become -trice.",
+        examples: [
+          { masculine: "un acteur", feminine: "une actrice", en: "an actor / actress" },
+          { masculine: "un directeur", feminine: "une directrice", en: "a director / manager" },
+          { masculine: "un traducteur", feminine: "une traductrice", en: "a translator" }
+        ]
+      },
+      {
+        rule: "-e → no change",
+        pattern: "Many job nouns already ending in -e keep the same spoken and written form.",
+        examples: [
+          { masculine: "un architecte", feminine: "une architecte", en: "an architect" },
+          { masculine: "un pilote", feminine: "une pilote", en: "a pilot" },
+          { masculine: "un photographe", feminine: "une photographe", en: "a photographer" }
+        ]
+      },
+      {
+        rule: "-iste → no change",
+        pattern: "Job nouns ending in -iste usually keep the same form.",
+        examples: [
+          { masculine: "un artiste", feminine: "une artiste", en: "an artist" },
+          { masculine: "un dentiste", feminine: "une dentiste", en: "a dentist" },
+          { masculine: "un journaliste", feminine: "une journaliste", en: "a journalist" }
+        ]
+      },
+      {
+        rule: "Special forms",
+        pattern: "Some common job nouns do not follow the simple ending rules.",
+        examples: [
+          { masculine: "un professeur", feminine: "une professeure", en: "a professor / teacher" },
+          { masculine: "un médecin", feminine: "une médecin", en: "a doctor" },
+          { masculine: "un chef", feminine: "une cheffe", en: "a chef / boss" }
+        ]
+      }
+    ];
+
     const determinerCategories = {
       definite: [
         { fr: "le", en: "the", note: "before a singular masculine noun", example: "le livre", exampleEn: "the book" },
         { fr: "la", en: "the", note: "before a singular feminine noun", example: "la maison", exampleEn: "the house" },
-        { fr: "l’", en: "the", note: "before a vowel sound", example: "l’école", exampleEn: "the school" },
         { fr: "les", en: "the", note: "before plural nouns", example: "les amis", exampleEn: "the friends" }
       ],
       indefinite: [
         { fr: "un", en: "a / an", note: "before a singular masculine noun", example: "un chat", exampleEn: "a cat" },
         { fr: "une", en: "a / an", note: "before a singular feminine noun", example: "une table", exampleEn: "a table" },
         { fr: "des", en: "some", note: "before plural nouns", example: "des livres", exampleEn: "some books" }
-      ],
-      partitive: [
-        { fr: "du", en: "some", note: "often with masculine uncountable nouns", example: "du pain", exampleEn: "some bread" },
-        { fr: "de la", en: "some", note: "often with feminine uncountable nouns", example: "de la soupe", exampleEn: "some soup" },
-        { fr: "de l’", en: "some", note: "before a vowel sound", example: "de l’eau", exampleEn: "some water" }
       ],
       demonstrative: [
         { fr: "ce", en: "this / that", note: "before masculine singular noun", example: "ce livre", exampleEn: "this book" },
@@ -3130,6 +3589,59 @@
         { fr: "ces", en: "these / those", note: "before plural nouns", example: "ces enfants", exampleEn: "these children" }
       ]
     };
+
+    const articleComparisonRows = [
+      {
+        label: "Masculine singular",
+        definite: determinerCategories.definite[0],
+        indefinite: determinerCategories.indefinite[0]
+      },
+      {
+        label: "Feminine singular",
+        definite: determinerCategories.definite[1],
+        indefinite: determinerCategories.indefinite[1]
+      },
+      {
+        label: "Plural",
+        definite: determinerCategories.definite[2],
+        indefinite: determinerCategories.indefinite[2]
+      }
+    ];
+
+    const aArticleRules = [
+      {
+        fr: "à + le → au",
+        en: "to / at the",
+        note: "Use au before a masculine singular noun.",
+        example: "Je vais au parc.",
+        exampleEn: "I am going to the park.",
+        speech: "au"
+      },
+      {
+        fr: "à + la → à la",
+        en: "to / at the",
+        note: "À la stays separate before a feminine singular noun.",
+        example: "Je vais à la bibliothèque.",
+        exampleEn: "I am going to the library.",
+        speech: "à la"
+      },
+      {
+        fr: "à + l’ → à l’",
+        en: "to / at the",
+        note: "Use à l’ before a vowel sound.",
+        example: "Je vais à l’école.",
+        exampleEn: "I am going to school.",
+        speech: "à l"
+      },
+      {
+        fr: "à + les → aux",
+        en: "to / at the",
+        note: "Use aux before plural nouns.",
+        example: "Je parle aux enfants.",
+        exampleEn: "I am talking to the children.",
+        speech: "aux"
+      }
+    ];
 
     const deArticleRules = [
       {
@@ -3163,21 +3675,6 @@
         example: "Le sac des enfants est ici.",
         exampleEn: "The children’s bag is here.",
         speech: "des"
-      },
-      {
-        fr: "ne ... pas de",
-        en: "not any / no",
-        note: "Negation rule: indefinite and partitive articles usually become de after pas.",
-        example: "Je ne mange pas de pain.",
-        exampleEn: "I am not eating any bread."
-      },
-      {
-        fr: "ne ... pas d’",
-        en: "not any / no",
-        note: "Use d’ before a vowel sound in negative sentences.",
-        example: "Elle ne boit pas d’eau.",
-        exampleEn: "She is not drinking any water.",
-        speech: "d"
       }
     ];
 
@@ -3238,12 +3735,57 @@
       }
     ];
 
+    const possessiveExceptions = [
+      {
+        fr: "mon ami",
+        en: "my friend (masculine)",
+        note: "Regular masculine singular: use mon.",
+        example: "Mon ami arrive.",
+        exampleEn: "My friend is arriving."
+      },
+      {
+        fr: "mon amie",
+        en: "my friend (feminine)",
+        note: "Use mon, not ma, before feminine amie because it starts with a vowel sound.",
+        example: "Mon amie arrive.",
+        exampleEn: "My friend is arriving."
+      },
+      {
+        fr: "ton amie",
+        en: "your friend (feminine, informal)",
+        note: "Use ton, not ta, before feminine amie.",
+        example: "Ton amie est ici.",
+        exampleEn: "Your friend is here."
+      },
+      {
+        fr: "son amie",
+        en: "his / her friend (feminine)",
+        note: "Use son, not sa, before feminine amie.",
+        example: "Son amie parle français.",
+        exampleEn: "His / her friend speaks French."
+      },
+      {
+        fr: "mon idée",
+        en: "my idea",
+        note: "Use mon, not ma, before feminine idée.",
+        example: "Mon idée est simple.",
+        exampleEn: "My idea is simple."
+      },
+      {
+        fr: "son école",
+        en: "his / her school",
+        note: "Use son, not sa, before feminine école.",
+        example: "Son école est grande.",
+        exampleEn: "His / her school is big."
+      }
+    ];
+
     const allDeterminerItems = [
-      ...determinerCategories.definite,
-      ...determinerCategories.indefinite,
-      ...determinerCategories.partitive,
+      ...articleComparisonRows.flatMap(row => [row.definite, row.indefinite]),
+      ...aArticleRules,
       ...deArticleRules,
       ...determinerCategories.demonstrative,
+      ...possessiveExceptions,
       ...possessiveRows.flatMap(row => row.forms.map(form => ({
         fr: form.form,
         en: `${row.owner}`,
@@ -3295,6 +3837,7 @@
     const etreTable = document.getElementById("etreTable");
     const avoirTable = document.getElementById("avoirTable");
     const allerTable = document.getElementById("allerTable");
+    const venirTable = document.getElementById("venirTable");
     const habiterTable = document.getElementById("habiterTable");
     const exampleGrid = document.getElementById("exampleGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
@@ -3303,16 +3846,20 @@
     const grammarFlashcardAnswer = document.getElementById("grammarFlashcardAnswer");
     const grammarFlashcardFrench = document.getElementById("grammarFlashcardFrench");
     const questionWordsGrid = document.getElementById("questionWordsGrid");
+    const quelFormsGrid = document.getElementById("quelFormsGrid");
+    const quelExamplesGrid = document.getElementById("quelExamplesGrid");
+    const nounRulesGrid = document.getElementById("nounRulesGrid");
+    const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");
 
-    const definiteGrid = document.getElementById("definiteGrid");
-    const indefiniteGrid = document.getElementById("indefiniteGrid");
-    const partitiveGrid = document.getElementById("partitiveGrid");
+    const articleComparisonGrid = document.getElementById("articleComparisonGrid");
+    const aArticleGrid = document.getElementById("aArticleGrid");
     const deArticleGrid = document.getElementById("deArticleGrid");
     const demonstrativeGrid = document.getElementById("demonstrativeGrid");
     const possessiveGrid = document.getElementById("possessiveGrid");
+    const possessiveExceptionGrid = document.getElementById("possessiveExceptionGrid");
 
     const voiceSelect = document.getElementById("voiceSelect");
     const rateInput = document.getElementById("rate");
@@ -3325,6 +3872,7 @@
     const pronunciationSection = document.getElementById("pronunciationSection");
     const grammarSection = document.getElementById("grammarSection");
     const verbsSection = document.getElementById("verbsSection");
+    const nounsSection = document.getElementById("nounsSection");
     const determinersSection = document.getElementById("determinersSection");
     const questionsSection = document.getElementById("questionsSection");
     const calendarSection = document.getElementById("calendarSection");
@@ -3335,7 +3883,10 @@
     const playEtreBtn = document.getElementById("playEtre");
     const playAvoirBtn = document.getElementById("playAvoir");
     const playAllerBtn = document.getElementById("playAller");
+    const playVenirBtn = document.getElementById("playVenir");
     const playHabiterBtn = document.getElementById("playHabiter");
+    const playNounPluralsBtn = document.getElementById("playNounPlurals");
+    const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
     const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");
     const nextGrammarFlashcardBtn = document.getElementById("nextGrammarFlashcard");
     const playDeterminersBtn = document.getElementById("playDeterminers");
@@ -3759,6 +4310,225 @@
       speak(currentGrammarFlashcard.fr, grammarFlashcard);
     }
 
+    function getNounPluralRuleSearchText(rule) {
+      return `${rule.rule} ${rule.pattern} ${rule.examples.map(example => `${example.singular} ${example.plural} ${example.en}`).join(" ")}`.toLowerCase();
+    }
+
+    function getJobGenderRuleSearchText(rule) {
+      return `${rule.rule} ${rule.pattern} ${rule.examples.map(example => `${example.masculine} ${example.feminine} ${example.en}`).join(" ")}`.toLowerCase();
+    }
+
+    function getNounPluralExamples(rules = nounPluralRules) {
+      return rules.flatMap(rule => rule.examples);
+    }
+
+    function getJobGenderExamples(rules = jobGenderRules) {
+      return rules.flatMap(rule => rule.examples);
+    }
+
+    function speakNounPluralExample(example, card) {
+      speakSequence([
+        { text: example.singular },
+        { text: example.plural, pauseBefore: examplePauseMs }
+      ], card);
+    }
+
+    function speakJobGenderExample(example, card) {
+      speakSequence([
+        { text: example.masculine },
+        { text: example.feminine, pauseBefore: examplePauseMs }
+      ], card);
+    }
+
+    function renderNounPluralRules(list = nounPluralRules) {
+      nounRulesGrid.innerHTML = "";
+      if (!list.length) {
+        nounRulesGrid.innerHTML = `<div class="empty-state">No noun plural rules match this search.</div>`;
+        return;
+      }
+
+      nounRulesGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Plural rule</div>
+          <div>How it changes</div>
+          <div>Practice examples</div>
+        </div>
+      `;
+
+      list.forEach((rule, ruleIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Rule</span>
+            <div class="french-line">${rule.rule}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Pattern</span>
+            <div class="grammar-note">${rule.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rule.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.singular} → ${example.plural}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = list[Number(button.dataset.ruleIndex)].examples[Number(button.dataset.exampleIndex)];
+            speakNounPluralExample(example, button);
+          });
+        });
+        nounRulesGrid.appendChild(row);
+      });
+    }
+
+    function renderJobGenderRules(list = jobGenderRules) {
+      jobGenderRulesGrid.innerHTML = "";
+      if (!list.length) {
+        jobGenderRulesGrid.innerHTML = `<div class="empty-state">No job noun gender rules match this search.</div>`;
+        return;
+      }
+
+      jobGenderRulesGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Feminine rule</div>
+          <div>How it changes</div>
+          <div>Practice examples</div>
+        </div>
+      `;
+
+      list.forEach((rule, ruleIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Rule</span>
+            <div class="french-line">${rule.rule}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Pattern</span>
+            <div class="grammar-note">${rule.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rule.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.masculine} → ${example.feminine}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = list[Number(button.dataset.ruleIndex)].examples[Number(button.dataset.exampleIndex)];
+            speakJobGenderExample(example, button);
+          });
+        });
+        jobGenderRulesGrid.appendChild(row);
+      });
+    }
+
+    function getQuelDeepDiveSearchText() {
+      return [
+        ...quelForms.map(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`),
+        ...quelExampleColumns.map(column => `${column.title} ${column.note}`),
+        ...quelExampleRows.map(row => `${row.topic} ${row.agreement} ${row.en} ${quelExampleColumns.map(column => {
+          const example = row.examples[column.key];
+          return `${example.fr} ${example.en}`;
+        }).join(" ")}`)
+      ].join(" ").toLowerCase();
+    }
+
+    function getMatchingQuelExampleRows(q) {
+      const columnMatches = quelExampleColumns.some(column => `${column.title} ${column.note}`.toLowerCase().includes(q));
+      return quelExampleRows.filter(row => {
+        const rowText = `${row.topic} ${row.agreement} ${row.en} ${quelExampleColumns.map(column => {
+          const example = row.examples[column.key];
+          return `${example.fr} ${example.en}`;
+        }).join(" ")}`.toLowerCase();
+        return columnMatches || rowText.includes(q);
+      });
+    }
+
+    function renderQuelForms(showContent = true) {
+      quelFormsGrid.innerHTML = "";
+      if (!showContent) {
+        quelFormsGrid.innerHTML = `<div class="empty-state">No quel forms match this search.</div>`;
+        return;
+      }
+
+      quelForms.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card quel-form-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="matrix-label">${item.gender} ${item.number}</div>
+          <div class="quel-form-main">${item.form}</div>
+          <div class="translation">${item.example}</div>
+          <div class="translation">${item.exampleEn}</div>
+        `;
+        button.addEventListener("click", () => speakWithPause(item.form, item.example, button));
+        quelFormsGrid.appendChild(button);
+      });
+    }
+
+    function renderQuelExamples(rows = quelExampleRows) {
+      quelExamplesGrid.innerHTML = "";
+      if (!rows.length) {
+        quelExamplesGrid.innerHTML = `<div class="empty-state">No quel examples match this search.</div>`;
+        return;
+      }
+
+      const header = document.createElement("div");
+      header.className = "quel-comparison-header";
+      header.innerHTML = `
+        <div>Same idea</div>
+        ${quelExampleColumns.map(column => `<div>${column.title}<br><span>${column.note}</span></div>`).join("")}
+      `;
+      quelExamplesGrid.appendChild(header);
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "quel-comparison-row";
+        row.innerHTML = `
+          <div class="quel-comparison-topic">
+            <strong>${rowData.en}</strong>
+            <span>${rowData.topic}</span>
+            <span>${rowData.agreement}</span>
+          </div>
+          ${quelExampleColumns.map(column => {
+            const example = rowData.examples[column.key];
+            return `
+              <div class="quel-comparison-cell">
+                <span class="quel-comparison-cell-label">${column.title}</span>
+                <button class="question-example-btn" type="button" data-row-index="${rowIndex}" data-column-key="${column.key}">
+                  <div class="translation"><strong>${example.fr}</strong></div>
+                  <div class="translation">${example.en}</div>
+                </button>
+              </div>
+            `;
+          }).join("")}
+        `;
+        row.querySelectorAll(".question-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rows[Number(button.dataset.rowIndex)].examples[button.dataset.columnKey];
+            speak(example.fr, button);
+          });
+        });
+        quelExamplesGrid.appendChild(row);
+      });
+    }
+
     function renderQuestionWords(list = questionWords) {
       questionWordsGrid.innerHTML = "";
       if (!list.length) {
@@ -3864,6 +4634,41 @@
       });
     }
 
+    function articleItemMatches(item, q) {
+      return `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q);
+    }
+
+    function renderArticleComparison(rows = articleComparisonRows) {
+      articleComparisonGrid.innerHTML = "";
+      if (!rows.length) {
+        articleComparisonGrid.innerHTML = `<div class="empty-state">No article pairs match this search.</div>`;
+        return;
+      }
+
+      articleComparisonGrid.innerHTML = `
+        <div class="article-comparison-header">Definite: the</div>
+        <div class="article-comparison-header">Indefinite: a / an / some</div>
+      `;
+
+      rows.forEach(row => {
+        [row.definite, row.indefinite].forEach(item => {
+          const button = document.createElement("button");
+          button.className = "example-card article-comparison-cell";
+          button.type = "button";
+          button.innerHTML = `
+            <div class="matrix-label">${row.label}</div>
+            <div class="french-line">${item.fr}</div>
+            <div class="translation">${item.en}</div>
+            <div class="grammar-note">${item.note}</div>
+            <div class="translation"><strong>Example:</strong> ${item.example}</div>
+            <div class="translation">${item.exampleEn}</div>
+          `;
+          button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
+          articleComparisonGrid.appendChild(button);
+        });
+      });
+    }
+
     function renderPossessives(list = possessiveRows) {
       possessiveGrid.innerHTML = "";
       if (!list.length) {
@@ -3899,6 +4704,10 @@
 
         possessiveGrid.appendChild(rowEl);
       });
+    }
+
+    function renderPossessiveExceptions(list = possessiveExceptions) {
+      renderDeterminerCards(possessiveExceptionGrid, list);
     }
 
     function loadVoices() {
@@ -4026,6 +4835,7 @@
       pronunciationSection.classList.toggle("active", tabName === "pronunciation");
       grammarSection.classList.toggle("active", tabName === "grammar");
       verbsSection.classList.toggle("active", tabName === "verbs");
+      nounsSection.classList.toggle("active", tabName === "nouns");
       determinersSection.classList.toggle("active", tabName === "determiners");
       questionsSection.classList.toggle("active", tabName === "questions");
       calendarSection.classList.toggle("active", tabName === "calendar");
@@ -4058,19 +4868,28 @@
         etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         aller: allerRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} aller irregular present tense`.toLowerCase().includes(q)),
+        venir: venirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} venir irregular present tense`.toLowerCase().includes(q)),
         habiter: habiterRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} habiter regular present tense`.toLowerCase().includes(q)),
         examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
         questionWords: questionWords.filter(item =>
           `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => getExampleVariants(example).map(variant => `${variant.fr} ${variant.en}`).join(" ")).join(" ")}`.toLowerCase().includes(q)
         ),
+        quelForms: quelForms.some(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        quelExamples: getMatchingQuelExampleRows(q),
+        nounPluralRules: nounPluralRules.filter(rule => getNounPluralRuleSearchText(rule).includes(q)),
+        jobGenderRules: jobGenderRules.filter(rule => getJobGenderRuleSearchText(rule).includes(q)),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        definite: determinerCategories.definite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        indefinite: determinerCategories.indefinite.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        partitive: determinerCategories.partitive.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        articleBasics: articleComparisonRows.filter(row =>
+          row.label.toLowerCase().includes(q) ||
+          articleItemMatches(row.definite, q) ||
+          articleItemMatches(row.indefinite, q)
+        ),
+        aArticles: aArticleRules.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         deArticles: deArticleRules.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         demonstrative: determinerCategories.demonstrative.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
+        possessiveExceptions: possessiveExceptions.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         possessives: filteredPossessives
       };
     }
@@ -4089,18 +4908,23 @@
         renderVerbTable(etreTable, etreRows);
         renderVerbTable(avoirTable, avoirRows);
         renderVerbTable(allerTable, allerRows);
+        renderVerbTable(venirTable, venirRows);
         renderVerbTable(habiterTable, habiterRows);
         renderExamples();
+        renderQuelForms();
+        renderQuelExamples();
         renderQuestionWords();
+        renderNounPluralRules();
+        renderJobGenderRules();
         renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
         renderCalendarCards(monthsGrid, months, "No months match this search.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
-        renderDeterminerCards(definiteGrid, determinerCategories.definite);
-        renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
-        renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
+        renderArticleComparison();
+        renderDeterminerCards(aArticleGrid, aArticleRules);
         renderDeterminerCards(deArticleGrid, deArticleRules);
         renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
         renderPossessives();
+        renderPossessiveExceptions();
         return;
       }
 
@@ -4115,18 +4939,23 @@
       renderVerbTable(etreTable, matches.etre);
       renderVerbTable(avoirTable, matches.avoir);
       renderVerbTable(allerTable, matches.aller);
+      renderVerbTable(venirTable, matches.venir);
       renderVerbTable(habiterTable, matches.habiter);
       renderExamples(matches.examples);
+      renderQuelForms(matches.quelForms || getQuelDeepDiveSearchText().includes(q));
+      renderQuelExamples(matches.quelExamples);
       renderQuestionWords(matches.questionWords);
+      renderNounPluralRules(matches.nounPluralRules);
+      renderJobGenderRules(matches.jobGenderRules);
       renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
       renderCalendarCards(monthsGrid, matches.months, "No months match this search.");
       renderCalendarCards(seasonsGrid, matches.seasons, "No seasons match this search.");
-      renderDeterminerCards(definiteGrid, matches.definite);
-      renderDeterminerCards(indefiniteGrid, matches.indefinite);
-      renderDeterminerCards(partitiveGrid, matches.partitive);
+      renderArticleComparison(matches.articleBasics);
+      renderDeterminerCards(aArticleGrid, matches.aArticles);
       renderDeterminerCards(deArticleGrid, matches.deArticles);
       renderDeterminerCards(demonstrativeGrid, matches.demonstrative);
       renderPossessives(matches.possessives);
+      renderPossessiveExceptions(matches.possessiveExceptions);
 
       const hasNumberResults = matches.numbers.length > 0 || matches.ageYears.length > 0 || matches.operators.length > 0;
       const hasPronunciationResults =
@@ -4135,15 +4964,16 @@
         matches.pronunciationMatrix.length > 0 ||
         matches.pronunciationPractice.length > 0;
       const hasGrammarResults = matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
-      const hasVerbResults = matches.aller.length > 0 || matches.habiter.length > 0;
-      const hasQuestionResults = matches.questionWords.length > 0;
+      const hasVerbResults = matches.aller.length > 0 || matches.venir.length > 0 || matches.habiter.length > 0;
+      const hasQuestionResults = matches.questionWords.length > 0 || matches.quelForms || matches.quelExamples.length > 0;
+      const hasNounResults = matches.nounPluralRules.length > 0 || matches.jobGenderRules.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
-        matches.definite.length > 0 ||
-        matches.indefinite.length > 0 ||
-        matches.partitive.length > 0 ||
+        matches.articleBasics.length > 0 ||
+        matches.aArticles.length > 0 ||
         matches.deArticles.length > 0 ||
         matches.demonstrative.length > 0 ||
+        matches.possessiveExceptions.length > 0 ||
         matches.possessives.length > 0;
 
       const tabResults = {
@@ -4151,6 +4981,7 @@
         pronunciation: hasPronunciationResults,
         grammar: hasGrammarResults,
         verbs: hasVerbResults,
+        nouns: hasNounResults,
         determiners: hasDeterminerResults,
         questions: hasQuestionResults,
         calendar: hasCalendarResults
@@ -4227,10 +5058,31 @@
       ])));
     });
 
+    playVenirBtn.addEventListener("click", () => {
+      speakSequence(venirRows.flatMap(item => ([
+        { text: item.full },
+        { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
     playHabiterBtn.addEventListener("click", () => {
       speakSequence(habiterRows.flatMap(item => ([
         { text: item.full },
         { text: item.example, pauseBefore: examplePauseMs }
+      ])));
+    });
+
+    playNounPluralsBtn.addEventListener("click", () => {
+      speakSequence(getNounPluralExamples().flatMap(example => ([
+        { text: example.singular },
+        { text: example.plural, pauseBefore: examplePauseMs }
+      ])));
+    });
+
+    playJobNounGendersBtn.addEventListener("click", () => {
+      speakSequence(getJobGenderExamples().flatMap(example => ([
+        { text: example.masculine },
+        { text: example.feminine, pauseBefore: examplePauseMs }
       ])));
     });
 
@@ -4243,10 +5095,16 @@
 
     playPossessivesBtn.addEventListener("click", () => {
       speakSequence(
-        possessiveRows.flatMap(row => row.forms.flatMap(form => ([
-          { text: form.form },
-          { text: form.example, pauseBefore: examplePauseMs }
-        ])))
+        [
+          ...possessiveRows.flatMap(row => row.forms.flatMap(form => ([
+            { text: form.form },
+            { text: form.example, pauseBefore: examplePauseMs }
+          ]))),
+          ...possessiveExceptions.flatMap(item => ([
+            { text: item.fr },
+            { text: item.example, pauseBefore: examplePauseMs }
+          ]))
+        ]
       );
     });
 
@@ -4256,7 +5114,16 @@
         ...item.examples.flatMap(example =>
           getExampleVariants(example).map(variant => ({ text: variant.fr, pauseBefore: examplePauseMs }))
         )
-      ])));
+      ])).concat(
+        quelForms.flatMap(item => ([
+          { text: item.form },
+          { text: item.example, pauseBefore: examplePauseMs }
+        ])),
+        quelExampleRows.flatMap(row => quelExampleColumns.map(column => ({
+          text: row.examples[column.key].fr,
+          pauseBefore: examplePauseMs
+        })))
+      ));
     });
 
     playWeekdaysBtn.addEventListener("click", () => {
@@ -4291,19 +5158,24 @@
     renderVerbTable(etreTable, etreRows);
     renderVerbTable(avoirTable, avoirRows);
     renderVerbTable(allerTable, allerRows);
+    renderVerbTable(venirTable, venirRows);
     renderVerbTable(habiterTable, habiterRows);
     renderExamples();
     showGrammarFlashcard();
+    renderQuelForms();
+    renderQuelExamples();
     renderQuestionWords();
+    renderNounPluralRules();
+    renderJobGenderRules();
     renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
     renderCalendarCards(monthsGrid, months, "No months match this search.");
     renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
-    renderDeterminerCards(definiteGrid, determinerCategories.definite);
-    renderDeterminerCards(indefiniteGrid, determinerCategories.indefinite);
-    renderDeterminerCards(partitiveGrid, determinerCategories.partitive);
+    renderArticleComparison();
+    renderDeterminerCards(aArticleGrid, aArticleRules);
     renderDeterminerCards(deArticleGrid, deArticleRules);
     renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
     renderPossessives();
+    renderPossessiveExceptions();
     loadVoices();
 
     if (typeof speechSynthesis !== "undefined") {
