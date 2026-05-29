@@ -920,6 +920,15 @@
         <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
         <div id="grid" class="grid"></div>
 
+        <div class="panel" style="margin-top: 18px;">
+          <h3>Ages 1–20: number + an / ans</h3>
+          <p>Use <strong>un an</strong> with singular <strong>an</strong>; 2–20 use <strong>ans</strong>. Click a card to hear the age phrase.</p>
+          <div class="action-row" style="margin-bottom: 14px;">
+            <button class="action-btn" type="button" id="playAgeYears">Play all ages</button>
+          </div>
+          <div id="ageYearsGrid" class="grid"></div>
+        </div>
+
         <div class="two-col">
           <div class="panel">
             <h3>Tens You’ll Use Constantly</h3>
@@ -1261,6 +1270,7 @@
     };
 
     const basicNumberIpa = {
+      0: "zeʁo",
       1: "œ̃",
       2: "dø",
       3: "tʁwa",
@@ -1351,6 +1361,38 @@
       }
 
       return "";
+    }
+
+    const ageYearIpa = {
+      1: "/œ̃n‿ɑ̃/",
+      2: "/dø.zɑ̃/",
+      3: "/tʁwa.zɑ̃/",
+      4: "/katʁ‿ɑ̃/",
+      5: "/sɛ̃.kɑ̃/",
+      6: "/si.zɑ̃/",
+      7: "/sɛ.tɑ̃/",
+      8: "/ɥi.tɑ̃/",
+      9: "/nœ.vɑ̃/",
+      10: "/di.zɑ̃/",
+      11: "/ɔ̃.zɑ̃/",
+      12: "/du.zɑ̃/",
+      13: "/tʁɛ.zɑ̃/",
+      14: "/ka.tɔʁ.zɑ̃/",
+      15: "/kɛ̃.zɑ̃/",
+      16: "/sɛ.zɑ̃/",
+      17: "/dis.sɛ.tɑ̃/",
+      18: "/diz.ɥi.tɑ̃/",
+      19: "/diz.nœ.vɑ̃/",
+      20: "/vɛ̃.tɑ̃/"
+    };
+
+    function frenchAgeYearsPhrase(n) {
+      if (n === 1) return "un an";
+      return `${frenchNumber(n)} ans`;
+    }
+
+    function frenchAgeYearsIpa(n) {
+      return ageYearIpa[n] || "";
     }
 
     const pronouns = [
@@ -3119,6 +3161,16 @@
         search: `${n} ${frenchNumber(n)} ${frenchNumberIpa(n)}`.toLowerCase()
       };
     });
+    const ageYearItems = Array.from({ length: 20 }, (_, index) => {
+      const n = index + 1;
+      return {
+        number: n,
+        word: frenchAgeYearsPhrase(n),
+        ipa: frenchAgeYearsIpa(n),
+        speech: frenchAgeYearsPhrase(n),
+        search: `${n} ${frenchAgeYearsPhrase(n)} ${frenchAgeYearsIpa(n)} age ans an year years`.toLowerCase()
+      };
+    });
     const calculationOperators = [
       { fr: "plus", en: "plus / add", note: "used for addition", example: "deux plus trois égal cinq", exampleEn: "two plus three equals five" },
       { fr: "moins", en: "minus / subtract", note: "used for subtraction", example: "dix moins quatre égal six", exampleEn: "ten minus four equals six" },
@@ -3130,6 +3182,7 @@
     const trickyNumberSet = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 31, 41, 51, 61, 70, 71, 72, 79, 80, 81, 90, 91, 99]);
 
     const grid = document.getElementById("grid");
+    const ageYearsGrid = document.getElementById("ageYearsGrid");
     const tensGrid = document.getElementById("tensGrid");
     const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
     const operatorGrid = document.getElementById("operatorGrid");
@@ -3172,6 +3225,7 @@
     const calendarSection = document.getElementById("calendarSection");
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
+    const playAgeYearsBtn = document.getElementById("playAgeYears");
     const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
     const playEtreBtn = document.getElementById("playEtre");
     const playAvoirBtn = document.getElementById("playAvoir");
@@ -3191,6 +3245,7 @@
     let grammarFlashcardRevealed = false;
     let activeTab = "numbers";
     const examplePauseMs = 900;
+    const numberRepeatPauseMs = 700;
     let playbackToken = 0;
     let playbackTimeout = null;
 
@@ -3256,9 +3311,13 @@
           <div class="word">${item.word}</div>
           <div class="number-ipa">${item.ipa}</div>
         `;
-        button.addEventListener("click", () => speak(item.word, button));
+        button.addEventListener("click", () => speak(item.speech || item.word, button));
         container.appendChild(button);
       });
+    }
+
+    function renderAgeYears(list = ageYearItems) {
+      renderNumberCards(ageYearsGrid, list, "No age phrases match this search.");
     }
 
     function renderNumbers(list = numberItems) {
@@ -3857,6 +3916,7 @@
 
       return {
         numbers: numberItems.filter(item => item.search.includes(q)),
+        ageYears: ageYearItems.filter(item => item.search.includes(q)),
         operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         pronunciation: getMatchingPronunciationRules(q),
         consonantPronunciation: getMatchingConsonantPronunciationRules(q),
@@ -3885,6 +3945,7 @@
 
       if (!q) {
         renderNumbers();
+        renderAgeYears();
         renderOperators();
         renderPronunciationRules();
         renderConsonantPronunciationRules();
@@ -3908,6 +3969,7 @@
 
       const matches = getSearchMatches(q);
       renderNumbers(matches.numbers);
+      renderAgeYears(matches.ageYears);
       renderOperators(matches.operators);
       renderPronunciationRules(matches.pronunciation);
       renderConsonantPronunciationRules(matches.consonantPronunciation);
@@ -3927,7 +3989,7 @@
       renderDeterminerCards(demonstrativeGrid, matches.demonstrative);
       renderPossessives(matches.possessives);
 
-      const hasNumberResults = matches.numbers.length > 0 || matches.operators.length > 0;
+      const hasNumberResults = matches.numbers.length > 0 || matches.ageYears.length > 0 || matches.operators.length > 0;
       const hasPronunciationResults =
         matches.pronunciation.length > 0 ||
         matches.consonantPronunciation.length > 0 ||
@@ -3992,7 +4054,11 @@
     });
 
     playNumberSamplesBtn.addEventListener("click", () => {
-      speakSequence(numberItems.map(item => ({ text: item.speech })));
+      speakSequence(numberItems.map(item => ({ text: item.speech, pauseBefore: numberRepeatPauseMs })));
+    });
+
+    playAgeYearsBtn.addEventListener("click", () => {
+      speakSequence(ageYearItems.map(item => ({ text: item.speech, pauseBefore: numberRepeatPauseMs })));
     });
 
     playPronunciationRulesBtn.addEventListener("click", () => {
@@ -4061,6 +4127,7 @@
 
     initTheme();
     renderNumbers();
+    renderAgeYears();
     renderOperators();
     renderPronunciationRules();
     renderConsonantPronunciationRules();
