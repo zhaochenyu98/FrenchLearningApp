@@ -427,6 +427,11 @@
       font-size: 1.08rem;
     }
 
+    .category-panel h4 {
+      margin: 18px 0 8px;
+      font-size: 1rem;
+    }
+
     .panel p,
     .category-panel p {
       margin: 0 0 8px;
@@ -647,7 +652,7 @@
     .quel-comparison-header,
     .quel-comparison-row {
       display: grid;
-      grid-template-columns: minmax(135px, 0.7fr) repeat(3, minmax(165px, 1fr));
+      grid-template-columns: minmax(135px, 0.7fr) repeat(var(--comparison-cols, 3), minmax(165px, 1fr));
       gap: 10px;
     }
 
@@ -1470,7 +1475,20 @@
           <h3>Quel Deep Dive</h3>
           <p><strong>Quel</strong> means “which / what” before a noun. It agrees with the noun: masculine/feminine and singular/plural.</p>
           <div id="quelFormsGrid" class="quel-forms-grid"></div>
+          <h4>Changing sentence order</h4>
           <div id="quelExamplesGrid" class="quel-examples-grid"></div>
+          <h4>Special case: quel + être</h4>
+          <p>Use this pattern when <strong>quel</strong> asks for identity, choice, time, date, address, or a similar “what is / which is” answer.</p>
+          <div id="quelEtreExamplesGrid" class="quel-examples-grid"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Que / Quoi Deep Dive</h3>
+          <p>For object questions meaning <strong>what</strong>, compare the spoken <strong>quoi</strong> ending, the fronted <strong>que</strong> form, and the everyday <strong>qu’est-ce que</strong> pattern.</p>
+          <div id="queExamplesGrid" class="quel-examples-grid"></div>
+          <h4>Special case: c’est quoi / qu’est-ce que c’est</h4>
+          <p>Use this fixed pattern when asking <strong>what is it / what is that</strong>.</p>
+          <div id="queCestExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
         <div class="category-panel">
@@ -3366,11 +3384,6 @@
 
     const quelExampleColumns = [
       {
-        key: "etre",
-        title: "Quel + être",
-        note: "Uses être to identify the noun choice."
-      },
-      {
         key: "end",
         title: "Quel at the end",
         note: "Common in everyday spoken French."
@@ -3379,6 +3392,11 @@
         key: "front",
         title: "Quel at the front",
         note: "A more textbook / formal order."
+      },
+      {
+        key: "estCeQue",
+        title: "Quel + est-ce que",
+        note: "Neutral everyday pattern."
       }
     ];
 
@@ -3388,9 +3406,9 @@
         agreement: "Masculine singular",
         en: "Which book do you prefer?",
         examples: {
-          etre: { fr: "Quel est le livre que tu préfères ?", en: "Which is the book that you prefer?" },
           end: { fr: "Tu préfères quel livre ?", en: "Which book do you prefer? (spoken)" },
-          front: { fr: "Quel livre préfères-tu ?", en: "Which book do you prefer?" }
+          front: { fr: "Quel livre préfères-tu ?", en: "Which book do you prefer?" },
+          estCeQue: { fr: "Quel livre est-ce que tu préfères ?", en: "Which book do you prefer?" }
         }
       },
       {
@@ -3398,9 +3416,9 @@
         agreement: "Feminine singular",
         en: "Which city does she live in?",
         examples: {
-          etre: { fr: "Quelle est la ville où elle habite ?", en: "Which is the city where she lives?" },
           end: { fr: "Elle habite dans quelle ville ?", en: "Which city does she live in? (spoken)" },
-          front: { fr: "Dans quelle ville habite-t-elle ?", en: "Which city does she live in?" }
+          front: { fr: "Dans quelle ville habite-t-elle ?", en: "Which city does she live in?" },
+          estCeQue: { fr: "Dans quelle ville est-ce qu’elle habite ?", en: "Which city does she live in?" }
         }
       },
       {
@@ -3408,9 +3426,9 @@
         agreement: "Masculine plural",
         en: "Which movies do you like?",
         examples: {
-          etre: { fr: "Quels sont les films que vous aimez ?", en: "Which are the movies that you like?" },
           end: { fr: "Vous aimez quels films ?", en: "Which movies do you like? (spoken)" },
-          front: { fr: "Quels films aimez-vous ?", en: "Which movies do you like?" }
+          front: { fr: "Quels films aimez-vous ?", en: "Which movies do you like?" },
+          estCeQue: { fr: "Quels films est-ce que vous aimez ?", en: "Which movies do you like?" }
         }
       },
       {
@@ -3418,9 +3436,149 @@
         agreement: "Feminine plural",
         en: "Which shoes are you wearing?",
         examples: {
-          etre: { fr: "Quelles sont les chaussures que tu portes ?", en: "Which are the shoes that you are wearing?" },
           end: { fr: "Tu portes quelles chaussures ?", en: "Which shoes are you wearing? (spoken)" },
-          front: { fr: "Quelles chaussures portes-tu ?", en: "Which shoes are you wearing?" }
+          front: { fr: "Quelles chaussures portes-tu ?", en: "Which shoes are you wearing?" },
+          estCeQue: { fr: "Quelles chaussures est-ce que tu portes ?", en: "Which shoes are you wearing?" }
+        }
+      }
+    ];
+
+    const quelEtreSpecialColumns = [
+      {
+        key: "etre",
+        title: "Quel + être",
+        note: "Special identity pattern."
+      }
+    ];
+
+    const quelEtreSpecialRows = [
+      {
+        topic: "Name",
+        agreement: "Masculine singular",
+        en: "What is your name?",
+        examples: {
+          etre: { fr: "Quel est ton nom ?", en: "What is your name?" }
+        }
+      },
+      {
+        topic: "Address",
+        agreement: "Feminine singular",
+        en: "What is your address?",
+        examples: {
+          etre: { fr: "Quelle est ton adresse ?", en: "What is your address?" }
+        }
+      },
+      {
+        topic: "Favorite books",
+        agreement: "Masculine plural",
+        en: "What are your favorite books?",
+        examples: {
+          etre: { fr: "Quels sont tes livres préférés ?", en: "What are your favorite books?" }
+        }
+      },
+      {
+        topic: "Favorite colors",
+        agreement: "Feminine plural",
+        en: "What are your favorite colors?",
+        examples: {
+          etre: { fr: "Quelles sont tes couleurs préférées ?", en: "What are your favorite colors?" }
+        }
+      }
+    ];
+
+    const queExampleColumns = [
+      {
+        key: "quoiEnd",
+        title: "Quoi at the end",
+        note: "Casual spoken order."
+      },
+      {
+        key: "queFront",
+        title: "Que at the front",
+        note: "Formal / textbook inversion."
+      },
+      {
+        key: "estCeQue",
+        title: "Qu’est-ce que",
+        note: "Neutral everyday pattern."
+      }
+    ];
+
+    const queExampleRows = [
+      {
+        topic: "Looking for something",
+        en: "What are they looking for?",
+        examples: {
+          quoiEnd: { fr: "Elles cherchent quoi ?", en: "What are they looking for? (spoken)" },
+          queFront: { fr: "Que cherchent-elles ?", en: "What are they looking for?" },
+          estCeQue: { fr: "Qu’est-ce qu’elles cherchent ?", en: "What are they looking for?" }
+        }
+      },
+      {
+        topic: "Doing something",
+        en: "What are you doing?",
+        examples: {
+          quoiEnd: { fr: "Tu fais quoi ?", en: "What are you doing? (spoken)" },
+          queFront: { fr: "Que fais-tu ?", en: "What are you doing?" },
+          estCeQue: { fr: "Qu’est-ce que tu fais ?", en: "What are you doing?" }
+        }
+      },
+      {
+        topic: "Wanting something",
+        en: "What does she want?",
+        examples: {
+          quoiEnd: { fr: "Elle veut quoi ?", en: "What does she want? (spoken)" },
+          queFront: { fr: "Que veut-elle ?", en: "What does she want?" },
+          estCeQue: { fr: "Qu’est-ce qu’elle veut ?", en: "What does she want?" }
+        }
+      },
+      {
+        topic: "Watching something",
+        en: "What are they watching?",
+        examples: {
+          quoiEnd: { fr: "Ils regardent quoi ?", en: "What are they watching? (spoken)" },
+          queFront: { fr: "Que regardent-ils ?", en: "What are they watching?" },
+          estCeQue: { fr: "Qu’est-ce qu’ils regardent ?", en: "What are they watching?" }
+        }
+      }
+    ];
+
+    const queCestSpecialColumns = [
+      {
+        key: "quoiEnd",
+        title: "C’est quoi",
+        note: "Casual spoken form."
+      },
+      {
+        key: "estCeQue",
+        title: "Qu’est-ce que c’est",
+        note: "Neutral complete form."
+      }
+    ];
+
+    const queCestSpecialRows = [
+      {
+        topic: "Identify it",
+        en: "What is it?",
+        examples: {
+          quoiEnd: { fr: "C’est quoi ?", en: "What is it? (spoken)" },
+          estCeQue: { fr: "Qu’est-ce que c’est ?", en: "What is it?" }
+        }
+      },
+      {
+        topic: "Pointing at something",
+        en: "What is that?",
+        examples: {
+          quoiEnd: { fr: "C’est quoi, ça ?", en: "What is that? (spoken)" },
+          estCeQue: { fr: "Qu’est-ce que c’est que ça ?", en: "What is that?" }
+        }
+      },
+      {
+        topic: "Asking about a noise",
+        en: "What is that noise?",
+        examples: {
+          quoiEnd: { fr: "C’est quoi, ce bruit ?", en: "What is that noise? (spoken)" },
+          estCeQue: { fr: "Qu’est-ce que c’est que ce bruit ?", en: "What is that noise?" }
         }
       }
     ];
@@ -3848,6 +4006,9 @@
     const questionWordsGrid = document.getElementById("questionWordsGrid");
     const quelFormsGrid = document.getElementById("quelFormsGrid");
     const quelExamplesGrid = document.getElementById("quelExamplesGrid");
+    const quelEtreExamplesGrid = document.getElementById("quelEtreExamplesGrid");
+    const queExamplesGrid = document.getElementById("queExamplesGrid");
+    const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
     const nounRulesGrid = document.getElementById("nounRulesGrid");
     const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
@@ -4438,26 +4599,50 @@
       });
     }
 
-    function getQuelDeepDiveSearchText() {
+    function getComparisonSearchText(columns, rows) {
       return [
-        ...quelForms.map(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`),
-        ...quelExampleColumns.map(column => `${column.title} ${column.note}`),
-        ...quelExampleRows.map(row => `${row.topic} ${row.agreement} ${row.en} ${quelExampleColumns.map(column => {
+        ...columns.map(column => `${column.title} ${column.note}`),
+        ...rows.map(row => `${row.topic} ${row.agreement || ""} ${row.en} ${columns.map(column => {
           const example = row.examples[column.key];
           return `${example.fr} ${example.en}`;
         }).join(" ")}`)
       ].join(" ").toLowerCase();
     }
 
+    function getMatchingComparisonRows(q, columns, rows) {
+      const columnMatches = columns.some(column => `${column.title} ${column.note}`.toLowerCase().includes(q));
+      return rows.filter(row => columnMatches || getComparisonSearchText(columns, [row]).includes(q));
+    }
+
+    function getQuelDeepDiveSearchText() {
+      return [
+        ...quelForms.map(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`),
+        getComparisonSearchText(quelExampleColumns, quelExampleRows),
+        getComparisonSearchText(quelEtreSpecialColumns, quelEtreSpecialRows)
+      ].join(" ").toLowerCase();
+    }
+
     function getMatchingQuelExampleRows(q) {
-      const columnMatches = quelExampleColumns.some(column => `${column.title} ${column.note}`.toLowerCase().includes(q));
-      return quelExampleRows.filter(row => {
-        const rowText = `${row.topic} ${row.agreement} ${row.en} ${quelExampleColumns.map(column => {
-          const example = row.examples[column.key];
-          return `${example.fr} ${example.en}`;
-        }).join(" ")}`.toLowerCase();
-        return columnMatches || rowText.includes(q);
-      });
+      return getMatchingComparisonRows(q, quelExampleColumns, quelExampleRows);
+    }
+
+    function getMatchingQuelEtreRows(q) {
+      return getMatchingComparisonRows(q, quelEtreSpecialColumns, quelEtreSpecialRows);
+    }
+
+    function getQueDeepDiveSearchText() {
+      return [
+        getComparisonSearchText(queExampleColumns, queExampleRows),
+        getComparisonSearchText(queCestSpecialColumns, queCestSpecialRows)
+      ].join(" ").toLowerCase();
+    }
+
+    function getMatchingQueExampleRows(q) {
+      return getMatchingComparisonRows(q, queExampleColumns, queExampleRows);
+    }
+
+    function getMatchingQueCestRows(q) {
+      return getMatchingComparisonRows(q, queCestSpecialColumns, queCestSpecialRows);
     }
 
     function renderQuelForms(showContent = true) {
@@ -4482,31 +4667,33 @@
       });
     }
 
-    function renderQuelExamples(rows = quelExampleRows) {
-      quelExamplesGrid.innerHTML = "";
+    function renderQuestionComparison(container, columns, rows, emptyMessage) {
+      container.innerHTML = "";
       if (!rows.length) {
-        quelExamplesGrid.innerHTML = `<div class="empty-state">No quel examples match this search.</div>`;
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
       const header = document.createElement("div");
       header.className = "quel-comparison-header";
+      header.style.setProperty("--comparison-cols", columns.length);
       header.innerHTML = `
         <div>Same idea</div>
-        ${quelExampleColumns.map(column => `<div>${column.title}<br><span>${column.note}</span></div>`).join("")}
+        ${columns.map(column => `<div>${column.title}<br><span>${column.note}</span></div>`).join("")}
       `;
-      quelExamplesGrid.appendChild(header);
+      container.appendChild(header);
 
       rows.forEach((rowData, rowIndex) => {
         const row = document.createElement("div");
         row.className = "quel-comparison-row";
+        row.style.setProperty("--comparison-cols", columns.length);
         row.innerHTML = `
           <div class="quel-comparison-topic">
             <strong>${rowData.en}</strong>
             <span>${rowData.topic}</span>
-            <span>${rowData.agreement}</span>
+            ${rowData.agreement ? `<span>${rowData.agreement}</span>` : ""}
           </div>
-          ${quelExampleColumns.map(column => {
+          ${columns.map(column => {
             const example = rowData.examples[column.key];
             return `
               <div class="quel-comparison-cell">
@@ -4525,8 +4712,24 @@
             speak(example.fr, button);
           });
         });
-        quelExamplesGrid.appendChild(row);
+        container.appendChild(row);
       });
+    }
+
+    function renderQuelExamples(rows = quelExampleRows) {
+      renderQuestionComparison(quelExamplesGrid, quelExampleColumns, rows, "No quel examples match this search.");
+    }
+
+    function renderQuelEtreExamples(rows = quelEtreSpecialRows) {
+      renderQuestionComparison(quelEtreExamplesGrid, quelEtreSpecialColumns, rows, "No quel + être examples match this search.");
+    }
+
+    function renderQueExamples(rows = queExampleRows) {
+      renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples match this search.");
+    }
+
+    function renderQueCestExamples(rows = queCestSpecialRows) {
+      renderQuestionComparison(queCestExamplesGrid, queCestSpecialColumns, rows, "No c’est quoi examples match this search.");
     }
 
     function renderQuestionWords(list = questionWords) {
@@ -4876,6 +5079,9 @@
         ),
         quelForms: quelForms.some(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         quelExamples: getMatchingQuelExampleRows(q),
+        quelEtreExamples: getMatchingQuelEtreRows(q),
+        queExamples: getMatchingQueExampleRows(q),
+        queCestExamples: getMatchingQueCestRows(q),
         nounPluralRules: nounPluralRules.filter(rule => getNounPluralRuleSearchText(rule).includes(q)),
         jobGenderRules: jobGenderRules.filter(rule => getJobGenderRuleSearchText(rule).includes(q)),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -4913,6 +5119,9 @@
         renderExamples();
         renderQuelForms();
         renderQuelExamples();
+        renderQuelEtreExamples();
+        renderQueExamples();
+        renderQueCestExamples();
         renderQuestionWords();
         renderNounPluralRules();
         renderJobGenderRules();
@@ -4944,6 +5153,9 @@
       renderExamples(matches.examples);
       renderQuelForms(matches.quelForms || getQuelDeepDiveSearchText().includes(q));
       renderQuelExamples(matches.quelExamples);
+      renderQuelEtreExamples(matches.quelEtreExamples);
+      renderQueExamples(matches.queExamples);
+      renderQueCestExamples(matches.queCestExamples);
       renderQuestionWords(matches.questionWords);
       renderNounPluralRules(matches.nounPluralRules);
       renderJobGenderRules(matches.jobGenderRules);
@@ -4965,7 +5177,15 @@
         matches.pronunciationPractice.length > 0;
       const hasGrammarResults = matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
       const hasVerbResults = matches.aller.length > 0 || matches.venir.length > 0 || matches.habiter.length > 0;
-      const hasQuestionResults = matches.questionWords.length > 0 || matches.quelForms || matches.quelExamples.length > 0;
+      const hasQuestionResults =
+        matches.questionWords.length > 0 ||
+        matches.quelForms ||
+        matches.quelExamples.length > 0 ||
+        matches.quelEtreExamples.length > 0 ||
+        matches.queExamples.length > 0 ||
+        matches.queCestExamples.length > 0 ||
+        getQuelDeepDiveSearchText().includes(q) ||
+        getQueDeepDiveSearchText().includes(q);
       const hasNounResults = matches.nounPluralRules.length > 0 || matches.jobGenderRules.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
@@ -5122,6 +5342,18 @@
         quelExampleRows.flatMap(row => quelExampleColumns.map(column => ({
           text: row.examples[column.key].fr,
           pauseBefore: examplePauseMs
+        }))),
+        quelEtreSpecialRows.flatMap(row => quelEtreSpecialColumns.map(column => ({
+          text: row.examples[column.key].fr,
+          pauseBefore: examplePauseMs
+        }))),
+        queExampleRows.flatMap(row => queExampleColumns.map(column => ({
+          text: row.examples[column.key].fr,
+          pauseBefore: examplePauseMs
+        }))),
+        queCestSpecialRows.flatMap(row => queCestSpecialColumns.map(column => ({
+          text: row.examples[column.key].fr,
+          pauseBefore: examplePauseMs
         })))
       ));
     });
@@ -5164,6 +5396,9 @@
     showGrammarFlashcard();
     renderQuelForms();
     renderQuelExamples();
+    renderQuelEtreExamples();
+    renderQueExamples();
+    renderQueCestExamples();
     renderQuestionWords();
     renderNounPluralRules();
     renderJobGenderRules();
