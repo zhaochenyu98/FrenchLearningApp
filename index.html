@@ -140,6 +140,8 @@
     .example-card,
     .question-row-card,
     .noun-example-btn,
+    .preposition-word-btn,
+    .preposition-example-btn,
     .theme-btn,
     .poss-cell-btn {
       font: inherit;
@@ -253,6 +255,8 @@
     .example-card,
     .question-row-card,
     .noun-example-btn,
+    .preposition-word-btn,
+    .preposition-example-btn,
     .poss-cell-btn {
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -272,6 +276,8 @@
     .pronoun-card:hover,
     .example-card:hover,
     .noun-example-btn:hover,
+    .preposition-word-btn:hover,
+    .preposition-example-btn:hover,
     .poss-cell-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent-border);
@@ -283,6 +289,8 @@
     .pronoun-card:active,
     .example-card:active,
     .noun-example-btn:active,
+    .preposition-word-btn:active,
+    .preposition-example-btn:active,
     .poss-cell-btn:active {
       transform: translateY(0);
     }
@@ -617,6 +625,52 @@
       display: block;
       font-weight: 800;
       line-height: 1.35;
+    }
+
+    .preposition-table {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .preposition-header,
+    .preposition-row-card {
+      display: grid;
+      grid-template-columns: minmax(145px, 0.8fr) minmax(150px, 0.8fr) minmax(360px, 2.4fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .preposition-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .preposition-row-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: 14px;
+    }
+
+    .preposition-word-btn {
+      min-height: 92px;
+      padding: 14px;
+    }
+
+    .preposition-example-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .preposition-example-btn {
+      border-radius: 14px;
+      padding: 10px 12px;
     }
 
     .question-example {
@@ -1035,7 +1089,8 @@
         display: none;
       }
 
-      .noun-rule-header {
+      .noun-rule-header,
+      .preposition-header {
         display: none;
       }
 
@@ -1043,7 +1098,8 @@
         grid-template-columns: 1fr;
       }
 
-      .noun-rule-card {
+      .noun-rule-card,
+      .preposition-row-card {
         grid-template-columns: 1fr;
       }
 
@@ -1107,7 +1163,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations, noun plural patterns, core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations, noun patterns, prepositions, core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -1140,6 +1196,7 @@
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
+        <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
@@ -1347,6 +1404,38 @@
           <h3>Masculine → Feminine Job Nouns</h3>
           <p>Many job and person nouns change endings for feminine forms. Click any pair to hear the masculine form, then the feminine form.</p>
           <div id="jobGenderRulesGrid" class="noun-rules-table"></div>
+        </div>
+      </section>
+
+      <section id="prepositionsSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Prepositions of Place</h2>
+            <p class="section-desc">Practice common location prepositions from the chart. Click a preposition to hear it, or click an example sentence for full-sentence audio.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playPrepositions">Play prepositions</button>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 16px;">
+          <h3>Quick Notes</h3>
+          <div class="summary-chips">
+            <div class="summary-chip">
+              <strong>With de</strong>
+              <span>Many location phrases use <strong>de</strong>: <strong>à côté de</strong>, <strong>à gauche de</strong>, <strong>au-dessus de</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Contractions</strong>
+              <span><strong>de + le = du</strong> and <strong>de + les = des</strong>: <strong>à droite du café</strong>, <strong>à côté des livres</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Les prépositions de lieu</h3>
+          <p>Use these to describe where something or someone is located.</p>
+          <div id="prepositionTable" class="preposition-table"></div>
         </div>
       </section>
 
@@ -3938,6 +4027,117 @@
       }
     ];
 
+    const placePrepositions = [
+      {
+        fr: "sur",
+        en: "on / on top of",
+        note: "resting on a surface",
+        examples: [
+          { fr: "Le livre est sur la table.", en: "The book is on the table." },
+          { fr: "Le chat dort sur le canapé.", en: "The cat is sleeping on the sofa." }
+        ]
+      },
+      {
+        fr: "sous",
+        en: "under",
+        note: "directly below something",
+        examples: [
+          { fr: "Le sac est sous la chaise.", en: "The bag is under the chair." },
+          { fr: "Le chien dort sous la table.", en: "The dog is sleeping under the table." }
+        ]
+      },
+      {
+        fr: "devant",
+        en: "in front of",
+        note: "before / facing the front side",
+        examples: [
+          { fr: "Le bus est devant l’école.", en: "The bus is in front of the school." },
+          { fr: "Je suis devant la porte.", en: "I am in front of the door." }
+        ]
+      },
+      {
+        fr: "derrière",
+        en: "behind",
+        note: "at the back of something",
+        examples: [
+          { fr: "Le jardin est derrière la maison.", en: "The garden is behind the house." },
+          { fr: "La voiture est derrière le bus.", en: "The car is behind the bus." }
+        ]
+      },
+      {
+        fr: "au-dessus de",
+        en: "above",
+        note: "higher than something, often not touching",
+        examples: [
+          { fr: "La lampe est au-dessus de la table.", en: "The lamp is above the table." },
+          { fr: "L’avion est au-dessus des nuages.", en: "The plane is above the clouds." }
+        ]
+      },
+      {
+        fr: "au-dessous de",
+        en: "below",
+        note: "lower than something",
+        examples: [
+          { fr: "La cave est au-dessous de la cuisine.", en: "The cellar is below the kitchen." },
+          { fr: "Le garage est au-dessous de l’appartement.", en: "The garage is below the apartment." }
+        ]
+      },
+      {
+        fr: "à gauche de",
+        en: "to the left of",
+        note: "on the left side of something",
+        examples: [
+          { fr: "La banque est à gauche de la poste.", en: "The bank is to the left of the post office." },
+          { fr: "Ma chaise est à gauche de la table.", en: "My chair is to the left of the table." }
+        ]
+      },
+      {
+        fr: "à droite de",
+        en: "to the right of",
+        note: "on the right side of something",
+        examples: [
+          { fr: "La pharmacie est à droite du café.", en: "The pharmacy is to the right of the cafe." },
+          { fr: "Le tableau est à droite de la fenêtre.", en: "The board is to the right of the window." }
+        ]
+      },
+      {
+        fr: "à côté de",
+        en: "next to / beside",
+        note: "near the side of something",
+        examples: [
+          { fr: "Je suis à côté de mon ami.", en: "I am next to my friend." },
+          { fr: "La clé est à côté du livre.", en: "The key is next to the book." }
+        ]
+      },
+      {
+        fr: "entre",
+        en: "between",
+        note: "in the middle of two things",
+        examples: [
+          { fr: "La boulangerie est entre la banque et la pharmacie.", en: "The bakery is between the bank and the pharmacy." },
+          { fr: "Je suis entre mes deux amis.", en: "I am between my two friends." }
+        ]
+      },
+      {
+        fr: "dans",
+        en: "in / inside",
+        note: "inside a place or container",
+        examples: [
+          { fr: "Le stylo est dans le sac.", en: "The pen is in the bag." },
+          { fr: "Nous sommes dans la classe.", en: "We are in the classroom." }
+        ]
+      },
+      {
+        fr: "contre",
+        en: "against",
+        note: "touching or leaning against something",
+        examples: [
+          { fr: "Le vélo est contre le mur.", en: "The bike is against the wall." },
+          { fr: "La chaise est contre la porte.", en: "The chair is against the door." }
+        ]
+      }
+    ];
+
     const allDeterminerItems = [
       ...articleComparisonRows.flatMap(row => [row.definite, row.indefinite]),
       ...aArticleRules,
@@ -4011,6 +4211,7 @@
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
     const nounRulesGrid = document.getElementById("nounRulesGrid");
     const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
+    const prepositionTable = document.getElementById("prepositionTable");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");
@@ -4034,6 +4235,7 @@
     const grammarSection = document.getElementById("grammarSection");
     const verbsSection = document.getElementById("verbsSection");
     const nounsSection = document.getElementById("nounsSection");
+    const prepositionsSection = document.getElementById("prepositionsSection");
     const determinersSection = document.getElementById("determinersSection");
     const questionsSection = document.getElementById("questionsSection");
     const calendarSection = document.getElementById("calendarSection");
@@ -4048,6 +4250,7 @@
     const playHabiterBtn = document.getElementById("playHabiter");
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
     const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
+    const playPrepositionsBtn = document.getElementById("playPrepositions");
     const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");
     const nextGrammarFlashcardBtn = document.getElementById("nextGrammarFlashcard");
     const playDeterminersBtn = document.getElementById("playDeterminers");
@@ -4599,6 +4802,65 @@
       });
     }
 
+    function getPrepositionSearchText(item) {
+      return `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => `${example.fr} ${example.en}`).join(" ")}`.toLowerCase();
+    }
+
+    function renderPrepositions(list = placePrepositions) {
+      prepositionTable.innerHTML = "";
+      if (!list.length) {
+        prepositionTable.innerHTML = `<div class="empty-state">No prepositions match this search.</div>`;
+        return;
+      }
+
+      prepositionTable.innerHTML = `
+        <div class="preposition-header">
+          <div>French preposition</div>
+          <div>English meaning</div>
+          <div>Example sentences</div>
+        </div>
+      `;
+
+      list.forEach((item, itemIndex) => {
+        const row = document.createElement("div");
+        row.className = "preposition-row-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">French</span>
+            <button class="preposition-word-btn" type="button" data-item-index="${itemIndex}">
+              <div class="french-line">${item.fr}</div>
+              <div class="grammar-note">${item.note}</div>
+            </button>
+          </div>
+          <div>
+            <span class="question-cell-label">English</span>
+            <div class="translation">${item.en}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="preposition-example-list">
+              ${item.examples.map((example, exampleIndex) => `
+                <button class="preposition-example-btn" type="button" data-item-index="${itemIndex}" data-example-index="${exampleIndex}">
+                  <div class="translation"><strong>${example.fr}</strong></div>
+                  <div class="translation">${example.en}</div>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelector(".preposition-word-btn").addEventListener("click", () => {
+          speak(item.fr, row.querySelector(".preposition-word-btn"));
+        });
+        row.querySelectorAll(".preposition-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = list[Number(button.dataset.itemIndex)].examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        prepositionTable.appendChild(row);
+      });
+    }
+
     function getComparisonSearchText(columns, rows) {
       return [
         ...columns.map(column => `${column.title} ${column.note}`),
@@ -5039,6 +5301,7 @@
       grammarSection.classList.toggle("active", tabName === "grammar");
       verbsSection.classList.toggle("active", tabName === "verbs");
       nounsSection.classList.toggle("active", tabName === "nouns");
+      prepositionsSection.classList.toggle("active", tabName === "prepositions");
       determinersSection.classList.toggle("active", tabName === "determiners");
       questionsSection.classList.toggle("active", tabName === "questions");
       calendarSection.classList.toggle("active", tabName === "calendar");
@@ -5084,6 +5347,7 @@
         queCestExamples: getMatchingQueCestRows(q),
         nounPluralRules: nounPluralRules.filter(rule => getNounPluralRuleSearchText(rule).includes(q)),
         jobGenderRules: jobGenderRules.filter(rule => getJobGenderRuleSearchText(rule).includes(q)),
+        prepositions: placePrepositions.filter(item => getPrepositionSearchText(item).includes(q)),
         weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
         seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
@@ -5125,6 +5389,7 @@
         renderQuestionWords();
         renderNounPluralRules();
         renderJobGenderRules();
+        renderPrepositions();
         renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
         renderCalendarCards(monthsGrid, months, "No months match this search.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
@@ -5159,6 +5424,7 @@
       renderQuestionWords(matches.questionWords);
       renderNounPluralRules(matches.nounPluralRules);
       renderJobGenderRules(matches.jobGenderRules);
+      renderPrepositions(matches.prepositions);
       renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
       renderCalendarCards(monthsGrid, matches.months, "No months match this search.");
       renderCalendarCards(seasonsGrid, matches.seasons, "No seasons match this search.");
@@ -5187,6 +5453,7 @@
         getQuelDeepDiveSearchText().includes(q) ||
         getQueDeepDiveSearchText().includes(q);
       const hasNounResults = matches.nounPluralRules.length > 0 || matches.jobGenderRules.length > 0;
+      const hasPrepositionResults = matches.prepositions.length > 0;
       const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
       const hasDeterminerResults =
         matches.articleBasics.length > 0 ||
@@ -5202,6 +5469,7 @@
         grammar: hasGrammarResults,
         verbs: hasVerbResults,
         nouns: hasNounResults,
+        prepositions: hasPrepositionResults,
         determiners: hasDeterminerResults,
         questions: hasQuestionResults,
         calendar: hasCalendarResults
@@ -5306,6 +5574,13 @@
       ])));
     });
 
+    playPrepositionsBtn.addEventListener("click", () => {
+      speakSequence(placePrepositions.flatMap(item => ([
+        { text: item.fr },
+        ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+      ])));
+    });
+
     playDeterminersBtn.addEventListener("click", () => {
       speakSequence(allDeterminerItems.flatMap(item => ([
         { text: item.speech || item.fr },
@@ -5402,6 +5677,7 @@
     renderQuestionWords();
     renderNounPluralRules();
     renderJobGenderRules();
+    renderPrepositions();
     renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
     renderCalendarCards(monthsGrid, months, "No months match this search.");
     renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
