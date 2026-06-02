@@ -140,6 +140,7 @@
     .example-card,
     .question-row-card,
     .noun-example-btn,
+    .adjective-form-btn,
     .preposition-word-btn,
     .preposition-example-btn,
     .theme-btn,
@@ -255,6 +256,7 @@
     .example-card,
     .question-row-card,
     .noun-example-btn,
+    .adjective-form-btn,
     .preposition-word-btn,
     .preposition-example-btn,
     .poss-cell-btn {
@@ -276,6 +278,7 @@
     .pronoun-card:hover,
     .example-card:hover,
     .noun-example-btn:hover,
+    .adjective-form-btn:hover,
     .preposition-word-btn:hover,
     .preposition-example-btn:hover,
     .poss-cell-btn:hover {
@@ -289,6 +292,7 @@
     .pronoun-card:active,
     .example-card:active,
     .noun-example-btn:active,
+    .adjective-form-btn:active,
     .preposition-word-btn:active,
     .preposition-example-btn:active,
     .poss-cell-btn:active {
@@ -625,6 +629,59 @@
       display: block;
       font-weight: 800;
       line-height: 1.35;
+    }
+
+    .adjective-forms-table {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .adjective-forms-header,
+    .adjective-forms-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.7fr) repeat(4, minmax(145px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .adjective-forms-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .adjective-forms-row {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: 10px;
+    }
+
+    .adjective-family {
+      align-content: center;
+      display: grid;
+      gap: 4px;
+      padding: 8px 10px;
+    }
+
+    .adjective-family strong {
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .adjective-form-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .adjective-form-btn {
+      border-radius: 14px;
+      padding: 10px 12px;
     }
 
     .preposition-table {
@@ -1090,6 +1147,7 @@
       }
 
       .noun-rule-header,
+      .adjective-forms-header,
       .preposition-header {
         display: none;
       }
@@ -1099,6 +1157,7 @@
       }
 
       .noun-rule-card,
+      .adjective-forms-row,
       .preposition-row-card {
         grid-template-columns: 1fr;
       }
@@ -1163,7 +1222,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations, noun patterns, prepositions, core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, present-tense conjugations, noun and adjective patterns, prepositions, core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -1196,6 +1255,7 @@
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
+        <button class="tab-btn" type="button" data-tab="adjectives">Adjectives</button>
         <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
@@ -1206,7 +1266,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Numbers 1–100</h2>
-            <p class="section-desc">Click any number card to hear it. You can also use search to find forms like <em>vingt et un</em> or <em>quatre-vingt-dix-neuf</em>.</p>
+            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em> and <em>quatre-vingt-dix-neuf</em> by listening and repeating.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playNumberSamples">Play all numbers</button>
@@ -1404,6 +1464,60 @@
           <h3>Masculine → Feminine Job Nouns</h3>
           <p>Many job and person nouns change endings for feminine forms. Click any pair to hear the masculine form, then the feminine form.</p>
           <div id="jobGenderRulesGrid" class="noun-rules-table"></div>
+        </div>
+      </section>
+
+      <section id="adjectivesSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Adjectives</h2>
+            <p class="section-desc">Practice how adjectives agree with nouns: masculine/feminine and singular/plural. Click any example pair to hear the base phrase, then the changed phrase.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playAdjectives">Play adjectives</button>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 16px;">
+          <h3>Quick Notes</h3>
+          <div class="summary-chips">
+            <div class="summary-chip">
+              <strong>阴性</strong>
+              <span>Basic rule: masculine adjective + <strong>e</strong>. Some endings change: <strong>-eux → -euse</strong>, <strong>-f → -ve</strong>, <strong>-ien → -ienne</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>复数</strong>
+              <span>Basic rule: adjective + <strong>s</strong>. Special endings include <strong>-eau → -eaux</strong> and <strong>-al → -aux</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Preposed plural</strong>
+              <span>When the adjective comes before a plural noun, <strong>des</strong> often becomes <strong>de</strong>: <strong>de nouveaux films</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Adjective Feminine Rules</h3>
+          <p>形容词的阴阳性：compare the masculine form with the feminine form.</p>
+          <div id="adjectiveFeminineGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Adjective Plural Rules</h3>
+          <p>形容词的单复数：compare the singular phrase with the plural phrase.</p>
+          <div id="adjectivePluralGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Important: adjective before plural noun</h3>
+          <p>当形容词前置，名词前的复数不定冠词 <strong>des</strong> 变为 <strong>de</strong>. These examples use the standard beginner pattern.</p>
+          <div id="adjectivePreposedPluralGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>特殊形容词: beau / nouveau / vieux</h3>
+          <p>These adjectives have a special masculine singular form before a vowel sound: <strong>bel</strong>, <strong>nouvel</strong>, <strong>vieil</strong>.</p>
+          <div id="specialAdjectiveGrid" class="adjective-forms-table"></div>
         </div>
       </section>
 
@@ -3818,6 +3932,229 @@
       }
     ];
 
+    const adjectiveFeminineRules = [
+      {
+        rule: "+e",
+        pattern: "Basic feminine rule: add -e to the masculine adjective.",
+        examples: [
+          { from: "un grand jardin", to: "une grande maison", en: "a big garden / a big house" },
+          { from: "un petit sac", to: "une petite table", en: "a small bag / a small table" },
+          { from: "un pull vert", to: "une robe verte", en: "a green sweater / a green dress" }
+        ]
+      },
+      {
+        rule: "-e → no change",
+        pattern: "Adjectives already ending in -e usually keep the same masculine and feminine form.",
+        examples: [
+          { from: "un livre rouge", to: "une fleur rouge", en: "a red book / a red flower" },
+          { from: "un homme jeune", to: "une femme jeune", en: "a young man / a young woman" },
+          { from: "un exercice facile", to: "une question facile", en: "an easy exercise / an easy question" }
+        ]
+      },
+      {
+        rule: "-ain → -aine",
+        pattern: "Add -e; the final -n is clearly heard in the feminine form.",
+        examples: [
+          { from: "un garçon américain", to: "une fille américaine", en: "an American boy / an American girl" },
+          { from: "un village lointain", to: "une ville lointaine", en: "a distant village / a distant city" },
+          { from: "un rendez-vous prochain", to: "une réunion prochaine", en: "an upcoming appointment / an upcoming meeting" }
+        ]
+      },
+      {
+        rule: "-eux → -euse",
+        pattern: "Masculine -eux usually becomes feminine -euse.",
+        examples: [
+          { from: "un homme heureux", to: "une femme heureuse", en: "a happy man / a happy woman" },
+          { from: "un garçon sérieux", to: "une fille sérieuse", en: "a serious boy / a serious girl" },
+          { from: "un film ennuyeux", to: "une histoire ennuyeuse", en: "a boring movie / a boring story" }
+        ]
+      },
+      {
+        rule: "-er → -ère",
+        pattern: "Masculine -er usually becomes feminine -ère.",
+        examples: [
+          { from: "un livre cher", to: "une robe chère", en: "an expensive book / an expensive dress" },
+          { from: "un premier jour", to: "une première semaine", en: "a first day / a first week" },
+          { from: "un dernier train", to: "une dernière chance", en: "a last train / a last chance" }
+        ]
+      },
+      {
+        rule: "-f → -ve",
+        pattern: "Masculine -f usually becomes feminine -ve.",
+        examples: [
+          { from: "un pantalon neuf", to: "une robe neuve", en: "new pants / a new dress" },
+          { from: "un garçon sportif", to: "une fille sportive", en: "a sporty boy / a sporty girl" },
+          { from: "un homme actif", to: "une femme active", en: "an active man / an active woman" }
+        ]
+      },
+      {
+        rule: "-ien → -ienne",
+        pattern: "Masculine -ien doubles the n and adds -e: -ienne.",
+        examples: [
+          { from: "un voisin parisien", to: "une voisine parisienne", en: "a Parisian neighbor" },
+          { from: "un ami italien", to: "une amie italienne", en: "an Italian friend" },
+          { from: "un musicien ancien", to: "une chanson ancienne", en: "an old musician / an old song" }
+        ]
+      }
+    ];
+
+    const adjectivePluralRules = [
+      {
+        rule: "+s",
+        pattern: "Basic plural rule: add -s to the adjective in writing.",
+        examples: [
+          { from: "un tee-shirt blanc", to: "des tee-shirts blancs", en: "a white T-shirt / white T-shirts" },
+          { from: "une fille blonde", to: "des filles blondes", en: "a blond girl / blond girls" },
+          { from: "une maison verte", to: "des maisons vertes", en: "a green house / green houses" }
+        ]
+      },
+      {
+        rule: "-eau → -eaux",
+        pattern: "Masculine adjectives ending in -eau usually become -eaux in the plural.",
+        examples: [
+          { from: "un film nouveau", to: "des films nouveaux", en: "a new movie / new movies" },
+          { from: "un beau manteau", to: "de beaux manteaux", en: "a beautiful coat / beautiful coats" },
+          { from: "un nouveau tableau", to: "de nouveaux tableaux", en: "a new painting / new paintings" }
+        ]
+      },
+      {
+        rule: "-al → -aux",
+        pattern: "Many masculine adjectives ending in -al become -aux in the plural.",
+        examples: [
+          { from: "un drapeau national", to: "des drapeaux nationaux", en: "a national flag / national flags" },
+          { from: "un projet spécial", to: "des projets spéciaux", en: "a special project / special projects" },
+          { from: "un cours principal", to: "des cours principaux", en: "a main course / main courses" }
+        ]
+      },
+      {
+        rule: "-s / -x → no change",
+        pattern: "Adjectives ending in -s or -x usually keep the same masculine singular and plural form.",
+        examples: [
+          { from: "un cheval gris", to: "des chevaux gris", en: "a gray horse / gray horses" },
+          { from: "un homme heureux", to: "des hommes heureux", en: "a happy man / happy men" },
+          { from: "un prix bas", to: "des prix bas", en: "a low price / low prices" }
+        ]
+      }
+    ];
+
+    const adjectivePreposedPluralRules = [
+      {
+        rule: "des → de",
+        pattern: "When an adjective comes before a plural noun, des often becomes de.",
+        examples: [
+          { from: "un nouveau film", to: "de nouveaux films", en: "a new movie / new movies" },
+          { from: "un beau vêtement", to: "de beaux vêtements", en: "a beautiful garment / beautiful clothes" },
+          { from: "une belle fleur", to: "de belles fleurs", en: "a beautiful flower / beautiful flowers" },
+          { from: "un vieux tableau", to: "de vieux tableaux", en: "an old painting / old paintings" }
+        ]
+      }
+    ];
+
+    const specialAdjectiveForms = [
+      {
+        family: "beau",
+        note: "bel before masculine singular vowel sound",
+        forms: [
+          {
+            label: "Masculine singular",
+            examples: [
+              { fr: "un beau pull", en: "a beautiful sweater" },
+              { fr: "un bel homme", en: "a handsome man" }
+            ]
+          },
+          {
+            label: "Feminine singular",
+            examples: [
+              { fr: "une belle maison", en: "a beautiful house" },
+              { fr: "une belle amie", en: "a beautiful friend" }
+            ]
+          },
+          {
+            label: "Masculine plural",
+            examples: [
+              { fr: "de beaux vêtements", en: "beautiful clothes" },
+              { fr: "de beaux appartements", en: "beautiful apartments" }
+            ]
+          },
+          {
+            label: "Feminine plural",
+            examples: [
+              { fr: "de belles fleurs", en: "beautiful flowers" },
+              { fr: "de belles amies", en: "beautiful friends" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "nouveau",
+        note: "nouvel before masculine singular vowel sound",
+        forms: [
+          {
+            label: "Masculine singular",
+            examples: [
+              { fr: "un nouveau film", en: "a new movie" },
+              { fr: "un nouvel ami", en: "a new friend" }
+            ]
+          },
+          {
+            label: "Feminine singular",
+            examples: [
+              { fr: "une nouvelle maison", en: "a new house" },
+              { fr: "une nouvelle amie", en: "a new friend" }
+            ]
+          },
+          {
+            label: "Masculine plural",
+            examples: [
+              { fr: "de nouveaux films", en: "new movies" },
+              { fr: "de nouveaux appartements", en: "new apartments" }
+            ]
+          },
+          {
+            label: "Feminine plural",
+            examples: [
+              { fr: "de nouvelles photos", en: "new photos" },
+              { fr: "de nouvelles amies", en: "new friends" }
+            ]
+          }
+        ]
+      },
+      {
+        family: "vieux",
+        note: "vieil before masculine singular vowel sound",
+        forms: [
+          {
+            label: "Masculine singular",
+            examples: [
+              { fr: "un vieux livre", en: "an old book" },
+              { fr: "un vieil homme", en: "an old man" }
+            ]
+          },
+          {
+            label: "Feminine singular",
+            examples: [
+              { fr: "une vieille dame", en: "an old lady" },
+              { fr: "une vieille amie", en: "an old friend" }
+            ]
+          },
+          {
+            label: "Masculine plural",
+            examples: [
+              { fr: "de vieux tableaux", en: "old paintings" },
+              { fr: "de vieux appartements", en: "old apartments" }
+            ]
+          },
+          {
+            label: "Feminine plural",
+            examples: [
+              { fr: "de vieilles maisons", en: "old houses" },
+              { fr: "de vieilles amies", en: "old friends" }
+            ]
+          }
+        ]
+      }
+    ];
+
     const determinerCategories = {
       definite: [
         { fr: "le", en: "the", note: "before a singular masculine noun", example: "le livre", exampleEn: "the book" },
@@ -4159,8 +4496,7 @@
         number: n,
         word: frenchNumber(n),
         ipa: frenchNumberIpa(n),
-        speech: frenchNumber(n),
-        search: `${n} ${frenchNumber(n)} ${frenchNumberIpa(n)}`.toLowerCase()
+        speech: frenchNumber(n)
       };
     });
     const ageYearItems = Array.from({ length: 20 }, (_, index) => {
@@ -4169,8 +4505,7 @@
         number: n,
         word: frenchAgeYearsPhrase(n),
         ipa: frenchAgeYearsIpa(n),
-        speech: frenchAgeYearsPhrase(n),
-        search: `${n} ${frenchAgeYearsPhrase(n)} ${frenchAgeYearsIpa(n)} age ans an year years`.toLowerCase()
+        speech: frenchAgeYearsPhrase(n)
       };
     });
     const calculationOperators = [
@@ -4211,6 +4546,10 @@
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
     const nounRulesGrid = document.getElementById("nounRulesGrid");
     const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
+    const adjectiveFeminineGrid = document.getElementById("adjectiveFeminineGrid");
+    const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
+    const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
+    const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
     const prepositionTable = document.getElementById("prepositionTable");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
@@ -4235,6 +4574,7 @@
     const grammarSection = document.getElementById("grammarSection");
     const verbsSection = document.getElementById("verbsSection");
     const nounsSection = document.getElementById("nounsSection");
+    const adjectivesSection = document.getElementById("adjectivesSection");
     const prepositionsSection = document.getElementById("prepositionsSection");
     const determinersSection = document.getElementById("determinersSection");
     const questionsSection = document.getElementById("questionsSection");
@@ -4250,6 +4590,7 @@
     const playHabiterBtn = document.getElementById("playHabiter");
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
     const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
+    const playAdjectivesBtn = document.getElementById("playAdjectives");
     const playPrepositionsBtn = document.getElementById("playPrepositions");
     const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");
     const nextGrammarFlashcardBtn = document.getElementById("nextGrammarFlashcard");
@@ -4340,27 +4681,27 @@
     }
 
     function renderAgeYears(list = ageYearItems) {
-      renderNumberCards(ageYearsGrid, list, "No age phrases match this search.");
+      renderNumberCards(ageYearsGrid, list, "No age phrases available.");
     }
 
     function renderNumbers(list = numberItems) {
-      renderNumberCards(grid, list, "No numbers match this search.");
+      renderNumberCards(grid, list, "No numbers available.");
       renderNumberCards(
         tensGrid,
         list.filter(item => tensNumberSet.has(item.number)),
-        "No tens match this search."
+        "No tens available."
       );
       renderNumberCards(
         trickyNumbersGrid,
         list.filter(item => trickyNumberSet.has(item.number)),
-        "No tricky numbers match this search."
+        "No tricky numbers available."
       );
     }
 
     function renderOperators(list = calculationOperators) {
       operatorGrid.innerHTML = "";
       if (!list.length) {
-        operatorGrid.innerHTML = `<div class="empty-state">No operators match this search.</div>`;
+        operatorGrid.innerHTML = `<div class="empty-state">No operators available.</div>`;
         return;
       }
       list.forEach(item => {
@@ -4379,53 +4720,8 @@
       });
     }
 
-    function getPronunciationRuleSearchText(rule) {
-      return `${rule.rule} ${rule.examples.map(example => `${example.fr} ${getPronunciationIpa(example)} ${example.zh}`).join(" ")}`.toLowerCase();
-    }
-
     function getPronunciationIpa(example) {
       return example.ipa || pronunciationIpa[example.fr] || "";
-    }
-
-    function getMatchingPronunciationGroups(groups, q) {
-      return groups
-        .map(group => {
-          const soundMatches = group.sound.toLowerCase().includes(q);
-          const matchingRules = soundMatches
-            ? group.rules
-            : group.rules.filter(rule => getPronunciationRuleSearchText(rule).includes(q));
-          return { sound: group.sound, rules: matchingRules };
-        })
-        .filter(group => group.rules.length > 0);
-    }
-
-    function getMatchingPronunciationRules(q) {
-      return getMatchingPronunciationGroups(pronunciationRules, q);
-    }
-
-    function getMatchingConsonantPronunciationRules(q) {
-      return getMatchingPronunciationGroups(consonantPronunciationRules, q);
-    }
-
-    function getPronunciationPracticeSearchText(item) {
-      return `${item.fr} ${getPronunciationIpa(item)} ${item.zh}`.toLowerCase();
-    }
-
-    function getMatchingPronunciationPracticeGroups(q) {
-      return pronunciationPracticeGroups
-        .map(group => ({
-          label: group.label,
-          words: group.words.filter(item => getPronunciationPracticeSearchText(item).includes(q))
-        }))
-        .filter(group => group.words.length > 0);
-    }
-
-    function getPronunciationMatrixSearchText(row) {
-      return `${row.sound} ${row.cells.map(item => `${item.fr} ${getPronunciationIpa(item)} ${item.zh}`).join(" ")}`.toLowerCase();
-    }
-
-    function getMatchingPronunciationMatrixRows(q) {
-      return pronunciationMatrixRows.filter(row => getPronunciationMatrixSearchText(row).includes(q));
     }
 
     function getPronunciationExamples(lists = [pronunciationRules, consonantPronunciationRules]) {
@@ -4480,17 +4776,17 @@
     }
 
     function renderPronunciationRules(list = pronunciationRules) {
-      renderPronunciationRuleGroups(pronunciationGrid, list, "No vowel pronunciation rules match this search.");
+      renderPronunciationRuleGroups(pronunciationGrid, list, "No vowel pronunciation rules available.");
     }
 
     function renderConsonantPronunciationRules(list = consonantPronunciationRules) {
-      renderPronunciationRuleGroups(consonantPronunciationGrid, list, "No consonant pronunciation rules match this search.");
+      renderPronunciationRuleGroups(consonantPronunciationGrid, list, "No consonant pronunciation rules available.");
     }
 
     function renderPronunciationMatrix(rows = pronunciationMatrixRows) {
       pronunciationMatrixGrid.innerHTML = "";
       if (!rows.length) {
-        pronunciationMatrixGrid.innerHTML = `<div class="empty-state">No pronunciation table words match this search.</div>`;
+        pronunciationMatrixGrid.innerHTML = `<div class="empty-state">No pronunciation table words available.</div>`;
         return;
       }
 
@@ -4527,7 +4823,7 @@
     function renderPronunciationPractice(groups = pronunciationPracticeGroups) {
       pronunciationPracticeGrid.innerHTML = "";
       if (!groups.length) {
-        pronunciationPracticeGrid.innerHTML = `<div class="empty-state">No practice words match this search.</div>`;
+        pronunciationPracticeGrid.innerHTML = `<div class="empty-state">No practice words available.</div>`;
         return;
       }
 
@@ -4559,7 +4855,7 @@
     function renderVerbTable(container, rows) {
       container.innerHTML = "";
       if (!rows.length) {
-        container.innerHTML = `<div class="empty-state">No conjugations match this search.</div>`;
+        container.innerHTML = `<div class="empty-state">No conjugations available.</div>`;
         return;
       }
 
@@ -4574,7 +4870,7 @@
       }));
 
       if (!columns.some(column => column.items.length)) {
-        container.innerHTML = `<div class="empty-state">No singular or plural conjugations match this search.</div>`;
+        container.innerHTML = `<div class="empty-state">No singular or plural conjugations available.</div>`;
         return;
       }
 
@@ -4674,14 +4970,6 @@
       speak(currentGrammarFlashcard.fr, grammarFlashcard);
     }
 
-    function getNounPluralRuleSearchText(rule) {
-      return `${rule.rule} ${rule.pattern} ${rule.examples.map(example => `${example.singular} ${example.plural} ${example.en}`).join(" ")}`.toLowerCase();
-    }
-
-    function getJobGenderRuleSearchText(rule) {
-      return `${rule.rule} ${rule.pattern} ${rule.examples.map(example => `${example.masculine} ${example.feminine} ${example.en}`).join(" ")}`.toLowerCase();
-    }
-
     function getNounPluralExamples(rules = nounPluralRules) {
       return rules.flatMap(rule => rule.examples);
     }
@@ -4704,10 +4992,25 @@
       ], card);
     }
 
+    function getAdjectiveRuleExamples(rules) {
+      return rules.flatMap(rule => rule.examples);
+    }
+
+    function getSpecialAdjectiveExamples(rows = specialAdjectiveForms) {
+      return rows.flatMap(row => row.forms.flatMap(form => form.examples));
+    }
+
+    function speakAdjectivePair(example, card) {
+      speakSequence([
+        { text: example.from },
+        { text: example.to, pauseBefore: examplePauseMs }
+      ], card);
+    }
+
     function renderNounPluralRules(list = nounPluralRules) {
       nounRulesGrid.innerHTML = "";
       if (!list.length) {
-        nounRulesGrid.innerHTML = `<div class="empty-state">No noun plural rules match this search.</div>`;
+        nounRulesGrid.innerHTML = `<div class="empty-state">No noun plural rules available.</div>`;
         return;
       }
 
@@ -4756,7 +5059,7 @@
     function renderJobGenderRules(list = jobGenderRules) {
       jobGenderRulesGrid.innerHTML = "";
       if (!list.length) {
-        jobGenderRulesGrid.innerHTML = `<div class="empty-state">No job noun gender rules match this search.</div>`;
+        jobGenderRulesGrid.innerHTML = `<div class="empty-state">No job noun gender rules available.</div>`;
         return;
       }
 
@@ -4802,14 +5105,135 @@
       });
     }
 
-    function getPrepositionSearchText(item) {
-      return `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => `${example.fr} ${example.en}`).join(" ")}`.toLowerCase();
+    function renderAdjectiveRuleTable(container, list, emptyMessage, headers) {
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="noun-rule-header">
+          <div>${headers.rule}</div>
+          <div>${headers.pattern}</div>
+          <div>${headers.examples}</div>
+        </div>
+      `;
+
+      list.forEach((rule, ruleIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Rule</span>
+            <div class="french-line">${rule.rule}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Pattern</span>
+            <div class="grammar-note">${rule.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rule.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.from} → ${example.to}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = list[Number(button.dataset.ruleIndex)].examples[Number(button.dataset.exampleIndex)];
+            speakAdjectivePair(example, button);
+          });
+        });
+        container.appendChild(row);
+      });
+    }
+
+    function renderAdjectiveFeminineRules(list = adjectiveFeminineRules) {
+      renderAdjectiveRuleTable(
+        adjectiveFeminineGrid,
+        list,
+        "No adjective feminine rules available.",
+        { rule: "Feminine rule", pattern: "How it changes", examples: "Masculine → feminine examples" }
+      );
+    }
+
+    function renderAdjectivePluralRules(list = adjectivePluralRules) {
+      renderAdjectiveRuleTable(
+        adjectivePluralGrid,
+        list,
+        "No adjective plural rules available.",
+        { rule: "Plural rule", pattern: "How it changes", examples: "Singular → plural examples" }
+      );
+    }
+
+    function renderAdjectivePreposedPluralRules(list = adjectivePreposedPluralRules) {
+      renderAdjectiveRuleTable(
+        adjectivePreposedPluralGrid,
+        list,
+        "No preposed adjective rules available.",
+        { rule: "Article rule", pattern: "How it changes", examples: "Singular → plural examples" }
+      );
+    }
+
+    function renderSpecialAdjectiveForms(rows = specialAdjectiveForms) {
+      specialAdjectiveGrid.innerHTML = "";
+      if (!rows.length) {
+        specialAdjectiveGrid.innerHTML = `<div class="empty-state">No special adjective forms available.</div>`;
+        return;
+      }
+
+      specialAdjectiveGrid.innerHTML = `
+        <div class="adjective-forms-header">
+          <div>Adjective family</div>
+          <div>Masculine singular</div>
+          <div>Feminine singular</div>
+          <div>Masculine plural</div>
+          <div>Feminine plural</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "adjective-forms-row";
+        row.innerHTML = `
+          <div class="adjective-family">
+            <strong>${rowData.family}</strong>
+            <span class="grammar-note">${rowData.note}</span>
+          </div>
+          ${rowData.forms.map((form, formIndex) => `
+            <div class="adjective-form-list">
+              <span class="question-cell-label">${form.label}</span>
+              ${form.examples.map((example, exampleIndex) => `
+                <button class="adjective-form-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.fr}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          `).join("")}
+        `;
+        row.querySelectorAll(".adjective-form-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rows[Number(button.dataset.rowIndex)]
+              .forms[Number(button.dataset.formIndex)]
+              .examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        specialAdjectiveGrid.appendChild(row);
+      });
     }
 
     function renderPrepositions(list = placePrepositions) {
       prepositionTable.innerHTML = "";
       if (!list.length) {
-        prepositionTable.innerHTML = `<div class="empty-state">No prepositions match this search.</div>`;
+        prepositionTable.innerHTML = `<div class="empty-state">No prepositions available.</div>`;
         return;
       }
 
@@ -4861,58 +5285,8 @@
       });
     }
 
-    function getComparisonSearchText(columns, rows) {
-      return [
-        ...columns.map(column => `${column.title} ${column.note}`),
-        ...rows.map(row => `${row.topic} ${row.agreement || ""} ${row.en} ${columns.map(column => {
-          const example = row.examples[column.key];
-          return `${example.fr} ${example.en}`;
-        }).join(" ")}`)
-      ].join(" ").toLowerCase();
-    }
-
-    function getMatchingComparisonRows(q, columns, rows) {
-      const columnMatches = columns.some(column => `${column.title} ${column.note}`.toLowerCase().includes(q));
-      return rows.filter(row => columnMatches || getComparisonSearchText(columns, [row]).includes(q));
-    }
-
-    function getQuelDeepDiveSearchText() {
-      return [
-        ...quelForms.map(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`),
-        getComparisonSearchText(quelExampleColumns, quelExampleRows),
-        getComparisonSearchText(quelEtreSpecialColumns, quelEtreSpecialRows)
-      ].join(" ").toLowerCase();
-    }
-
-    function getMatchingQuelExampleRows(q) {
-      return getMatchingComparisonRows(q, quelExampleColumns, quelExampleRows);
-    }
-
-    function getMatchingQuelEtreRows(q) {
-      return getMatchingComparisonRows(q, quelEtreSpecialColumns, quelEtreSpecialRows);
-    }
-
-    function getQueDeepDiveSearchText() {
-      return [
-        getComparisonSearchText(queExampleColumns, queExampleRows),
-        getComparisonSearchText(queCestSpecialColumns, queCestSpecialRows)
-      ].join(" ").toLowerCase();
-    }
-
-    function getMatchingQueExampleRows(q) {
-      return getMatchingComparisonRows(q, queExampleColumns, queExampleRows);
-    }
-
-    function getMatchingQueCestRows(q) {
-      return getMatchingComparisonRows(q, queCestSpecialColumns, queCestSpecialRows);
-    }
-
-    function renderQuelForms(showContent = true) {
+    function renderQuelForms() {
       quelFormsGrid.innerHTML = "";
-      if (!showContent) {
-        quelFormsGrid.innerHTML = `<div class="empty-state">No quel forms match this search.</div>`;
-        return;
-      }
 
       quelForms.forEach(item => {
         const button = document.createElement("button");
@@ -4979,25 +5353,25 @@
     }
 
     function renderQuelExamples(rows = quelExampleRows) {
-      renderQuestionComparison(quelExamplesGrid, quelExampleColumns, rows, "No quel examples match this search.");
+      renderQuestionComparison(quelExamplesGrid, quelExampleColumns, rows, "No quel examples available.");
     }
 
     function renderQuelEtreExamples(rows = quelEtreSpecialRows) {
-      renderQuestionComparison(quelEtreExamplesGrid, quelEtreSpecialColumns, rows, "No quel + être examples match this search.");
+      renderQuestionComparison(quelEtreExamplesGrid, quelEtreSpecialColumns, rows, "No quel + être examples available.");
     }
 
     function renderQueExamples(rows = queExampleRows) {
-      renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples match this search.");
+      renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples available.");
     }
 
     function renderQueCestExamples(rows = queCestSpecialRows) {
-      renderQuestionComparison(queCestExamplesGrid, queCestSpecialColumns, rows, "No c’est quoi examples match this search.");
+      renderQuestionComparison(queCestExamplesGrid, queCestSpecialColumns, rows, "No c’est quoi examples available.");
     }
 
     function renderQuestionWords(list = questionWords) {
       questionWordsGrid.innerHTML = "";
       if (!list.length) {
-        questionWordsGrid.innerHTML = `<div class="empty-state">No question words match this search.</div>`;
+        questionWordsGrid.innerHTML = `<div class="empty-state">No question words available.</div>`;
         return;
       }
       questionWordsGrid.innerHTML = `
@@ -5099,14 +5473,10 @@
       });
     }
 
-    function articleItemMatches(item, q) {
-      return `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q);
-    }
-
     function renderArticleComparison(rows = articleComparisonRows) {
       articleComparisonGrid.innerHTML = "";
       if (!rows.length) {
-        articleComparisonGrid.innerHTML = `<div class="empty-state">No article pairs match this search.</div>`;
+        articleComparisonGrid.innerHTML = `<div class="empty-state">No article pairs available.</div>`;
         return;
       }
 
@@ -5137,7 +5507,7 @@
     function renderPossessives(list = possessiveRows) {
       possessiveGrid.innerHTML = "";
       if (!list.length) {
-        possessiveGrid.innerHTML = `<div class="empty-state">No possessive determiners match this search.</div>`;
+        possessiveGrid.innerHTML = `<div class="empty-state">No possessive determiners available.</div>`;
         return;
       }
 
@@ -5301,183 +5671,11 @@
       grammarSection.classList.toggle("active", tabName === "grammar");
       verbsSection.classList.toggle("active", tabName === "verbs");
       nounsSection.classList.toggle("active", tabName === "nouns");
+      adjectivesSection.classList.toggle("active", tabName === "adjectives");
       prepositionsSection.classList.toggle("active", tabName === "prepositions");
       determinersSection.classList.toggle("active", tabName === "determiners");
       questionsSection.classList.toggle("active", tabName === "questions");
       calendarSection.classList.toggle("active", tabName === "calendar");
-    }
-
-    function getSearchMatches(q) {
-      const filteredPossessives = possessiveRows
-        .map(row => ({
-          owner: row.owner,
-          note: row.note,
-          forms: row.forms.filter(form =>
-            `${row.owner} ${row.note} ${form.form} ${form.label} ${form.example} ${form.exampleEn}`.toLowerCase().includes(q)
-          )
-        }))
-        .filter(row => row.forms.length > 0 || `${row.owner} ${row.note}`.toLowerCase().includes(q))
-        .map(row => ({
-          owner: row.owner,
-          note: row.note,
-          forms: row.forms.length ? row.forms : possessiveRows.find(source => source.owner === row.owner).forms
-        }));
-
-      return {
-        numbers: numberItems.filter(item => item.search.includes(q)),
-        ageYears: ageYearItems.filter(item => item.search.includes(q)),
-        operators: calculationOperators.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        pronunciation: getMatchingPronunciationRules(q),
-        consonantPronunciation: getMatchingConsonantPronunciationRules(q),
-        pronunciationMatrix: getMatchingPronunciationMatrixRows(q),
-        pronunciationPractice: getMatchingPronunciationPracticeGroups(q),
-        etre: etreRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        avoir: avoirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        aller: allerRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} aller irregular present tense`.toLowerCase().includes(q)),
-        venir: venirRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} venir irregular present tense`.toLowerCase().includes(q)),
-        habiter: habiterRows.filter(item => `${item.full} ${item.en} ${item.example} ${item.exampleEn} habiter regular present tense`.toLowerCase().includes(q)),
-        examples: exampleSentences.filter(item => `${item.fr} ${item.en} ${item.note}`.toLowerCase().includes(q)),
-        questionWords: questionWords.filter(item =>
-          `${item.fr} ${item.en} ${item.note} ${item.examples.map(example => getExampleVariants(example).map(variant => `${variant.fr} ${variant.en}`).join(" ")).join(" ")}`.toLowerCase().includes(q)
-        ),
-        quelForms: quelForms.some(item => `${item.form} ${item.gender} ${item.number} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        quelExamples: getMatchingQuelExampleRows(q),
-        quelEtreExamples: getMatchingQuelEtreRows(q),
-        queExamples: getMatchingQueExampleRows(q),
-        queCestExamples: getMatchingQueCestRows(q),
-        nounPluralRules: nounPluralRules.filter(rule => getNounPluralRuleSearchText(rule).includes(q)),
-        jobGenderRules: jobGenderRules.filter(rule => getJobGenderRuleSearchText(rule).includes(q)),
-        prepositions: placePrepositions.filter(item => getPrepositionSearchText(item).includes(q)),
-        weekdays: weekdays.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        months: months.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        seasons: seasons.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        articleBasics: articleComparisonRows.filter(row =>
-          row.label.toLowerCase().includes(q) ||
-          articleItemMatches(row.definite, q) ||
-          articleItemMatches(row.indefinite, q)
-        ),
-        aArticles: aArticleRules.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        deArticles: deArticleRules.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        demonstrative: determinerCategories.demonstrative.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        possessiveExceptions: possessiveExceptions.filter(item => `${item.fr} ${item.en} ${item.note} ${item.example} ${item.exampleEn}`.toLowerCase().includes(q)),
-        possessives: filteredPossessives
-      };
-    }
-
-    function applySearch(rawQuery) {
-      const q = rawQuery.trim().toLowerCase();
-
-      if (!q) {
-        renderNumbers();
-        renderAgeYears();
-        renderOperators();
-        renderPronunciationRules();
-        renderConsonantPronunciationRules();
-        renderPronunciationMatrix();
-        renderPronunciationPractice();
-        renderVerbTable(etreTable, etreRows);
-        renderVerbTable(avoirTable, avoirRows);
-        renderVerbTable(allerTable, allerRows);
-        renderVerbTable(venirTable, venirRows);
-        renderVerbTable(habiterTable, habiterRows);
-        renderExamples();
-        renderQuelForms();
-        renderQuelExamples();
-        renderQuelEtreExamples();
-        renderQueExamples();
-        renderQueCestExamples();
-        renderQuestionWords();
-        renderNounPluralRules();
-        renderJobGenderRules();
-        renderPrepositions();
-        renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
-        renderCalendarCards(monthsGrid, months, "No months match this search.");
-        renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
-        renderArticleComparison();
-        renderDeterminerCards(aArticleGrid, aArticleRules);
-        renderDeterminerCards(deArticleGrid, deArticleRules);
-        renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
-        renderPossessives();
-        renderPossessiveExceptions();
-        return;
-      }
-
-      const matches = getSearchMatches(q);
-      renderNumbers(matches.numbers);
-      renderAgeYears(matches.ageYears);
-      renderOperators(matches.operators);
-      renderPronunciationRules(matches.pronunciation);
-      renderConsonantPronunciationRules(matches.consonantPronunciation);
-      renderPronunciationMatrix(matches.pronunciationMatrix);
-      renderPronunciationPractice(matches.pronunciationPractice);
-      renderVerbTable(etreTable, matches.etre);
-      renderVerbTable(avoirTable, matches.avoir);
-      renderVerbTable(allerTable, matches.aller);
-      renderVerbTable(venirTable, matches.venir);
-      renderVerbTable(habiterTable, matches.habiter);
-      renderExamples(matches.examples);
-      renderQuelForms(matches.quelForms || getQuelDeepDiveSearchText().includes(q));
-      renderQuelExamples(matches.quelExamples);
-      renderQuelEtreExamples(matches.quelEtreExamples);
-      renderQueExamples(matches.queExamples);
-      renderQueCestExamples(matches.queCestExamples);
-      renderQuestionWords(matches.questionWords);
-      renderNounPluralRules(matches.nounPluralRules);
-      renderJobGenderRules(matches.jobGenderRules);
-      renderPrepositions(matches.prepositions);
-      renderCalendarCards(weekdaysGrid, matches.weekdays, "No days match this search.");
-      renderCalendarCards(monthsGrid, matches.months, "No months match this search.");
-      renderCalendarCards(seasonsGrid, matches.seasons, "No seasons match this search.");
-      renderArticleComparison(matches.articleBasics);
-      renderDeterminerCards(aArticleGrid, matches.aArticles);
-      renderDeterminerCards(deArticleGrid, matches.deArticles);
-      renderDeterminerCards(demonstrativeGrid, matches.demonstrative);
-      renderPossessives(matches.possessives);
-      renderPossessiveExceptions(matches.possessiveExceptions);
-
-      const hasNumberResults = matches.numbers.length > 0 || matches.ageYears.length > 0 || matches.operators.length > 0;
-      const hasPronunciationResults =
-        matches.pronunciation.length > 0 ||
-        matches.consonantPronunciation.length > 0 ||
-        matches.pronunciationMatrix.length > 0 ||
-        matches.pronunciationPractice.length > 0;
-      const hasGrammarResults = matches.etre.length > 0 || matches.avoir.length > 0 || matches.examples.length > 0;
-      const hasVerbResults = matches.aller.length > 0 || matches.venir.length > 0 || matches.habiter.length > 0;
-      const hasQuestionResults =
-        matches.questionWords.length > 0 ||
-        matches.quelForms ||
-        matches.quelExamples.length > 0 ||
-        matches.quelEtreExamples.length > 0 ||
-        matches.queExamples.length > 0 ||
-        matches.queCestExamples.length > 0 ||
-        getQuelDeepDiveSearchText().includes(q) ||
-        getQueDeepDiveSearchText().includes(q);
-      const hasNounResults = matches.nounPluralRules.length > 0 || matches.jobGenderRules.length > 0;
-      const hasPrepositionResults = matches.prepositions.length > 0;
-      const hasCalendarResults = matches.weekdays.length > 0 || matches.months.length > 0 || matches.seasons.length > 0;
-      const hasDeterminerResults =
-        matches.articleBasics.length > 0 ||
-        matches.aArticles.length > 0 ||
-        matches.deArticles.length > 0 ||
-        matches.demonstrative.length > 0 ||
-        matches.possessiveExceptions.length > 0 ||
-        matches.possessives.length > 0;
-
-      const tabResults = {
-        numbers: hasNumberResults,
-        pronunciation: hasPronunciationResults,
-        grammar: hasGrammarResults,
-        verbs: hasVerbResults,
-        nouns: hasNounResults,
-        prepositions: hasPrepositionResults,
-        determiners: hasDeterminerResults,
-        questions: hasQuestionResults,
-        calendar: hasCalendarResults
-      };
-      const firstMatchingTab = Object.entries(tabResults).find(([, hasResults]) => hasResults);
-      if (!tabResults[activeTab] && firstMatchingTab) {
-        activateTab(firstMatchingTab[0]);
-      }
     }
 
     tabButtons.forEach(btn => {
@@ -5572,6 +5770,24 @@
         { text: example.masculine },
         { text: example.feminine, pauseBefore: examplePauseMs }
       ])));
+    });
+
+    playAdjectivesBtn.addEventListener("click", () => {
+      speakSequence([
+        ...getAdjectiveRuleExamples(adjectiveFeminineRules).flatMap(example => ([
+          { text: example.from },
+          { text: example.to, pauseBefore: examplePauseMs }
+        ])),
+        ...getAdjectiveRuleExamples(adjectivePluralRules).flatMap(example => ([
+          { text: example.from },
+          { text: example.to, pauseBefore: examplePauseMs }
+        ])),
+        ...getAdjectiveRuleExamples(adjectivePreposedPluralRules).flatMap(example => ([
+          { text: example.from },
+          { text: example.to, pauseBefore: examplePauseMs }
+        ])),
+        ...getSpecialAdjectiveExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+      ]);
     });
 
     playPrepositionsBtn.addEventListener("click", () => {
@@ -5677,10 +5893,14 @@
     renderQuestionWords();
     renderNounPluralRules();
     renderJobGenderRules();
+    renderAdjectiveFeminineRules();
+    renderAdjectivePluralRules();
+    renderAdjectivePreposedPluralRules();
+    renderSpecialAdjectiveForms();
     renderPrepositions();
-    renderCalendarCards(weekdaysGrid, weekdays, "No days match this search.");
-    renderCalendarCards(monthsGrid, months, "No months match this search.");
-    renderCalendarCards(seasonsGrid, seasons, "No seasons match this search.");
+    renderCalendarCards(weekdaysGrid, weekdays, "No days available.");
+    renderCalendarCards(monthsGrid, months, "No months available.");
+    renderCalendarCards(seasonsGrid, seasons, "No seasons available.");
     renderArticleComparison();
     renderDeterminerCards(aArticleGrid, aArticleRules);
     renderDeterminerCards(deArticleGrid, deArticleRules);
