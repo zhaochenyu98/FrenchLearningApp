@@ -1343,8 +1343,7 @@
 
     <div class="section-shell">
       <div class="tabs">
-        <button class="tab-btn active" type="button" data-tab="numbers">Numbers 1–100</button>
-        <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
+        <button class="tab-btn active" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="pronouns">Pronouns</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
@@ -1353,54 +1352,11 @@
         <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
+        <button class="tab-btn" type="button" data-tab="numbers">Numbers 1–100</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
       </div>
 
-      <section id="numbersSection" class="section active">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">French Numbers 1–100</h2>
-            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em> and <em>quatre-vingt-dix-neuf</em> by listening and repeating.</p>
-          </div>
-          <div class="action-row">
-            <button class="action-btn" type="button" id="playNumberSamples">Play all numbers</button>
-          </div>
-        </div>
-
-        <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
-        <div id="grid" class="grid"></div>
-
-        <div class="panel" style="margin-top: 18px;">
-          <h3>Ages 1–20: number + an / ans</h3>
-          <p>Use <strong>un an</strong> with singular <strong>an</strong>; 2–20 use <strong>ans</strong>. Click a card to hear the age phrase.</p>
-          <div class="action-row" style="margin-bottom: 14px;">
-            <button class="action-btn" type="button" id="playAgeYears">Play all ages</button>
-          </div>
-          <div id="ageYearsGrid" class="grid"></div>
-        </div>
-
-        <div class="two-col">
-          <div class="panel">
-            <h3>Tens You’ll Use Constantly</h3>
-            <p>Focus on the core decade numbers first: <strong>20, 30, 40</strong> and up through <strong>90</strong>.</p>
-            <div id="tensGrid" class="grid"></div>
-          </div>
-
-          <div class="panel">
-            <h3>Tricky Numbers for Beginners</h3>
-            <p>These are the forms that usually need extra repetition: teens, <strong>et un</strong>, and the unusual <strong>70 / 80 / 90</strong> patterns.</p>
-            <div id="trickyNumbersGrid" class="grid"></div>
-          </div>
-        </div>
-
-        <div class="panel" style="margin-top: 18px;">
-          <h3>Calculation Operators</h3>
-          <p>Learn the basic math words used in simple calculations. Click a card to hear the operator, then a short example.</p>
-          <div id="operatorGrid" class="determiner-subgrid"></div>
-        </div>
-      </section>
-
-      <section id="pronunciationSection" class="section">
+      <section id="pronunciationSection" class="section active">
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronunciation Rules</h2>
@@ -1849,6 +1805,50 @@
         </div>
       </section>
 
+      <section id="numbersSection" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Numbers 1–100</h2>
+            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em> and <em>quatre-vingt-dix-neuf</em> by listening and repeating.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playNumberSamples">Play all numbers</button>
+          </div>
+        </div>
+
+        <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
+        <div id="grid" class="grid"></div>
+
+        <div class="panel" style="margin-top: 18px;">
+          <h3>Ages 1–20: number + an / ans</h3>
+          <p>Use <strong>un an</strong> with singular <strong>an</strong>; 2–20 use <strong>ans</strong>. Click a card to hear the age phrase.</p>
+          <div class="action-row" style="margin-bottom: 14px;">
+            <button class="action-btn" type="button" id="playAgeYears">Play all ages</button>
+          </div>
+          <div id="ageYearsGrid" class="grid"></div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Tens You’ll Use Constantly</h3>
+            <p>Focus on the core decade numbers first: <strong>20, 30, 40</strong> and up through <strong>90</strong>.</p>
+            <div id="tensGrid" class="grid"></div>
+          </div>
+
+          <div class="panel">
+            <h3>Tricky Numbers for Beginners</h3>
+            <p>These are the forms that usually need extra repetition: teens, <strong>et un</strong>, and the unusual <strong>70 / 80 / 90</strong> patterns.</p>
+            <div id="trickyNumbersGrid" class="grid"></div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top: 18px;">
+          <h3>Calculation Operators</h3>
+          <p>Learn the basic math words used in simple calculations. Click a card to hear the operator, then a short example.</p>
+          <div id="operatorGrid" class="determiner-subgrid"></div>
+        </div>
+      </section>
+
       <section id="calendarSection" class="section">
         <div class="section-header">
           <div>
@@ -2116,6 +2116,22 @@
             lines: [
               { fr: "Ce sont eux.", en: "It’s them." }
             ]
+          },
+          {
+            lines: [
+              { fr: "Qui est à la porte ?", en: "Who is at the door?" },
+              { fr: "C’est nous.", en: "It’s us." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "C’est toi sur la photo ?", en: "Is that you in the photo?" }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Ce sont elles, mes amies.", en: "It’s them, my friends." }
+            ]
           }
         ]
       },
@@ -2133,6 +2149,22 @@
             lines: [
               { fr: "Il est japonais, et vous ?", en: "He is Japanese, and you?" }
             ]
+          },
+          {
+            lines: [
+              { fr: "Tu viens avec nous ?", en: "Are you coming with us?" },
+              { fr: "Oui, moi aussi.", en: "Yes, me too." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Moi, non.", en: "Me, no." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Et toi ?", en: "And you?" }
+            ]
           }
         ]
       },
@@ -2148,6 +2180,21 @@
           {
             lines: [
               { fr: "Il est français, mais elle, elle est italienne.", en: "He is French, but she is Italian." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Toi, tu parles français.", en: "You, you speak French." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Nous, nous habitons ici.", en: "We live here." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Eux, ils vont au marché.", en: "They are going to the market." }
             ]
           }
         ]
@@ -2175,6 +2222,26 @@
             lines: [
               { fr: "Tu parles à qui ?", en: "Who are you speaking to?" },
               { fr: "Je parle à elles.", en: "I am speaking to them." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Elle vient avec moi.", en: "She is coming with me." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Ce livre est pour lui.", en: "This book is for him." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Nous mangeons chez eux.", en: "We are eating at their place." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Je pense à toi.", en: "I am thinking of you." }
             ]
           }
         ]
@@ -4944,7 +5011,7 @@
     let prepositionFlashcardDeck = [];
     let currentPrepositionFlashcardIndex = 0;
     let prepositionFlashcardRevealed = false;
-    let activeTab = "numbers";
+    let activeTab = "pronunciation";
     const examplePauseMs = 900;
     const numberRepeatPauseMs = 700;
     let playbackToken = 0;
