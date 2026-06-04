@@ -134,6 +134,7 @@
     .adjective-form-btn,
     .preposition-word-btn,
     .preposition-example-btn,
+    .demonstrative-form-btn,
     .theme-btn,
     .poss-cell-btn {
       font: inherit;
@@ -279,6 +280,7 @@
     .adjective-form-btn,
     .preposition-word-btn,
     .preposition-example-btn,
+    .demonstrative-form-btn,
     .poss-cell-btn {
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -300,6 +302,7 @@
     .adjective-form-btn:hover,
     .preposition-word-btn:hover,
     .preposition-example-btn:hover,
+    .demonstrative-form-btn:hover,
     .poss-cell-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent-border);
@@ -313,6 +316,7 @@
     .adjective-form-btn:active,
     .preposition-word-btn:active,
     .preposition-example-btn:active,
+    .demonstrative-form-btn:active,
     .poss-cell-btn:active {
       transform: translateY(0);
     }
@@ -513,6 +517,91 @@
 
     .article-comparison-cell {
       min-height: 132px;
+    }
+
+    .demonstrative-table {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .demonstrative-cell {
+      --demonstrative-color: var(--accent);
+      border: 2px solid var(--demonstrative-color);
+      border-radius: 18px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .demonstrative-blue {
+      --demonstrative-color: #2563a6;
+    }
+
+    .demonstrative-green {
+      --demonstrative-color: #3f9b36;
+    }
+
+    .demonstrative-red {
+      --demonstrative-color: #c93636;
+    }
+
+    .demonstrative-gold {
+      --demonstrative-color: #d39b00;
+    }
+
+    .demonstrative-cell-header {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      background: var(--demonstrative-color);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .demonstrative-cell-header span {
+      padding: 8px 10px;
+    }
+
+    .demonstrative-cell-header span + span {
+      border-left: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    .demonstrative-form-list {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .demonstrative-form-btn {
+      display: grid;
+      gap: 5px;
+      min-height: 142px;
+      border-radius: 12px;
+      box-shadow: none;
+    }
+
+    .demonstrative-form {
+      color: var(--demonstrative-color);
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .demonstrative-examples {
+      display: grid;
+      gap: 7px;
+      margin-top: 5px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .demonstrative-examples > span {
+      display: grid;
+      gap: 2px;
     }
 
     .verb-panel {
@@ -1316,6 +1405,10 @@
     @media (max-width: 640px) {
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .demonstrative-table {
+        grid-template-columns: 1fr;
       }
 
     }

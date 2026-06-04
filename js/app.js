@@ -47,7 +47,7 @@
         renderArticleComparison();
         renderDeterminerCards(aArticleGrid, aArticleRules);
         renderDeterminerCards(deArticleGrid, deArticleRules);
-        renderDeterminerCards(demonstrativeGrid, determinerCategories.demonstrative);
+        renderDemonstrativeTable();
         renderPossessives();
         renderPossessiveExceptions();
       },

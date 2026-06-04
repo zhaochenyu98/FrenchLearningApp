@@ -73,6 +73,56 @@
       });
     }
 
+    function renderDemonstrativeTable(rows = demonstrativeRows) {
+      demonstrativeGrid.innerHTML = "";
+      if (!rows.length) {
+        demonstrativeGrid.innerHTML = `<div class="empty-state">No demonstrative determiners available.</div>`;
+        return;
+      }
+
+      rows.forEach((row) => {
+        const cell = document.createElement("div");
+        cell.className = `demonstrative-cell demonstrative-${row.tone}`;
+        cell.innerHTML = `
+          <div class="demonstrative-cell-header">
+            <span>${row.gender}</span>
+            <span>${row.number}</span>
+          </div>
+          <div class="demonstrative-form-list"></div>
+        `;
+
+        const formList = cell.querySelector(".demonstrative-form-list");
+        row.forms.forEach((form) => {
+          const examples = form.examples || [{ fr: form.example, en: form.exampleEn }];
+          const button = document.createElement("button");
+          button.className = "demonstrative-form-btn";
+          button.type = "button";
+          button.innerHTML = `
+            <span class="demonstrative-form">${form.fr}</span>
+            <span class="translation">${form.en}</span>
+            <span class="grammar-note">${form.note}</span>
+            <span class="demonstrative-examples">
+              ${examples.map(example => `
+                <span>
+                  <strong>${example.fr}</strong>
+                  <span class="translation">${example.en}</span>
+                </span>
+              `).join("")}
+            </span>
+          `;
+          button.addEventListener("click", () => {
+            speakSequence([
+              { text: form.fr },
+              ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+            ], button);
+          });
+          formList.appendChild(button);
+        });
+
+        demonstrativeGrid.appendChild(cell);
+      });
+    }
+
     function renderPossessives(list = possessiveRows) {
       possessiveGrid.innerHTML = "";
       if (!list.length) {
@@ -113,4 +163,3 @@
     function renderPossessiveExceptions(list = possessiveExceptions) {
       renderDeterminerCards(possessiveExceptionGrid, list);
     }
-

@@ -1,3 +1,89 @@
+    const demonstrativeRows = [
+      {
+        gender: "Masculine",
+        number: "Singular",
+        tone: "blue",
+        forms: [
+          {
+            fr: "ce",
+            en: "this / that",
+            note: "before a masculine singular noun starting with a consonant sound",
+            example: "ce pantalon",
+            exampleEn: "this pair of pants",
+            examples: [
+              { fr: "ce pantalon", en: "this pair of pants" },
+              { fr: "ce livre", en: "this book" }
+            ]
+          },
+          {
+            fr: "cet",
+            en: "this / that",
+            note: "before a masculine singular noun starting with a vowel sound",
+            example: "cet ordinateur",
+            exampleEn: "this computer",
+            examples: [
+              { fr: "cet ordinateur", en: "this computer" },
+              { fr: "cet homme", en: "this man" }
+            ]
+          }
+        ]
+      },
+      {
+        gender: "Feminine",
+        number: "Singular",
+        tone: "green",
+        forms: [
+          {
+            fr: "cette",
+            en: "this / that",
+            note: "before a feminine singular noun",
+            example: "cette veste",
+            exampleEn: "this jacket",
+            examples: [
+              { fr: "cette veste", en: "this jacket" },
+              { fr: "cette maison", en: "this house" }
+            ]
+          }
+        ]
+      },
+      {
+        gender: "Masculine",
+        number: "Plural",
+        tone: "red",
+        forms: [
+          {
+            fr: "ces",
+            en: "these / those",
+            note: "before masculine plural nouns",
+            example: "ces pantalons",
+            exampleEn: "these pants",
+            examples: [
+              { fr: "ces pantalons", en: "these pants" },
+              { fr: "ces ordinateurs", en: "these computers" }
+            ]
+          }
+        ]
+      },
+      {
+        gender: "Feminine",
+        number: "Plural",
+        tone: "gold",
+        forms: [
+          {
+            fr: "ces",
+            en: "these / those",
+            note: "before feminine plural nouns",
+            example: "ces vestes",
+            exampleEn: "these jackets",
+            examples: [
+              { fr: "ces vestes", en: "these jackets" },
+              { fr: "ces maisons", en: "these houses" }
+            ]
+          }
+        ]
+      }
+    ];
+
     const determinerCategories = {
       definite: [
         { fr: "le", en: "the", note: "before a singular masculine noun", example: "le livre", exampleEn: "the book" },
@@ -9,12 +95,7 @@
         { fr: "une", en: "a / an", note: "before a singular feminine noun", example: "une table", exampleEn: "a table" },
         { fr: "des", en: "some", note: "before plural nouns", example: "des livres", exampleEn: "some books" }
       ],
-      demonstrative: [
-        { fr: "ce", en: "this / that", note: "before masculine singular noun", example: "ce livre", exampleEn: "this book" },
-        { fr: "cet", en: "this / that", note: "before masculine singular noun with a vowel sound", example: "cet homme", exampleEn: "this man" },
-        { fr: "cette", en: "this / that", note: "before feminine singular noun", example: "cette chaise", exampleEn: "this chair" },
-        { fr: "ces", en: "these / those", note: "before plural nouns", example: "ces enfants", exampleEn: "these children" }
-      ]
+      demonstrative: demonstrativeRows.flatMap(row => row.forms)
     };
 
     const articleComparisonRows = [
@@ -317,4 +398,3 @@
         ]
       }
     ];
-
