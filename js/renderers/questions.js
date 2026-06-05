@@ -73,12 +73,28 @@
       renderQuestionComparison(quelEtreExamplesGrid, quelEtreSpecialColumns, rows, "No quel + être examples available.");
     }
 
+    function renderQuelColorExamples(rows = quelColorRows) {
+      renderQuestionComparison(quelColorExamplesGrid, quelColorColumns, rows, "No de quelle couleur examples available.");
+    }
+
     function renderQueExamples(rows = queExampleRows) {
       renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples available.");
     }
 
     function renderQueCestExamples(rows = queCestSpecialRows) {
       renderQuestionComparison(queCestExamplesGrid, queCestSpecialColumns, rows, "No c’est quoi examples available.");
+    }
+
+    function renderCommentExamples(rows = commentExampleRows) {
+      renderQuestionComparison(commentExamplesGrid, commentExampleColumns, rows, "No comment examples available.");
+    }
+
+    function renderCombienExamples(rows = combienExampleRows) {
+      renderQuestionComparison(combienExamplesGrid, combienExampleColumns, rows, "No combien examples available.");
+    }
+
+    function renderYaTilExamples(rows = yaTilExampleRows) {
+      renderQuestionComparison(yaTilExamplesGrid, yaTilExampleColumns, rows, "No y a-t-il examples available.");
     }
 
     function renderQuestionWords(list = questionWords) {
@@ -141,4 +157,3 @@
         questionWordsGrid.appendChild(row);
       });
     }
-

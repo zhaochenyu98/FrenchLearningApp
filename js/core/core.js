@@ -53,6 +53,16 @@
     const ageYearsGrid = document.getElementById("ageYearsGrid");
     const tensGrid = document.getElementById("tensGrid");
     const trickyNumbersGrid = document.getElementById("trickyNumbersGrid");
+    const numberFlashcard = document.getElementById("numberFlashcard");
+    const numberFlashcardDigits = document.getElementById("numberFlashcardDigits");
+    const numberFlashcardHint = document.getElementById("numberFlashcardHint");
+    const numberFlashcardAnswer = document.getElementById("numberFlashcardAnswer");
+    const numberFlashcardFrench = document.getElementById("numberFlashcardFrench");
+    const numberFlashcardIpa = document.getElementById("numberFlashcardIpa");
+    const numberFlashcardRule = document.getElementById("numberFlashcardRule");
+    const hundredsLearningGrid = document.getElementById("hundredsLearningGrid");
+    const thousandsLearningGrid = document.getElementById("thousandsLearningGrid");
+    const yearLearningGrid = document.getElementById("yearLearningGrid");
     const operatorGrid = document.getElementById("operatorGrid");
     const pronunciationGrid = document.getElementById("pronunciationGrid");
     const consonantPronunciationGrid = document.getElementById("consonantPronunciationGrid");
@@ -77,8 +87,12 @@
     const quelFormsGrid = document.getElementById("quelFormsGrid");
     const quelExamplesGrid = document.getElementById("quelExamplesGrid");
     const quelEtreExamplesGrid = document.getElementById("quelEtreExamplesGrid");
+    const quelColorExamplesGrid = document.getElementById("quelColorExamplesGrid");
     const queExamplesGrid = document.getElementById("queExamplesGrid");
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
+    const commentExamplesGrid = document.getElementById("commentExamplesGrid");
+    const combienExamplesGrid = document.getElementById("combienExamplesGrid");
+    const yaTilExamplesGrid = document.getElementById("yaTilExamplesGrid");
     const nounRulesGrid = document.getElementById("nounRulesGrid");
     const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
     const adjectiveFeminineGrid = document.getElementById("adjectiveFeminineGrid");
@@ -108,6 +122,10 @@
 
     const playNumberSamplesBtn = document.getElementById("playNumberSamples");
     const playAgeYearsBtn = document.getElementById("playAgeYears");
+    const nextNumberFlashcardBtn = document.getElementById("nextNumberFlashcard");
+    const playHundredsLearningBtn = document.getElementById("playHundredsLearning");
+    const playThousandsLearningBtn = document.getElementById("playThousandsLearning");
+    const playYearLearningBtn = document.getElementById("playYearLearning");
     const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
     const playTonicPronounsBtn = document.getElementById("playTonicPronouns");
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
@@ -131,6 +149,8 @@
     let grammarFlashcardDeck = [];
     let currentGrammarFlashcardIndex = 0;
     let grammarFlashcardRevealed = false;
+    let currentNumberFlashcard = null;
+    let numberFlashcardRevealed = false;
     let currentPrepositionFlashcard = null;
     let prepositionFlashcardDeck = [];
     let currentPrepositionFlashcardIndex = 0;

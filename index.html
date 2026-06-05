@@ -523,6 +523,9 @@
           <h4>Special case: quel + être</h4>
           <p>Use this pattern when <strong>quel</strong> asks for identity, choice, time, date, address, or a similar “what is / which is” answer.</p>
           <div id="quelEtreExamplesGrid" class="quel-examples-grid"></div>
+          <h4>Special expression: de quelle couleur</h4>
+          <p>Use <strong>de quelle couleur</strong> to ask <strong>what color</strong> something is. It often works with <strong>être</strong>: <strong>De quelle couleur est ... ?</strong></p>
+          <div id="quelColorExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
         <div class="category-panel">
@@ -535,6 +538,24 @@
         </div>
 
         <div class="category-panel">
+          <h3>Comment Deep Dive</h3>
+          <p><strong>Comment</strong> asks <strong>how</strong> something happens or is done. Compare casual spoken order, formal inversion, and the neutral <strong>comment est-ce que</strong> pattern.</p>
+          <div id="commentExamplesGrid" class="quel-examples-grid"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Combien Deep Dive</h3>
+          <p><strong>Combien</strong> asks about an amount or price. Before a noun, use <strong>combien de + noun</strong>; <strong>de</strong> stays unchanged even before a plural noun.</p>
+          <div id="combienExamplesGrid" class="quel-examples-grid"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Y a-t-il Deep Dive</h3>
+          <p><strong>Y a-t-il</strong> is the formal question form of <strong>il y a</strong>, meaning <strong>is there / are there</strong>. Compare it with casual intonation and the everyday <strong>est-ce qu’il y a</strong> pattern.</p>
+          <div id="yaTilExamplesGrid" class="quel-examples-grid"></div>
+        </div>
+
+        <div class="category-panel">
           <h3>Common Question Words</h3>
           <p>Start with these high-frequency words and phrases for everyday questions.</p>
           <div id="questionWordsGrid" class="question-table"></div>
@@ -544,12 +565,35 @@
       <section id="numbersSection" class="section" data-tab="numbers">
         <div class="section-header">
           <div>
-            <h2 class="section-title">French Numbers 1–100</h2>
-            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em> and <em>quatre-vingt-dix-neuf</em> by listening and repeating.</p>
+            <h2 class="section-title">French Numbers</h2>
+            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em>, <em>deux cents</em>, <em>deux mille vingt-quatre</em>, and common year expressions.</p>
           </div>
           <div class="action-row">
-            <button class="action-btn" type="button" id="playNumberSamples">Play all numbers</button>
+            <button class="action-btn" type="button" id="playNumberSamples">Play 1–100</button>
           </div>
+        </div>
+
+        <div class="panel flashcard-panel panel-bottom">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Random number flash card</h3>
+              <p>Read the number first. Click the card to reveal the French answer and hear it. Use random cards to train listening without a predictable order.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="nextNumberFlashcard">New random number</button>
+            </div>
+          </div>
+
+          <button id="numberFlashcard" class="flashcard" type="button" aria-expanded="false">
+            <span id="numberFlashcardDigits" class="flashcard-prompt"></span>
+            <span id="numberFlashcardHint" class="translation">Click to reveal the French number.</span>
+            <span id="numberFlashcardAnswer" class="flashcard-answer" hidden>
+              <span id="numberFlashcardFrench" class="french-line"></span>
+              <span id="numberFlashcardIpa" class="number-ipa"></span>
+              <span id="numberFlashcardRule" class="grammar-note"></span>
+              <span class="translation">Click again to replay the audio.</span>
+            </span>
+          </button>
         </div>
 
         <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
@@ -576,6 +620,45 @@
             <p>These are the forms that usually need extra repetition: teens, <strong>et un</strong>, and the unusual <strong>70 / 80 / 90</strong> patterns.</p>
             <div id="trickyNumbersGrid" class="grid"></div>
           </div>
+        </div>
+
+        <div class="panel panel-top">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Learning 100–999</h3>
+              <p>Focus on spelling and pronunciation traps: <strong>cent</strong> vs <strong>cents</strong>, when <strong>quatre-vingts</strong> keeps or loses final <strong>s</strong>, and silent consonants in forms like <strong>six cents</strong> and <strong>huit cents</strong>.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playHundredsLearning">Play 100–999 examples</button>
+            </div>
+          </div>
+          <div id="hundredsLearningGrid" class="number-learning-grid"></div>
+        </div>
+
+        <div class="panel panel-top">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Learning 1000–9999</h3>
+              <p>Practice <strong>mille</strong>, larger combinations, the same <strong>cent / cents</strong> and <strong>vingt / vingts</strong> rules, plus silent consonants in forms like <strong>six mille</strong> and <strong>huit mille</strong>.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playThousandsLearning">Play 1000–9999 examples</button>
+            </div>
+          </div>
+          <div id="thousandsLearningGrid" class="number-learning-grid"></div>
+        </div>
+
+        <div class="panel panel-top">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Years: common date expressions</h3>
+              <p>Years usually use <strong>en + year</strong>. These examples train common birth years, historical years, and modern years like <strong>2024</strong>.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playYearLearning">Play year examples</button>
+            </div>
+          </div>
+          <div id="yearLearningGrid" class="number-learning-grid"></div>
         </div>
 
         <div class="panel panel-top">

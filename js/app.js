@@ -55,13 +55,19 @@
         renderQuelForms();
         renderQuelExamples();
         renderQuelEtreExamples();
+        renderQuelColorExamples();
         renderQueExamples();
         renderQueCestExamples();
+        renderCommentExamples();
+        renderCombienExamples();
+        renderYaTilExamples();
         renderQuestionWords();
       },
       numbers() {
+        showNumberFlashcard();
         renderNumbers();
         renderAgeYears();
+        renderLargeNumberSections();
         renderOperators();
       },
       calendar() {
@@ -72,6 +78,13 @@
     };
 
     const initializedTabs = new Set();
+
+    function getQuestionComparisonAudioItems(rows, columns) {
+      return rows.flatMap(row => columns.map(column => ({
+        text: row.examples[column.key].fr,
+        pauseBefore: examplePauseMs
+      })));
+    }
 
     function renderVerbTables(tabName) {
       verbConfigs
@@ -173,6 +186,15 @@
       revealPrepositionFlashcard();
     });
 
+    numberFlashcard.addEventListener("click", () => {
+      revealNumberFlashcard();
+    });
+
+    nextNumberFlashcardBtn.addEventListener("click", () => {
+      stopPlayback();
+      showNumberFlashcard();
+    });
+
     previousPrepositionFlashcardBtn.addEventListener("click", () => {
       movePrepositionFlashcard(-1);
     });
@@ -187,6 +209,18 @@
 
     playAgeYearsBtn.addEventListener("click", () => {
       speakSequence(ageYearItems.map(item => ({ text: item.speech, pauseBefore: numberRepeatPauseMs })));
+    });
+
+    playHundredsLearningBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(hundredsLearningItems));
+    });
+
+    playThousandsLearningBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(thousandsLearningItems));
+    });
+
+    playYearLearningBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(yearLearningItems));
     });
 
     playPronunciationRulesBtn.addEventListener("click", () => {
@@ -277,22 +311,14 @@
           { text: item.form },
           { text: item.example, pauseBefore: examplePauseMs }
         ])),
-        quelExampleRows.flatMap(row => quelExampleColumns.map(column => ({
-          text: row.examples[column.key].fr,
-          pauseBefore: examplePauseMs
-        }))),
-        quelEtreSpecialRows.flatMap(row => quelEtreSpecialColumns.map(column => ({
-          text: row.examples[column.key].fr,
-          pauseBefore: examplePauseMs
-        }))),
-        queExampleRows.flatMap(row => queExampleColumns.map(column => ({
-          text: row.examples[column.key].fr,
-          pauseBefore: examplePauseMs
-        }))),
-        queCestSpecialRows.flatMap(row => queCestSpecialColumns.map(column => ({
-          text: row.examples[column.key].fr,
-          pauseBefore: examplePauseMs
-        })))
+        getQuestionComparisonAudioItems(quelExampleRows, quelExampleColumns),
+        getQuestionComparisonAudioItems(quelEtreSpecialRows, quelEtreSpecialColumns),
+        getQuestionComparisonAudioItems(quelColorRows, quelColorColumns),
+        getQuestionComparisonAudioItems(queExampleRows, queExampleColumns),
+        getQuestionComparisonAudioItems(queCestSpecialRows, queCestSpecialColumns),
+        getQuestionComparisonAudioItems(commentExampleRows, commentExampleColumns),
+        getQuestionComparisonAudioItems(combienExampleRows, combienExampleColumns),
+        getQuestionComparisonAudioItems(yaTilExampleRows, yaTilExampleColumns)
       ));
     });
 
