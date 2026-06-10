@@ -362,7 +362,8 @@
       font-weight: 700;
     }
 
-    .number-ipa {
+    .number-ipa,
+    .verb-ipa {
       display: inline-block;
       margin-top: 8px;
       padding: 3px 8px;
@@ -374,6 +375,10 @@
       font-size: 0.86rem;
       font-weight: 800;
       line-height: 1.25;
+    }
+
+    .verb-ipa {
+      margin-bottom: 2px;
     }
 
     .translation,
@@ -658,6 +663,26 @@
       border-radius: 16px;
       min-height: 136px;
       padding: 14px;
+    }
+
+    .verb-example-block + .verb-example-block {
+      border-top: 1px dashed var(--border);
+      margin-top: 12px;
+      padding-top: 8px;
+    }
+
+    .imperative-sections {
+      align-items: start;
+      margin-top: 12px;
+    }
+
+    .imperative-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .imperative-card {
+      min-height: 180px;
     }
 
     .question-table {

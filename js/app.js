@@ -3,10 +3,17 @@
       { tab: "grammar", tableId: "avoirTable", playButtonId: "playAvoir", rows: avoirRows },
       { tab: "verbs", tableId: "allerTable", playButtonId: "playAller", rows: allerRows },
       { tab: "verbs", tableId: "venirTable", playButtonId: "playVenir", rows: venirRows },
+      { tab: "verbs", tableId: "prendreTable", playButtonId: "playPrendre", rows: prendreRows },
       { tab: "verbs", tableId: "habiterTable", playButtonId: "playHabiter", rows: habiterRows },
       { tab: "verbs", tableId: "faireTable", playButtonId: "playFaire", rows: faireRows },
       { tab: "verbs", tableId: "trouverTable", playButtonId: "playTrouver", rows: trouverRows },
+      { tab: "verbs", tableId: "tournerTable", playButtonId: "playTourner", rows: tournerRows },
       { tab: "verbs", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows }
+    ];
+
+    const imperativeConfigs = [
+      { tableId: "etreImperativeTable", playButtonId: "playEtreImperative", rows: etreImperativeRows },
+      { tableId: "avoirImperativeTable", playButtonId: "playAvoirImperative", rows: avoirImperativeRows }
     ];
 
     const tabInitializers = {
@@ -23,6 +30,9 @@
       },
       grammar() {
         renderVerbTables("grammar");
+        imperativeConfigs.forEach(config => {
+          renderImperativeTable(document.getElementById(config.tableId), config.rows);
+        });
         renderExamples();
         showGrammarFlashcard();
       },
@@ -153,6 +163,12 @@
     verbConfigs.forEach(({ playButtonId, rows }) => {
       document.getElementById(playButtonId).addEventListener("click", () => {
         speakSequence(rows.flatMap(getVerbAudioItems));
+      });
+    });
+
+    imperativeConfigs.forEach(({ playButtonId, rows }) => {
+      document.getElementById(playButtonId).addEventListener("click", () => {
+        speakSequence(rows.flatMap(getImperativeAudioItems));
       });
     });
 

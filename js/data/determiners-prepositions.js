@@ -371,6 +371,42 @@
         ]
       },
       {
+        fr: "près de",
+        en: "near / close to",
+        note: "a short distance from something",
+        examples: [
+          { fr: "J’habite près de la gare.", en: "I live near the train station." },
+          { fr: "La pharmacie est près du supermarché.", en: "The pharmacy is near the supermarket." }
+        ]
+      },
+      {
+        fr: "au coin de",
+        en: "at the corner of",
+        note: "at the point where two streets or sides meet",
+        examples: [
+          { fr: "Le café est au coin de la rue.", en: "The cafe is at the corner of the street." },
+          { fr: "Tournez à gauche au coin de l’avenue.", en: "Turn left at the corner of the avenue." }
+        ]
+      },
+      {
+        fr: "en face de",
+        en: "opposite / across from",
+        note: "directly facing something",
+        examples: [
+          { fr: "La banque est en face de la poste.", en: "The bank is across from the post office." },
+          { fr: "Je suis assis en face de Marie.", en: "I am sitting opposite Marie." }
+        ]
+      },
+      {
+        fr: "au bout de",
+        en: "at the end of",
+        note: "at the far end or final point of something",
+        examples: [
+          { fr: "La bibliothèque est au bout de la rue.", en: "The library is at the end of the street." },
+          { fr: "Il y a un parc au bout du chemin.", en: "There is a park at the end of the path." }
+        ]
+      },
+      {
         fr: "entre",
         en: "between",
         note: "in the middle of two things",

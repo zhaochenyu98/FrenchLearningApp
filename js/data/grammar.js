@@ -196,6 +196,18 @@
       { pronoun: "elles", form: "ont", full: "elles ont", en: "they have", example: "Elles ont faim.", exampleEn: "They are hungry.", negative: "Elles n’ont pas faim.", negativeEn: "They are not hungry." }
     ];
 
+    const etreImperativeRows = [
+      { person: "tu", form: "sois", en: "be", example: "Sois calme.", exampleEn: "Be calm.", negative: "Ne sois pas nerveux.", negativeEn: "Do not be nervous." },
+      { person: "nous", form: "soyons", en: "let’s be", example: "Soyons prêts.", exampleEn: "Let’s be ready.", negative: "Ne soyons pas en retard.", negativeEn: "Let’s not be late." },
+      { person: "vous", form: "soyez", en: "be", example: "Soyez prudents.", exampleEn: "Be careful.", negative: "Ne soyez pas imprudents.", negativeEn: "Do not be careless." }
+    ];
+
+    const avoirImperativeRows = [
+      { person: "tu", form: "aie", en: "have", example: "Aie confiance.", exampleEn: "Have confidence.", negative: "N’aie pas peur.", negativeEn: "Do not be afraid." },
+      { person: "nous", form: "ayons", en: "let’s have", example: "Ayons du courage.", exampleEn: "Let’s have courage.", negative: "N’ayons pas peur.", negativeEn: "Let’s not be afraid." },
+      { person: "vous", form: "ayez", en: "have", example: "Ayez confiance en vous.", exampleEn: "Have confidence in yourself.", negative: "N’ayez pas peur de demander.", negativeEn: "Do not be afraid to ask." }
+    ];
+
     const allerRows = [
       { pronoun: "je", form: "vais", full: "je vais", en: "I go / I am going", example: "Je vais au travail.", exampleEn: "I am going to work.", negative: "Je ne vais pas au travail.", negativeEn: "I am not going to work." },
       { pronoun: "tu", form: "vas", full: "tu vas", en: "you go / you are going", example: "Tu vas à l’école.", exampleEn: "You are going to school.", negative: "Tu ne vas pas à l’école.", negativeEn: "You are not going to school." },
@@ -216,6 +228,89 @@
       { pronoun: "vous", form: "venez", full: "vous venez", en: "you come / you are coming", example: "Vous venez ce soir ?", exampleEn: "Are you coming tonight?", negative: "Vous ne venez pas ce soir ?", negativeEn: "Are you not coming tonight?" },
       { pronoun: "ils", form: "viennent", full: "ils viennent", en: "they come / they are coming", example: "Ils viennent en train.", exampleEn: "They are coming by train.", negative: "Ils ne viennent pas en train.", negativeEn: "They are not coming by train." },
       { pronoun: "elles", form: "viennent", full: "elles viennent", en: "they come / they are coming", example: "Elles viennent demain.", exampleEn: "They are coming tomorrow.", negative: "Elles ne viennent pas demain.", negativeEn: "They are not coming tomorrow." }
+    ];
+
+    const prendreRows = [
+      {
+        pronoun: "je",
+        form: "prends",
+        full: "je prends",
+        en: "I take / have",
+        examples: [
+          { meaning: "transport", fr: "Je prends le métro tous les matins.", en: "I take the subway every morning.", negative: "Je ne prends pas le métro tous les matins.", negativeEn: "I do not take the subway every morning." },
+          { meaning: "food / drink", fr: "Je prends un café sans sucre.", en: "I have a coffee without sugar.", negative: "Je ne prends pas de café.", negativeEn: "I do not have coffee." }
+        ]
+      },
+      {
+        pronoun: "tu",
+        form: "prends",
+        full: "tu prends",
+        en: "you take",
+        examples: [
+          { meaning: "time", fr: "Tu prends ton temps.", en: "You take your time.", negative: "Tu ne prends pas ton temps.", negativeEn: "You do not take your time." },
+          { meaning: "photo", fr: "Tu prends une photo du monument.", en: "You take a photo of the monument.", negative: "Tu ne prends pas de photo du monument.", negativeEn: "You do not take a photo of the monument." }
+        ]
+      },
+      {
+        pronoun: "il",
+        form: "prend",
+        full: "il prend",
+        en: "he takes / has",
+        examples: [
+          { meaning: "meal", fr: "Il prend son petit-déjeuner à sept heures.", en: "He has breakfast at seven o’clock.", negative: "Il ne prend pas son petit-déjeuner à sept heures.", negativeEn: "He does not have breakfast at seven o’clock." },
+          { meaning: "notes", fr: "Il prend des notes en classe.", en: "He takes notes in class.", negative: "Il ne prend pas de notes en classe.", negativeEn: "He does not take notes in class." }
+        ]
+      },
+      {
+        pronoun: "elle",
+        form: "prend",
+        full: "elle prend",
+        en: "she takes / has",
+        examples: [
+          { meaning: "routine", fr: "Elle prend une douche le matin.", en: "She takes a shower in the morning.", negative: "Elle ne prend pas de douche le matin.", negativeEn: "She does not take a shower in the morning." },
+          { meaning: "medicine", fr: "Elle prend ce médicament avec de l’eau.", en: "She takes this medicine with water.", negative: "Elle ne prend pas ce médicament.", negativeEn: "She does not take this medicine." }
+        ]
+      },
+      {
+        pronoun: "nous",
+        form: "prenons",
+        full: "nous prenons",
+        en: "we take / make",
+        examples: [
+          { meaning: "transport", fr: "Nous prenons le train pour Paris.", en: "We take the train to Paris.", negative: "Nous ne prenons pas le train pour Paris.", negativeEn: "We do not take the train to Paris." },
+          { meaning: "decision", fr: "Nous prenons une décision aujourd’hui.", en: "We make a decision today.", negative: "Nous ne prenons pas de décision aujourd’hui.", negativeEn: "We do not make a decision today." }
+        ]
+      },
+      {
+        pronoun: "vous",
+        form: "prenez",
+        full: "vous prenez",
+        en: "you take / make",
+        examples: [
+          { meaning: "transport", fr: "Vous prenez un taxi pour l’aéroport.", en: "You take a taxi to the airport.", negative: "Vous ne prenez pas de taxi pour l’aéroport.", negativeEn: "You do not take a taxi to the airport." },
+          { meaning: "appointment", fr: "Vous prenez rendez-vous chez le médecin.", en: "You make an appointment with the doctor.", negative: "Vous ne prenez pas rendez-vous chez le médecin.", negativeEn: "You do not make an appointment with the doctor." }
+        ]
+      },
+      {
+        pronoun: "ils",
+        form: "prennent",
+        full: "ils prennent",
+        en: "they take / have",
+        examples: [
+          { meaning: "transport", fr: "Ils prennent le bus à huit heures.", en: "They take the bus at eight o’clock.", negative: "Ils ne prennent pas le bus à huit heures.", negativeEn: "They do not take the bus at eight o’clock." },
+          { meaning: "vacation", fr: "Ils prennent des vacances en août.", en: "They take a vacation in August.", negative: "Ils ne prennent pas de vacances en août.", negativeEn: "They do not take a vacation in August." }
+        ]
+      },
+      {
+        pronoun: "elles",
+        form: "prennent",
+        full: "elles prennent",
+        en: "they take / have",
+        examples: [
+          { meaning: "food / drink", fr: "Elles prennent un café ensemble.", en: "They have a coffee together.", negative: "Elles ne prennent pas de café ensemble.", negativeEn: "They do not have coffee together." },
+          { meaning: "care", fr: "Elles prennent soin de leurs enfants.", en: "They take care of their children.", negative: "Elles ne prennent pas soin de leurs enfants.", negativeEn: "They do not take care of their children." }
+        ]
+      }
     ];
 
     const habiterRows = [
@@ -243,12 +338,32 @@
     const trouverRows = [
       { pronoun: "je", form: "trouve", full: "je trouve", en: "I find / I think", example: "Je trouve la clé.", exampleEn: "I find the key.", negative: "Je ne trouve pas la clé.", negativeEn: "I do not find the key." },
       { pronoun: "tu", form: "trouves", full: "tu trouves", en: "you find / you think", example: "Tu trouves ce livre intéressant.", exampleEn: "You find this book interesting.", negative: "Tu ne trouves pas ce livre intéressant.", negativeEn: "You do not find this book interesting." },
-      { pronoun: "il", form: "trouve", full: "il trouve", en: "he finds / he thinks", example: "Il trouve une solution.", exampleEn: "He finds a solution.", negative: "Il ne trouve pas de solution.", negativeEn: "He does not find a solution." },
+      {
+        pronoun: "il",
+        form: "trouve",
+        full: "il trouve",
+        en: "he finds / he thinks",
+        examples: [
+          { meaning: "find", fr: "Il trouve une solution.", en: "He finds a solution.", negative: "Il ne trouve pas de solution.", negativeEn: "He does not find a solution." },
+          { meaning: "se trouver = to be located", fr: "Le musée se trouve au coin de la rue.", en: "The museum is located at the corner of the street.", negative: "Le musée ne se trouve pas au coin de la rue.", negativeEn: "The museum is not located at the corner of the street." }
+        ]
+      },
       { pronoun: "elle", form: "trouve", full: "elle trouve", en: "she finds / she thinks", example: "Elle trouve le film drôle.", exampleEn: "She finds the movie funny.", negative: "Elle ne trouve pas le film drôle.", negativeEn: "She does not find the movie funny." },
       { pronoun: "nous", form: "trouvons", full: "nous trouvons", en: "we find / we think", example: "Nous trouvons une place.", exampleEn: "We find a seat.", negative: "Nous ne trouvons pas de place.", negativeEn: "We do not find a seat." },
       { pronoun: "vous", form: "trouvez", full: "vous trouvez", en: "you find / you think", example: "Vous trouvez la réponse.", exampleEn: "You find the answer.", negative: "Vous ne trouvez pas la réponse.", negativeEn: "You do not find the answer." },
       { pronoun: "ils", form: "trouvent", full: "ils trouvent", en: "they find / they think", example: "Ils trouvent un restaurant.", exampleEn: "They find a restaurant.", negative: "Ils ne trouvent pas de restaurant.", negativeEn: "They do not find a restaurant." },
       { pronoun: "elles", form: "trouvent", full: "elles trouvent", en: "they find / they think", example: "Elles trouvent cette ville belle.", exampleEn: "They find this city beautiful.", negative: "Elles ne trouvent pas cette ville belle.", negativeEn: "They do not find this city beautiful." }
+    ];
+
+    const tournerRows = [
+      { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
+      { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock." },
+      { pronoun: "il", form: "tourne", full: "il tourne", en: "he turns", example: "Il tourne à droite après la banque.", exampleEn: "He turns right after the bank.", negative: "Il ne tourne pas à droite après la banque.", negativeEn: "He does not turn right after the bank." },
+      { pronoun: "elle", form: "tourne", full: "elle tourne", en: "she turns", example: "Elle tourne la page.", exampleEn: "She turns the page.", negative: "Elle ne tourne pas la page.", negativeEn: "She does not turn the page." },
+      { pronoun: "nous", form: "tournons", full: "nous tournons", en: "we turn", example: "Nous tournons dans cette rue.", exampleEn: "We turn onto this street.", negative: "Nous ne tournons pas dans cette rue.", negativeEn: "We do not turn onto this street." },
+      { pronoun: "vous", form: "tournez", full: "vous tournez", en: "you turn", example: "Vous tournez le bouton vers la droite.", exampleEn: "You turn the knob to the right.", negative: "Vous ne tournez pas le bouton vers la droite.", negativeEn: "You do not turn the knob to the right." },
+      { pronoun: "ils", form: "tournent", full: "ils tournent", en: "they turn", example: "Ils tournent autour du parc.", exampleEn: "They go around the park.", negative: "Ils ne tournent pas autour du parc.", negativeEn: "They do not go around the park." },
+      { pronoun: "elles", form: "tournent", full: "elles tournent", en: "they turn / film", example: "Elles tournent un film à Paris.", exampleEn: "They are filming a movie in Paris.", negative: "Elles ne tournent pas de film à Paris.", negativeEn: "They are not filming a movie in Paris." }
     ];
 
     const couterRows = [
@@ -261,6 +376,100 @@
       { pronoun: "ils", form: "coûtent", full: "ils coûtent", en: "they cost", example: "Ils coûtent trois euros.", exampleEn: "They cost three euros.", negative: "Ils ne coûtent pas trois euros.", negativeEn: "They do not cost three euros." },
       { pronoun: "elles", form: "coûtent", full: "elles coûtent", en: "they cost", example: "Elles coûtent cher.", exampleEn: "They cost a lot.", negative: "Elles ne coûtent pas cher.", negativeEn: "They do not cost a lot." }
     ];
+
+    const verbPhraseIpa = {
+      "je suis": "/ʒə sɥi/",
+      "tu es": "/ty ɛ/",
+      "il est": "/il ɛ/",
+      "elle est": "/ɛl ɛ/",
+      "nous sommes": "/nu sɔm/",
+      "on est": "/ɔ̃.nɛ/",
+      "vous êtes": "/vu.zɛt/",
+      "ils sont": "/il sɔ̃/",
+      "elles sont": "/ɛl sɔ̃/",
+
+      "j’ai": "/ʒe/",
+      "tu as": "/ty a/",
+      "il a": "/i.la/",
+      "elle a": "/ɛ.la/",
+      "nous avons": "/nu.za.vɔ̃/",
+      "on a": "/ɔ̃.na/",
+      "vous avez": "/vu.za.ve/",
+      "ils ont": "/il.zɔ̃/",
+      "elles ont": "/ɛl.zɔ̃/",
+
+      "je vais": "/ʒə vɛ/",
+      "tu vas": "/ty va/",
+      "il va": "/il va/",
+      "elle va": "/ɛl va/",
+      "nous allons": "/nu.za.lɔ̃/",
+      "vous allez": "/vu.za.le/",
+      "ils vont": "/il vɔ̃/",
+      "elles vont": "/ɛl vɔ̃/",
+
+      "je viens": "/ʒə vjɛ̃/",
+      "tu viens": "/ty vjɛ̃/",
+      "il vient": "/il vjɛ̃/",
+      "elle vient": "/ɛl vjɛ̃/",
+      "nous venons": "/nu və.nɔ̃/",
+      "vous venez": "/vu və.ne/",
+      "ils viennent": "/il vjɛn/",
+      "elles viennent": "/ɛl vjɛn/",
+
+      "je prends": "/ʒə pʁɑ̃/",
+      "tu prends": "/ty pʁɑ̃/",
+      "il prend": "/il pʁɑ̃/",
+      "elle prend": "/ɛl pʁɑ̃/",
+      "nous prenons": "/nu pʁə.nɔ̃/",
+      "vous prenez": "/vu pʁə.ne/",
+      "ils prennent": "/il pʁɛn/",
+      "elles prennent": "/ɛl pʁɛn/",
+
+      "je fais": "/ʒə fɛ/",
+      "tu fais": "/ty fɛ/",
+      "il fait": "/il fɛ/",
+      "elle fait": "/ɛl fɛ/",
+      "nous faisons": "/nu fə.zɔ̃/",
+      "vous faites": "/vu fɛt/",
+      "ils font": "/il fɔ̃/",
+      "elles font": "/ɛl fɔ̃/",
+
+      "j’habite": "/ʒa.bit/",
+      "tu habites": "/ty a.bit/",
+      "il habite": "/il a.bit/",
+      "elle habite": "/ɛl a.bit/",
+      "nous habitons": "/nu.za.bi.tɔ̃/",
+      "vous habitez": "/vu.za.bi.te/",
+      "ils habitent": "/il.za.bit/",
+      "elles habitent": "/ɛl.za.bit/",
+
+      "je trouve": "/ʒə tʁuv/",
+      "tu trouves": "/ty tʁuv/",
+      "il trouve": "/il tʁuv/",
+      "elle trouve": "/ɛl tʁuv/",
+      "nous trouvons": "/nu tʁu.vɔ̃/",
+      "vous trouvez": "/vu tʁu.ve/",
+      "ils trouvent": "/il tʁuv/",
+      "elles trouvent": "/ɛl tʁuv/",
+
+      "je tourne": "/ʒə tuʁn/",
+      "tu tournes": "/ty tuʁn/",
+      "il tourne": "/il tuʁn/",
+      "elle tourne": "/ɛl tuʁn/",
+      "nous tournons": "/nu tuʁ.nɔ̃/",
+      "vous tournez": "/vu tuʁ.ne/",
+      "ils tournent": "/il tuʁn/",
+      "elles tournent": "/ɛl tuʁn/",
+
+      "je coûte": "/ʒə kut/",
+      "tu coûtes": "/ty kut/",
+      "il coûte": "/il kut/",
+      "elle coûte": "/ɛl kut/",
+      "nous coûtons": "/nu ku.tɔ̃/",
+      "vous coûtez": "/vu ku.te/",
+      "ils coûtent": "/il kut/",
+      "elles coûtent": "/ɛl kut/"
+    };
 
     const exampleSentences = [
       { fr: "Je suis chinois.", en: "I am Chinese.", note: "identity / nationality", negative: "Je ne suis pas chinois.", negativeEn: "I am not Chinese." },
@@ -343,4 +552,3 @@
       })),
       ...extraGrammarFlashcards
     ];
-

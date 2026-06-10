@@ -118,12 +118,59 @@
       });
     }
 
+    function getVerbExamples(item) {
+      if (item.examples) return item.examples;
+      return [{
+        fr: item.example,
+        en: item.exampleEn,
+        negative: item.negative,
+        negativeEn: item.negativeEn
+      }];
+    }
+
     function getVerbAudioItems(item) {
       return [
         { text: item.full },
-        { text: item.example, pauseBefore: examplePauseMs },
-        ...(item.negative ? [{ text: item.negative, pauseBefore: examplePauseMs }] : [])
+        ...getVerbExamples(item).flatMap(example => ([
+          { text: example.fr, pauseBefore: examplePauseMs },
+          ...(example.negative ? [{ text: example.negative, pauseBefore: examplePauseMs }] : [])
+        ]))
       ];
+    }
+
+    function getImperativeAudioItems(item) {
+      return [
+        { text: item.form },
+        { text: item.example, pauseBefore: examplePauseMs },
+        { text: item.negative, pauseBefore: examplePauseMs }
+      ];
+    }
+
+    function renderImperativeTable(container, rows) {
+      container.innerHTML = "";
+      if (!rows.length) {
+        container.innerHTML = `<div class="empty-state">No imperative forms available.</div>`;
+        return;
+      }
+
+      rows.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card imperative-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="tiny-label">${item.person} form — subject pronoun omitted</div>
+          <div class="conjugation-main">${item.form}</div>
+          <div class="translation">${item.en}</div>
+          <div class="grammar-note"><strong>Example:</strong> ${item.example}</div>
+          <div class="translation">${item.exampleEn}</div>
+          <div class="grammar-note"><strong>Negative:</strong> ${item.negative}</div>
+          <div class="translation">${item.negativeEn}</div>
+        `;
+        button.addEventListener("click", () => {
+          speakSequence(getImperativeAudioItems(item), button);
+        });
+        container.appendChild(button);
+      });
     }
 
     function renderVerbTable(container, rows) {
@@ -154,19 +201,29 @@
         columnEl.innerHTML = `<div class="verb-column-title">${column.title}</div>`;
 
         column.items.forEach(item => {
+          const examples = getVerbExamples(item);
+          const ipa = verbPhraseIpa[item.full] || "";
           const button = document.createElement("button");
           button.className = "verb-cell-btn";
           button.type = "button";
           button.innerHTML = `
             <div class="tiny-label">Pronoun + verb</div>
             <div class="conjugation-main">${item.full}</div>
+            ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
             <div class="translation">${item.en}</div>
-            <div class="grammar-note"><strong>Example:</strong> ${item.example}</div>
-            <div class="translation">${item.exampleEn}</div>
-            ${item.negative ? `
-              <div class="grammar-note"><strong>Negative:</strong> ${item.negative}</div>
-              <div class="translation">${item.negativeEn}</div>
-            ` : ""}
+            ${examples.map((example, index) => `
+              <div class="verb-example-block">
+                <div class="grammar-note">
+                  <strong>${example.meaning ? `${example.meaning}:` : examples.length > 1 ? `Example ${index + 1}:` : "Example:"}</strong>
+                  ${example.fr}
+                </div>
+                <div class="translation">${example.en}</div>
+                ${example.negative ? `
+                  <div class="grammar-note"><strong>Negative:</strong> ${example.negative}</div>
+                  <div class="translation">${example.negativeEn}</div>
+                ` : ""}
+              </div>
+            `).join("")}
           `;
           button.addEventListener("click", () => speakSequence(getVerbAudioItems(item), button));
           columnEl.appendChild(button);
@@ -200,4 +257,3 @@
         exampleGrid.appendChild(button);
       });
     }
-
