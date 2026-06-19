@@ -10,7 +10,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers from 1 to 100, pronunciation rules, pronouns, present-tense conjugations, noun and adjective patterns, prepositions, core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes numbers, time expressions, pronunciation rules, pronouns, present-tense conjugations, noun and adjective patterns, prepositions, core French articles, determiners, and calendar vocabulary.
     </p>
 
     <div class="controls">
@@ -47,7 +47,7 @@
         <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
-        <button class="tab-btn" type="button" data-tab="numbers">Numbers 1–100</button>
+        <button class="tab-btn" type="button" data-tab="numbers">Numbers</button>
         <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
       </div>
 
@@ -637,6 +637,74 @@
           </button>
         </div>
 
+        <div class="panel flashcard-panel panel-bottom">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>4-digit listening quiz</h3>
+              <p>Listen to the French audio, type the 4-digit number you heard, then check your answer. This is the reverse of the flash card above.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playNumberQuizAudio">Play audio</button>
+              <button class="action-btn" type="button" id="nextNumberQuiz">New quiz number</button>
+            </div>
+          </div>
+
+          <div id="numberQuizCard" class="number-quiz-card" aria-live="polite">
+            <div>
+              <span class="tiny-label">Audio prompt</span>
+              <div id="numberQuizPrompt" class="flashcard-prompt">Click “Play audio,” then type the number you hear.</div>
+            </div>
+
+            <label class="number-quiz-input-label" for="numberQuizInput">Your answer</label>
+            <div class="number-quiz-input-row">
+              <input id="numberQuizInput" type="text" inputmode="numeric" autocomplete="off" placeholder="Type the 4 digits">
+              <button class="action-btn" type="button" id="checkNumberQuizAnswer">Check answer</button>
+              <button class="action-btn" type="button" id="revealNumberQuizAnswer">Reveal answer</button>
+            </div>
+
+            <div id="numberQuizResult" class="number-quiz-result" hidden>
+              <div id="numberQuizFeedback" class="french-line"></div>
+              <div class="translation">Correct number: <strong id="numberQuizAnswerDigits"></strong></div>
+              <div class="translation">French: <strong id="numberQuizAnswerFrench"></strong></div>
+              <div id="numberQuizAnswerIpa" class="number-ipa"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel flashcard-panel panel-bottom">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Year listening quiz</h3>
+              <p>Listen for the year in an <strong>en + year</strong> expression, then type the year as digits.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playYearQuizAudio">Play audio</button>
+              <button class="action-btn" type="button" id="nextYearQuiz">New year</button>
+            </div>
+          </div>
+
+          <div id="yearQuizCard" class="number-quiz-card" aria-live="polite">
+            <div>
+              <span class="tiny-label">Audio prompt</span>
+              <div id="yearQuizPrompt" class="flashcard-prompt">Click “Play audio,” then type the year you hear.</div>
+            </div>
+
+            <label class="number-quiz-input-label" for="yearQuizInput">Your answer</label>
+            <div class="number-quiz-input-row">
+              <input id="yearQuizInput" type="text" inputmode="numeric" autocomplete="off" placeholder="Type the year">
+              <button class="action-btn" type="button" id="checkYearQuizAnswer">Check answer</button>
+              <button class="action-btn" type="button" id="revealYearQuizAnswer">Reveal answer</button>
+            </div>
+
+            <div id="yearQuizResult" class="number-quiz-result" hidden>
+              <div id="yearQuizFeedback" class="french-line"></div>
+              <div class="translation">Correct year: <strong id="yearQuizAnswerDigits"></strong></div>
+              <div class="translation">French: <strong id="yearQuizAnswerFrench"></strong></div>
+              <div id="yearQuizAnswerIpa" class="number-ipa"></div>
+            </div>
+          </div>
+        </div>
+
         <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
         <div id="grid" class="grid"></div>
 
@@ -693,13 +761,51 @@
           <div class="flashcard-toolbar">
             <div>
               <h3>Years: common date expressions</h3>
-              <p>Years usually use <strong>en + year</strong>. These examples train common birth years, historical years, and modern years like <strong>2024</strong>.</p>
+              <p>Years usually use <strong>en + year</strong>. These cards train common birth years, historical years, and modern years like <strong>2024</strong>.</p>
             </div>
             <div class="action-row">
               <button class="action-btn" type="button" id="playYearLearning">Play year examples</button>
             </div>
           </div>
           <div id="yearLearningGrid" class="number-learning-grid"></div>
+        </div>
+
+        <div class="panel panel-top">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Time &amp; Hours</h3>
+              <p>Practice the 24-hour clock and common spoken time expressions. Everyday speech often uses <strong>et quart</strong>, <strong>et demie</strong>, and <strong>moins le quart</strong>; schedules often read minutes directly.</p>
+            </div>
+          </div>
+
+          <div class="number-subsection">
+            <div class="flashcard-toolbar">
+              <h4>24-hour clock</h4>
+              <button class="action-btn" type="button" id="playTimeHours">Play 24-hour clock</button>
+            </div>
+            <div id="timeHoursGrid" class="number-learning-grid"></div>
+          </div>
+
+          <div class="number-subsection">
+            <div class="flashcard-toolbar">
+              <h4>Common time expressions</h4>
+              <button class="action-btn" type="button" id="playTimeExpressions">Play time expressions</button>
+            </div>
+            <div id="timeExpressionsGrid" class="number-learning-grid"></div>
+          </div>
+        </div>
+
+        <div class="panel panel-top">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Ordinal / Order Numbers</h3>
+              <p>Use these for first, second, third, floors, rankings, centuries, chapters, and order in a sequence. Most forms are built with <strong>-ième</strong>, but <strong>premier / première</strong>, <strong>cinquième</strong>, and <strong>neuvième</strong> need extra attention.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playOrdinalNumbers">Play ordinal numbers</button>
+            </div>
+          </div>
+          <div id="ordinalNumbersGrid" class="number-learning-grid"></div>
         </div>
 
         <div class="panel panel-top">

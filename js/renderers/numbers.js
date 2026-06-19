@@ -89,6 +89,161 @@
       speak(currentNumberFlashcard.word, numberFlashcard);
     }
 
+    function normalizeNumberQuizAnswer(value) {
+      return value.replace(/\D/g, "");
+    }
+
+    function updateNumberQuiz() {
+      if (!currentNumberQuiz) return;
+      const shouldShowResult = numberQuizChecked || numberQuizRevealed;
+      const shouldShowAnswer = numberQuizRevealed;
+      numberQuizPrompt.textContent = numberQuizRevealed
+        ? "Answer revealed. Try another number when you’re ready."
+        : numberQuizChecked
+          ? "Checked. Use Reveal answer only if you want to compare."
+          : "Listen, then type the 4-digit number you hear.";
+      numberQuizResult.hidden = !shouldShowResult;
+      [numberQuizAnswerDigits.parentElement, numberQuizAnswerFrench.parentElement].forEach(row => {
+        if (row) row.hidden = !shouldShowAnswer;
+      });
+      numberQuizAnswerDigits.textContent = shouldShowAnswer ? String(currentNumberQuiz.number) : "";
+      numberQuizAnswerFrench.textContent = shouldShowAnswer ? currentNumberQuiz.word : "";
+      numberQuizAnswerIpa.textContent = shouldShowAnswer ? currentNumberQuiz.ipa || "" : "";
+      numberQuizAnswerIpa.hidden = !shouldShowAnswer || !currentNumberQuiz.ipa;
+      numberQuizCard.classList.toggle("correct", numberQuizChecked && Boolean(currentNumberQuiz.isCorrect));
+      numberQuizCard.classList.toggle("incorrect", numberQuizChecked && !currentNumberQuiz.isCorrect);
+    }
+
+    function showNumberQuiz(number = randomInt(1000, 9999), shouldPlay = false) {
+      currentNumberQuiz = {
+        number,
+        word: frenchNumber(number),
+        ipa: frenchNumberIpa(number),
+        isCorrect: false
+      };
+      numberQuizChecked = false;
+      numberQuizRevealed = false;
+      numberQuizInput.value = "";
+      numberQuizFeedback.textContent = "";
+      updateNumberQuiz();
+      if (shouldPlay) playNumberQuizAudio();
+    }
+
+    function playNumberQuizAudio() {
+      if (!currentNumberQuiz) showNumberQuiz();
+      speak(currentNumberQuiz.word, numberQuizCard);
+    }
+
+    function checkNumberQuizAnswer() {
+      if (!currentNumberQuiz) showNumberQuiz();
+      const submittedAnswer = normalizeNumberQuizAnswer(numberQuizInput.value);
+      if (!submittedAnswer) {
+        numberQuizPrompt.textContent = "Type the number you hear first, then check your answer.";
+        numberQuizInput.focus();
+        return;
+      }
+      const correctAnswer = String(currentNumberQuiz.number);
+      numberQuizChecked = true;
+      currentNumberQuiz.isCorrect = submittedAnswer === correctAnswer;
+      numberQuizFeedback.textContent = currentNumberQuiz.isCorrect
+        ? "Correct. Nice ear."
+        : "Not quite. Try replaying it, or reveal the answer when you’re ready.";
+      updateNumberQuiz();
+    }
+
+    function revealNumberQuizAnswer() {
+      if (!currentNumberQuiz) showNumberQuiz();
+      numberQuizRevealed = true;
+      if (!numberQuizFeedback.textContent) {
+        numberQuizFeedback.textContent = "Answer revealed.";
+      }
+      updateNumberQuiz();
+    }
+
+    function randomYearQuizValue() {
+      const anchorYears = yearLearningItems.map(item => item.number);
+      if (Math.random() < 0.35) {
+        return anchorYears[randomInt(0, anchorYears.length - 1)];
+      }
+      return randomInt(1789, 2035);
+    }
+
+    function formatYearQuizFrench(year) {
+      return `en ${frenchNumber(year)}`;
+    }
+
+    function formatYearQuizIpa(year) {
+      const numberIpa = stripIpaSlashes(frenchNumberIpa(year));
+      return numberIpa ? `/ɑ̃ ${numberIpa}/` : "";
+    }
+
+    function updateYearQuiz() {
+      if (!currentYearQuiz) return;
+      const shouldShowResult = yearQuizChecked || yearQuizRevealed;
+      const shouldShowAnswer = yearQuizRevealed;
+      yearQuizPrompt.textContent = yearQuizRevealed
+        ? "Answer revealed. Try another year when you’re ready."
+        : yearQuizChecked
+          ? "Checked. Use Reveal answer only if you want to compare."
+          : "Listen, then type the year you hear.";
+      yearQuizResult.hidden = !shouldShowResult;
+      [yearQuizAnswerDigits.parentElement, yearQuizAnswerFrench.parentElement].forEach(row => {
+        if (row) row.hidden = !shouldShowAnswer;
+      });
+      yearQuizAnswerDigits.textContent = shouldShowAnswer ? String(currentYearQuiz.year) : "";
+      yearQuizAnswerFrench.textContent = shouldShowAnswer ? currentYearQuiz.word : "";
+      yearQuizAnswerIpa.textContent = shouldShowAnswer ? currentYearQuiz.ipa || "" : "";
+      yearQuizAnswerIpa.hidden = !shouldShowAnswer || !currentYearQuiz.ipa;
+      yearQuizCard.classList.toggle("correct", yearQuizChecked && Boolean(currentYearQuiz.isCorrect));
+      yearQuizCard.classList.toggle("incorrect", yearQuizChecked && !currentYearQuiz.isCorrect);
+    }
+
+    function showYearQuiz(year = randomYearQuizValue(), shouldPlay = false) {
+      currentYearQuiz = {
+        year,
+        word: formatYearQuizFrench(year),
+        ipa: formatYearQuizIpa(year),
+        isCorrect: false
+      };
+      yearQuizChecked = false;
+      yearQuizRevealed = false;
+      yearQuizInput.value = "";
+      yearQuizFeedback.textContent = "";
+      updateYearQuiz();
+      if (shouldPlay) playYearQuizAudio();
+    }
+
+    function playYearQuizAudio() {
+      if (!currentYearQuiz) showYearQuiz();
+      speak(currentYearQuiz.word, yearQuizCard);
+    }
+
+    function checkYearQuizAnswer() {
+      if (!currentYearQuiz) showYearQuiz();
+      const submittedAnswer = normalizeNumberQuizAnswer(yearQuizInput.value);
+      if (!submittedAnswer) {
+        yearQuizPrompt.textContent = "Type the year you hear first, then check your answer.";
+        yearQuizInput.focus();
+        return;
+      }
+      const correctAnswer = String(currentYearQuiz.year);
+      yearQuizChecked = true;
+      currentYearQuiz.isCorrect = submittedAnswer === correctAnswer;
+      yearQuizFeedback.textContent = currentYearQuiz.isCorrect
+        ? "Correct. That year landed."
+        : "Not quite. Replay it, or reveal the answer when you’re ready.";
+      updateYearQuiz();
+    }
+
+    function revealYearQuizAnswer() {
+      if (!currentYearQuiz) showYearQuiz();
+      yearQuizRevealed = true;
+      if (!yearQuizFeedback.textContent) {
+        yearQuizFeedback.textContent = "Answer revealed.";
+      }
+      updateYearQuiz();
+    }
+
     function renderNumbers(list = numberItems) {
       renderNumberCards(grid, list, "No numbers available.");
       renderNumberCards(
@@ -110,7 +265,7 @@
         return;
       }
       list.forEach(item => {
-        const ipa = frenchNumberIpa(item.number);
+        const ipa = item.ipa || (typeof item.number === "number" ? frenchNumberIpa(item.number) : "");
         const button = document.createElement("button");
         button.className = "example-card number-learning-card";
         button.type = "button";
@@ -139,6 +294,15 @@
       renderNumberLearningCards(hundredsLearningGrid, hundredsLearningItems, "No 100–999 examples available.");
       renderNumberLearningCards(thousandsLearningGrid, thousandsLearningItems, "No 1000–9999 examples available.");
       renderNumberLearningCards(yearLearningGrid, yearLearningItems, "No year examples available.");
+    }
+
+    function renderTimeSections() {
+      renderNumberLearningCards(timeHoursGrid, timeHourItems, "No time/hour examples available.");
+      renderNumberLearningCards(timeExpressionsGrid, timeExpressionItems, "No time expression examples available.");
+    }
+
+    function renderOrdinalNumbers() {
+      renderNumberLearningCards(ordinalNumbersGrid, ordinalNumberItems, "No ordinal number examples available.");
     }
 
     function renderOperators(list = calculationOperators) {

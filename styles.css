@@ -277,6 +277,61 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
+    .number-subsection {
+      margin-top: 18px;
+    }
+
+    .number-subsection h4 {
+      margin: 0;
+    }
+
+    .number-quiz-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      transition: background 0.25s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .number-quiz-card.correct {
+      border-color: rgba(22, 163, 74, 0.55);
+      box-shadow: 0 12px 28px rgba(22, 163, 74, 0.12);
+    }
+
+    .number-quiz-card.incorrect {
+      border-color: rgba(220, 38, 38, 0.5);
+      box-shadow: 0 12px 28px rgba(220, 38, 38, 0.1);
+    }
+
+    .number-quiz-input-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .number-quiz-input-row {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: minmax(180px, 1fr) auto auto;
+      align-items: stretch;
+    }
+
+    .number-quiz-result {
+      border-top: 1px dashed var(--accent-border);
+      display: grid;
+      gap: 6px;
+      padding-top: 12px;
+    }
+
+    .number-quiz-result[hidden] {
+      display: none;
+    }
+
     .card,
     .verb-cell-btn,
     .pronoun-card,
@@ -1411,6 +1466,10 @@
       }
 
       .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .number-quiz-input-row {
         grid-template-columns: 1fr;
       }
 

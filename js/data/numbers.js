@@ -214,15 +214,63 @@
       };
     }
 
-    function makeYearLearningItem(year, note, example = "") {
+    function makeYearLearningItem(year, note) {
       const word = frenchNumber(year);
       return {
         number: year,
         word,
         note,
-        example: example || `en ${word}`,
+        example: "",
         speech: word
       };
+    }
+
+    function makeNumberTopicItem(label, word, note, example = "", speech = word, ipa = "") {
+      return {
+        number: label,
+        word,
+        note,
+        example,
+        speech,
+        ipa
+      };
+    }
+
+    function frenchHourWord(hour) {
+      if (hour === 0) return "zéro heure";
+      if (hour === 1) return "une heure";
+      return `${frenchNumber(hour)} heures`;
+    }
+
+    function makeHourLearningItem(hour) {
+      const label = `${String(hour).padStart(2, "0")}:00`;
+      if (hour === 0) {
+        return makeNumberTopicItem(
+          label,
+          "minuit / zéro heure",
+          "Midnight is minuit. In schedules, 00 h can be read as zéro heure.",
+          "",
+          "minuit"
+        );
+      }
+      if (hour === 12) {
+        return makeNumberTopicItem(
+          label,
+          "midi / douze heures",
+          "Noon is midi. In schedules, 12 h can be read as douze heures.",
+          "",
+          "midi"
+        );
+      }
+      const word = frenchHourWord(hour);
+      return makeNumberTopicItem(
+        label,
+        word,
+        hour > 12
+          ? "24-hour time reads the hour number directly: 13 h = treize heures."
+          : "Use heure only with 1; other hours use heures.",
+        ""
+      );
     }
 
     const hundredsLearningItems = [
@@ -263,13 +311,62 @@
     ];
 
     const yearLearningItems = [
-      makeYearLearningItem(1789, "Use en + year for dates and historical years.", "en mille sept cent quatre-vingt-neuf"),
-      makeYearLearningItem(1900, "Exact hundreds keep cents with s.", "en mille neuf cents"),
-      makeYearLearningItem(1998, "A common birth-year pattern.", "Je suis né en mille neuf cent quatre-vingt-dix-huit."),
-      makeYearLearningItem(2000, "For 2000, say deux mille.", "en deux mille"),
-      makeYearLearningItem(2001, "After 2000, read the remaining number normally.", "en deux mille un"),
-      makeYearLearningItem(2010, "2010 is deux mille dix.", "en deux mille dix"),
-      makeYearLearningItem(2024, "2024 is deux mille vingt-quatre.", "en deux mille vingt-quatre"),
-      makeYearLearningItem(2026, "Useful for the current decade.", "Nous sommes en deux mille vingt-six."),
-      makeYearLearningItem(2031, "The et un pattern appears again in 31.", "en deux mille trente et un")
+      makeYearLearningItem(1789, "Use en + year for dates and historical years."),
+      makeYearLearningItem(1900, "Exact hundreds keep cents with s."),
+      makeYearLearningItem(1998, "A common birth-year pattern."),
+      makeYearLearningItem(2000, "For 2000, say deux mille."),
+      makeYearLearningItem(2001, "After 2000, read the remaining number normally."),
+      makeYearLearningItem(2010, "2010 is deux mille dix."),
+      makeYearLearningItem(2024, "2024 is deux mille vingt-quatre."),
+      makeYearLearningItem(2026, "Useful for the current decade."),
+      makeYearLearningItem(2031, "The et un pattern appears again in 31.")
+    ];
+
+    const timeHourItems = Array.from({ length: 24 }, (_, hour) => makeHourLearningItem(hour));
+
+    const timeExpressionItems = [
+      makeNumberTopicItem("01:15", "une heure et quart", ":15 is et quart in everyday speech.", "Il est une heure et quart."),
+      makeNumberTopicItem("13:15", "treize heures quinze", "In 24-hour schedule style, read the minutes directly.", "Le train part à treize heures quinze."),
+      makeNumberTopicItem("02:30", "deux heures et demie", ":30 is et demie in everyday speech.", "Il est deux heures et demie."),
+      makeNumberTopicItem("14:30", "quatorze heures trente", "In 24-hour schedule style, use trente for :30.", "Le cours commence à quatorze heures trente."),
+      makeNumberTopicItem("03:45", "quatre heures moins le quart", ":45 is often the next hour moins le quart in everyday speech.", "Il est quatre heures moins le quart."),
+      makeNumberTopicItem("15:45", "quinze heures quarante-cinq", "In 24-hour schedule style, read 45 directly.", "La réunion finit à quinze heures quarante-cinq."),
+      makeNumberTopicItem("08:05", "huit heures cinq", "For :05, say the hour plus cinq. In schedules you may see 8 h 05.", "Il est huit heures cinq."),
+      makeNumberTopicItem("09:10", "neuf heures dix", "For :10, say the hour plus dix.", "Il est neuf heures dix."),
+      makeNumberTopicItem("10:20", "dix heures vingt", "For :20, say the hour plus vingt.", "Il est dix heures vingt."),
+      makeNumberTopicItem("11:25", "onze heures vingt-cinq", "For :25, say the hour plus vingt-cinq.", "Il est onze heures vingt-cinq."),
+      makeNumberTopicItem("05:35", "six heures moins vingt-cinq", "After :30, everyday speech often counts down to the next hour.", "Il est six heures moins vingt-cinq."),
+      makeNumberTopicItem("06:40", "sept heures moins vingt", ":40 can be the next hour moins vingt.", "Il est sept heures moins vingt."),
+      makeNumberTopicItem("07:50", "huit heures moins dix", ":50 can be the next hour moins dix.", "Il est huit heures moins dix."),
+      makeNumberTopicItem("12:00", "midi", "Noon is midi.", "On mange à midi."),
+      makeNumberTopicItem("00:00", "minuit", "Midnight is minuit.", "Je dors à minuit."),
+      makeNumberTopicItem("sharp", "pile", "Pile means exactly / on the dot.", "Il est huit heures pile.")
+    ];
+
+    const ordinalNumberItems = [
+      makeNumberTopicItem("1st", "premier / première", "First is special: premier is masculine, première is feminine.", "C’est mon premier cours. C’est ma première fois.", "premier, première", "/pʁə.mje/ /pʁə.mjɛʁ/"),
+      makeNumberTopicItem("2nd", "deuxième / second(e)", "Deuxième is the general word for second. Second/seconde is common when there are only two.", "J’habite au deuxième étage.", "deuxième", "/dø.zjɛm/"),
+      makeNumberTopicItem("3rd", "troisième", "Most ordinals add -ième to the number form.", "C’est la troisième question.", "troisième", "/tʁwa.zjɛm/"),
+      makeNumberTopicItem("4th", "quatrième", "Drop the final e in quatre before adding -ième.", "C’est le quatrième jour.", "quatrième", "/ka.tʁi.jɛm/"),
+      makeNumberTopicItem("5th", "cinquième", "Cinq becomes cinquième with qu.", "C’est la cinquième leçon.", "cinquième", "/sɛ̃.kjɛm/"),
+      makeNumberTopicItem("6th", "sixième", "The x in sixième sounds like z.", "C’est le sixième chapitre.", "sixième", "/si.zjɛm/"),
+      makeNumberTopicItem("7th", "septième", "Sept becomes septième.", "C’est la septième page.", "septième", "/sɛ.tjɛm/"),
+      makeNumberTopicItem("8th", "huitième", "Huit becomes huitième.", "C’est le huitième exemple.", "huitième", "/ɥi.tjɛm/"),
+      makeNumberTopicItem("9th", "neuvième", "Neuf changes f to v: neuvième.", "C’est la neuvième rue.", "neuvième", "/nœ.vjɛm/"),
+      makeNumberTopicItem("10th", "dixième", "The x in dixième sounds like z.", "C’est le dixième exercice.", "dixième", "/di.zjɛm/"),
+      makeNumberTopicItem("11th", "onzième", "Onze becomes onzième.", "C’est la onzième question.", "onzième", "/ɔ̃.zjɛm/"),
+      makeNumberTopicItem("12th", "douzième", "Douze becomes douzième.", "C’est le douzième mois.", "douzième", "/du.zjɛm/"),
+      makeNumberTopicItem("13th", "treizième", "Treize becomes treizième.", "C’est la treizième phrase.", "treizième", "/tʁɛ.zjɛm/"),
+      makeNumberTopicItem("14th", "quatorzième", "Quatorze becomes quatorzième.", "C’est le quatorzième arrondissement.", "quatorzième", "/ka.tɔʁ.zjɛm/"),
+      makeNumberTopicItem("15th", "quinzième", "Quinze becomes quinzième.", "C’est la quinzième minute.", "quinzième", "/kɛ̃.zjɛm/"),
+      makeNumberTopicItem("16th", "seizième", "Seize becomes seizième.", "C’est le seizième jour.", "seizième", "/sɛ.zjɛm/"),
+      makeNumberTopicItem("17th", "dix-septième", "Compound ordinals keep the compound number, then add -ième.", "C’est la dix-septième leçon.", "dix-septième", "/dis.sɛ.tjɛm/"),
+      makeNumberTopicItem("18th", "dix-huitième", "Dix-huit becomes dix-huitième.", "C’est le dix-huitième exemple.", "dix-huitième", "/di.zɥi.tjɛm/"),
+      makeNumberTopicItem("19th", "dix-neuvième", "Dix-neuf changes to dix-neuvième.", "C’est la dix-neuvième page.", "dix-neuvième", "/diz.nœ.vjɛm/"),
+      makeNumberTopicItem("20th", "vingtième", "Vingt becomes vingtième.", "C’est le vingtième siècle.", "vingtième", "/vɛ̃.tjɛm/"),
+      makeNumberTopicItem("21st", "vingt et unième", "For numbers ending in 1, use unième after the full number.", "C’est le vingt et unième chapitre.", "vingt et unième"),
+      makeNumberTopicItem("30th", "trentième", "Trente becomes trentième.", "C’est la trentième minute.", "trentième", "/tʁɑ̃.tjɛm/"),
+      makeNumberTopicItem("80th", "quatre-vingtième", "The final s disappears before -ième: quatre-vingtième.", "C’est le quatre-vingtième anniversaire.", "quatre-vingtième"),
+      makeNumberTopicItem("100th", "centième", "Cent becomes centième.", "C’est la centième fois.", "centième", "/sɑ̃.tjɛm/"),
+      makeNumberTopicItem("1000th", "millième", "Mille becomes millième.", "C’est le millième visiteur.", "millième", "/mi.ljɛm/")
     ];

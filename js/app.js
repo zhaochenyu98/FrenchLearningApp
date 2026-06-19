@@ -75,9 +75,13 @@
       },
       numbers() {
         showNumberFlashcard();
+        showNumberQuiz();
+        showYearQuiz();
         renderNumbers();
         renderAgeYears();
         renderLargeNumberSections();
+        renderTimeSections();
+        renderOrdinalNumbers();
         renderOperators();
       },
       calendar() {
@@ -211,6 +215,30 @@
       showNumberFlashcard();
     });
 
+    playNumberQuizAudioBtn.addEventListener("click", () => {
+      playNumberQuizAudio();
+    });
+
+    nextNumberQuizBtn.addEventListener("click", () => {
+      stopPlayback();
+      showNumberQuiz(randomInt(1000, 9999), true);
+      numberQuizInput.focus();
+    });
+
+    checkNumberQuizAnswerBtn.addEventListener("click", () => {
+      checkNumberQuizAnswer();
+    });
+
+    revealNumberQuizAnswerBtn.addEventListener("click", () => {
+      revealNumberQuizAnswer();
+    });
+
+    numberQuizInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      checkNumberQuizAnswer();
+    });
+
     previousPrepositionFlashcardBtn.addEventListener("click", () => {
       movePrepositionFlashcard(-1);
     });
@@ -237,6 +265,42 @@
 
     playYearLearningBtn.addEventListener("click", () => {
       speakSequence(getNumberLearningAudioItems(yearLearningItems));
+    });
+
+    playYearQuizAudioBtn.addEventListener("click", () => {
+      playYearQuizAudio();
+    });
+
+    nextYearQuizBtn.addEventListener("click", () => {
+      stopPlayback();
+      showYearQuiz(randomYearQuizValue(), true);
+      yearQuizInput.focus();
+    });
+
+    checkYearQuizAnswerBtn.addEventListener("click", () => {
+      checkYearQuizAnswer();
+    });
+
+    revealYearQuizAnswerBtn.addEventListener("click", () => {
+      revealYearQuizAnswer();
+    });
+
+    yearQuizInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      checkYearQuizAnswer();
+    });
+
+    playTimeHoursBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(timeHourItems));
+    });
+
+    playTimeExpressionsBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(timeExpressionItems));
+    });
+
+    playOrdinalNumbersBtn.addEventListener("click", () => {
+      speakSequence(getNumberLearningAudioItems(ordinalNumberItems));
     });
 
     playPronunciationRulesBtn.addEventListener("click", () => {
