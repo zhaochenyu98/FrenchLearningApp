@@ -239,38 +239,14 @@
     function frenchHourWord(hour) {
       if (hour === 0) return "zéro heure";
       if (hour === 1) return "une heure";
+      if (hour === 21) return "vingt et une heures";
       return `${frenchNumber(hour)} heures`;
     }
 
     function makeHourLearningItem(hour) {
       const label = `${String(hour).padStart(2, "0")}:00`;
-      if (hour === 0) {
-        return makeNumberTopicItem(
-          label,
-          "minuit / zéro heure",
-          "Midnight is minuit. In schedules, 00 h can be read as zéro heure.",
-          "",
-          "minuit"
-        );
-      }
-      if (hour === 12) {
-        return makeNumberTopicItem(
-          label,
-          "midi / douze heures",
-          "Noon is midi. In schedules, 12 h can be read as douze heures.",
-          "",
-          "midi"
-        );
-      }
       const word = frenchHourWord(hour);
-      return makeNumberTopicItem(
-        label,
-        word,
-        hour > 12
-          ? "24-hour time reads the hour number directly: 13 h = treize heures."
-          : "Use heure only with 1; other hours use heures.",
-        ""
-      );
+      return makeNumberTopicItem(label, word, "", "", word);
     }
 
     const hundredsLearningItems = [
@@ -339,7 +315,13 @@
       makeNumberTopicItem("06:40", "sept heures moins vingt", ":40 can be the next hour moins vingt.", "Il est sept heures moins vingt."),
       makeNumberTopicItem("07:50", "huit heures moins dix", ":50 can be the next hour moins dix.", "Il est huit heures moins dix."),
       makeNumberTopicItem("12:00", "midi", "Noon is midi.", "On mange à midi."),
+      makeNumberTopicItem("11:45", "midi moins le quart", "15 minutes before noon: midi moins le quart.", "Il est midi moins le quart."),
+      makeNumberTopicItem("12:15", "midi et quart", "15 minutes after noon: midi et quart.", "Il est midi et quart."),
+      makeNumberTopicItem("12:30", "midi et demi", "With midi, use demi without final e.", "Il est midi et demi."),
       makeNumberTopicItem("00:00", "minuit", "Midnight is minuit.", "Je dors à minuit."),
+      makeNumberTopicItem("23:45", "minuit moins le quart", "15 minutes before midnight: minuit moins le quart.", "Il est minuit moins le quart."),
+      makeNumberTopicItem("00:15", "minuit et quart", "15 minutes after midnight: minuit et quart.", "Il est minuit et quart."),
+      makeNumberTopicItem("00:30", "minuit et demi", "With minuit, use demi without final e.", "Il est minuit et demi."),
       makeNumberTopicItem("sharp", "pile", "Pile means exactly / on the dot.", "Il est huit heures pile.")
     ];
 

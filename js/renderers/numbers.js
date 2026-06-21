@@ -273,7 +273,7 @@
           <div class="num">${item.number}</div>
           <div class="word">${item.word}</div>
           ${ipa ? `<div class="number-ipa">${ipa}</div>` : ""}
-          <div class="grammar-note">${item.note}</div>
+          ${item.note ? `<div class="grammar-note">${item.note}</div>` : ""}
           ${item.example ? `<div class="translation"><strong>Example:</strong> ${item.example}</div>` : ""}
         `;
         button.addEventListener("click", () => {

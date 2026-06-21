@@ -1,11 +1,11 @@
     const weekdays = [
-      { fr: "lundi", en: "Monday", note: "day of the week", example: "le lundi", exampleEn: "on Mondays" },
-      { fr: "mardi", en: "Tuesday", note: "day of the week", example: "le mardi", exampleEn: "on Tuesdays" },
-      { fr: "mercredi", en: "Wednesday", note: "day of the week", example: "le mercredi", exampleEn: "on Wednesdays" },
-      { fr: "jeudi", en: "Thursday", note: "day of the week", example: "le jeudi", exampleEn: "on Thursdays" },
-      { fr: "vendredi", en: "Friday", note: "day of the week", example: "le vendredi", exampleEn: "on Fridays" },
-      { fr: "samedi", en: "Saturday", note: "day of the week", example: "le samedi", exampleEn: "on Saturdays" },
-      { fr: "dimanche", en: "Sunday", note: "day of the week", example: "le dimanche", exampleEn: "on Sundays" }
+      { fr: "lundi", en: "Monday", note: "day of the week", example: "C’est lundi.", exampleEn: "It’s Monday." },
+      { fr: "mardi", en: "Tuesday", note: "day of the week", example: "C’est mardi.", exampleEn: "It’s Tuesday." },
+      { fr: "mercredi", en: "Wednesday", note: "day of the week", example: "C’est mercredi.", exampleEn: "It’s Wednesday." },
+      { fr: "jeudi", en: "Thursday", note: "day of the week", example: "C’est jeudi.", exampleEn: "It’s Thursday." },
+      { fr: "vendredi", en: "Friday", note: "day of the week", example: "C’est vendredi.", exampleEn: "It’s Friday." },
+      { fr: "samedi", en: "Saturday", note: "day of the week", example: "C’est samedi.", exampleEn: "It’s Saturday." },
+      { fr: "dimanche", en: "Sunday", note: "day of the week", example: "C’est dimanche.", exampleEn: "It’s Sunday." }
     ];
 
     const months = [
@@ -366,4 +366,3 @@
         ]
       }
     ];
-
