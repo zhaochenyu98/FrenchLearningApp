@@ -14,6 +14,7 @@
       { tab: "verbs", tableId: "commencerTable", playButtonId: "playCommencer", rows: commencerRows },
       { tab: "verbs", tableId: "voyagerTable", playButtonId: "playVoyager", rows: voyagerRows },
       { tab: "verbs", tableId: "travaillerTable", playButtonId: "playTravailler", rows: travaillerRows },
+      { tab: "verbs", tableId: "rentrerTable", playButtonId: "playRentrer", rows: rentrerRows },
       { tab: "verbs", tableId: "tournerTable", playButtonId: "playTourner", rows: tournerRows },
       { tab: "verbs", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows }
     ];

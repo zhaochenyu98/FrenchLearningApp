@@ -432,6 +432,17 @@
       { pronoun: "elles", form: "travaillent", full: "elles travaillent", en: "they work", example: "Elles travaillent en équipe.", exampleEn: "They work as a team.", negative: "Elles ne travaillent pas en équipe.", negativeEn: "They do not work as a team." }
     ];
 
+    const rentrerRows = [
+      { pronoun: "je", form: "rentre", full: "je rentre", en: "I return / go home", example: "Je rentre à la maison.", exampleEn: "I am going home.", negative: "Je ne rentre pas à la maison.", negativeEn: "I am not going home." },
+      { pronoun: "tu", form: "rentres", full: "tu rentres", en: "you return / go home", example: "Tu rentres tard ce soir.", exampleEn: "You are coming home late tonight.", negative: "Tu ne rentres pas tard ce soir.", negativeEn: "You are not coming home late tonight." },
+      { pronoun: "il", form: "rentre", full: "il rentre", en: "he returns / goes home", example: "Il rentre du travail.", exampleEn: "He is coming back from work.", negative: "Il ne rentre pas du travail.", negativeEn: "He is not coming back from work." },
+      { pronoun: "elle", form: "rentre", full: "elle rentre", en: "she returns / goes home", example: "Elle rentre chez elle.", exampleEn: "She is going back to her place.", negative: "Elle ne rentre pas chez elle.", negativeEn: "She is not going back to her place." },
+      { pronoun: "nous", form: "rentrons", full: "nous rentrons", en: "we return / go home", example: "Nous rentrons avant le dîner.", exampleEn: "We are coming home before dinner.", negative: "Nous ne rentrons pas avant le dîner.", negativeEn: "We are not coming home before dinner." },
+      { pronoun: "vous", form: "rentrez", full: "vous rentrez", en: "you return / go home", example: "Vous rentrez demain matin.", exampleEn: "You are returning tomorrow morning.", negative: "Vous ne rentrez pas demain matin.", negativeEn: "You are not returning tomorrow morning." },
+      { pronoun: "ils", form: "rentrent", full: "ils rentrent", en: "they return / go home", example: "Ils rentrent en bus.", exampleEn: "They are going home by bus.", negative: "Ils ne rentrent pas en bus.", negativeEn: "They are not going home by bus." },
+      { pronoun: "elles", form: "rentrent", full: "elles rentrent", en: "they return / go home", example: "Elles rentrent après le cours.", exampleEn: "They are going home after class.", negative: "Elles ne rentrent pas après le cours.", negativeEn: "They are not going home after class." }
+    ];
+
     const tournerRows = [
       { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
       { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock." },
@@ -591,6 +602,15 @@
       "vous travaillez": "/vu tʁa.va.je/",
       "ils travaillent": "/il tʁa.vaj/",
       "elles travaillent": "/ɛl tʁa.vaj/",
+
+      "je rentre": "/ʒə ʁɑ̃tʁ/",
+      "tu rentres": "/ty ʁɑ̃tʁ/",
+      "il rentre": "/il ʁɑ̃tʁ/",
+      "elle rentre": "/ɛl ʁɑ̃tʁ/",
+      "nous rentrons": "/nu ʁɑ̃.tʁɔ̃/",
+      "vous rentrez": "/vu ʁɑ̃.tʁe/",
+      "ils rentrent": "/il ʁɑ̃tʁ/",
+      "elles rentrent": "/ɛl ʁɑ̃tʁ/",
 
       "je tourne": "/ʒə tuʁn/",
       "tu tournes": "/ty tuʁn/",
