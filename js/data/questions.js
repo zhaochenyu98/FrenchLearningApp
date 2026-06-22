@@ -466,6 +466,128 @@
       }
     ];
 
+    const dayQuestionColumns = [
+      {
+        key: "casual",
+        title: "Casual / spoken",
+        note: "Very common in conversation."
+      },
+      {
+        key: "neutral",
+        title: "Neutral",
+        note: "Everyday est-ce que pattern."
+      },
+      {
+        key: "formal",
+        title: "Formal",
+        note: "Inversion / textbook style."
+      }
+    ];
+
+    const dayQuestionRows = [
+      {
+        topic: "Today",
+        agreement: "Ask which day it is",
+        en: "What day is it?",
+        examples: {
+          casual: { fr: "On est quel jour ?", en: "What day is it? (spoken)" },
+          neutral: { fr: "Quel jour est-ce qu’on est ?", en: "What day is it?" },
+          formal: { fr: "Quel jour sommes-nous ?", en: "What day is it?" }
+        }
+      },
+      {
+        topic: "Monday",
+        agreement: "Yes/no day question",
+        en: "Is it Monday?",
+        examples: {
+          casual: { fr: "On est lundi ?", en: "Is it Monday? (spoken)" },
+          neutral: { fr: "Est-ce qu’on est lundi ?", en: "Is it Monday?" },
+          formal: { fr: "Sommes-nous lundi ?", en: "Is it Monday?" }
+        }
+      },
+      {
+        topic: "Tuesday class",
+        agreement: "Ask if an event is on a weekday",
+        en: "Is your class on Tuesday?",
+        examples: {
+          casual: { fr: "Ton cours est mardi ?", en: "Is your class on Tuesday? (spoken)" },
+          neutral: { fr: "Est-ce que ton cours est mardi ?", en: "Is your class on Tuesday?" },
+          formal: { fr: "Ton cours est-il mardi ?", en: "Is your class on Tuesday?" }
+        }
+      },
+      {
+        topic: "Work day",
+        agreement: "Ask which weekday something happens",
+        en: "What day does she work?",
+        examples: {
+          casual: { fr: "Elle travaille quel jour ?", en: "What day does she work? (spoken)" },
+          neutral: { fr: "Quel jour est-ce qu’elle travaille ?", en: "What day does she work?" },
+          formal: { fr: "Quel jour travaille-t-elle ?", en: "What day does she work?" }
+        }
+      }
+    ];
+
+    const timeQuestionColumns = [
+      {
+        key: "casual",
+        title: "Casual / spoken",
+        note: "Question by intonation or end placement."
+      },
+      {
+        key: "neutral",
+        title: "Neutral",
+        note: "Everyday est-ce que pattern."
+      },
+      {
+        key: "formal",
+        title: "Formal",
+        note: "Inversion / textbook style."
+      }
+    ];
+
+    const timeQuestionRows = [
+      {
+        topic: "Current time",
+        agreement: "Ask what time it is",
+        en: "What time is it?",
+        examples: {
+          casual: { fr: "Il est quelle heure ?", en: "What time is it? (spoken)" },
+          neutral: { fr: "Quelle heure est-ce qu’il est ?", en: "What time is it?" },
+          formal: { fr: "Quelle heure est-il ?", en: "What time is it?" }
+        }
+      },
+      {
+        topic: "1 p.m.",
+        agreement: "Yes/no time question",
+        en: "Is it 1 p.m.?",
+        examples: {
+          casual: { fr: "Il est treize heures ?", en: "Is it 1 p.m.? (spoken)" },
+          neutral: { fr: "Est-ce qu’il est treize heures ?", en: "Is it 1 p.m.?" },
+          formal: { fr: "Est-il treize heures ?", en: "Is it 1 p.m.?" }
+        }
+      },
+      {
+        topic: "Work time",
+        agreement: "Ask when something happens",
+        en: "What time do you work?",
+        examples: {
+          casual: { fr: "Tu travailles à quelle heure ?", en: "What time do you work? (spoken)" },
+          neutral: { fr: "À quelle heure est-ce que tu travailles ?", en: "What time do you work?" },
+          formal: { fr: "À quelle heure travailles-tu ?", en: "What time do you work?" }
+        }
+      },
+      {
+        topic: "9 p.m. train",
+        agreement: "Ask if something happens at a specific time",
+        en: "Does the train leave at 9 p.m.?",
+        examples: {
+          casual: { fr: "Le train part à vingt et une heures ?", en: "Does the train leave at 9 p.m.? (spoken)" },
+          neutral: { fr: "Est-ce que le train part à vingt et une heures ?", en: "Does the train leave at 9 p.m.?" },
+          formal: { fr: "Le train part-il à vingt et une heures ?", en: "Does the train leave at 9 p.m.?" }
+        }
+      }
+    ];
+
     const queExampleColumns = [
       {
         key: "quoiEnd",

@@ -4,9 +4,16 @@
       { tab: "verbs", tableId: "allerTable", playButtonId: "playAller", rows: allerRows },
       { tab: "verbs", tableId: "venirTable", playButtonId: "playVenir", rows: venirRows },
       { tab: "verbs", tableId: "prendreTable", playButtonId: "playPrendre", rows: prendreRows },
-      { tab: "verbs", tableId: "habiterTable", playButtonId: "playHabiter", rows: habiterRows },
       { tab: "verbs", tableId: "faireTable", playButtonId: "playFaire", rows: faireRows },
+      { tab: "verbs", tableId: "voirTable", playButtonId: "playVoir", rows: voirRows },
+      { tab: "verbs", tableId: "partirTable", playButtonId: "playPartir", rows: partirRows },
+      { tab: "verbs", tableId: "habiterTable", playButtonId: "playHabiter", rows: habiterRows },
       { tab: "verbs", tableId: "trouverTable", playButtonId: "playTrouver", rows: trouverRows },
+      { tab: "verbs", tableId: "regarderTable", playButtonId: "playRegarder", rows: regarderRows },
+      { tab: "verbs", tableId: "passerTable", playButtonId: "playPasser", rows: passerRows },
+      { tab: "verbs", tableId: "commencerTable", playButtonId: "playCommencer", rows: commencerRows },
+      { tab: "verbs", tableId: "voyagerTable", playButtonId: "playVoyager", rows: voyagerRows },
+      { tab: "verbs", tableId: "travaillerTable", playButtonId: "playTravailler", rows: travaillerRows },
       { tab: "verbs", tableId: "tournerTable", playButtonId: "playTourner", rows: tournerRows },
       { tab: "verbs", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows }
     ];
@@ -66,6 +73,8 @@
         renderQuelExamples();
         renderQuelEtreExamples();
         renderQuelColorExamples();
+        renderDayQuestionExamples();
+        renderTimeQuestionExamples();
         renderQueExamples();
         renderQueCestExamples();
         renderCommentExamples();
@@ -394,6 +403,8 @@
         getQuestionComparisonAudioItems(quelExampleRows, quelExampleColumns),
         getQuestionComparisonAudioItems(quelEtreSpecialRows, quelEtreSpecialColumns),
         getQuestionComparisonAudioItems(quelColorRows, quelColorColumns),
+        getQuestionComparisonAudioItems(dayQuestionRows, dayQuestionColumns),
+        getQuestionComparisonAudioItems(timeQuestionRows, timeQuestionColumns),
         getQuestionComparisonAudioItems(queExampleRows, queExampleColumns),
         getQuestionComparisonAudioItems(queCestSpecialRows, queCestSpecialColumns),
         getQuestionComparisonAudioItems(commentExampleRows, commentExampleColumns),

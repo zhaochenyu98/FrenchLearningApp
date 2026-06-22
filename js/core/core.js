@@ -107,6 +107,8 @@
     const quelExamplesGrid = document.getElementById("quelExamplesGrid");
     const quelEtreExamplesGrid = document.getElementById("quelEtreExamplesGrid");
     const quelColorExamplesGrid = document.getElementById("quelColorExamplesGrid");
+    const dayQuestionExamplesGrid = document.getElementById("dayQuestionExamplesGrid");
+    const timeQuestionExamplesGrid = document.getElementById("timeQuestionExamplesGrid");
     const queExamplesGrid = document.getElementById("queExamplesGrid");
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
     const commentExamplesGrid = document.getElementById("commentExamplesGrid");

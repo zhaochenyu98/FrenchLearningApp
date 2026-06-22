@@ -335,6 +335,28 @@
       { pronoun: "elles", form: "font", full: "elles font", en: "they do / they make", example: "Elles font la fête.", exampleEn: "They are partying.", negative: "Elles ne font pas la fête.", negativeEn: "They are not partying." }
     ];
 
+    const voirRows = [
+      { pronoun: "je", form: "vois", full: "je vois", en: "I see", example: "Je vois la gare.", exampleEn: "I see the train station.", negative: "Je ne vois pas la gare.", negativeEn: "I do not see the train station." },
+      { pronoun: "tu", form: "vois", full: "tu vois", en: "you see", example: "Tu vois le panneau ?", exampleEn: "Do you see the sign?", negative: "Tu ne vois pas le panneau ?", negativeEn: "Do you not see the sign?" },
+      { pronoun: "il", form: "voit", full: "il voit", en: "he sees", example: "Il voit ses amis.", exampleEn: "He sees his friends.", negative: "Il ne voit pas ses amis.", negativeEn: "He does not see his friends." },
+      { pronoun: "elle", form: "voit", full: "elle voit", en: "she sees", example: "Elle voit un médecin.", exampleEn: "She is seeing a doctor.", negative: "Elle ne voit pas de médecin.", negativeEn: "She is not seeing a doctor." },
+      { pronoun: "nous", form: "voyons", full: "nous voyons", en: "we see", example: "Nous voyons la mer.", exampleEn: "We see the sea.", negative: "Nous ne voyons pas la mer.", negativeEn: "We do not see the sea." },
+      { pronoun: "vous", form: "voyez", full: "vous voyez", en: "you see", example: "Vous voyez la différence.", exampleEn: "You see the difference.", negative: "Vous ne voyez pas la différence.", negativeEn: "You do not see the difference." },
+      { pronoun: "ils", form: "voient", full: "ils voient", en: "they see", example: "Ils voient le problème.", exampleEn: "They see the problem.", negative: "Ils ne voient pas le problème.", negativeEn: "They do not see the problem." },
+      { pronoun: "elles", form: "voient", full: "elles voient", en: "they see", example: "Elles voient un film ce soir.", exampleEn: "They are seeing a movie tonight.", negative: "Elles ne voient pas de film ce soir.", negativeEn: "They are not seeing a movie tonight." }
+    ];
+
+    const partirRows = [
+      { pronoun: "je", form: "pars", full: "je pars", en: "I leave", example: "Je pars demain matin.", exampleEn: "I leave tomorrow morning.", negative: "Je ne pars pas demain matin.", negativeEn: "I am not leaving tomorrow morning." },
+      { pronoun: "tu", form: "pars", full: "tu pars", en: "you leave", example: "Tu pars à quelle heure ?", exampleEn: "What time are you leaving?", negative: "Tu ne pars pas maintenant ?", negativeEn: "Are you not leaving now?" },
+      { pronoun: "il", form: "part", full: "il part", en: "he leaves", example: "Il part pour Lyon.", exampleEn: "He leaves for Lyon.", negative: "Il ne part pas pour Lyon.", negativeEn: "He is not leaving for Lyon." },
+      { pronoun: "elle", form: "part", full: "elle part", en: "she leaves", example: "Elle part en vacances.", exampleEn: "She is leaving on vacation.", negative: "Elle ne part pas en vacances.", negativeEn: "She is not leaving on vacation." },
+      { pronoun: "nous", form: "partons", full: "nous partons", en: "we leave", example: "Nous partons à midi.", exampleEn: "We leave at noon.", negative: "Nous ne partons pas à midi.", negativeEn: "We are not leaving at noon." },
+      { pronoun: "vous", form: "partez", full: "vous partez", en: "you leave", example: "Vous partez ce soir ?", exampleEn: "Are you leaving tonight?", negative: "Vous ne partez pas ce soir ?", negativeEn: "Are you not leaving tonight?" },
+      { pronoun: "ils", form: "partent", full: "ils partent", en: "they leave", example: "Ils partent tôt.", exampleEn: "They leave early.", negative: "Ils ne partent pas tôt.", negativeEn: "They do not leave early." },
+      { pronoun: "elles", form: "partent", full: "elles partent", en: "they leave", example: "Elles partent ensemble.", exampleEn: "They leave together.", negative: "Elles ne partent pas ensemble.", negativeEn: "They do not leave together." }
+    ];
+
     const trouverRows = [
       { pronoun: "je", form: "trouve", full: "je trouve", en: "I find / I think", example: "Je trouve la clé.", exampleEn: "I find the key.", negative: "Je ne trouve pas la clé.", negativeEn: "I do not find the key." },
       { pronoun: "tu", form: "trouves", full: "tu trouves", en: "you find / you think", example: "Tu trouves ce livre intéressant.", exampleEn: "You find this book interesting.", negative: "Tu ne trouves pas ce livre intéressant.", negativeEn: "You do not find this book interesting." },
@@ -353,6 +375,61 @@
       { pronoun: "vous", form: "trouvez", full: "vous trouvez", en: "you find / you think", example: "Vous trouvez la réponse.", exampleEn: "You find the answer.", negative: "Vous ne trouvez pas la réponse.", negativeEn: "You do not find the answer." },
       { pronoun: "ils", form: "trouvent", full: "ils trouvent", en: "they find / they think", example: "Ils trouvent un restaurant.", exampleEn: "They find a restaurant.", negative: "Ils ne trouvent pas de restaurant.", negativeEn: "They do not find a restaurant." },
       { pronoun: "elles", form: "trouvent", full: "elles trouvent", en: "they find / they think", example: "Elles trouvent cette ville belle.", exampleEn: "They find this city beautiful.", negative: "Elles ne trouvent pas cette ville belle.", negativeEn: "They do not find this city beautiful." }
+    ];
+
+    const regarderRows = [
+      { pronoun: "je", form: "regarde", full: "je regarde", en: "I watch / look at", example: "Je regarde un film.", exampleEn: "I am watching a movie.", negative: "Je ne regarde pas de film.", negativeEn: "I am not watching a movie." },
+      { pronoun: "tu", form: "regardes", full: "tu regardes", en: "you watch / look at", example: "Tu regardes la télé.", exampleEn: "You are watching TV.", negative: "Tu ne regardes pas la télé.", negativeEn: "You are not watching TV." },
+      { pronoun: "il", form: "regarde", full: "il regarde", en: "he watches / looks at", example: "Il regarde son téléphone.", exampleEn: "He is looking at his phone.", negative: "Il ne regarde pas son téléphone.", negativeEn: "He is not looking at his phone." },
+      { pronoun: "elle", form: "regarde", full: "elle regarde", en: "she watches / looks at", example: "Elle regarde les photos.", exampleEn: "She is looking at the photos.", negative: "Elle ne regarde pas les photos.", negativeEn: "She is not looking at the photos." },
+      { pronoun: "nous", form: "regardons", full: "nous regardons", en: "we watch / look at", example: "Nous regardons le menu.", exampleEn: "We are looking at the menu.", negative: "Nous ne regardons pas le menu.", negativeEn: "We are not looking at the menu." },
+      { pronoun: "vous", form: "regardez", full: "vous regardez", en: "you watch / look at", example: "Vous regardez la carte ?", exampleEn: "Are you looking at the map?", negative: "Vous ne regardez pas la carte ?", negativeEn: "Are you not looking at the map?" },
+      { pronoun: "ils", form: "regardent", full: "ils regardent", en: "they watch / look at", example: "Ils regardent le match.", exampleEn: "They are watching the game.", negative: "Ils ne regardent pas le match.", negativeEn: "They are not watching the game." },
+      { pronoun: "elles", form: "regardent", full: "elles regardent", en: "they watch / look at", example: "Elles regardent la vidéo.", exampleEn: "They are watching the video.", negative: "Elles ne regardent pas la vidéo.", negativeEn: "They are not watching the video." }
+    ];
+
+    const passerRows = [
+      { pronoun: "je", form: "passe", full: "je passe", en: "I pass / stop by / spend", example: "Je passe par le parc.", exampleEn: "I pass through the park.", negative: "Je ne passe pas par le parc.", negativeEn: "I do not pass through the park." },
+      { pronoun: "tu", form: "passes", full: "tu passes", en: "you pass / stop by / spend", example: "Tu passes chez moi ce soir ?", exampleEn: "Are you stopping by my place tonight?", negative: "Tu ne passes pas chez moi ce soir ?", negativeEn: "Are you not stopping by my place tonight?" },
+      { pronoun: "il", form: "passe", full: "il passe", en: "he passes / takes", example: "Il passe l’examen demain.", exampleEn: "He takes the exam tomorrow.", negative: "Il ne passe pas l’examen demain.", negativeEn: "He is not taking the exam tomorrow." },
+      { pronoun: "elle", form: "passe", full: "elle passe", en: "she spends / passes", example: "Elle passe du temps avec sa famille.", exampleEn: "She spends time with her family.", negative: "Elle ne passe pas de temps avec sa famille.", negativeEn: "She does not spend time with her family." },
+      { pronoun: "nous", form: "passons", full: "nous passons", en: "we pass / stop by / spend", example: "Nous passons devant la gare.", exampleEn: "We pass in front of the train station.", negative: "Nous ne passons pas devant la gare.", negativeEn: "We do not pass in front of the train station." },
+      { pronoun: "vous", form: "passez", full: "vous passez", en: "you pass / stop by / spend", example: "Vous passez devant la banque.", exampleEn: "You pass in front of the bank.", negative: "Vous ne passez pas devant la banque.", negativeEn: "You do not pass in front of the bank." },
+      { pronoun: "ils", form: "passent", full: "ils passent", en: "they pass / stop by / spend", example: "Ils passent par Paris.", exampleEn: "They pass through Paris.", negative: "Ils ne passent pas par Paris.", negativeEn: "They do not pass through Paris." },
+      { pronoun: "elles", form: "passent", full: "elles passent", en: "they spend / pass", example: "Elles passent l’après-midi au café.", exampleEn: "They spend the afternoon at the café.", negative: "Elles ne passent pas l’après-midi au café.", negativeEn: "They do not spend the afternoon at the café." }
+    ];
+
+    const commencerRows = [
+      { pronoun: "je", form: "commence", full: "je commence", en: "I begin / start", example: "Je commence le travail à neuf heures.", exampleEn: "I start work at nine o’clock.", negative: "Je ne commence pas le travail à neuf heures.", negativeEn: "I do not start work at nine o’clock." },
+      { pronoun: "tu", form: "commences", full: "tu commences", en: "you begin / start", example: "Tu commences la leçon.", exampleEn: "You start the lesson.", negative: "Tu ne commences pas la leçon.", negativeEn: "You do not start the lesson." },
+      { pronoun: "il", form: "commence", full: "il commence", en: "he begins / starts", example: "Il commence à pleuvoir.", exampleEn: "It is starting to rain.", negative: "Il ne commence pas à pleuvoir.", negativeEn: "It is not starting to rain." },
+      { pronoun: "elle", form: "commence", full: "elle commence", en: "she begins / starts", example: "Elle commence un nouveau livre.", exampleEn: "She is starting a new book.", negative: "Elle ne commence pas de nouveau livre.", negativeEn: "She is not starting a new book." },
+      { pronoun: "nous", form: "commençons", full: "nous commençons", en: "we begin / start", example: "Nous commençons le cours.", exampleEn: "We are starting the class.", negative: "Nous ne commençons pas le cours.", negativeEn: "We are not starting the class." },
+      { pronoun: "vous", form: "commencez", full: "vous commencez", en: "you begin / start", example: "Vous commencez maintenant.", exampleEn: "You start now.", negative: "Vous ne commencez pas maintenant.", negativeEn: "You are not starting now." },
+      { pronoun: "ils", form: "commencent", full: "ils commencent", en: "they begin / start", example: "Ils commencent tôt.", exampleEn: "They start early.", negative: "Ils ne commencent pas tôt.", negativeEn: "They do not start early." },
+      { pronoun: "elles", form: "commencent", full: "elles commencent", en: "they begin / start", example: "Elles commencent à comprendre.", exampleEn: "They are beginning to understand.", negative: "Elles ne commencent pas à comprendre.", negativeEn: "They are not beginning to understand." }
+    ];
+
+    const voyagerRows = [
+      { pronoun: "je", form: "voyage", full: "je voyage", en: "I travel", example: "Je voyage souvent.", exampleEn: "I travel often.", negative: "Je ne voyage pas souvent.", negativeEn: "I do not travel often." },
+      { pronoun: "tu", form: "voyages", full: "tu voyages", en: "you travel", example: "Tu voyages en train.", exampleEn: "You travel by train.", negative: "Tu ne voyages pas en train.", negativeEn: "You do not travel by train." },
+      { pronoun: "il", form: "voyage", full: "il voyage", en: "he travels", example: "Il voyage pour le travail.", exampleEn: "He travels for work.", negative: "Il ne voyage pas pour le travail.", negativeEn: "He does not travel for work." },
+      { pronoun: "elle", form: "voyage", full: "elle voyage", en: "she travels", example: "Elle voyage avec sa sœur.", exampleEn: "She travels with her sister.", negative: "Elle ne voyage pas avec sa sœur.", negativeEn: "She does not travel with her sister." },
+      { pronoun: "nous", form: "voyageons", full: "nous voyageons", en: "we travel", example: "Nous voyageons en été.", exampleEn: "We travel in summer.", negative: "Nous ne voyageons pas en été.", negativeEn: "We do not travel in summer." },
+      { pronoun: "vous", form: "voyagez", full: "vous voyagez", en: "you travel", example: "Vous voyagez beaucoup.", exampleEn: "You travel a lot.", negative: "Vous ne voyagez pas beaucoup.", negativeEn: "You do not travel a lot." },
+      { pronoun: "ils", form: "voyagent", full: "ils voyagent", en: "they travel", example: "Ils voyagent en Europe.", exampleEn: "They travel in Europe.", negative: "Ils ne voyagent pas en Europe.", negativeEn: "They do not travel in Europe." },
+      { pronoun: "elles", form: "voyagent", full: "elles voyagent", en: "they travel", example: "Elles voyagent ensemble.", exampleEn: "They travel together.", negative: "Elles ne voyagent pas ensemble.", negativeEn: "They do not travel together." }
+    ];
+
+    const travaillerRows = [
+      { pronoun: "je", form: "travaille", full: "je travaille", en: "I work", example: "Je travaille aujourd’hui.", exampleEn: "I am working today.", negative: "Je ne travaille pas aujourd’hui.", negativeEn: "I am not working today." },
+      { pronoun: "tu", form: "travailles", full: "tu travailles", en: "you work", example: "Tu travailles à la maison.", exampleEn: "You work at home.", negative: "Tu ne travailles pas à la maison.", negativeEn: "You do not work at home." },
+      { pronoun: "il", form: "travaille", full: "il travaille", en: "he works", example: "Il travaille dans un bureau.", exampleEn: "He works in an office.", negative: "Il ne travaille pas dans un bureau.", negativeEn: "He does not work in an office." },
+      { pronoun: "elle", form: "travaille", full: "elle travaille", en: "she works", example: "Elle travaille le lundi.", exampleEn: "She works on Mondays.", negative: "Elle ne travaille pas le lundi.", negativeEn: "She does not work on Mondays." },
+      { pronoun: "nous", form: "travaillons", full: "nous travaillons", en: "we work", example: "Nous travaillons ensemble.", exampleEn: "We work together.", negative: "Nous ne travaillons pas ensemble.", negativeEn: "We do not work together." },
+      { pronoun: "vous", form: "travaillez", full: "vous travaillez", en: "you work", example: "Vous travaillez beaucoup.", exampleEn: "You work a lot.", negative: "Vous ne travaillez pas beaucoup.", negativeEn: "You do not work a lot." },
+      { pronoun: "ils", form: "travaillent", full: "ils travaillent", en: "they work", example: "Ils travaillent tard.", exampleEn: "They work late.", negative: "Ils ne travaillent pas tard.", negativeEn: "They do not work late." },
+      { pronoun: "elles", form: "travaillent", full: "elles travaillent", en: "they work", example: "Elles travaillent en équipe.", exampleEn: "They work as a team.", negative: "Elles ne travaillent pas en équipe.", negativeEn: "They do not work as a team." }
     ];
 
     const tournerRows = [
@@ -434,6 +511,24 @@
       "ils font": "/il fɔ̃/",
       "elles font": "/ɛl fɔ̃/",
 
+      "je vois": "/ʒə vwa/",
+      "tu vois": "/ty vwa/",
+      "il voit": "/il vwa/",
+      "elle voit": "/ɛl vwa/",
+      "nous voyons": "/nu vwa.jɔ̃/",
+      "vous voyez": "/vu vwa.je/",
+      "ils voient": "/il vwa/",
+      "elles voient": "/ɛl vwa/",
+
+      "je pars": "/ʒə paʁ/",
+      "tu pars": "/ty paʁ/",
+      "il part": "/il paʁ/",
+      "elle part": "/ɛl paʁ/",
+      "nous partons": "/nu paʁ.tɔ̃/",
+      "vous partez": "/vu paʁ.te/",
+      "ils partent": "/il paʁt/",
+      "elles partent": "/ɛl paʁt/",
+
       "j’habite": "/ʒa.bit/",
       "tu habites": "/ty a.bit/",
       "il habite": "/il a.bit/",
@@ -451,6 +546,51 @@
       "vous trouvez": "/vu tʁu.ve/",
       "ils trouvent": "/il tʁuv/",
       "elles trouvent": "/ɛl tʁuv/",
+
+      "je regarde": "/ʒə ʁə.ɡaʁd/",
+      "tu regardes": "/ty ʁə.ɡaʁd/",
+      "il regarde": "/il ʁə.ɡaʁd/",
+      "elle regarde": "/ɛl ʁə.ɡaʁd/",
+      "nous regardons": "/nu ʁə.ɡaʁ.dɔ̃/",
+      "vous regardez": "/vu ʁə.ɡaʁ.de/",
+      "ils regardent": "/il ʁə.ɡaʁd/",
+      "elles regardent": "/ɛl ʁə.ɡaʁd/",
+
+      "je passe": "/ʒə pas/",
+      "tu passes": "/ty pas/",
+      "il passe": "/il pas/",
+      "elle passe": "/ɛl pas/",
+      "nous passons": "/nu pa.sɔ̃/",
+      "vous passez": "/vu pa.se/",
+      "ils passent": "/il pas/",
+      "elles passent": "/ɛl pas/",
+
+      "je commence": "/ʒə kɔ.mɑ̃s/",
+      "tu commences": "/ty kɔ.mɑ̃s/",
+      "il commence": "/il kɔ.mɑ̃s/",
+      "elle commence": "/ɛl kɔ.mɑ̃s/",
+      "nous commençons": "/nu kɔ.mɑ̃.sɔ̃/",
+      "vous commencez": "/vu kɔ.mɑ̃.se/",
+      "ils commencent": "/il kɔ.mɑ̃s/",
+      "elles commencent": "/ɛl kɔ.mɑ̃s/",
+
+      "je voyage": "/ʒə vwa.jaʒ/",
+      "tu voyages": "/ty vwa.jaʒ/",
+      "il voyage": "/il vwa.jaʒ/",
+      "elle voyage": "/ɛl vwa.jaʒ/",
+      "nous voyageons": "/nu vwa.ja.ʒɔ̃/",
+      "vous voyagez": "/vu vwa.ja.ʒe/",
+      "ils voyagent": "/il vwa.jaʒ/",
+      "elles voyagent": "/ɛl vwa.jaʒ/",
+
+      "je travaille": "/ʒə tʁa.vaj/",
+      "tu travailles": "/ty tʁa.vaj/",
+      "il travaille": "/il tʁa.vaj/",
+      "elle travaille": "/ɛl tʁa.vaj/",
+      "nous travaillons": "/nu tʁa.va.jɔ̃/",
+      "vous travaillez": "/vu tʁa.va.je/",
+      "ils travaillent": "/il tʁa.vaj/",
+      "elles travaillent": "/ɛl tʁa.vaj/",
 
       "je tourne": "/ʒə tuʁn/",
       "tu tournes": "/ty tuʁn/",

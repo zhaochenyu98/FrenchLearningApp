@@ -77,6 +77,14 @@
       renderQuestionComparison(quelColorExamplesGrid, quelColorColumns, rows, "No de quelle couleur examples available.");
     }
 
+    function renderDayQuestionExamples(rows = dayQuestionRows) {
+      renderQuestionComparison(dayQuestionExamplesGrid, dayQuestionColumns, rows, "No day question examples available.");
+    }
+
+    function renderTimeQuestionExamples(rows = timeQuestionRows) {
+      renderQuestionComparison(timeQuestionExamplesGrid, timeQuestionColumns, rows, "No time question examples available.");
+    }
+
     function renderQueExamples(rows = queExampleRows) {
       renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples available.");
     }
