@@ -227,7 +227,16 @@
               <button class="action-btn" type="button" id="playPrendre">Play prendre</button>
               <button class="action-btn" type="button" id="playFaire">Play faire</button>
               <button class="action-btn" type="button" id="playVoir">Play voir</button>
+              <button class="action-btn" type="button" id="playEcrire">Play écrire</button>
+              <button class="action-btn" type="button" id="playLire">Play lire</button>
+            </div>
+            <div class="action-row">
+              <span class="action-label">Same pattern</span>
+              <button class="action-btn" type="button" id="playDormir">Play dormir</button>
               <button class="action-btn" type="button" id="playPartir">Play partir</button>
+              <button class="action-btn" type="button" id="playSortir">Play sortir</button>
+              <button class="action-btn" type="button" id="playServir">Play servir</button>
+              <button class="action-btn" type="button" id="playSentir">Play sentir</button>
             </div>
             <div class="action-row">
               <span class="action-label">Regular</span>
@@ -239,8 +248,19 @@
               <button class="action-btn" type="button" id="playVoyager">Play voyager</button>
               <button class="action-btn" type="button" id="playTravailler">Play travailler</button>
               <button class="action-btn" type="button" id="playRentrer">Play rentrer</button>
+              <button class="action-btn" type="button" id="playDemander">Play demander</button>
+              <button class="action-btn" type="button" id="playJouer">Play jouer</button>
+              <button class="action-btn" type="button" id="playNager">Play nager</button>
               <button class="action-btn" type="button" id="playTourner">Play tourner</button>
               <button class="action-btn" type="button" id="playCouter">Play coûter</button>
+            </div>
+            <div class="action-row">
+              <span class="action-label">Pronominal</span>
+              <button class="action-btn" type="button" id="playSeLaver">Play se laver</button>
+              <button class="action-btn" type="button" id="playSeLever">Play se lever</button>
+              <button class="action-btn" type="button" id="playSeReposer">Play se reposer</button>
+              <button class="action-btn" type="button" id="playSAppeler">Play s’appeler</button>
+              <button class="action-btn" type="button" id="playSHabiller">Play s’habiller</button>
             </div>
           </div>
         </div>
@@ -282,9 +302,52 @@
           </div>
 
           <div class="panel verb-panel">
-            <h3>Partir — to leave <span class="translation">(irregular)</span></h3>
+            <h3>Écrire — to write <span class="translation">(irregular)</span></h3>
+            <p><strong>Écrire</strong> changes from <strong>écris / écrit</strong> to <strong>écrivons</strong>, <strong>écrivez</strong>, and <strong>écrivent</strong>.</p>
+            <div id="ecrireTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Lire — to read <span class="translation">(irregular)</span></h3>
+            <p><strong>Lire</strong> has short singular forms <strong>lis / lit</strong>, then <strong>lisons</strong>, <strong>lisez</strong>, and <strong>lisent</strong>.</p>
+            <div id="lireTable" class="verb-matrix"></div>
+          </div>
+        </div>
+
+        <div class="category-panel verb-group">
+          <div>
+            <h3>Similar Irregular Verbs</h3>
+            <p><strong>Dormir, partir, sortir, servir,</strong> and <strong>sentir</strong> share a useful pattern: singular forms drop part of the stem, while plural forms bring it back.</p>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Dormir — to sleep <span class="translation">(irregular pattern)</span></h3>
+            <p><strong>Dormir</strong>: <strong>dors / dort</strong>, then <strong>dormons</strong>, <strong>dormez</strong>, <strong>dorment</strong>.</p>
+            <div id="dormirTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Partir — to leave <span class="translation">(irregular pattern)</span></h3>
             <p><strong>Partir</strong> has silent final consonants in the singular: <strong>pars / part</strong> sound like <strong>/paʁ/</strong>, but <strong>partent</strong> pronounces the <strong>t</strong>.</p>
             <div id="partirTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Sortir — to go out / leave <span class="translation">(irregular pattern)</span></h3>
+            <p><strong>Sortir</strong> follows the same family pattern: <strong>sors / sort</strong>, then <strong>sortons</strong>, <strong>sortez</strong>, <strong>sortent</strong>.</p>
+            <div id="sortirTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Servir — to serve <span class="translation">(irregular pattern)</span></h3>
+            <p><strong>Servir</strong> changes from <strong>sers / sert</strong> to <strong>servons</strong>, <strong>servez</strong>, and <strong>servent</strong>.</p>
+            <div id="servirTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Sentir — to smell / feel <span class="translation">(irregular pattern)</span></h3>
+            <p><strong>Sentir</strong> changes from <strong>sens / sent</strong> to <strong>sentons</strong>, <strong>sentez</strong>, and <strong>sentent</strong>.</p>
+            <div id="sentirTable" class="verb-matrix"></div>
           </div>
         </div>
 
@@ -343,6 +406,24 @@
           </div>
 
           <div class="panel verb-panel">
+            <h3>Demander — to ask <span class="translation">(regular -er)</span></h3>
+            <p><strong>Demander</strong> can mean “ask for” something, and <strong>demander à quelqu’un de faire quelque chose</strong> means “ask someone to do something.”</p>
+            <div id="demanderTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Jouer — to play <span class="translation">(regular -er)</span></h3>
+            <p>Use <strong>jouer à / au / aux</strong> for sports and games, and <strong>jouer de / du / de la</strong> for instruments.</p>
+            <div id="jouerTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Nager — to swim <span class="translation">(regular -er with spelling change)</span></h3>
+            <p><strong>Nager</strong> keeps the soft <strong>g</strong> sound in the nous form by adding <strong>e</strong>: <strong>nous nageons</strong>.</p>
+            <div id="nagerTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
             <h3>Tourner — to turn <span class="translation">(regular -er)</span></h3>
             <p><strong>Tourner</strong> follows the regular -er pattern. Use it for turning left or right, rotating an object, going around something, and filming a movie.</p>
             <div id="tournerTable" class="verb-matrix"></div>
@@ -352,6 +433,43 @@
             <h3>Coûter — to cost <span class="translation">(regular -er)</span></h3>
             <p><strong>Coûter</strong> follows the regular -er pattern. The accent stays in the written forms.</p>
             <div id="couterTable" class="verb-matrix"></div>
+          </div>
+        </div>
+
+        <div class="category-panel verb-group">
+          <div>
+            <h3>Le Verbe Pronominal</h3>
+            <p>Pronominal verbs use a reflexive pronoun: <strong>me, te, se, nous, vous, se</strong>. In negation, the reflexive pronoun stays with the verb: <strong>Je ne me lave pas.</strong> Questions can use intonation or question words: <strong>Tu te lèves à quelle heure ?</strong></p>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Se laver — to wash oneself</h3>
+            <p><strong>Se laver</strong> is useful for daily routines. With body parts, French often says <strong>se laver les mains</strong>.</p>
+            <div id="seLaverTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Se lever — to get up</h3>
+            <p><strong>Se lever</strong> changes spelling in the singular and third-person plural: <strong>lève</strong>, but <strong>levons</strong> and <strong>levez</strong>.</p>
+            <div id="seLeverTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Se reposer — to rest</h3>
+            <p><strong>Se reposer</strong> follows the regular -er pattern after the reflexive pronoun.</p>
+            <div id="seReposerTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>S’appeler — to be called / be named</h3>
+            <p><strong>S’appeler</strong> is the correct spelling. Notice <strong>je m’appelle</strong>, <strong>nous nous appelons</strong>, and <strong>ils s’appellent</strong>.</p>
+            <div id="sAppelerTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>S’habiller — to get dressed</h3>
+            <p><strong>S’habiller</strong> elides before the mute h: <strong>je m’habille</strong>, <strong>tu t’habilles</strong>, <strong>il s’habille</strong>.</p>
+            <div id="sHabillerTable" class="verb-matrix"></div>
           </div>
         </div>
       </section>

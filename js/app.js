@@ -6,7 +6,13 @@
       { tab: "verbs", tableId: "prendreTable", playButtonId: "playPrendre", rows: prendreRows },
       { tab: "verbs", tableId: "faireTable", playButtonId: "playFaire", rows: faireRows },
       { tab: "verbs", tableId: "voirTable", playButtonId: "playVoir", rows: voirRows },
+      { tab: "verbs", tableId: "ecrireTable", playButtonId: "playEcrire", rows: ecrireRows },
+      { tab: "verbs", tableId: "lireTable", playButtonId: "playLire", rows: lireRows },
+      { tab: "verbs", tableId: "dormirTable", playButtonId: "playDormir", rows: dormirRows },
       { tab: "verbs", tableId: "partirTable", playButtonId: "playPartir", rows: partirRows },
+      { tab: "verbs", tableId: "sortirTable", playButtonId: "playSortir", rows: sortirRows },
+      { tab: "verbs", tableId: "servirTable", playButtonId: "playServir", rows: servirRows },
+      { tab: "verbs", tableId: "sentirTable", playButtonId: "playSentir", rows: sentirRows },
       { tab: "verbs", tableId: "habiterTable", playButtonId: "playHabiter", rows: habiterRows },
       { tab: "verbs", tableId: "trouverTable", playButtonId: "playTrouver", rows: trouverRows },
       { tab: "verbs", tableId: "regarderTable", playButtonId: "playRegarder", rows: regarderRows },
@@ -15,8 +21,16 @@
       { tab: "verbs", tableId: "voyagerTable", playButtonId: "playVoyager", rows: voyagerRows },
       { tab: "verbs", tableId: "travaillerTable", playButtonId: "playTravailler", rows: travaillerRows },
       { tab: "verbs", tableId: "rentrerTable", playButtonId: "playRentrer", rows: rentrerRows },
+      { tab: "verbs", tableId: "demanderTable", playButtonId: "playDemander", rows: demanderRows },
+      { tab: "verbs", tableId: "jouerTable", playButtonId: "playJouer", rows: jouerRows },
+      { tab: "verbs", tableId: "nagerTable", playButtonId: "playNager", rows: nagerRows },
       { tab: "verbs", tableId: "tournerTable", playButtonId: "playTourner", rows: tournerRows },
-      { tab: "verbs", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows }
+      { tab: "verbs", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows },
+      { tab: "verbs", tableId: "seLaverTable", playButtonId: "playSeLaver", rows: seLaverRows },
+      { tab: "verbs", tableId: "seLeverTable", playButtonId: "playSeLever", rows: seLeverRows },
+      { tab: "verbs", tableId: "seReposerTable", playButtonId: "playSeReposer", rows: seReposerRows },
+      { tab: "verbs", tableId: "sAppelerTable", playButtonId: "playSAppeler", rows: sAppelerRows },
+      { tab: "verbs", tableId: "sHabillerTable", playButtonId: "playSHabiller", rows: sHabillerRows }
     ];
 
     const imperativeConfigs = [
