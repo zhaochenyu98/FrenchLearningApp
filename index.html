@@ -57,42 +57,46 @@
             <h2 class="section-title">French Pronunciation Rules</h2>
             <p class="section-desc">Practice the vowel and consonant spelling patterns from your charts. Click any example word to hear it, or play the whole set for repetition.</p>
           </div>
-          <div class="action-row">
-            <button class="action-btn" type="button" id="playPronunciationRules">Play all examples</button>
-          </div>
         </div>
 
-        <div class="panel panel-bottom">
-          <h3>元音规则（6个元音 + 5个元音）</h3>
-          <p>每一行对应一个音标、中文发音规则，以及可点击朗读的例词。</p>
+        <div class="panel panel-bottom" data-study-section="pronunciation-vowels">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>元音规则（6个元音 + 5个元音）</h3>
+              <p>每一行对应一个音标、中文发音规则，以及可点击朗读的例词。</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playPronunciationRules">Play all examples</button>
+            </div>
+          </div>
         </div>
 
         <div id="pronunciationGrid" class="pronunciation-grid"></div>
 
-        <div class="panel panel-section-heading">
+        <div class="panel panel-section-heading" data-study-section="pronunciation-consonants">
           <h3>辅音规则（10个辅音 + 7个辅音）</h3>
           <p>继续使用原图中的中文规则说明；每个例词都带中文意思并可单独朗读。</p>
         </div>
 
         <div id="consonantPronunciationGrid" class="pronunciation-grid"></div>
 
-        <div class="panel panel-section-heading">
+        <div class="panel panel-section-heading" data-study-section="pronunciation-liaison">
           <h3>必读联诵（Mandatory liaison）</h3>
           <p>联诵：一个通常不发音的词尾辅音，遇到后面以元音或哑音 h 开头的词时要读出来。下面是初学者最常见的“必须读”的情况。</p>
         </div>
 
         <div id="mandatoryLiaisonGrid" class="pronunciation-grid"></div>
 
-        <div class="panel panel-section-heading">
+        <div class="panel panel-section-heading" data-study-section="pronunciation-matrix-heading">
           <h3>辅音 + 元音拼读表</h3>
           <p>按左侧辅音和上方元音组合练习。每个单词都可以单独点击朗读。</p>
         </div>
 
-        <div class="pronunciation-table-wrap">
+        <div class="pronunciation-table-wrap" data-study-section="pronunciation-matrix">
           <div id="pronunciationMatrixGrid" class="pronunciation-matrix"></div>
         </div>
 
-        <div class="panel panel-section-heading">
+        <div class="panel panel-section-heading" data-study-section="pronunciation-practice-heading">
           <h3>建议练习</h3>
           <p>1: 读出下列单词。点击任意单词按钮可以查看 IPA、中文意思并听发音。</p>
         </div>
@@ -104,10 +108,11 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronouns</h2>
-            <p class="section-desc">Study stressed pronouns: <strong>moi, toi, lui, elle, nous, vous, eux, elles</strong>. Click any form or example to hear it.</p>
+            <p class="section-desc">Study stressed pronouns and reflexive pronouns. Click any form or example to hear it.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playTonicPronouns">Play tonic pronouns</button>
+            <button class="action-btn" type="button" id="playReflexivePronouns">Play reflexive pronouns</button>
           </div>
         </div>
 
@@ -115,6 +120,12 @@
           <h3>Le pronom tonique</h3>
           <p>重读人称代词 can stand alone, add emphasis, or appear after prepositions. They are different from normal subject pronouns like <strong>je</strong>, <strong>tu</strong>, <strong>il</strong>.</p>
           <div id="tonicPronounGrid" class="tonic-pronoun-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Pronom réfléchi</h3>
+          <p>自反代词 are used with pronominal verbs such as <strong>se laver</strong>, <strong>se lever</strong>, and <strong>s’appeler</strong>. They stay before the verb: <strong>Je me lave.</strong> In negation, they stay with the verb: <strong>Je ne me lave pas.</strong></p>
+          <div id="reflexivePronounGrid" class="tonic-pronoun-table"></div>
         </div>
 
         <div class="category-panel">
@@ -646,14 +657,19 @@
             <h2 class="section-title">French Articles &amp; Determiners</h2>
             <p class="section-desc">Study articles and determiners by category. Click any card or possessive form to hear the word plus a short example.</p>
           </div>
-          <div class="action-row">
-            <button class="action-btn" type="button" id="playDeterminers">Play all determiners</button>
-            <button class="action-btn" type="button" id="playPossessives">Play possessives</button>
-          </div>
         </div>
 
-        <div class="panel panel-bottom">
-          <h3>How this tab is organized</h3>
+        <div class="panel panel-bottom" data-study-section="determiners-quick-notes">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>How this tab is organized</h3>
+              <p>Use the index to jump between articles, contractions, demonstratives, and possessives.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playDeterminers">Play all determiners</button>
+              <button class="action-btn" type="button" id="playPossessives">Play possessives</button>
+            </div>
+          </div>
           <div class="summary-chips">
             <div class="summary-chip">
               <strong>Definite</strong>
@@ -679,13 +695,13 @@
         </div>
 
         <div class="determiner-sections">
-          <div class="category-panel">
+          <div class="category-panel" data-study-section="determiners-articles">
             <h3>Definite vs Indefinite Articles</h3>
             <p>Compare <strong>the</strong> with <strong>a / an / some</strong> in three aligned rows. <strong>L’</strong> is omitted here to keep the beginner table aligned.</p>
             <div id="articleComparisonGrid" class="article-comparison-grid"></div>
           </div>
 
-          <div class="category-panel">
+          <div class="category-panel" data-study-section="determiners-a-de">
             <h3>Partitive Article: à / de + articles</h3>
             <p><strong>À</strong> can mean <strong>to / at / in</strong>; <strong>de</strong> can mean <strong>of / from</strong>. Both combine with some definite articles.</p>
             <div class="article-combo-columns">
@@ -702,13 +718,13 @@
             </div>
           </div>
 
-          <div class="category-panel">
+          <div class="category-panel" data-study-section="determiners-demonstratives">
             <h3>Demonstrative determiners</h3>
             <p>Choose the form by the noun’s gender and number. <strong>Cet</strong> replaces <strong>ce</strong> before a masculine singular noun beginning with a vowel sound.</p>
             <div id="demonstrativeGrid" class="demonstrative-table"></div>
           </div>
 
-          <div class="category-panel">
+          <div class="category-panel" data-study-section="determiners-possessives">
             <h3>Possessive determiners</h3>
             <p>These agree with the noun being possessed, not with the owner. Click any form to hear it with an example.</p>
             <div class="poss-header-row">
@@ -720,7 +736,7 @@
             <div id="possessiveGrid" class="possessive-grid"></div>
           </div>
 
-          <div class="category-panel">
+          <div class="category-panel" data-study-section="determiners-vowel-exceptions">
             <h3>Possessive Exceptions Before Vowels</h3>
             <p>Before a feminine singular noun starting with a vowel sound, use <strong>mon / ton / son</strong> instead of <strong>ma / ta / sa</strong>. This makes pronunciation smoother.</p>
             <div id="possessiveExceptionGrid" class="determiner-subgrid"></div>
@@ -732,15 +748,20 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Question Words</h2>
-            <p class="section-desc">Learn the core words for asking who, what, when, where, why, how, which, how much/many, and yes/no questions. Click any row to hear the question word plus examples.</p>
-          </div>
-          <div class="action-row">
-            <button class="action-btn" type="button" id="playQuestionWords">Play question words</button>
+            <p class="section-desc">Use the deep dives first for sentence patterns, then the common-words reference as a quick lookup.</p>
           </div>
         </div>
 
-        <div class="panel panel-bottom">
-          <h3>Quick Pattern Notes</h3>
+        <div class="panel panel-bottom" data-study-section="question-quick-notes">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Quick Pattern Notes</h3>
+              <p>Start here, then jump into the focused tables below.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playQuestionWords">Play question practice</button>
+            </div>
+          </div>
           <div class="summary-chips">
             <div class="summary-chip">
               <strong>Informal speech</strong>
@@ -761,7 +782,7 @@
           </div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="question-quel">
           <h3>Quel Deep Dive</h3>
           <p><strong>Quel</strong> means “which / what” before a noun. It agrees with the noun: masculine/feminine and singular/plural.</p>
           <div id="quelFormsGrid" class="quel-forms-grid"></div>
@@ -781,7 +802,7 @@
           <div id="timeQuestionExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="question-que-quoi">
           <h3>Que / Quoi Deep Dive</h3>
           <p>For object questions meaning <strong>what</strong>, compare the spoken <strong>quoi</strong> ending, the fronted <strong>que</strong> form, and the everyday <strong>qu’est-ce que</strong> pattern.</p>
           <div id="queExamplesGrid" class="quel-examples-grid"></div>
@@ -790,27 +811,27 @@
           <div id="queCestExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="question-comment">
           <h3>Comment Deep Dive</h3>
           <p><strong>Comment</strong> asks <strong>how</strong> something happens or is done. Compare casual spoken order, formal inversion, and the neutral <strong>comment est-ce que</strong> pattern.</p>
           <div id="commentExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="question-combien">
           <h3>Combien Deep Dive</h3>
           <p><strong>Combien</strong> asks about an amount or price. Before a noun, use <strong>combien de + noun</strong>; <strong>de</strong> stays unchanged even before a plural noun.</p>
           <div id="combienExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="question-ya-til">
           <h3>Y a-t-il Deep Dive</h3>
           <p><strong>Y a-t-il</strong> is the formal question form of <strong>il y a</strong>, meaning <strong>is there / are there</strong>. Compare it with casual intonation and the everyday <strong>est-ce qu’il y a</strong> pattern.</p>
           <div id="yaTilExamplesGrid" class="quel-examples-grid"></div>
         </div>
 
-        <div class="category-panel">
-          <h3>Common Question Words</h3>
-          <p>Start with these high-frequency words and phrases for everyday questions.</p>
+        <div class="category-panel" data-study-section="question-common-reference">
+          <h3>Common Question Words Reference</h3>
+          <p>Use this lower-priority reference when you want to quickly review the word itself and a few sentence examples.</p>
           <div id="questionWordsGrid" class="question-table"></div>
         </div>
       </section>
@@ -819,14 +840,11 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Numbers</h2>
-            <p class="section-desc">Click any number card to hear it. Practice forms like <em>vingt et un</em>, <em>deux cents</em>, <em>deux mille vingt-quatre</em>, and common year expressions.</p>
-          </div>
-          <div class="action-row">
-            <button class="action-btn" type="button" id="playNumberSamples">Play 1–100</button>
+            <p class="section-desc">Practice numbers by mode: quizzes first, then core numbers, large-number rules, time, ordinals, and basic math language.</p>
           </div>
         </div>
 
-        <div class="panel flashcard-panel panel-bottom">
+        <div class="panel flashcard-panel panel-bottom" data-study-section="number-flashcard">
           <div class="flashcard-toolbar">
             <div>
               <h3>Random number flash card</h3>
@@ -849,7 +867,7 @@
           </button>
         </div>
 
-        <div class="panel flashcard-panel panel-bottom">
+        <div class="panel flashcard-panel panel-bottom" data-study-section="number-digit-quiz">
           <div class="flashcard-toolbar">
             <div>
               <h3>4-digit listening quiz</h3>
@@ -883,7 +901,7 @@
           </div>
         </div>
 
-        <div class="panel flashcard-panel panel-bottom">
+        <div class="panel flashcard-panel panel-bottom" data-study-section="number-year-quiz">
           <div class="flashcard-toolbar">
             <div>
               <h3>Year listening quiz</h3>
@@ -917,10 +935,20 @@
           </div>
         </div>
 
-        <p class="hint">Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong></p>
-        <div id="grid" class="grid"></div>
+        <div class="panel panel-top" data-study-section="numbers-1-100">
+          <div class="flashcard-toolbar">
+            <div>
+              <h3>Numbers 1–100</h3>
+              <p>Core reference cards for the numbers you’ll use constantly. Examples: <strong>un</strong>, <strong>vingt et un</strong>, <strong>soixante et onze</strong>, <strong>quatre-vingt-dix-neuf</strong>.</p>
+            </div>
+            <div class="action-row">
+              <button class="action-btn" type="button" id="playNumberSamples">Play 1–100</button>
+            </div>
+          </div>
+          <div id="grid" class="grid"></div>
+        </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-ages">
           <h3>Ages 1–20: number + an / ans</h3>
           <p>Use <strong>un an</strong> with singular <strong>an</strong>; 2–20 use <strong>ans</strong>. Click a card to hear the age phrase.</p>
           <div class="action-row action-row-bottom">
@@ -929,7 +957,7 @@
           <div id="ageYearsGrid" class="grid"></div>
         </div>
 
-        <div class="two-col">
+        <div class="two-col" data-study-section="numbers-focus-sets">
           <div class="panel">
             <h3>Tens You’ll Use Constantly</h3>
             <p>Focus on the core decade numbers first: <strong>20, 30, 40</strong> and up through <strong>90</strong>.</p>
@@ -943,7 +971,7 @@
           </div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-hundreds">
           <div class="flashcard-toolbar">
             <div>
               <h3>Learning 100–999</h3>
@@ -956,7 +984,7 @@
           <div id="hundredsLearningGrid" class="number-learning-grid"></div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-thousands">
           <div class="flashcard-toolbar">
             <div>
               <h3>Learning 1000–9999</h3>
@@ -969,7 +997,7 @@
           <div id="thousandsLearningGrid" class="number-learning-grid"></div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-years">
           <div class="flashcard-toolbar">
             <div>
               <h3>Years: common date expressions</h3>
@@ -982,7 +1010,7 @@
           <div id="yearLearningGrid" class="number-learning-grid"></div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-time">
           <div class="flashcard-toolbar">
             <div>
               <h3>Time &amp; Hours</h3>
@@ -1007,7 +1035,7 @@
           </div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-ordinals">
           <div class="flashcard-toolbar">
             <div>
               <h3>Ordinal / Order Numbers</h3>
@@ -1020,7 +1048,7 @@
           <div id="ordinalNumbersGrid" class="number-learning-grid"></div>
         </div>
 
-        <div class="panel panel-top">
+        <div class="panel panel-top" data-study-section="numbers-operators">
           <h3>Calculation Operators</h3>
           <p>Learn the basic math words used in simple calculations. Click a card to hear the operator, then a short example.</p>
           <div id="operatorGrid" class="determiner-subgrid"></div>

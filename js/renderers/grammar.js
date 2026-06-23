@@ -2,18 +2,22 @@
       return rows.flatMap(row => [...row.singularForms, ...row.pluralForms]);
     }
 
+    function getReflexivePronounForms(rows = reflexivePronounRows) {
+      return rows.flatMap(row => [...row.singularForms, ...row.pluralForms]);
+    }
+
     function getTonicPronounUsageLines(rules = tonicPronounUsageRules) {
       return rules.flatMap(rule => rule.examples.flatMap(example => example.lines.map(line => line.fr)));
     }
 
-    function renderTonicPronounForms(rows = tonicPronounRows) {
-      tonicPronounGrid.innerHTML = "";
+    function renderPronounFormsTable(targetGrid, rows, emptyMessage) {
+      targetGrid.innerHTML = "";
       if (!rows.length) {
-        tonicPronounGrid.innerHTML = `<div class="empty-state">No tonic pronouns available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      tonicPronounGrid.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="tonic-pronoun-header">
           <div>Singular Chinese</div>
           <div>Singular French</div>
@@ -34,7 +38,7 @@
             <span class="tonic-pronoun-cell-label">Singular French</span>
             <div class="tonic-pronoun-form-list">
               ${rowData.singularForms.map(form => `
-                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.fr}">
+                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.speech || form.fr}">
                   <span class="pronoun-main">${form.fr}</span>
                   <span class="translation">${form.en}</span>
                 </button>
@@ -49,7 +53,7 @@
             <span class="tonic-pronoun-cell-label">Plural French</span>
             <div class="tonic-pronoun-form-list">
               ${rowData.pluralForms.map(form => `
-                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.fr}">
+                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.speech || form.fr}">
                   <span class="pronoun-main">${form.fr}</span>
                   <span class="translation">${form.en}</span>
                 </button>
@@ -60,8 +64,16 @@
         row.querySelectorAll(".tonic-pronoun-form-btn").forEach(button => {
           button.addEventListener("click", () => speak(button.dataset.speech, button));
         });
-        tonicPronounGrid.appendChild(row);
+        targetGrid.appendChild(row);
       });
+    }
+
+    function renderTonicPronounForms(rows = tonicPronounRows) {
+      renderPronounFormsTable(tonicPronounGrid, rows, "No tonic pronouns available.");
+    }
+
+    function renderReflexivePronounForms(rows = reflexivePronounRows) {
+      renderPronounFormsTable(reflexivePronounGrid, rows, "No reflexive pronouns available.");
     }
 
     function renderTonicPronounUsage(rules = tonicPronounUsageRules) {

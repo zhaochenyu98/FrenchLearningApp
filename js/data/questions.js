@@ -715,6 +715,16 @@
         }
       },
       {
+        topic: "Asking her name",
+        agreement: "Ask someone’s name with s’appeler",
+        en: "What is her name?",
+        examples: {
+          end: { fr: "Elle s’appelle comment ?", en: "What is her name? (spoken)" },
+          inversion: { fr: "Comment s’appelle-t-elle ?", en: "What is her name?" },
+          estCeQue: { fr: "Comment est-ce qu’elle s’appelle ?", en: "What is her name?" }
+        }
+      },
+      {
         topic: "Making coffee",
         agreement: "Ask how something is done",
         en: "How do you make coffee?",

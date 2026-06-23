@@ -49,11 +49,11 @@
       pronunciation: {
         title: "Pronunciation index",
         sections: [
-          { id: "vowels", title: "Vowels", open: true, elements: [{ heading: "元音规则（6个元音 + 5个元音）" }, "#pronunciationGrid"] },
-          { id: "consonants", title: "Consonants", elements: [{ heading: "辅音规则（10个辅音 + 7个辅音）" }, "#consonantPronunciationGrid"] },
-          { id: "liaison", title: "Mandatory liaison", elements: [{ heading: "必读联诵（Mandatory liaison）" }, "#mandatoryLiaisonGrid"] },
-          { id: "matrix", title: "Consonant + vowel table", elements: [{ heading: "辅音 + 元音拼读表" }, ".pronunciation-table-wrap"] },
-          { id: "practice", title: "Practice words", elements: [{ heading: "建议练习" }, "#pronunciationPracticeGrid"] }
+          { id: "vowels", title: "Vowels", open: true, elements: ['[data-study-section="pronunciation-vowels"]', "#pronunciationGrid"] },
+          { id: "consonants", title: "Consonants", elements: ['[data-study-section="pronunciation-consonants"]', "#consonantPronunciationGrid"] },
+          { id: "liaison", title: "Mandatory liaison", elements: ['[data-study-section="pronunciation-liaison"]', "#mandatoryLiaisonGrid"] },
+          { id: "matrix", title: "Consonant + vowel table", elements: ['[data-study-section="pronunciation-matrix-heading"]', '[data-study-section="pronunciation-matrix"]'] },
+          { id: "practice", title: "Practice words", elements: ['[data-study-section="pronunciation-practice-heading"]', "#pronunciationPracticeGrid"] }
         ]
       },
       grammar: {
@@ -79,42 +79,53 @@
       determiners: {
         title: "Determiner index",
         sections: [
-          { id: "quick-notes", title: "Quick notes", open: true, elements: [{ heading: "How this tab is organized" }] },
-          { id: "articles", title: "Articles", open: true, elements: [{ heading: "Definite vs Indefinite Articles" }] },
-          { id: "a-de", title: "À / De + articles", elements: [{ heading: "Partitive Article: à / de + articles" }] },
-          { id: "demonstratives", title: "Demonstratives", elements: [{ heading: "Demonstrative determiners" }] },
-          { id: "possessives", title: "Possessives", elements: [{ heading: "Possessive determiners" }] },
-          { id: "vowel-exceptions", title: "Vowel exceptions", elements: [{ heading: "Possessive Exceptions Before Vowels" }] }
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="determiners-quick-notes"]'] },
+          { id: "articles", title: "Articles", open: true, elements: ['[data-study-section="determiners-articles"]'] },
+          { id: "a-de", title: "À / De + articles", elements: ['[data-study-section="determiners-a-de"]'] },
+          { id: "demonstratives", title: "Demonstratives", elements: ['[data-study-section="determiners-demonstratives"]'] },
+          { id: "possessives", title: "Possessives", elements: ['[data-study-section="determiners-possessives"]'] },
+          { id: "vowel-exceptions", title: "Vowel exceptions", elements: ['[data-study-section="determiners-vowel-exceptions"]'] }
         ],
         cleanupSelectors: [".determiner-sections"]
       },
       questions: {
         title: "Question index",
         sections: [
-          { id: "quick-notes", title: "Quick notes", open: true, elements: [{ heading: "Quick Pattern Notes" }] },
-          { id: "quel", title: "Quel", open: true, elements: [{ heading: "Quel Deep Dive" }] },
-          { id: "que-quoi", title: "Que / Quoi", elements: [{ heading: "Que / Quoi Deep Dive" }] },
-          { id: "comment", title: "Comment", elements: [{ heading: "Comment Deep Dive" }] },
-          { id: "combien", title: "Combien", elements: [{ heading: "Combien Deep Dive" }] },
-          { id: "ya-til", title: "Y a-t-il", elements: [{ heading: "Y a-t-il Deep Dive" }] },
-          { id: "common-words", title: "Common words", elements: [{ heading: "Common Question Words" }] }
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="question-quick-notes"]'] },
+          { id: "quel", title: "Quel", open: true, elements: ['[data-study-section="question-quel"]'] },
+          { id: "que-quoi", title: "Que / Quoi", elements: ['[data-study-section="question-que-quoi"]'] },
+          { id: "comment", title: "Comment", elements: ['[data-study-section="question-comment"]'] },
+          { id: "combien", title: "Combien", elements: ['[data-study-section="question-combien"]'] },
+          { id: "ya-til", title: "Y a-t-il", elements: ['[data-study-section="question-ya-til"]'] },
+          { id: "common-reference", title: "Common reference", elements: ['[data-study-section="question-common-reference"]'] }
         ]
       },
       numbers: {
         title: "Number index",
         sections: [
-          { id: "flashcard", title: "Random flash card", open: true, elements: [{ heading: "Random number flash card" }] },
-          { id: "digit-quiz", title: "4-digit quiz", open: true, elements: [{ heading: "4-digit listening quiz" }] },
-          { id: "year-quiz", title: "Year quiz", open: true, elements: [{ heading: "Year listening quiz" }] },
-          { id: "one-to-one-hundred", title: "1–100", open: true, elements: [".hint", "#grid"] },
-          { id: "ages", title: "Ages 1–20", elements: [{ heading: "Ages 1–20: number + an / ans" }] },
-          { id: "tricky", title: "Tens & tricky numbers", elements: ["#numbersSection > .two-col"] },
-          { id: "hundreds", title: "100–999", elements: [{ heading: "Learning 100–999" }] },
-          { id: "thousands", title: "1000–9999", elements: [{ heading: "Learning 1000–9999" }] },
-          { id: "years", title: "Years", elements: [{ heading: "Years: common date expressions" }] },
-          { id: "time", title: "Time & hours", elements: [{ heading: "Time & Hours" }] },
-          { id: "ordinals", title: "Ordinal numbers", elements: [{ heading: "Ordinal / Order Numbers" }] },
-          { id: "operators", title: "Operators", elements: [{ heading: "Calculation Operators" }] }
+          {
+            id: "practice",
+            title: "Practice",
+            open: true,
+            elements: ['[data-study-section="number-flashcard"]', '[data-study-section="number-digit-quiz"]', '[data-study-section="number-year-quiz"]']
+          },
+          {
+            id: "core",
+            title: "Core 1–100",
+            open: true,
+            elements: ['[data-study-section="numbers-1-100"]', '[data-study-section="numbers-ages"]', '[data-study-section="numbers-focus-sets"]']
+          },
+          {
+            id: "large-years",
+            title: "Large numbers & years",
+            elements: ['[data-study-section="numbers-hundreds"]', '[data-study-section="numbers-thousands"]', '[data-study-section="numbers-years"]']
+          },
+          {
+            id: "time-order",
+            title: "Time & order",
+            elements: ['[data-study-section="numbers-time"]', '[data-study-section="numbers-ordinals"]']
+          },
+          { id: "operators", title: "Math operators", elements: ['[data-study-section="numbers-operators"]'] }
         ]
       }
     };
@@ -130,6 +141,7 @@
       },
       pronouns() {
         renderTonicPronounForms();
+        renderReflexivePronounForms();
         renderTonicPronounUsage();
       },
       grammar() {
@@ -624,6 +636,13 @@
         ...getTonicPronounForms().map(form => ({ text: form.fr, pauseBefore: numberRepeatPauseMs })),
         ...getTonicPronounUsageLines().map(text => ({ text, pauseBefore: examplePauseMs }))
       ]);
+    });
+
+    playReflexivePronounsBtn.addEventListener("click", () => {
+      speakSequence(getReflexivePronounForms().map(form => ({
+        text: form.speech || form.fr,
+        pauseBefore: numberRepeatPauseMs
+      })));
     });
 
     playNounPluralsBtn.addEventListener("click", () => {

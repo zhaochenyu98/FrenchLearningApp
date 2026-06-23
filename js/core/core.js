@@ -89,6 +89,7 @@
     const pronunciationMatrixGrid = document.getElementById("pronunciationMatrixGrid");
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
     const tonicPronounGrid = document.getElementById("tonicPronounGrid");
+    const reflexivePronounGrid = document.getElementById("reflexivePronounGrid");
     const tonicPronounUsageGrid = document.getElementById("tonicPronounUsageGrid");
     const exampleGrid = document.getElementById("exampleGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
@@ -160,6 +161,7 @@
     const playOrdinalNumbersBtn = document.getElementById("playOrdinalNumbers");
     const playPronunciationRulesBtn = document.getElementById("playPronunciationRules");
     const playTonicPronounsBtn = document.getElementById("playTonicPronouns");
+    const playReflexivePronounsBtn = document.getElementById("playReflexivePronouns");
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
     const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
     const playAdjectivesBtn = document.getElementById("playAdjectives");

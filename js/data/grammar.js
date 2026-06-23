@@ -25,6 +25,27 @@
       }
     ];
 
+    const reflexivePronounRows = [
+      {
+        singularZh: "我",
+        singularForms: [{ fr: "me / m’", speech: "me", en: "myself" }],
+        pluralZh: "我们",
+        pluralForms: [{ fr: "nous", en: "ourselves" }]
+      },
+      {
+        singularZh: "你",
+        singularForms: [{ fr: "te / t’", speech: "te", en: "yourself" }],
+        pluralZh: "你们",
+        pluralForms: [{ fr: "vous", en: "yourselves" }]
+      },
+      {
+        singularZh: "他 / 她",
+        singularForms: [{ fr: "se / s’", speech: "se", en: "himself / herself" }],
+        pluralZh: "他们 / 她们",
+        pluralForms: [{ fr: "se / s’", speech: "se", en: "themselves" }]
+      }
+    ];
+
     const tonicPronounUsageRules = [
       {
         rule: "用在 c’est / ce sont 后",
@@ -332,6 +353,7 @@
         en: "I do / I make",
         examples: [
           { meaning: "faire un footing", fr: "Je fais un footing ce matin.", en: "I am going for a jog this morning.", negative: "Je ne fais pas de footing ce matin.", negativeEn: "I am not going for a jog this morning." },
+          { meaning: "faire les courses", fr: "Je fais les courses après le travail.", en: "I do the grocery shopping after work.", negative: "Je ne fais pas les courses après le travail.", negativeEn: "I do not do the grocery shopping after work." },
           { meaning: "faire mes courses", fr: "Je fais mes courses le samedi.", en: "I do my grocery shopping on Saturday.", negative: "Je ne fais pas mes courses le samedi.", negativeEn: "I do not do my grocery shopping on Saturday." }
         ]
       },

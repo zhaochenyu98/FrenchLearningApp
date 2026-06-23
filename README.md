@@ -37,6 +37,9 @@ references, and tab/section pairing.
 - Add or revise topic data in the matching file under `js/data/`.
 - Reuse an existing renderer from the matching file under `js/renderers/` when possible.
 - Keep audio text in the data object so display and playback stay synchronized.
+- For long tabs that use the side index, mark major HTML blocks with a stable
+  `data-study-section` value and reference that selector from `studyIndexConfigs`.
+  Avoid relying on exact heading text when adding new indexed sections.
 
 ## Add a Verb
 
