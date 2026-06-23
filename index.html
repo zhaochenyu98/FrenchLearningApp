@@ -265,12 +265,23 @@
           </div>
         </div>
 
-        <div class="category-panel verb-group">
-          <div>
-            <h3>Irregular Verbs</h3>
-            <p>These high-frequency verbs do not follow the regular -er ending pattern, so it helps to learn each full present-tense set.</p>
-          </div>
+        <div class="verb-study-layout">
+          <aside class="verb-index" aria-label="Verb index">
+            <div class="verb-index-title">Verb index</div>
+            <div id="verbIndex" class="verb-index-groups"></div>
+          </aside>
 
+          <div class="verb-group-stack">
+            <div class="category-panel verb-group" data-verb-group="irregular">
+              <div class="verb-group-header">
+                <div>
+                  <h3>Irregular Verbs</h3>
+                  <p>These high-frequency verbs do not follow the regular -er ending pattern, so it helps to learn each full present-tense set.</p>
+                </div>
+                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div class="verb-group-content">
           <div class="panel verb-panel">
             <h3>Aller — to go <span class="translation">(irregular)</span></h3>
             <p><strong>Aller</strong> changes a lot in the present tense, so it is best memorized as a core pattern.</p>
@@ -314,12 +325,18 @@
           </div>
         </div>
 
-        <div class="category-panel verb-group">
-          <div>
-            <h3>Similar Irregular Verbs</h3>
-            <p><strong>Dormir, partir, sortir, servir,</strong> and <strong>sentir</strong> share a useful pattern: singular forms drop part of the stem, while plural forms bring it back.</p>
-          </div>
+              </div>
 
+            <div class="category-panel verb-group" data-verb-group="similar">
+              <div class="verb-group-header">
+                <div>
+                  <h3>Similar Irregular Verbs</h3>
+                  <p><strong>Dormir, partir, sortir, servir,</strong> and <strong>sentir</strong> share a useful pattern: singular forms drop part of the stem, while plural forms bring it back.</p>
+                </div>
+                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div class="verb-group-content">
           <div class="panel verb-panel">
             <h3>Dormir — to sleep <span class="translation">(irregular pattern)</span></h3>
             <p><strong>Dormir</strong>: <strong>dors / dort</strong>, then <strong>dormons</strong>, <strong>dormez</strong>, <strong>dorment</strong>.</p>
@@ -351,12 +368,18 @@
           </div>
         </div>
 
-        <div class="category-panel verb-group">
-          <div>
-            <h3>Regular Verbs</h3>
-            <p>These verbs mostly follow the regular -er present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. A few keep pronunciation stable with spelling changes, like <strong>nous commençons</strong> and <strong>nous voyageons</strong>.</p>
-          </div>
+              </div>
 
+            <div class="category-panel verb-group" data-verb-group="regular">
+              <div class="verb-group-header">
+                <div>
+                  <h3>Regular Verbs</h3>
+                  <p>These verbs mostly follow the regular -er present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. A few keep pronunciation stable with spelling changes, like <strong>nous commençons</strong> and <strong>nous voyageons</strong>.</p>
+                </div>
+                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div class="verb-group-content">
           <div class="panel verb-panel">
             <h3>Habiter — to live <span class="translation">(regular -er)</span></h3>
             <p><strong>Habiter</strong> follows the regular -er pattern. The <strong>je</strong> form becomes <strong>j’habite</strong>.</p>
@@ -436,40 +459,49 @@
           </div>
         </div>
 
-        <div class="category-panel verb-group">
-          <div>
-            <h3>Le Verbe Pronominal</h3>
-            <p>Pronominal verbs use a reflexive pronoun: <strong>me, te, se, nous, vous, se</strong>. In negation, the reflexive pronoun stays with the verb: <strong>Je ne me lave pas.</strong> Questions can use intonation or question words: <strong>Tu te lèves à quelle heure ?</strong></p>
-          </div>
+              </div>
 
+            <div class="category-panel verb-group" data-verb-group="pronominal">
+              <div class="verb-group-header">
+                <div>
+                  <h3>Le Verbe Pronominal</h3>
+                  <p>Pronominal verbs use a reflexive pronoun: <strong>me, te, se, nous, vous, se</strong>. In negation, the reflexive pronoun stays with the verb: <strong>Je ne me lave pas.</strong> Questions can use inversion or <strong>est-ce que</strong>: <strong>À quelle heure te lèves-tu ?</strong></p>
+                </div>
+                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div class="verb-group-content">
           <div class="panel verb-panel">
             <h3>Se laver — to wash oneself</h3>
-            <p><strong>Se laver</strong> is useful for daily routines. With body parts, French often says <strong>se laver les mains</strong>.</p>
+            <p><strong>Se laver</strong> is useful for daily routines. With body parts, French often says <strong>se laver les mains</strong>. The base verb <strong>laver</strong> means “to wash” something or someone: <strong>Je lave la voiture.</strong></p>
             <div id="seLaverTable" class="verb-matrix"></div>
           </div>
 
           <div class="panel verb-panel">
             <h3>Se lever — to get up</h3>
-            <p><strong>Se lever</strong> changes spelling in the singular and third-person plural: <strong>lève</strong>, but <strong>levons</strong> and <strong>levez</strong>.</p>
+            <p><strong>Se lever</strong> changes spelling in the singular and third-person plural: <strong>lève</strong>, but <strong>levons</strong> and <strong>levez</strong>. The base verb <strong>lever</strong> means “to lift / raise”: <strong>Je lève la main.</strong></p>
             <div id="seLeverTable" class="verb-matrix"></div>
           </div>
 
           <div class="panel verb-panel">
             <h3>Se reposer — to rest</h3>
-            <p><strong>Se reposer</strong> follows the regular -er pattern after the reflexive pronoun.</p>
+            <p><strong>Se reposer</strong> follows the regular -er pattern after the reflexive pronoun. The base verb <strong>reposer</strong> can mean “to put back / set down” something: <strong>Je repose le livre sur la table.</strong></p>
             <div id="seReposerTable" class="verb-matrix"></div>
           </div>
 
           <div class="panel verb-panel">
             <h3>S’appeler — to be called / be named</h3>
-            <p><strong>S’appeler</strong> is the correct spelling. Notice <strong>je m’appelle</strong>, <strong>nous nous appelons</strong>, and <strong>ils s’appellent</strong>.</p>
+            <p><strong>S’appeler</strong> is the correct spelling. Notice <strong>je m’appelle</strong>, <strong>nous nous appelons</strong>, and <strong>ils s’appellent</strong>. The base verb <strong>appeler</strong> means “to call” someone: <strong>J’appelle ma mère.</strong></p>
             <div id="sAppelerTable" class="verb-matrix"></div>
           </div>
 
           <div class="panel verb-panel">
             <h3>S’habiller — to get dressed</h3>
-            <p><strong>S’habiller</strong> elides before the mute h: <strong>je m’habille</strong>, <strong>tu t’habilles</strong>, <strong>il s’habille</strong>.</p>
+            <p><strong>S’habiller</strong> elides before the mute h: <strong>je m’habille</strong>, <strong>tu t’habilles</strong>, <strong>il s’habille</strong>. The base verb <strong>habiller</strong> means “to dress” someone: <strong>J’habille mon enfant.</strong></p>
             <div id="sHabillerTable" class="verb-matrix"></div>
+          </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
