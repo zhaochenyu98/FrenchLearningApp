@@ -73,6 +73,42 @@
       });
     }
 
+    function renderPartitiveArticles(rows = partitiveArticleRows) {
+      partitiveArticleGrid.innerHTML = "";
+      if (!rows.length) {
+        partitiveArticleGrid.innerHTML = `<div class="empty-state">No partitive article examples available.</div>`;
+        return;
+      }
+
+      rows.forEach(row => {
+        const examples = row.examples || [{ fr: row.example, en: row.exampleEn }];
+        const button = document.createElement("button");
+        button.className = "example-card partitive-article-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="matrix-label">${row.label}</div>
+          <div class="french-line">${row.fr}</div>
+          <div class="translation">${row.en}</div>
+          <div class="grammar-note">${row.note}</div>
+          <div class="noun-example-list">
+            ${examples.map(example => `
+              <span>
+                <span class="noun-example-main">${example.fr}</span>
+                <span class="translation">${example.en}</span>
+              </span>
+            `).join("")}
+          </div>
+        `;
+        button.addEventListener("click", () => {
+          speakSequence([
+            { text: row.speech || row.fr },
+            ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+          ], button);
+        });
+        partitiveArticleGrid.appendChild(button);
+      });
+    }
+
     function renderDemonstrativeTable(rows = demonstrativeRows) {
       demonstrativeGrid.innerHTML = "";
       if (!rows.length) {

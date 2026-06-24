@@ -144,6 +144,49 @@
       }
     ];
 
+    const uncountableNounGroups = [
+      {
+        category: "Food & drink",
+        pattern: "Use partitive articles when you mean an unspecified amount of food or drink.",
+        examples: [
+          { phrase: "du pain", en: "bread", note: "masculine", example: "Je mange du pain.", exampleEn: "I eat bread." },
+          { phrase: "du riz", en: "rice", note: "masculine", example: "Elle prépare du riz.", exampleEn: "She prepares rice." },
+          { phrase: "de la soupe", en: "soup", note: "feminine", example: "Nous prenons de la soupe.", exampleEn: "We are having soup." },
+          { phrase: "de l’eau", en: "water", note: "vowel sound", example: "Je bois de l’eau.", exampleEn: "I drink water." }
+        ]
+      },
+      {
+        category: "Materials & substances",
+        pattern: "Materials often behave like mass nouns: you talk about some of the material, not one item.",
+        examples: [
+          { phrase: "du bois", en: "wood", note: "masculine", example: "J’utilise du bois.", exampleEn: "I use wood." },
+          { phrase: "du papier", en: "paper", note: "masculine", example: "J’achète du papier.", exampleEn: "I buy paper." },
+          { phrase: "de l’or", en: "gold", note: "vowel sound", example: "Cette bague contient de l’or.", exampleEn: "This ring contains gold." },
+          { phrase: "de la laine", en: "wool", note: "feminine", example: "Je cherche de la laine.", exampleEn: "I am looking for wool." }
+        ]
+      },
+      {
+        category: "Abstract qualities",
+        pattern: "Many feelings, qualities, and ideas are abstract nouns. French still chooses du, de la, de l’, or des.",
+        examples: [
+          { phrase: "du courage", en: "courage", note: "masculine", example: "Il faut du courage.", exampleEn: "It takes courage." },
+          { phrase: "de la patience", en: "patience", note: "feminine", example: "J’ai de la patience.", exampleEn: "I have patience." },
+          { phrase: "de l’énergie", en: "energy", note: "vowel sound", example: "Elle a de l’énergie.", exampleEn: "She has energy." },
+          { phrase: "des idées", en: "ideas", note: "plural abstract noun", example: "Nous avons des idées.", exampleEn: "We have ideas." }
+        ]
+      },
+      {
+        category: "Weather & natural things",
+        pattern: "Weather expressions often use mass nouns with il y a.",
+        examples: [
+          { phrase: "du soleil", en: "sunshine", note: "masculine", example: "Il y a du soleil.", exampleEn: "It is sunny." },
+          { phrase: "du vent", en: "wind", note: "masculine", example: "Il y a du vent.", exampleEn: "It is windy." },
+          { phrase: "de la pluie", en: "rain", note: "feminine", example: "Il y a de la pluie.", exampleEn: "There is rain." },
+          { phrase: "de la neige", en: "snow", note: "feminine", example: "Il y a de la neige.", exampleEn: "There is snow." }
+        ]
+      }
+    ];
+
     const adjectiveFeminineRules = [
       {
         rule: "+e",

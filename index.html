@@ -504,7 +504,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Nouns</h2>
-            <p class="section-desc">Practice the most common written plural patterns for French nouns. Click any example pair to hear the singular form, then the plural form.</p>
+            <p class="section-desc">Practice noun plural patterns, common uncountable and abstract nouns, and masculine/feminine job noun forms. Click any example to hear it.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playNounPlurals">Play noun plurals</button>
@@ -512,13 +512,19 @@
           </div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="nouns-plurals">
           <h3>Plural Rules</h3>
           <p>These rules cover the beginner patterns you’ll see constantly: add <strong>-s</strong>, change some endings to <strong>-x</strong>, leave <strong>-s / -x / -z</strong> unchanged, and change many <strong>-al</strong> nouns to <strong>-aux</strong>.</p>
           <div id="nounRulesGrid" class="noun-rules-table"></div>
         </div>
 
-        <div class="category-panel">
+        <div class="category-panel" data-study-section="nouns-uncountable">
+          <h3>Uncountable &amp; Abstract Nouns</h3>
+          <p>These nouns often refer to a substance, material, feeling, quality, or general idea. French commonly uses partitive articles like <strong>du</strong>, <strong>de la</strong>, <strong>de l’</strong>, and <strong>des</strong> with them.</p>
+          <div id="uncountableNounsGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="nouns-jobs">
           <h3>Masculine → Feminine Job Nouns</h3>
           <p>Many job and person nouns change endings for feminine forms. Click any pair to hear the masculine form, then the feminine form.</p>
           <div id="jobGenderRulesGrid" class="noun-rules-table"></div>
@@ -666,6 +672,10 @@
               <span>à + le = au, à + les = aux; de + le = du, de + les = des</span>
             </div>
             <div class="summary-chip">
+              <strong>Partitive</strong>
+              <span>du, de la, de l’, des can mean “some” with food, materials, and abstract nouns</span>
+            </div>
+            <div class="summary-chip">
               <strong>Demonstrative</strong>
               <span>ce, cet, cette, ces = “this / that / these / those”</span>
             </div>
@@ -679,8 +689,14 @@
             <div id="articleComparisonGrid" class="article-comparison-grid"></div>
           </div>
 
+          <div class="category-panel" data-study-section="determiners-partitives">
+            <h3>L’article partitif: du / de la / de l’ / des</h3>
+            <p>Use partitive articles for an unspecified amount of something, especially food, drink, materials, and abstract nouns. English often says only the noun: <strong>Je bois du café.</strong> = “I drink coffee.”</p>
+            <div id="partitiveArticleGrid" class="determiner-subgrid"></div>
+          </div>
+
           <div class="category-panel" data-study-section="determiners-a-de">
-            <h3>Partitive Article: à / de + articles</h3>
+            <h3>À / De + definite articles</h3>
             <p><strong>À</strong> can mean <strong>to / at / in</strong>; <strong>de</strong> can mean <strong>of / from</strong>. Both combine with some definite articles.</p>
             <div class="article-combo-columns">
               <div>

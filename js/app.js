@@ -34,11 +34,20 @@
           { id: "special", title: "Special adjectives", elements: [{ heading: "特殊形容词: beau / nouveau / vieux" }] }
         ]
       },
+      nouns: {
+        title: "Noun index",
+        sections: [
+          { id: "plurals", title: "Plural rules", open: true, elements: ['[data-study-section="nouns-plurals"]'] },
+          { id: "uncountable", title: "Uncountable & abstract", open: true, elements: ['[data-study-section="nouns-uncountable"]'] },
+          { id: "jobs", title: "Job noun genders", elements: ['[data-study-section="nouns-jobs"]'] }
+        ]
+      },
       determiners: {
         title: "Determiner index",
         sections: [
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="determiners-quick-notes"]'] },
           { id: "articles", title: "Articles", open: true, elements: ['[data-study-section="determiners-articles"]'] },
+          { id: "partitives", title: "Partitives", open: true, elements: ['[data-study-section="determiners-partitives"]'] },
           { id: "a-de", title: "À / De + articles", elements: ['[data-study-section="determiners-a-de"]'] },
           { id: "demonstratives", title: "Demonstratives", elements: ['[data-study-section="determiners-demonstratives"]'] }
         ],
@@ -119,7 +128,9 @@
       },
       nouns() {
         renderNounPluralRules();
+        renderUncountableNounExamples();
         renderJobGenderRules();
+        initializeStudyIndex("nouns");
       },
       adjectives() {
         renderAdjectiveFeminineRules();
@@ -134,6 +145,7 @@
       },
       determiners() {
         renderArticleComparison();
+        renderPartitiveArticles();
         renderDeterminerCards(aArticleGrid, aArticleRules);
         renderDeterminerCards(deArticleGrid, deArticleRules);
         renderDemonstrativeTable();

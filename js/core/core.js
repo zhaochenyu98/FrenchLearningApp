@@ -8,6 +8,7 @@
 
     const allDeterminerItems = [
       ...articleComparisonRows.flatMap(row => [row.definite, row.indefinite]),
+      ...partitiveArticleRows,
       ...aArticleRules,
       ...deArticleRules,
       ...determinerCategories.demonstrative
@@ -112,6 +113,7 @@
     const yaTilExamplesGrid = document.getElementById("yaTilExamplesGrid");
     const nounRulesGrid = document.getElementById("nounRulesGrid");
     const jobGenderRulesGrid = document.getElementById("jobGenderRulesGrid");
+    const uncountableNounsGrid = document.getElementById("uncountableNounsGrid");
     const adjectiveFeminineGrid = document.getElementById("adjectiveFeminineGrid");
     const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
@@ -122,6 +124,7 @@
     const seasonsGrid = document.getElementById("seasonsGrid");
 
     const articleComparisonGrid = document.getElementById("articleComparisonGrid");
+    const partitiveArticleGrid = document.getElementById("partitiveArticleGrid");
     const aArticleGrid = document.getElementById("aArticleGrid");
     const deArticleGrid = document.getElementById("deArticleGrid");
     const demonstrativeGrid = document.getElementById("demonstrativeGrid");

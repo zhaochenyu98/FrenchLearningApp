@@ -6,6 +6,10 @@
       return rules.flatMap(rule => rule.examples);
     }
 
+    function getUncountableNounExamples(groups = uncountableNounGroups) {
+      return groups.flatMap(group => group.examples);
+    }
+
     function speakNounPluralExample(example, card) {
       speakSequence([
         { text: example.singular },
@@ -17,6 +21,13 @@
       speakSequence([
         { text: example.masculine },
         { text: example.feminine, pauseBefore: examplePauseMs }
+      ], card);
+    }
+
+    function speakUncountableNounExample(example, card) {
+      speakSequence([
+        { text: example.phrase },
+        { text: example.example, pauseBefore: examplePauseMs }
       ], card);
     }
 
@@ -130,6 +141,57 @@
           });
         });
         jobGenderRulesGrid.appendChild(row);
+      });
+    }
+
+    function renderUncountableNounExamples(groups = uncountableNounGroups) {
+      uncountableNounsGrid.innerHTML = "";
+      if (!groups.length) {
+        uncountableNounsGrid.innerHTML = `<div class="empty-state">No uncountable noun examples available.</div>`;
+        return;
+      }
+
+      uncountableNounsGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Noun type</div>
+          <div>What to notice</div>
+          <div>Common examples</div>
+        </div>
+      `;
+
+      groups.forEach((group, groupIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Type</span>
+            <div class="french-line">${group.category}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Pattern</span>
+            <div class="grammar-note">${group.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${group.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-group-index="${groupIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.phrase}</span>
+                  <span class="translation">${example.en} · ${example.note}</span>
+                  <span class="grammar-note">${example.example}</span>
+                  <span class="translation">${example.exampleEn}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = groups[Number(button.dataset.groupIndex)].examples[Number(button.dataset.exampleIndex)];
+            speakUncountableNounExample(example, button);
+          });
+        });
+        uncountableNounsGrid.appendChild(row);
       });
     }
 
@@ -312,4 +374,3 @@
         prepositionTable.appendChild(row);
       });
     }
-

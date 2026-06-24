@@ -186,6 +186,69 @@
       }
     ];
 
+    const partitiveArticleRows = [
+      {
+        label: "Masculine singular",
+        fr: "du / de l’",
+        en: "some / any",
+        note: "Use du before a masculine consonant sound; use de l’ before a vowel sound.",
+        speech: "du; de l",
+        example: "Je bois du café.",
+        exampleEn: "I drink coffee.",
+        examples: [
+          { fr: "Je bois du café.", en: "I drink coffee." },
+          { fr: "Il faut du courage.", en: "It takes courage." },
+          { fr: "J’ai de l’argent.", en: "I have money." },
+          { fr: "Il a de l’espoir.", en: "He has hope." }
+        ]
+      },
+      {
+        label: "Feminine singular",
+        fr: "de la / de l’",
+        en: "some / any",
+        note: "Use de la before a feminine consonant sound; use de l’ before a vowel sound.",
+        speech: "de la; de l",
+        example: "Elle mange de la soupe.",
+        exampleEn: "She eats soup.",
+        examples: [
+          { fr: "Elle mange de la soupe.", en: "She eats soup." },
+          { fr: "J’ai de la patience.", en: "I have patience." },
+          { fr: "Il y a de l’eau.", en: "There is water." },
+          { fr: "Elle a de l’énergie.", en: "She has energy." }
+        ]
+      },
+      {
+        label: "Plural",
+        fr: "des",
+        en: "some / any",
+        note: "Use des before plural nouns when you mean an unspecified amount or number.",
+        speech: "des",
+        example: "J’achète des fruits.",
+        exampleEn: "I am buying some fruit.",
+        examples: [
+          { fr: "J’achète des fruits.", en: "I am buying some fruit." },
+          { fr: "Elle a des idées.", en: "She has ideas." },
+          { fr: "Je mange des pâtes.", en: "I eat pasta." },
+          { fr: "Nous avons des informations.", en: "We have information." }
+        ]
+      },
+      {
+        label: "Abstract noun focus",
+        fr: "du / de la / de l’ / des",
+        en: "often no word in English",
+        note: "French often keeps a partitive article where English uses only the abstract noun.",
+        speech: "du; de la; de l; des",
+        example: "J’ai du temps.",
+        exampleEn: "I have time.",
+        examples: [
+          { fr: "J’ai du temps.", en: "I have time." },
+          { fr: "Tu as de la chance.", en: "You are lucky." },
+          { fr: "Elle a de l’expérience.", en: "She has experience." },
+          { fr: "Nous avons des idées.", en: "We have ideas." }
+        ]
+      }
+    ];
+
     const possessiveRows = [
       {
         owner: "my",
