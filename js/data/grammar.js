@@ -433,6 +433,17 @@
       { pronoun: "elles", form: "voient", full: "elles voient", en: "they see", example: "Elles voient un film ce soir.", exampleEn: "They are seeing a movie tonight.", negative: "Elles ne voient pas de film ce soir.", negativeEn: "They are not seeing a movie tonight." }
     ];
 
+    const boireRows = [
+      { pronoun: "je", form: "bois", full: "je bois", en: "I drink", example: "Je bois de l’eau tous les jours.", exampleEn: "I drink water every day.", negative: "Je ne bois pas d’eau tous les jours.", negativeEn: "I do not drink water every day.", question: "Qu’est-ce que je bois tous les jours ?" },
+      { pronoun: "tu", form: "bois", full: "tu bois", en: "you drink", example: "Tu bois du café le matin.", exampleEn: "You drink coffee in the morning.", negative: "Tu ne bois pas de café le matin.", negativeEn: "You do not drink coffee in the morning.", question: "Bois-tu du café le matin ?" },
+      { pronoun: "il", form: "boit", full: "il boit", en: "he drinks", example: "Il boit un jus d’orange.", exampleEn: "He drinks orange juice.", negative: "Il ne boit pas de jus d’orange.", negativeEn: "He does not drink orange juice.", question: "Que boit-il ?" },
+      { pronoun: "elle", form: "boit", full: "elle boit", en: "she drinks", example: "Elle boit du thé vert.", exampleEn: "She drinks green tea.", negative: "Elle ne boit pas de thé vert.", negativeEn: "She does not drink green tea.", question: "Quel thé boit-elle ?" },
+      { pronoun: "nous", form: "buvons", full: "nous buvons", en: "we drink", example: "Nous buvons de l’eau pendant le repas.", exampleEn: "We drink water during the meal.", negative: "Nous ne buvons pas d’eau pendant le repas.", negativeEn: "We do not drink water during the meal.", question: "Quand buvons-nous de l’eau ?" },
+      { pronoun: "vous", form: "buvez", full: "vous buvez", en: "you drink", example: "Vous buvez du vin rouge.", exampleEn: "You drink red wine.", negative: "Vous ne buvez pas de vin rouge.", negativeEn: "You do not drink red wine.", question: "Que buvez-vous ?" },
+      { pronoun: "ils", form: "boivent", full: "ils boivent", en: "they drink", example: "Ils boivent de la bière au café.", exampleEn: "They drink beer at the café.", negative: "Ils ne boivent pas de bière au café.", negativeEn: "They do not drink beer at the café.", question: "Où boivent-ils de la bière ?" },
+      { pronoun: "elles", form: "boivent", full: "elles boivent", en: "they drink", example: "Elles boivent du chocolat chaud.", exampleEn: "They drink hot chocolate.", negative: "Elles ne boivent pas de chocolat chaud.", negativeEn: "They do not drink hot chocolate.", question: "Que boivent-elles ?" }
+    ];
+
     const ecrireRows = [
       { pronoun: "j’", form: "écris", full: "j’écris", en: "I write", example: "J’écris un message.", exampleEn: "I am writing a message.", negative: "Je n’écris pas de message.", negativeEn: "I am not writing a message." },
       { pronoun: "tu", form: "écris", full: "tu écris", en: "you write", example: "Tu écris ton nom ici.", exampleEn: "You write your name here.", negative: "Tu n’écris pas ton nom ici.", negativeEn: "You do not write your name here." },
@@ -594,6 +605,17 @@
       { pronoun: "vous", form: "déjeunez", full: "vous déjeunez", en: "you have lunch", example: "Vous déjeunez ici aujourd’hui.", exampleEn: "You are having lunch here today.", negative: "Vous ne déjeunez pas ici aujourd’hui.", negativeEn: "You are not having lunch here today.", question: "Où déjeunez-vous aujourd’hui ?" },
       { pronoun: "ils", form: "déjeunent", full: "ils déjeunent", en: "they have lunch", example: "Ils déjeunent au restaurant.", exampleEn: "They have lunch at the restaurant.", negative: "Ils ne déjeunent pas au restaurant.", negativeEn: "They do not have lunch at the restaurant." },
       { pronoun: "elles", form: "déjeunent", full: "elles déjeunent", en: "they have lunch", example: "Elles déjeunent tard le dimanche.", exampleEn: "They have lunch late on Sundays.", negative: "Elles ne déjeunent pas tard le dimanche.", negativeEn: "They do not have lunch late on Sundays." }
+    ];
+
+    const acheterRows = [
+      { pronoun: "j’", form: "achète", full: "j’achète", en: "I buy", example: "J’achète du pain.", exampleEn: "I buy bread.", negative: "Je n’achète pas de pain.", negativeEn: "I do not buy bread.", question: "Qu’est-ce que j’achète ?" },
+      { pronoun: "tu", form: "achètes", full: "tu achètes", en: "you buy", example: "Tu achètes un billet en ligne.", exampleEn: "You buy a ticket online.", negative: "Tu n’achètes pas de billet en ligne.", negativeEn: "You do not buy a ticket online.", question: "Où achètes-tu un billet ?" },
+      { pronoun: "il", form: "achète", full: "il achète", en: "he buys", example: "Il achète une voiture d’occasion.", exampleEn: "He buys a used car.", negative: "Il n’achète pas de voiture d’occasion.", negativeEn: "He does not buy a used car.", question: "Quelle voiture achète-t-il ?" },
+      { pronoun: "elle", form: "achète", full: "elle achète", en: "she buys", example: "Elle achète des légumes au marché.", exampleEn: "She buys vegetables at the market.", negative: "Elle n’achète pas de légumes au marché.", negativeEn: "She does not buy vegetables at the market.", question: "Où achète-t-elle des légumes ?" },
+      { pronoun: "nous", form: "achetons", full: "nous achetons", en: "we buy", example: "Nous achetons des cadeaux.", exampleEn: "We buy gifts.", negative: "Nous n’achetons pas de cadeaux.", negativeEn: "We do not buy gifts.", question: "Qu’achetons-nous ?" },
+      { pronoun: "vous", form: "achetez", full: "vous achetez", en: "you buy", example: "Vous achetez le billet maintenant.", exampleEn: "You buy the ticket now.", negative: "Vous n’achetez pas le billet maintenant.", negativeEn: "You do not buy the ticket now.", question: "Quand achetez-vous le billet ?" },
+      { pronoun: "ils", form: "achètent", full: "ils achètent", en: "they buy", example: "Ils achètent des fleurs.", exampleEn: "They buy flowers.", negative: "Ils n’achètent pas de fleurs.", negativeEn: "They do not buy flowers.", question: "Combien de fleurs achètent-ils ?" },
+      { pronoun: "elles", form: "achètent", full: "elles achètent", en: "they buy", example: "Elles achètent des livres pour le cours.", exampleEn: "They buy books for class.", negative: "Elles n’achètent pas de livres pour le cours.", negativeEn: "They do not buy books for class.", question: "Pourquoi achètent-elles des livres ?" }
     ];
 
     const rentrerRows = [
@@ -815,6 +837,15 @@
         rows: voirRows
       },
       {
+        key: "boire",
+        group: "irregular",
+        label: "boire",
+        title: "Boire — to drink",
+        tag: "irregular",
+        descriptionHtml: "<strong>Boire</strong> changes stem across the present tense: <strong>bois / boit</strong>, <strong>buvons / buvez</strong>, and <strong>boivent</strong>. Notice the sound change from <strong>/bwa/</strong> to <strong>/by/</strong> and <strong>/bwav/</strong>.",
+        rows: boireRows
+      },
+      {
         key: "ecrire",
         group: "irregular",
         label: "écrire",
@@ -948,6 +979,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Déjeuner</strong> follows the regular -er pattern. In France, it usually means “to have lunch.”",
         rows: dejeunerRows
+      },
+      {
+        key: "acheter",
+        group: "regular",
+        label: "acheter",
+        title: "Acheter — to buy",
+        tag: "regular -er with spelling change",
+        descriptionHtml: "<strong>Acheter</strong> follows the regular -er endings, but the stem changes for pronunciation: <strong>j’achète</strong>, <strong>tu achètes</strong>, <strong>il/elle achète</strong>, <strong>ils/elles achètent</strong>, while <strong>nous achetons</strong> and <strong>vous achetez</strong> keep <strong>e</strong>.",
+        rows: acheterRows
       },
       {
         key: "rentrer",
@@ -1122,6 +1162,15 @@
       "ils voient": "/il vwa/",
       "elles voient": "/ɛl vwa/",
 
+      "je bois": "/ʒə bwa/",
+      "tu bois": "/ty bwa/",
+      "il boit": "/il bwa/",
+      "elle boit": "/ɛl bwa/",
+      "nous buvons": "/nu by.vɔ̃/",
+      "vous buvez": "/vu by.ve/",
+      "ils boivent": "/il bwav/",
+      "elles boivent": "/ɛl bwav/",
+
       "j’écris": "/ʒe.kʁi/",
       "tu écris": "/ty e.kʁi/",
       "il écrit": "/il e.kʁi/",
@@ -1256,6 +1305,15 @@
       "vous déjeunez": "/vu de.ʒœ.ne/",
       "ils déjeunent": "/il de.ʒœn/",
       "elles déjeunent": "/ɛl de.ʒœn/",
+
+      "j’achète": "/ʒa.ʃɛt/",
+      "tu achètes": "/ty a.ʃɛt/",
+      "il achète": "/il a.ʃɛt/",
+      "elle achète": "/ɛl a.ʃɛt/",
+      "nous achetons": "/nu.zaʃ.tɔ̃/",
+      "vous achetez": "/vu.zaʃ.te/",
+      "ils achètent": "/il.za.ʃɛt/",
+      "elles achètent": "/ɛl.za.ʃɛt/",
 
       "je rentre": "/ʒə ʁɑ̃tʁ/",
       "tu rentres": "/ty ʁɑ̃tʁ/",
