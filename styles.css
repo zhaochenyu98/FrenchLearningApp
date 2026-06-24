@@ -576,9 +576,38 @@
 
     .demonstrative-table {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
+      grid-template-columns: minmax(120px, 0.55fr) repeat(2, minmax(220px, 1fr));
+      gap: 10px;
       margin-top: 12px;
+      align-items: stretch;
+    }
+
+    .demonstrative-corner,
+    .demonstrative-axis-header,
+    .demonstrative-row-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .demonstrative-corner,
+    .demonstrative-axis-header {
+      display: grid;
+      place-items: center;
+      min-height: 54px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .demonstrative-row-header {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
     }
 
     .demonstrative-card {
@@ -591,16 +620,8 @@
       padding: 12px;
     }
 
-    .demonstrative-card-header {
-      border: 1px dashed var(--accent-border);
-      border-radius: 14px;
-      background: var(--accent-soft);
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 800;
-      padding: 10px 12px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .demonstrative-mobile-label {
+      display: none;
     }
 
     .demonstrative-form-list {
@@ -610,13 +631,15 @@
 
     .demonstrative-form-btn {
       display: grid;
-      gap: 5px;
-      min-height: 142px;
+      gap: 6px;
+      min-height: auto;
+      padding: 12px;
+      box-shadow: none;
     }
 
     .demonstrative-form {
       color: var(--text);
-      font-size: 1.35rem;
+      font-size: 1.5rem;
       font-weight: 900;
       line-height: 1.1;
     }
@@ -1805,6 +1828,25 @@
 
       .demonstrative-table {
         grid-template-columns: 1fr;
+      }
+
+      .demonstrative-corner,
+      .demonstrative-axis-header,
+      .demonstrative-row-header {
+        display: none;
+      }
+
+      .demonstrative-mobile-label {
+        display: block;
+        border: 1px dashed var(--accent-border);
+        border-radius: 14px;
+        background: var(--accent-soft);
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        padding: 8px 10px;
+        text-transform: uppercase;
       }
 
       .verb-group-header {

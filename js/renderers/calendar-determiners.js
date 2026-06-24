@@ -116,45 +116,68 @@
         return;
       }
 
-      rows.forEach((row) => {
-        const cell = document.createElement("div");
-        cell.className = "demonstrative-card";
-        cell.innerHTML = `
-          <div class="demonstrative-card-header">
-            ${row.gender} · ${row.number}
-          </div>
-          <div class="demonstrative-form-list"></div>
-        `;
+      const genders = ["Masculine", "Feminine"];
+      const numbers = ["Singular", "Plural"];
+      const findRow = (gender, number) => rows.find(row => row.gender === gender && row.number === number);
 
-        const formList = cell.querySelector(".demonstrative-form-list");
-        row.forms.forEach((form) => {
-          const examples = form.examples || [{ fr: form.example, en: form.exampleEn }];
-          const button = document.createElement("button");
-          button.className = "demonstrative-form-btn";
-          button.type = "button";
-          button.innerHTML = `
-            <span class="demonstrative-form">${form.fr}</span>
-            <span class="translation">${form.en}</span>
-            <span class="grammar-note">${form.note}</span>
-            <span class="demonstrative-examples">
-              ${examples.map(example => `
-                <span>
-                  <span class="french-line">${example.fr}</span>
-                  <span class="translation">${example.en}</span>
-                </span>
-              `).join("")}
-            </span>
+      demonstrativeGrid.innerHTML = `
+        <div class="demonstrative-corner">Gender / number</div>
+        ${numbers.map(number => `<div class="demonstrative-axis-header">${number}</div>`).join("")}
+      `;
+
+      genders.forEach(gender => {
+        const rowHeader = document.createElement("div");
+        rowHeader.className = "demonstrative-row-header";
+        rowHeader.textContent = gender;
+        demonstrativeGrid.appendChild(rowHeader);
+
+        numbers.forEach(number => {
+          const row = findRow(gender, number);
+          if (!row) {
+            const emptyCell = document.createElement("div");
+            emptyCell.className = "demonstrative-card";
+            emptyCell.innerHTML = `<div class="empty-state">No ${gender.toLowerCase()} ${number.toLowerCase()} form.</div>`;
+            demonstrativeGrid.appendChild(emptyCell);
+            return;
+          }
+
+          const cell = document.createElement("div");
+          cell.className = "demonstrative-card";
+          cell.innerHTML = `
+            <div class="demonstrative-mobile-label">${row.gender} · ${row.number}</div>
+            <div class="demonstrative-form-list"></div>
           `;
-          button.addEventListener("click", () => {
-            speakSequence([
-              { text: form.fr },
-              ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-            ], button);
-          });
-          formList.appendChild(button);
-        });
 
-        demonstrativeGrid.appendChild(cell);
+          const formList = cell.querySelector(".demonstrative-form-list");
+          row.forms.forEach((form) => {
+            const examples = form.examples || [{ fr: form.example, en: form.exampleEn }];
+            const button = document.createElement("button");
+            button.className = "demonstrative-form-btn";
+            button.type = "button";
+            button.innerHTML = `
+              <span class="demonstrative-form">${form.fr}</span>
+              <span class="translation">${form.en}</span>
+              <span class="grammar-note">${form.note}</span>
+              <span class="demonstrative-examples">
+                ${examples.map(example => `
+                  <span>
+                    <span class="french-line">${example.fr}</span>
+                    <span class="translation">${example.en}</span>
+                  </span>
+                `).join("")}
+              </span>
+            `;
+            button.addEventListener("click", () => {
+              speakSequence([
+                { text: form.fr },
+                ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+              ], button);
+            });
+            formList.appendChild(button);
+          });
+
+          demonstrativeGrid.appendChild(cell);
+        });
       });
     }
 
