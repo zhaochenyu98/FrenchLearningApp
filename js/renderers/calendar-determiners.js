@@ -82,11 +82,10 @@
 
       rows.forEach((row) => {
         const cell = document.createElement("div");
-        cell.className = `demonstrative-cell demonstrative-${row.tone}`;
+        cell.className = "demonstrative-card";
         cell.innerHTML = `
-          <div class="demonstrative-cell-header">
-            <span>${row.gender}</span>
-            <span>${row.number}</span>
+          <div class="demonstrative-card-header">
+            ${row.gender} · ${row.number}
           </div>
           <div class="demonstrative-form-list"></div>
         `;
@@ -104,7 +103,7 @@
             <span class="demonstrative-examples">
               ${examples.map(example => `
                 <span>
-                  <strong>${example.fr}</strong>
+                  <span class="french-line">${example.fr}</span>
                   <span class="translation">${example.en}</span>
                 </span>
               `).join("")}
