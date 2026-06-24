@@ -152,7 +152,25 @@
           { phrase: "du pain", en: "bread", note: "masculine", example: "Je mange du pain.", exampleEn: "I eat bread." },
           { phrase: "du riz", en: "rice", note: "masculine", example: "Elle prépare du riz.", exampleEn: "She prepares rice." },
           { phrase: "de la soupe", en: "soup", note: "feminine", example: "Nous prenons de la soupe.", exampleEn: "We are having soup." },
-          { phrase: "de l’eau", en: "water", note: "vowel sound", example: "Je bois de l’eau.", exampleEn: "I drink water." }
+          { phrase: "de l’eau", en: "water", note: "vowel sound", example: "Je bois de l’eau.", exampleEn: "I drink water." },
+          { phrase: "des légumes", en: "vegetables", note: "plural count noun", example: "J’achète des légumes.", exampleEn: "I buy vegetables." },
+          { phrase: "du beurre", en: "butter", note: "masculine", example: "Il met du beurre sur le pain.", exampleEn: "He puts butter on the bread." },
+          { phrase: "de la farine", en: "flour", note: "feminine", example: "Elle utilise de la farine.", exampleEn: "She uses flour." },
+          { phrase: "du sel", en: "salt", note: "masculine", example: "J’ajoute du sel.", exampleEn: "I add salt." }
+        ]
+      },
+      {
+        category: "More food staples",
+        pattern: "These are high-frequency grocery words where English often drops “some,” but French still uses a partitive or plural article.",
+        examples: [
+          { phrase: "du sucre", en: "sugar", note: "masculine", example: "Veux-tu du sucre ?", exampleEn: "Do you want sugar?" },
+          { phrase: "du lait", en: "milk", note: "masculine", example: "Je bois du lait.", exampleEn: "I drink milk." },
+          { phrase: "du vin", en: "wine", note: "masculine", example: "Ils boivent du vin rouge.", exampleEn: "They drink red wine." },
+          { phrase: "de la viande", en: "meat", note: "feminine", example: "Elle mange de la viande.", exampleEn: "She eats meat." },
+          { phrase: "du poisson", en: "fish", note: "masculine as food", example: "Nous mangeons du poisson.", exampleEn: "We eat fish." },
+          { phrase: "des céréales", en: "cereal", note: "usually plural", example: "Je prends des céréales le matin.", exampleEn: "I have cereal in the morning." },
+          { phrase: "du fromage", en: "cheese", note: "masculine", example: "Vous achetez du fromage.", exampleEn: "You buy cheese." },
+          { phrase: "de la confiture", en: "jam", note: "feminine", example: "Elle met de la confiture sur la tartine.", exampleEn: "She puts jam on the toast." }
         ]
       },
       {
@@ -172,7 +190,26 @@
           { phrase: "du courage", en: "courage", note: "masculine", example: "Il faut du courage.", exampleEn: "It takes courage." },
           { phrase: "de la patience", en: "patience", note: "feminine", example: "J’ai de la patience.", exampleEn: "I have patience." },
           { phrase: "de l’énergie", en: "energy", note: "vowel sound", example: "Elle a de l’énergie.", exampleEn: "She has energy." },
-          { phrase: "des idées", en: "ideas", note: "plural abstract noun", example: "Nous avons des idées.", exampleEn: "We have ideas." }
+          { phrase: "des idées", en: "ideas", note: "plural abstract noun", example: "Nous avons des idées.", exampleEn: "We have ideas." },
+          { phrase: "de l’argent", en: "money", note: "vowel sound", example: "As-tu de l’argent ?", exampleEn: "Do you have money?" },
+          { phrase: "de la chance", en: "luck", note: "feminine", example: "J’ai de la chance.", exampleEn: "I am lucky." },
+          { phrase: "du temps", en: "time", note: "masculine", example: "Nous avons du temps.", exampleEn: "We have time." },
+          { phrase: "de l’expérience", en: "experience", note: "vowel sound", example: "Elle a de l’expérience.", exampleEn: "She has experience." }
+        ]
+      },
+      {
+        category: "Faire + activities",
+        pattern: "Use faire de + article for many sports, activities, and some music practice expressions. For instruments, jouer de is also common and often more direct.",
+        examples: [
+          { phrase: "faire du sport", en: "to exercise / play sports", note: "faire + du", example: "Je fais du sport le samedi.", exampleEn: "I exercise on Saturdays." },
+          { phrase: "faire du vélo", en: "to ride a bike / cycle", note: "faire + du", example: "Tu fais du vélo au parc.", exampleEn: "You ride a bike in the park." },
+          { phrase: "faire du ski", en: "to ski", note: "faire + du", example: "Ils font du ski en hiver.", exampleEn: "They ski in winter." },
+          { phrase: "faire de la natation", en: "to swim / do swimming", note: "faire + de la", example: "Elle fait de la natation.", exampleEn: "She swims." },
+          { phrase: "faire de la randonnée", en: "to hike", note: "faire + de la", example: "Nous faisons de la randonnée.", exampleEn: "We hike." },
+          { phrase: "faire de l’équitation", en: "to go horseback riding", note: "faire + de l’", example: "Faites-vous de l’équitation ?", exampleEn: "Do you go horseback riding?" },
+          { phrase: "faire de la musique", en: "to make / play music", note: "faire + de la", example: "Elle fait de la musique.", exampleEn: "She makes music." },
+          { phrase: "faire du piano", en: "to practice piano", note: "faire + du; jouer du piano is also common", example: "Il fait du piano.", exampleEn: "He practices piano." },
+          { phrase: "faire de la guitare", en: "to practice guitar", note: "faire + de la; jouer de la guitare is also common", example: "Elle fait de la guitare.", exampleEn: "She practices guitar." }
         ]
       },
       {
