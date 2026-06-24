@@ -135,9 +135,10 @@
         fr: item.example,
         en: item.exampleEn,
         negative: item.negative,
-        negativeEn: item.negativeEn
+        negativeEn: item.negativeEn,
+        question: item.question
       }];
-      return examples.map(example => normalizeVerbExample(example));
+      return examples.map(example => normalizeVerbExample(example, item));
     }
 
     function createRenderErrorCard(title, error) {
@@ -159,7 +160,46 @@
       return text.charAt(0).toLocaleLowerCase("fr-FR") + text.slice(1);
     }
 
-    function buildVerbQuestion(statement) {
+    function upperFirst(text) {
+      return text.charAt(0).toLocaleUpperCase("fr-FR") + text.slice(1);
+    }
+
+    function escapeRegExp(text) {
+      return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function startsWithVerbPhrase(statement, full) {
+      const body = stripSentenceEnding(statement);
+      return new RegExp(`^${escapeRegExp(full)}(?=\\s|$)`, "iu").test(body);
+    }
+
+    function removeVerbPhrase(statement, full) {
+      return stripSentenceEnding(statement)
+        .replace(new RegExp(`^${escapeRegExp(full)}\\s*`, "iu"), "")
+        .trim();
+    }
+
+    function needsInversionT(form, pronoun) {
+      return /^(il|elle|on)$/i.test(pronoun) && /[aeiouyàâéèêëîïôùûü]$/i.test(form);
+    }
+
+    function buildInversionQuestion(item, statement) {
+      if (!item || !item.full || !item.form || !item.pronoun || !startsWithVerbPhrase(statement, item.full)) {
+        return "";
+      }
+
+      const pronoun = item.pronoun.replace("j’", "je");
+      if (!/^(tu|nous|vous|il|elle|on|ils|elles)$/i.test(pronoun)) return "";
+
+      const rest = removeVerbPhrase(statement, item.full);
+      const bridge = needsInversionT(item.form, pronoun) ? "-t" : "";
+      return `${upperFirst(item.form)}${bridge}-${pronoun}${rest ? ` ${rest}` : ""} ?`;
+    }
+
+    function buildVerbQuestion(statement, item) {
+      const inversionQuestion = buildInversionQuestion(item, statement);
+      if (inversionQuestion) return inversionQuestion;
+
       const statementBody = lowerFirst(stripSentenceEnding(statement));
       if (/^(il|ils|elle|elles|on)\b/.test(statementBody)) {
         return `Est-ce qu’${statementBody} ?`;
@@ -167,12 +207,12 @@
       return `Est-ce que ${statementBody} ?`;
     }
 
-    function normalizeVerbExample(example) {
+    function normalizeVerbExample(example, item) {
       const statement = example.statement || example.fr;
       return {
         ...example,
         fr: statement,
-        question: example.question || buildVerbQuestion(statement)
+        question: example.question || buildVerbQuestion(statement, item)
       };
     }
 
