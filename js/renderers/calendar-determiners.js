@@ -130,30 +130,62 @@
         return;
       }
 
-      list.forEach(row => {
+      const rowPairs = [
+        { singularZh: "我", singular: list[0], pluralZh: "我们", plural: list[3] },
+        { singularZh: "你", singular: list[1], pluralZh: "你们", plural: list[4] },
+        { singularZh: "他 / 她", singular: list[2], pluralZh: "他们 / 她们", plural: list[5] }
+      ].filter(row => row.singular && row.plural);
+
+      possessiveGrid.innerHTML = `
+        <div class="tonic-pronoun-header">
+          <div>Singular Chinese</div>
+          <div>Singular French</div>
+          <div>Plural Chinese</div>
+          <div>Plural French</div>
+        </div>
+      `;
+
+      const renderForms = row => `
+        <div class="tonic-pronoun-form-list">
+          ${row.forms.map(form => `
+            <button class="pronoun-card tonic-pronoun-form-btn poss-cell-btn" type="button" data-form="${form.form}" data-example="${form.example}">
+              <span class="matrix-label">${form.label}</span>
+              <span class="pronoun-main">${form.form}</span>
+              ${form.ipa ? `<span class="possessive-ipa">${form.ipa}</span>` : ""}
+              <span class="poss-example">${form.example}</span>
+              <span class="poss-example">${form.exampleEn}</span>
+            </button>
+          `).join("")}
+        </div>
+      `;
+
+      rowPairs.forEach(rowData => {
         const rowEl = document.createElement("div");
-        rowEl.className = "poss-row";
-
-        const ownerEl = document.createElement("div");
-        ownerEl.className = "poss-owner";
-        ownerEl.innerHTML = `
-          <strong>${row.owner}</strong>
-          <div class="matrix-label">${row.note}</div>
+        rowEl.className = "tonic-pronoun-row";
+        rowEl.innerHTML = `
+          <div class="tonic-pronoun-cell tonic-pronoun-zh">
+            <span class="tonic-pronoun-cell-label">Singular Chinese</span>
+            <span>${rowData.singularZh}</span>
+            <span class="matrix-label">${rowData.singular.owner}</span>
+          </div>
+          <div class="tonic-pronoun-cell">
+            <span class="tonic-pronoun-cell-label">Singular French</span>
+            <div class="matrix-label">${rowData.singular.note}</div>
+            ${renderForms(rowData.singular)}
+          </div>
+          <div class="tonic-pronoun-cell tonic-pronoun-zh">
+            <span class="tonic-pronoun-cell-label">Plural Chinese</span>
+            <span>${rowData.pluralZh}</span>
+            <span class="matrix-label">${rowData.plural.owner}</span>
+          </div>
+          <div class="tonic-pronoun-cell">
+            <span class="tonic-pronoun-cell-label">Plural French</span>
+            <div class="matrix-label">${rowData.plural.note}</div>
+            ${renderForms(rowData.plural)}
+          </div>
         `;
-        rowEl.appendChild(ownerEl);
-
-        row.forms.forEach(form => {
-          const button = document.createElement("button");
-          button.className = "poss-cell-btn";
-          button.type = "button";
-          button.innerHTML = `
-            <span class="matrix-label">${form.label}</span>
-            <span class="poss-form">${form.form}</span>
-            <span class="poss-example">${form.example}</span>
-            <span class="poss-example">${form.exampleEn}</span>
-          `;
-          button.addEventListener("click", () => speakWithPause(form.form, form.example, button));
-          rowEl.appendChild(button);
+        rowEl.querySelectorAll(".poss-cell-btn").forEach(button => {
+          button.addEventListener("click", () => speakWithPause(button.dataset.form, button.dataset.example, button));
         });
 
         possessiveGrid.appendChild(rowEl);

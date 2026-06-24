@@ -131,22 +131,74 @@
     }
 
     function getVerbExamples(item) {
-      if (item.examples) return item.examples;
-      return [{
+      const examples = item.examples || [{
         fr: item.example,
         en: item.exampleEn,
         negative: item.negative,
         negativeEn: item.negativeEn
       }];
+      return examples.map(example => normalizeVerbExample(example));
+    }
+
+    function createRenderErrorCard(title, error) {
+      const card = document.createElement("div");
+      card.className = "inline-error-card";
+      card.setAttribute("role", "alert");
+      card.innerHTML = `
+        <strong>${title}</strong>
+        <span>${error && error.message ? error.message : String(error)}</span>
+      `;
+      return card;
+    }
+
+    function stripSentenceEnding(text) {
+      return text.trim().replace(/[.!?]\s*$/, "");
+    }
+
+    function lowerFirst(text) {
+      return text.charAt(0).toLocaleLowerCase("fr-FR") + text.slice(1);
+    }
+
+    function buildVerbQuestion(statement) {
+      const statementBody = lowerFirst(stripSentenceEnding(statement));
+      if (/^(il|ils|elle|elles|on)\b/.test(statementBody)) {
+        return `Est-ce qu’${statementBody} ?`;
+      }
+      return `Est-ce que ${statementBody} ?`;
+    }
+
+    function normalizeVerbExample(example) {
+      const statement = example.statement || example.fr;
+      return {
+        ...example,
+        fr: statement,
+        question: example.question || buildVerbQuestion(statement)
+      };
+    }
+
+    function getVerbConjugationAudioItems(item) {
+      return [{ text: item.full }];
+    }
+
+    function getVerbExampleAudioItems(example) {
+      return [
+        { text: example.fr },
+        ...(example.negative ? [{ text: example.negative, pauseBefore: examplePauseMs }] : []),
+        ...(example.question ? [{ text: example.question, pauseBefore: examplePauseMs }] : [])
+      ];
+    }
+
+    function getVerbExamplesAudioItems(item) {
+      return getVerbExamples(item).flatMap(getVerbExampleAudioItems);
     }
 
     function getVerbAudioItems(item) {
       return [
-        { text: item.full },
-        ...getVerbExamples(item).flatMap(example => ([
-          { text: example.fr, pauseBefore: examplePauseMs },
-          ...(example.negative ? [{ text: example.negative, pauseBefore: examplePauseMs }] : [])
-        ]))
+        ...getVerbConjugationAudioItems(item),
+        ...getVerbExamplesAudioItems(item).map(audioItem => ({
+          ...audioItem,
+          pauseBefore: audioItem.pauseBefore || examplePauseMs
+        }))
       ];
     }
 
@@ -213,35 +265,103 @@
         columnEl.innerHTML = `<div class="verb-column-title">${column.title}</div>`;
 
         column.items.forEach(item => {
-          const examples = getVerbExamples(item);
-          const ipa = verbPhraseIpa[item.full] || "";
-          const button = document.createElement("button");
-          button.className = "verb-cell-btn";
-          button.type = "button";
-          button.innerHTML = `
-            <div class="tiny-label">Pronoun + verb</div>
-            <div class="conjugation-main">${item.full}</div>
-            ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
-            <div class="translation">${item.en}</div>
-            ${examples.map((example, index) => `
-              <div class="verb-example-block">
-                <div class="grammar-note">
-                  <strong>${example.meaning ? `${example.meaning}:` : examples.length > 1 ? `Example ${index + 1}:` : "Example:"}</strong>
-                  ${example.fr}
-                </div>
-                <div class="translation">${example.en}</div>
-                ${example.negative ? `
-                  <div class="grammar-note"><strong>Negative:</strong> ${example.negative}</div>
-                  <div class="translation">${example.negativeEn}</div>
-                ` : ""}
+          try {
+            const examples = getVerbExamples(item);
+            const ipa = verbPhraseIpa[item.full] || "";
+            const card = document.createElement("div");
+            card.className = "verb-cell-card";
+            card.innerHTML = `
+              <button class="verb-form-btn" type="button">
+                <div class="tiny-label">Click for pronoun + verb only</div>
+                <div class="conjugation-main">${item.full}</div>
+                ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
+                <div class="translation">${item.en}</div>
+              </button>
+              <div class="verb-example-list">
+                ${examples.map((example, index) => `
+                  <button class="verb-example-btn" type="button" data-example-index="${index}">
+                    <div class="tiny-label">${example.meaning ? example.meaning : examples.length > 1 ? `Example ${index + 1}` : "Example"}</div>
+                    <div class="translation">${example.en}</div>
+                    <div class="verb-example-line"><strong>Statement:</strong> ${example.fr}</div>
+                    ${example.negative ? `<div class="verb-example-line"><strong>Negative:</strong> ${example.negative}</div>` : ""}
+                    ${example.question ? `<div class="verb-example-line"><strong>Question:</strong> ${example.question}</div>` : ""}
+                  </button>
+                `).join("")}
               </div>
-            `).join("")}
-          `;
-          button.addEventListener("click", () => speakSequence(getVerbAudioItems(item), button));
-          columnEl.appendChild(button);
+            `;
+            card.querySelector(".verb-form-btn").addEventListener("click", event => {
+              speakSequence(getVerbConjugationAudioItems(item), event.currentTarget);
+            });
+            card.querySelectorAll(".verb-example-btn").forEach(button => {
+              button.addEventListener("click", event => {
+                const example = examples[Number(event.currentTarget.dataset.exampleIndex)];
+                speakSequence(getVerbExampleAudioItems(example), event.currentTarget);
+              });
+            });
+            columnEl.appendChild(card);
+          } catch (error) {
+            columnEl.appendChild(createRenderErrorCard(`${item && item.full ? item.full : "Verb row"} failed to render`, error));
+            console.error("Verb row failed to render", item, error);
+          }
         });
 
         container.appendChild(columnEl);
+      });
+    }
+
+    function getFaireExpressionAudioItems(item) {
+      return [
+        { text: item.expression },
+        { text: item.example, pauseBefore: examplePauseMs },
+        { text: item.negative, pauseBefore: examplePauseMs }
+      ];
+    }
+
+    function renderFaireExpressionTable(container, list = faireExpressionRows) {
+      const target = container || document.getElementById("faireExpressionsTable");
+      if (!target) return;
+      target.innerHTML = "";
+      if (!list.length) {
+        target.innerHTML = `<div class="empty-state">No faire expressions available.</div>`;
+        return;
+      }
+
+      target.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Expression</div>
+          <div>Meaning / rule</div>
+          <div>Example + negation</div>
+        </div>
+      `;
+
+      list.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Expression</span>
+            <div class="french-line">${item.expression}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Meaning</span>
+            <div class="translation">${item.meaning}</div>
+            <div class="grammar-note">${item.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Example</span>
+            <button class="noun-example-btn" type="button" data-faire-expression-index="${index}">
+              <span class="noun-example-main">${item.example}</span>
+              <span class="translation">${item.exampleEn}</span>
+              <span class="noun-example-main">Negative: ${item.negative}</span>
+              <span class="translation">${item.negativeEn}</span>
+            </button>
+          </div>
+        `;
+        row.querySelector(".noun-example-btn").addEventListener("click", buttonEvent => {
+          const expression = list[Number(buttonEvent.currentTarget.dataset.faireExpressionIndex)];
+          speakSequence(getFaireExpressionAudioItems(expression), buttonEvent.currentTarget);
+        });
+        target.appendChild(row);
       });
     }
 

@@ -416,11 +416,6 @@
         title: "De quelle couleur at the front",
         note: "More formal / textbook order."
       },
-      {
-        key: "estCeQue",
-        title: "De quelle couleur + est-ce que",
-        note: "Neutral everyday pattern."
-      }
     ];
 
     const quelColorRows = [
@@ -430,8 +425,7 @@
         en: "What color is your car?",
         examples: {
           end: { fr: "Ta voiture est de quelle couleur ?", en: "What color is your car? (spoken)" },
-          front: { fr: "De quelle couleur est ta voiture ?", en: "What color is your car?" },
-          estCeQue: { fr: "De quelle couleur est-ce que ta voiture est ?", en: "What color is your car?" }
+          front: { fr: "De quelle couleur est ta voiture ?", en: "What color is your car?" }
         }
       },
       {
@@ -440,8 +434,7 @@
         en: "What color is your coat?",
         examples: {
           end: { fr: "Ton manteau est de quelle couleur ?", en: "What color is your coat? (spoken)" },
-          front: { fr: "De quelle couleur est ton manteau ?", en: "What color is your coat?" },
-          estCeQue: { fr: "De quelle couleur est-ce que ton manteau est ?", en: "What color is your coat?" }
+          front: { fr: "De quelle couleur est ton manteau ?", en: "What color is your coat?" }
         }
       },
       {
@@ -450,8 +443,7 @@
         en: "What color are his eyes?",
         examples: {
           end: { fr: "Ses yeux sont de quelle couleur ?", en: "What color are his eyes? (spoken)" },
-          front: { fr: "De quelle couleur sont ses yeux ?", en: "What color are his eyes?" },
-          estCeQue: { fr: "De quelle couleur est-ce que ses yeux sont ?", en: "What color are his eyes?" }
+          front: { fr: "De quelle couleur sont ses yeux ?", en: "What color are his eyes?" }
         }
       },
       {
@@ -460,8 +452,7 @@
         en: "What color is this dress?",
         examples: {
           end: { fr: "Cette robe est de quelle couleur ?", en: "What color is this dress? (spoken)" },
-          front: { fr: "De quelle couleur est cette robe ?", en: "What color is this dress?" },
-          estCeQue: { fr: "De quelle couleur est-ce que cette robe est ?", en: "What color is this dress?" }
+          front: { fr: "De quelle couleur est cette robe ?", en: "What color is this dress?" }
         }
       }
     ];

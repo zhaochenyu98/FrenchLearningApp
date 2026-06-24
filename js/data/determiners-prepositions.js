@@ -191,54 +191,54 @@
         owner: "my",
         note: "for one owner",
         forms: [
-          { form: "mon", label: "masculine singular", example: "mon téléphone", exampleEn: "my phone" },
-          { form: "ma", label: "feminine singular", example: "ma voiture", exampleEn: "my car" },
-          { form: "mes", label: "plural", example: "mes clés", exampleEn: "my keys" }
+          { form: "mon", ipa: "/mɔ̃/", label: "masculine singular", example: "mon téléphone", exampleEn: "my phone" },
+          { form: "ma", ipa: "/ma/", label: "feminine singular", example: "ma voiture", exampleEn: "my car" },
+          { form: "mes", ipa: "/me/", label: "plural", example: "mes clés", exampleEn: "my keys" }
         ]
       },
       {
         owner: "your (informal)",
         note: "for one person you know well",
         forms: [
-          { form: "ton", label: "masculine singular", example: "ton sac", exampleEn: "your bag" },
-          { form: "ta", label: "feminine singular", example: "ta chaise", exampleEn: "your chair" },
-          { form: "tes", label: "plural", example: "tes chaussures", exampleEn: "your shoes" }
+          { form: "ton", ipa: "/tɔ̃/", label: "masculine singular", example: "ton sac", exampleEn: "your bag" },
+          { form: "ta", ipa: "/ta/", label: "feminine singular", example: "ta chaise", exampleEn: "your chair" },
+          { form: "tes", ipa: "/te/", label: "plural", example: "tes chaussures", exampleEn: "your shoes" }
         ]
       },
       {
         owner: "his / her / its",
         note: "depends on the noun, not the owner’s gender",
         forms: [
-          { form: "son", label: "masculine singular", example: "son ami", exampleEn: "his/her friend" },
-          { form: "sa", label: "feminine singular", example: "sa famille", exampleEn: "his/her family" },
-          { form: "ses", label: "plural", example: "ses enfants", exampleEn: "his/her children" }
+          { form: "son", ipa: "/sɔ̃/", label: "masculine singular", example: "son ami", exampleEn: "his/her friend" },
+          { form: "sa", ipa: "/sa/", label: "feminine singular", example: "sa famille", exampleEn: "his/her family" },
+          { form: "ses", ipa: "/se/", label: "plural", example: "ses enfants", exampleEn: "his/her children" }
         ]
       },
       {
         owner: "our",
         note: "same singular form for masculine and feminine",
         forms: [
-          { form: "notre", label: "masculine singular", example: "notre appartement", exampleEn: "our apartment" },
-          { form: "notre", label: "feminine singular", example: "notre école", exampleEn: "our school" },
-          { form: "nos", label: "plural", example: "nos amis", exampleEn: "our friends" }
+          { form: "notre", ipa: "/nɔtʁ/", label: "masculine singular", example: "notre appartement", exampleEn: "our apartment" },
+          { form: "notre", ipa: "/nɔtʁ/", label: "feminine singular", example: "notre école", exampleEn: "our school" },
+          { form: "nos", ipa: "/no/", label: "plural", example: "nos amis", exampleEn: "our friends" }
         ]
       },
       {
         owner: "your (formal / plural)",
         note: "formal singular or more than one person",
         forms: [
-          { form: "votre", label: "masculine singular", example: "votre stylo", exampleEn: "your pen" },
-          { form: "votre", label: "feminine singular", example: "votre question", exampleEn: "your question" },
-          { form: "vos", label: "plural", example: "vos documents", exampleEn: "your documents" }
+          { form: "votre", ipa: "/vɔtʁ/", label: "masculine singular", example: "votre stylo", exampleEn: "your pen" },
+          { form: "votre", ipa: "/vɔtʁ/", label: "feminine singular", example: "votre question", exampleEn: "your question" },
+          { form: "vos", ipa: "/vo/", label: "plural", example: "vos documents", exampleEn: "your documents" }
         ]
       },
       {
         owner: "their",
         note: "same singular form for masculine and feminine",
         forms: [
-          { form: "leur", label: "masculine singular", example: "leur chien", exampleEn: "their dog" },
-          { form: "leur", label: "feminine singular", example: "leur chambre", exampleEn: "their room" },
-          { form: "leurs", label: "plural", example: "leurs parents", exampleEn: "their parents" }
+          { form: "leur", ipa: "/lœʁ/", label: "masculine singular", example: "leur chien", exampleEn: "their dog" },
+          { form: "leur", ipa: "/lœʁ/", label: "feminine singular", example: "leur chambre", exampleEn: "their room" },
+          { form: "leurs", ipa: "/lœʁ/", label: "plural", example: "leurs parents", exampleEn: "their parents" }
         ]
       }
     ];

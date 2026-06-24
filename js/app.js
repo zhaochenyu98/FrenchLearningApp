@@ -1,45 +1,3 @@
-    const verbConfigs = [
-      { tab: "grammar", tableId: "etreTable", playButtonId: "playEtre", rows: etreRows },
-      { tab: "grammar", tableId: "avoirTable", playButtonId: "playAvoir", rows: avoirRows },
-      { tab: "verbs", group: "irregular", label: "aller", tableId: "allerTable", playButtonId: "playAller", rows: allerRows },
-      { tab: "verbs", group: "irregular", label: "venir", tableId: "venirTable", playButtonId: "playVenir", rows: venirRows },
-      { tab: "verbs", group: "irregular", label: "prendre", tableId: "prendreTable", playButtonId: "playPrendre", rows: prendreRows },
-      { tab: "verbs", group: "irregular", label: "faire", tableId: "faireTable", playButtonId: "playFaire", rows: faireRows },
-      { tab: "verbs", group: "irregular", label: "voir", tableId: "voirTable", playButtonId: "playVoir", rows: voirRows },
-      { tab: "verbs", group: "irregular", label: "écrire", tableId: "ecrireTable", playButtonId: "playEcrire", rows: ecrireRows },
-      { tab: "verbs", group: "irregular", label: "lire", tableId: "lireTable", playButtonId: "playLire", rows: lireRows },
-      { tab: "verbs", group: "similar", label: "dormir", tableId: "dormirTable", playButtonId: "playDormir", rows: dormirRows },
-      { tab: "verbs", group: "similar", label: "partir", tableId: "partirTable", playButtonId: "playPartir", rows: partirRows },
-      { tab: "verbs", group: "similar", label: "sortir", tableId: "sortirTable", playButtonId: "playSortir", rows: sortirRows },
-      { tab: "verbs", group: "similar", label: "servir", tableId: "servirTable", playButtonId: "playServir", rows: servirRows },
-      { tab: "verbs", group: "similar", label: "sentir", tableId: "sentirTable", playButtonId: "playSentir", rows: sentirRows },
-      { tab: "verbs", group: "regular", label: "habiter", tableId: "habiterTable", playButtonId: "playHabiter", rows: habiterRows },
-      { tab: "verbs", group: "regular", label: "trouver", tableId: "trouverTable", playButtonId: "playTrouver", rows: trouverRows },
-      { tab: "verbs", group: "regular", label: "regarder", tableId: "regarderTable", playButtonId: "playRegarder", rows: regarderRows },
-      { tab: "verbs", group: "regular", label: "passer", tableId: "passerTable", playButtonId: "playPasser", rows: passerRows },
-      { tab: "verbs", group: "regular", label: "commencer", tableId: "commencerTable", playButtonId: "playCommencer", rows: commencerRows },
-      { tab: "verbs", group: "regular", label: "voyager", tableId: "voyagerTable", playButtonId: "playVoyager", rows: voyagerRows },
-      { tab: "verbs", group: "regular", label: "travailler", tableId: "travaillerTable", playButtonId: "playTravailler", rows: travaillerRows },
-      { tab: "verbs", group: "regular", label: "rentrer", tableId: "rentrerTable", playButtonId: "playRentrer", rows: rentrerRows },
-      { tab: "verbs", group: "regular", label: "demander", tableId: "demanderTable", playButtonId: "playDemander", rows: demanderRows },
-      { tab: "verbs", group: "regular", label: "jouer", tableId: "jouerTable", playButtonId: "playJouer", rows: jouerRows },
-      { tab: "verbs", group: "regular", label: "nager", tableId: "nagerTable", playButtonId: "playNager", rows: nagerRows },
-      { tab: "verbs", group: "regular", label: "tourner", tableId: "tournerTable", playButtonId: "playTourner", rows: tournerRows },
-      { tab: "verbs", group: "regular", label: "coûter", tableId: "couterTable", playButtonId: "playCouter", rows: couterRows },
-      { tab: "verbs", group: "pronominal", label: "se laver", tableId: "seLaverTable", playButtonId: "playSeLaver", rows: seLaverRows },
-      { tab: "verbs", group: "pronominal", label: "se lever", tableId: "seLeverTable", playButtonId: "playSeLever", rows: seLeverRows },
-      { tab: "verbs", group: "pronominal", label: "se reposer", tableId: "seReposerTable", playButtonId: "playSeReposer", rows: seReposerRows },
-      { tab: "verbs", group: "pronominal", label: "s’appeler", tableId: "sAppelerTable", playButtonId: "playSAppeler", rows: sAppelerRows },
-      { tab: "verbs", group: "pronominal", label: "s’habiller", tableId: "sHabillerTable", playButtonId: "playSHabiller", rows: sHabillerRows }
-    ];
-
-    const verbGroups = [
-      { key: "irregular", title: "Irregular" },
-      { key: "similar", title: "Same pattern" },
-      { key: "regular", title: "Regular" },
-      { key: "pronominal", title: "Pronominal" }
-    ];
-
     const imperativeConfigs = [
       { tableId: "etreImperativeTable", playButtonId: "playEtreImperative", rows: etreImperativeRows },
       { tableId: "avoirImperativeTable", playButtonId: "playAvoirImperative", rows: avoirImperativeRows }
@@ -82,9 +40,7 @@
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="determiners-quick-notes"]'] },
           { id: "articles", title: "Articles", open: true, elements: ['[data-study-section="determiners-articles"]'] },
           { id: "a-de", title: "À / De + articles", elements: ['[data-study-section="determiners-a-de"]'] },
-          { id: "demonstratives", title: "Demonstratives", elements: ['[data-study-section="determiners-demonstratives"]'] },
-          { id: "possessives", title: "Possessives", elements: ['[data-study-section="determiners-possessives"]'] },
-          { id: "vowel-exceptions", title: "Vowel exceptions", elements: ['[data-study-section="determiners-vowel-exceptions"]'] }
+          { id: "demonstratives", title: "Demonstratives", elements: ['[data-study-section="determiners-demonstratives"]'] }
         ],
         cleanupSelectors: [".determiner-sections"]
       },
@@ -142,6 +98,8 @@
       pronouns() {
         renderTonicPronounForms();
         renderReflexivePronounForms();
+        renderPossessives();
+        renderPossessiveExceptions();
         renderTonicPronounUsage();
       },
       grammar() {
@@ -154,6 +112,7 @@
         initializeStudyIndex("grammar");
       },
       verbs() {
+        renderVerbStudySections();
         renderVerbTables("verbs");
         initializeVerbGroups();
         renderVerbIndex();
@@ -178,8 +137,6 @@
         renderDeterminerCards(aArticleGrid, aArticleRules);
         renderDeterminerCards(deArticleGrid, deArticleRules);
         renderDemonstrativeTable();
-        renderPossessives();
-        renderPossessiveExceptions();
         initializeStudyIndex("determiners");
       },
       questions() {
@@ -225,10 +182,160 @@
       })));
     }
 
+    function getErrorMessage(error) {
+      return error && error.message ? error.message : String(error);
+    }
+
+    function createInlineError(title, error) {
+      const card = document.createElement("div");
+      card.className = "inline-error-card";
+      card.setAttribute("role", "alert");
+      card.innerHTML = `
+        <strong>${title}</strong>
+        <span>${getErrorMessage(error)}</span>
+      `;
+      return card;
+    }
+
+    function renderInlineError(container, title, error) {
+      if (!container) return;
+      container.replaceChildren(createInlineError(title, error));
+      console.error(title, error);
+    }
+
+    function getVerbTableId(item) {
+      return item.tableId || `${item.key}Table`;
+    }
+
+    function appendFaireExpressions(panel) {
+      const heading = document.createElement("div");
+      heading.className = "verb-subtable-heading";
+
+      const copy = document.createElement("div");
+      copy.innerHTML = `
+        <h4>Common faire expressions</h4>
+        <p>These expressions are best learned as phrases. They do not need every pronoun form.</p>
+      `;
+
+      const playButton = document.createElement("button");
+      playButton.className = "action-btn";
+      playButton.type = "button";
+      playButton.textContent = "Play faire expressions";
+      playButton.addEventListener("click", () => {
+        speakSequence(faireExpressionRows.flatMap(getFaireExpressionAudioItems), playButton);
+      });
+
+      const table = document.createElement("div");
+      table.id = "faireExpressionsTable";
+      table.className = "noun-rules-table";
+
+      heading.append(copy, playButton);
+      panel.append(heading, table);
+      try {
+        renderFaireExpressionTable(table);
+      } catch (error) {
+        renderInlineError(table, "Faire expressions failed to render", error);
+      }
+    }
+
+    function createVerbStudyPanel(item) {
+      if (!item || !item.key || !item.title || !item.rows) {
+        throw new Error("Verb item needs key, title, and rows.");
+      }
+
+      const panel = document.createElement("div");
+      panel.className = "panel verb-panel";
+      panel.id = item.panelId || `${item.key}VerbPanel`;
+      panel.tabIndex = -1;
+
+      const heading = document.createElement("h3");
+      heading.append(item.title);
+      if (item.tag) {
+        const tag = document.createElement("span");
+        tag.className = "translation";
+        tag.textContent = `(${item.tag})`;
+        heading.append(" ", tag);
+      }
+
+      const description = document.createElement("p");
+      description.innerHTML = item.descriptionHtml || "";
+
+      const table = document.createElement("div");
+      table.id = getVerbTableId(item);
+      table.className = "verb-matrix";
+
+      panel.append(heading, description, table);
+
+      (item.extras || []).forEach(extra => {
+        if (extra === "faireExpressions") appendFaireExpressions(panel);
+      });
+
+      return panel;
+    }
+
+    function renderVerbStudySections() {
+      if (!verbGroupStack) return;
+      verbGroupStack.replaceChildren();
+
+      verbStudyGroups.forEach((group, index) => {
+        const groupPanel = document.createElement("div");
+        groupPanel.className = "category-panel verb-group";
+        groupPanel.dataset.verbGroup = group.key;
+
+        const header = document.createElement("div");
+        header.className = "verb-group-header";
+
+        const intro = document.createElement("div");
+        const heading = document.createElement("h3");
+        heading.textContent = group.title;
+        const description = document.createElement("p");
+        description.innerHTML = group.descriptionHtml || "";
+        intro.append(heading, description);
+
+        const toggle = document.createElement("button");
+        toggle.className = "verb-group-toggle";
+        toggle.type = "button";
+        toggle.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+        toggle.textContent = index === 0 ? "Collapse" : "Expand";
+        header.append(intro, toggle);
+
+        const content = document.createElement("div");
+        content.className = "verb-group-content";
+
+        const groupItems = verbStudyItems.filter(item => item.group === group.key);
+        if (!groupItems.length) {
+          content.appendChild(createInlineError(`${group.title} has no verbs`, "Add at least one verbStudyItems entry for this group."));
+        }
+
+        groupItems.forEach(item => {
+          try {
+            content.appendChild(createVerbStudyPanel(item));
+          } catch (error) {
+            content.appendChild(createInlineError(`${item && item.label ? item.label : "Verb"} failed to render`, error));
+          }
+        });
+
+        groupPanel.append(header, content);
+        verbGroupStack.appendChild(groupPanel);
+      });
+    }
+
     function renderVerbTables(tabName) {
       verbConfigs
         .filter(config => config.tab === tabName)
-        .forEach(config => renderVerbTable(document.getElementById(config.tableId), config.rows));
+        .forEach(config => {
+          const table = document.getElementById(config.tableId);
+          if (!table) {
+            const fallback = tabName === "verbs" ? verbGroupStack : document.getElementById(`${tabName}Section`);
+            if (fallback) fallback.appendChild(createInlineError(`Missing table for ${config.label || config.tableId}`, `Expected #${config.tableId}.`));
+            return;
+          }
+          try {
+            renderVerbTable(table, config.rows);
+          } catch (error) {
+            renderInlineError(table, `${config.label || config.tableId} failed to render`, error);
+          }
+        });
     }
 
     function getVerbPanel(config) {
@@ -253,6 +360,36 @@
       document.querySelectorAll("#verbsSection .verb-group").forEach((group, index) => {
         setVerbGroupCollapsed(group, index > 0);
         const toggle = group.querySelector(".verb-group-toggle");
+        const header = group.querySelector(".verb-group-header");
+        if (header && toggle && !header.querySelector(".verb-group-controls")) {
+          const controls = document.createElement("div");
+          controls.className = "verb-group-controls";
+
+          const formsButton = document.createElement("button");
+          formsButton.className = "verb-group-audio-btn";
+          formsButton.type = "button";
+          formsButton.textContent = "Play forms";
+          formsButton.addEventListener("click", () => {
+            const rows = verbConfigs
+              .filter(config => config.tab === "verbs" && config.group === group.dataset.verbGroup)
+              .flatMap(config => config.rows);
+            speakSequence(rows.flatMap(getVerbConjugationAudioItems), formsButton);
+          });
+
+          const examplesButton = document.createElement("button");
+          examplesButton.className = "verb-group-audio-btn";
+          examplesButton.type = "button";
+          examplesButton.textContent = "Play examples";
+          examplesButton.addEventListener("click", () => {
+            const rows = verbConfigs
+              .filter(config => config.tab === "verbs" && config.group === group.dataset.verbGroup)
+              .flatMap(config => config.rows);
+            speakSequence(rows.flatMap(getVerbExamplesAudioItems), examplesButton);
+          });
+
+          controls.append(formsButton, examplesButton, toggle);
+          header.appendChild(controls);
+        }
         if (!toggle || toggle.dataset.initialized === "true") return;
         toggle.dataset.initialized = "true";
         toggle.addEventListener("click", () => {
@@ -261,13 +398,43 @@
       });
     }
 
+    function setAllVerbGroupsCollapsed(collapsed) {
+      document.querySelectorAll("#verbsSection .verb-group").forEach(group => {
+        setVerbGroupCollapsed(group, collapsed);
+      });
+    }
+
     function renderVerbIndex() {
       const index = document.getElementById("verbIndex");
       if (!index) return;
       index.replaceChildren();
 
+      const controls = document.createElement("div");
+      controls.className = "study-index-controls";
+
+      const expandAll = document.createElement("button");
+      expandAll.className = "study-index-control";
+      expandAll.type = "button";
+      expandAll.textContent = "Expand all";
+      expandAll.addEventListener("click", () => {
+        stopPlayback();
+        setAllVerbGroupsCollapsed(false);
+      });
+
+      const collapseAll = document.createElement("button");
+      collapseAll.className = "study-index-control";
+      collapseAll.type = "button";
+      collapseAll.textContent = "Collapse all";
+      collapseAll.addEventListener("click", () => {
+        stopPlayback();
+        setAllVerbGroupsCollapsed(true);
+      });
+
+      controls.append(expandAll, collapseAll);
+      index.appendChild(controls);
+
       const configs = verbConfigs.filter(config => config.tab === "verbs");
-      verbGroups.forEach(group => {
+      verbStudyGroups.forEach(group => {
         const groupConfigs = configs.filter(config => config.group === group.key);
         if (!groupConfigs.length) return;
 
@@ -276,7 +443,7 @@
 
         const title = document.createElement("div");
         title.className = "verb-index-group-title";
-        title.textContent = group.title;
+        title.textContent = group.indexTitle || group.title;
         groupBlock.appendChild(title);
 
         const links = document.createElement("div");
@@ -428,7 +595,16 @@
     function initializeTab(tabName) {
       if (initializedTabs.has(tabName)) return;
       const initializer = tabInitializers[tabName];
-      if (initializer) initializer();
+      if (initializer) {
+        try {
+          initializer();
+        } catch (error) {
+          const section = Array.from(sections).find(item => item.dataset.tab === tabName);
+          const target = section && (section.querySelector(".section-header") || section);
+          if (target) target.insertAdjacentElement("afterend", createInlineError(`${tabName} tab failed to initialize`, error));
+          console.error(`${tabName} tab failed to initialize`, error);
+        }
+      }
       initializedTabs.add(tabName);
     }
 
@@ -484,13 +660,18 @@
     });
 
     verbConfigs.forEach(({ playButtonId, rows }) => {
-      document.getElementById(playButtonId).addEventListener("click", () => {
+      if (!playButtonId) return;
+      const playButton = document.getElementById(playButtonId);
+      if (!playButton) return;
+      playButton.addEventListener("click", () => {
         speakSequence(rows.flatMap(getVerbAudioItems));
       });
     });
 
     imperativeConfigs.forEach(({ playButtonId, rows }) => {
-      document.getElementById(playButtonId).addEventListener("click", () => {
+      const playButton = document.getElementById(playButtonId);
+      if (!playButton) return;
+      playButton.addEventListener("click", () => {
         speakSequence(rows.flatMap(getImperativeAudioItems));
       });
     });

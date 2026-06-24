@@ -1084,7 +1084,7 @@
         words: [
           { fr: "garçon", ipa: "/ɡaʁsɔ̃/", zh: "男孩；服务员" },
           { fr: "génial", ipa: "/ʒenjal/", zh: "很棒的" },
-          { fr: "giter", ipa: "/ʒite/", zh: "住宿；倾斜" },
+          { fr: "gilet", ipa: "/ʒilɛ/", zh: "背心；马甲" },
           { fr: "légume", ipa: "/leɡym/", zh: "蔬菜" },
           { fr: "guerre", ipa: "/ɡɛʁ/", zh: "战争" },
           { fr: "goûter", ipa: "/ɡute/", zh: "品尝；点心" }
@@ -1271,4 +1271,3 @@
         ]
       }
     ];
-

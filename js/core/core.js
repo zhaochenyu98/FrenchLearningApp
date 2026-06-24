@@ -10,15 +10,7 @@
       ...articleComparisonRows.flatMap(row => [row.definite, row.indefinite]),
       ...aArticleRules,
       ...deArticleRules,
-      ...determinerCategories.demonstrative,
-      ...possessiveExceptions,
-      ...possessiveRows.flatMap(row => row.forms.map(form => ({
-        fr: form.form,
-        en: `${row.owner}`,
-        note: `${form.label}; ${row.note}`,
-        example: form.example,
-        exampleEn: form.exampleEn
-      })))
+      ...determinerCategories.demonstrative
     ];
 
     const numberItems = Array.from({ length: 100 }, (_, index) => {
@@ -90,8 +82,11 @@
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
     const tonicPronounGrid = document.getElementById("tonicPronounGrid");
     const reflexivePronounGrid = document.getElementById("reflexivePronounGrid");
+    const possessiveGrid = document.getElementById("possessiveGrid");
+    const possessiveExceptionGrid = document.getElementById("possessiveExceptionGrid");
     const tonicPronounUsageGrid = document.getElementById("tonicPronounUsageGrid");
     const exampleGrid = document.getElementById("exampleGrid");
+    const verbGroupStack = document.getElementById("verbGroupStack");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
     const grammarFlashcardEnglish = document.getElementById("grammarFlashcardEnglish");
     const grammarFlashcardHint = document.getElementById("grammarFlashcardHint");
@@ -130,8 +125,6 @@
     const aArticleGrid = document.getElementById("aArticleGrid");
     const deArticleGrid = document.getElementById("deArticleGrid");
     const demonstrativeGrid = document.getElementById("demonstrativeGrid");
-    const possessiveGrid = document.getElementById("possessiveGrid");
-    const possessiveExceptionGrid = document.getElementById("possessiveExceptionGrid");
 
     const voiceSelect = document.getElementById("voiceSelect");
     const rateInput = document.getElementById("rate");

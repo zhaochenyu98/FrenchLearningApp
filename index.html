@@ -108,11 +108,12 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronouns</h2>
-            <p class="section-desc">Study stressed pronouns and reflexive pronouns. Click any form or example to hear it.</p>
+            <p class="section-desc">Study stressed pronouns, reflexive pronouns, and possessive determiners. Click any form or example to hear it.</p>
           </div>
           <div class="action-row">
             <button class="action-btn" type="button" id="playTonicPronouns">Play tonic pronouns</button>
             <button class="action-btn" type="button" id="playReflexivePronouns">Play reflexive pronouns</button>
+            <button class="action-btn" type="button" id="playPossessives">Play possessives</button>
           </div>
         </div>
 
@@ -126,6 +127,18 @@
           <h3>Pronom réfléchi</h3>
           <p>自反代词 are used with pronominal verbs such as <strong>se laver</strong>, <strong>se lever</strong>, and <strong>s’appeler</strong>. They stay before the verb: <strong>Je me lave.</strong> In negation, they stay with the verb: <strong>Je ne me lave pas.</strong></p>
           <div id="reflexivePronounGrid" class="tonic-pronoun-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Possessive determiners</h3>
+          <p>These agree with the noun being possessed, not with the owner. The table follows the same person order as the pronoun tables: <strong>je/nous</strong>, <strong>tu/vous</strong>, then <strong>il/elle/ils/elles</strong>.</p>
+          <div id="possessiveGrid" class="tonic-pronoun-table"></div>
+        </div>
+
+        <div class="category-panel">
+          <h3>Possessive Exceptions Before Vowels</h3>
+          <p>Before a feminine singular noun starting with a vowel sound, use <strong>mon / ton / son</strong> instead of <strong>ma / ta / sa</strong>. This makes pronunciation smoother.</p>
+          <div id="possessiveExceptionGrid" class="determiner-subgrid"></div>
         </div>
 
         <div class="category-panel">
@@ -228,51 +241,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Present Tense Verbs</h2>
-            <p class="section-desc">Compare common irregular and regular verbs in the same 2-column pattern: singular on the left, plural on the right.</p>
-          </div>
-          <div class="verb-action-groups">
-            <div class="action-row">
-              <span class="action-label">Irregular</span>
-              <button class="action-btn" type="button" id="playAller">Play aller</button>
-              <button class="action-btn" type="button" id="playVenir">Play venir</button>
-              <button class="action-btn" type="button" id="playPrendre">Play prendre</button>
-              <button class="action-btn" type="button" id="playFaire">Play faire</button>
-              <button class="action-btn" type="button" id="playVoir">Play voir</button>
-              <button class="action-btn" type="button" id="playEcrire">Play écrire</button>
-              <button class="action-btn" type="button" id="playLire">Play lire</button>
-            </div>
-            <div class="action-row">
-              <span class="action-label">Same pattern</span>
-              <button class="action-btn" type="button" id="playDormir">Play dormir</button>
-              <button class="action-btn" type="button" id="playPartir">Play partir</button>
-              <button class="action-btn" type="button" id="playSortir">Play sortir</button>
-              <button class="action-btn" type="button" id="playServir">Play servir</button>
-              <button class="action-btn" type="button" id="playSentir">Play sentir</button>
-            </div>
-            <div class="action-row">
-              <span class="action-label">Regular</span>
-              <button class="action-btn" type="button" id="playHabiter">Play habiter</button>
-              <button class="action-btn" type="button" id="playTrouver">Play trouver</button>
-              <button class="action-btn" type="button" id="playRegarder">Play regarder</button>
-              <button class="action-btn" type="button" id="playPasser">Play passer</button>
-              <button class="action-btn" type="button" id="playCommencer">Play commencer</button>
-              <button class="action-btn" type="button" id="playVoyager">Play voyager</button>
-              <button class="action-btn" type="button" id="playTravailler">Play travailler</button>
-              <button class="action-btn" type="button" id="playRentrer">Play rentrer</button>
-              <button class="action-btn" type="button" id="playDemander">Play demander</button>
-              <button class="action-btn" type="button" id="playJouer">Play jouer</button>
-              <button class="action-btn" type="button" id="playNager">Play nager</button>
-              <button class="action-btn" type="button" id="playTourner">Play tourner</button>
-              <button class="action-btn" type="button" id="playCouter">Play coûter</button>
-            </div>
-            <div class="action-row">
-              <span class="action-label">Pronominal</span>
-              <button class="action-btn" type="button" id="playSeLaver">Play se laver</button>
-              <button class="action-btn" type="button" id="playSeLever">Play se lever</button>
-              <button class="action-btn" type="button" id="playSeReposer">Play se reposer</button>
-              <button class="action-btn" type="button" id="playSAppeler">Play s’appeler</button>
-              <button class="action-btn" type="button" id="playSHabiller">Play s’habiller</button>
-            </div>
+            <p class="section-desc">Compare common present-tense verbs by group. In each card, click the top half for just the subject + verb, or click the example block for statement, negation, and question practice.</p>
           </div>
         </div>
 
@@ -282,7 +251,7 @@
             <div id="verbIndex" class="verb-index-groups"></div>
           </aside>
 
-          <div class="verb-group-stack">
+          <div id="verbGroupStack" class="verb-group-stack">
             <div class="category-panel verb-group" data-verb-group="irregular">
               <div class="verb-group-header">
                 <div>
@@ -315,6 +284,14 @@
             <h3>Faire — to do / to make <span class="translation">(irregular)</span></h3>
             <p><strong>Faire</strong> is very common and irregular. Compare <strong>fais / fait</strong> <strong>/fɛ/</strong>, <strong>faisons</strong> <strong>/fə.zɔ̃/</strong>, <strong>faites</strong> <strong>/fɛt/</strong>, and <strong>font</strong> <strong>/fɔ̃/</strong>.</p>
             <div id="faireTable" class="verb-matrix"></div>
+            <div class="verb-subtable-heading">
+              <div>
+                <h4>Common faire expressions</h4>
+                <p>These expressions are best learned as phrases. They do not need every pronoun form.</p>
+              </div>
+              <button class="action-btn" type="button" id="playFaireExpressions">Play faire expressions</button>
+            </div>
+            <div id="faireExpressionsTable" class="noun-rules-table"></div>
           </div>
 
           <div class="panel verb-panel">
@@ -431,6 +408,12 @@
             <h3>Travailler — to work <span class="translation">(regular -er)</span></h3>
             <p><strong>Travailler</strong> follows the regular -er pattern and is useful for work, study, and schedule sentences.</p>
             <div id="travaillerTable" class="verb-matrix"></div>
+          </div>
+
+          <div class="panel verb-panel">
+            <h3>Déjeuner — to have lunch <span class="translation">(regular -er)</span></h3>
+            <p><strong>Déjeuner</strong> follows the regular -er pattern. In France, it usually means “to have lunch.”</p>
+            <div id="dejeunerTable" class="verb-matrix"></div>
           </div>
 
           <div class="panel verb-panel">
@@ -655,7 +638,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Articles &amp; Determiners</h2>
-            <p class="section-desc">Study articles and determiners by category. Click any card or possessive form to hear the word plus a short example.</p>
+            <p class="section-desc">Study articles and determiners by category. Click any card to hear the word plus a short example.</p>
           </div>
         </div>
 
@@ -663,11 +646,10 @@
           <div class="flashcard-toolbar">
             <div>
               <h3>How this tab is organized</h3>
-              <p>Use the index to jump between articles, contractions, demonstratives, and possessives.</p>
+              <p>Use the index to jump between articles, contractions, and demonstratives.</p>
             </div>
             <div class="action-row">
               <button class="action-btn" type="button" id="playDeterminers">Play all determiners</button>
-              <button class="action-btn" type="button" id="playPossessives">Play possessives</button>
             </div>
           </div>
           <div class="summary-chips">
@@ -686,10 +668,6 @@
             <div class="summary-chip">
               <strong>Demonstrative</strong>
               <span>ce, cet, cette, ces = “this / that / these / those”</span>
-            </div>
-            <div class="summary-chip">
-              <strong>Possessive</strong>
-              <span>mon/ma/mes, ton/ta/tes, etc.</span>
             </div>
           </div>
         </div>
@@ -722,24 +700,6 @@
             <h3>Demonstrative determiners</h3>
             <p>Choose the form by the noun’s gender and number. <strong>Cet</strong> replaces <strong>ce</strong> before a masculine singular noun beginning with a vowel sound.</p>
             <div id="demonstrativeGrid" class="demonstrative-table"></div>
-          </div>
-
-          <div class="category-panel" data-study-section="determiners-possessives">
-            <h3>Possessive determiners</h3>
-            <p>These agree with the noun being possessed, not with the owner. Click any form to hear it with an example.</p>
-            <div class="poss-header-row">
-              <div class="poss-header-cell">Owner</div>
-              <div class="poss-header-cell">Masculine singular</div>
-              <div class="poss-header-cell">Feminine singular</div>
-              <div class="poss-header-cell">Plural</div>
-            </div>
-            <div id="possessiveGrid" class="possessive-grid"></div>
-          </div>
-
-          <div class="category-panel" data-study-section="determiners-vowel-exceptions">
-            <h3>Possessive Exceptions Before Vowels</h3>
-            <p>Before a feminine singular noun starting with a vowel sound, use <strong>mon / ton / son</strong> instead of <strong>ma / ta / sa</strong>. This makes pronunciation smoother.</p>
-            <div id="possessiveExceptionGrid" class="determiner-subgrid"></div>
           </div>
         </div>
       </section>
