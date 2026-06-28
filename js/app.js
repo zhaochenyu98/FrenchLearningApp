@@ -273,6 +273,31 @@
         heading.append(" ", tag);
       }
 
+      const controls = document.createElement("div");
+      controls.className = "verb-panel-controls";
+
+      const formsButton = document.createElement("button");
+      formsButton.className = "verb-audio-btn";
+      formsButton.type = "button";
+      formsButton.textContent = "Play forms";
+      formsButton.addEventListener("click", () => {
+        speakSequence(item.rows.flatMap(getVerbConjugationAudioItems), formsButton);
+      });
+
+      const examplesButton = document.createElement("button");
+      examplesButton.className = "verb-audio-btn";
+      examplesButton.type = "button";
+      examplesButton.textContent = "Play examples";
+      examplesButton.addEventListener("click", () => {
+        speakSequence(item.rows.flatMap(getVerbExamplesAudioItems), examplesButton);
+      });
+
+      controls.append(formsButton, examplesButton);
+
+      const header = document.createElement("div");
+      header.className = "verb-panel-header";
+      header.append(heading, controls);
+
       const description = document.createElement("p");
       description.innerHTML = item.descriptionHtml || "";
 
@@ -280,7 +305,7 @@
       table.id = getVerbTableId(item);
       table.className = "verb-matrix";
 
-      panel.append(heading, description, table);
+      panel.append(header, description, table);
 
       (item.extras || []).forEach(extra => {
         if (extra === "faireExpressions") appendFaireExpressions(panel);
@@ -376,36 +401,6 @@
       document.querySelectorAll("#verbsSection .verb-group").forEach((group, index) => {
         setVerbGroupCollapsed(group, index > 0);
         const toggle = group.querySelector(".verb-group-toggle");
-        const header = group.querySelector(".verb-group-header");
-        if (header && toggle && !header.querySelector(".verb-group-controls")) {
-          const controls = document.createElement("div");
-          controls.className = "verb-group-controls";
-
-          const formsButton = document.createElement("button");
-          formsButton.className = "verb-group-audio-btn";
-          formsButton.type = "button";
-          formsButton.textContent = "Play forms";
-          formsButton.addEventListener("click", () => {
-            const rows = verbConfigs
-              .filter(config => config.tab === "verbs" && config.group === group.dataset.verbGroup)
-              .flatMap(config => config.rows);
-            speakSequence(rows.flatMap(getVerbConjugationAudioItems), formsButton);
-          });
-
-          const examplesButton = document.createElement("button");
-          examplesButton.className = "verb-group-audio-btn";
-          examplesButton.type = "button";
-          examplesButton.textContent = "Play examples";
-          examplesButton.addEventListener("click", () => {
-            const rows = verbConfigs
-              .filter(config => config.tab === "verbs" && config.group === group.dataset.verbGroup)
-              .flatMap(config => config.rows);
-            speakSequence(rows.flatMap(getVerbExamplesAudioItems), examplesButton);
-          });
-
-          controls.append(formsButton, examplesButton, toggle);
-          header.appendChild(controls);
-        }
         if (!toggle || toggle.dataset.initialized === "true") return;
         toggle.dataset.initialized = "true";
         toggle.addEventListener("click", () => {
