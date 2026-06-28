@@ -2,6 +2,7 @@
       {
         key: "er",
         title: "-er verbs → -é",
+        indexTitle: "-er → -é",
         headers: {
           verb: "Verb",
           participle: "Passé composé",
@@ -57,6 +58,7 @@
       {
         key: "ir",
         title: "-ir verbs → -i, plus tenir → tenu",
+        indexTitle: "-ir → -i",
         headers: {
           verb: "Verb",
           participle: "Passé composé",
@@ -123,6 +125,7 @@
       {
         key: "irregular",
         title: "Irregular past participles",
+        indexTitle: "Irregular",
         headers: {
           verb: "Verb",
           participle: "Passé composé",

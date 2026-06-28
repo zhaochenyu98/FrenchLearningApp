@@ -6,6 +6,16 @@
       ];
     }
 
+    function getPasseComposeVerbId(group, verb) {
+      const slug = `${group.key}-${verb.infinitive}`
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      return `tense-${slug}`;
+    }
+
     function getPastParticipleSpeech(verb) {
       return (verb.participleSpeech || verb.pastParticiple)
         .replace(/\s*\/[^/]+\/\s*/g, "")
@@ -39,6 +49,10 @@
       group.verbs.forEach((verb, verbIndex) => {
         const row = document.createElement("div");
         row.className = "noun-rule-card tense-row-card";
+        row.id = getPasseComposeVerbId(group, verb);
+        row.tabIndex = -1;
+        row.dataset.tenseGroup = group.key;
+        row.dataset.tenseVerb = verb.infinitive;
         row.innerHTML = `
           <div>
             <span class="question-cell-label">Infinitive</span>

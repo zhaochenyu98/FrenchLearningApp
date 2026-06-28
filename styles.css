@@ -1013,6 +1013,11 @@
       box-shadow: 0 12px 28px rgba(79, 70, 229, 0.12);
     }
 
+    .tense-row-card:focus {
+      outline: 3px solid rgba(79, 70, 229, 0.18);
+      outline-offset: 3px;
+    }
+
     .verb-form-btn,
     .verb-example-btn {
       border: 0;

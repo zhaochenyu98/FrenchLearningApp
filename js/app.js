@@ -24,15 +24,6 @@
           { id: "notes", title: "Notes & examples", elements: ["#grammarSection > .two-col"] }
         ]
       },
-      tense: {
-        title: "Tense index",
-        sections: [
-          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="tense-quick-notes"]'] },
-          { id: "er", title: "-er → -é", open: true, elements: ['[data-study-section="tense-er"]'] },
-          { id: "ir", title: "-ir → -i", elements: ['[data-study-section="tense-ir"]'] },
-          { id: "irregular", title: "Irregular", elements: ['[data-study-section="tense-irregular"]'] }
-        ]
-      },
       adjectives: {
         title: "Adjective index",
         sections: [
@@ -137,7 +128,7 @@
       },
       tense() {
         renderPasseComposeGroups();
-        initializeStudyIndex("tense");
+        initializeTenseIndex();
       },
       nouns() {
         renderNounPluralRules();
@@ -494,6 +485,140 @@
         groupBlock.appendChild(links);
         index.appendChild(groupBlock);
       });
+    }
+
+    function initializeTenseIndex() {
+      const section = Array.from(sections).find(item => item.dataset.tab === "tense");
+      if (!section || section.querySelector(".study-nav-layout")) return;
+
+      const layout = document.createElement("div");
+      layout.className = "study-nav-layout";
+
+      const aside = document.createElement("aside");
+      aside.className = "study-index";
+      aside.setAttribute("aria-label", "Tense index");
+
+      const title = document.createElement("div");
+      title.className = "study-index-title";
+      title.textContent = "Tense index";
+
+      const controls = document.createElement("div");
+      controls.className = "study-index-controls";
+
+      const expandAll = document.createElement("button");
+      expandAll.className = "study-index-control";
+      expandAll.type = "button";
+      expandAll.textContent = "Expand all";
+
+      const collapseAll = document.createElement("button");
+      collapseAll.className = "study-index-control";
+      collapseAll.type = "button";
+      collapseAll.textContent = "Collapse all";
+
+      controls.append(expandAll, collapseAll);
+
+      const links = document.createElement("div");
+      links.className = "verb-index-groups";
+
+      aside.append(title, controls, links);
+
+      const stack = document.createElement("div");
+      stack.className = "study-section-stack";
+
+      const cards = [];
+      const quickNotes = resolveStudyElement(section, '[data-study-section="tense-quick-notes"]');
+      if (quickNotes) {
+        const quickCard = document.createElement("details");
+        quickCard.className = "study-collapse-card";
+        quickCard.id = "tense-quick-notes-study-card";
+        quickCard.open = true;
+
+        const summary = document.createElement("summary");
+        summary.className = "study-collapse-summary";
+        summary.textContent = "Quick notes";
+
+        const body = document.createElement("div");
+        body.className = "study-collapse-body";
+        body.appendChild(quickNotes);
+
+        quickCard.append(summary, body);
+        stack.appendChild(quickCard);
+        links.appendChild(createStudyIndexButton("Quick notes", quickCard));
+        cards.push(quickCard);
+      }
+
+      passeComposeGroups.forEach((group, groupIndex) => {
+        const element = resolveStudyElement(section, `[data-study-section="tense-${group.key}"]`);
+        if (!element) return;
+
+        const card = document.createElement("details");
+        card.className = "study-collapse-card";
+        card.id = `tense-${group.key}-study-card`;
+        card.open = groupIndex === 0;
+
+        const summary = document.createElement("summary");
+        summary.className = "study-collapse-summary";
+        summary.textContent = group.title;
+
+        const body = document.createElement("div");
+        body.className = "study-collapse-body";
+        body.appendChild(element);
+
+        card.append(summary, body);
+        stack.appendChild(card);
+        cards.push(card);
+
+        const groupBlock = document.createElement("div");
+        groupBlock.className = "verb-index-group";
+
+        const groupTitle = document.createElement("div");
+        groupTitle.className = "verb-index-group-title";
+        groupTitle.textContent = group.indexTitle || group.title;
+        groupBlock.appendChild(groupTitle);
+
+        const groupLinks = document.createElement("div");
+        groupLinks.className = "verb-index-links";
+
+        group.verbs.forEach(verb => {
+          const button = document.createElement("button");
+          button.className = "verb-index-link";
+          button.type = "button";
+          button.textContent = verb.infinitive;
+          button.addEventListener("click", () => {
+            stopPlayback();
+            card.open = true;
+            const target = document.getElementById(getPasseComposeVerbId(group, verb));
+            (target || card).scrollIntoView({ behavior: "smooth", block: "start" });
+            if (target) target.focus({ preventScroll: true });
+          });
+          groupLinks.appendChild(button);
+        });
+
+        groupBlock.appendChild(groupLinks);
+        links.appendChild(groupBlock);
+      });
+
+      if (!cards.length) return;
+
+      expandAll.addEventListener("click", () => {
+        cards.forEach(card => {
+          card.open = true;
+        });
+      });
+
+      collapseAll.addEventListener("click", () => {
+        cards.forEach(card => {
+          card.open = false;
+        });
+      });
+
+      const header = section.querySelector(".section-header");
+      layout.append(aside, stack);
+      if (header) {
+        header.insertAdjacentElement("afterend", layout);
+      } else {
+        section.prepend(layout);
+      }
     }
 
     function findDirectChildByHeading(section, heading) {
