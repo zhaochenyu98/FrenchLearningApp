@@ -10,6 +10,7 @@
         button.type = "button";
         button.innerHTML = `
           <div class="french-line">${item.fr}</div>
+          ${item.ipa ? `<div class="calendar-ipa">${item.ipa}</div>` : ""}
           <div class="translation">${item.en}</div>
           <div class="grammar-note">${item.note}</div>
           <div class="translation"><strong>Example:</strong> ${item.example}</div>

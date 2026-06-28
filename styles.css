@@ -400,6 +400,7 @@
 
     .number-ipa,
     .verb-ipa,
+    .calendar-ipa,
     .possessive-ipa {
       display: inline-block;
       margin-top: 8px;
@@ -415,6 +416,7 @@
     }
 
     .verb-ipa,
+    .calendar-ipa,
     .possessive-ipa {
       margin-bottom: 2px;
     }

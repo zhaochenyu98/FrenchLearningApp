@@ -1,33 +1,33 @@
     const weekdays = [
-      { fr: "lundi", en: "Monday", note: "day of the week", example: "C’est lundi.", exampleEn: "It’s Monday." },
-      { fr: "mardi", en: "Tuesday", note: "day of the week", example: "C’est mardi.", exampleEn: "It’s Tuesday." },
-      { fr: "mercredi", en: "Wednesday", note: "day of the week", example: "C’est mercredi.", exampleEn: "It’s Wednesday." },
-      { fr: "jeudi", en: "Thursday", note: "day of the week", example: "C’est jeudi.", exampleEn: "It’s Thursday." },
-      { fr: "vendredi", en: "Friday", note: "day of the week", example: "C’est vendredi.", exampleEn: "It’s Friday." },
-      { fr: "samedi", en: "Saturday", note: "day of the week", example: "C’est samedi.", exampleEn: "It’s Saturday." },
-      { fr: "dimanche", en: "Sunday", note: "day of the week", example: "C’est dimanche.", exampleEn: "It’s Sunday." }
+      { fr: "lundi", ipa: "/lœ̃di/", en: "Monday", note: "lundi prochain = next Monday", example: "Lundi prochain, je commence un nouveau cours.", exampleEn: "Next Monday, I start a new class." },
+      { fr: "mardi", ipa: "/maʁdi/", en: "Tuesday", note: "mardi dernier = last Tuesday", example: "Mardi dernier, nous avons dîné ensemble.", exampleEn: "Last Tuesday, we had dinner together." },
+      { fr: "mercredi", ipa: "/mɛʁkʁədi/", en: "Wednesday", note: "le mercredi = on Wednesdays", example: "Le mercredi, je fais du sport après le travail.", exampleEn: "On Wednesdays, I exercise after work." },
+      { fr: "jeudi", ipa: "/ʒødi/", en: "Thursday", note: "jeudi soir = Thursday evening", example: "Jeudi soir, elle travaille tard.", exampleEn: "Thursday evening, she works late." },
+      { fr: "vendredi", ipa: "/vɑ̃dʁədi/", en: "Friday", note: "vendredi matin = Friday morning", example: "Nous partons vendredi matin.", exampleEn: "We leave Friday morning." },
+      { fr: "samedi", ipa: "/samdi/", en: "Saturday", note: "samedi prochain = next Saturday", example: "Samedi prochain, je vais au marché.", exampleEn: "Next Saturday, I’m going to the market." },
+      { fr: "dimanche", ipa: "/dimɑ̃ʃ/", en: "Sunday", note: "dimanche dernier = last Sunday", example: "Dimanche dernier, ils sont restés à la maison.", exampleEn: "Last Sunday, they stayed home." }
     ];
 
     const months = [
-      { fr: "janvier", en: "January", note: "month", example: "en janvier", exampleEn: "in January" },
-      { fr: "février", en: "February", note: "month", example: "en février", exampleEn: "in February" },
-      { fr: "mars", en: "March", note: "month", example: "en mars", exampleEn: "in March" },
-      { fr: "avril", en: "April", note: "month", example: "en avril", exampleEn: "in April" },
-      { fr: "mai", en: "May", note: "month", example: "en mai", exampleEn: "in May" },
-      { fr: "juin", en: "June", note: "month", example: "en juin", exampleEn: "in June" },
-      { fr: "juillet", en: "July", note: "month", example: "en juillet", exampleEn: "in July" },
-      { fr: "août", en: "August", note: "month", example: "en août", exampleEn: "in August" },
-      { fr: "septembre", en: "September", note: "month", example: "en septembre", exampleEn: "in September" },
-      { fr: "octobre", en: "October", note: "month", example: "en octobre", exampleEn: "in October" },
-      { fr: "novembre", en: "November", note: "month", example: "en novembre", exampleEn: "in November" },
-      { fr: "décembre", en: "December", note: "month", example: "en décembre", exampleEn: "in December" }
+      { fr: "janvier", ipa: "/ʒɑ̃vje/", en: "January", note: "month", example: "en janvier", exampleEn: "in January" },
+      { fr: "février", ipa: "/fevʁije/", en: "February", note: "month", example: "en février", exampleEn: "in February" },
+      { fr: "mars", ipa: "/maʁs/", en: "March", note: "month", example: "en mars", exampleEn: "in March" },
+      { fr: "avril", ipa: "/avʁil/", en: "April", note: "month", example: "en avril", exampleEn: "in April" },
+      { fr: "mai", ipa: "/mɛ/", en: "May", note: "month", example: "en mai", exampleEn: "in May" },
+      { fr: "juin", ipa: "/ʒɥɛ̃/", en: "June", note: "month", example: "en juin", exampleEn: "in June" },
+      { fr: "juillet", ipa: "/ʒɥijɛ/", en: "July", note: "month", example: "en juillet", exampleEn: "in July" },
+      { fr: "août", ipa: "/ut/", en: "August", note: "month", example: "en août", exampleEn: "in August" },
+      { fr: "septembre", ipa: "/sɛptɑ̃bʁ/", en: "September", note: "month", example: "en septembre", exampleEn: "in September" },
+      { fr: "octobre", ipa: "/ɔktɔbʁ/", en: "October", note: "month", example: "en octobre", exampleEn: "in October" },
+      { fr: "novembre", ipa: "/nɔvɑ̃bʁ/", en: "November", note: "month", example: "en novembre", exampleEn: "in November" },
+      { fr: "décembre", ipa: "/desɑ̃bʁ/", en: "December", note: "month", example: "en décembre", exampleEn: "in December" }
     ];
 
     const seasons = [
-      { fr: "printemps", en: "spring", note: "spring often uses au", example: "au printemps", exampleEn: "in spring" },
-      { fr: "été", en: "summer", note: "usually uses en", example: "en été", exampleEn: "in summer" },
-      { fr: "automne", en: "autumn / fall", note: "usually uses en", example: "en automne", exampleEn: "in autumn" },
-      { fr: "hiver", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
+      { fr: "printemps", ipa: "/pʁɛ̃tɑ̃/", en: "spring", note: "spring often uses au", example: "au printemps", exampleEn: "in spring" },
+      { fr: "été", ipa: "/ete/", en: "summer", note: "usually uses en", example: "en été", exampleEn: "in summer" },
+      { fr: "automne", ipa: "/otɔn/", en: "autumn / fall", note: "usually uses en", example: "en automne", exampleEn: "in autumn" },
+      { fr: "hiver", ipa: "/ivɛʁ/", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
     ];
 
     const nounPluralRules = [
