@@ -401,6 +401,7 @@
     .number-ipa,
     .verb-ipa,
     .calendar-ipa,
+    .tense-ipa,
     .possessive-ipa {
       display: inline-block;
       margin-top: 8px;
@@ -417,8 +418,27 @@
 
     .verb-ipa,
     .calendar-ipa,
+    .tense-ipa,
     .possessive-ipa {
       margin-bottom: 2px;
+    }
+
+    .tense-index-main,
+    .tense-index-ipa {
+      display: block;
+    }
+
+    .tense-index-main {
+      font-weight: 850;
+    }
+
+    .tense-index-ipa {
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.25;
     }
 
     .translation,

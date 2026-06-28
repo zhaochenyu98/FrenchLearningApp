@@ -229,6 +229,105 @@
       { person: "vous", form: "ayez", en: "have", example: "Ayez confiance en vous.", exampleEn: "Have confidence in yourself.", negative: "N’ayez pas peur de demander.", negativeEn: "Do not be afraid to ask." }
     ];
 
+    const parlerRows = [
+      { pronoun: "je", form: "parle", full: "je parle", en: "I speak / talk", example: "Je parle français avec mon professeur.", exampleEn: "I speak French with my teacher.", negative: "Je ne parle pas français avec mon professeur.", negativeEn: "I do not speak French with my teacher." },
+      { pronoun: "tu", form: "parles", full: "tu parles", en: "you speak / talk", example: "Tu parles trop vite.", exampleEn: "You speak too fast.", negative: "Tu ne parles pas trop vite.", negativeEn: "You do not speak too fast.", question: "Parles-tu trop vite ?" },
+      { pronoun: "il", form: "parle", full: "il parle", en: "he speaks / talks", example: "Il parle au voisin.", exampleEn: "He talks to the neighbor.", negative: "Il ne parle pas au voisin.", negativeEn: "He does not talk to the neighbor." },
+      { pronoun: "elle", form: "parle", full: "elle parle", en: "she speaks / talks", example: "Elle parle de son travail.", exampleEn: "She talks about her work.", negative: "Elle ne parle pas de son travail.", negativeEn: "She does not talk about her work." },
+      { pronoun: "nous", form: "parlons", full: "nous parlons", en: "we speak / talk", example: "Nous parlons ensemble le matin.", exampleEn: "We talk together in the morning.", negative: "Nous ne parlons pas ensemble le matin.", negativeEn: "We do not talk together in the morning." },
+      { pronoun: "vous", form: "parlez", full: "vous parlez", en: "you speak / talk", example: "Vous parlez avec la directrice.", exampleEn: "You speak with the director.", negative: "Vous ne parlez pas avec la directrice.", negativeEn: "You do not speak with the director.", question: "Avec qui parlez-vous ?" },
+      { pronoun: "ils", form: "parlent", full: "ils parlent", en: "they speak / talk", example: "Ils parlent de leurs vacances.", exampleEn: "They talk about their vacation.", negative: "Ils ne parlent pas de leurs vacances.", negativeEn: "They do not talk about their vacation." },
+      { pronoun: "elles", form: "parlent", full: "elles parlent", en: "they speak / talk", example: "Elles parlent anglais au bureau.", exampleEn: "They speak English at the office.", negative: "Elles ne parlent pas anglais au bureau.", negativeEn: "They do not speak English at the office." }
+    ];
+
+    const chercherRows = [
+      { pronoun: "je", form: "cherche", full: "je cherche", en: "I look for", example: "Je cherche mes clés.", exampleEn: "I am looking for my keys.", negative: "Je ne cherche pas mes clés.", negativeEn: "I am not looking for my keys." },
+      { pronoun: "tu", form: "cherches", full: "tu cherches", en: "you look for", example: "Tu cherches un café.", exampleEn: "You are looking for a café.", negative: "Tu ne cherches pas de café.", negativeEn: "You are not looking for a café.", question: "Que cherches-tu ?" },
+      { pronoun: "il", form: "cherche", full: "il cherche", en: "he looks for", example: "Il cherche son téléphone.", exampleEn: "He is looking for his phone.", negative: "Il ne cherche pas son téléphone.", negativeEn: "He is not looking for his phone." },
+      { pronoun: "elle", form: "cherche", full: "elle cherche", en: "she looks for", example: "Elle cherche une solution.", exampleEn: "She is looking for a solution.", negative: "Elle ne cherche pas de solution.", negativeEn: "She is not looking for a solution." },
+      { pronoun: "nous", form: "cherchons", full: "nous cherchons", en: "we look for", example: "Nous cherchons un appartement.", exampleEn: "We are looking for an apartment.", negative: "Nous ne cherchons pas d’appartement.", negativeEn: "We are not looking for an apartment." },
+      { pronoun: "vous", form: "cherchez", full: "vous cherchez", en: "you look for", example: "Vous cherchez la gare.", exampleEn: "You are looking for the train station.", negative: "Vous ne cherchez pas la gare.", negativeEn: "You are not looking for the train station.", question: "Où cherchez-vous la gare ?" },
+      { pronoun: "ils", form: "cherchent", full: "ils cherchent", en: "they look for", example: "Ils cherchent du travail.", exampleEn: "They are looking for work.", negative: "Ils ne cherchent pas de travail.", negativeEn: "They are not looking for work." },
+      { pronoun: "elles", form: "cherchent", full: "elles cherchent", en: "they look for", example: "Elles cherchent une table libre.", exampleEn: "They are looking for an available table.", negative: "Elles ne cherchent pas de table libre.", negativeEn: "They are not looking for an available table." }
+    ];
+
+    const mangerRows = [
+      { pronoun: "je", form: "mange", full: "je mange", en: "I eat", example: "Je mange une pomme.", exampleEn: "I eat an apple.", negative: "Je ne mange pas de pomme.", negativeEn: "I do not eat an apple." },
+      { pronoun: "tu", form: "manges", full: "tu manges", en: "you eat", example: "Tu manges au restaurant.", exampleEn: "You eat at the restaurant.", negative: "Tu ne manges pas au restaurant.", negativeEn: "You do not eat at the restaurant.", question: "Où manges-tu ?" },
+      { pronoun: "il", form: "mange", full: "il mange", en: "he eats", example: "Il mange beaucoup de légumes.", exampleEn: "He eats a lot of vegetables.", negative: "Il ne mange pas beaucoup de légumes.", negativeEn: "He does not eat a lot of vegetables." },
+      { pronoun: "elle", form: "mange", full: "elle mange", en: "she eats", example: "Elle mange avec sa famille.", exampleEn: "She eats with her family.", negative: "Elle ne mange pas avec sa famille.", negativeEn: "She does not eat with her family." },
+      { pronoun: "nous", form: "mangeons", full: "nous mangeons", en: "we eat", example: "Nous mangeons à midi.", exampleEn: "We eat at noon.", negative: "Nous ne mangeons pas à midi.", negativeEn: "We do not eat at noon." },
+      { pronoun: "vous", form: "mangez", full: "vous mangez", en: "you eat", example: "Vous mangez du poisson.", exampleEn: "You eat fish.", negative: "Vous ne mangez pas de poisson.", negativeEn: "You do not eat fish." },
+      { pronoun: "ils", form: "mangent", full: "ils mangent", en: "they eat", example: "Ils mangent dehors.", exampleEn: "They eat outside.", negative: "Ils ne mangent pas dehors.", negativeEn: "They do not eat outside." },
+      { pronoun: "elles", form: "mangent", full: "elles mangent", en: "they eat", example: "Elles mangent ensemble le dimanche.", exampleEn: "They eat together on Sundays.", negative: "Elles ne mangent pas ensemble le dimanche.", negativeEn: "They do not eat together on Sundays." }
+    ];
+
+    const inviterRows = [
+      { pronoun: "j’", form: "invite", full: "j’invite", en: "I invite", example: "J’invite mes amis ce soir.", exampleEn: "I am inviting my friends tonight.", negative: "Je n’invite pas mes amis ce soir.", negativeEn: "I am not inviting my friends tonight." },
+      { pronoun: "tu", form: "invites", full: "tu invites", en: "you invite", example: "Tu invites ta sœur.", exampleEn: "You invite your sister.", negative: "Tu n’invites pas ta sœur.", negativeEn: "You do not invite your sister.", question: "Qui invites-tu ?" },
+      { pronoun: "il", form: "invite", full: "il invite", en: "he invites", example: "Il invite Paul au dîner.", exampleEn: "He invites Paul to dinner.", negative: "Il n’invite pas Paul au dîner.", negativeEn: "He does not invite Paul to dinner." },
+      { pronoun: "elle", form: "invite", full: "elle invite", en: "she invites", example: "Elle invite sa collègue.", exampleEn: "She invites her colleague.", negative: "Elle n’invite pas sa collègue.", negativeEn: "She does not invite her colleague." },
+      { pronoun: "nous", form: "invitons", full: "nous invitons", en: "we invite", example: "Nous invitons nos voisins.", exampleEn: "We invite our neighbors.", negative: "Nous n’invitons pas nos voisins.", negativeEn: "We do not invite our neighbors." },
+      { pronoun: "vous", form: "invitez", full: "vous invitez", en: "you invite", example: "Vous invitez les enfants.", exampleEn: "You invite the children.", negative: "Vous n’invitez pas les enfants.", negativeEn: "You do not invite the children." },
+      { pronoun: "ils", form: "invitent", full: "ils invitent", en: "they invite", example: "Ils invitent tout le monde.", exampleEn: "They invite everyone.", negative: "Ils n’invitent pas tout le monde.", negativeEn: "They do not invite everyone." },
+      { pronoun: "elles", form: "invitent", full: "elles invitent", en: "they invite", example: "Elles invitent leurs parents.", exampleEn: "They invite their parents.", negative: "Elles n’invitent pas leurs parents.", negativeEn: "They do not invite their parents." }
+    ];
+
+    const finirRows = [
+      { pronoun: "je", form: "finis", full: "je finis", en: "I finish", example: "Je finis mes devoirs.", exampleEn: "I finish my homework.", negative: "Je ne finis pas mes devoirs.", negativeEn: "I do not finish my homework." },
+      { pronoun: "tu", form: "finis", full: "tu finis", en: "you finish", example: "Tu finis le travail.", exampleEn: "You finish the work.", negative: "Tu ne finis pas le travail.", negativeEn: "You do not finish the work.", question: "Quand finis-tu le travail ?" },
+      { pronoun: "il", form: "finit", full: "il finit", en: "he finishes", example: "Il finit son café.", exampleEn: "He finishes his coffee.", negative: "Il ne finit pas son café.", negativeEn: "He does not finish his coffee." },
+      { pronoun: "elle", form: "finit", full: "elle finit", en: "she finishes", example: "Elle finit la lettre.", exampleEn: "She finishes the letter.", negative: "Elle ne finit pas la lettre.", negativeEn: "She does not finish the letter." },
+      { pronoun: "nous", form: "finissons", full: "nous finissons", en: "we finish", example: "Nous finissons le cours à cinq heures.", exampleEn: "We finish class at five.", negative: "Nous ne finissons pas le cours à cinq heures.", negativeEn: "We do not finish class at five." },
+      { pronoun: "vous", form: "finissez", full: "vous finissez", en: "you finish", example: "Vous finissez bientôt.", exampleEn: "You finish soon.", negative: "Vous ne finissez pas bientôt.", negativeEn: "You do not finish soon." },
+      { pronoun: "ils", form: "finissent", full: "ils finissent", en: "they finish", example: "Ils finissent le projet.", exampleEn: "They finish the project.", negative: "Ils ne finissent pas le projet.", negativeEn: "They do not finish the project." },
+      { pronoun: "elles", form: "finissent", full: "elles finissent", en: "they finish", example: "Elles finissent avant midi.", exampleEn: "They finish before noon.", negative: "Elles ne finissent pas avant midi.", negativeEn: "They do not finish before noon." }
+    ];
+
+    const choisirRows = [
+      { pronoun: "je", form: "choisis", full: "je choisis", en: "I choose", example: "Je choisis une table.", exampleEn: "I choose a table.", negative: "Je ne choisis pas de table.", negativeEn: "I do not choose a table." },
+      { pronoun: "tu", form: "choisis", full: "tu choisis", en: "you choose", example: "Tu choisis le dessert.", exampleEn: "You choose dessert.", negative: "Tu ne choisis pas le dessert.", negativeEn: "You do not choose dessert.", question: "Que choisis-tu ?" },
+      { pronoun: "il", form: "choisit", full: "il choisit", en: "he chooses", example: "Il choisit un livre.", exampleEn: "He chooses a book.", negative: "Il ne choisit pas de livre.", negativeEn: "He does not choose a book." },
+      { pronoun: "elle", form: "choisit", full: "elle choisit", en: "she chooses", example: "Elle choisit une robe.", exampleEn: "She chooses a dress.", negative: "Elle ne choisit pas de robe.", negativeEn: "She does not choose a dress." },
+      { pronoun: "nous", form: "choisissons", full: "nous choisissons", en: "we choose", example: "Nous choisissons un film.", exampleEn: "We choose a movie.", negative: "Nous ne choisissons pas de film.", negativeEn: "We do not choose a movie." },
+      { pronoun: "vous", form: "choisissez", full: "vous choisissez", en: "you choose", example: "Vous choisissez la date.", exampleEn: "You choose the date.", negative: "Vous ne choisissez pas la date.", negativeEn: "You do not choose the date." },
+      { pronoun: "ils", form: "choisissent", full: "ils choisissent", en: "they choose", example: "Ils choisissent leurs places.", exampleEn: "They choose their seats.", negative: "Ils ne choisissent pas leurs places.", negativeEn: "They do not choose their seats." },
+      { pronoun: "elles", form: "choisissent", full: "elles choisissent", en: "they choose", example: "Elles choisissent un restaurant.", exampleEn: "They choose a restaurant.", negative: "Elles ne choisissent pas de restaurant.", negativeEn: "They do not choose a restaurant." }
+    ];
+
+    const reussirRows = [
+      { pronoun: "je", form: "réussis", full: "je réussis", en: "I succeed / pass", example: "Je réussis l’examen.", exampleEn: "I pass the exam.", negative: "Je ne réussis pas l’examen.", negativeEn: "I do not pass the exam." },
+      { pronoun: "tu", form: "réussis", full: "tu réussis", en: "you succeed / pass", example: "Tu réussis ce test.", exampleEn: "You pass this test.", negative: "Tu ne réussis pas ce test.", negativeEn: "You do not pass this test.", question: "Réussis-tu ce test ?" },
+      { pronoun: "il", form: "réussit", full: "il réussit", en: "he succeeds / passes", example: "Il réussit son entretien.", exampleEn: "He succeeds in his interview.", negative: "Il ne réussit pas son entretien.", negativeEn: "He does not succeed in his interview." },
+      { pronoun: "elle", form: "réussit", full: "elle réussit", en: "she succeeds / passes", example: "Elle réussit grâce à son travail.", exampleEn: "She succeeds thanks to her work.", negative: "Elle ne réussit pas grâce à son travail.", negativeEn: "She does not succeed thanks to her work." },
+      { pronoun: "nous", form: "réussissons", full: "nous réussissons", en: "we succeed / pass", example: "Nous réussissons ensemble.", exampleEn: "We succeed together.", negative: "Nous ne réussissons pas ensemble.", negativeEn: "We do not succeed together." },
+      { pronoun: "vous", form: "réussissez", full: "vous réussissez", en: "you succeed / pass", example: "Vous réussissez souvent.", exampleEn: "You often succeed.", negative: "Vous ne réussissez pas souvent.", negativeEn: "You do not often succeed." },
+      { pronoun: "ils", form: "réussissent", full: "ils réussissent", en: "they succeed / pass", example: "Ils réussissent le concours.", exampleEn: "They pass the competition exam.", negative: "Ils ne réussissent pas le concours.", negativeEn: "They do not pass the competition exam." },
+      { pronoun: "elles", form: "réussissent", full: "elles réussissent", en: "they succeed / pass", example: "Elles réussissent leur projet.", exampleEn: "They succeed with their project.", negative: "Elles ne réussissent pas leur projet.", negativeEn: "They do not succeed with their project." }
+    ];
+
+    const unirRows = [
+      { pronoun: "j’", form: "unis", full: "j’unis", en: "I unite / join", example: "J’unis les deux idées.", exampleEn: "I join the two ideas.", negative: "Je n’unis pas les deux idées.", negativeEn: "I do not join the two ideas." },
+      { pronoun: "tu", form: "unis", full: "tu unis", en: "you unite / join", example: "Tu unis les équipes.", exampleEn: "You unite the teams.", negative: "Tu n’unis pas les équipes.", negativeEn: "You do not unite the teams.", question: "Quelles équipes unis-tu ?" },
+      { pronoun: "il", form: "unit", full: "il unit", en: "he unites / joins", example: "Il unit la famille.", exampleEn: "He unites the family.", negative: "Il n’unit pas la famille.", negativeEn: "He does not unite the family." },
+      { pronoun: "elle", form: "unit", full: "elle unit", en: "she unites / joins", example: "Elle unit les deux groupes.", exampleEn: "She unites the two groups.", negative: "Elle n’unit pas les deux groupes.", negativeEn: "She does not unite the two groups." },
+      { pronoun: "nous", form: "unissons", full: "nous unissons", en: "we unite / join", example: "Nous unissons nos forces.", exampleEn: "We join forces.", negative: "Nous n’unissons pas nos forces.", negativeEn: "We do not join forces." },
+      { pronoun: "vous", form: "unissez", full: "vous unissez", en: "you unite / join", example: "Vous unissez les services.", exampleEn: "You unite the departments.", negative: "Vous n’unissez pas les services.", negativeEn: "You do not unite the departments." },
+      { pronoun: "ils", form: "unissent", full: "ils unissent", en: "they unite / join", example: "Ils unissent leurs efforts.", exampleEn: "They join their efforts.", negative: "Ils n’unissent pas leurs efforts.", negativeEn: "They do not join their efforts." },
+      { pronoun: "elles", form: "unissent", full: "elles unissent", en: "they unite / join", example: "Elles unissent leurs voix.", exampleEn: "They unite their voices.", negative: "Elles n’unissent pas leurs voix.", negativeEn: "They do not unite their voices." }
+    ];
+
+    const tenirRows = [
+      { pronoun: "je", form: "tiens", full: "je tiens", en: "I hold / keep", example: "Je tiens la porte.", exampleEn: "I hold the door.", negative: "Je ne tiens pas la porte.", negativeEn: "I do not hold the door." },
+      { pronoun: "tu", form: "tiens", full: "tu tiens", en: "you hold / keep", example: "Tu tiens ta promesse.", exampleEn: "You keep your promise.", negative: "Tu ne tiens pas ta promesse.", negativeEn: "You do not keep your promise.", question: "Tiens-tu ta promesse ?" },
+      { pronoun: "il", form: "tient", full: "il tient", en: "he holds / keeps", example: "Il tient un sac.", exampleEn: "He is holding a bag.", negative: "Il ne tient pas de sac.", negativeEn: "He is not holding a bag." },
+      { pronoun: "elle", form: "tient", full: "elle tient", en: "she holds / keeps", example: "Elle tient à sa famille.", exampleEn: "She cares about her family.", negative: "Elle ne tient pas à sa famille.", negativeEn: "She does not care about her family." },
+      { pronoun: "nous", form: "tenons", full: "nous tenons", en: "we hold / keep", example: "Nous tenons la main de l’enfant.", exampleEn: "We hold the child’s hand.", negative: "Nous ne tenons pas la main de l’enfant.", negativeEn: "We do not hold the child’s hand." },
+      { pronoun: "vous", form: "tenez", full: "vous tenez", en: "you hold / keep", example: "Vous tenez le plan.", exampleEn: "You are holding the map.", negative: "Vous ne tenez pas le plan.", negativeEn: "You are not holding the map.", question: "Que tenez-vous ?" },
+      { pronoun: "ils", form: "tiennent", full: "ils tiennent", en: "they hold / keep", example: "Ils tiennent leurs billets.", exampleEn: "They are holding their tickets.", negative: "Ils ne tiennent pas leurs billets.", negativeEn: "They are not holding their tickets." },
+      { pronoun: "elles", form: "tiennent", full: "elles tiennent", en: "they hold / keep", example: "Elles tiennent à cette idée.", exampleEn: "They care about this idea.", negative: "Elles ne tiennent pas à cette idée.", negativeEn: "They do not care about this idea." }
+    ];
+
     const allerRows = [
       { pronoun: "je", form: "vais", full: "je vais", en: "I go / I am going", example: "Je vais au travail.", exampleEn: "I am going to work.", negative: "Je ne vais pas au travail.", negativeEn: "I am not going to work." },
       { pronoun: "tu", form: "vas", full: "tu vas", en: "you go / you are going", example: "Tu vas à l’école.", exampleEn: "You are going to school.", negative: "Tu ne vas pas à l’école.", negativeEn: "You are not going to school.", question: "Vas-tu à l’école ?" },
@@ -795,7 +894,7 @@
         key: "regular",
         title: "Regular Verbs",
         indexTitle: "Regular",
-        descriptionHtml: "These verbs mostly follow the regular -er present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. A few keep pronunciation stable with spelling changes, like <strong>nous commençons</strong> and <strong>nous voyageons</strong>."
+        descriptionHtml: "These verbs follow common present-tense patterns. Regular <strong>-er</strong> verbs use <strong>-e, -es, -e, -ons, -ez, -ent</strong>; regular <strong>-ir</strong> verbs like <strong>finir</strong> use <strong>-is, -is, -it, -issons, -issez, -issent</strong>."
       },
       {
         key: "impersonal",
@@ -813,6 +912,28 @@
 
     const verbStudyItems = [
       {
+        key: "etreVerb",
+        group: "irregular",
+        label: "être",
+        title: "Être — to be",
+        tag: "core irregular / helper",
+        tableId: "verbEtreTable",
+        panelId: "verbEtrePanel",
+        descriptionHtml: "<strong>Être</strong> is a core irregular verb and also a helper verb for many passé composé forms such as <strong>elle est allée</strong>.",
+        rows: etreRows
+      },
+      {
+        key: "avoirVerb",
+        group: "irregular",
+        label: "avoir",
+        title: "Avoir — to have",
+        tag: "core irregular / helper",
+        tableId: "verbAvoirTable",
+        panelId: "verbAvoirPanel",
+        descriptionHtml: "<strong>Avoir</strong> is a core irregular verb and the most common helper verb in passé composé: <strong>j’ai parlé</strong>, <strong>tu as fini</strong>.",
+        rows: avoirRows
+      },
+      {
         key: "aller",
         group: "irregular",
         label: "aller",
@@ -829,6 +950,15 @@
         tag: "irregular",
         descriptionHtml: "<strong>Venir</strong> is another common irregular verb. Notice the stem changes: <strong>viens / vient</strong>, <strong>venons</strong>, <strong>venez</strong>, <strong>viennent</strong>.",
         rows: venirRows
+      },
+      {
+        key: "tenir",
+        group: "irregular",
+        label: "tenir",
+        title: "Tenir — to hold / keep",
+        tag: "irregular",
+        descriptionHtml: "<strong>Tenir</strong> follows a pattern similar to <strong>venir</strong>: <strong>tiens / tient</strong>, <strong>tenons</strong>, <strong>tenez</strong>, <strong>tiennent</strong>. Its past participle is irregular: <strong>tenu</strong>.",
+        rows: tenirRows
       },
       {
         key: "prendre",
@@ -929,6 +1059,78 @@
         tag: "irregular pattern",
         descriptionHtml: "<strong>Sentir</strong> changes from <strong>sens / sent</strong> to <strong>sentons</strong>, <strong>sentez</strong>, and <strong>sentent</strong>.",
         rows: sentirRows
+      },
+      {
+        key: "parler",
+        group: "regular",
+        label: "parler",
+        title: "Parler — to speak / talk",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Parler</strong> follows the regular -er present-tense pattern and is useful for languages and conversations.",
+        rows: parlerRows
+      },
+      {
+        key: "chercher",
+        group: "regular",
+        label: "chercher",
+        title: "Chercher — to look for",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Chercher</strong> follows the regular -er pattern. It means “to look for”; French does not need an extra word for “for.”",
+        rows: chercherRows
+      },
+      {
+        key: "manger",
+        group: "regular",
+        label: "manger",
+        title: "Manger — to eat",
+        tag: "regular -er with spelling change",
+        descriptionHtml: "<strong>Manger</strong> keeps the soft <strong>g</strong> sound in the nous form by adding <strong>e</strong>: <strong>nous mangeons</strong>.",
+        rows: mangerRows
+      },
+      {
+        key: "inviter",
+        group: "regular",
+        label: "inviter",
+        title: "Inviter — to invite",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Inviter</strong> follows the regular -er pattern. The <strong>je</strong> form becomes <strong>j’invite</strong>.",
+        rows: inviterRows
+      },
+      {
+        key: "finir",
+        group: "regular",
+        label: "finir",
+        title: "Finir — to finish",
+        tag: "regular -ir",
+        descriptionHtml: "<strong>Finir</strong> follows the regular -ir pattern: <strong>finis, finis, finit, finissons, finissez, finissent</strong>.",
+        rows: finirRows
+      },
+      {
+        key: "choisir",
+        group: "regular",
+        label: "choisir",
+        title: "Choisir — to choose",
+        tag: "regular -ir",
+        descriptionHtml: "<strong>Choisir</strong> follows the regular -ir pattern and is useful for menus, plans, and options.",
+        rows: choisirRows
+      },
+      {
+        key: "reussir",
+        group: "regular",
+        label: "réussir",
+        title: "Réussir — to succeed / pass",
+        tag: "regular -ir",
+        descriptionHtml: "<strong>Réussir</strong> follows the regular -ir pattern. It can mean “to succeed” or “to pass” an exam.",
+        rows: reussirRows
+      },
+      {
+        key: "unir",
+        group: "regular",
+        label: "unir",
+        title: "Unir — to unite / join",
+        tag: "regular -ir",
+        descriptionHtml: "<strong>Unir</strong> follows the regular -ir pattern and is useful for phrases like <strong>unir nos forces</strong>.",
+        rows: unirRows
       },
       {
         key: "habiter",
@@ -1178,6 +1380,78 @@
       "ils ont": "/il.zɔ̃/",
       "elles ont": "/ɛl.zɔ̃/",
 
+      "je parle": "/ʒə paʁl/",
+      "tu parles": "/ty paʁl/",
+      "il parle": "/il paʁl/",
+      "elle parle": "/ɛl paʁl/",
+      "nous parlons": "/nu paʁ.lɔ̃/",
+      "vous parlez": "/vu paʁ.le/",
+      "ils parlent": "/il paʁl/",
+      "elles parlent": "/ɛl paʁl/",
+
+      "je cherche": "/ʒə ʃɛʁʃ/",
+      "tu cherches": "/ty ʃɛʁʃ/",
+      "il cherche": "/il ʃɛʁʃ/",
+      "elle cherche": "/ɛl ʃɛʁʃ/",
+      "nous cherchons": "/nu ʃɛʁ.ʃɔ̃/",
+      "vous cherchez": "/vu ʃɛʁ.ʃe/",
+      "ils cherchent": "/il ʃɛʁʃ/",
+      "elles cherchent": "/ɛl ʃɛʁʃ/",
+
+      "je mange": "/ʒə mɑ̃ʒ/",
+      "tu manges": "/ty mɑ̃ʒ/",
+      "il mange": "/il mɑ̃ʒ/",
+      "elle mange": "/ɛl mɑ̃ʒ/",
+      "nous mangeons": "/nu mɑ̃.ʒɔ̃/",
+      "vous mangez": "/vu mɑ̃.ʒe/",
+      "ils mangent": "/il mɑ̃ʒ/",
+      "elles mangent": "/ɛl mɑ̃ʒ/",
+
+      "j’invite": "/ʒɛ̃.vit/",
+      "tu invites": "/ty ɛ̃.vit/",
+      "il invite": "/il ɛ̃.vit/",
+      "elle invite": "/ɛl ɛ̃.vit/",
+      "nous invitons": "/nu.zɛ̃.vi.tɔ̃/",
+      "vous invitez": "/vu.zɛ̃.vi.te/",
+      "ils invitent": "/il.zɛ̃.vit/",
+      "elles invitent": "/ɛl.zɛ̃.vit/",
+
+      "je finis": "/ʒə fi.ni/",
+      "tu finis": "/ty fi.ni/",
+      "il finit": "/il fi.ni/",
+      "elle finit": "/ɛl fi.ni/",
+      "nous finissons": "/nu fi.ni.sɔ̃/",
+      "vous finissez": "/vu fi.ni.se/",
+      "ils finissent": "/il fi.nis/",
+      "elles finissent": "/ɛl fi.nis/",
+
+      "je choisis": "/ʒə ʃwa.zi/",
+      "tu choisis": "/ty ʃwa.zi/",
+      "il choisit": "/il ʃwa.zi/",
+      "elle choisit": "/ɛl ʃwa.zi/",
+      "nous choisissons": "/nu ʃwa.zi.sɔ̃/",
+      "vous choisissez": "/vu ʃwa.zi.se/",
+      "ils choisissent": "/il ʃwa.zis/",
+      "elles choisissent": "/ɛl ʃwa.zis/",
+
+      "je réussis": "/ʒə ʁe.y.si/",
+      "tu réussis": "/ty ʁe.y.si/",
+      "il réussit": "/il ʁe.y.si/",
+      "elle réussit": "/ɛl ʁe.y.si/",
+      "nous réussissons": "/nu ʁe.y.si.sɔ̃/",
+      "vous réussissez": "/vu ʁe.y.si.se/",
+      "ils réussissent": "/il ʁe.y.sis/",
+      "elles réussissent": "/ɛl ʁe.y.sis/",
+
+      "j’unis": "/ʒy.ni/",
+      "tu unis": "/ty y.ni/",
+      "il unit": "/il y.ni/",
+      "elle unit": "/ɛl y.ni/",
+      "nous unissons": "/nu.zy.ni.sɔ̃/",
+      "vous unissez": "/vu.zy.ni.se/",
+      "ils unissent": "/il.zy.nis/",
+      "elles unissent": "/ɛl.zy.nis/",
+
       "je vais": "/ʒə vɛ/",
       "tu vas": "/ty va/",
       "il va": "/il va/",
@@ -1195,6 +1469,15 @@
       "vous venez": "/vu və.ne/",
       "ils viennent": "/il vjɛn/",
       "elles viennent": "/ɛl vjɛn/",
+
+      "je tiens": "/ʒə tjɛ̃/",
+      "tu tiens": "/ty tjɛ̃/",
+      "il tient": "/il tjɛ̃/",
+      "elle tient": "/ɛl tjɛ̃/",
+      "nous tenons": "/nu tə.nɔ̃/",
+      "vous tenez": "/vu tə.ne/",
+      "ils tiennent": "/il tjɛn/",
+      "elles tiennent": "/ɛl tjɛn/",
 
       "je prends": "/ʒə pʁɑ̃/",
       "tu prends": "/ty pʁɑ̃/",

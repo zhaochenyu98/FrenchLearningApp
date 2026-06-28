@@ -578,7 +578,7 @@
           const button = document.createElement("button");
           button.className = "verb-index-link";
           button.type = "button";
-          button.textContent = verb.infinitive;
+          button.innerHTML = getTenseIndexButtonHtml(verb);
           button.addEventListener("click", () => {
             stopPlayback();
             card.open = true;

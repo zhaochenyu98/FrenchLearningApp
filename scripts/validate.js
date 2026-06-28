@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 
 const root = path.resolve(__dirname, "..");
 const htmlPath = path.join(root, "index.html");
@@ -47,7 +48,7 @@ const referencedIds = Array.from(
   match => match[1]
 );
 const configuredIds = Array.from(
-  combinedJavaScript.matchAll(/(?:tableId|playButtonId): "([^"]+)"/g),
+  combinedJavaScript.matchAll(/playButtonId: "([^"]+)"/g),
   match => match[1]
 );
 const missingIds = Array.from(
@@ -85,6 +86,110 @@ if (duplicateTabs.length || duplicateSectionTabs.length) {
 
 if (/\sstyle="/.test(html)) {
   fail("inline style attributes found; use reusable classes in styles.css");
+}
+
+function canonicalVerbName(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’‘]/g, "'")
+    .toLowerCase()
+    .replace(/^s'/, "se ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function loadGrammarAndTenseData() {
+  const context = {};
+  vm.createContext(context);
+  const grammarCode = fs.readFileSync(path.join(root, "js/data/grammar.js"), "utf8");
+  const tenseCode = fs.readFileSync(path.join(root, "js/data/tenses.js"), "utf8");
+  vm.runInContext(`${grammarCode}\nthis.__grammar = { verbStudyItems };`, context);
+  vm.runInContext(`${tenseCode}\nthis.__tense = { passeComposeGroups };`, context);
+  return {
+    verbStudyItems: context.__grammar.verbStudyItems,
+    passeComposeGroups: context.__tense.passeComposeGroups
+  };
+}
+
+function validateVerbTenseSync() {
+  const { verbStudyItems, passeComposeGroups } = loadGrammarAndTenseData();
+  const impersonalBaseVerbs = new Map([
+    ["il faut", "falloir"],
+    ["il y a", "avoir"],
+    ["il fait", "faire"],
+    ["il est", "être"]
+  ]);
+
+  const presentEntries = verbStudyItems.map(item => {
+    const base = item.syncInfinitive || impersonalBaseVerbs.get(item.label) || item.label;
+    return {
+      label: item.label,
+      base,
+      canonical: canonicalVerbName(base),
+      presentGroup: item.group
+    };
+  });
+
+  const tenseEntries = passeComposeGroups.flatMap(group => group.verbs.map(verb => ({
+    infinitive: verb.infinitive,
+    canonical: canonicalVerbName(verb.infinitive),
+    tenseGroup: group.key,
+    infinitiveIpa: verb.infinitiveIpa,
+    pastParticipleIpa: verb.pastParticipleIpa
+  })));
+
+  const presentByVerb = new Map();
+  presentEntries.forEach(entry => {
+    if (!presentByVerb.has(entry.canonical)) presentByVerb.set(entry.canonical, []);
+    presentByVerb.get(entry.canonical).push(entry);
+  });
+  const tenseByVerb = new Map(tenseEntries.map(entry => [entry.canonical, entry]));
+
+  const missingInTense = Array.from(presentByVerb.entries())
+    .filter(([canonical]) => !tenseByVerb.has(canonical))
+    .map(([, entries]) => entries.map(entry => entry.label).join(" / "));
+  if (missingInTense.length) {
+    fail(`verbs tab entries missing from tense tab: ${missingInTense.join(", ")}`);
+  }
+
+  const missingInPresent = tenseEntries
+    .filter(entry => !presentByVerb.has(entry.canonical))
+    .map(entry => entry.infinitive);
+  if (missingInPresent.length) {
+    fail(`tense tab entries missing from verbs tab: ${missingInPresent.join(", ")}`);
+  }
+
+  const expectedTenseGroup = (entry) => {
+    if (entry.presentGroup === "pronominal") return "pronominal";
+    if (entry.presentGroup === "regular" && entry.canonical.endsWith("ir")) return "ir";
+    if (entry.presentGroup === "regular" && entry.canonical.endsWith("er")) return "er";
+    return "irregular";
+  };
+
+  const wrongGroups = tenseEntries.flatMap(tenseEntry => {
+    const presentMatches = presentByVerb.get(tenseEntry.canonical) || [];
+    const expectedGroups = new Set(presentMatches.map(expectedTenseGroup));
+    return expectedGroups.size && !expectedGroups.has(tenseEntry.tenseGroup)
+      ? [`${tenseEntry.infinitive}: expected ${Array.from(expectedGroups).join(" or ")}, found ${tenseEntry.tenseGroup}`]
+      : [];
+  });
+  if (wrongGroups.length) {
+    fail(`tense tab verbs in wrong category: ${wrongGroups.join("; ")}`);
+  }
+
+  const missingIpa = tenseEntries
+    .filter(entry => !entry.infinitiveIpa || !entry.pastParticipleIpa)
+    .map(entry => entry.infinitive);
+  if (missingIpa.length) {
+    fail(`tense tab verbs missing infinitive or past participle IPA: ${missingIpa.join(", ")}`);
+  }
+}
+
+try {
+  validateVerbTenseSync();
+} catch (error) {
+  fail(`verb/tense sync validation crashed: ${error.message}`);
 }
 
 if (!process.exitCode) {

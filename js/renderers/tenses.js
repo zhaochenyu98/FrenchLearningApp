@@ -16,6 +16,25 @@
       return `tense-${slug}`;
     }
 
+    function getTenseVerbButtonHtml(verb) {
+      return `
+        <span class="tiny-label">Infinitive</span>
+        <span class="noun-example-main">${verb.infinitive}</span>
+        ${verb.infinitiveIpa ? `<span class="tense-ipa">${verb.infinitiveIpa}</span>` : ""}
+        <span class="tiny-label">Past participle</span>
+        <span class="noun-example-main">${verb.pastParticiple}</span>
+        ${verb.pastParticipleIpa ? `<span class="tense-ipa">${verb.pastParticipleIpa}</span>` : ""}
+        <span class="translation">${verb.meaning}</span>
+      `;
+    }
+
+    function getTenseIndexButtonHtml(verb) {
+      return `
+        <span class="tense-index-main">${verb.infinitive} → ${verb.pastParticiple}</span>
+        <span class="tense-index-ipa">${verb.infinitiveIpa || ""}${verb.infinitiveIpa && verb.pastParticipleIpa ? " → " : ""}${verb.pastParticipleIpa || ""}</span>
+      `;
+    }
+
     function getPastParticipleSpeech(verb) {
       return (verb.participleSpeech || verb.pastParticiple)
         .replace(/\s*\/[^/]+\/\s*/g, "")
@@ -57,13 +76,13 @@
           <div>
             <span class="question-cell-label">Infinitive</span>
             <button class="noun-example-btn tense-verb-btn" type="button" data-verb-index="${verbIndex}">
-              <span class="noun-example-main">${verb.infinitive}</span>
-              <span class="translation">${verb.meaning}</span>
+              ${getTenseVerbButtonHtml(verb)}
             </button>
           </div>
           <div>
             <span class="question-cell-label">Past participle</span>
             <div class="french-line">${verb.auxiliary} + ${verb.pastParticiple}</div>
+            ${verb.pastParticipleIpa ? `<div class="tense-ipa">${verb.pastParticipleIpa}</div>` : ""}
             <div class="grammar-note">${verb.pattern}</div>
             <div class="translation">${verb.note}</div>
           </div>
@@ -104,7 +123,8 @@
       const containers = {
         er: passeComposeErGrid,
         ir: passeComposeIrGrid,
-        irregular: passeComposeIrregularGrid
+        irregular: passeComposeIrregularGrid,
+        pronominal: passeComposePronominalGrid
       };
 
       groups.forEach(group => {

@@ -91,6 +91,7 @@
     const passeComposeErGrid = document.getElementById("passeComposeErGrid");
     const passeComposeIrGrid = document.getElementById("passeComposeIrGrid");
     const passeComposeIrregularGrid = document.getElementById("passeComposeIrregularGrid");
+    const passeComposePronominalGrid = document.getElementById("passeComposePronominalGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
     const grammarFlashcardEnglish = document.getElementById("grammarFlashcardEnglish");
     const grammarFlashcardHint = document.getElementById("grammarFlashcardHint");
