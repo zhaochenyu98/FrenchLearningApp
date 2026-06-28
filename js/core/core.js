@@ -88,6 +88,9 @@
     const tonicPronounUsageGrid = document.getElementById("tonicPronounUsageGrid");
     const exampleGrid = document.getElementById("exampleGrid");
     const verbGroupStack = document.getElementById("verbGroupStack");
+    const passeComposeErGrid = document.getElementById("passeComposeErGrid");
+    const passeComposeIrGrid = document.getElementById("passeComposeIrGrid");
+    const passeComposeIrregularGrid = document.getElementById("passeComposeIrregularGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
     const grammarFlashcardEnglish = document.getElementById("grammarFlashcardEnglish");
     const grammarFlashcardHint = document.getElementById("grammarFlashcardHint");
@@ -161,6 +164,7 @@
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
     const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
     const playAdjectivesBtn = document.getElementById("playAdjectives");
+    const playTenseExamplesBtn = document.getElementById("playTenseExamples");
     const playPrepositionsBtn = document.getElementById("playPrepositions");
     const previousPrepositionFlashcardBtn = document.getElementById("previousPrepositionFlashcard");
     const nextPrepositionFlashcardBtn = document.getElementById("nextPrepositionFlashcard");

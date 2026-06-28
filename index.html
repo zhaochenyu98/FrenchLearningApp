@@ -42,6 +42,7 @@
         <button class="tab-btn" type="button" data-tab="pronouns">Pronouns</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
+        <button class="tab-btn" type="button" data-tab="tense">Tense</button>
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
         <button class="tab-btn" type="button" data-tab="adjectives">Adjectives</button>
         <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
@@ -497,6 +498,54 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="tenseSection" class="section" data-tab="tense">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Tenses</h2>
+            <p class="section-desc">Practice <strong>le passé composé</strong>: helper verb + past participle. Click any verb or sentence form to hear it.</p>
+          </div>
+          <div class="action-row">
+            <button class="action-btn" type="button" id="playTenseExamples">Play passé composé examples</button>
+          </div>
+        </div>
+
+        <div class="panel panel-bottom" data-study-section="tense-quick-notes">
+          <h3>Passé composé quick notes</h3>
+          <div class="summary-chips">
+            <div class="summary-chip">
+              <strong>Most verbs</strong>
+              <span>Use <strong>avoir</strong> in the present tense + past participle: <strong>j’ai parlé</strong>, <strong>tu as fini</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Some movement verbs</strong>
+              <span>Use <strong>être</strong>: <strong>elle est allée</strong>, <strong>nous sommes partis</strong>. The past participle agrees with the subject.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Questions</strong>
+              <span>Practice with <strong>est-ce que</strong> or inversion, never just a statement plus a question mark.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-panel" data-study-section="tense-er">
+          <h3>-er verbs → -é</h3>
+          <p>For regular <strong>-er</strong> verbs, remove <strong>-er</strong> and add <strong>-é</strong>: <strong>parler → parlé</strong>.</p>
+          <div id="passeComposeErGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="tense-ir">
+          <h3>-ir verbs → -i, plus tenir → tenu</h3>
+          <p>Regular <strong>-ir</strong> verbs often change to <strong>-i</strong>: <strong>finir → fini</strong>. <strong>Tenir</strong> is included here as an important exception: <strong>tenu</strong>.</p>
+          <div id="passeComposeIrGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="tense-irregular">
+          <h3>Irregular past participles</h3>
+          <p>These high-frequency verbs have past participles you mostly memorize: <strong>eu</strong>, <strong>été</strong>, <strong>vu</strong>, <strong>fait</strong>, <strong>pris</strong>, and more.</p>
+          <div id="passeComposeIrregularGrid" class="noun-rules-table"></div>
         </div>
       </section>
 
@@ -1095,10 +1144,12 @@
   <script defer src="js/data/questions.js"></script>
   <script defer src="js/data/vocabulary.js"></script>
   <script defer src="js/data/determiners-prepositions.js"></script>
+  <script defer src="js/data/tenses.js"></script>
   <script defer src="js/core/core.js"></script>
   <script defer src="js/renderers/numbers.js"></script>
   <script defer src="js/renderers/pronunciation.js"></script>
   <script defer src="js/renderers/grammar.js"></script>
+  <script defer src="js/renderers/tenses.js"></script>
   <script defer src="js/renderers/flashcards.js"></script>
   <script defer src="js/renderers/vocabulary.js"></script>
   <script defer src="js/renderers/questions.js"></script>

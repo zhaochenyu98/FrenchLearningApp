@@ -24,6 +24,15 @@
           { id: "notes", title: "Notes & examples", elements: ["#grammarSection > .two-col"] }
         ]
       },
+      tense: {
+        title: "Tense index",
+        sections: [
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="tense-quick-notes"]'] },
+          { id: "er", title: "-er → -é", open: true, elements: ['[data-study-section="tense-er"]'] },
+          { id: "ir", title: "-ir → -i", elements: ['[data-study-section="tense-ir"]'] },
+          { id: "irregular", title: "Irregular", elements: ['[data-study-section="tense-irregular"]'] }
+        ]
+      },
       adjectives: {
         title: "Adjective index",
         sections: [
@@ -125,6 +134,10 @@
         renderVerbTables("verbs");
         initializeVerbGroups();
         renderVerbIndex();
+      },
+      tense() {
+        renderPasseComposeGroups();
+        initializeStudyIndex("tense");
       },
       nouns() {
         renderNounPluralRules();
@@ -868,6 +881,10 @@
         ])),
         ...getSpecialAdjectiveExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
       ]);
+    });
+
+    playTenseExamplesBtn.addEventListener("click", () => {
+      speakSequence(getPasseComposeAudioItems());
     });
 
     playPrepositionsBtn.addEventListener("click", () => {
