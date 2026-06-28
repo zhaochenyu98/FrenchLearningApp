@@ -299,7 +299,7 @@
         return;
       }
 
-      columns.forEach(column => {
+      columns.filter(column => column.items.length).forEach(column => {
         const columnEl = document.createElement("div");
         columnEl.className = "verb-column";
         columnEl.innerHTML = `<div class="verb-column-title">${column.title}</div>`;

@@ -757,6 +757,22 @@
       { pronoun: "elles", form: "coûtent", full: "elles coûtent", en: "they cost", example: "Elles coûtent cher.", exampleEn: "They cost a lot.", negative: "Elles ne coûtent pas cher.", negativeEn: "They do not cost a lot." }
     ];
 
+    const falloirRows = [
+      { pronoun: "il", form: "faut", full: "il faut", en: "it is necessary / one must", example: "Il faut réserver une table.", exampleEn: "It is necessary to reserve a table.", negative: "Il ne faut pas réserver de table.", negativeEn: "One must not reserve a table.", question: "Faut-il réserver une table ?" }
+    ];
+
+    const ilYARows = [
+      { pronoun: "il", form: "y a", full: "il y a", en: "there is / there are", example: "Il y a une pharmacie près de la gare.", exampleEn: "There is a pharmacy near the train station.", negative: "Il n’y a pas de pharmacie près de la gare.", negativeEn: "There is no pharmacy near the train station.", question: "Y a-t-il une pharmacie près de la gare ?" }
+    ];
+
+    const impersonalFaireRows = [
+      { pronoun: "il", form: "fait", full: "il fait", en: "it is / weather expression", example: "Il fait chaud aujourd’hui.", exampleEn: "It is hot today.", negative: "Il ne fait pas chaud aujourd’hui.", negativeEn: "It is not hot today.", question: "Fait-il chaud aujourd’hui ?" }
+    ];
+
+    const impersonalEtreRows = [
+      { pronoun: "il", form: "est", full: "il est", en: "it is / time expression", example: "Il est huit heures.", exampleEn: "It is eight o’clock.", negative: "Il n’est pas huit heures.", negativeEn: "It is not eight o’clock.", question: "Est-il huit heures ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", playButtonId: "playEtre", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", playButtonId: "playAvoir", rows: avoirRows }
@@ -780,6 +796,12 @@
         title: "Regular Verbs",
         indexTitle: "Regular",
         descriptionHtml: "These verbs mostly follow the regular -er present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. A few keep pronunciation stable with spelling changes, like <strong>nous commençons</strong> and <strong>nous voyageons</strong>."
+      },
+      {
+        key: "impersonal",
+        title: "Verbes impersonnels",
+        indexTitle: "Impersonal",
+        descriptionHtml: "Impersonal verbs keep the fixed subject <strong>il</strong>. Here, <strong>il</strong> does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, and <strong>il est</strong> are set patterns to learn as chunks."
       },
       {
         key: "pronominal",
@@ -1044,6 +1066,42 @@
         rows: couterRows
       },
       {
+        key: "falloir",
+        group: "impersonal",
+        label: "il faut",
+        title: "Il faut — falloir",
+        tag: "impersonal",
+        descriptionHtml: "<strong>Falloir</strong> is only used impersonally in the present tense: <strong>il faut</strong>. It means “it is necessary / one must.” In the negative, <strong>il ne faut pas</strong> often means “must not / should not.”",
+        rows: falloirRows
+      },
+      {
+        key: "ilYA",
+        group: "impersonal",
+        label: "il y a",
+        title: "Il y a — there is / there are",
+        tag: "impersonal",
+        descriptionHtml: "<strong>Il y a</strong> is a fixed expression meaning “there is / there are.” In inversion questions, it becomes <strong>Y a-t-il ... ?</strong>",
+        rows: ilYARows
+      },
+      {
+        key: "impersonalFaire",
+        group: "impersonal",
+        label: "il fait",
+        title: "Il fait — faire",
+        tag: "weather",
+        descriptionHtml: "Use <strong>il fait</strong> for many weather and temperature expressions: <strong>Il fait chaud.</strong>, <strong>Il fait froid.</strong>, <strong>Il fait beau.</strong>",
+        rows: impersonalFaireRows
+      },
+      {
+        key: "impersonalEtre",
+        group: "impersonal",
+        label: "il est",
+        title: "Il est — être",
+        tag: "impersonal",
+        descriptionHtml: "Use <strong>il est</strong> for time and some fixed impersonal descriptions. For time, the question form can use inversion: <strong>Est-il huit heures ?</strong>",
+        rows: impersonalEtreRows
+      },
+      {
         key: "seLaver",
         group: "pronominal",
         label: "se laver",
@@ -1100,6 +1158,9 @@
       "je suis": "/ʒə sɥi/",
       "tu es": "/ty ɛ/",
       "il est": "/il ɛ/",
+      "il faut": "/il fo/",
+      "il y a": "/il i.ja/",
+      "il fait": "/il fɛ/",
       "elle est": "/ɛl ɛ/",
       "nous sommes": "/nu sɔm/",
       "on est": "/ɔ̃.nɛ/",
