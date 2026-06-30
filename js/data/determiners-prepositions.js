@@ -497,3 +497,33 @@
         ]
       }
     ];
+
+    const timePrepositions = [
+      {
+        fr: "pour",
+        en: "for + duration",
+        note: "planned or expected duration: how long something lasts",
+        examples: [
+          { fr: "Je pars pour trois jours.", en: "I’m leaving for three days." },
+          { fr: "Nous restons à Lyon pour une semaine.", en: "We are staying in Lyon for one week." },
+          { fr: "Elle a réservé la salle pour deux heures.", en: "She reserved the room for two hours." },
+          { fr: "J’ai un contrat pour six mois.", en: "I have a contract for six months." }
+        ]
+      },
+      {
+        fr: "dans",
+        en: "in / after + duration",
+        note: "time from now until something happens",
+        examples: [
+          { fr: "Je pars dans trois jours.", en: "I’m leaving in three days." },
+          { fr: "Le train arrive dans dix minutes.", en: "The train arrives in ten minutes." },
+          { fr: "Nous commençons dans une heure.", en: "We start in one hour." },
+          { fr: "Elle revient dans deux semaines.", en: "She is coming back in two weeks." }
+        ]
+      }
+    ];
+
+    const allPrepositionItems = [
+      ...placePrepositions,
+      ...timePrepositions
+    ];

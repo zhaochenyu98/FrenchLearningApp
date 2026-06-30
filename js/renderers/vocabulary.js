@@ -320,14 +320,14 @@
       });
     }
 
-    function renderPrepositions(list = placePrepositions) {
-      prepositionTable.innerHTML = "";
+    function renderPrepositionTable(targetGrid, list, emptyMessage) {
+      targetGrid.innerHTML = "";
       if (!list.length) {
-        prepositionTable.innerHTML = `<div class="empty-state">No prepositions available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      prepositionTable.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="preposition-header">
           <div>French preposition</div>
           <div>English meaning</div>
@@ -371,6 +371,11 @@
             speak(example.fr, button);
           });
         });
-        prepositionTable.appendChild(row);
+        targetGrid.appendChild(row);
       });
+    }
+
+    function renderPrepositions(list = placePrepositions) {
+      renderPrepositionTable(prepositionTable, list, "No prepositions available.");
+      renderPrepositionTable(timePrepositionTable, timePrepositions, "No time prepositions available.");
     }

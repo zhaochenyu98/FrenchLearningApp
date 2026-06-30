@@ -1,4 +1,4 @@
-    const prepositionFlashcards = placePrepositions.flatMap(item =>
+    const prepositionFlashcards = allPrepositionItems.flatMap(item =>
       item.examples.map(example => ({
         fr: example.fr,
         en: example.en,
@@ -123,6 +123,7 @@
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
     const prepositionTable = document.getElementById("prepositionTable");
+    const timePrepositionTable = document.getElementById("timePrepositionTable");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");

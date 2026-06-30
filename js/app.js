@@ -1008,7 +1008,7 @@
     });
 
     playPrepositionsBtn.addEventListener("click", () => {
-      speakSequence(placePrepositions.flatMap(item => ([
+      speakSequence(allPrepositionItems.flatMap(item => ([
         { text: item.fr },
         ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
       ])));
