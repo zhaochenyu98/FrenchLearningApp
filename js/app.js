@@ -474,22 +474,24 @@
         const links = document.createElement("div");
         links.className = "verb-index-links";
 
-        groupConfigs.forEach(config => {
-          const panel = getVerbPanel(config);
-          if (!panel) return;
+        [...groupConfigs]
+          .sort((a, b) => a.label.localeCompare(b.label, "fr"))
+          .forEach(config => {
+            const panel = getVerbPanel(config);
+            if (!panel) return;
 
-          const button = document.createElement("button");
-          button.className = "verb-index-link";
-          button.type = "button";
-          button.textContent = config.label;
-          button.addEventListener("click", () => {
-            stopPlayback();
-            setVerbGroupCollapsed(panel.closest(".verb-group"), false);
-            panel.scrollIntoView({ behavior: "smooth", block: "start" });
-            panel.focus({ preventScroll: true });
+            const button = document.createElement("button");
+            button.className = "verb-index-link";
+            button.type = "button";
+            button.textContent = config.label;
+            button.addEventListener("click", () => {
+              stopPlayback();
+              setVerbGroupCollapsed(panel.closest(".verb-group"), false);
+              panel.scrollIntoView({ behavior: "smooth", block: "start" });
+              panel.focus({ preventScroll: true });
+            });
+            links.appendChild(button);
           });
-          links.appendChild(button);
-        });
 
         groupBlock.appendChild(links);
         index.appendChild(groupBlock);
