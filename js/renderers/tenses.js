@@ -18,12 +18,10 @@
 
     function getTenseVerbButtonHtml(verb) {
       return `
-        <span class="tiny-label">Infinitive</span>
         <span class="noun-example-main">${verb.infinitive}</span>
         ${verb.infinitiveIpa ? `<span class="tense-ipa">${verb.infinitiveIpa}</span>` : ""}
         <span class="noun-example-main">→ ${verb.pastParticiple}</span>
         ${verb.pastParticipleIpa ? `<span class="tense-ipa">${verb.pastParticipleIpa}</span>` : ""}
-        <span class="translation">${verb.meaning}</span>
       `;
     }
 

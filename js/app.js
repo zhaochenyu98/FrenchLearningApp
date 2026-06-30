@@ -505,11 +505,11 @@
 
       const aside = document.createElement("aside");
       aside.className = "study-index";
-      aside.setAttribute("aria-label", "Tense index");
+      aside.setAttribute("aria-label", "Passé composé index");
 
       const title = document.createElement("div");
       title.className = "study-index-title";
-      title.textContent = "Tense index";
+      title.textContent = "Passé composé index";
 
       const controls = document.createElement("div");
       controls.className = "study-index-controls";
@@ -588,20 +588,22 @@
         const groupLinks = document.createElement("div");
         groupLinks.className = "verb-index-links";
 
-        group.verbs.forEach(verb => {
-          const button = document.createElement("button");
-          button.className = "verb-index-link";
-          button.type = "button";
-          button.innerHTML = getTenseIndexButtonHtml(verb);
-          button.addEventListener("click", () => {
-            stopPlayback();
-            card.open = true;
-            const target = document.getElementById(getPasseComposeVerbId(group, verb));
-            (target || card).scrollIntoView({ behavior: "smooth", block: "start" });
-            if (target) target.focus({ preventScroll: true });
+        [...group.verbs]
+          .sort((a, b) => a.infinitive.localeCompare(b.infinitive, "fr"))
+          .forEach(verb => {
+            const button = document.createElement("button");
+            button.className = "verb-index-link";
+            button.type = "button";
+            button.innerHTML = getTenseIndexButtonHtml(verb);
+            button.addEventListener("click", () => {
+              stopPlayback();
+              card.open = true;
+              const target = document.getElementById(getPasseComposeVerbId(group, verb));
+              (target || card).scrollIntoView({ behavior: "smooth", block: "start" });
+              if (target) target.focus({ preventScroll: true });
+            });
+            groupLinks.appendChild(button);
           });
-          groupLinks.appendChild(button);
-        });
 
         groupBlock.appendChild(groupLinks);
         links.appendChild(groupBlock);
