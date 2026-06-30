@@ -21,8 +21,7 @@
         <span class="tiny-label">Infinitive</span>
         <span class="noun-example-main">${verb.infinitive}</span>
         ${verb.infinitiveIpa ? `<span class="tense-ipa">${verb.infinitiveIpa}</span>` : ""}
-        <span class="tiny-label">Past participle</span>
-        <span class="noun-example-main">${verb.pastParticiple}</span>
+        <span class="noun-example-main">→ ${verb.pastParticiple}</span>
         ${verb.pastParticipleIpa ? `<span class="tense-ipa">${verb.pastParticipleIpa}</span>` : ""}
         <span class="translation">${verb.meaning}</span>
       `;
@@ -30,8 +29,7 @@
 
     function getTenseIndexButtonHtml(verb) {
       return `
-        <span class="tense-index-main">${verb.infinitive} → ${verb.pastParticiple}</span>
-        <span class="tense-index-ipa">${verb.infinitiveIpa || ""}${verb.infinitiveIpa && verb.pastParticipleIpa ? " → " : ""}${verb.pastParticipleIpa || ""}</span>
+        <span class="tense-index-main">${verb.infinitive}</span>
       `;
     }
 

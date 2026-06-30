@@ -1,26 +1,26 @@
     const tonicPronounRows = [
       {
         singularZh: "我",
-        singularForms: [{ fr: "moi", en: "me / myself" }],
+        singularForms: [{ fr: "moi", ipa: "/mwa/", en: "me / myself", example: "C’est moi.", exampleEn: "It’s me." }],
         pluralZh: "我们",
-        pluralForms: [{ fr: "nous", en: "us / ourselves" }]
+        pluralForms: [{ fr: "nous", ipa: "/nu/", en: "us / ourselves", example: "C’est nous.", exampleEn: "It’s us." }]
       },
       {
         singularZh: "你",
-        singularForms: [{ fr: "toi", en: "you / yourself" }],
+        singularForms: [{ fr: "toi", ipa: "/twa/", en: "you / yourself", example: "Et toi ?", exampleEn: "And you?" }],
         pluralZh: "你们",
-        pluralForms: [{ fr: "vous", en: "you / yourselves" }]
+        pluralForms: [{ fr: "vous", ipa: "/vu/", en: "you / yourselves", example: "Je pense à vous.", exampleEn: "I am thinking of you." }]
       },
       {
         singularZh: "他 / 她",
         singularForms: [
-          { fr: "lui", en: "him / himself" },
-          { fr: "elle", en: "her / herself" }
+          { fr: "lui", ipa: "/lɥi/", en: "him / himself", example: "Je parle avec lui.", exampleEn: "I am speaking with him." },
+          { fr: "elle", ipa: "/ɛl/", en: "her / herself", example: "Je vais avec elle.", exampleEn: "I am going with her." }
         ],
         pluralZh: "他们 / 她们",
         pluralForms: [
-          { fr: "eux", en: "them / themselves (masculine or mixed)" },
-          { fr: "elles", en: "them / themselves (feminine)" }
+          { fr: "eux", ipa: "/ø/", en: "them / themselves (masculine or mixed)", example: "C’est pour eux.", exampleEn: "It’s for them." },
+          { fr: "elles", ipa: "/ɛl/", en: "them / themselves (feminine)", example: "Je parle avec elles.", exampleEn: "I am speaking with them." }
         ]
       }
     ];
@@ -28,21 +28,21 @@
     const reflexivePronounRows = [
       {
         singularZh: "我",
-        singularForms: [{ fr: "me / m’", speech: "me", en: "myself" }],
+        singularForms: [{ fr: "me / m’", speech: "me", ipa: "/mə/", en: "myself", example: "Je me lave les mains.", exampleEn: "I wash my hands." }],
         pluralZh: "我们",
-        pluralForms: [{ fr: "nous", en: "ourselves" }]
+        pluralForms: [{ fr: "nous", ipa: "/nu/", en: "ourselves", example: "Nous nous levons ensemble.", exampleEn: "We get up together." }]
       },
       {
         singularZh: "你",
-        singularForms: [{ fr: "te / t’", speech: "te", en: "yourself" }],
+        singularForms: [{ fr: "te / t’", speech: "te", ipa: "/tə/", en: "yourself", example: "Tu te lèves tôt.", exampleEn: "You get up early." }],
         pluralZh: "你们",
-        pluralForms: [{ fr: "vous", en: "yourselves" }]
+        pluralForms: [{ fr: "vous", ipa: "/vu/", en: "yourselves", example: "Vous vous habillez vite.", exampleEn: "You get dressed quickly." }]
       },
       {
         singularZh: "他 / 她",
-        singularForms: [{ fr: "se / s’", speech: "se", en: "himself / herself" }],
+        singularForms: [{ fr: "se / s’", speech: "se", ipa: "/sə/", en: "himself / herself", example: "Il se repose l’après-midi.", exampleEn: "He rests in the afternoon." }],
         pluralZh: "他们 / 她们",
-        pluralForms: [{ fr: "se / s’", speech: "se", en: "themselves" }]
+        pluralForms: [{ fr: "se / s’", speech: "se", ipa: "/sə/", en: "themselves", example: "Elles se reposent après le cours.", exampleEn: "They rest after class." }]
       }
     ];
 

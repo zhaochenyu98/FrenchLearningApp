@@ -207,13 +207,18 @@
       const renderForms = row => `
         <div class="tonic-pronoun-form-list">
           ${row.forms.map(form => `
-            <button class="pronoun-card tonic-pronoun-form-btn poss-cell-btn" type="button" data-form="${form.form}" data-example="${form.example}">
-              <span class="matrix-label">${form.label}</span>
-              <span class="pronoun-main">${form.form}</span>
-              ${form.ipa ? `<span class="possessive-ipa">${form.ipa}</span>` : ""}
-              <span class="poss-example">${form.example}</span>
-              <span class="poss-example">${form.exampleEn}</span>
-            </button>
+            <div class="pronoun-study-card poss-study-card">
+              <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn poss-word-btn" type="button" data-speech="${form.form}">
+                <span class="matrix-label">${form.label}</span>
+                <span class="pronoun-main">${form.form}</span>
+                ${form.ipa ? `<span class="pronoun-ipa">${form.ipa}</span>` : ""}
+              </button>
+              <button class="pronoun-example-btn poss-example-btn" type="button" data-example="${form.example}">
+                <span class="tiny-label">Example</span>
+                <span class="noun-example-main">${form.example}</span>
+                <span class="translation">${form.exampleEn}</span>
+              </button>
+            </div>
           `).join("")}
         </div>
       `;
@@ -243,8 +248,11 @@
             ${renderForms(rowData.plural)}
           </div>
         `;
-        rowEl.querySelectorAll(".poss-cell-btn").forEach(button => {
-          button.addEventListener("click", () => speakWithPause(button.dataset.form, button.dataset.example, button));
+        rowEl.querySelectorAll(".poss-word-btn").forEach(button => {
+          button.addEventListener("click", () => speak(button.dataset.speech, button));
+        });
+        rowEl.querySelectorAll(".poss-example-btn").forEach(button => {
+          button.addEventListener("click", () => speak(button.dataset.example, button));
         });
 
         possessiveGrid.appendChild(rowEl);

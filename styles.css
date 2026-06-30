@@ -130,6 +130,7 @@
     .verb-form-btn,
     .verb-example-btn,
     .pronoun-card,
+    .pronoun-example-btn,
     .example-card,
     .question-row-card,
     .noun-example-btn,
@@ -137,8 +138,7 @@
     .preposition-word-btn,
     .preposition-example-btn,
     .demonstrative-form-btn,
-    .theme-btn,
-    .poss-cell-btn {
+    .theme-btn {
       font: inherit;
     }
 
@@ -324,8 +324,7 @@
     .adjective-form-btn,
     .preposition-word-btn,
     .preposition-example-btn,
-    .demonstrative-form-btn,
-    .poss-cell-btn {
+    .demonstrative-form-btn {
       border: 1px solid var(--border);
       border-radius: 18px;
       background: var(--card);
@@ -345,8 +344,7 @@
     .adjective-form-btn:hover,
     .preposition-word-btn:hover,
     .preposition-example-btn:hover,
-    .demonstrative-form-btn:hover,
-    .poss-cell-btn:hover {
+    .demonstrative-form-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent-border);
     }
@@ -358,8 +356,7 @@
     .adjective-form-btn:active,
     .preposition-word-btn:active,
     .preposition-example-btn:active,
-    .demonstrative-form-btn:active,
-    .poss-cell-btn:active {
+    .demonstrative-form-btn:active {
       transform: translateY(0);
     }
 
@@ -402,7 +399,7 @@
     .verb-ipa,
     .calendar-ipa,
     .tense-ipa,
-    .possessive-ipa {
+    .pronoun-ipa {
       display: inline-block;
       margin-top: 8px;
       padding: 3px 8px;
@@ -419,26 +416,13 @@
     .verb-ipa,
     .calendar-ipa,
     .tense-ipa,
-    .possessive-ipa {
+    .pronoun-ipa {
       margin-bottom: 2px;
     }
 
-    .tense-index-main,
-    .tense-index-ipa {
-      display: block;
-    }
-
     .tense-index-main {
+      display: block;
       font-weight: 850;
-    }
-
-    .tense-index-ipa {
-      margin-top: 3px;
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.78rem;
-      font-weight: 800;
-      line-height: 1.25;
     }
 
     .translation,
@@ -1258,16 +1242,64 @@
       gap: 8px;
     }
 
+    .pronoun-study-card {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .pronoun-study-card .pronoun-card,
+    .pronoun-example-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .pronoun-study-card .pronoun-card:hover,
+    .pronoun-example-btn:hover {
+      transform: none;
+      background: var(--accent-soft);
+    }
+
+    .pronoun-study-card .pronoun-card:active,
+    .pronoun-example-btn:active {
+      transform: none;
+    }
+
     .tonic-pronoun-form-btn {
       border-radius: 14px;
       min-height: 78px;
       padding: 10px 12px;
     }
 
+    .pronoun-study-card .tonic-pronoun-form-btn {
+      min-height: 0;
+      padding: 12px;
+      border-bottom: 1px dashed var(--accent-border);
+    }
+
     .tonic-pronoun-form-btn .pronoun-main {
       color: var(--accent);
       font-size: 1.18rem;
       font-weight: 900;
+    }
+
+    .pronoun-example-btn {
+      padding: 10px 12px 12px;
+    }
+
+    .pronoun-example-btn .tiny-label,
+    .pronoun-example-btn .translation {
+      color: var(--muted);
     }
 
     .adjective-forms-table {
@@ -1696,18 +1728,6 @@
     .summary-chip strong {
       display: block;
       margin-bottom: 4px;
-    }
-
-    .poss-cell-btn {
-      padding: 12px;
-      border-radius: 16px;
-    }
-
-    .poss-example {
-      display: block;
-      color: var(--muted);
-      line-height: 1.4;
-      font-size: 0.93rem;
     }
 
     .empty-state {

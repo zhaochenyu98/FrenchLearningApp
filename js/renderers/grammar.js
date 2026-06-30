@@ -10,6 +10,27 @@
       return rules.flatMap(rule => rule.examples.flatMap(example => example.lines.map(line => line.fr)));
     }
 
+    function getPronounFormCardHtml(form) {
+      const formSpeech = form.speech || form.fr;
+      const exampleSpeech = form.exampleSpeech || form.example || "";
+      return `
+        <div class="pronoun-study-card">
+          <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn" type="button" data-speech="${formSpeech}">
+            <span class="pronoun-main">${form.fr}</span>
+            ${form.ipa ? `<span class="pronoun-ipa">${form.ipa}</span>` : ""}
+            <span class="translation">${form.en}</span>
+          </button>
+          ${form.example ? `
+            <button class="pronoun-example-btn" type="button" data-example="${exampleSpeech}">
+              <span class="tiny-label">Example</span>
+              <span class="noun-example-main">${form.example}</span>
+              <span class="translation">${form.exampleEn || ""}</span>
+            </button>
+          ` : ""}
+        </div>
+      `;
+    }
+
     function renderPronounFormsTable(targetGrid, rows, emptyMessage) {
       targetGrid.innerHTML = "";
       if (!rows.length) {
@@ -37,12 +58,7 @@
           <div class="tonic-pronoun-cell">
             <span class="tonic-pronoun-cell-label">Singular French</span>
             <div class="tonic-pronoun-form-list">
-              ${rowData.singularForms.map(form => `
-                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.speech || form.fr}">
-                  <span class="pronoun-main">${form.fr}</span>
-                  <span class="translation">${form.en}</span>
-                </button>
-              `).join("")}
+              ${rowData.singularForms.map(getPronounFormCardHtml).join("")}
             </div>
           </div>
           <div class="tonic-pronoun-cell tonic-pronoun-zh">
@@ -52,17 +68,15 @@
           <div class="tonic-pronoun-cell">
             <span class="tonic-pronoun-cell-label">Plural French</span>
             <div class="tonic-pronoun-form-list">
-              ${rowData.pluralForms.map(form => `
-                <button class="pronoun-card tonic-pronoun-form-btn" type="button" data-speech="${form.speech || form.fr}">
-                  <span class="pronoun-main">${form.fr}</span>
-                  <span class="translation">${form.en}</span>
-                </button>
-              `).join("")}
+              ${rowData.pluralForms.map(getPronounFormCardHtml).join("")}
             </div>
           </div>
         `;
-        row.querySelectorAll(".tonic-pronoun-form-btn").forEach(button => {
+        row.querySelectorAll(".pronoun-word-btn").forEach(button => {
           button.addEventListener("click", () => speak(button.dataset.speech, button));
+        });
+        row.querySelectorAll(".pronoun-example-btn").forEach(button => {
+          button.addEventListener("click", () => speak(button.dataset.example, button));
         });
         targetGrid.appendChild(row);
       });
