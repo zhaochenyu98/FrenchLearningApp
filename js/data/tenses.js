@@ -633,3 +633,222 @@
         ]
       }
     ];
+
+    const etreAuxiliaryVerbs = [
+      {
+        infinitive: "aller",
+        infinitiveIpa: "/ale/",
+        pastParticiple: "allé(e)(s)",
+        pastParticipleIpa: "/ale/",
+        meaning: "to go",
+        note: "Uses être for movement from one place to another.",
+        etreExamples: [
+          { fr: "Elle est allée au marché.", en: "She went to the market." }
+        ]
+      },
+      {
+        infinitive: "venir",
+        infinitiveIpa: "/vəniʁ/",
+        pastParticiple: "venu(e)(s)",
+        pastParticipleIpa: "/vəny/",
+        meaning: "to come",
+        note: "Uses être; the past participle agrees with the subject.",
+        etreExamples: [
+          { fr: "Ils sont venus dîner.", en: "They came to have dinner." }
+        ]
+      },
+      {
+        infinitive: "arriver",
+        infinitiveIpa: "/aʁive/",
+        pastParticiple: "arrivé(e)(s)",
+        pastParticipleIpa: "/aʁive/",
+        meaning: "to arrive",
+        note: "Uses être for arriving.",
+        etreExamples: [
+          { fr: "Nous sommes arrivés à huit heures.", en: "We arrived at eight o’clock." }
+        ]
+      },
+      {
+        infinitive: "partir",
+        infinitiveIpa: "/paʁtiʁ/",
+        pastParticiple: "parti(e)(s)",
+        pastParticipleIpa: "/paʁti/",
+        meaning: "to leave",
+        note: "Uses être for leaving.",
+        etreExamples: [
+          { fr: "Tu es parti tôt.", en: "You left early." }
+        ]
+      },
+      {
+        infinitive: "entrer",
+        infinitiveIpa: "/ɑ̃tʁe/",
+        pastParticiple: "entré(e)(s)",
+        pastParticipleIpa: "/ɑ̃tʁe/",
+        meaning: "to enter / go in",
+        note: "Uses être when the subject enters.",
+        etreExamples: [
+          { fr: "Il est entré dans la classe.", en: "He entered the classroom." }
+        ],
+        avoirNote: "Uses avoir with a direct object, especially in practical phrases like entering a code.",
+        avoirExamples: [
+          { fr: "J’ai entré le code.", en: "I entered the code." }
+        ]
+      },
+      {
+        infinitive: "sortir",
+        infinitiveIpa: "/sɔʁtiʁ/",
+        pastParticiple: "sorti(e)(s)",
+        pastParticipleIpa: "/sɔʁti/",
+        meaning: "to go out / take out",
+        note: "Uses être when the subject goes out.",
+        etreExamples: [
+          { fr: "Elle est sortie du bureau.", en: "She left the office." }
+        ],
+        avoirNote: "Uses avoir when someone takes something out.",
+        avoirExamples: [
+          { fr: "Elle a sorti les clés de son sac.", en: "She took the keys out of her bag." }
+        ]
+      },
+      {
+        infinitive: "monter",
+        infinitiveIpa: "/mɔ̃te/",
+        pastParticiple: "monté(e)(s)",
+        pastParticipleIpa: "/mɔ̃te/",
+        meaning: "to go up / take up",
+        note: "Uses être when the subject goes up.",
+        etreExamples: [
+          { fr: "Nous sommes montés au troisième étage.", en: "We went up to the third floor." }
+        ],
+        avoirNote: "Uses avoir when someone carries or takes something up.",
+        avoirExamples: [
+          { fr: "Nous avons monté les valises.", en: "We carried the suitcases upstairs." }
+        ]
+      },
+      {
+        infinitive: "descendre",
+        infinitiveIpa: "/desɑ̃dʁ/",
+        pastParticiple: "descendu(e)(s)",
+        pastParticipleIpa: "/desɑ̃dy/",
+        meaning: "to go down / take down",
+        note: "Uses être when the subject goes down.",
+        etreExamples: [
+          { fr: "Il est descendu du train.", en: "He got off the train." }
+        ],
+        avoirNote: "Uses avoir when someone takes something down.",
+        avoirExamples: [
+          { fr: "Il a descendu les cartons à la cave.", en: "He took the boxes down to the cellar." }
+        ]
+      },
+      {
+        infinitive: "rentrer",
+        infinitiveIpa: "/ʁɑ̃tʁe/",
+        pastParticiple: "rentré(e)(s)",
+        pastParticipleIpa: "/ʁɑ̃tʁe/",
+        meaning: "to return home / bring in",
+        note: "Uses être when the subject returns home or goes back in.",
+        etreExamples: [
+          { fr: "Je suis rentré tard.", en: "I came home late." }
+        ],
+        avoirNote: "Uses avoir when someone brings something in.",
+        avoirExamples: [
+          { fr: "J’ai rentré la voiture au garage.", en: "I brought the car into the garage." }
+        ]
+      },
+      {
+        infinitive: "revenir",
+        infinitiveIpa: "/ʁəvəniʁ/",
+        pastParticiple: "revenu(e)(s)",
+        pastParticipleIpa: "/ʁəvəny/",
+        meaning: "to come back",
+        note: "Uses être, like venir.",
+        etreExamples: [
+          { fr: "Elle est revenue hier soir.", en: "She came back last night." }
+        ]
+      },
+      {
+        infinitive: "retourner",
+        infinitiveIpa: "/ʁətuʁne/",
+        pastParticiple: "retourné(e)(s)",
+        pastParticipleIpa: "/ʁətuʁne/",
+        meaning: "to return / turn over",
+        note: "Uses être when the subject returns to a place.",
+        etreExamples: [
+          { fr: "Ils sont retournés en France.", en: "They returned to France." }
+        ],
+        avoirNote: "Uses avoir when someone turns something over or sends something back.",
+        avoirExamples: [
+          { fr: "Il a retourné la crêpe.", en: "He flipped the crepe." }
+        ]
+      },
+      {
+        infinitive: "rester",
+        infinitiveIpa: "/ʁɛste/",
+        pastParticiple: "resté(e)(s)",
+        pastParticipleIpa: "/ʁɛste/",
+        meaning: "to stay",
+        note: "Uses être even though it is not a big movement verb.",
+        etreExamples: [
+          { fr: "Nous sommes restés à la maison.", en: "We stayed home." }
+        ]
+      },
+      {
+        infinitive: "passer",
+        infinitiveIpa: "/pase/",
+        pastParticiple: "passé(e)(s)",
+        pastParticipleIpa: "/pase/",
+        meaning: "to pass by / spend / take",
+        note: "Uses être when the subject passes by or stops by.",
+        etreExamples: [
+          { fr: "Elle est passée chez moi.", en: "She stopped by my place." }
+        ],
+        avoirNote: "Uses avoir for spending time, taking an exam, or passing something.",
+        avoirExamples: [
+          { fr: "Elle a passé deux heures au café.", en: "She spent two hours at the cafe." },
+          { fr: "Il a passé l’examen.", en: "He took / passed the exam." }
+        ]
+      },
+      {
+        infinitive: "tomber",
+        infinitiveIpa: "/tɔ̃be/",
+        pastParticiple: "tombé(e)(s)",
+        pastParticipleIpa: "/tɔ̃be/",
+        meaning: "to fall",
+        note: "Uses être.",
+        etreExamples: [
+          { fr: "Il est tombé dans la rue.", en: "He fell in the street." }
+        ]
+      },
+      {
+        infinitive: "naître",
+        infinitiveIpa: "/nɛtʁ/",
+        pastParticiple: "né(e)(s)",
+        pastParticipleIpa: "/ne/",
+        meaning: "to be born",
+        note: "Uses être.",
+        etreExamples: [
+          { fr: "Elle est née en avril.", en: "She was born in April." }
+        ]
+      },
+      {
+        infinitive: "mourir",
+        infinitiveIpa: "/muʁiʁ/",
+        pastParticiple: "mort(e)(s)",
+        pastParticipleIpa: "/mɔʁ/",
+        meaning: "to die",
+        note: "Uses être.",
+        etreExamples: [
+          { fr: "Le personnage est mort à la fin du film.", en: "The character died at the end of the movie." }
+        ]
+      },
+      {
+        infinitive: "devenir",
+        infinitiveIpa: "/dəvəniʁ/",
+        pastParticiple: "devenu(e)(s)",
+        pastParticipleIpa: "/dəvəny/",
+        meaning: "to become",
+        note: "Uses être, like venir.",
+        etreExamples: [
+          { fr: "Ils sont devenus amis.", en: "They became friends." }
+        ]
+      }
+    ];

@@ -135,6 +135,7 @@
         renderVerbIndex();
       },
       tense() {
+        renderEtreAuxiliaryVerbs();
         renderPasseComposeGroups();
         initializeTenseIndex();
       },
@@ -556,6 +557,55 @@
         stack.appendChild(quickCard);
         links.appendChild(createStudyIndexButton("Quick notes", quickCard));
         cards.push(quickCard);
+      }
+
+      const etreAuxiliarySection = resolveStudyElement(section, '[data-study-section="tense-etre-auxiliary"]');
+      if (etreAuxiliarySection) {
+        const etreCard = document.createElement("details");
+        etreCard.className = "study-collapse-card";
+        etreCard.id = "tense-etre-auxiliary-study-card";
+        etreCard.open = true;
+
+        const summary = document.createElement("summary");
+        summary.className = "study-collapse-summary";
+        summary.textContent = "17 verbs that usually use être";
+
+        const body = document.createElement("div");
+        body.className = "study-collapse-body";
+        body.appendChild(etreAuxiliarySection);
+
+        etreCard.append(summary, body);
+        stack.appendChild(etreCard);
+        cards.push(etreCard);
+
+        const groupBlock = document.createElement("div");
+        groupBlock.className = "verb-index-group";
+
+        const groupTitle = document.createElement("div");
+        groupTitle.className = "verb-index-group-title";
+        groupTitle.textContent = "17 être verbs";
+        groupBlock.appendChild(groupTitle);
+
+        const groupLinks = document.createElement("div");
+        groupLinks.className = "verb-index-links";
+
+        etreAuxiliaryVerbs.forEach(verb => {
+          const button = document.createElement("button");
+          button.className = "verb-index-link";
+          button.type = "button";
+          button.textContent = verb.infinitive;
+          button.addEventListener("click", () => {
+            stopPlayback();
+            etreCard.open = true;
+            const target = document.getElementById(getEtreAuxiliaryVerbId(verb));
+            (target || etreCard).scrollIntoView({ behavior: "smooth", block: "start" });
+            if (target) target.focus({ preventScroll: true });
+          });
+          groupLinks.appendChild(button);
+        });
+
+        groupBlock.appendChild(groupLinks);
+        links.appendChild(groupBlock);
       }
 
       passeComposeGroups.forEach((group, groupIndex) => {
@@ -1030,6 +1080,10 @@
 
     playTenseExamplesBtn.addEventListener("click", () => {
       speakSequence(getPasseComposeAudioItems());
+    });
+
+    playEtreAuxiliaryVerbsBtn.addEventListener("click", () => {
+      speakSequence(getEtreAuxiliaryAudioItems());
     });
 
     playPrepositionsBtn.addEventListener("click", () => {

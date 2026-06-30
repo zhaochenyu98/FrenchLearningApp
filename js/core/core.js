@@ -90,6 +90,7 @@
     const verbGroupStack = document.getElementById("verbGroupStack");
     const passeComposeErGrid = document.getElementById("passeComposeErGrid");
     const passeComposeIrGrid = document.getElementById("passeComposeIrGrid");
+    const etreAuxiliaryVerbGrid = document.getElementById("etreAuxiliaryVerbGrid");
     const passeComposeIrregularGrid = document.getElementById("passeComposeIrregularGrid");
     const passeComposePronominalGrid = document.getElementById("passeComposePronominalGrid");
     const grammarFlashcard = document.getElementById("grammarFlashcard");
@@ -171,6 +172,7 @@
     const playAdjectivesBtn = document.getElementById("playAdjectives");
     const playAdverbsBtn = document.getElementById("playAdverbs");
     const playTenseExamplesBtn = document.getElementById("playTenseExamples");
+    const playEtreAuxiliaryVerbsBtn = document.getElementById("playEtreAuxiliaryVerbs");
     const playPrepositionsBtn = document.getElementById("playPrepositions");
     const playTimeSpanComparisonsBtn = document.getElementById("playTimeSpanComparisons");
     const previousPrepositionFlashcardBtn = document.getElementById("previousPrepositionFlashcard");
