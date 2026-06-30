@@ -50,7 +50,7 @@
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
         <button class="tab-btn" type="button" data-tab="numbers">Numbers</button>
-        <button class="tab-btn" type="button" data-tab="calendar">Days / Months / Seasons</button>
+        <button class="tab-btn" type="button" data-tab="calendar">Time</button>
       </div>
 
       <section id="pronunciationSection" class="section active" data-tab="pronunciation">
@@ -1137,10 +1137,11 @@
       <section id="calendarSection" class="section" data-tab="calendar">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Days, Months &amp; Seasons</h2>
-            <p class="section-desc">Practice common calendar words with short example phrases. Click any card to hear the word first, then the example.</p>
+            <h2 class="section-title">Time</h2>
+            <p class="section-desc">Practice calendar words, seasons, and common time-span pairs like <strong>an / année</strong>, <strong>jour / journée</strong>, and <strong>soir / soirée</strong>.</p>
           </div>
           <div class="action-row">
+            <button class="action-btn" type="button" id="playTimeSpanComparisons">Play time pairs</button>
             <button class="action-btn" type="button" id="playWeekdays">Play days</button>
             <button class="action-btn" type="button" id="playMonths">Play months</button>
             <button class="action-btn" type="button" id="playSeasons">Play seasons</button>
@@ -1166,6 +1167,12 @@
         </div>
 
         <div class="determiner-sections">
+          <div class="category-panel">
+            <h3>An / année, jour / journée, soir / soirée</h3>
+            <p>The short word often marks the countable point or unit. The longer <strong>-ée</strong> word often emphasizes the lived span, content, or quality of that time.</p>
+            <div id="timeSpanComparisonGrid" class="noun-rules-table"></div>
+          </div>
+
           <div class="category-panel">
             <h3>Days of the Week</h3>
             <p>Ask what day it is with <strong>Quel jour sommes-nous ?</strong>, <strong>On est quel jour ?</strong>, or <strong>Quel jour sommes-nous aujourd’hui ?</strong></p>

@@ -126,6 +126,7 @@
     const toutFormsGrid = document.getElementById("toutFormsGrid");
     const prepositionTable = document.getElementById("prepositionTable");
     const timePrepositionTable = document.getElementById("timePrepositionTable");
+    const timeSpanComparisonGrid = document.getElementById("timeSpanComparisonGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");
@@ -171,6 +172,7 @@
     const playAdverbsBtn = document.getElementById("playAdverbs");
     const playTenseExamplesBtn = document.getElementById("playTenseExamples");
     const playPrepositionsBtn = document.getElementById("playPrepositions");
+    const playTimeSpanComparisonsBtn = document.getElementById("playTimeSpanComparisons");
     const previousPrepositionFlashcardBtn = document.getElementById("previousPrepositionFlashcard");
     const nextPrepositionFlashcardBtn = document.getElementById("nextPrepositionFlashcard");
     const previousGrammarFlashcardBtn = document.getElementById("previousGrammarFlashcard");

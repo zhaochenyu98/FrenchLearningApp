@@ -21,6 +21,73 @@
       });
     }
 
+    function getTimeSpanComparisonAudioItems(rows = timeSpanComparisons) {
+      return rows.flatMap(row => [
+        { text: row.short.fr },
+        ...row.short.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs })),
+        { text: row.long.fr, pauseBefore: examplePauseMs },
+        ...row.long.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+      ]);
+    }
+
+    function renderTimeSpanTerm(term, rowIndex, side) {
+      return `
+        <div>
+          <span class="question-cell-label">${side === "short" ? "Short unit" : "Long / lived span"}</span>
+          <div class="french-line">${term.fr}</div>
+          ${term.ipa ? `<div class="calendar-ipa">${term.ipa}</div>` : ""}
+          <div class="translation">${term.en}</div>
+          <div class="grammar-note">${term.note}</div>
+          <div class="noun-example-list">
+            ${term.examples.map((example, exampleIndex) => `
+              <button class="noun-example-btn time-span-example-btn" type="button" data-row-index="${rowIndex}" data-side="${side}" data-example-index="${exampleIndex}">
+                <span class="noun-example-main">${example.fr}</span>
+                <span class="translation">${example.en}</span>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTimeSpanComparisons(rows = timeSpanComparisons) {
+      timeSpanComparisonGrid.innerHTML = "";
+      if (!rows.length) {
+        timeSpanComparisonGrid.innerHTML = `<div class="empty-state">No time-span comparisons available.</div>`;
+        return;
+      }
+
+      timeSpanComparisonGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Short unit</div>
+          <div>Long / lived span</div>
+          <div>Usage reminder</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          ${renderTimeSpanTerm(rowData.short, rowIndex, "short")}
+          ${renderTimeSpanTerm(rowData.long, rowIndex, "long")}
+          <div>
+            <span class="question-cell-label">Reminder</span>
+            <div class="grammar-note">${rowData.note}</div>
+          </div>
+        `;
+        row.querySelectorAll(".time-span-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const currentRow = rows[Number(button.dataset.rowIndex)];
+            const term = currentRow[button.dataset.side];
+            const example = term.examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        timeSpanComparisonGrid.appendChild(row);
+      });
+    }
+
     function renderDeterminerCards(container, list) {
       container.innerHTML = "";
       if (!list.length) {

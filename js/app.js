@@ -196,6 +196,7 @@
         initializeStudyIndex("numbers");
       },
       calendar() {
+        renderTimeSpanComparisons();
         renderCalendarCards(weekdaysGrid, weekdays, "No days available.");
         renderCalendarCards(monthsGrid, months, "No months available.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons available.");
@@ -1032,6 +1033,10 @@
         { text: item.fr },
         ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
       ])));
+    });
+
+    playTimeSpanComparisonsBtn.addEventListener("click", () => {
+      speakSequence(getTimeSpanComparisonAudioItems());
     });
 
     playDeterminersBtn.addEventListener("click", () => {

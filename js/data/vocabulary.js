@@ -30,6 +30,96 @@
       { fr: "hiver", ipa: "/ivɛʁ/", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
     ];
 
+    const timeSpanComparisons = [
+      {
+        short: {
+          fr: "an",
+          ipa: "/ɑ̃/",
+          en: "year as a countable unit",
+          note: "Use an for age, counted years, and compact time references.",
+          examples: [
+            { fr: "J’ai vingt ans.", en: "I am twenty years old." },
+            { fr: "J’habite ici depuis trois ans.", en: "I have lived here for three years." },
+            { fr: "L’an dernier, nous avons déménagé.", en: "Last year, we moved." },
+            { fr: "L’an prochain, je vais étudier le français.", en: "Next year, I am going to study French." },
+            { fr: "Il est resté ici un bon an.", en: "He stayed here for a good year." }
+          ]
+        },
+        long: {
+          fr: "année",
+          ipa: "/ane/",
+          en: "year as lived period / content",
+          note: "Use année when you talk about the quality, events, or experience of the year.",
+          examples: [
+            { fr: "J’ai passé une bonne année à Paris.", en: "I spent a good year in Paris." },
+            { fr: "Cette année a été difficile.", en: "This year was difficult." },
+            { fr: "L’année dernière, j’ai beaucoup voyagé.", en: "Last year, I traveled a lot." },
+            { fr: "L’année prochaine, nous changeons d’école.", en: "Next year, we are changing schools." },
+            { fr: "Bonne année !", en: "Happy New Year!" }
+          ]
+        },
+        note: "Both l’an dernier / prochain and l’année dernière / prochaine are common. Année feels more like the whole lived year."
+      },
+      {
+        short: {
+          fr: "jour",
+          ipa: "/ʒuʁ/",
+          en: "day as a date, unit, or point",
+          note: "Use jour for calendar days, counting days, and day-vs-night contrast.",
+          examples: [
+            { fr: "Quel jour sommes-nous ?", en: "What day is it?" },
+            { fr: "Je pars dans deux jours.", en: "I am leaving in two days." },
+            { fr: "Le jour de l’examen, je suis nerveux.", en: "On the day of the exam, I am nervous." },
+            { fr: "C’est un bon jour pour commencer.", en: "It is a good day to start." },
+            { fr: "C’est le dernier jour de cours.", en: "It is the last day of class." }
+          ]
+        },
+        long: {
+          fr: "journée",
+          ipa: "/ʒuʁne/",
+          en: "day as a lived span",
+          note: "Use journée for the whole day as you experience it, spend it, or judge it.",
+          examples: [
+            { fr: "J’ai travaillé toute la journée.", en: "I worked all day." },
+            { fr: "Nous avons passé une bonne journée.", en: "We had a good day." },
+            { fr: "Bonne journée !", en: "Have a good day!" },
+            { fr: "La dernière journée de cours était courte.", en: "The last day of class was short." },
+            { fr: "La prochaine journée de formation commence à neuf heures.", en: "The next training day starts at nine." }
+          ]
+        },
+        note: "For previous/next day, French usually says hier / demain, la veille / le lendemain, or le jour précédent / suivant. Dernier/prochain often mean final/next in a sequence."
+      },
+      {
+        short: {
+          fr: "soir",
+          ipa: "/swaʁ/",
+          en: "evening as a time point",
+          note: "Use soir for the evening time, especially with ce, hier, demain, or a weekday.",
+          examples: [
+            { fr: "Ce soir, je rentre tôt.", en: "Tonight, I am going home early." },
+            { fr: "Hier soir, j’ai appelé Marie.", en: "Last night, I called Marie." },
+            { fr: "Le soir, je lis un peu.", en: "In the evening, I read a little." },
+            { fr: "Bonsoir !", en: "Good evening!" },
+            { fr: "Mardi soir prochain, nous dînons ensemble.", en: "Next Tuesday evening, we are having dinner together." }
+          ]
+        },
+        long: {
+          fr: "soirée",
+          ipa: "/swaʁe/",
+          en: "evening as lived span / event",
+          note: "Use soirée for the whole evening, its quality, or an evening event.",
+          examples: [
+            { fr: "Nous avons passé une bonne soirée.", en: "We had a good evening." },
+            { fr: "Bonne soirée !", en: "Have a good evening!" },
+            { fr: "La soirée était très agréable.", en: "The evening was very pleasant." },
+            { fr: "La dernière soirée du festival était magnifique.", en: "The last evening of the festival was wonderful." },
+            { fr: "La prochaine soirée est chez Paul.", en: "The next evening party is at Paul’s place." }
+          ]
+        },
+        note: "Bon soir is normally written bonsoir as a greeting. Bonne soirée is what you say when wishing someone a good rest of the evening."
+      }
+    ];
+
     const nounPluralRules = [
       {
         rule: "+s",
