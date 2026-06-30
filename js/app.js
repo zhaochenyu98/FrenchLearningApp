@@ -34,6 +34,14 @@
           { id: "special", title: "Special adjectives", elements: [{ heading: "特殊形容词: beau / nouveau / vieux" }] }
         ]
       },
+      adverbs: {
+        title: "Adverb index",
+        sections: [
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ["#adverbsSection .panel"] },
+          { id: "comparison", title: "Bon / bien / beau", open: true, elements: [{ heading: "Bon vs bien vs beau" }] },
+          { id: "tout", title: "Tout forms", elements: [{ heading: "Tout forms" }] }
+        ]
+      },
       nouns: {
         title: "Noun index",
         sections: [
@@ -142,6 +150,11 @@
         renderAdjectivePreposedPluralRules();
         renderSpecialAdjectiveForms();
         initializeStudyIndex("adjectives");
+      },
+      adverbs() {
+        renderModifierComparison();
+        renderToutForms();
+        initializeStudyIndex("adverbs");
       },
       prepositions() {
         showPrepositionFlashcard();
@@ -1000,6 +1013,13 @@
           { text: example.to, pauseBefore: examplePauseMs }
         ])),
         ...getSpecialAdjectiveExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+      ]);
+    });
+
+    playAdverbsBtn.addEventListener("click", () => {
+      speakSequence([
+        ...getModifierComparisonExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs })),
+        ...getToutExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
       ]);
     });
 

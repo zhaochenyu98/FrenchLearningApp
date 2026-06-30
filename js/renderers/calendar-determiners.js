@@ -122,17 +122,17 @@
       const findRow = (gender, number) => rows.find(row => row.gender === gender && row.number === number);
 
       demonstrativeGrid.innerHTML = `
-        <div class="demonstrative-corner">Gender / number</div>
-        ${numbers.map(number => `<div class="demonstrative-axis-header">${number}</div>`).join("")}
+        <div class="demonstrative-corner">Number / gender</div>
+        ${genders.map(gender => `<div class="demonstrative-axis-header">${gender}</div>`).join("")}
       `;
 
-      genders.forEach(gender => {
+      numbers.forEach(number => {
         const rowHeader = document.createElement("div");
         rowHeader.className = "demonstrative-row-header";
-        rowHeader.textContent = gender;
+        rowHeader.textContent = number;
         demonstrativeGrid.appendChild(rowHeader);
 
-        numbers.forEach(number => {
+        genders.forEach(gender => {
           const row = findRow(gender, number);
           if (!row) {
             const emptyCell = document.createElement("div");
@@ -145,7 +145,7 @@
           const cell = document.createElement("div");
           cell.className = "demonstrative-card";
           cell.innerHTML = `
-            <div class="demonstrative-mobile-label">${row.gender} · ${row.number}</div>
+            <div class="demonstrative-mobile-label">${row.number} · ${row.gender}</div>
             <div class="demonstrative-form-list"></div>
           `;
 

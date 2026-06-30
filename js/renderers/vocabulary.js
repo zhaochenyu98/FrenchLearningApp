@@ -39,6 +39,14 @@
       return rows.flatMap(row => row.forms.flatMap(form => form.examples));
     }
 
+    function getModifierComparisonExamples(rows = modifierComparisonRows) {
+      return rows.flatMap(row => row.examples);
+    }
+
+    function getToutExamples(rows = toutFormRows) {
+      return rows.flatMap(row => row.forms.flatMap(form => form.examples));
+    }
+
     function speakAdjectivePair(example, card) {
       speakSequence([
         { text: example.from },
@@ -271,42 +279,54 @@
       );
     }
 
-    function renderSpecialAdjectiveForms(rows = specialAdjectiveForms) {
-      specialAdjectiveGrid.innerHTML = "";
+    function renderAgreementMatrixRows(container, rows, emptyMessage) {
+      container.innerHTML = "";
       if (!rows.length) {
-        specialAdjectiveGrid.innerHTML = `<div class="empty-state">No special adjective forms available.</div>`;
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      specialAdjectiveGrid.innerHTML = `
-        <div class="adjective-forms-header">
-          <div>Adjective family</div>
-          <div>Masculine singular</div>
-          <div>Feminine singular</div>
-          <div>Masculine plural</div>
-          <div>Feminine plural</div>
-        </div>
-      `;
+      const genders = ["Masculine", "Feminine"];
+      const numbers = ["Singular", "Plural"];
+      const findForm = (forms, gender, number) => forms.find(form => form.gender === gender && form.number === number);
 
       rows.forEach((rowData, rowIndex) => {
         const row = document.createElement("div");
-        row.className = "adjective-forms-row";
+        row.className = "agreement-family-card";
         row.innerHTML = `
           <div class="adjective-family">
             <strong>${rowData.family}</strong>
             <span class="grammar-note">${rowData.note}</span>
           </div>
-          ${rowData.forms.map((form, formIndex) => `
-            <div class="adjective-form-list">
-              <span class="question-cell-label">${form.label}</span>
-              ${form.examples.map((example, exampleIndex) => `
-                <button class="adjective-form-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-example-index="${exampleIndex}">
-                  <span class="noun-example-main">${example.fr}</span>
-                  <span class="translation">${example.en}</span>
-                </button>
-              `).join("")}
-            </div>
-          `).join("")}
+          <div class="agreement-matrix">
+            <div class="demonstrative-corner">Number / gender</div>
+            ${genders.map(gender => `<div class="demonstrative-axis-header">${gender}</div>`).join("")}
+            ${numbers.map(number => `
+              <div class="demonstrative-row-header">${number}</div>
+              ${genders.map(gender => {
+                const form = findForm(rowData.forms, gender, number);
+                if (!form) {
+                  return `<div class="agreement-cell"><div class="empty-state">No ${number.toLowerCase()} ${gender.toLowerCase()} form.</div></div>`;
+                }
+                const formIndex = rowData.forms.indexOf(form);
+                return `
+                  <div class="agreement-cell">
+                    <div class="demonstrative-mobile-label">${number} · ${gender}</div>
+                    <div class="french-line">${form.fr || form.label}</div>
+                    <div class="grammar-note">${form.label}</div>
+                    <div class="adjective-form-list">
+                      ${form.examples.map((example, exampleIndex) => `
+                        <button class="adjective-form-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-example-index="${exampleIndex}">
+                          <span class="noun-example-main">${example.fr}</span>
+                          <span class="translation">${example.en}</span>
+                        </button>
+                      `).join("")}
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            `).join("")}
+          </div>
         `;
         row.querySelectorAll(".adjective-form-btn").forEach(button => {
           button.addEventListener("click", () => {
@@ -316,8 +336,67 @@
             speak(example.fr, button);
           });
         });
-        specialAdjectiveGrid.appendChild(row);
+        container.appendChild(row);
       });
+    }
+
+    function renderSpecialAdjectiveForms(rows = specialAdjectiveForms) {
+      renderAgreementMatrixRows(specialAdjectiveGrid, rows, "No special adjective forms available.");
+    }
+
+    function renderModifierComparison(rows = modifierComparisonRows) {
+      modifierComparisonGrid.innerHTML = "";
+      if (!rows.length) {
+        modifierComparisonGrid.innerHTML = `<div class="empty-state">No modifier comparison examples available.</div>`;
+        return;
+      }
+
+      modifierComparisonGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Word</div>
+          <div>Use</div>
+          <div>Examples</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Word</span>
+            <div class="french-line">${rowData.fr}</div>
+            <div class="translation">${rowData.meaning}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Use</span>
+            <div class="matrix-label">${rowData.type}</div>
+            <div class="grammar-note">${rowData.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rowData.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.fr}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rows[Number(button.dataset.rowIndex)].examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        modifierComparisonGrid.appendChild(row);
+      });
+    }
+
+    function renderToutForms(rows = toutFormRows) {
+      renderAgreementMatrixRows(toutFormsGrid, rows, "No tout forms available.");
     }
 
     function renderPrepositionTable(targetGrid, list, emptyMessage) {

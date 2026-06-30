@@ -348,6 +348,9 @@
         note: "bel before masculine singular vowel sound",
         forms: [
           {
+            fr: "beau / bel",
+            gender: "Masculine",
+            number: "Singular",
             label: "Masculine singular",
             examples: [
               { fr: "un beau pull", en: "a beautiful sweater" },
@@ -355,6 +358,9 @@
             ]
           },
           {
+            fr: "belle",
+            gender: "Feminine",
+            number: "Singular",
             label: "Feminine singular",
             examples: [
               { fr: "une belle maison", en: "a beautiful house" },
@@ -362,6 +368,9 @@
             ]
           },
           {
+            fr: "beaux",
+            gender: "Masculine",
+            number: "Plural",
             label: "Masculine plural",
             examples: [
               { fr: "de beaux vêtements", en: "beautiful clothes" },
@@ -369,6 +378,9 @@
             ]
           },
           {
+            fr: "belles",
+            gender: "Feminine",
+            number: "Plural",
             label: "Feminine plural",
             examples: [
               { fr: "de belles fleurs", en: "beautiful flowers" },
@@ -382,6 +394,9 @@
         note: "nouvel before masculine singular vowel sound",
         forms: [
           {
+            fr: "nouveau / nouvel",
+            gender: "Masculine",
+            number: "Singular",
             label: "Masculine singular",
             examples: [
               { fr: "un nouveau film", en: "a new movie" },
@@ -389,6 +404,9 @@
             ]
           },
           {
+            fr: "nouvelle",
+            gender: "Feminine",
+            number: "Singular",
             label: "Feminine singular",
             examples: [
               { fr: "une nouvelle maison", en: "a new house" },
@@ -396,6 +414,9 @@
             ]
           },
           {
+            fr: "nouveaux",
+            gender: "Masculine",
+            number: "Plural",
             label: "Masculine plural",
             examples: [
               { fr: "de nouveaux films", en: "new movies" },
@@ -403,6 +424,9 @@
             ]
           },
           {
+            fr: "nouvelles",
+            gender: "Feminine",
+            number: "Plural",
             label: "Feminine plural",
             examples: [
               { fr: "de nouvelles photos", en: "new photos" },
@@ -416,6 +440,9 @@
         note: "vieil before masculine singular vowel sound",
         forms: [
           {
+            fr: "vieux / vieil",
+            gender: "Masculine",
+            number: "Singular",
             label: "Masculine singular",
             examples: [
               { fr: "un vieux livre", en: "an old book" },
@@ -423,6 +450,9 @@
             ]
           },
           {
+            fr: "vieille",
+            gender: "Feminine",
+            number: "Singular",
             label: "Feminine singular",
             examples: [
               { fr: "une vieille dame", en: "an old lady" },
@@ -430,6 +460,9 @@
             ]
           },
           {
+            fr: "vieux",
+            gender: "Masculine",
+            number: "Plural",
             label: "Masculine plural",
             examples: [
               { fr: "de vieux tableaux", en: "old paintings" },
@@ -437,10 +470,98 @@
             ]
           },
           {
+            fr: "vieilles",
+            gender: "Feminine",
+            number: "Plural",
             label: "Feminine plural",
             examples: [
               { fr: "de vieilles maisons", en: "old houses" },
               { fr: "de vieilles amies", en: "old friends" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const modifierComparisonRows = [
+      {
+        fr: "bon",
+        type: "adjective",
+        meaning: "good / tasty / useful",
+        note: "Bon describes a noun, so it agrees: bon, bonne, bons, bonnes.",
+        examples: [
+          { fr: "C’est un bon café.", en: "It is a good coffee." },
+          { fr: "C’est une bonne idée.", en: "It is a good idea." },
+          { fr: "Ce sont de bons amis.", en: "They are good friends." }
+        ]
+      },
+      {
+        fr: "bien",
+        type: "adverb",
+        meaning: "well / fine / good as a judgment",
+        note: "Bien usually describes a verb, a whole situation, or how someone feels. It does not agree.",
+        examples: [
+          { fr: "Je vais bien.", en: "I am doing well." },
+          { fr: "Tu parles bien français.", en: "You speak French well." },
+          { fr: "C’est bien.", en: "That is good / fine." }
+        ]
+      },
+      {
+        fr: "beau",
+        type: "adjective",
+        meaning: "beautiful / nice-looking / nice weather",
+        note: "Beau describes appearance or pleasant weather, so it agrees: beau, bel, belle, beaux, belles.",
+        examples: [
+          { fr: "C’est un beau jardin.", en: "It is a beautiful garden." },
+          { fr: "Elle porte une belle robe.", en: "She is wearing a beautiful dress." },
+          { fr: "Il fait beau.", en: "The weather is nice." }
+        ]
+      }
+    ];
+
+    const toutFormRows = [
+      {
+        family: "tout",
+        note: "all / every; agrees when it works like a determiner or adjective before a noun",
+        forms: [
+          {
+            fr: "tout",
+            gender: "Masculine",
+            number: "Singular",
+            label: "Masculine singular",
+            examples: [
+              { fr: "tout le jour", en: "the whole day" },
+              { fr: "tout le monde", en: "everyone / all the world" }
+            ]
+          },
+          {
+            fr: "toute",
+            gender: "Feminine",
+            number: "Singular",
+            label: "Feminine singular",
+            examples: [
+              { fr: "toute la journée", en: "the whole day" },
+              { fr: "toute la famille", en: "the whole family" }
+            ]
+          },
+          {
+            fr: "tous",
+            gender: "Masculine",
+            number: "Plural",
+            label: "Masculine plural",
+            examples: [
+              { fr: "tous les jours", en: "every day" },
+              { fr: "tous mes amis", en: "all my friends" }
+            ]
+          },
+          {
+            fr: "toutes",
+            gender: "Feminine",
+            number: "Plural",
+            label: "Feminine plural",
+            examples: [
+              { fr: "toutes les semaines", en: "every week" },
+              { fr: "toutes mes questions", en: "all my questions" }
             ]
           }
         ]

@@ -122,6 +122,8 @@
     const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
+    const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
+    const toutFormsGrid = document.getElementById("toutFormsGrid");
     const prepositionTable = document.getElementById("prepositionTable");
     const timePrepositionTable = document.getElementById("timePrepositionTable");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
@@ -166,6 +168,7 @@
     const playNounPluralsBtn = document.getElementById("playNounPlurals");
     const playJobNounGendersBtn = document.getElementById("playJobNounGenders");
     const playAdjectivesBtn = document.getElementById("playAdjectives");
+    const playAdverbsBtn = document.getElementById("playAdverbs");
     const playTenseExamplesBtn = document.getElementById("playTenseExamples");
     const playPrepositionsBtn = document.getElementById("playPrepositions");
     const previousPrepositionFlashcardBtn = document.getElementById("previousPrepositionFlashcard");
