@@ -162,6 +162,8 @@ function validateVerbTenseSync() {
 
   const expectedTenseGroup = (entry) => {
     if (entry.presentGroup === "pronominal") return "pronominal";
+    if (entry.presentGroup === "regularEr") return "er";
+    if (entry.presentGroup === "regularIr") return "ir";
     if (entry.presentGroup === "regular" && entry.canonical.endsWith("ir")) return "ir";
     if (entry.presentGroup === "regular" && entry.canonical.endsWith("er")) return "er";
     return "irregular";

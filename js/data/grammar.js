@@ -882,7 +882,7 @@
         key: "irregular",
         title: "Irregular Verbs",
         indexTitle: "Irregular",
-        descriptionHtml: "These high-frequency verbs do not follow the regular -er ending pattern, so it helps to learn each full present-tense set."
+        descriptionHtml: "These high-frequency verbs do not follow the regular present-tense patterns, so it helps to learn each full present-tense set."
       },
       {
         key: "similar",
@@ -891,10 +891,16 @@
         descriptionHtml: "<strong>Dormir, partir, sortir, servir,</strong> and <strong>sentir</strong> share a useful pattern: singular forms drop part of the stem, while plural forms bring it back."
       },
       {
-        key: "regular",
-        title: "Regular Verbs",
-        indexTitle: "Regular",
-        descriptionHtml: "These verbs follow common present-tense patterns. Regular <strong>-er</strong> verbs use <strong>-e, -es, -e, -ons, -ez, -ent</strong>; regular <strong>-ir</strong> verbs like <strong>finir</strong> use <strong>-is, -is, -it, -issons, -issez, -issent</strong>."
+        key: "regularEr",
+        title: "Regular -er Verbs",
+        indexTitle: "Regular -er",
+        descriptionHtml: "These verbs follow the regular <strong>-er</strong> present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. Some still have small spelling changes to keep pronunciation stable, like <strong>nous mangeons</strong>, <strong>nous commençons</strong>, and <strong>nous voyageons</strong>."
+      },
+      {
+        key: "regularIr",
+        title: "Regular -ir Verbs",
+        indexTitle: "Regular -ir",
+        descriptionHtml: "These verbs follow the regular <strong>-ir</strong> present-tense pattern used by <strong>finir</strong>: <strong>-is, -is, -it, -issons, -issez, -issent</strong>. This is different from irregular <strong>-ir</strong> verbs like <strong>venir</strong>, <strong>tenir</strong>, <strong>dormir</strong>, and <strong>partir</strong>."
       },
       {
         key: "impersonal",
@@ -1062,7 +1068,7 @@
       },
       {
         key: "parler",
-        group: "regular",
+        group: "regularEr",
         label: "parler",
         title: "Parler — to speak / talk",
         tag: "regular -er",
@@ -1071,7 +1077,7 @@
       },
       {
         key: "chercher",
-        group: "regular",
+        group: "regularEr",
         label: "chercher",
         title: "Chercher — to look for",
         tag: "regular -er",
@@ -1080,7 +1086,7 @@
       },
       {
         key: "manger",
-        group: "regular",
+        group: "regularEr",
         label: "manger",
         title: "Manger — to eat",
         tag: "regular -er with spelling change",
@@ -1089,7 +1095,7 @@
       },
       {
         key: "inviter",
-        group: "regular",
+        group: "regularEr",
         label: "inviter",
         title: "Inviter — to invite",
         tag: "regular -er",
@@ -1098,7 +1104,7 @@
       },
       {
         key: "finir",
-        group: "regular",
+        group: "regularIr",
         label: "finir",
         title: "Finir — to finish",
         tag: "regular -ir",
@@ -1107,7 +1113,7 @@
       },
       {
         key: "choisir",
-        group: "regular",
+        group: "regularIr",
         label: "choisir",
         title: "Choisir — to choose",
         tag: "regular -ir",
@@ -1116,7 +1122,7 @@
       },
       {
         key: "reussir",
-        group: "regular",
+        group: "regularIr",
         label: "réussir",
         title: "Réussir — to succeed / pass",
         tag: "regular -ir",
@@ -1125,7 +1131,7 @@
       },
       {
         key: "unir",
-        group: "regular",
+        group: "regularIr",
         label: "unir",
         title: "Unir — to unite / join",
         tag: "regular -ir",
@@ -1134,7 +1140,7 @@
       },
       {
         key: "habiter",
-        group: "regular",
+        group: "regularEr",
         label: "habiter",
         title: "Habiter — to live",
         tag: "regular -er",
@@ -1143,7 +1149,7 @@
       },
       {
         key: "trouver",
-        group: "regular",
+        group: "regularEr",
         label: "trouver",
         title: "Trouver — to find / to think",
         tag: "regular -er",
@@ -1152,7 +1158,7 @@
       },
       {
         key: "regarder",
-        group: "regular",
+        group: "regularEr",
         label: "regarder",
         title: "Regarder — to watch / to look at",
         tag: "regular -er",
@@ -1161,7 +1167,7 @@
       },
       {
         key: "passer",
-        group: "regular",
+        group: "regularEr",
         label: "passer",
         title: "Passer — to pass / stop by / spend",
         tag: "regular -er",
@@ -1170,7 +1176,7 @@
       },
       {
         key: "commencer",
-        group: "regular",
+        group: "regularEr",
         label: "commencer",
         title: "Commencer — to begin / to start",
         tag: "regular -er with spelling change",
@@ -1179,7 +1185,7 @@
       },
       {
         key: "voyager",
-        group: "regular",
+        group: "regularEr",
         label: "voyager",
         title: "Voyager — to travel",
         tag: "regular -er with spelling change",
@@ -1188,7 +1194,7 @@
       },
       {
         key: "travailler",
-        group: "regular",
+        group: "regularEr",
         label: "travailler",
         title: "Travailler — to work",
         tag: "regular -er",
@@ -1197,7 +1203,7 @@
       },
       {
         key: "dejeuner",
-        group: "regular",
+        group: "regularEr",
         label: "déjeuner",
         title: "Déjeuner — to have lunch",
         tag: "regular -er",
@@ -1206,7 +1212,7 @@
       },
       {
         key: "acheter",
-        group: "regular",
+        group: "regularEr",
         label: "acheter",
         title: "Acheter — to buy",
         tag: "regular -er with spelling change",
@@ -1215,7 +1221,7 @@
       },
       {
         key: "rentrer",
-        group: "regular",
+        group: "regularEr",
         label: "rentrer",
         title: "Rentrer — to return / go home",
         tag: "regular -er",
@@ -1224,7 +1230,7 @@
       },
       {
         key: "demander",
-        group: "regular",
+        group: "regularEr",
         label: "demander",
         title: "Demander — to ask",
         tag: "regular -er",
@@ -1233,7 +1239,7 @@
       },
       {
         key: "jouer",
-        group: "regular",
+        group: "regularEr",
         label: "jouer",
         title: "Jouer — to play",
         tag: "regular -er",
@@ -1242,7 +1248,7 @@
       },
       {
         key: "nager",
-        group: "regular",
+        group: "regularEr",
         label: "nager",
         title: "Nager — to swim",
         tag: "regular -er with spelling change",
@@ -1251,7 +1257,7 @@
       },
       {
         key: "tourner",
-        group: "regular",
+        group: "regularEr",
         label: "tourner",
         title: "Tourner — to turn",
         tag: "regular -er",
@@ -1260,7 +1266,7 @@
       },
       {
         key: "couter",
-        group: "regular",
+        group: "regularEr",
         label: "coûter",
         title: "Coûter — to cost",
         tag: "regular -er",
