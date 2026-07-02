@@ -299,7 +299,7 @@
       }
 
       const columns = [
-        { title: "Singular", order: ["je", "j’", "tu", "il", "elle"] },
+        { title: "Singular", order: ["je", "j’", "tu", "il", "elle", "on"] },
         { title: "Plural", order: ["nous", "vous", "ils", "elles"] }
       ].map(column => ({
         title: column.title,
