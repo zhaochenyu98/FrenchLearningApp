@@ -15,10 +15,44 @@
       currentGrammarFlashcardIndex = 0;
     }
 
+    function getGrammarFlashcardAnswerLines(card) {
+      return [
+        { label: "Statement", text: card.fr },
+        card.negative ? { label: "Negation", text: card.negative } : null,
+        card.question ? { label: "Question", text: card.question } : null
+      ].filter(Boolean);
+    }
+
+    function renderGrammarFlashcardAnswer(card) {
+      const lines = getGrammarFlashcardAnswerLines(card);
+      grammarFlashcardFrench.replaceChildren();
+
+      if (lines.length <= 1) {
+        grammarFlashcardFrench.textContent = card.fr;
+        return;
+      }
+
+      lines.forEach(line => {
+        const row = document.createElement("span");
+        row.className = "flashcard-answer-line";
+
+        const label = document.createElement("span");
+        label.className = "flashcard-answer-label";
+        label.textContent = line.label;
+
+        const sentence = document.createElement("span");
+        sentence.className = "flashcard-answer-sentence";
+        sentence.textContent = line.text;
+
+        row.append(label, sentence);
+        grammarFlashcardFrench.append(row);
+      });
+    }
+
     function updateGrammarFlashcard() {
       if (!currentGrammarFlashcard) return;
       grammarFlashcardEnglish.textContent = currentGrammarFlashcard.en;
-      grammarFlashcardFrench.textContent = currentGrammarFlashcard.fr;
+      renderGrammarFlashcardAnswer(currentGrammarFlashcard);
       grammarFlashcardAnswer.hidden = !grammarFlashcardRevealed;
       grammarFlashcardHint.textContent = grammarFlashcardRevealed
         ? "Answer revealed. Click the card again to replay audio."
@@ -51,7 +85,11 @@
       if (!currentGrammarFlashcard) showGrammarFlashcard();
       grammarFlashcardRevealed = true;
       updateGrammarFlashcard();
-      speak(currentGrammarFlashcard.fr, grammarFlashcard);
+      const lines = getGrammarFlashcardAnswerLines(currentGrammarFlashcard);
+      speakSequence(lines.map((line, index) => ({
+        text: line.text,
+        pauseBefore: index < lines.length - 1 ? examplePauseMs : 0
+      })), grammarFlashcard);
     }
 
     function resetPrepositionFlashcardDeck(avoidFirstCard = null) {
@@ -101,4 +139,3 @@
       updatePrepositionFlashcard();
       speak(currentPrepositionFlashcard.fr, prepositionFlashcard);
     }
-

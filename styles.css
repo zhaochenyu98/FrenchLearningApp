@@ -500,6 +500,23 @@
       font-size: clamp(1.15rem, 1.8vw, 1.4rem);
     }
 
+    .flashcard-answer-line {
+      display: grid;
+      gap: 2px;
+    }
+
+    .flashcard-answer-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flashcard-answer-sentence {
+      color: var(--accent);
+    }
+
     .two-col {
       display: grid;
       grid-template-columns: 1.1fr 1fr;

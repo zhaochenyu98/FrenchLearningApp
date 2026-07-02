@@ -1811,8 +1811,8 @@
       { fr: "Nous avons une réservation.", en: "We have a reservation.", source: "avoir: possession" },
       { fr: "Nous avons des billets.", en: "We have tickets.", source: "avoir: possession" },
       { fr: "Nous avons trente minutes.", en: "We have thirty minutes.", source: "avoir: time" },
-      { fr: "Est-ce que vous avez une minute ?", en: "Do you have a minute?", source: "avoir: question" },
-      { fr: "Avez-vous une adresse ?", en: "Do you have an address?", source: "avoir: question" },
+      { fr: "Vous avez une minute.", en: "You have a minute.", source: "avoir: time", negative: "Vous n’avez pas de minute.", question: "Avez-vous une minute ?" },
+      { fr: "Vous avez une adresse.", en: "You have an address.", source: "avoir: possession", negative: "Vous n’avez pas d’adresse.", question: "Avez-vous une adresse ?" },
       { fr: "Vous avez une bonne idée.", en: "You have a good idea.", source: "avoir: possession" },
       { fr: "Ils ont deux enfants.", en: "They have two children.", source: "avoir: family" },
       { fr: "Ils ont peur du chien.", en: "They are afraid of the dog.", source: "avoir expression" },
@@ -1822,21 +1822,71 @@
       { fr: "Elles ont des devoirs.", en: "They have homework.", source: "avoir: possession" }
     ];
 
+    function normalizeFlashcardBody(text, prefix) {
+      return text
+        .trim()
+        .replace(/[.?!]\s*$/u, "")
+        .replace(new RegExp(`^${prefix}\\s*`, "iu"), "")
+        .trim();
+    }
+
+    function negateAvoirComplement(body) {
+      const withDe = body.replace(/^(un|une|des|du|de la|de l[’'])\s+/iu, "de ");
+      return withDe.replace(/^de ([aeiouhàâäéèêëîïôöùûüœ])/iu, "d’$1");
+    }
+
+    const grammarFlashcardPatterns = [
+      { prefix: "Je suis", negativePrefix: "Je ne suis pas", questionPrefix: "Suis-je" },
+      { prefix: "Tu es", negativePrefix: "Tu n’es pas", questionPrefix: "Es-tu" },
+      { prefix: "Il est", negativePrefix: "Il n’est pas", questionPrefix: "Est-il" },
+      { prefix: "Elle est", negativePrefix: "Elle n’est pas", questionPrefix: "Est-elle" },
+      { prefix: "Nous sommes", negativePrefix: "Nous ne sommes pas", questionPrefix: "Sommes-nous" },
+      { prefix: "On est", negativePrefix: "On n’est pas", questionPrefix: "Est-on" },
+      { prefix: "Vous êtes", negativePrefix: "Vous n’êtes pas", questionPrefix: "Êtes-vous" },
+      { prefix: "Ils sont", negativePrefix: "Ils ne sont pas", questionPrefix: "Sont-ils" },
+      { prefix: "Elles sont", negativePrefix: "Elles ne sont pas", questionPrefix: "Sont-elles" },
+      { prefix: "J’ai", negativePrefix: "Je n’ai pas", questionPrefix: "Ai-je", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Tu as", negativePrefix: "Tu n’as pas", questionPrefix: "As-tu", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Il a", negativePrefix: "Il n’a pas", questionPrefix: "A-t-il", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Elle a", negativePrefix: "Elle n’a pas", questionPrefix: "A-t-elle", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Nous avons", negativePrefix: "Nous n’avons pas", questionPrefix: "Avons-nous", transformNegativeBody: negateAvoirComplement },
+      { prefix: "On a", negativePrefix: "On n’a pas", questionPrefix: "A-t-on", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Vous avez", negativePrefix: "Vous n’avez pas", questionPrefix: "Avez-vous", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Ils ont", negativePrefix: "Ils n’ont pas", questionPrefix: "Ont-ils", transformNegativeBody: negateAvoirComplement },
+      { prefix: "Elles ont", negativePrefix: "Elles n’ont pas", questionPrefix: "Ont-elles", transformNegativeBody: negateAvoirComplement }
+    ];
+
+    function completeGrammarFlashcard(card) {
+      const pattern = grammarFlashcardPatterns.find(item => new RegExp(`^${item.prefix}\\s+`, "iu").test(card.fr.trim()));
+      if (!pattern) return card;
+
+      const body = normalizeFlashcardBody(card.fr, pattern.prefix);
+      const negativeBody = pattern.transformNegativeBody ? pattern.transformNegativeBody(body) : body;
+      return {
+        ...card,
+        negative: card.negative || `${pattern.negativePrefix} ${negativeBody}.`,
+        question: card.question || `${pattern.questionPrefix} ${body} ?`
+      };
+    }
+
     const grammarFlashcards = [
-      ...etreRows.map(item => ({
+      ...etreRows.map(item => completeGrammarFlashcard({
         fr: item.example,
         en: item.exampleEn,
-        source: `être: ${item.full}`
+        source: `être: ${item.full}`,
+        negative: item.negative
       })),
-      ...avoirRows.map(item => ({
+      ...avoirRows.map(item => completeGrammarFlashcard({
         fr: item.example,
         en: item.exampleEn,
-        source: `avoir: ${item.full}`
+        source: `avoir: ${item.full}`,
+        negative: item.negative
       })),
-      ...exampleSentences.map(item => ({
+      ...exampleSentences.map(item => completeGrammarFlashcard({
         fr: item.fr,
         en: item.en,
-        source: item.note
+        source: item.note,
+        negative: item.negative
       })),
-      ...extraGrammarFlashcards
+      ...extraGrammarFlashcards.map(completeGrammarFlashcard)
     ];
