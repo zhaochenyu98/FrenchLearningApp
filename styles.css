@@ -1018,6 +1018,10 @@
       gap: 10px;
     }
 
+    .verb-extra-column {
+      grid-column: 1 / -1;
+    }
+
     .verb-column-title {
       border: 1px dashed var(--accent-border);
       border-radius: 14px;

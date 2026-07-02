@@ -298,8 +298,44 @@
         return;
       }
 
+      function createVerbCellCard(item) {
+        const examples = getVerbExamples(item);
+        const ipa = verbPhraseIpa[item.full] || "";
+        const card = document.createElement("div");
+        card.className = "verb-cell-card";
+        card.innerHTML = `
+          <button class="verb-form-btn" type="button">
+            <div class="tiny-label">Click for pronoun + verb only</div>
+            <div class="conjugation-main">${item.full}</div>
+            ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
+            <div class="translation">${item.en}</div>
+          </button>
+          <div class="verb-example-list">
+            ${examples.map((example, index) => `
+              <button class="verb-example-btn" type="button" data-example-index="${index}">
+                <div class="tiny-label">${example.meaning ? example.meaning : examples.length > 1 ? `Example ${index + 1}` : "Example"}</div>
+                <div class="translation">${example.en}</div>
+                <div class="verb-example-line"><strong>Statement:</strong> ${example.fr}</div>
+                ${example.negative ? `<div class="verb-example-line"><strong>Negative:</strong> ${example.negative}</div>` : ""}
+                ${example.question ? `<div class="verb-example-line"><strong>Question:</strong> ${example.question}</div>` : ""}
+              </button>
+            `).join("")}
+          </div>
+        `;
+        card.querySelector(".verb-form-btn").addEventListener("click", event => {
+          speakSequence(getVerbConjugationAudioItems(item), event.currentTarget);
+        });
+        card.querySelectorAll(".verb-example-btn").forEach(button => {
+          button.addEventListener("click", event => {
+            const example = examples[Number(event.currentTarget.dataset.exampleIndex)];
+            speakSequence(getVerbExampleAudioItems(example), event.currentTarget);
+          });
+        });
+        return card;
+      }
+
       const columns = [
-        { title: "Singular", order: ["je", "j’", "tu", "il", "elle", "on"] },
+        { title: "Singular", order: ["je", "j’", "tu", "il", "elle"] },
         { title: "Plural", order: ["nous", "vous", "ils", "elles"] }
       ].map(column => ({
         title: column.title,
@@ -307,8 +343,11 @@
           .map(pronoun => rows.find(item => item.pronoun === pronoun))
           .filter(Boolean)
       }));
+      const endingItems = ["on"]
+        .map(pronoun => rows.find(item => item.pronoun === pronoun))
+        .filter(Boolean);
 
-      if (!columns.some(column => column.items.length)) {
+      if (!columns.some(column => column.items.length) && !endingItems.length) {
         container.innerHTML = `<div class="empty-state">No singular or plural conjugations available.</div>`;
         return;
       }
@@ -320,45 +359,26 @@
 
         column.items.forEach(item => {
           try {
-            const examples = getVerbExamples(item);
-            const ipa = verbPhraseIpa[item.full] || "";
-            const card = document.createElement("div");
-            card.className = "verb-cell-card";
-            card.innerHTML = `
-              <button class="verb-form-btn" type="button">
-                <div class="tiny-label">Click for pronoun + verb only</div>
-                <div class="conjugation-main">${item.full}</div>
-                ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
-                <div class="translation">${item.en}</div>
-              </button>
-              <div class="verb-example-list">
-                ${examples.map((example, index) => `
-                  <button class="verb-example-btn" type="button" data-example-index="${index}">
-                    <div class="tiny-label">${example.meaning ? example.meaning : examples.length > 1 ? `Example ${index + 1}` : "Example"}</div>
-                    <div class="translation">${example.en}</div>
-                    <div class="verb-example-line"><strong>Statement:</strong> ${example.fr}</div>
-                    ${example.negative ? `<div class="verb-example-line"><strong>Negative:</strong> ${example.negative}</div>` : ""}
-                    ${example.question ? `<div class="verb-example-line"><strong>Question:</strong> ${example.question}</div>` : ""}
-                  </button>
-                `).join("")}
-              </div>
-            `;
-            card.querySelector(".verb-form-btn").addEventListener("click", event => {
-              speakSequence(getVerbConjugationAudioItems(item), event.currentTarget);
-            });
-            card.querySelectorAll(".verb-example-btn").forEach(button => {
-              button.addEventListener("click", event => {
-                const example = examples[Number(event.currentTarget.dataset.exampleIndex)];
-                speakSequence(getVerbExampleAudioItems(example), event.currentTarget);
-              });
-            });
-            columnEl.appendChild(card);
+            columnEl.appendChild(createVerbCellCard(item));
           } catch (error) {
             columnEl.appendChild(createRenderErrorCard(`${item && item.full ? item.full : "Verb row"} failed to render`, error));
             console.error("Verb row failed to render", item, error);
           }
         });
 
+        container.appendChild(columnEl);
+      });
+
+      endingItems.forEach(item => {
+        const columnEl = document.createElement("div");
+        columnEl.className = "verb-column verb-extra-column";
+        columnEl.innerHTML = `<div class="verb-column-title">On — spoken French</div>`;
+        try {
+          columnEl.appendChild(createVerbCellCard(item));
+        } catch (error) {
+          columnEl.appendChild(createRenderErrorCard(`${item && item.full ? item.full : "Verb row"} failed to render`, error));
+          console.error("Verb row failed to render", item, error);
+        }
         container.appendChild(columnEl);
       });
     }
