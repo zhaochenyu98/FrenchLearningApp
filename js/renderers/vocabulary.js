@@ -378,6 +378,7 @@
             <div class="noun-example-list">
               ${rowData.examples.map((example, exampleIndex) => `
                 <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  ${example.subject ? `<span class="subject-form-tag">${example.subject}</span>` : ""}
                   <span class="noun-example-main">${example.fr}</span>
                   <span class="translation">${example.en}</span>
                 </button>

@@ -1197,6 +1197,22 @@
       padding: 10px 12px;
     }
 
+    .subject-form-tag {
+      align-self: start;
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+      border-radius: 999px;
+      color: var(--accent);
+      display: inline-flex;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+      padding: 4px 7px;
+      text-transform: uppercase;
+    }
+
     .noun-example-main {
       display: block;
       font-weight: 800;

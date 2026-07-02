@@ -580,9 +580,9 @@
         meaning: "good / tasty / useful",
         note: "Bon describes a noun, so it agrees: bon, bonne, bons, bonnes.",
         examples: [
-          { fr: "C’est un bon café.", en: "It is a good coffee." },
-          { fr: "C’est une bonne idée.", en: "It is a good idea." },
-          { fr: "Ce sont de bons amis.", en: "They are good friends." }
+          { subject: "je", fr: "Je choisis un bon restaurant.", en: "I choose a good restaurant." },
+          { subject: "tu", fr: "Tu as une bonne idée.", en: "You have a good idea." },
+          { subject: "nous", fr: "Nous avons de bons amis.", en: "We have good friends." }
         ]
       },
       {
@@ -591,9 +591,9 @@
         meaning: "well / fine / good as a judgment",
         note: "Bien usually describes a verb, a whole situation, or how someone feels. It does not agree.",
         examples: [
-          { fr: "Je vais bien.", en: "I am doing well." },
-          { fr: "Tu parles bien français.", en: "You speak French well." },
-          { fr: "C’est bien.", en: "That is good / fine." }
+          { subject: "on", fr: "On travaille bien ensemble.", en: "We work well together." },
+          { subject: "vous", fr: "Vous comprenez bien la règle.", en: "You understand the rule well." },
+          { subject: "ils", fr: "Ils dorment bien.", en: "They sleep well." }
         ]
       },
       {
@@ -602,9 +602,9 @@
         meaning: "beautiful / nice-looking / nice weather",
         note: "Beau describes appearance or pleasant weather, so it agrees: beau, bel, belle, beaux, belles.",
         examples: [
-          { fr: "C’est un beau jardin.", en: "It is a beautiful garden." },
-          { fr: "Elle porte une belle robe.", en: "She is wearing a beautiful dress." },
-          { fr: "Il fait beau.", en: "The weather is nice." }
+          { subject: "il", fr: "Il fait beau aujourd’hui.", en: "The weather is nice today." },
+          { subject: "elle", fr: "Elle porte une belle robe.", en: "She is wearing a beautiful dress." },
+          { subject: "elles", fr: "Elles prennent de belles photos.", en: "They take beautiful photos." }
         ]
       }
     ];
