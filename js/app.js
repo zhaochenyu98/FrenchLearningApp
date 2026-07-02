@@ -1,6 +1,6 @@
     const imperativeConfigs = [
-      { tableId: "etreImperativeTable", playButtonId: "playEtreImperative", rows: etreImperativeRows },
-      { tableId: "avoirImperativeTable", playButtonId: "playAvoirImperative", rows: avoirImperativeRows }
+      { tableId: "etreImperativeTable", rows: etreImperativeRows },
+      { tableId: "avoirImperativeTable", rows: avoirImperativeRows }
     ];
 
     const studyIndexConfigs = {
@@ -206,13 +206,6 @@
 
     const initializedTabs = new Set();
 
-    function getQuestionComparisonAudioItems(rows, columns) {
-      return rows.flatMap(row => columns.map(column => ({
-        text: row.examples[column.key].fr,
-        pauseBefore: examplePauseMs
-      })));
-    }
-
     function getErrorMessage(error) {
       return error && error.message ? error.message : String(error);
     }
@@ -248,19 +241,11 @@
         <p>These expressions are best learned as phrases. They do not need every pronoun form.</p>
       `;
 
-      const playButton = document.createElement("button");
-      playButton.className = "action-btn";
-      playButton.type = "button";
-      playButton.textContent = "Play faire expressions";
-      playButton.addEventListener("click", () => {
-        speakSequence(faireExpressionRows.flatMap(getFaireExpressionAudioItems), playButton);
-      });
-
       const table = document.createElement("div");
       table.id = "faireExpressionsTable";
       table.className = "noun-rules-table";
 
-      heading.append(copy, playButton);
+      heading.append(copy);
       panel.append(heading, table);
       try {
         renderFaireExpressionTable(table);
@@ -288,30 +273,9 @@
         heading.append(" ", tag);
       }
 
-      const controls = document.createElement("div");
-      controls.className = "verb-panel-controls";
-
-      const formsButton = document.createElement("button");
-      formsButton.className = "verb-audio-btn";
-      formsButton.type = "button";
-      formsButton.textContent = "Play forms";
-      formsButton.addEventListener("click", () => {
-        speakSequence(item.rows.flatMap(getVerbConjugationAudioItems), formsButton);
-      });
-
-      const examplesButton = document.createElement("button");
-      examplesButton.className = "verb-audio-btn";
-      examplesButton.type = "button";
-      examplesButton.textContent = "Play examples";
-      examplesButton.addEventListener("click", () => {
-        speakSequence(item.rows.flatMap(getVerbExamplesAudioItems), examplesButton);
-      });
-
-      controls.append(formsButton, examplesButton);
-
       const header = document.createElement("div");
       header.className = "verb-panel-header";
-      header.append(heading, controls);
+      header.append(heading);
 
       const description = document.createElement("p");
       description.innerHTML = item.descriptionHtml || "";
@@ -872,23 +836,6 @@
       });
     });
 
-    verbConfigs.forEach(({ playButtonId, rows }) => {
-      if (!playButtonId) return;
-      const playButton = document.getElementById(playButtonId);
-      if (!playButton) return;
-      playButton.addEventListener("click", () => {
-        speakSequence(rows.flatMap(getVerbAudioItems));
-      });
-    });
-
-    imperativeConfigs.forEach(({ playButtonId, rows }) => {
-      const playButton = document.getElementById(playButtonId);
-      if (!playButton) return;
-      playButton.addEventListener("click", () => {
-        speakSequence(rows.flatMap(getImperativeAudioItems));
-      });
-    });
-
     rateInput.addEventListener("input", () => {
       rateValue.textContent = `${Number(rateInput.value).toFixed(2)}x`;
     });
@@ -960,26 +907,6 @@
       movePrepositionFlashcard(1);
     });
 
-    playNumberSamplesBtn.addEventListener("click", () => {
-      speakSequence(numberItems.map(item => ({ text: item.speech, pauseBefore: numberRepeatPauseMs })));
-    });
-
-    playAgeYearsBtn.addEventListener("click", () => {
-      speakSequence(ageYearItems.map(item => ({ text: item.speech, pauseBefore: numberRepeatPauseMs })));
-    });
-
-    playHundredsLearningBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(hundredsLearningItems));
-    });
-
-    playThousandsLearningBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(thousandsLearningItems));
-    });
-
-    playYearLearningBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(yearLearningItems));
-    });
-
     playYearQuizAudioBtn.addEventListener("click", () => {
       playYearQuizAudio();
     });
@@ -1002,166 +929,6 @@
       if (event.key !== "Enter") return;
       event.preventDefault();
       checkYearQuizAnswer();
-    });
-
-    playTimeHoursBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(timeHourItems));
-    });
-
-    playTimeExpressionsBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(timeExpressionItems));
-    });
-
-    playOrdinalNumbersBtn.addEventListener("click", () => {
-      speakSequence(getNumberLearningAudioItems(ordinalNumberItems));
-    });
-
-    playPronunciationRulesBtn.addEventListener("click", () => {
-      speakSequence([
-        ...getPronunciationExamples(),
-        ...getMandatoryLiaisonExamples(),
-        ...getPronunciationMatrixWords(),
-        ...getPronunciationPracticeWords()
-      ].map(word => ({ text: word })));
-    });
-
-    playTonicPronounsBtn.addEventListener("click", () => {
-      speakSequence([
-        ...getTonicPronounForms().map(form => ({ text: form.fr, pauseBefore: numberRepeatPauseMs })),
-        ...getTonicPronounUsageLines().map(text => ({ text, pauseBefore: examplePauseMs }))
-      ]);
-    });
-
-    playReflexivePronounsBtn.addEventListener("click", () => {
-      speakSequence(getReflexivePronounForms().map(form => ({
-        text: form.speech || form.fr,
-        pauseBefore: numberRepeatPauseMs
-      })));
-    });
-
-    playNounPluralsBtn.addEventListener("click", () => {
-      speakSequence(getNounPluralExamples().flatMap(example => ([
-        { text: example.singular },
-        { text: example.plural, pauseBefore: examplePauseMs }
-      ])));
-    });
-
-    playJobNounGendersBtn.addEventListener("click", () => {
-      speakSequence(getJobGenderExamples().flatMap(example => ([
-        { text: example.masculine },
-        { text: example.feminine, pauseBefore: examplePauseMs }
-      ])));
-    });
-
-    playAdjectivesBtn.addEventListener("click", () => {
-      speakSequence([
-        ...getAdjectiveRuleExamples(adjectiveFeminineRules).flatMap(example => ([
-          { text: example.from },
-          { text: example.to, pauseBefore: examplePauseMs }
-        ])),
-        ...getAdjectiveRuleExamples(adjectivePluralRules).flatMap(example => ([
-          { text: example.from },
-          { text: example.to, pauseBefore: examplePauseMs }
-        ])),
-        ...getAdjectiveRuleExamples(adjectivePreposedPluralRules).flatMap(example => ([
-          { text: example.from },
-          { text: example.to, pauseBefore: examplePauseMs }
-        ])),
-        ...getSpecialAdjectiveExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-      ]);
-    });
-
-    playAdverbsBtn.addEventListener("click", () => {
-      speakSequence([
-        ...getModifierComparisonExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs })),
-        ...getToutExamples().map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-      ]);
-    });
-
-    playTenseExamplesBtn.addEventListener("click", () => {
-      speakSequence(getPasseComposeAudioItems());
-    });
-
-    playEtreAuxiliaryVerbsBtn.addEventListener("click", () => {
-      speakSequence(getEtreAuxiliaryAudioItems());
-    });
-
-    playPrepositionsBtn.addEventListener("click", () => {
-      speakSequence(allPrepositionItems.flatMap(item => ([
-        { text: item.fr },
-        ...item.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-      ])));
-    });
-
-    playTimeSpanComparisonsBtn.addEventListener("click", () => {
-      speakSequence(getTimeSpanComparisonAudioItems());
-    });
-
-    playDeterminersBtn.addEventListener("click", () => {
-      speakSequence(allDeterminerItems.flatMap(item => ([
-        { text: item.speech || item.fr },
-        { text: item.example, pauseBefore: examplePauseMs }
-      ])));
-    });
-
-    playPossessivesBtn.addEventListener("click", () => {
-      speakSequence(
-        [
-          ...possessiveRows.flatMap(row => row.forms.flatMap(form => ([
-            { text: form.form },
-            { text: form.example, pauseBefore: examplePauseMs }
-          ]))),
-          ...possessiveExceptions.flatMap(item => ([
-            { text: item.fr },
-            { text: item.example, pauseBefore: examplePauseMs }
-          ]))
-        ]
-      );
-    });
-
-    playQuestionWordsBtn.addEventListener("click", () => {
-      speakSequence(questionWords.flatMap(item => ([
-        { text: item.speech || item.fr },
-        ...item.examples.flatMap(example =>
-          getExampleVariants(example).map(variant => ({ text: variant.fr, pauseBefore: examplePauseMs }))
-        )
-      ])).concat(
-        quelForms.flatMap(item => ([
-          { text: item.form },
-          { text: item.example, pauseBefore: examplePauseMs }
-        ])),
-        getQuestionComparisonAudioItems(quelExampleRows, quelExampleColumns),
-        getQuestionComparisonAudioItems(quelEtreSpecialRows, quelEtreSpecialColumns),
-        getQuestionComparisonAudioItems(quelColorRows, quelColorColumns),
-        getQuestionComparisonAudioItems(dayQuestionRows, dayQuestionColumns),
-        getQuestionComparisonAudioItems(timeQuestionRows, timeQuestionColumns),
-        getQuestionComparisonAudioItems(queExampleRows, queExampleColumns),
-        getQuestionComparisonAudioItems(queCestSpecialRows, queCestSpecialColumns),
-        getQuestionComparisonAudioItems(commentExampleRows, commentExampleColumns),
-        getQuestionComparisonAudioItems(combienExampleRows, combienExampleColumns),
-        getQuestionComparisonAudioItems(yaTilExampleRows, yaTilExampleColumns)
-      ));
-    });
-
-    playWeekdaysBtn.addEventListener("click", () => {
-      speakSequence(weekdays.flatMap(item => ([
-        { text: item.fr },
-        { text: item.example, pauseBefore: examplePauseMs }
-      ])));
-    });
-
-    playMonthsBtn.addEventListener("click", () => {
-      speakSequence(months.flatMap(item => ([
-        { text: item.fr },
-        { text: item.example, pauseBefore: examplePauseMs }
-      ])));
-    });
-
-    playSeasonsBtn.addEventListener("click", () => {
-      speakSequence(seasons.flatMap(item => ([
-        { text: item.fr },
-        { text: item.example, pauseBefore: examplePauseMs }
-      ])));
     });
 
     initializeTabAccessibility();

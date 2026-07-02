@@ -21,15 +21,6 @@
       });
     }
 
-    function getTimeSpanComparisonAudioItems(rows = timeSpanComparisons) {
-      return rows.flatMap(row => [
-        { text: row.short.fr },
-        ...row.short.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs })),
-        { text: row.long.fr, pauseBefore: examplePauseMs },
-        ...row.long.examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-      ]);
-    }
-
     function renderTimeSpanTerm(term, rowIndex, side) {
       return `
         <div>

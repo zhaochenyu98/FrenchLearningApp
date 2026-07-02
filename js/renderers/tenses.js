@@ -47,24 +47,6 @@
         .replace(/\(.*?\)/g, "");
     }
 
-    function getPasseComposeAudioItems(groups = passeComposeGroups) {
-      return groups.flatMap(group => group.verbs.flatMap(verb =>
-        getPasseComposeSentenceForms(verb).map(sentence => ({
-          text: sentence.fr,
-          pauseBefore: examplePauseMs
-        }))
-      ));
-    }
-
-    function getEtreAuxiliaryAudioItems(rows = etreAuxiliaryVerbs) {
-      return rows.flatMap(verb => [
-        { text: verb.infinitive },
-        { text: getPastParticipleSpeech(verb), pauseBefore: examplePauseMs },
-        ...verb.etreExamples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs })),
-        ...(verb.avoirExamples || []).map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
-      ]);
-    }
-
     function renderEtreAuxiliaryExamples(examples, verbIndex, type) {
       return `
         <div class="noun-example-list">

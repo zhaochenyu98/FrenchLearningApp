@@ -6,10 +6,6 @@
       return rows.flatMap(row => [...row.singularForms, ...row.pluralForms]);
     }
 
-    function getTonicPronounUsageLines(rules = tonicPronounUsageRules) {
-      return rules.flatMap(rule => rule.examples.flatMap(example => example.lines.map(line => line.fr)));
-    }
-
     function getPronounFormCardHtml(form) {
       const formSpeech = form.speech || form.fr;
       const exampleSpeech = form.exampleSpeech || form.example || "";
@@ -239,20 +235,6 @@
         { text: example.fr },
         ...(example.negative ? [{ text: example.negative, pauseBefore: examplePauseMs }] : []),
         ...(example.question ? [{ text: example.question, pauseBefore: examplePauseMs }] : [])
-      ];
-    }
-
-    function getVerbExamplesAudioItems(item) {
-      return getVerbExamples(item).flatMap(getVerbExampleAudioItems);
-    }
-
-    function getVerbAudioItems(item) {
-      return [
-        ...getVerbConjugationAudioItems(item),
-        ...getVerbExamplesAudioItems(item).map(audioItem => ({
-          ...audioItem,
-          pauseBefore: audioItem.pauseBefore || examplePauseMs
-        }))
       ];
     }
 

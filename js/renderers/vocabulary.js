@@ -1,15 +1,3 @@
-    function getNounPluralExamples(rules = nounPluralRules) {
-      return rules.flatMap(rule => rule.examples);
-    }
-
-    function getJobGenderExamples(rules = jobGenderRules) {
-      return rules.flatMap(rule => rule.examples);
-    }
-
-    function getUncountableNounExamples(groups = uncountableNounGroups) {
-      return groups.flatMap(group => group.examples);
-    }
-
     function speakNounPluralExample(example, card) {
       speakSequence([
         { text: example.singular },
@@ -29,22 +17,6 @@
         { text: example.phrase },
         { text: example.example, pauseBefore: examplePauseMs }
       ], card);
-    }
-
-    function getAdjectiveRuleExamples(rules) {
-      return rules.flatMap(rule => rule.examples);
-    }
-
-    function getSpecialAdjectiveExamples(rows = specialAdjectiveForms) {
-      return rows.flatMap(row => row.forms.flatMap(form => form.examples));
-    }
-
-    function getModifierComparisonExamples(rows = modifierComparisonRows) {
-      return rows.flatMap(row => row.examples);
-    }
-
-    function getToutExamples(rows = toutFormRows) {
-      return rows.flatMap(row => row.forms.flatMap(form => form.examples));
     }
 
     function speakAdjectivePair(example, card) {

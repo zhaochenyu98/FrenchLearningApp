@@ -873,8 +873,8 @@
     ];
 
     const grammarVerbConfigs = [
-      { tab: "grammar", tableId: "etreTable", playButtonId: "playEtre", rows: etreRows },
-      { tab: "grammar", tableId: "avoirTable", playButtonId: "playAvoir", rows: avoirRows }
+      { tab: "grammar", tableId: "etreTable", rows: etreRows },
+      { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
     ];
 
     const verbStudyGroups = [

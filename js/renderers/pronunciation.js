@@ -2,22 +2,6 @@
       return example.ipa || pronunciationIpa[example.fr] || "";
     }
 
-    function getPronunciationExamples(lists = [pronunciationRules, consonantPronunciationRules]) {
-      return lists.flatMap(list => list.flatMap(group => group.rules.flatMap(rule => rule.examples.map(example => example.fr))));
-    }
-
-    function getMandatoryLiaisonExamples(list = mandatoryLiaisonRules) {
-      return list.flatMap(group => group.examples.map(example => example.fr));
-    }
-
-    function getPronunciationPracticeWords(groups = pronunciationPracticeGroups) {
-      return groups.flatMap(group => group.words.map(item => item.fr));
-    }
-
-    function getPronunciationMatrixWords(rows = pronunciationMatrixRows) {
-      return rows.flatMap(row => row.cells.map(item => item.fr));
-    }
-
     function renderPronunciationRuleGroups(container, list, emptyMessage) {
       container.innerHTML = "";
       if (!list.length) {
@@ -171,4 +155,3 @@
         pronunciationPracticeGrid.appendChild(section);
       });
     }
-

@@ -126,7 +126,6 @@
     .tab-btn,
     .action-btn,
     .card,
-    .verb-audio-btn,
     .verb-form-btn,
     .verb-example-btn,
     .pronoun-card,
@@ -779,14 +778,6 @@
       margin-bottom: 0;
     }
 
-    .verb-panel-controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-      min-width: 210px;
-    }
-
     .verb-panel:focus {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -809,8 +800,7 @@
       align-items: flex-start;
     }
 
-    .verb-group-toggle,
-    .verb-audio-btn {
+    .verb-group-toggle {
       border: 1px solid var(--accent-border);
       border-radius: 10px;
       padding: 8px 11px;
@@ -825,9 +815,7 @@
     }
 
     .verb-group-toggle:hover,
-    .verb-group-toggle:focus-visible,
-    .verb-audio-btn:hover,
-    .verb-audio-btn:focus-visible {
+    .verb-group-toggle:focus-visible {
       border-color: var(--accent);
       background: var(--card);
       outline: none;
@@ -1979,15 +1967,7 @@
         display: grid;
       }
 
-      .verb-panel-controls {
-        display: grid;
-        grid-template-columns: 1fr;
-        min-width: 0;
-        width: 100%;
-      }
-
-      .verb-group-toggle,
-      .verb-audio-btn {
+      .verb-group-toggle {
         width: 100%;
       }
 
