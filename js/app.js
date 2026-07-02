@@ -322,7 +322,9 @@
         const content = document.createElement("div");
         content.className = "verb-group-content";
 
-        const groupItems = verbStudyItems.filter(item => item.group === group.key);
+        const groupItems = verbStudyItems
+          .filter(item => item.group === group.key)
+          .sort((a, b) => a.label.localeCompare(b.label, "fr"));
         if (!groupItems.length) {
           content.appendChild(createInlineError(`${group.title} has no verbs`, "Add at least one verbStudyItems entry for this group."));
         }

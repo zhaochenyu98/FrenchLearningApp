@@ -139,7 +139,9 @@
         </div>
       `;
 
-      group.verbs.forEach((verb, verbIndex) => {
+      const sortedVerbs = [...group.verbs].sort((a, b) => a.infinitive.localeCompare(b.infinitive, "fr"));
+
+      sortedVerbs.forEach((verb, verbIndex) => {
         const row = document.createElement("div");
         row.className = "noun-rule-card tense-row-card";
         row.id = getPasseComposeVerbId(group, verb);
@@ -183,7 +185,7 @@
 
         row.querySelectorAll(".tense-example-btn").forEach(button => {
           button.addEventListener("click", event => {
-            const currentVerb = group.verbs[Number(event.currentTarget.dataset.verbIndex)];
+            const currentVerb = sortedVerbs[Number(event.currentTarget.dataset.verbIndex)];
             const sentence = getPasseComposeSentenceForms(currentVerb)[Number(event.currentTarget.dataset.sentenceIndex)];
             speakSequence([{ text: sentence.fr }], event.currentTarget);
           });
