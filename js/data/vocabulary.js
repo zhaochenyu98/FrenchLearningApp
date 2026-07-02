@@ -443,8 +443,8 @@
             number: "Singular",
             label: "Masculine singular",
             examples: [
-              { fr: "un beau pull", en: "a beautiful sweater" },
-              { fr: "un bel homme", en: "a handsome man" }
+              { fr: "Il porte un beau pull.", en: "He is wearing a beautiful sweater." },
+              { fr: "C’est un bel homme.", en: "He is a handsome man." }
             ]
           },
           {
@@ -453,8 +453,8 @@
             number: "Singular",
             label: "Feminine singular",
             examples: [
-              { fr: "une belle maison", en: "a beautiful house" },
-              { fr: "une belle amie", en: "a beautiful friend" }
+              { fr: "Elle habite dans une belle maison.", en: "She lives in a beautiful house." },
+              { fr: "J’ai une belle amie.", en: "I have a beautiful friend." }
             ]
           },
           {
@@ -463,8 +463,8 @@
             number: "Plural",
             label: "Masculine plural",
             examples: [
-              { fr: "de beaux vêtements", en: "beautiful clothes" },
-              { fr: "de beaux appartements", en: "beautiful apartments" }
+              { fr: "J’achète de beaux vêtements.", en: "I am buying beautiful clothes." },
+              { fr: "Nous visitons de beaux appartements.", en: "We are visiting beautiful apartments." }
             ]
           },
           {
@@ -473,8 +473,8 @@
             number: "Plural",
             label: "Feminine plural",
             examples: [
-              { fr: "de belles fleurs", en: "beautiful flowers" },
-              { fr: "de belles amies", en: "beautiful friends" }
+              { fr: "Elle reçoit de belles fleurs.", en: "She receives beautiful flowers." },
+              { fr: "Nous avons de belles amies.", en: "We have beautiful friends." }
             ]
           }
         ]
@@ -489,8 +489,8 @@
             number: "Singular",
             label: "Masculine singular",
             examples: [
-              { fr: "un nouveau film", en: "a new movie" },
-              { fr: "un nouvel ami", en: "a new friend" }
+              { fr: "Je regarde un nouveau film.", en: "I am watching a new movie." },
+              { fr: "Il invite un nouvel ami.", en: "He invites a new friend." }
             ]
           },
           {
@@ -499,8 +499,8 @@
             number: "Singular",
             label: "Feminine singular",
             examples: [
-              { fr: "une nouvelle maison", en: "a new house" },
-              { fr: "une nouvelle amie", en: "a new friend" }
+              { fr: "Elle achète une nouvelle maison.", en: "She is buying a new house." },
+              { fr: "Tu rencontres une nouvelle amie.", en: "You meet a new friend." }
             ]
           },
           {
@@ -509,8 +509,8 @@
             number: "Plural",
             label: "Masculine plural",
             examples: [
-              { fr: "de nouveaux films", en: "new movies" },
-              { fr: "de nouveaux appartements", en: "new apartments" }
+              { fr: "Nous regardons de nouveaux films.", en: "We are watching new movies." },
+              { fr: "Ils cherchent de nouveaux appartements.", en: "They are looking for new apartments." }
             ]
           },
           {
@@ -519,8 +519,8 @@
             number: "Plural",
             label: "Feminine plural",
             examples: [
-              { fr: "de nouvelles photos", en: "new photos" },
-              { fr: "de nouvelles amies", en: "new friends" }
+              { fr: "Elle prend de nouvelles photos.", en: "She takes new photos." },
+              { fr: "J’ai de nouvelles amies.", en: "I have new friends." }
             ]
           }
         ]
@@ -535,8 +535,8 @@
             number: "Singular",
             label: "Masculine singular",
             examples: [
-              { fr: "un vieux livre", en: "an old book" },
-              { fr: "un vieil homme", en: "an old man" }
+              { fr: "Je lis un vieux livre.", en: "I am reading an old book." },
+              { fr: "C’est un vieil homme.", en: "He is an old man." }
             ]
           },
           {
@@ -545,8 +545,8 @@
             number: "Singular",
             label: "Feminine singular",
             examples: [
-              { fr: "une vieille dame", en: "an old lady" },
-              { fr: "une vieille amie", en: "an old friend" }
+              { fr: "Nous aidons une vieille dame.", en: "We help an old lady." },
+              { fr: "Je parle avec une vieille amie.", en: "I am speaking with an old friend." }
             ]
           },
           {
@@ -555,8 +555,8 @@
             number: "Plural",
             label: "Masculine plural",
             examples: [
-              { fr: "de vieux tableaux", en: "old paintings" },
-              { fr: "de vieux appartements", en: "old apartments" }
+              { fr: "Le musée garde de vieux tableaux.", en: "The museum keeps old paintings." },
+              { fr: "Ils rénovent de vieux appartements.", en: "They renovate old apartments." }
             ]
           },
           {
@@ -565,8 +565,8 @@
             number: "Plural",
             label: "Feminine plural",
             examples: [
-              { fr: "de vieilles maisons", en: "old houses" },
-              { fr: "de vieilles amies", en: "old friends" }
+              { fr: "On visite de vieilles maisons.", en: "We visit old houses." },
+              { fr: "Elle retrouve de vieilles amies.", en: "She meets old friends again." }
             ]
           }
         ]
