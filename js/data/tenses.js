@@ -629,6 +629,19 @@
             statement: { fr: "Elle s’est habillée vite.", en: "She got dressed quickly." },
             negative: { fr: "Elle ne s’est pas habillée vite.", en: "She did not get dressed quickly." },
             question: { fr: "S’est-elle habillée vite ?", en: "Did she get dressed quickly?" }
+          },
+          {
+            infinitive: "se trouver",
+            infinitiveIpa: "/sə tʁuve/",
+            meaning: "to be located / to find oneself",
+            auxiliary: "être",
+            pastParticiple: "trouvé(e)(s)",
+            pastParticipleIpa: "/tʁuve/",
+            pattern: "se trouver → trouvé",
+            note: "With être in passé composé, it often means “found oneself / ended up” in a place.",
+            statement: { fr: "Nous nous sommes trouvés devant la gare.", en: "We found ourselves in front of the train station." },
+            negative: { fr: "Nous ne nous sommes pas trouvés devant la gare.", en: "We did not find ourselves in front of the train station." },
+            question: { fr: "Nous sommes-nous trouvés devant la gare ?", en: "Did we find ourselves in front of the train station?" }
           }
         ]
       }

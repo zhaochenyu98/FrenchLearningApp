@@ -834,6 +834,17 @@
       { pronoun: "elles", form: "s’habillent", full: "elles s’habillent", en: "they get dressed", example: "Elles s’habillent pour la fête.", exampleEn: "They get dressed for the party.", negative: "Elles ne s’habillent pas pour la fête.", negativeEn: "They do not get dressed for the party." }
     ];
 
+    const seTrouverRows = [
+      { pronoun: "je", form: "me trouve", full: "je me trouve", en: "I am located / find myself", example: "Je me trouve devant la gare.", exampleEn: "I am in front of the train station.", negative: "Je ne me trouve pas devant la gare.", negativeEn: "I am not in front of the train station.", question: "Où est-ce que je me trouve ?" },
+      { pronoun: "tu", form: "te trouves", full: "tu te trouves", en: "you are located / find yourself", example: "Tu te trouves près du métro.", exampleEn: "You are near the metro.", negative: "Tu ne te trouves pas près du métro.", negativeEn: "You are not near the metro.", question: "Te trouves-tu près du métro ?" },
+      { pronoun: "il", form: "se trouve", full: "il se trouve", en: "he / it is located", example: "Le musée se trouve au centre-ville.", exampleEn: "The museum is located downtown.", negative: "Le musée ne se trouve pas au centre-ville.", negativeEn: "The museum is not located downtown.", question: "Où se trouve le musée ?" },
+      { pronoun: "elle", form: "se trouve", full: "elle se trouve", en: "she / it is located", example: "La banque se trouve en face de l’école.", exampleEn: "The bank is located across from the school.", negative: "La banque ne se trouve pas en face de l’école.", negativeEn: "The bank is not located across from the school.", question: "La banque se trouve-t-elle en face de l’école ?" },
+      { pronoun: "nous", form: "nous trouvons", full: "nous nous trouvons", en: "we are located / find ourselves", example: "Nous nous trouvons dans une petite rue.", exampleEn: "We are on a small street.", negative: "Nous ne nous trouvons pas dans une petite rue.", negativeEn: "We are not on a small street.", question: "Nous trouvons-nous dans une petite rue ?" },
+      { pronoun: "vous", form: "vous trouvez", full: "vous vous trouvez", en: "you are located / find yourself", example: "Vous vous trouvez au coin de la rue.", exampleEn: "You are at the street corner.", negative: "Vous ne vous trouvez pas au coin de la rue.", negativeEn: "You are not at the street corner.", question: "Où vous trouvez-vous ?" },
+      { pronoun: "ils", form: "se trouvent", full: "ils se trouvent", en: "they are located", example: "Les toilettes se trouvent au fond du couloir.", exampleEn: "The restrooms are at the end of the hallway.", negative: "Les toilettes ne se trouvent pas au fond du couloir.", negativeEn: "The restrooms are not at the end of the hallway.", question: "Où se trouvent les toilettes ?" },
+      { pronoun: "elles", form: "se trouvent", full: "elles se trouvent", en: "they are located", example: "Les clés se trouvent sur la table.", exampleEn: "The keys are on the table.", negative: "Les clés ne se trouvent pas sur la table.", negativeEn: "The keys are not on the table.", question: "Les clés se trouvent-elles sur la table ?" }
+    ];
+
     const tournerRows = [
       { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
       { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock.", question: "Que tournes-tu ?" },
@@ -1348,6 +1359,14 @@
         title: "S’habiller — to get dressed",
         descriptionHtml: "<strong>S’habiller</strong> elides before the mute h: <strong>je m’habille</strong>, <strong>tu t’habilles</strong>, <strong>il s’habille</strong>. The base verb <strong>habiller</strong> means “to dress” someone: <strong>J’habille mon enfant.</strong>",
         rows: sHabillerRows
+      },
+      {
+        key: "seTrouver",
+        group: "pronominal",
+        label: "se trouver",
+        title: "Se trouver — to be located / find oneself",
+        descriptionHtml: "<strong>Se trouver</strong> often means “to be located” for places and things: <strong>Le musée se trouve au centre-ville.</strong> The base verb <strong>trouver</strong> means “to find” or “to think/find something to be”: <strong>Je trouve la clé.</strong>",
+        rows: seTrouverRows
       }
     ];
 
@@ -1745,6 +1764,15 @@
       "vous vous habillez": "/vu vu.za.bi.je/",
       "ils s’habillent": "/il sa.bij/",
       "elles s’habillent": "/ɛl sa.bij/",
+
+      "je me trouve": "/ʒə mə tʁuv/",
+      "tu te trouves": "/ty tə tʁuv/",
+      "il se trouve": "/il sə tʁuv/",
+      "elle se trouve": "/ɛl sə tʁuv/",
+      "nous nous trouvons": "/nu nu tʁu.vɔ̃/",
+      "vous vous trouvez": "/vu vu tʁu.ve/",
+      "ils se trouvent": "/il sə tʁuv/",
+      "elles se trouvent": "/ɛl sə tʁuv/",
 
       "je tourne": "/ʒə tuʁn/",
       "tu tournes": "/ty tuʁn/",
