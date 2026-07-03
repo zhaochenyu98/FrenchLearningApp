@@ -432,6 +432,7 @@
 
     function renderPrepositions(list = placePrepositions) {
       renderPrepositionTable(corePrepositionTable, corePrepositions, "No core prepositions available.");
+      renderPrepositionTable(commonPrepositionUsageTable, commonPrepositionUsages, "No common preposition usage patterns available.");
       renderPrepositionTable(prepositionAArticleGrid, aArticleRules, "No à + article rules available.");
       renderPrepositionTable(prepositionDeArticleGrid, deArticleRules, "No de + article rules available.");
       renderPrepositionTable(prepositionTable, list, "No prepositions available.");

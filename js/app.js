@@ -47,6 +47,7 @@
         sections: [
           { id: "flashcards", title: "Flash cards", open: true, elements: ['[data-study-section="preposition-flashcards"]'] },
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="preposition-quick-notes"]'] },
+          { id: "common-usages", title: "Common usages", open: true, elements: ['[data-study-section="preposition-common-usages"]'] },
           { id: "core", title: "Core prepositions", open: true, elements: ['[data-study-section="preposition-core"]'] },
           { id: "article-combos", title: "À / De + articles", open: true, elements: ['[data-study-section="preposition-article-combos"]'] },
           { id: "place", title: "Place phrases", elements: ['[data-study-section="preposition-place"]'] },

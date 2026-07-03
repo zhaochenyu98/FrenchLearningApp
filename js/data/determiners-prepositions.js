@@ -424,6 +424,119 @@
       }
     ];
 
+    const commonPrepositionUsages = [
+      {
+        fr: "être à + pronom tonique",
+        en: "to belong to someone / to be someone’s turn",
+        speech: "être à moi, être à toi, être à elle",
+        note: "Use à with a stressed pronoun to show ownership or whose turn it is.",
+        examples: [
+          { fr: "Ce livre est à moi.", en: "This book is mine." },
+          { fr: "C’est à toi.", en: "It’s your turn." },
+          { fr: "Cette place est à elle.", en: "This seat is hers." }
+        ]
+      },
+      {
+        fr: "nom + à + infinitif",
+        en: "something to do / for doing",
+        speech: "appartement à louer, quelque chose à manger",
+        note: "After a noun, à + infinitive often tells what something is for or available to do.",
+        examples: [
+          { fr: "C’est un appartement à louer.", en: "It is an apartment for rent." },
+          { fr: "Est-ce que tu as quelque chose à manger ?", en: "Do you have something to eat?" },
+          { fr: "J’achète une machine à laver.", en: "I am buying a washing machine." }
+        ]
+      },
+      {
+        fr: "aider quelqu’un à + infinitif",
+        en: "to help someone do something",
+        speech: "aider quelqu’un à faire quelque chose",
+        note: "After aider, use à before the next verb.",
+        examples: [
+          { fr: "J’aide mon frère à faire ses devoirs.", en: "I help my brother do his homework." },
+          { fr: "Elle m’aide à choisir un cadeau.", en: "She helps me choose a gift." },
+          { fr: "Peux-tu nous aider à porter cette table ?", en: "Can you help us carry this table?" }
+        ]
+      },
+      {
+        fr: "rentrer à / rentrer de",
+        en: "return to / return from",
+        speech: "rentrer à Paris, rentrer de Paris",
+        note: "Use à for the destination you return to; use de for the place you return from.",
+        examples: [
+          { fr: "Je rentre à Paris demain.", en: "I am returning to Paris tomorrow." },
+          { fr: "Je rentre de Paris ce soir.", en: "I am returning from Paris tonight." },
+          { fr: "Après le travail, je rentre chez moi.", en: "After work, I go back home." }
+        ]
+      },
+      {
+        fr: "parler à / parler de",
+        en: "speak to / talk about",
+        speech: "parler à Marie, parler de Marie",
+        note: "Parler à points to the person you speak to; parler de points to the topic.",
+        examples: [
+          { fr: "Je parle à Marie.", en: "I am speaking to Marie." },
+          { fr: "Je parle de Marie.", en: "I am talking about Marie." },
+          { fr: "À qui parles-tu ?", en: "Who are you speaking to?" }
+        ]
+      },
+      {
+        fr: "penser à / penser de",
+        en: "think about / think of",
+        speech: "penser à toi, penser de ce film",
+        note: "Penser à is about the person or thing in your mind; penser de asks for an opinion.",
+        examples: [
+          { fr: "Je pense à toi.", en: "I am thinking about you." },
+          { fr: "Elle pense souvent à ses parents.", en: "She often thinks about her parents." },
+          { fr: "Que penses-tu de ce film ?", en: "What do you think of this movie?" }
+        ]
+      },
+      {
+        fr: "jouer à / jouer de",
+        en: "play a sport or game / play an instrument",
+        speech: "jouer au foot, jouer du piano",
+        note: "Use jouer à for sports and games; use jouer de for musical instruments.",
+        examples: [
+          { fr: "Nous jouons au foot le samedi.", en: "We play soccer on Saturdays." },
+          { fr: "Elle joue du piano.", en: "She plays the piano." },
+          { fr: "Joues-tu aux cartes avec nous ?", en: "Are you playing cards with us?" }
+        ]
+      },
+      {
+        fr: "venir de + infinitif",
+        en: "to have just done something",
+        speech: "venir de finir, venir de rentrer",
+        note: "Venir de + infinitive expresses the recent past: something just happened.",
+        examples: [
+          { fr: "Je viens de finir.", en: "I just finished." },
+          { fr: "Ils viennent de rentrer.", en: "They just came back." },
+          { fr: "Est-ce que tu viens de commencer ?", en: "Did you just start?" }
+        ]
+      },
+      {
+        fr: "avoir besoin de",
+        en: "to need",
+        speech: "avoir besoin de",
+        note: "Besoin is followed by de before a noun or an infinitive.",
+        examples: [
+          { fr: "J’ai besoin d’eau.", en: "I need water." },
+          { fr: "Nous avons besoin de partir tôt.", en: "We need to leave early." },
+          { fr: "Elle n’a pas besoin de voiture.", en: "She does not need a car." }
+        ]
+      },
+      {
+        fr: "servir à",
+        en: "to be used for",
+        speech: "servir à",
+        note: "Servir à explains the purpose or use of something.",
+        examples: [
+          { fr: "Cette clé sert à ouvrir la porte.", en: "This key is used to open the door." },
+          { fr: "À quoi sert ce bouton ?", en: "What is this button for?" },
+          { fr: "Ce couteau sert à couper le pain.", en: "This knife is used to cut bread." }
+        ]
+      }
+    ];
+
     const placePrepositions = [
       {
         fr: "sur",
@@ -641,6 +754,7 @@
 
     const allPrepositionItems = [
       ...corePrepositions,
+      ...commonPrepositionUsages,
       ...aArticleRules,
       ...deArticleRules,
       ...placePrepositions,

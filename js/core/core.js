@@ -130,6 +130,7 @@
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
     const toutFormsGrid = document.getElementById("toutFormsGrid");
     const corePrepositionTable = document.getElementById("corePrepositionTable");
+    const commonPrepositionUsageTable = document.getElementById("commonPrepositionUsageTable");
     const prepositionAArticleGrid = document.getElementById("prepositionAArticleGrid");
     const prepositionDeArticleGrid = document.getElementById("prepositionDeArticleGrid");
     const prepositionTable = document.getElementById("prepositionTable");
