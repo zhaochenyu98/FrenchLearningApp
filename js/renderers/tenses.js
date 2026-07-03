@@ -47,13 +47,24 @@
         .replace(/\(.*?\)/g, "");
     }
 
+    function getEtreAuxiliaryExampleForms(example) {
+      return [
+        { label: "Statement", fr: example.fr, en: example.en },
+        ...(example.negative ? [{ label: "Negative", fr: example.negative, en: example.negativeEn }] : []),
+        ...(example.question ? [{ label: "Question", fr: example.question, en: example.questionEn }] : [])
+      ];
+    }
+
     function renderEtreAuxiliaryExamples(examples, verbIndex, type) {
       return `
         <div class="noun-example-list">
           ${examples.map((example, exampleIndex) => `
             <button class="noun-example-btn tense-auxiliary-example-btn" type="button" data-verb-index="${verbIndex}" data-example-type="${type}" data-example-index="${exampleIndex}">
-              <span class="noun-example-main">${example.fr}</span>
-              <span class="translation">${example.en}</span>
+              ${getEtreAuxiliaryExampleForms(example).map(sentence => `
+                <span class="tiny-label">${sentence.label}</span>
+                <span class="noun-example-main">${sentence.fr}</span>
+                <span class="translation">${sentence.en || ""}</span>
+              `).join("")}
             </button>
           `).join("")}
         </div>
@@ -116,7 +127,10 @@
               ? currentVerb.avoirExamples
               : currentVerb.etreExamples;
             const example = examples[Number(button.dataset.exampleIndex)];
-            speak(example.fr, button);
+            speakSequence(getEtreAuxiliaryExampleForms(example).map((sentence, index) => ({
+              text: sentence.fr,
+              pauseBefore: index === 0 ? 0 : examplePauseMs
+            })), button);
           });
         });
 

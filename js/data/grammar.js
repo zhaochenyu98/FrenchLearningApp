@@ -273,6 +273,17 @@
       { pronoun: "elles", form: "invitent", full: "elles invitent", en: "they invite", example: "Elles invitent leurs parents.", exampleEn: "They invite their parents.", negative: "Elles n’invitent pas leurs parents.", negativeEn: "They do not invite their parents." }
     ];
 
+    const arriverRows = [
+      { pronoun: "j’", form: "arrive", full: "j’arrive", en: "I arrive / I manage", example: "J’arrive à huit heures.", exampleEn: "I arrive at eight o’clock.", negative: "Je n’arrive pas à huit heures.", negativeEn: "I do not arrive at eight o’clock." },
+      { pronoun: "tu", form: "arrives", full: "tu arrives", en: "you arrive / you manage", example: "Tu arrives avant moi.", exampleEn: "You arrive before me.", negative: "Tu n’arrives pas avant moi.", negativeEn: "You do not arrive before me.", question: "Arrives-tu avant moi ?" },
+      { pronoun: "il", form: "arrive", full: "il arrive", en: "he arrives / it happens", example: "Il arrive à la gare.", exampleEn: "He arrives at the train station.", negative: "Il n’arrive pas à la gare.", negativeEn: "He does not arrive at the train station.", question: "Où arrive-t-il ?" },
+      { pronoun: "elle", form: "arrive", full: "elle arrive", en: "she arrives / she manages", example: "Elle arrive en retard.", exampleEn: "She arrives late.", negative: "Elle n’arrive pas en retard.", negativeEn: "She does not arrive late." },
+      { pronoun: "nous", form: "arrivons", full: "nous arrivons", en: "we arrive / we manage", example: "Nous arrivons ensemble.", exampleEn: "We arrive together.", negative: "Nous n’arrivons pas ensemble.", negativeEn: "We do not arrive together.", question: "Quand arrivons-nous ?" },
+      { pronoun: "vous", form: "arrivez", full: "vous arrivez", en: "you arrive / you manage", example: "Vous arrivez à l’heure.", exampleEn: "You arrive on time.", negative: "Vous n’arrivez pas à l’heure.", negativeEn: "You do not arrive on time.", question: "Arrivez-vous à l’heure ?" },
+      { pronoun: "ils", form: "arrivent", full: "ils arrivent", en: "they arrive / they manage", example: "Ils arrivent demain matin.", exampleEn: "They arrive tomorrow morning.", negative: "Ils n’arrivent pas demain matin.", negativeEn: "They do not arrive tomorrow morning." },
+      { pronoun: "elles", form: "arrivent", full: "elles arrivent", en: "they arrive / they manage", example: "Elles arrivent après le cours.", exampleEn: "They arrive after class.", negative: "Elles n’arrivent pas après le cours.", negativeEn: "They do not arrive after class.", question: "Quand arrivent-elles ?" }
+    ];
+
     const finirRows = [
       { pronoun: "je", form: "finis", full: "je finis", en: "I finish", example: "Je finis mes devoirs.", exampleEn: "I finish my homework.", negative: "Je ne finis pas mes devoirs.", negativeEn: "I do not finish my homework." },
       { pronoun: "tu", form: "finis", full: "tu finis", en: "you finish", example: "Tu finis le travail.", exampleEn: "You finish the work.", negative: "Tu ne finis pas le travail.", negativeEn: "You do not finish the work.", question: "Quand finis-tu le travail ?" },
@@ -433,6 +444,17 @@
       }
     ];
 
+    const apprendreRows = [
+      { pronoun: "j’", form: "apprends", full: "j’apprends", en: "I learn", example: "J’apprends le français.", exampleEn: "I am learning French.", negative: "Je n’apprends pas le français.", negativeEn: "I am not learning French.", question: "Qu’est-ce que j’apprends ?" },
+      { pronoun: "tu", form: "apprends", full: "tu apprends", en: "you learn", example: "Tu apprends une nouvelle règle.", exampleEn: "You are learning a new rule.", negative: "Tu n’apprends pas de nouvelle règle.", negativeEn: "You are not learning a new rule.", question: "Qu’apprends-tu ?" },
+      { pronoun: "il", form: "apprend", full: "il apprend", en: "he learns", example: "Il apprend à conduire.", exampleEn: "He is learning to drive.", negative: "Il n’apprend pas à conduire.", negativeEn: "He is not learning to drive.", question: "Apprend-il à conduire ?" },
+      { pronoun: "elle", form: "apprend", full: "elle apprend", en: "she learns", example: "Elle apprend beaucoup en classe.", exampleEn: "She learns a lot in class.", negative: "Elle n’apprend pas beaucoup en classe.", negativeEn: "She does not learn a lot in class." },
+      { pronoun: "nous", form: "apprenons", full: "nous apprenons", en: "we learn", example: "Nous apprenons les verbes irréguliers.", exampleEn: "We are learning irregular verbs.", negative: "Nous n’apprenons pas les verbes irréguliers.", negativeEn: "We are not learning irregular verbs.", question: "Quels verbes apprenons-nous ?" },
+      { pronoun: "vous", form: "apprenez", full: "vous apprenez", en: "you learn", example: "Vous apprenez vite.", exampleEn: "You learn quickly.", negative: "Vous n’apprenez pas vite.", negativeEn: "You do not learn quickly.", question: "Apprenez-vous vite ?" },
+      { pronoun: "ils", form: "apprennent", full: "ils apprennent", en: "they learn", example: "Ils apprennent une chanson.", exampleEn: "They are learning a song.", negative: "Ils n’apprennent pas de chanson.", negativeEn: "They are not learning a song." },
+      { pronoun: "elles", form: "apprennent", full: "elles apprennent", en: "they learn", example: "Elles apprennent à nager.", exampleEn: "They are learning to swim.", negative: "Elles n’apprennent pas à nager.", negativeEn: "They are not learning to swim.", question: "Qu’apprennent-elles à faire ?" }
+    ];
+
     const habiterRows = [
       { pronoun: "j’", form: "habite", full: "j’habite", en: "I live", example: "J’habite en Californie.", exampleEn: "I live in California.", negative: "Je n’habite pas en Californie.", negativeEn: "I do not live in California." },
       { pronoun: "tu", form: "habites", full: "tu habites", en: "you live", example: "Tu habites ici.", exampleEn: "You live here.", negative: "Tu n’habites pas ici.", negativeEn: "You do not live here." },
@@ -533,12 +555,21 @@
     ];
 
     const boireRows = [
-      { pronoun: "je", form: "bois", full: "je bois", en: "I drink", example: "Je bois de l’eau tous les jours.", exampleEn: "I drink water every day.", negative: "Je ne bois pas d’eau tous les jours.", negativeEn: "I do not drink water every day.", question: "Qu’est-ce que je bois tous les jours ?" },
-      { pronoun: "tu", form: "bois", full: "tu bois", en: "you drink", example: "Tu bois du café le matin.", exampleEn: "You drink coffee in the morning.", negative: "Tu ne bois pas de café le matin.", negativeEn: "You do not drink coffee in the morning.", question: "Bois-tu du café le matin ?" },
-      { pronoun: "il", form: "boit", full: "il boit", en: "he drinks", example: "Il boit un jus d’orange.", exampleEn: "He drinks orange juice.", negative: "Il ne boit pas de jus d’orange.", negativeEn: "He does not drink orange juice.", question: "Que boit-il ?" },
+      {
+        pronoun: "je",
+        form: "bois",
+        full: "je bois",
+        en: "I drink",
+        examples: [
+          { meaning: "drink water in general", fr: "Je bois de l’eau tous les jours.", en: "I drink water every day.", negative: "Je ne bois pas d’eau tous les jours.", negativeEn: "I do not drink water every day.", question: "Qu’est-ce que je bois tous les jours ?" },
+          { meaning: "drink one bottle of water", fr: "Je bois une bouteille d’eau après le sport.", en: "I drink a bottle of water after sports.", negative: "Je ne bois pas de bouteille d’eau après le sport.", negativeEn: "I do not drink a bottle of water after sports.", question: "Est-ce que je bois une bouteille d’eau après le sport ?" }
+        ]
+      },
+      { pronoun: "tu", form: "bois", full: "tu bois", en: "you drink", example: "Tu bois une bouteille d’eau après le cours.", exampleEn: "You drink a bottle of water after class.", negative: "Tu ne bois pas de bouteille d’eau après le cours.", negativeEn: "You do not drink a bottle of water after class.", question: "Bois-tu une bouteille d’eau après le cours ?" },
+      { pronoun: "il", form: "boit", full: "il boit", en: "he drinks", example: "Il boit du jus d’orange.", exampleEn: "He drinks orange juice.", negative: "Il ne boit pas de jus d’orange.", negativeEn: "He does not drink orange juice.", question: "Que boit-il ?" },
       { pronoun: "elle", form: "boit", full: "elle boit", en: "she drinks", example: "Elle boit du thé vert.", exampleEn: "She drinks green tea.", negative: "Elle ne boit pas de thé vert.", negativeEn: "She does not drink green tea.", question: "Quel thé boit-elle ?" },
       { pronoun: "nous", form: "buvons", full: "nous buvons", en: "we drink", example: "Nous buvons de l’eau pendant le repas.", exampleEn: "We drink water during the meal.", negative: "Nous ne buvons pas d’eau pendant le repas.", negativeEn: "We do not drink water during the meal.", question: "Quand buvons-nous de l’eau ?" },
-      { pronoun: "vous", form: "buvez", full: "vous buvez", en: "you drink", example: "Vous buvez du vin rouge.", exampleEn: "You drink red wine.", negative: "Vous ne buvez pas de vin rouge.", negativeEn: "You do not drink red wine.", question: "Que buvez-vous ?" },
+      { pronoun: "vous", form: "buvez", full: "vous buvez", en: "you drink", example: "Vous buvez une bouteille de vin rouge.", exampleEn: "You drink a bottle of red wine.", negative: "Vous ne buvez pas de bouteille de vin rouge.", negativeEn: "You do not drink a bottle of red wine.", question: "Que buvez-vous ?" },
       { pronoun: "ils", form: "boivent", full: "ils boivent", en: "they drink", example: "Ils boivent de la bière au café.", exampleEn: "They drink beer at the café.", negative: "Ils ne boivent pas de bière au café.", negativeEn: "They do not drink beer at the café.", question: "Où boivent-ils de la bière ?" },
       { pronoun: "elles", form: "boivent", full: "elles boivent", en: "they drink", example: "Elles boivent du chocolat chaud.", exampleEn: "They drink hot chocolate.", negative: "Elles ne boivent pas de chocolat chaud.", negativeEn: "They do not drink hot chocolate.", question: "Que boivent-elles ?" }
     ];
@@ -987,6 +1018,15 @@
         rows: prendreRows
       },
       {
+        key: "apprendre",
+        group: "irregular",
+        label: "apprendre",
+        title: "Apprendre — to learn",
+        tag: "irregular",
+        descriptionHtml: "<strong>Apprendre</strong> follows the same family as <strong>prendre</strong>: <strong>apprends / apprend</strong>, <strong>apprenons</strong>, <strong>apprenez</strong>, <strong>apprennent</strong>.",
+        rows: apprendreRows
+      },
+      {
         key: "faire",
         group: "irregular",
         label: "faire",
@@ -1148,6 +1188,15 @@
         tag: "regular -ir",
         descriptionHtml: "<strong>Unir</strong> follows the regular -ir pattern and is useful for phrases like <strong>unir nos forces</strong>.",
         rows: unirRows
+      },
+      {
+        key: "arriver",
+        group: "regularEr",
+        label: "arriver",
+        title: "Arriver — to arrive / to manage",
+        tag: "regular -er / être in passé composé",
+        descriptionHtml: "<strong>Arriver</strong> follows the regular -er pattern in the present tense. In passé composé, it usually uses <strong>être</strong>: <strong>je suis arrivé</strong>.",
+        rows: arriverRows
       },
       {
         key: "habiter",
@@ -1441,6 +1490,15 @@
       "ils invitent": "/il.zɛ̃.vit/",
       "elles invitent": "/ɛl.zɛ̃.vit/",
 
+      "j’arrive": "/ʒa.ʁiv/",
+      "tu arrives": "/ty a.ʁiv/",
+      "il arrive": "/i.la.ʁiv/",
+      "elle arrive": "/ɛ.la.ʁiv/",
+      "nous arrivons": "/nu.za.ʁi.vɔ̃/",
+      "vous arrivez": "/vu.za.ʁi.ve/",
+      "ils arrivent": "/il.za.ʁiv/",
+      "elles arrivent": "/ɛl.za.ʁiv/",
+
       "je finis": "/ʒə fi.ni/",
       "tu finis": "/ty fi.ni/",
       "il finit": "/il fi.ni/",
@@ -1512,6 +1570,15 @@
       "vous prenez": "/vu pʁə.ne/",
       "ils prennent": "/il pʁɛn/",
       "elles prennent": "/ɛl pʁɛn/",
+
+      "j’apprends": "/ʒa.pʁɑ̃/",
+      "tu apprends": "/ty a.pʁɑ̃/",
+      "il apprend": "/i.la.pʁɑ̃/",
+      "elle apprend": "/ɛ.la.pʁɑ̃/",
+      "nous apprenons": "/nu.za.pʁə.nɔ̃/",
+      "vous apprenez": "/vu.za.pʁə.ne/",
+      "ils apprennent": "/il.za.pʁɛn/",
+      "elles apprennent": "/ɛl.za.pʁɛn/",
 
       "je fais": "/ʒə fɛ/",
       "tu fais": "/ty fɛ/",

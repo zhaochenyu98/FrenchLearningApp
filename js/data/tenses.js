@@ -62,6 +62,19 @@
             question: { fr: "Avons-nous invité nos amis ?", en: "Did we invite our friends?" }
           },
           {
+            infinitive: "arriver",
+            infinitiveIpa: "/aʁive/",
+            meaning: "to arrive",
+            auxiliary: "être",
+            pastParticiple: "arrivé(e)(s)",
+            pastParticipleIpa: "/aʁive/",
+            pattern: "arriver → arrivé",
+            note: "Regular -er past participle; uses être when someone arrives.",
+            statement: { fr: "Nous sommes arrivés à huit heures.", en: "We arrived at eight o’clock." },
+            negative: { fr: "Nous ne sommes pas arrivés à huit heures.", en: "We did not arrive at eight o’clock." },
+            question: { fr: "Sommes-nous arrivés à huit heures ?", en: "Did we arrive at eight o’clock?" }
+          },
+          {
             infinitive: "habiter",
             infinitiveIpa: "/abite/",
             meaning: "to live",
@@ -528,6 +541,19 @@
             question: { fr: "Ont-ils pris le train ?", en: "Did they take the train?" }
           },
           {
+            infinitive: "apprendre",
+            infinitiveIpa: "/apʁɑ̃dʁ/",
+            meaning: "to learn",
+            auxiliary: "avoir",
+            pastParticiple: "appris",
+            pastParticipleIpa: "/apʁi/",
+            pattern: "apprendre → appris",
+            note: "Same past-participle family as prendre → pris.",
+            statement: { fr: "Tu as appris une nouvelle règle.", en: "You learned a new rule." },
+            negative: { fr: "Tu n’as pas appris de nouvelle règle.", en: "You did not learn a new rule." },
+            question: { fr: "As-tu appris une nouvelle règle ?", en: "Did you learn a new rule?" }
+          },
+          {
             infinitive: "tenir",
             infinitiveIpa: "/təniʁ/",
             meaning: "to hold / keep",
@@ -656,7 +682,7 @@
         meaning: "to go",
         note: "Uses être for movement from one place to another.",
         etreExamples: [
-          { fr: "Elle est allée au marché.", en: "She went to the market." }
+          { fr: "Elle est allée au marché.", en: "She went to the market.", negative: "Elle n’est pas allée au marché.", negativeEn: "She did not go to the market.", question: "Est-elle allée au marché ?", questionEn: "Did she go to the market?" }
         ]
       },
       {
@@ -667,7 +693,7 @@
         meaning: "to come",
         note: "Uses être; the past participle agrees with the subject.",
         etreExamples: [
-          { fr: "Ils sont venus dîner.", en: "They came to have dinner." }
+          { fr: "Ils sont venus dîner.", en: "They came to have dinner.", negative: "Ils ne sont pas venus dîner.", negativeEn: "They did not come to have dinner.", question: "Sont-ils venus dîner ?", questionEn: "Did they come to have dinner?" }
         ]
       },
       {
@@ -678,7 +704,7 @@
         meaning: "to arrive",
         note: "Uses être for arriving.",
         etreExamples: [
-          { fr: "Nous sommes arrivés à huit heures.", en: "We arrived at eight o’clock." }
+          { fr: "Nous sommes arrivés à huit heures.", en: "We arrived at eight o’clock.", negative: "Nous ne sommes pas arrivés à huit heures.", negativeEn: "We did not arrive at eight o’clock.", question: "Sommes-nous arrivés à huit heures ?", questionEn: "Did we arrive at eight o’clock?" }
         ]
       },
       {
@@ -689,7 +715,7 @@
         meaning: "to leave",
         note: "Uses être for leaving.",
         etreExamples: [
-          { fr: "Tu es parti tôt.", en: "You left early." }
+          { fr: "Tu es parti tôt.", en: "You left early.", negative: "Tu n’es pas parti tôt.", negativeEn: "You did not leave early.", question: "Es-tu parti tôt ?", questionEn: "Did you leave early?" }
         ]
       },
       {
@@ -700,11 +726,11 @@
         meaning: "to enter / go in",
         note: "Uses être when the subject enters.",
         etreExamples: [
-          { fr: "Il est entré dans la classe.", en: "He entered the classroom." }
+          { fr: "Il est entré dans la classe.", en: "He entered the classroom.", negative: "Il n’est pas entré dans la classe.", negativeEn: "He did not enter the classroom.", question: "Est-il entré dans la classe ?", questionEn: "Did he enter the classroom?" }
         ],
         avoirNote: "Uses avoir with a direct object, especially in practical phrases like entering a code.",
         avoirExamples: [
-          { fr: "J’ai entré le code.", en: "I entered the code." }
+          { fr: "Tu as entré le code.", en: "You entered the code.", negative: "Tu n’as pas entré le code.", negativeEn: "You did not enter the code.", question: "As-tu entré le code ?", questionEn: "Did you enter the code?" }
         ]
       },
       {
@@ -715,11 +741,11 @@
         meaning: "to go out / take out",
         note: "Uses être when the subject goes out.",
         etreExamples: [
-          { fr: "Elle est sortie du bureau.", en: "She left the office." }
+          { fr: "Elle est sortie du bureau.", en: "She left the office.", negative: "Elle n’est pas sortie du bureau.", negativeEn: "She did not leave the office.", question: "Est-elle sortie du bureau ?", questionEn: "Did she leave the office?" }
         ],
         avoirNote: "Uses avoir when someone takes something out.",
         avoirExamples: [
-          { fr: "Elle a sorti les clés de son sac.", en: "She took the keys out of her bag." }
+          { fr: "Elle a sorti les clés de son sac.", en: "She took the keys out of her bag.", negative: "Elle n’a pas sorti les clés de son sac.", negativeEn: "She did not take the keys out of her bag.", question: "A-t-elle sorti les clés de son sac ?", questionEn: "Did she take the keys out of her bag?" }
         ]
       },
       {
@@ -730,11 +756,11 @@
         meaning: "to go up / take up",
         note: "Uses être when the subject goes up.",
         etreExamples: [
-          { fr: "Nous sommes montés au troisième étage.", en: "We went up to the third floor." }
+          { fr: "Nous sommes montés au troisième étage.", en: "We went up to the third floor.", negative: "Nous ne sommes pas montés au troisième étage.", negativeEn: "We did not go up to the third floor.", question: "Sommes-nous montés au troisième étage ?", questionEn: "Did we go up to the third floor?" }
         ],
         avoirNote: "Uses avoir when someone carries or takes something up.",
         avoirExamples: [
-          { fr: "Nous avons monté les valises.", en: "We carried the suitcases upstairs." }
+          { fr: "Nous avons monté les valises.", en: "We carried the suitcases upstairs.", negative: "Nous n’avons pas monté les valises.", negativeEn: "We did not carry the suitcases upstairs.", question: "Avons-nous monté les valises ?", questionEn: "Did we carry the suitcases upstairs?" }
         ]
       },
       {
@@ -745,11 +771,11 @@
         meaning: "to go down / take down",
         note: "Uses être when the subject goes down.",
         etreExamples: [
-          { fr: "Il est descendu du train.", en: "He got off the train." }
+          { fr: "Il est descendu du train.", en: "He got off the train.", negative: "Il n’est pas descendu du train.", negativeEn: "He did not get off the train.", question: "Est-il descendu du train ?", questionEn: "Did he get off the train?" }
         ],
         avoirNote: "Uses avoir when someone takes something down.",
         avoirExamples: [
-          { fr: "Il a descendu les cartons à la cave.", en: "He took the boxes down to the cellar." }
+          { fr: "Il a descendu les cartons à la cave.", en: "He took the boxes down to the cellar.", negative: "Il n’a pas descendu les cartons à la cave.", negativeEn: "He did not take the boxes down to the cellar.", question: "A-t-il descendu les cartons à la cave ?", questionEn: "Did he take the boxes down to the cellar?" }
         ]
       },
       {
@@ -760,11 +786,11 @@
         meaning: "to return home / bring in",
         note: "Uses être when the subject returns home or goes back in.",
         etreExamples: [
-          { fr: "Je suis rentré tard.", en: "I came home late." }
+          { fr: "Je suis rentré tard.", en: "I came home late.", negative: "Je ne suis pas rentré tard.", negativeEn: "I did not come home late.", question: "Suis-je rentré tard ?", questionEn: "Did I come home late?" }
         ],
         avoirNote: "Uses avoir when someone brings something in.",
         avoirExamples: [
-          { fr: "J’ai rentré la voiture au garage.", en: "I brought the car into the garage." }
+          { fr: "J’ai rentré la voiture au garage.", en: "I brought the car into the garage.", negative: "Je n’ai pas rentré la voiture au garage.", negativeEn: "I did not bring the car into the garage.", question: "Ai-je rentré la voiture au garage ?", questionEn: "Did I bring the car into the garage?" }
         ]
       },
       {
@@ -775,7 +801,7 @@
         meaning: "to come back",
         note: "Uses être, like venir.",
         etreExamples: [
-          { fr: "Elle est revenue hier soir.", en: "She came back last night." }
+          { fr: "Elle est revenue hier soir.", en: "She came back last night.", negative: "Elle n’est pas revenue hier soir.", negativeEn: "She did not come back last night.", question: "Est-elle revenue hier soir ?", questionEn: "Did she come back last night?" }
         ]
       },
       {
@@ -786,11 +812,11 @@
         meaning: "to return / turn over",
         note: "Uses être when the subject returns to a place.",
         etreExamples: [
-          { fr: "Ils sont retournés en France.", en: "They returned to France." }
+          { fr: "Ils sont retournés en France.", en: "They returned to France.", negative: "Ils ne sont pas retournés en France.", negativeEn: "They did not return to France.", question: "Sont-ils retournés en France ?", questionEn: "Did they return to France?" }
         ],
         avoirNote: "Uses avoir when someone turns something over or sends something back.",
         avoirExamples: [
-          { fr: "Il a retourné la crêpe.", en: "He flipped the crepe." }
+          { fr: "Il a retourné la crêpe.", en: "He flipped the crepe.", negative: "Il n’a pas retourné la crêpe.", negativeEn: "He did not flip the crepe.", question: "A-t-il retourné la crêpe ?", questionEn: "Did he flip the crepe?" }
         ]
       },
       {
@@ -801,7 +827,7 @@
         meaning: "to stay",
         note: "Uses être even though it is not a big movement verb.",
         etreExamples: [
-          { fr: "Nous sommes restés à la maison.", en: "We stayed home." }
+          { fr: "Nous sommes restés à la maison.", en: "We stayed home.", negative: "Nous ne sommes pas restés à la maison.", negativeEn: "We did not stay home.", question: "Sommes-nous restés à la maison ?", questionEn: "Did we stay home?" }
         ]
       },
       {
@@ -812,12 +838,12 @@
         meaning: "to pass by / spend / take",
         note: "Uses être when the subject passes by or stops by.",
         etreExamples: [
-          { fr: "Elle est passée chez moi.", en: "She stopped by my place." }
+          { fr: "Elle est passée chez moi.", en: "She stopped by my place.", negative: "Elle n’est pas passée chez moi.", negativeEn: "She did not stop by my place.", question: "Est-elle passée chez moi ?", questionEn: "Did she stop by my place?" }
         ],
         avoirNote: "Uses avoir for spending time, taking an exam, or passing something.",
         avoirExamples: [
-          { fr: "Elle a passé deux heures au café.", en: "She spent two hours at the cafe." },
-          { fr: "Il a passé l’examen.", en: "He took / passed the exam." }
+          { fr: "Elle a passé deux heures au café.", en: "She spent two hours at the cafe.", negative: "Elle n’a pas passé deux heures au café.", negativeEn: "She did not spend two hours at the cafe.", question: "A-t-elle passé deux heures au café ?", questionEn: "Did she spend two hours at the cafe?" },
+          { fr: "Il a passé l’examen.", en: "He took / passed the exam.", negative: "Il n’a pas passé l’examen.", negativeEn: "He did not take / pass the exam.", question: "A-t-il passé l’examen ?", questionEn: "Did he take / pass the exam?" }
         ]
       },
       {
@@ -828,7 +854,7 @@
         meaning: "to fall",
         note: "Uses être.",
         etreExamples: [
-          { fr: "Il est tombé dans la rue.", en: "He fell in the street." }
+          { fr: "Il est tombé dans la rue.", en: "He fell in the street.", negative: "Il n’est pas tombé dans la rue.", negativeEn: "He did not fall in the street.", question: "Est-il tombé dans la rue ?", questionEn: "Did he fall in the street?" }
         ]
       },
       {
@@ -839,7 +865,7 @@
         meaning: "to be born",
         note: "Uses être.",
         etreExamples: [
-          { fr: "Elle est née en avril.", en: "She was born in April." }
+          { fr: "Elle est née en avril.", en: "She was born in April.", negative: "Elle n’est pas née en avril.", negativeEn: "She was not born in April.", question: "Est-elle née en avril ?", questionEn: "Was she born in April?" }
         ]
       },
       {
@@ -850,7 +876,7 @@
         meaning: "to die",
         note: "Uses être.",
         etreExamples: [
-          { fr: "Le personnage est mort à la fin du film.", en: "The character died at the end of the movie." }
+          { fr: "Le personnage est mort à la fin du film.", en: "The character died at the end of the movie.", negative: "Le personnage n’est pas mort à la fin du film.", negativeEn: "The character did not die at the end of the movie.", question: "Le personnage est-il mort à la fin du film ?", questionEn: "Did the character die at the end of the movie?" }
         ]
       },
       {
@@ -861,7 +887,7 @@
         meaning: "to become",
         note: "Uses être, like venir.",
         etreExamples: [
-          { fr: "Ils sont devenus amis.", en: "They became friends." }
+          { fr: "Ils sont devenus amis.", en: "They became friends.", negative: "Ils ne sont pas devenus amis.", negativeEn: "They did not become friends.", question: "Sont-ils devenus amis ?", questionEn: "Did they become friends?" }
         ]
       }
     ];

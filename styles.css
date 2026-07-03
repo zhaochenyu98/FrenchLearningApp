@@ -695,6 +695,8 @@
       background: var(--panel);
       box-shadow: var(--shadow);
       padding: 14px;
+      max-height: calc(100vh - 28px);
+      overflow: hidden;
     }
 
     .verb-index-title {
@@ -716,6 +718,41 @@
     .verb-index-groups {
       gap: 14px;
       margin-top: 12px;
+    }
+
+    .verb-index > .verb-index-groups,
+    .study-index > .verb-index-groups {
+      max-height: calc(100vh - 112px);
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-border) transparent;
+    }
+
+    .study-index > .verb-index-groups {
+      max-height: calc(100vh - 152px);
+    }
+
+    .verb-index > .verb-index-groups::-webkit-scrollbar,
+    .study-index > .verb-index-groups::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .verb-index > .verb-index-groups::-webkit-scrollbar-thumb,
+    .study-index > .verb-index-groups::-webkit-scrollbar-thumb {
+      background: var(--accent-border);
+      border-radius: 999px;
+    }
+
+    .verb-index > .verb-index-groups > .study-index-controls {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      margin-top: 0;
+      padding-bottom: 8px;
+      background: linear-gradient(180deg, var(--panel) 75%, transparent);
     }
 
     .verb-index-group {
@@ -871,6 +908,8 @@
       background: var(--panel);
       box-shadow: var(--shadow);
       padding: 14px;
+      max-height: calc(100vh - 28px);
+      overflow: hidden;
     }
 
     .study-index-title {
@@ -1877,10 +1916,17 @@
 
       .verb-index {
         position: static;
+        max-height: none;
       }
 
       .study-index {
         position: static;
+        max-height: none;
+      }
+
+      .verb-index > .verb-index-groups,
+      .study-index > .verb-index-groups {
+        max-height: 320px;
       }
 
       .verb-index-links {
