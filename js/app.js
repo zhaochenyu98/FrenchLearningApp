@@ -42,6 +42,18 @@
           { id: "tout", title: "Tout forms", elements: [{ heading: "Tout forms" }] }
         ]
       },
+      prepositions: {
+        title: "Preposition index",
+        sections: [
+          { id: "flashcards", title: "Flash cards", open: true, elements: ['[data-study-section="preposition-flashcards"]'] },
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="preposition-quick-notes"]'] },
+          { id: "core", title: "Core prepositions", open: true, elements: ['[data-study-section="preposition-core"]'] },
+          { id: "article-combos", title: "À / De + articles", open: true, elements: ['[data-study-section="preposition-article-combos"]'] },
+          { id: "place", title: "Place phrases", elements: ['[data-study-section="preposition-place"]'] },
+          { id: "time", title: "Time duration", elements: ['[data-study-section="preposition-time"]'] },
+          { id: "de-vs-article", title: "De vs article", elements: ['[data-study-section="preposition-de-article"]'] }
+        ]
+      },
       nouns: {
         title: "Noun index",
         sections: [
@@ -159,6 +171,7 @@
       prepositions() {
         showPrepositionFlashcard();
         renderPrepositions();
+        initializeStudyIndex("prepositions");
       },
       determiners() {
         renderArticleComparison();

@@ -1,5 +1,9 @@
+    function getPrepositionExamples(item) {
+      return item.examples || (item.example ? [{ fr: item.example, en: item.exampleEn }] : []);
+    }
+
     const prepositionFlashcards = allPrepositionItems.flatMap(item =>
-      item.examples.map(example => ({
+      getPrepositionExamples(item).map(example => ({
         fr: example.fr,
         en: example.en,
         context: `${item.fr} = ${item.en}; ${item.note}`
@@ -125,8 +129,12 @@
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
     const toutFormsGrid = document.getElementById("toutFormsGrid");
+    const corePrepositionTable = document.getElementById("corePrepositionTable");
+    const prepositionAArticleGrid = document.getElementById("prepositionAArticleGrid");
+    const prepositionDeArticleGrid = document.getElementById("prepositionDeArticleGrid");
     const prepositionTable = document.getElementById("prepositionTable");
     const timePrepositionTable = document.getElementById("timePrepositionTable");
+    const dePrepositionVsArticleGrid = document.getElementById("dePrepositionVsArticleGrid");
     const timeSpanComparisonGrid = document.getElementById("timeSpanComparisonGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");

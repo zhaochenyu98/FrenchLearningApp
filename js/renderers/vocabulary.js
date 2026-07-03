@@ -373,6 +373,7 @@
     }
 
     function renderPrepositionTable(targetGrid, list, emptyMessage) {
+      if (!targetGrid) return;
       targetGrid.innerHTML = "";
       if (!list.length) {
         targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
@@ -388,6 +389,7 @@
       `;
 
       list.forEach((item, itemIndex) => {
+        const examples = getPrepositionExamples(item);
         const row = document.createElement("div");
         row.className = "preposition-row-card";
         row.innerHTML = `
@@ -405,7 +407,7 @@
           <div>
             <span class="question-cell-label">Examples</span>
             <div class="preposition-example-list">
-              ${item.examples.map((example, exampleIndex) => `
+              ${examples.map((example, exampleIndex) => `
                 <button class="preposition-example-btn" type="button" data-item-index="${itemIndex}" data-example-index="${exampleIndex}">
                   <div class="translation"><strong>${example.fr}</strong></div>
                   <div class="translation">${example.en}</div>
@@ -415,11 +417,12 @@
           </div>
         `;
         row.querySelector(".preposition-word-btn").addEventListener("click", () => {
-          speak(item.fr, row.querySelector(".preposition-word-btn"));
+          speak(item.speech || item.fr, row.querySelector(".preposition-word-btn"));
         });
         row.querySelectorAll(".preposition-example-btn").forEach(button => {
           button.addEventListener("click", () => {
-            const example = list[Number(button.dataset.itemIndex)].examples[Number(button.dataset.exampleIndex)];
+            const currentItem = list[Number(button.dataset.itemIndex)];
+            const example = getPrepositionExamples(currentItem)[Number(button.dataset.exampleIndex)];
             speak(example.fr, button);
           });
         });
@@ -428,6 +431,10 @@
     }
 
     function renderPrepositions(list = placePrepositions) {
+      renderPrepositionTable(corePrepositionTable, corePrepositions, "No core prepositions available.");
+      renderPrepositionTable(prepositionAArticleGrid, aArticleRules, "No à + article rules available.");
+      renderPrepositionTable(prepositionDeArticleGrid, deArticleRules, "No de + article rules available.");
       renderPrepositionTable(prepositionTable, list, "No prepositions available.");
       renderPrepositionTable(timePrepositionTable, timePrepositions, "No time prepositions available.");
+      renderPrepositionTable(dePrepositionVsArticleGrid, dePrepositionVsArticleRows, "No de comparison examples available.");
     }

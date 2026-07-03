@@ -351,6 +351,79 @@
       }
     ];
 
+    const corePrepositions = [
+      {
+        fr: "à",
+        en: "to / at / in",
+        note: "Use à for destination, location, time, and many fixed verb patterns. It combines with le and les.",
+        examples: [
+          { fr: "Je vais à Paris.", en: "I am going to Paris." },
+          { fr: "Je suis à la maison.", en: "I am at home." },
+          { fr: "Le cours commence à huit heures.", en: "The class starts at eight o’clock." }
+        ]
+      },
+      {
+        fr: "en",
+        en: "in / to / by / within",
+        note: "Use en with many feminine countries, transport without an article, materials, and time taken to do something.",
+        examples: [
+          { fr: "J’habite en France.", en: "I live in France." },
+          { fr: "Je vais au travail en bus.", en: "I go to work by bus." },
+          { fr: "Il finit le devoir en dix minutes.", en: "He finishes the homework in ten minutes." }
+        ]
+      },
+      {
+        fr: "de",
+        en: "of / from / about",
+        note: "As a preposition, de shows origin, possession/relationship, topic, or source. It combines with le and les.",
+        examples: [
+          { fr: "Je viens de Paris.", en: "I come from Paris." },
+          { fr: "Le livre de Marie est sur la table.", en: "Marie’s book is on the table." },
+          { fr: "Nous parlons de ce film.", en: "We are talking about this movie." }
+        ]
+      },
+      {
+        fr: "pour",
+        en: "for / in order to",
+        note: "Use pour for a recipient, purpose, intended destination, or planned duration.",
+        examples: [
+          { fr: "C’est pour toi.", en: "It is for you." },
+          { fr: "Je travaille pour aider ma famille.", en: "I work in order to help my family." },
+          { fr: "Nous partons pour deux jours.", en: "We are leaving for two days." }
+        ]
+      },
+      {
+        fr: "dans",
+        en: "in / inside / in from now",
+        note: "Use dans for being inside a place or for how much time remains before something happens.",
+        examples: [
+          { fr: "Le livre est dans le sac.", en: "The book is in the bag." },
+          { fr: "Nous sommes dans la classe.", en: "We are in the classroom." },
+          { fr: "Je pars dans dix minutes.", en: "I am leaving in ten minutes." }
+        ]
+      },
+      {
+        fr: "chez",
+        en: "at / to someone’s place; at a professional’s",
+        note: "Use chez with people, homes, shops/professions, and sometimes groups of people.",
+        examples: [
+          { fr: "Je vais chez Marie.", en: "I am going to Marie’s place." },
+          { fr: "Nous dînons chez mes parents.", en: "We are having dinner at my parents’ place." },
+          { fr: "J’achète du pain chez le boulanger.", en: "I buy bread at the baker’s." }
+        ]
+      },
+      {
+        fr: "avec",
+        en: "with",
+        note: "Use avec for being together with someone or using something as a tool.",
+        examples: [
+          { fr: "Je parle avec elle.", en: "I am speaking with her." },
+          { fr: "Il coupe le pain avec un couteau.", en: "He cuts the bread with a knife." },
+          { fr: "Je viens avec toi.", en: "I am coming with you." }
+        ]
+      }
+    ];
+
     const placePrepositions = [
       {
         fr: "sur",
@@ -523,7 +596,53 @@
       }
     ];
 
+    const dePrepositionVsArticleRows = [
+      {
+        fr: "de",
+        en: "preposition: of / from / about",
+        note: "This de has its own meaning. It connects a noun, verb, or phrase to origin, ownership, source, or topic.",
+        examples: [
+          { fr: "Je viens de Lyon.", en: "I come from Lyon." },
+          { fr: "Le téléphone de mon frère est neuf.", en: "My brother’s phone is new." },
+          { fr: "Elle parle de son travail.", en: "She is talking about her work." }
+        ]
+      },
+      {
+        fr: "du / de la / de l’ / des",
+        en: "article: some / unspecified amount",
+        note: "This is the partitive article before uncountable, food/drink, material, or abstract nouns. English often uses no word.",
+        examples: [
+          { fr: "Je bois du café.", en: "I drink coffee." },
+          { fr: "Elle mange de la soupe.", en: "She eats soup." },
+          { fr: "Il faut de l’eau.", en: "Water is needed." }
+        ]
+      },
+      {
+        fr: "de + article",
+        en: "preposition de + the",
+        note: "When preposition de meets a definite article, it can mean of/from/about the: de + le → du, de + les → des.",
+        examples: [
+          { fr: "Je viens du marché.", en: "I come from the market." },
+          { fr: "La porte de la cuisine est ouverte.", en: "The kitchen door is open." },
+          { fr: "Le sac des enfants est ici.", en: "The children’s bag is here." }
+        ]
+      },
+      {
+        fr: "pas de / beaucoup de",
+        en: "quantity / negation marker",
+        note: "After many quantity words and after negation, French often uses de without le/la/des.",
+        examples: [
+          { fr: "Je n’ai pas de café.", en: "I do not have coffee." },
+          { fr: "Il y a beaucoup de monde.", en: "There are a lot of people." },
+          { fr: "Elle a peu de temps.", en: "She has little time." }
+        ]
+      }
+    ];
+
     const allPrepositionItems = [
+      ...corePrepositions,
+      ...aArticleRules,
+      ...deArticleRules,
       ...placePrepositions,
       ...timePrepositions
     ];

@@ -1611,6 +1611,19 @@
       padding: 14px;
     }
 
+    .article-combo-columns .preposition-header {
+      display: none;
+    }
+
+    .article-combo-columns .preposition-row-card {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .article-combo-columns .preposition-row-card .question-cell-label {
+      display: block;
+    }
+
     .preposition-word-btn {
       min-height: 92px;
       padding: 14px;
