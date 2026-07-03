@@ -41,8 +41,7 @@
         <button class="tab-btn active" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="pronouns">Pronouns</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
-        <button class="tab-btn" type="button" data-tab="verbs">Verbs</button>
-        <button class="tab-btn" type="button" data-tab="tense">Passé composé</button>
+        <button class="tab-btn" type="button" data-tab="verbs">Verbs &amp; Tenses</button>
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
         <button class="tab-btn" type="button" data-tab="adjectives">Adjectives</button>
         <button class="tab-btn" type="button" data-tab="adverbs">Adverbs</button>
@@ -224,12 +223,18 @@
       <section id="verbsSection" class="section" data-tab="verbs">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Present Tense Verbs</h2>
-            <p class="section-desc">Compare common present-tense verbs by group. In each card, click the top half for just the subject + verb, or click the example block for statement, negation, and question practice.</p>
+            <h2 class="section-title">Verbs &amp; Tenses</h2>
+            <p class="section-desc">Study verbs either by individual verb or by tense pattern. The verb view keeps present tense first, with compact passé composé notes inside each card.</p>
           </div>
         </div>
 
-        <div class="verb-study-layout">
+        <div class="verb-mode-tabs" role="tablist" aria-label="Verb and tense study modes">
+          <button id="verbModeVerb" class="verb-mode-btn active" type="button" role="tab" aria-selected="true" aria-controls="verbByVerbMode" data-verb-mode="verb">By Verb</button>
+          <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">By Tense</button>
+        </div>
+
+        <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
+          <div class="verb-study-layout">
           <aside class="verb-index" aria-label="Verb index">
             <div class="verb-index-title">Verb index</div>
             <div id="verbIndex" class="verb-index-groups"></div>
@@ -480,10 +485,10 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
-      </section>
 
-      <section id="tenseSection" class="section" data-tab="tense">
+        <div id="tenseSection" class="verb-mode-panel" data-verb-mode-panel="tense" role="tabpanel" aria-labelledby="verbModeTense" hidden>
         <div class="section-header">
           <div>
             <h2 class="section-title">Passé composé</h2>
@@ -537,6 +542,7 @@
           <h3>Pronominal verbs → être + past participle</h3>
           <p>Pronominal verbs use <strong>être</strong> in passé composé: <strong>je me suis lavé</strong>, <strong>elle s’est habillée</strong>.</p>
           <div id="passeComposePronominalGrid" class="noun-rules-table"></div>
+        </div>
         </div>
       </section>
 

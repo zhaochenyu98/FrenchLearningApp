@@ -679,12 +679,59 @@
       gap: 2px;
     }
 
+    .verb-mode-tabs {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 6px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .verb-mode-btn {
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .verb-mode-btn.active {
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.06);
+    }
+
+    .verb-mode-btn:hover,
+    .verb-mode-btn:focus-visible {
+      border-color: var(--accent-border);
+      background: var(--card);
+      color: var(--text);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .verb-mode-panel {
+      margin-top: 18px;
+    }
+
+    .verb-mode-panel[hidden] {
+      display: none;
+    }
+
     .verb-study-layout {
       display: grid;
       grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
       gap: 16px;
       align-items: start;
-      margin-top: 18px;
     }
 
     .verb-index {
@@ -890,6 +937,94 @@
 
     .verb-subtable-heading p {
       margin-bottom: 0;
+    }
+
+    .verb-tense-summary {
+      margin-top: 14px;
+      border: 1px solid var(--accent-border);
+      border-radius: 16px;
+      background: var(--accent-soft);
+      overflow: hidden;
+    }
+
+    .verb-tense-summary-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 13px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+    }
+
+    .verb-tense-summary-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .verb-tense-summary-toggle::after {
+      content: "Expand";
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-left: auto;
+    }
+
+    .verb-tense-summary[open] .verb-tense-summary-toggle::after {
+      content: "Collapse";
+    }
+
+    .verb-tense-summary-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -4px;
+    }
+
+    .verb-tense-summary-form {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .verb-tense-summary-body {
+      display: grid;
+      gap: 12px;
+      padding: 0 12px 12px;
+    }
+
+    .verb-tense-form-btn,
+    .verb-tense-example-btn {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      padding: 10px 11px;
+      text-align: left;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .verb-tense-form-btn:hover,
+    .verb-tense-form-btn:focus-visible,
+    .verb-tense-example-btn:hover,
+    .verb-tense-example-btn:focus-visible {
+      border-color: var(--accent-border);
+      background: var(--panel);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .verb-tense-usage,
+    .verb-tense-example-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .verb-tense-sequence-btn {
+      display: grid;
+      gap: 4px;
     }
 
     .study-nav-layout {

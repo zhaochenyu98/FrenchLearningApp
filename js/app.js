@@ -129,12 +129,11 @@
         initializeStudyIndex("grammar");
       },
       verbs() {
+        initializeVerbModeTabs();
         renderVerbStudySections();
         renderVerbTables("verbs");
         initializeVerbGroups();
         renderVerbIndex();
-      },
-      tense() {
         renderEtreAuxiliaryVerbs();
         renderPasseComposeGroups();
         initializeTenseIndex();
@@ -227,6 +226,202 @@
       console.error(title, error);
     }
 
+    function initializeVerbModeTabs() {
+      const buttons = Array.from(document.querySelectorAll(".verb-mode-btn[data-verb-mode]"));
+      const panels = Array.from(document.querySelectorAll(".verb-mode-panel[data-verb-mode-panel]"));
+      if (!buttons.length || !panels.length) return;
+
+      function activateMode(mode) {
+        buttons.forEach(button => {
+          const isActive = button.dataset.verbMode === mode;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-selected", String(isActive));
+          button.tabIndex = isActive ? 0 : -1;
+        });
+
+        panels.forEach(panel => {
+          const isActive = panel.dataset.verbModePanel === mode;
+          panel.classList.toggle("active", isActive);
+          panel.hidden = !isActive;
+        });
+      }
+
+      buttons.forEach((button, index) => {
+        if (button.dataset.initialized === "true") return;
+        button.dataset.initialized = "true";
+        button.addEventListener("click", () => {
+          stopPlayback();
+          activateMode(button.dataset.verbMode);
+        });
+        button.addEventListener("keydown", event => {
+          const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+          if (!keys.includes(event.key)) return;
+          event.preventDefault();
+          const nextIndex = event.key === "Home"
+            ? 0
+            : event.key === "End"
+              ? buttons.length - 1
+              : (index + (event.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
+          buttons[nextIndex].focus();
+          stopPlayback();
+          activateMode(buttons[nextIndex].dataset.verbMode);
+        });
+      });
+
+      activateMode(buttons.find(button => button.classList.contains("active"))?.dataset.verbMode || buttons[0].dataset.verbMode);
+    }
+
+    const impersonalVerbSyncMap = new Map([
+      ["il faut", "falloir"],
+      ["il y a", "avoir"],
+      ["il fait", "faire"],
+      ["il est", "être"]
+    ]);
+
+    function canonicalStudyVerbName(value) {
+      return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[’‘]/g, "'")
+        .toLowerCase()
+        .replace(/^s'/, "se ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function getVerbTenseInfinitive(item) {
+      return item.syncInfinitive || impersonalVerbSyncMap.get(item.label) || item.label;
+    }
+
+    function findPasseComposeVerb(item) {
+      const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
+      return passeComposeGroups
+        .flatMap(group => group.verbs)
+        .find(verb => canonicalStudyVerbName(verb.infinitive) === target);
+    }
+
+    function findEtreAuxiliaryVerb(item) {
+      const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
+      return etreAuxiliaryVerbs.find(verb => canonicalStudyVerbName(verb.infinitive) === target);
+    }
+
+    function appendCompactTenseExampleList(parent, sentences) {
+      const list = document.createElement("div");
+      list.className = "verb-tense-example-list";
+
+      sentences.forEach(sentence => {
+        const button = document.createElement("button");
+        button.className = "verb-tense-example-btn";
+        button.type = "button";
+        button.innerHTML = `
+          <span class="tiny-label">${sentence.label}</span>
+          <span class="noun-example-main">${sentence.fr}</span>
+          <span class="translation">${sentence.en || ""}</span>
+        `;
+        button.addEventListener("click", () => {
+          speakSequence([{ text: sentence.fr }], button);
+        });
+        list.appendChild(button);
+      });
+
+      parent.appendChild(list);
+    }
+
+    function appendCompactTenseSequence(parent, title, note, example) {
+      if (!example) return;
+      const block = document.createElement("div");
+      block.className = "verb-tense-usage";
+      block.innerHTML = `
+        <div class="tiny-label">${title}</div>
+        ${note ? `<div class="grammar-note">${note}</div>` : ""}
+      `;
+
+      const button = document.createElement("button");
+      button.className = "verb-tense-example-btn verb-tense-sequence-btn";
+      button.type = "button";
+      const forms = getEtreAuxiliaryExampleForms(example);
+      button.innerHTML = forms.map(sentence => `
+        <span class="tiny-label">${sentence.label}</span>
+        <span class="noun-example-main">${sentence.fr}</span>
+        <span class="translation">${sentence.en || ""}</span>
+      `).join("");
+      button.addEventListener("click", () => {
+        speakSequence(forms.map((sentence, index) => ({
+          text: sentence.fr,
+          pauseBefore: index === 0 ? 0 : examplePauseMs
+        })), button);
+      });
+
+      block.appendChild(button);
+      parent.appendChild(block);
+    }
+
+    function createVerbPasseComposeSummary(item) {
+      const tenseVerb = findPasseComposeVerb(item);
+      const etreVerb = findEtreAuxiliaryVerb(item);
+      if (!tenseVerb && !etreVerb) return null;
+
+      const primaryVerb = tenseVerb || etreVerb;
+      const details = document.createElement("details");
+      details.className = "verb-tense-summary";
+
+      const summary = document.createElement("summary");
+      summary.className = "verb-tense-summary-toggle";
+      summary.innerHTML = `
+        <span>Passé composé</span>
+        <span class="verb-tense-summary-form">
+          ${primaryVerb.auxiliary || "être"} + ${primaryVerb.pastParticiple}
+          ${primaryVerb.pastParticipleIpa ? `<span class="tense-ipa">${primaryVerb.pastParticipleIpa}</span>` : ""}
+        </span>
+      `;
+
+      const body = document.createElement("div");
+      body.className = "verb-tense-summary-body";
+
+      const formButton = document.createElement("button");
+      formButton.className = "verb-tense-form-btn";
+      formButton.type = "button";
+      formButton.innerHTML = `
+        <span class="noun-example-main">${primaryVerb.infinitive}</span>
+        ${primaryVerb.infinitiveIpa ? `<span class="tense-ipa">${primaryVerb.infinitiveIpa}</span>` : ""}
+        <span class="noun-example-main">→ ${primaryVerb.pastParticiple}</span>
+        ${primaryVerb.pastParticipleIpa ? `<span class="tense-ipa">${primaryVerb.pastParticipleIpa}</span>` : ""}
+      `;
+      formButton.addEventListener("click", () => {
+        speakSequence([
+          { text: primaryVerb.infinitive },
+          { text: getPastParticipleSpeech(primaryVerb), pauseBefore: examplePauseMs }
+        ], formButton);
+      });
+      body.appendChild(formButton);
+
+      if (tenseVerb) {
+        const usage = document.createElement("div");
+        usage.className = "verb-tense-usage";
+        usage.innerHTML = `
+          <div class="tiny-label">Core past form</div>
+          <div class="grammar-note">${tenseVerb.note || tenseVerb.pattern || ""}</div>
+        `;
+        appendCompactTenseExampleList(usage, getPasseComposeSentenceForms(tenseVerb));
+        body.appendChild(usage);
+      }
+
+      if (etreVerb && tenseVerb && tenseVerb.auxiliary !== "être") {
+        appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
+      }
+
+      if (etreVerb && etreVerb.avoirExamples && tenseVerb && tenseVerb.auxiliary === "être") {
+        appendCompactTenseSequence(body, "Avoir contrast", etreVerb.avoirNote, etreVerb.avoirExamples[0]);
+      }
+
+      if (etreVerb && !tenseVerb) {
+        appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
+      }
+
+      details.append(summary, body);
+      return details;
+    }
+
     function getVerbTableId(item) {
       return item.tableId || `${item.key}Table`;
     }
@@ -285,6 +480,11 @@
       table.className = "verb-matrix";
 
       panel.append(header, description, table);
+
+      const tenseSummary = createVerbPasseComposeSummary(item);
+      if (tenseSummary) {
+        panel.appendChild(tenseSummary);
+      }
 
       (item.extras || []).forEach(extra => {
         if (extra === "faireExpressions") appendFaireExpressions(panel);
@@ -466,7 +666,7 @@
     }
 
     function initializeTenseIndex() {
-      const section = Array.from(sections).find(item => item.dataset.tab === "tense");
+      const section = document.getElementById("tenseSection");
       if (!section || section.querySelector(".study-nav-layout")) return;
 
       const layout = document.createElement("div");
