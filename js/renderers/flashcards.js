@@ -51,7 +51,7 @@
 
     function updateGrammarFlashcard() {
       if (!currentGrammarFlashcard) return;
-      grammarFlashcardEnglish.textContent = currentGrammarFlashcard.en;
+      grammarFlashcardEnglish.textContent = currentGrammarFlashcard.promptEn || currentGrammarFlashcard.en;
       renderGrammarFlashcardAnswer(currentGrammarFlashcard);
       grammarFlashcardAnswer.hidden = !grammarFlashcardRevealed;
       grammarFlashcardHint.textContent = grammarFlashcardRevealed

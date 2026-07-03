@@ -1957,17 +1957,52 @@
       { prefix: "Elles ont", negativePrefix: "Elles n’ont pas", questionPrefix: "Ont-elles", transformNegativeBody: negateAvoirComplement }
     ];
 
+    const grammarFlashcardPromptHints = [
+      { prefix: "Tu es", english: "You", hinted: "You (tu, informal singular)" },
+      { prefix: "Tu as", english: "You", hinted: "You (tu, informal singular)" },
+      { prefix: "Vous êtes", english: "You", hinted: "You (vous, formal singular or plural)" },
+      { prefix: "Vous avez", english: "You", hinted: "You (vous, formal singular or plural)" },
+      { prefix: "Ils sont", english: "They", hinted: "They (ils, masculine or mixed plural)" },
+      { prefix: "Ils ont", english: "They", hinted: "They (ils, masculine or mixed plural)" },
+      { prefix: "Elles sont", english: "They", hinted: "They (elles, feminine plural)" },
+      { prefix: "Elles ont", english: "They", hinted: "They (elles, feminine plural)" },
+      { prefix: "Nous sommes", english: "We", hinted: "We (nous)" },
+      { prefix: "Nous avons", english: "We", hinted: "We (nous)" },
+      { prefix: "On est", english: "We", hinted: "We (on, everyday spoken French)" },
+      { prefix: "On a", english: "We", hinted: "We (on, everyday spoken French)" }
+    ];
+
+    function startsWithFrenchPrefix(text, prefix) {
+      return text.trim().toLocaleLowerCase("fr-FR").startsWith(prefix.toLocaleLowerCase("fr-FR"));
+    }
+
+    function getGrammarFlashcardPromptEn(card) {
+      const hint = grammarFlashcardPromptHints.find(item => startsWithFrenchPrefix(card.fr, item.prefix));
+      if (!hint || !card.en.startsWith(hint.english)) {
+        return card.en;
+      }
+
+      return `${hint.hinted}${card.en.slice(hint.english.length)}`;
+    }
+
+    function withGrammarFlashcardPrompt(card) {
+      return {
+        ...card,
+        promptEn: getGrammarFlashcardPromptEn(card)
+      };
+    }
+
     function completeGrammarFlashcard(card) {
       const pattern = grammarFlashcardPatterns.find(item => new RegExp(`^${item.prefix}\\s+`, "iu").test(card.fr.trim()));
-      if (!pattern) return card;
+      if (!pattern) return withGrammarFlashcardPrompt(card);
 
       const body = normalizeFlashcardBody(card.fr, pattern.prefix);
       const negativeBody = pattern.transformNegativeBody ? pattern.transformNegativeBody(body) : body;
-      return {
+      return withGrammarFlashcardPrompt({
         ...card,
         negative: card.negative || `${pattern.negativePrefix} ${negativeBody}.`,
         question: card.question || `${pattern.questionPrefix} ${body} ?`
-      };
+      });
     }
 
     const grammarFlashcards = [
