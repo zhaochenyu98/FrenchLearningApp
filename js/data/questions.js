@@ -294,6 +294,77 @@
       }
     ];
 
+    const quiExampleColumns = [
+      {
+        key: "subject",
+        title: "Qui as subject",
+        note: "Who does the action? Use 3rd-person singular."
+      },
+      {
+        key: "object",
+        title: "Qui as object",
+        note: "Who receives the action? The subject controls the verb."
+      },
+      {
+        key: "preposition",
+        title: "Preposition + qui",
+        note: "Use à, de, avec, pour, chez + qui."
+      }
+    ];
+
+    const quiExampleRows = [
+      {
+        topic: "Speaking",
+        agreement: "Subject qui → parle, 3rd-person singular",
+        en: "Who speaks / who do you speak to?",
+        examples: {
+          subject: { fr: "Qui parle français ?", en: "Who speaks French? (qui = subject → parle)" },
+          object: { fr: "Qui connais-tu ?", en: "Who do you know?" },
+          preposition: { fr: "À qui parles-tu ?", en: "Who are you speaking to?" }
+        }
+      },
+      {
+        topic: "Arriving",
+        agreement: "Subject qui → arrive, 3rd-person singular",
+        en: "Who arrives / who do you invite?",
+        examples: {
+          subject: { fr: "Qui arrive demain ?", en: "Who is arriving tomorrow? (qui = subject → arrive)" },
+          object: { fr: "Qui est-ce que tu invites ce soir ?", en: "Who are you inviting tonight?" },
+          preposition: { fr: "Avec qui arrives-tu ?", en: "Who are you arriving with?" }
+        }
+      },
+      {
+        topic: "Wanting",
+        agreement: "Subject qui → veut, 3rd-person singular",
+        en: "Who wants / who do you help?",
+        examples: {
+          subject: { fr: "Qui veut du café ?", en: "Who wants coffee? (qui = subject → veut)" },
+          object: { fr: "Qui aides-tu ?", en: "Who are you helping?" },
+          preposition: { fr: "Pour qui travailles-tu ?", en: "Who do you work for?" }
+        }
+      },
+      {
+        topic: "Having",
+        agreement: "Subject qui → a, 3rd-person singular",
+        en: "Who has / who are you looking for?",
+        examples: {
+          subject: { fr: "Qui a la clé ?", en: "Who has the key? (qui = subject → a)" },
+          object: { fr: "Qui cherchez-vous ?", en: "Who are you looking for?" },
+          preposition: { fr: "De qui parlez-vous ?", en: "Who are you talking about?" }
+        }
+      },
+      {
+        topic: "Living",
+        agreement: "Subject qui → habite, 3rd-person singular",
+        en: "Who lives / who are you waiting for?",
+        examples: {
+          subject: { fr: "Qui habite ici ?", en: "Who lives here? (qui = subject → habite)" },
+          object: { fr: "Qui attends-tu ?", en: "Who are you waiting for?" },
+          preposition: { fr: "Chez qui dînes-tu ce soir ?", en: "Whose place are you having dinner at tonight?" }
+        }
+      }
+    ];
+
     const quelForms = [
       { form: "quel", gender: "Masculine", number: "Singular", example: "quel livre", exampleEn: "which book / what book" },
       { form: "quelle", gender: "Feminine", number: "Singular", example: "quelle ville", exampleEn: "which city / what city" },

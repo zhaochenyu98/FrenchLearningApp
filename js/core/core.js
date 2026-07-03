@@ -109,6 +109,7 @@
     const prepositionFlashcardFrench = document.getElementById("prepositionFlashcardFrench");
     const prepositionFlashcardContext = document.getElementById("prepositionFlashcardContext");
     const questionWordsGrid = document.getElementById("questionWordsGrid");
+    const quiExamplesGrid = document.getElementById("quiExamplesGrid");
     const quelFormsGrid = document.getElementById("quelFormsGrid");
     const quelExamplesGrid = document.getElementById("quelExamplesGrid");
     const quelEtreExamplesGrid = document.getElementById("quelEtreExamplesGrid");

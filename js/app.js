@@ -78,6 +78,7 @@
         title: "Question index",
         sections: [
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="question-quick-notes"]'] },
+          { id: "qui", title: "Qui", open: true, elements: ['[data-study-section="question-qui"]'] },
           { id: "quel", title: "Quel", open: true, elements: ['[data-study-section="question-quel"]'] },
           { id: "que-quoi", title: "Que / Quoi", elements: ['[data-study-section="question-que-quoi"]'] },
           { id: "comment", title: "Comment", elements: ['[data-study-section="question-comment"]'] },
@@ -183,6 +184,7 @@
         initializeStudyIndex("determiners");
       },
       questions() {
+        renderQuiExamples();
         renderQuelForms();
         renderQuelExamples();
         renderQuelEtreExamples();

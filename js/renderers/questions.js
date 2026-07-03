@@ -65,6 +65,10 @@
       });
     }
 
+    function renderQuiExamples(rows = quiExampleRows) {
+      renderQuestionComparison(quiExamplesGrid, quiExampleColumns, rows, "No qui examples available.");
+    }
+
     function renderQuelExamples(rows = quelExampleRows) {
       renderQuestionComparison(quelExamplesGrid, quelExampleColumns, rows, "No quel examples available.");
     }
