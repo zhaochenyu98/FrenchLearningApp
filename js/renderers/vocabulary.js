@@ -316,6 +316,74 @@
       renderAgreementMatrixRows(specialAdjectiveGrid, rows, "No special adjective forms available.");
     }
 
+    function getAdverbialPronounForms(example, labels = {}) {
+      return [
+        { label: labels.statement || "Statement", ...example.statement },
+        { label: labels.negative || "Negative", ...example.negative },
+        { label: labels.question || "Question", ...example.question }
+      ];
+    }
+
+    function renderAdverbialPronouns(rows = adverbialPronounRows) {
+      if (!adverbialPronounGrid) return;
+      adverbialPronounGrid.innerHTML = "";
+      if (!rows.length) {
+        adverbialPronounGrid.innerHTML = `<div class="empty-state">No adverbial pronoun examples available.</div>`;
+        return;
+      }
+
+      adverbialPronounGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Pattern</div>
+          <div>Placement rule</div>
+          <div>Examples</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Pattern</span>
+            <div class="french-line">${rowData.title}</div>
+            <div class="matrix-label">${rowData.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Placement</span>
+            <div class="grammar-note">${rowData.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rowData.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  <span class="subject-form-tag">${example.label}</span>
+                  <span class="translation">${example.meaning}</span>
+                  ${getAdverbialPronounForms(example, rowData.labels).map(sentence => `
+                    <span class="tiny-label">${sentence.label}</span>
+                    <span class="noun-example-main">${sentence.fr}</span>
+                    <span class="translation">${sentence.en}</span>
+                  `).join("")}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const currentRow = rows[Number(button.dataset.rowIndex)];
+            const example = currentRow.examples[Number(button.dataset.exampleIndex)];
+            speakSequence(getAdverbialPronounForms(example, currentRow.labels).map((sentence, index) => ({
+              text: sentence.fr,
+              pauseBefore: index ? examplePauseMs : 0
+            })), button);
+          });
+        });
+        adverbialPronounGrid.appendChild(row);
+      });
+    }
+
     function renderModifierComparison(rows = modifierComparisonRows) {
       modifierComparisonGrid.innerHTML = "";
       if (!rows.length) {

@@ -128,6 +128,7 @@
     const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
+    const adverbialPronounGrid = document.getElementById("adverbialPronounGrid");
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
     const toutFormsGrid = document.getElementById("toutFormsGrid");
     const corePrepositionTable = document.getElementById("corePrepositionTable");

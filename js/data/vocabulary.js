@@ -609,6 +609,147 @@
       }
     ];
 
+    const adverbialPronounRows = [
+      {
+        title: "Y with aller",
+        pattern: "y + conjugated aller",
+        note: "Use y before the conjugated verb: je vais à Paris → j’y vais. The place is already understood.",
+        examples: [
+          {
+            label: "je vais",
+            meaning: "I’m going there tomorrow.",
+            statement: { fr: "J’y vais demain.", en: "I’m going there tomorrow." },
+            negative: { fr: "Je n’y vais pas demain.", en: "I’m not going there tomorrow." },
+            question: { fr: "Est-ce que j’y vais demain ?", en: "Am I going there tomorrow?" }
+          },
+          {
+            label: "tu vas",
+            meaning: "You’re going there tonight.",
+            statement: { fr: "Tu y vas ce soir.", en: "You’re going there tonight." },
+            negative: { fr: "Tu n’y vas pas ce soir.", en: "You’re not going there tonight." },
+            question: { fr: "Y vas-tu ce soir ?", en: "Are you going there tonight?" }
+          },
+          {
+            label: "il va",
+            meaning: "He goes there by bus.",
+            statement: { fr: "Il y va en bus.", en: "He goes there by bus." },
+            negative: { fr: "Il n’y va pas en bus.", en: "He does not go there by bus." },
+            question: { fr: "Y va-t-il en bus ?", en: "Does he go there by bus?" }
+          },
+          {
+            label: "nous allons",
+            meaning: "We’re going there together.",
+            statement: { fr: "Nous y allons ensemble.", en: "We’re going there together." },
+            negative: { fr: "Nous n’y allons pas ensemble.", en: "We’re not going there together." },
+            question: { fr: "Y allons-nous ensemble ?", en: "Are we going there together?" }
+          },
+          {
+            label: "vous allez",
+            meaning: "You go there often.",
+            statement: { fr: "Vous y allez souvent.", en: "You go there often." },
+            negative: { fr: "Vous n’y allez pas souvent.", en: "You do not go there often." },
+            question: { fr: "Y allez-vous souvent ?", en: "Do you go there often?" }
+          },
+          {
+            label: "elles vont",
+            meaning: "They’re going there on Saturday.",
+            statement: { fr: "Elles y vont samedi.", en: "They’re going there on Saturday." },
+            negative: { fr: "Elles n’y vont pas samedi.", en: "They’re not going there on Saturday." },
+            question: { fr: "Y vont-elles samedi ?", en: "Are they going there on Saturday?" }
+          }
+        ]
+      },
+      {
+        title: "Y in passé composé",
+        pattern: "y + auxiliary + past participle",
+        note: "In compound tenses, y goes before the auxiliary: je suis allé au marché → j’y suis allé; tu as pensé à ça → tu y as pensé.",
+        examples: [
+          {
+            label: "être + allé",
+            meaning: "She went there yesterday.",
+            statement: { fr: "Elle y est allée hier.", en: "She went there yesterday." },
+            negative: { fr: "Elle n’y est pas allée hier.", en: "She did not go there yesterday." },
+            question: { fr: "Y est-elle allée hier ?", en: "Did she go there yesterday?" }
+          },
+          {
+            label: "avoir + pensé",
+            meaning: "You thought about it.",
+            statement: { fr: "Tu y as pensé.", en: "You thought about it." },
+            negative: { fr: "Tu n’y as pas pensé.", en: "You did not think about it." },
+            question: { fr: "Y as-tu pensé ?", en: "Did you think about it?" }
+          },
+          {
+            label: "avoir + répondu",
+            meaning: "He answered it.",
+            statement: { fr: "Il y a répondu.", en: "He answered it." },
+            negative: { fr: "Il n’y a pas répondu.", en: "He did not answer it." },
+            question: { fr: "Y a-t-il répondu ?", en: "Did he answer it?" }
+          },
+          {
+            label: "avoir + réfléchi",
+            meaning: "They thought it over.",
+            statement: { fr: "Elles y ont réfléchi.", en: "They thought it over." },
+            negative: { fr: "Elles n’y ont pas réfléchi.", en: "They did not think it over." },
+            question: { fr: "Y ont-elles réfléchi ?", en: "Did they think it over?" }
+          },
+          {
+            label: "être + resté",
+            meaning: "We stayed there.",
+            statement: { fr: "Nous y sommes restés.", en: "We stayed there." },
+            negative: { fr: "Nous n’y sommes pas restés.", en: "We did not stay there." },
+            question: { fr: "Y sommes-nous restés ?", en: "Did we stay there?" }
+          }
+        ]
+      },
+      {
+        title: "Y in imperative",
+        pattern: "affirmative: verb-y; negative: n’y + verb + pas",
+        note: "In affirmative commands, y comes after the verb with a hyphen: vas-y, allons-y, allez-y. In negative commands, y returns before the verb: n’y va pas.",
+        labels: {
+          statement: "Affirmative command",
+          negative: "Negative command",
+          question: "Question / request"
+        },
+        examples: [
+          {
+            label: "tu: aller",
+            meaning: "Go there.",
+            statement: { fr: "Vas-y maintenant.", en: "Go there now." },
+            negative: { fr: "N’y va pas maintenant.", en: "Don’t go there now." },
+            question: { fr: "Peux-tu y aller maintenant ?", en: "Can you go there now?" }
+          },
+          {
+            label: "nous: aller",
+            meaning: "Let’s go there.",
+            statement: { fr: "Allons-y ensemble.", en: "Let’s go there together." },
+            negative: { fr: "N’y allons pas ensemble.", en: "Let’s not go there together." },
+            question: { fr: "Est-ce qu’on y va ensemble ?", en: "Are we going there together?" }
+          },
+          {
+            label: "vous: aller",
+            meaning: "Go there.",
+            statement: { fr: "Allez-y, s’il vous plaît.", en: "Go there, please." },
+            negative: { fr: "N’y allez pas, s’il vous plaît.", en: "Do not go there, please." },
+            question: { fr: "Pouvez-vous y aller, s’il vous plaît ?", en: "Can you go there, please?" }
+          },
+          {
+            label: "tu: penser à",
+            meaning: "Think about it.",
+            statement: { fr: "Penses-y ce soir.", en: "Think about it tonight." },
+            negative: { fr: "N’y pense pas ce soir.", en: "Don’t think about it tonight." },
+            question: { fr: "Peux-tu y penser ce soir ?", en: "Can you think about it tonight?" }
+          },
+          {
+            label: "vous: répondre à",
+            meaning: "Answer it.",
+            statement: { fr: "Répondez-y avant midi.", en: "Answer it before noon." },
+            negative: { fr: "N’y répondez pas avant midi.", en: "Do not answer it before noon." },
+            question: { fr: "Pouvez-vous y répondre avant midi ?", en: "Can you answer it before noon?" }
+          }
+        ]
+      }
+    ];
+
     const toutFormRows = [
       {
         family: "tout",

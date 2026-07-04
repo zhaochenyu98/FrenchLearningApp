@@ -37,9 +37,10 @@
       adverbs: {
         title: "Adverb index",
         sections: [
-          { id: "quick-notes", title: "Quick notes", open: true, elements: ["#adverbsSection .panel"] },
-          { id: "comparison", title: "Bon / bien / beau", open: true, elements: [{ heading: "Bon vs bien vs beau" }] },
-          { id: "tout", title: "Tout forms", elements: [{ heading: "Tout forms" }] }
+          { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="adverb-quick-notes"]'] },
+          { id: "adverbial-pronouns", title: "Adverbial pronouns", open: true, elements: ['[data-study-section="adverbial-pronouns"]'] },
+          { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
+          { id: "tout", title: "Tout forms", elements: ['[data-study-section="adverb-tout"]'] }
         ]
       },
       prepositions: {
@@ -166,6 +167,7 @@
         initializeStudyIndex("adjectives");
       },
       adverbs() {
+        renderAdverbialPronouns();
         renderModifierComparison();
         renderToutForms();
         initializeStudyIndex("adverbs");
