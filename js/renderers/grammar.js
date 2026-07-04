@@ -86,6 +86,171 @@
       renderPronounFormsTable(reflexivePronounGrid, rows, "No reflexive pronouns available.");
     }
 
+    function getCoiGuideSpeechLines(example) {
+      if (example.speech) return example.speech;
+      return [example.from, example.to].filter(Boolean);
+    }
+
+    function renderCoiGuideTable(targetGrid, rules, options) {
+      if (!targetGrid) return;
+      targetGrid.innerHTML = "";
+      if (!rules.length) {
+        targetGrid.innerHTML = `<div class="empty-state">${options.emptyMessage}</div>`;
+        return;
+      }
+
+      targetGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>${options.titleHeader}</div>
+          <div>${options.patternHeader}</div>
+          <div>${options.examplesHeader}</div>
+        </div>
+      `;
+
+      rules.forEach((rule, ruleIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">${options.titleHeader}</span>
+            <div class="french-line">${rule.title}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">${options.patternHeader}</span>
+            <div class="grammar-note">${rule.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">${options.examplesHeader}</span>
+            <div class="noun-example-list">
+              ${rule.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
+                  <span class="tiny-label">${options.fromLabel}</span>
+                  <span class="noun-example-main">${example.from}</span>
+                  ${example.to ? `
+                    <span class="tiny-label">${options.toLabel}</span>
+                    <span class="noun-example-main">${example.to}</span>
+                  ` : ""}
+                  ${example.result ? `
+                    <span class="tiny-label">Correct choice</span>
+                    <span class="grammar-note">${example.result}</span>
+                  ` : ""}
+                  ${example.avoid ? `
+                    <span class="tiny-label">Avoid</span>
+                    <span class="grammar-note">${example.avoid}</span>
+                  ` : ""}
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rules[Number(button.dataset.ruleIndex)].examples[Number(button.dataset.exampleIndex)];
+            const lines = getCoiGuideSpeechLines(example);
+            speakSequence(lines.map((text, index) => ({
+              text,
+              pauseBefore: index ? examplePauseMs : 0
+            })), button);
+          });
+        });
+        targetGrid.appendChild(row);
+      });
+    }
+
+    function getCoiPatternSentences(example, labels = {}) {
+      return [
+        { label: labels.statement || "Statement", ...example.statement },
+        { label: labels.negative || "Negative", ...example.negative },
+        { label: labels.question || "Question", ...example.question }
+      ].filter(sentence => sentence.fr);
+    }
+
+    function renderCoiPatterns(rows = coiPatternRows) {
+      if (!coiPatternGrid) return;
+      coiPatternGrid.innerHTML = "";
+      if (!rows.length) {
+        coiPatternGrid.innerHTML = `<div class="empty-state">No COI placement patterns available.</div>`;
+        return;
+      }
+
+      coiPatternGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Scenario</div>
+          <div>Placement rule</div>
+          <div>Examples</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Scenario</span>
+            <div class="french-line">${rowData.title}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Placement</span>
+            <div class="grammar-note">${rowData.placement}</div>
+            <div class="matrix-label">${rowData.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rowData.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  <span class="subject-form-tag">${example.meaning}</span>
+                  ${getCoiPatternSentences(example, rowData.labels).map(sentence => `
+                    <span class="tiny-label">${sentence.label}</span>
+                    <span class="noun-example-main">${sentence.fr}</span>
+                    <span class="translation">${sentence.en}</span>
+                  `).join("")}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const rowData = rows[Number(button.dataset.rowIndex)];
+            const example = rowData.examples[Number(button.dataset.exampleIndex)];
+            speakSequence(getCoiPatternSentences(example, rowData.labels).map((sentence, index) => ({
+              text: sentence.fr,
+              pauseBefore: index ? examplePauseMs : 0
+            })), button);
+          });
+        });
+        coiPatternGrid.appendChild(row);
+      });
+    }
+
+    function renderCoiPronounForms(rows = coiPronounRows) {
+      renderPronounFormsTable(coiPronounGrid, rows, "No COI pronouns available.");
+    }
+
+    function renderCoiTriggerRules(rules = coiTriggerRules) {
+      renderCoiGuideTable(coiTriggerGrid, rules, {
+        titleHeader: "Trigger",
+        patternHeader: "How it works",
+        examplesHeader: "COI transformations",
+        fromLabel: "Full phrase",
+        toLabel: "COI version",
+        emptyMessage: "No COI trigger examples available."
+      });
+    }
+
+    function renderCoiAvoidRules(rules = coiAvoidRules) {
+      renderCoiGuideTable(coiAvoidGrid, rules, {
+        titleHeader: "Do not use COI",
+        patternHeader: "Why",
+        examplesHeader: "Correct contrast",
+        fromLabel: "Original",
+        toLabel: "Correct replacement",
+        emptyMessage: "No COI contrast examples available."
+      });
+    }
+
     function renderTonicPronounUsage(rules = tonicPronounUsageRules) {
       tonicPronounUsageGrid.innerHTML = "";
       if (!rules.length) {

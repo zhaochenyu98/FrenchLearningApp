@@ -14,6 +14,17 @@
           { id: "practice", title: "Practice words", elements: ['[data-study-section="pronunciation-practice-heading"]', "#pronunciationPracticeGrid"] }
         ]
       },
+      pronouns: {
+        title: "Pronoun index",
+        sections: [
+          { id: "coi", title: "COI pronouns", open: true, elements: ['[data-study-section="pronoun-coi"]'] },
+          { id: "tonic", title: "Tonic pronouns", open: true, elements: ['[data-study-section="pronoun-tonic"]'] },
+          { id: "tonic-usage", title: "When to use tonic", elements: ['[data-study-section="pronoun-tonic-usage"]'] },
+          { id: "reflexive", title: "Reflexive pronouns", open: true, elements: ['[data-study-section="pronoun-reflexive"]'] },
+          { id: "possessive", title: "Possessives", elements: ['[data-study-section="pronoun-possessive"]'] },
+          { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
+        ]
+      },
       grammar: {
         title: "Être / Avoir index",
         sections: [
@@ -128,11 +139,16 @@
         initializeStudyIndex("pronunciation");
       },
       pronouns() {
+        renderCoiPronounForms();
+        renderCoiTriggerRules();
+        renderCoiAvoidRules();
+        renderCoiPatterns();
         renderTonicPronounForms();
         renderReflexivePronounForms();
         renderPossessives();
         renderPossessiveExceptions();
         renderTonicPronounUsage();
+        initializeStudyIndex("pronouns");
       },
       grammar() {
         renderVerbTables("grammar");
