@@ -230,7 +230,17 @@
     ];
 
     const parlerRows = [
-      { pronoun: "je", form: "parle", full: "je parle", en: "I speak / talk", example: "Je parle français avec mon professeur.", exampleEn: "I speak French with my teacher.", negative: "Je ne parle pas français avec mon professeur.", negativeEn: "I do not speak French with my teacher." },
+      {
+        pronoun: "je",
+        form: "parle",
+        full: "je parle",
+        en: "I speak / talk",
+        examples: [
+          { meaning: "parler + direct object", fr: "Je parle français.", en: "I speak French.", negative: "Je ne parle pas français.", negativeEn: "I do not speak French.", question: "Quelle langue est-ce que je parle ?" },
+          { meaning: "parler à quelqu’un", fr: "Je parle à mon professeur.", en: "I talk to my teacher.", negative: "Je ne parle pas à mon professeur.", negativeEn: "I do not talk to my teacher.", question: "À qui est-ce que je parle ?" },
+          { meaning: "parler de quelque chose", fr: "Je parle de mon travail.", en: "I talk about my work.", negative: "Je ne parle pas de mon travail.", negativeEn: "I do not talk about my work.", question: "De quoi est-ce que je parle ?" }
+        ]
+      },
       { pronoun: "tu", form: "parles", full: "tu parles", en: "you speak / talk", example: "Tu parles trop vite.", exampleEn: "You speak too fast.", negative: "Tu ne parles pas trop vite.", negativeEn: "You do not speak too fast.", question: "Parles-tu trop vite ?" },
       { pronoun: "il", form: "parle", full: "il parle", en: "he speaks / talks", example: "Il parle au voisin.", exampleEn: "He talks to the neighbor.", negative: "Il ne parle pas au voisin.", negativeEn: "He does not talk to the neighbor." },
       { pronoun: "elle", form: "parle", full: "elle parle", en: "she speaks / talks", example: "Elle parle de son travail.", exampleEn: "She talks about her work.", negative: "Elle ne parle pas de son travail.", negativeEn: "She does not talk about her work." },
@@ -475,6 +485,37 @@
       { pronoun: "vous", form: "faites", full: "vous faites", en: "you do / you make", example: "Vous faites un exercice.", exampleEn: "You are doing an exercise.", negative: "Vous ne faites pas d’exercice.", negativeEn: "You are not doing an exercise.", question: "Quel exercice faites-vous ?" },
       { pronoun: "ils", form: "font", full: "ils font", en: "they do / they make", example: "Ils font un travail difficile.", exampleEn: "They are doing difficult work.", negative: "Ils ne font pas de travail difficile.", negativeEn: "They are not doing difficult work." },
       { pronoun: "elles", form: "font", full: "elles font", en: "they do / they make", example: "Elles font une vidéo.", exampleEn: "They are making a video.", negative: "Elles ne font pas de vidéo.", negativeEn: "They are not making a video." }
+    ];
+
+    const pouvoirRows = [
+      {
+        pronoun: "je",
+        form: "peux",
+        full: "je peux",
+        en: "I can / may",
+        examples: [
+          { meaning: "ability", fr: "Je peux venir demain.", en: "I can come tomorrow.", negative: "Je ne peux pas venir demain.", negativeEn: "I cannot come tomorrow.", question: "Puis-je venir demain ?" },
+          { meaning: "polite offer", fr: "Je peux vous aider.", en: "I can help you.", negative: "Je ne peux pas vous aider.", negativeEn: "I cannot help you.", question: "Puis-je vous aider ?" }
+        ]
+      },
+      { pronoun: "tu", form: "peux", full: "tu peux", en: "you can / may", example: "Tu peux ouvrir la fenêtre.", exampleEn: "You can open the window.", negative: "Tu ne peux pas ouvrir la fenêtre.", negativeEn: "You cannot open the window.", question: "Peux-tu ouvrir la fenêtre ?" },
+      { pronoun: "il", form: "peut", full: "il peut", en: "he can / may", example: "Il peut entrer maintenant.", exampleEn: "He can come in now.", negative: "Il ne peut pas entrer maintenant.", negativeEn: "He cannot come in now.", question: "Peut-il entrer maintenant ?" },
+      { pronoun: "elle", form: "peut", full: "elle peut", en: "she can / may", example: "Elle peut finir ce soir.", exampleEn: "She can finish tonight.", negative: "Elle ne peut pas finir ce soir.", negativeEn: "She cannot finish tonight.", question: "Peut-elle finir ce soir ?" },
+      { pronoun: "nous", form: "pouvons", full: "nous pouvons", en: "we can / may", example: "Nous pouvons réserver une table.", exampleEn: "We can reserve a table.", negative: "Nous ne pouvons pas réserver de table.", negativeEn: "We cannot reserve a table.", question: "Pouvons-nous réserver une table ?" },
+      { pronoun: "vous", form: "pouvez", full: "vous pouvez", en: "you can / may", example: "Vous pouvez répéter cette phrase.", exampleEn: "You can repeat this sentence.", negative: "Vous ne pouvez pas répéter cette phrase.", negativeEn: "You cannot repeat this sentence.", question: "Pouvez-vous répéter cette phrase ?" },
+      { pronoun: "ils", form: "peuvent", full: "ils peuvent", en: "they can / may", example: "Ils peuvent nous aider.", exampleEn: "They can help us.", negative: "Ils ne peuvent pas nous aider.", negativeEn: "They cannot help us.", question: "Peuvent-ils nous aider ?" },
+      { pronoun: "elles", form: "peuvent", full: "elles peuvent", en: "they can / may", example: "Elles peuvent venir samedi.", exampleEn: "They can come on Saturday.", negative: "Elles ne peuvent pas venir samedi.", negativeEn: "They cannot come on Saturday.", question: "Peuvent-elles venir samedi ?" }
+    ];
+
+    const vouloirRows = [
+      { pronoun: "je", form: "veux", full: "je veux", en: "I want", example: "Je veux apprendre le français.", exampleEn: "I want to learn French.", negative: "Je ne veux pas apprendre le français.", negativeEn: "I do not want to learn French.", question: "Qu’est-ce que je veux apprendre ?" },
+      { pronoun: "tu", form: "veux", full: "tu veux", en: "you want", example: "Tu veux un café.", exampleEn: "You want a coffee.", negative: "Tu ne veux pas de café.", negativeEn: "You do not want coffee.", question: "Veux-tu un café ?" },
+      { pronoun: "il", form: "veut", full: "il veut", en: "he wants", example: "Il veut partir tôt.", exampleEn: "He wants to leave early.", negative: "Il ne veut pas partir tôt.", negativeEn: "He does not want to leave early.", question: "Veut-il partir tôt ?" },
+      { pronoun: "elle", form: "veut", full: "elle veut", en: "she wants", example: "Elle veut parler à Marie.", exampleEn: "She wants to talk to Marie.", negative: "Elle ne veut pas parler à Marie.", negativeEn: "She does not want to talk to Marie.", question: "À qui veut-elle parler ?" },
+      { pronoun: "nous", form: "voulons", full: "nous voulons", en: "we want", example: "Nous voulons visiter le musée.", exampleEn: "We want to visit the museum.", negative: "Nous ne voulons pas visiter le musée.", negativeEn: "We do not want to visit the museum.", question: "Voulons-nous visiter le musée ?" },
+      { pronoun: "vous", form: "voulez", full: "vous voulez", en: "you want", example: "Vous voulez une table près de la fenêtre.", exampleEn: "You want a table near the window.", negative: "Vous ne voulez pas de table près de la fenêtre.", negativeEn: "You do not want a table near the window.", question: "Voulez-vous une table près de la fenêtre ?" },
+      { pronoun: "ils", form: "veulent", full: "ils veulent", en: "they want", example: "Ils veulent rester ici.", exampleEn: "They want to stay here.", negative: "Ils ne veulent pas rester ici.", negativeEn: "They do not want to stay here.", question: "Veulent-ils rester ici ?" },
+      { pronoun: "elles", form: "veulent", full: "elles veulent", en: "they want", example: "Elles veulent acheter des billets.", exampleEn: "They want to buy tickets.", negative: "Elles ne veulent pas acheter de billets.", negativeEn: "They do not want to buy tickets.", question: "Que veulent-elles acheter ?" }
     ];
 
     const faireExpressionRows = [
@@ -876,6 +917,17 @@
       { pronoun: "elles", form: "se trouvent", full: "elles se trouvent", en: "they are located", example: "Les clés se trouvent sur la table.", exampleEn: "The keys are on the table.", negative: "Les clés ne se trouvent pas sur la table.", negativeEn: "The keys are not on the table.", question: "Les clés se trouvent-elles sur la table ?" }
     ];
 
+    const sePromenerRows = [
+      { pronoun: "je", form: "me promène", full: "je me promène", en: "I take a walk / stroll", example: "Je me promène dans le parc.", exampleEn: "I take a walk in the park.", negative: "Je ne me promène pas dans le parc.", negativeEn: "I do not take a walk in the park.", question: "Où est-ce que je me promène ?" },
+      { pronoun: "tu", form: "te promènes", full: "tu te promènes", en: "you take a walk / stroll", example: "Tu te promènes après le déjeuner.", exampleEn: "You take a walk after lunch.", negative: "Tu ne te promènes pas après le déjeuner.", negativeEn: "You do not take a walk after lunch.", question: "Te promènes-tu après le déjeuner ?" },
+      { pronoun: "il", form: "se promène", full: "il se promène", en: "he takes a walk / strolls", example: "Il se promène avec son chien.", exampleEn: "He takes a walk with his dog.", negative: "Il ne se promène pas avec son chien.", negativeEn: "He does not take a walk with his dog.", question: "Avec qui se promène-t-il ?" },
+      { pronoun: "elle", form: "se promène", full: "elle se promène", en: "she takes a walk / strolls", example: "Elle se promène près de la rivière.", exampleEn: "She takes a walk near the river.", negative: "Elle ne se promène pas près de la rivière.", negativeEn: "She does not take a walk near the river.", question: "Où se promène-t-elle ?" },
+      { pronoun: "nous", form: "nous promenons", full: "nous nous promenons", en: "we take a walk / stroll", example: "Nous nous promenons le soir.", exampleEn: "We take a walk in the evening.", negative: "Nous ne nous promenons pas le soir.", negativeEn: "We do not take a walk in the evening.", question: "Quand nous promenons-nous ?" },
+      { pronoun: "vous", form: "vous promenez", full: "vous vous promenez", en: "you take a walk / stroll", example: "Vous vous promenez en ville.", exampleEn: "You take a walk downtown.", negative: "Vous ne vous promenez pas en ville.", negativeEn: "You do not take a walk downtown.", question: "Vous promenez-vous en ville ?" },
+      { pronoun: "ils", form: "se promènent", full: "ils se promènent", en: "they take a walk / stroll", example: "Ils se promènent tous les matins.", exampleEn: "They take a walk every morning.", negative: "Ils ne se promènent pas tous les matins.", negativeEn: "They do not take a walk every morning.", question: "Quand se promènent-ils ?" },
+      { pronoun: "elles", form: "se promènent", full: "elles se promènent", en: "they take a walk / stroll", example: "Elles se promènent au bord de la mer.", exampleEn: "They take a walk by the sea.", negative: "Elles ne se promènent pas au bord de la mer.", negativeEn: "They do not take a walk by the sea.", question: "Où se promènent-elles ?" }
+    ];
+
     const tournerRows = [
       { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
       { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock.", question: "Que tournes-tu ?" },
@@ -1037,6 +1089,24 @@
         extras: ["faireExpressions"]
       },
       {
+        key: "pouvoir",
+        group: "irregular",
+        label: "pouvoir",
+        title: "Pouvoir — can / to be able to",
+        tag: "irregular modal verb",
+        descriptionHtml: "<strong>Pouvoir</strong> is a common modal verb before another infinitive: <strong>je peux venir</strong>, <strong>tu peux aider</strong>. In first-person inversion, <strong>je peux</strong> usually becomes <strong>puis-je</strong>: <strong>Puis-je vous aider ?</strong>",
+        rows: pouvoirRows
+      },
+      {
+        key: "vouloir",
+        group: "irregular",
+        label: "vouloir",
+        title: "Vouloir — to want",
+        tag: "irregular modal verb",
+        descriptionHtml: "<strong>Vouloir</strong> is often followed by an infinitive: <strong>je veux partir</strong>, <strong>nous voulons visiter</strong>. It is also useful in polite requests with <strong>vous voulez</strong> and <strong>voulez-vous</strong>.",
+        rows: vouloirRows
+      },
+      {
         key: "voir",
         group: "irregular",
         label: "voir",
@@ -1123,7 +1193,7 @@
         label: "parler",
         title: "Parler — to speak / talk",
         tag: "regular -er",
-        descriptionHtml: "<strong>Parler</strong> follows the regular -er present-tense pattern and is useful for languages and conversations.",
+        descriptionHtml: "<strong>Parler</strong> follows the regular -er present-tense pattern. Learn its three common patterns: <strong>parler français</strong> (speak French), <strong>parler à quelqu’un</strong> (talk to someone), and <strong>parler de quelque chose / quelqu’un</strong> (talk about something/someone).",
         rows: parlerRows
       },
       {
@@ -1416,6 +1486,14 @@
         title: "Se trouver — to be located / find oneself",
         descriptionHtml: "<strong>Se trouver</strong> often means “to be located” for places and things: <strong>Le musée se trouve au centre-ville.</strong> The base verb <strong>trouver</strong> means “to find” or “to think/find something to be”: <strong>Je trouve la clé.</strong>",
         rows: seTrouverRows
+      },
+      {
+        key: "sePromener",
+        group: "pronominal",
+        label: "se promener",
+        title: "Se promener — to take a walk / stroll",
+        descriptionHtml: "<strong>Se promener</strong> means “to take a walk / stroll.” It changes spelling in the singular and third-person plural: <strong>je me promène</strong>, <strong>nous nous promenons</strong>, <strong>ils se promènent</strong>. The base verb <strong>promener</strong> means “to walk / take someone or something out”: <strong>Je promène le chien.</strong>",
+        rows: sePromenerRows
       }
     ];
 
@@ -1588,6 +1666,24 @@
       "vous faites": "/vu fɛt/",
       "ils font": "/il fɔ̃/",
       "elles font": "/ɛl fɔ̃/",
+
+      "je peux": "/ʒə pø/",
+      "tu peux": "/ty pø/",
+      "il peut": "/il pø/",
+      "elle peut": "/ɛl pø/",
+      "nous pouvons": "/nu pu.vɔ̃/",
+      "vous pouvez": "/vu pu.ve/",
+      "ils peuvent": "/il pœv/",
+      "elles peuvent": "/ɛl pœv/",
+
+      "je veux": "/ʒə vø/",
+      "tu veux": "/ty vø/",
+      "il veut": "/il vø/",
+      "elle veut": "/ɛl vø/",
+      "nous voulons": "/nu vu.lɔ̃/",
+      "vous voulez": "/vu vu.le/",
+      "ils veulent": "/il vœl/",
+      "elles veulent": "/ɛl vœl/",
 
       "je vois": "/ʒə vwa/",
       "tu vois": "/ty vwa/",
@@ -1840,6 +1936,15 @@
       "vous vous trouvez": "/vu vu tʁu.ve/",
       "ils se trouvent": "/il sə tʁuv/",
       "elles se trouvent": "/ɛl sə tʁuv/",
+
+      "je me promène": "/ʒə mə pʁɔ.mɛn/",
+      "tu te promènes": "/ty tə pʁɔ.mɛn/",
+      "il se promène": "/il sə pʁɔ.mɛn/",
+      "elle se promène": "/ɛl sə pʁɔ.mɛn/",
+      "nous nous promenons": "/nu nu pʁɔm.nɔ̃/",
+      "vous vous promenez": "/vu vu pʁɔm.ne/",
+      "ils se promènent": "/il sə pʁɔ.mɛn/",
+      "elles se promènent": "/ɛl sə pʁɔ.mɛn/",
 
       "je tourne": "/ʒə tuʁn/",
       "tu tournes": "/ty tuʁn/",

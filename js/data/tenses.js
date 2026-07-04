@@ -541,6 +541,32 @@
             question: { fr: "Ont-ils pris le train ?", en: "Did they take the train?" }
           },
           {
+            infinitive: "pouvoir",
+            infinitiveIpa: "/puvwaʁ/",
+            meaning: "can / to be able to",
+            auxiliary: "avoir",
+            pastParticiple: "pu",
+            pastParticipleIpa: "/py/",
+            pattern: "pouvoir → pu",
+            note: "Irregular past participle. In passé composé, it often means “was able to / managed to.”",
+            statement: { fr: "J’ai pu venir hier.", en: "I was able to come yesterday." },
+            negative: { fr: "Je n’ai pas pu venir hier.", en: "I was not able to come yesterday." },
+            question: { fr: "Ai-je pu venir hier ?", en: "Was I able to come yesterday?" }
+          },
+          {
+            infinitive: "vouloir",
+            infinitiveIpa: "/vulwaʁ/",
+            meaning: "to want",
+            auxiliary: "avoir",
+            pastParticiple: "voulu",
+            pastParticipleIpa: "/vuly/",
+            pattern: "vouloir → voulu",
+            note: "Irregular past participle. In passé composé, it often means “wanted to / tried to.”",
+            statement: { fr: "Elle a voulu partir tôt.", en: "She wanted to leave early." },
+            negative: { fr: "Elle n’a pas voulu partir tôt.", en: "She did not want to leave early." },
+            question: { fr: "A-t-elle voulu partir tôt ?", en: "Did she want to leave early?" }
+          },
+          {
             infinitive: "apprendre",
             infinitiveIpa: "/apʁɑ̃dʁ/",
             meaning: "to learn",
@@ -668,6 +694,19 @@
             statement: { fr: "Nous nous sommes trouvés devant la gare.", en: "We found ourselves in front of the train station." },
             negative: { fr: "Nous ne nous sommes pas trouvés devant la gare.", en: "We did not find ourselves in front of the train station." },
             question: { fr: "Nous sommes-nous trouvés devant la gare ?", en: "Did we find ourselves in front of the train station?" }
+          },
+          {
+            infinitive: "se promener",
+            infinitiveIpa: "/sə pʁɔmne/",
+            meaning: "to take a walk / stroll",
+            auxiliary: "être",
+            pastParticiple: "promené(e)(s)",
+            pastParticipleIpa: "/pʁɔmne/",
+            pattern: "se promener → promené",
+            note: "Pronominal verbs use être in passé composé.",
+            statement: { fr: "Nous nous sommes promenés dans le parc.", en: "We took a walk in the park." },
+            negative: { fr: "Nous ne nous sommes pas promenés dans le parc.", en: "We did not take a walk in the park." },
+            question: { fr: "Nous sommes-nous promenés dans le parc ?", en: "Did we take a walk in the park?" }
           }
         ]
       }
