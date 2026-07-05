@@ -194,7 +194,7 @@
     let prepositionFlashcardDeck = [];
     let currentPrepositionFlashcardIndex = 0;
     let prepositionFlashcardRevealed = false;
-    let activeTab = "pronunciation";
+    let activeTab = "verbs";
     const examplePauseMs = 900;
     const numberRepeatPauseMs = 700;
     let playbackToken = 0;
