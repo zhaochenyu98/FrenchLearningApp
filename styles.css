@@ -1380,6 +1380,55 @@
       transition: background 0.25s ease, border-color 0.25s ease;
     }
 
+    .time-span-header,
+    .time-span-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .time-span-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .time-span-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .time-span-term {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel);
+      padding: 13px;
+    }
+
+    .time-span-reminder {
+      border: 1px solid var(--accent-border);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--text);
+      display: grid;
+      gap: 4px;
+      line-height: 1.45;
+      padding: 11px 12px;
+    }
+
+    .time-span-reminder .tiny-label {
+      margin-bottom: 0;
+    }
+
     .noun-example-list {
       display: grid;
       gap: 8px;
@@ -2038,7 +2087,8 @@
       .noun-rule-header,
       .tonic-pronoun-header,
       .adjective-forms-header,
-      .preposition-header {
+      .preposition-header,
+      .time-span-header {
         display: none;
       }
 
@@ -2047,6 +2097,7 @@
       }
 
       .noun-rule-card,
+      .time-span-pair,
       .tonic-pronoun-row,
       .adjective-forms-row,
       .preposition-row-card {

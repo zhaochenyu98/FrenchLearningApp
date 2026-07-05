@@ -23,7 +23,7 @@
 
     function renderTimeSpanTerm(term, rowIndex, side) {
       return `
-        <div>
+        <div class="time-span-term">
           <span class="question-cell-label">${side === "short" ? "Short unit" : "Long / lived span"}</span>
           <div class="french-line">${term.fr}</div>
           ${term.ipa ? `<div class="calendar-ipa">${term.ipa}</div>` : ""}
@@ -49,22 +49,23 @@
       }
 
       timeSpanComparisonGrid.innerHTML = `
-        <div class="noun-rule-header">
+        <div class="time-span-header">
           <div>Short unit</div>
           <div>Long / lived span</div>
-          <div>Usage reminder</div>
         </div>
       `;
 
       rows.forEach((rowData, rowIndex) => {
         const row = document.createElement("div");
-        row.className = "noun-rule-card";
+        row.className = "time-span-card";
         row.innerHTML = `
-          ${renderTimeSpanTerm(rowData.short, rowIndex, "short")}
-          ${renderTimeSpanTerm(rowData.long, rowIndex, "long")}
-          <div>
-            <span class="question-cell-label">Reminder</span>
-            <div class="grammar-note">${rowData.note}</div>
+          <div class="time-span-pair">
+            ${renderTimeSpanTerm(rowData.short, rowIndex, "short")}
+            ${renderTimeSpanTerm(rowData.long, rowIndex, "long")}
+          </div>
+          <div class="time-span-reminder">
+            <span class="tiny-label">Usage reminder</span>
+            <span>${rowData.note}</span>
           </div>
         `;
         row.querySelectorAll(".time-span-example-btn").forEach(button => {

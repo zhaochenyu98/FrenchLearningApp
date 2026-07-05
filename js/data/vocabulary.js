@@ -87,7 +87,7 @@
             { fr: "La prochaine journée de formation commence à neuf heures.", en: "The next training day starts at nine." }
           ]
         },
-        note: "For previous/next day, French usually says hier / demain, la veille / le lendemain, or le jour précédent / suivant. Dernier/prochain often mean final/next in a sequence."
+        note: "Mental model: bonjour is a greeting when you first meet or enter a conversation; bonne journée is a goodbye/wish when leaving, like “have a good day.” For previous/next day, French usually says hier / demain, la veille / le lendemain, or le jour précédent / suivant."
       },
       {
         short: {
