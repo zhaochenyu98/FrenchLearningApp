@@ -1213,6 +1213,12 @@
         descriptionHtml: "These high-frequency verbs do not follow the regular present-tense patterns, so it helps to learn each full present-tense set."
       },
       {
+        key: "modal",
+        title: "Modal Verbs",
+        indexTitle: "Modal",
+        descriptionHtml: "Modal verbs usually pair with another infinitive to express ability, desire, permission, or intention: <strong>je peux venir</strong>, <strong>tu veux partir</strong>. They are irregular, but grouping them separately makes their sentence pattern easier to spot."
+      },
+      {
         key: "similar",
         title: "Similar Irregular Verbs",
         indexTitle: "Same pattern",
@@ -1324,7 +1330,7 @@
       },
       {
         key: "pouvoir",
-        group: "irregular",
+        group: "modal",
         label: "pouvoir",
         title: "Pouvoir — can / to be able to",
         tag: "irregular modal verb",
@@ -1333,7 +1339,7 @@
       },
       {
         key: "vouloir",
-        group: "irregular",
+        group: "modal",
         label: "vouloir",
         title: "Vouloir — to want",
         tag: "irregular modal verb",
