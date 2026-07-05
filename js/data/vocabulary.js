@@ -434,6 +434,52 @@
 
     const specialAdjectiveForms = [
       {
+        family: "bon",
+        note: "good / tasty / useful / kind; no special vowel form, but it often comes before the noun",
+        forms: [
+          {
+            fr: "bon",
+            gender: "Masculine",
+            number: "Singular",
+            label: "Masculine singular",
+            examples: [
+              { fr: "C’est un bon café.", en: "It is a good cup of coffee." },
+              { fr: "C’est un bon ami.", en: "He is a good friend." }
+            ]
+          },
+          {
+            fr: "bonne",
+            gender: "Feminine",
+            number: "Singular",
+            label: "Feminine singular",
+            examples: [
+              { fr: "C’est une bonne idée.", en: "It is a good idea." },
+              { fr: "Elle trouve une bonne adresse.", en: "She finds a good address." }
+            ]
+          },
+          {
+            fr: "bons",
+            gender: "Masculine",
+            number: "Plural",
+            label: "Masculine plural",
+            examples: [
+              { fr: "Nous avons de bons amis.", en: "We have good friends." },
+              { fr: "Ils choisissent de bons restaurants.", en: "They choose good restaurants." }
+            ]
+          },
+          {
+            fr: "bonnes",
+            gender: "Feminine",
+            number: "Plural",
+            label: "Feminine plural",
+            examples: [
+              { fr: "Elle pose de bonnes questions.", en: "She asks good questions." },
+              { fr: "Nous avons de bonnes nouvelles.", en: "We have good news." }
+            ]
+          }
+        ]
+      },
+      {
         family: "beau",
         note: "bel before masculine singular vowel sound",
         forms: [
@@ -569,6 +615,53 @@
               { fr: "Elle retrouve de vieilles amies.", en: "She meets old friends again." }
             ]
           }
+        ]
+      }
+    ];
+
+    const transitionWordRows = [
+      {
+        fr: "d’abord",
+        ipa: "[dabɔʁ]",
+        en: "first / first of all",
+        note: "Use d’abord to introduce the first step, first action, or first idea.",
+        examples: [
+          { fr: "D’abord, je lis la phrase.", en: "First, I read the sentence." },
+          { fr: "D’abord, nous allons au marché.", en: "First, we go to the market." },
+          { fr: "Je veux d’abord boire un café.", en: "I want to drink a coffee first." }
+        ]
+      },
+      {
+        fr: "ensuite",
+        ipa: "[ɑ̃sɥit]",
+        en: "then / next",
+        note: "Use ensuite for the next step after the first one.",
+        examples: [
+          { fr: "Ensuite, je répète la phrase.", en: "Then, I repeat the sentence." },
+          { fr: "Nous mangeons, ensuite nous partons.", en: "We eat, then we leave." },
+          { fr: "Ensuite, elle écrit la réponse.", en: "Next, she writes the answer." }
+        ]
+      },
+      {
+        fr: "après",
+        ipa: "[apʁɛ]",
+        en: "after / afterward",
+        note: "Use après before a noun or by itself for afterward. Use après avoir/être + past participle for after doing something.",
+        examples: [
+          { fr: "Après le cours, je rentre chez moi.", en: "After class, I go home." },
+          { fr: "Je fais les devoirs après.", en: "I do the homework afterward." },
+          { fr: "Après avoir mangé, nous sortons.", en: "After eating, we go out." }
+        ]
+      },
+      {
+        fr: "enfin",
+        ipa: "[ɑ̃fɛ̃]",
+        en: "finally / at last",
+        note: "Use enfin for the final step or for relief after waiting. Start with finally / at last before learning its conversational meanings.",
+        examples: [
+          { fr: "Enfin, je vérifie la réponse.", en: "Finally, I check the answer." },
+          { fr: "Enfin, le train arrive.", en: "At last, the train arrives." },
+          { fr: "Enfin, nous pouvons commencer.", en: "Finally, we can begin." }
         ]
       }
     ];

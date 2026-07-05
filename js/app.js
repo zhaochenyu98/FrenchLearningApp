@@ -42,13 +42,14 @@
           { id: "feminine", title: "Feminine rules", open: true, elements: [{ heading: "Adjective Feminine Rules" }] },
           { id: "plural", title: "Plural rules", elements: [{ heading: "Adjective Plural Rules" }] },
           { id: "preposed", title: "Before plural noun", elements: [{ heading: "Important: adjective before plural noun" }] },
-          { id: "special", title: "Special adjectives", elements: [{ heading: "特殊形容词: beau / nouveau / vieux" }] }
+          { id: "special", title: "Special adjectives", elements: [{ heading: "特殊形容词: bon / beau / nouveau / vieux" }] }
         ]
       },
       adverbs: {
         title: "Adverb index",
         sections: [
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="adverb-quick-notes"]'] },
+          { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
           { id: "adverbial-pronouns", title: "Adverbial pronouns", open: true, elements: ['[data-study-section="adverbial-pronouns"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout forms", elements: ['[data-study-section="adverb-tout"]'] }
@@ -183,6 +184,7 @@
         initializeStudyIndex("adjectives");
       },
       adverbs() {
+        renderTransitionWords();
         renderAdverbialPronouns();
         renderModifierComparison();
         renderToutForms();

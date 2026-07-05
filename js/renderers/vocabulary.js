@@ -324,6 +324,63 @@
       ];
     }
 
+    function renderTransitionWords(rows = transitionWordRows) {
+      if (!transitionWordsGrid) return;
+      transitionWordsGrid.innerHTML = "";
+      if (!rows.length) {
+        transitionWordsGrid.innerHTML = `<div class="empty-state">No transition words available.</div>`;
+        return;
+      }
+
+      transitionWordsGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Transition word</div>
+          <div>Use</div>
+          <div>Examples</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Word</span>
+            <button class="preposition-word-btn" type="button" data-row-index="${rowIndex}">
+              <div class="french-line">${rowData.fr}</div>
+              <div class="calendar-ipa">${rowData.ipa}</div>
+              <div class="translation">${rowData.en}</div>
+            </button>
+          </div>
+          <div>
+            <span class="question-cell-label">Use</span>
+            <div class="grammar-note">${rowData.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rowData.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.fr}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelector(".preposition-word-btn").addEventListener("click", () => {
+          speak(rowData.speech || rowData.fr, row.querySelector(".preposition-word-btn"));
+        });
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rows[Number(button.dataset.rowIndex)].examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        transitionWordsGrid.appendChild(row);
+      });
+    }
+
     function renderAdverbialPronouns(rows = adverbialPronounRows) {
       if (!adverbialPronounGrid) return;
       adverbialPronounGrid.innerHTML = "";
