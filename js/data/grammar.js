@@ -452,15 +452,15 @@
     ];
 
     const etreImperativeRows = [
-      { person: "tu", form: "sois", en: "be", example: "Sois calme.", exampleEn: "Be calm.", negative: "Ne sois pas nerveux.", negativeEn: "Do not be nervous." },
-      { person: "nous", form: "soyons", en: "let’s be", example: "Soyons prêts.", exampleEn: "Let’s be ready.", negative: "Ne soyons pas en retard.", negativeEn: "Let’s not be late." },
-      { person: "vous", form: "soyez", en: "be", example: "Soyez prudents.", exampleEn: "Be careful.", negative: "Ne soyez pas imprudents.", negativeEn: "Do not be careless." }
+      { person: "tu", form: "sois", ipa: "/swa/", en: "be", example: "Sois calme.", exampleEn: "Be calm.", negative: "Ne sois pas nerveux.", negativeEn: "Do not be nervous." },
+      { person: "nous", form: "soyons", ipa: "/swa.jɔ̃/", en: "let’s be", example: "Soyons prêts.", exampleEn: "Let’s be ready.", negative: "Ne soyons pas en retard.", negativeEn: "Let’s not be late." },
+      { person: "vous", form: "soyez", ipa: "/swa.je/", en: "be", example: "Soyez prudents.", exampleEn: "Be careful.", negative: "Ne soyez pas imprudents.", negativeEn: "Do not be careless." }
     ];
 
     const avoirImperativeRows = [
-      { person: "tu", form: "aie", en: "have", example: "Aie confiance.", exampleEn: "Have confidence.", negative: "N’aie pas peur.", negativeEn: "Do not be afraid." },
-      { person: "nous", form: "ayons", en: "let’s have", example: "Ayons du courage.", exampleEn: "Let’s have courage.", negative: "N’ayons pas peur.", negativeEn: "Let’s not be afraid." },
-      { person: "vous", form: "ayez", en: "have", example: "Ayez confiance en vous.", exampleEn: "Have confidence in yourself.", negative: "N’ayez pas peur de demander.", negativeEn: "Do not be afraid to ask." }
+      { person: "tu", form: "aie", ipa: "/ɛ/", en: "have", example: "Aie confiance.", exampleEn: "Have confidence.", negative: "N’aie pas peur.", negativeEn: "Do not be afraid." },
+      { person: "nous", form: "ayons", ipa: "/ɛ.jɔ̃/", en: "let’s have", example: "Ayons du courage.", exampleEn: "Let’s have courage.", negative: "N’ayons pas peur.", negativeEn: "Let’s not be afraid." },
+      { person: "vous", form: "ayez", ipa: "/ɛ.je/", en: "have", example: "Ayez confiance en vous.", exampleEn: "Have confidence in yourself.", negative: "N’ayez pas peur de demander.", negativeEn: "Do not be afraid to ask." }
     ];
 
     const parlerRows = [

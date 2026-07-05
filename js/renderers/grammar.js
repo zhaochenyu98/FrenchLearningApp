@@ -425,6 +425,7 @@
         button.innerHTML = `
           <div class="tiny-label">${item.person} form — subject pronoun omitted</div>
           <div class="conjugation-main">${item.form}</div>
+          ${item.ipa ? `<div class="verb-ipa">${item.ipa}</div>` : ""}
           <div class="translation">${item.en}</div>
           <div class="grammar-note"><strong>Example:</strong> ${item.example}</div>
           <div class="translation">${item.exampleEn}</div>
