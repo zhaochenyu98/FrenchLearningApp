@@ -482,44 +482,69 @@
         return card;
       }
 
-      const columns = [
-        { title: "Singular", order: ["je", "j’", "tu", "il", "elle"] },
-        { title: "Plural", order: ["nous", "vous", "ils", "elles"] }
-      ].map(column => ({
-        title: column.title,
-        items: column.order
+      function findVerbRow(pronouns) {
+        return pronouns
           .map(pronoun => rows.find(item => item.pronoun === pronoun))
-          .filter(Boolean)
-      }));
+          .find(Boolean);
+      }
+
+      function createVerbAlignmentPlaceholder(label) {
+        const placeholder = document.createElement("div");
+        placeholder.className = "verb-cell-placeholder";
+        placeholder.innerHTML = `
+          <span class="tiny-label">${label}</span>
+          <span>Not used for this verb</span>
+        `;
+        return placeholder;
+      }
+
+      const pairedRows = [
+        { singularLabel: "je / j’", singular: findVerbRow(["je", "j’"]), pluralLabel: "nous", plural: findVerbRow(["nous"]) },
+        { singularLabel: "tu", singular: findVerbRow(["tu"]), pluralLabel: "vous", plural: findVerbRow(["vous"]) },
+        { singularLabel: "il", singular: findVerbRow(["il"]), pluralLabel: "ils", plural: findVerbRow(["ils"]) },
+        { singularLabel: "elle", singular: findVerbRow(["elle"]), pluralLabel: "elles", plural: findVerbRow(["elles"]) }
+      ].filter(pair => pair.singular || pair.plural);
       const endingItems = ["on"]
         .map(pronoun => rows.find(item => item.pronoun === pronoun))
         .filter(Boolean);
 
-      if (!columns.some(column => column.items.length) && !endingItems.length) {
+      if (!pairedRows.length && !endingItems.length) {
         container.innerHTML = `<div class="empty-state">No singular or plural conjugations available.</div>`;
         return;
       }
 
-      columns.filter(column => column.items.length).forEach(column => {
-        const columnEl = document.createElement("div");
-        columnEl.className = "verb-column";
-        columnEl.innerHTML = `<div class="verb-column-title">${column.title}</div>`;
+      if (pairedRows.length) {
+        const header = document.createElement("div");
+        header.className = "verb-pair-header";
+        header.innerHTML = `
+          <div>Singular</div>
+          <div>Plural</div>
+        `;
+        container.appendChild(header);
+      }
 
-        column.items.forEach(item => {
+      pairedRows.forEach(pair => {
+        const rowEl = document.createElement("div");
+        rowEl.className = "verb-pair-row";
+
+        [
+          { item: pair.singular, fallbackLabel: pair.singularLabel },
+          { item: pair.plural, fallbackLabel: pair.pluralLabel }
+        ].forEach(entry => {
           try {
-            columnEl.appendChild(createVerbCellCard(item));
+            rowEl.appendChild(entry.item ? createVerbCellCard(entry.item) : createVerbAlignmentPlaceholder(entry.fallbackLabel));
           } catch (error) {
-            columnEl.appendChild(createRenderErrorCard(`${item && item.full ? item.full : "Verb row"} failed to render`, error));
-            console.error("Verb row failed to render", item, error);
+            rowEl.appendChild(createRenderErrorCard(`${entry.item && entry.item.full ? entry.item.full : "Verb row"} failed to render`, error));
+            console.error("Verb row failed to render", entry.item, error);
           }
         });
 
-        container.appendChild(columnEl);
+        container.appendChild(rowEl);
       });
 
       endingItems.forEach(item => {
         const columnEl = document.createElement("div");
-        columnEl.className = "verb-column verb-extra-column";
+        columnEl.className = "verb-extra-column";
         columnEl.innerHTML = `<div class="verb-column-title">On — spoken French</div>`;
         try {
           columnEl.appendChild(createVerbCellCard(item));

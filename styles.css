@@ -1170,21 +1170,28 @@
 
     .verb-matrix {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
       margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
     }
 
-    .verb-column {
+    .verb-pair-header,
+    .verb-pair-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+      min-width: 540px;
+    }
+
+    .verb-extra-column {
       display: grid;
       gap: 10px;
     }
 
-    .verb-extra-column {
-      grid-column: 1 / -1;
-    }
-
-    .verb-column-title {
+    .verb-column-title,
+    .verb-pair-header {
       border: 1px dashed var(--accent-border);
       border-radius: 14px;
       background: var(--accent-soft);
@@ -1194,6 +1201,14 @@
       padding: 10px 12px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+
+    .verb-pair-header {
+      padding: 0;
+    }
+
+    .verb-pair-header > div {
+      padding: 10px 12px;
     }
 
     .verb-cell-card {
@@ -1206,6 +1221,18 @@
       min-height: 136px;
       overflow: hidden;
       transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.25s ease;
+    }
+
+    .verb-cell-placeholder {
+      align-items: center;
+      border: 1px dashed var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      color: var(--muted);
+      display: grid;
+      justify-items: start;
+      min-height: 136px;
+      padding: 14px;
     }
 
     .verb-cell-card:focus-within {
