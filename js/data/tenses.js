@@ -114,6 +114,19 @@
             question: { fr: "Qu’avons-nous regardé ?", en: "What did we watch?" }
           },
           {
+            infinitive: "réserver",
+            infinitiveIpa: "/ʁezɛʁve/",
+            meaning: "to reserve / book",
+            auxiliary: "avoir",
+            pastParticiple: "réservé",
+            pastParticipleIpa: "/ʁezɛʁve/",
+            pattern: "réserver → réservé",
+            note: "Regular -er past participle.",
+            statement: { fr: "J’ai réservé une table.", en: "I reserved a table." },
+            negative: { fr: "Je n’ai pas réservé de table.", en: "I did not reserve a table." },
+            question: { fr: "As-tu réservé une table ?", en: "Did you reserve a table?" }
+          },
+          {
             infinitive: "passer",
             infinitiveIpa: "/pase/",
             meaning: "to pass / spend / stop by",
@@ -474,6 +487,19 @@
             statement: { fr: "Vous avez bu du café.", en: "You drank coffee." },
             negative: { fr: "Vous n’avez pas bu de café.", en: "You did not drink coffee." },
             question: { fr: "Avez-vous bu du café ?", en: "Did you drink coffee?" }
+          },
+          {
+            infinitive: "dire",
+            infinitiveIpa: "/diʁ/",
+            meaning: "to say / tell",
+            auxiliary: "avoir",
+            pastParticiple: "dit",
+            pastParticipleIpa: "/di/",
+            pattern: "dire → dit",
+            note: "Irregular past participle; the final t is written but not pronounced.",
+            statement: { fr: "Elle a dit la vérité à Marie.", en: "She told Marie the truth." },
+            negative: { fr: "Elle n’a pas dit la vérité à Marie.", en: "She did not tell Marie the truth." },
+            question: { fr: "Qu’a-t-elle dit à Marie ?", en: "What did she tell Marie?" }
           },
           {
             infinitive: "voir",

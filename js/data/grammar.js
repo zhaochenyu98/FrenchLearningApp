@@ -898,6 +898,26 @@
       { pronoun: "elles", form: "boivent", full: "elles boivent", en: "they drink", example: "Elles boivent du chocolat chaud.", exampleEn: "They drink hot chocolate.", negative: "Elles ne boivent pas de chocolat chaud.", negativeEn: "They do not drink hot chocolate.", question: "Que boivent-elles ?" }
     ];
 
+    const direRows = [
+      {
+        pronoun: "je",
+        form: "dis",
+        full: "je dis",
+        en: "I say / tell",
+        examples: [
+          { meaning: "dire quelque chose à quelqu’un", fr: "Je dis la vérité à Marie.", en: "I tell Marie the truth.", negative: "Je ne dis pas la vérité à Marie.", negativeEn: "I do not tell Marie the truth.", question: "Qu’est-ce que je dis à Marie ?" },
+          { meaning: "say hello to someone", fr: "Je dis bonjour à mon voisin.", en: "I say hello to my neighbor.", negative: "Je ne dis pas bonjour à mon voisin.", negativeEn: "I do not say hello to my neighbor.", question: "À qui est-ce que je dis bonjour ?" }
+        ]
+      },
+      { pronoun: "tu", form: "dis", full: "tu dis", en: "you say / tell", example: "Tu dis merci au professeur.", exampleEn: "You say thank you to the teacher.", negative: "Tu ne dis pas merci au professeur.", negativeEn: "You do not say thank you to the teacher.", question: "Dis-tu merci au professeur ?" },
+      { pronoun: "il", form: "dit", full: "il dit", en: "he says / tells", example: "Il dit que le train arrive bientôt.", exampleEn: "He says that the train is arriving soon.", negative: "Il ne dit pas que le train arrive bientôt.", negativeEn: "He does not say that the train is arriving soon.", question: "Que dit-il ?" },
+      { pronoun: "elle", form: "dit", full: "elle dit", en: "she says / tells", example: "Elle dit son nom à la réceptionniste.", exampleEn: "She tells the receptionist her name.", negative: "Elle ne dit pas son nom à la réceptionniste.", negativeEn: "She does not tell the receptionist her name.", question: "À qui dit-elle son nom ?" },
+      { pronoun: "nous", form: "disons", full: "nous disons", en: "we say / tell", example: "Nous disons la réponse au professeur.", exampleEn: "We tell the teacher the answer.", negative: "Nous ne disons pas la réponse au professeur.", negativeEn: "We do not tell the teacher the answer.", question: "Que disons-nous au professeur ?" },
+      { pronoun: "vous", form: "dites", full: "vous dites", en: "you say / tell", example: "Vous dites votre adresse au chauffeur.", exampleEn: "You tell the driver your address.", negative: "Vous ne dites pas votre adresse au chauffeur.", negativeEn: "You do not tell the driver your address.", question: "Dites-vous votre adresse au chauffeur ?" },
+      { pronoun: "ils", form: "disent", full: "ils disent", en: "they say / tell", example: "Ils disent la nouvelle à leurs amis.", exampleEn: "They tell their friends the news.", negative: "Ils ne disent pas la nouvelle à leurs amis.", negativeEn: "They do not tell their friends the news.", question: "À qui disent-ils la nouvelle ?" },
+      { pronoun: "elles", form: "disent", full: "elles disent", en: "they say / tell", example: "Elles disent qu’elles arrivent demain.", exampleEn: "They say that they are arriving tomorrow.", negative: "Elles ne disent pas qu’elles arrivent demain.", negativeEn: "They do not say that they are arriving tomorrow.", question: "Que disent-elles ?" }
+    ];
+
     const ecrireRows = [
       { pronoun: "j’", form: "écris", full: "j’écris", en: "I write", example: "J’écris un message.", exampleEn: "I am writing a message.", negative: "Je n’écris pas de message.", negativeEn: "I am not writing a message." },
       { pronoun: "tu", form: "écris", full: "tu écris", en: "you write", example: "Tu écris ton nom ici.", exampleEn: "You write your name here.", negative: "Tu n’écris pas ton nom ici.", negativeEn: "You do not write your name here." },
@@ -1004,6 +1024,17 @@
       { pronoun: "vous", form: "regardez", full: "vous regardez", en: "you watch / look at", example: "Vous regardez la carte.", exampleEn: "You are looking at the map.", negative: "Vous ne regardez pas la carte.", negativeEn: "You are not looking at the map.", question: "Regardez-vous la carte ?" },
       { pronoun: "ils", form: "regardent", full: "ils regardent", en: "they watch / look at", example: "Ils regardent le match.", exampleEn: "They are watching the game.", negative: "Ils ne regardent pas le match.", negativeEn: "They are not watching the game." },
       { pronoun: "elles", form: "regardent", full: "elles regardent", en: "they watch / look at", example: "Elles regardent la vidéo.", exampleEn: "They are watching the video.", negative: "Elles ne regardent pas la vidéo.", negativeEn: "They are not watching the video." }
+    ];
+
+    const reserverRows = [
+      { pronoun: "je", form: "réserve", full: "je réserve", en: "I reserve / book", example: "Je réserve une table pour ce soir.", exampleEn: "I reserve a table for tonight.", negative: "Je ne réserve pas de table pour ce soir.", negativeEn: "I do not reserve a table for tonight.", question: "Qu’est-ce que je réserve pour ce soir ?" },
+      { pronoun: "tu", form: "réserves", full: "tu réserves", en: "you reserve / book", example: "Tu réserves une chambre en ligne.", exampleEn: "You book a room online.", negative: "Tu ne réserves pas de chambre en ligne.", negativeEn: "You do not book a room online.", question: "Réserves-tu une chambre en ligne ?" },
+      { pronoun: "il", form: "réserve", full: "il réserve", en: "he reserves / books", example: "Il réserve deux billets de train.", exampleEn: "He books two train tickets.", negative: "Il ne réserve pas de billets de train.", negativeEn: "He does not book train tickets.", question: "Combien de billets réserve-t-il ?" },
+      { pronoun: "elle", form: "réserve", full: "elle réserve", en: "she reserves / books", example: "Elle réserve une place près de la fenêtre.", exampleEn: "She reserves a seat near the window.", negative: "Elle ne réserve pas de place près de la fenêtre.", negativeEn: "She does not reserve a seat near the window.", question: "Quelle place réserve-t-elle ?" },
+      { pronoun: "nous", form: "réservons", full: "nous réservons", en: "we reserve / book", example: "Nous réservons un hôtel à Paris.", exampleEn: "We book a hotel in Paris.", negative: "Nous ne réservons pas d’hôtel à Paris.", negativeEn: "We do not book a hotel in Paris.", question: "Où réservons-nous un hôtel ?" },
+      { pronoun: "vous", form: "réservez", full: "vous réservez", en: "you reserve / book", example: "Vous réservez par téléphone.", exampleEn: "You book by phone.", negative: "Vous ne réservez pas par téléphone.", negativeEn: "You do not book by phone.", question: "Comment réservez-vous ?" },
+      { pronoun: "ils", form: "réservent", full: "ils réservent", en: "they reserve / book", example: "Ils réservent une voiture pour le week-end.", exampleEn: "They book a car for the weekend.", negative: "Ils ne réservent pas de voiture pour le week-end.", negativeEn: "They do not book a car for the weekend.", question: "Que réservent-ils pour le week-end ?" },
+      { pronoun: "elles", form: "réservent", full: "elles réservent", en: "they reserve / book", example: "Elles réservent une salle pour la réunion.", exampleEn: "They reserve a room for the meeting.", negative: "Elles ne réservent pas de salle pour la réunion.", negativeEn: "They do not reserve a room for the meeting.", question: "Pourquoi réservent-elles une salle ?" }
     ];
 
     const passerRows = [
@@ -1432,6 +1463,15 @@
         rows: boireRows
       },
       {
+        key: "dire",
+        group: "irregular",
+        label: "dire",
+        title: "Dire — to say / to tell",
+        tag: "irregular",
+        descriptionHtml: "<strong>Dire</strong> means “to say” or “to tell.” To say or tell something to someone, use <strong>dire quelque chose à quelqu’un</strong>: <strong>je dis la vérité à Marie</strong>. Watch the irregular <strong>vous dites</strong> form.",
+        rows: direRows
+      },
+      {
         key: "ecrire",
         group: "irregular",
         label: "écrire",
@@ -1601,6 +1641,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Regarder</strong> follows the regular -er pattern and is used for watching something or looking at something directly.",
         rows: regarderRows
+      },
+      {
+        key: "reserver",
+        group: "regularEr",
+        label: "réserver",
+        title: "Réserver — to reserve / to book",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Réserver</strong> follows the regular -er pattern and is useful for restaurants, hotels, tickets, seats, and appointments.",
+        rows: reserverRows
       },
       {
         key: "passer",
@@ -2028,6 +2077,15 @@
       "ils boivent": "/il bwav/",
       "elles boivent": "/ɛl bwav/",
 
+      "je dis": "/ʒə di/",
+      "tu dis": "/ty di/",
+      "il dit": "/il di/",
+      "elle dit": "/ɛl di/",
+      "nous disons": "/nu di.zɔ̃/",
+      "vous dites": "/vu dit/",
+      "ils disent": "/il diz/",
+      "elles disent": "/ɛl diz/",
+
       "j’écris": "/ʒe.kʁi/",
       "tu écris": "/ty e.kʁi/",
       "il écrit": "/il e.kʁi/",
@@ -2117,6 +2175,15 @@
       "vous regardez": "/vu ʁə.ɡaʁ.de/",
       "ils regardent": "/il ʁə.ɡaʁd/",
       "elles regardent": "/ɛl ʁə.ɡaʁd/",
+
+      "je réserve": "/ʒə ʁe.zɛʁv/",
+      "tu réserves": "/ty ʁe.zɛʁv/",
+      "il réserve": "/il ʁe.zɛʁv/",
+      "elle réserve": "/ɛl ʁe.zɛʁv/",
+      "nous réservons": "/nu ʁe.zɛʁ.vɔ̃/",
+      "vous réservez": "/vu ʁe.zɛʁ.ve/",
+      "ils réservent": "/il ʁe.zɛʁv/",
+      "elles réservent": "/ɛl ʁe.zɛʁv/",
 
       "je passe": "/ʒə pas/",
       "tu passes": "/ty pas/",
