@@ -772,6 +772,35 @@
       { pronoun: "elles", form: "veulent", full: "elles veulent", en: "they want", example: "Elles veulent acheter des billets.", exampleEn: "They want to buy tickets.", negative: "Elles ne veulent pas acheter de billets.", negativeEn: "They do not want to buy tickets.", question: "Que veulent-elles acheter ?" }
     ];
 
+    const savoirRows = [
+      {
+        pronoun: "je",
+        form: "sais",
+        full: "je sais",
+        en: "I know",
+        examples: [
+          { meaning: "know the answer", fr: "Je sais la réponse.", en: "I know the answer.", negative: "Je ne sais pas la réponse.", negativeEn: "I do not know the answer.", question: "Est-ce que je sais la réponse ?" },
+          { meaning: "don’t know", fr: "Je ne sais pas où il habite.", en: "I do not know where he lives.", negative: "Je ne sais toujours pas où il habite.", negativeEn: "I still do not know where he lives.", question: "Sais-tu où il habite ?" }
+        ]
+      },
+      {
+        pronoun: "tu",
+        form: "sais",
+        full: "tu sais",
+        en: "you know",
+        examples: [
+          { meaning: "savoir + que", fr: "Tu sais que le train part à huit heures.", en: "You know that the train leaves at eight.", negative: "Tu ne sais pas si le train part à huit heures.", negativeEn: "You do not know whether the train leaves at eight.", question: "Sais-tu que le train part à huit heures ?" },
+          { meaning: "know how to", fr: "Tu sais nager.", en: "You know how to swim.", negative: "Tu ne sais pas nager.", negativeEn: "You do not know how to swim.", question: "Sais-tu nager ?" }
+        ]
+      },
+      { pronoun: "il", form: "sait", full: "il sait", en: "he knows", example: "Il sait conduire.", exampleEn: "He knows how to drive.", negative: "Il ne sait pas conduire.", negativeEn: "He does not know how to drive.", question: "Sait-il conduire ?" },
+      { pronoun: "elle", form: "sait", full: "elle sait", en: "she knows", example: "Elle sait que le magasin ferme tôt.", exampleEn: "She knows that the store closes early.", negative: "Elle ne sait pas si le magasin ferme tôt.", negativeEn: "She does not know whether the store closes early.", question: "Sait-elle que le magasin ferme tôt ?" },
+      { pronoun: "nous", form: "savons", full: "nous savons", en: "we know", example: "Nous savons parler français.", exampleEn: "We know how to speak French.", negative: "Nous ne savons pas parler français.", negativeEn: "We do not know how to speak French.", question: "Savons-nous parler français ?" },
+      { pronoun: "vous", form: "savez", full: "vous savez", en: "you know", example: "Vous savez utiliser cette application.", exampleEn: "You know how to use this app.", negative: "Vous ne savez pas utiliser cette application.", negativeEn: "You do not know how to use this app.", question: "Savez-vous utiliser cette application ?" },
+      { pronoun: "ils", form: "savent", full: "ils savent", en: "they know", example: "Ils savent que le cours commence demain.", exampleEn: "They know that class starts tomorrow.", negative: "Ils ne savent pas si le cours commence demain.", negativeEn: "They do not know whether class starts tomorrow.", question: "Savent-ils que le cours commence demain ?" },
+      { pronoun: "elles", form: "savent", full: "elles savent", en: "they know", example: "Elles savent jouer du piano.", exampleEn: "They know how to play piano.", negative: "Elles ne savent pas jouer du piano.", negativeEn: "They do not know how to play piano.", question: "Savent-elles jouer du piano ?" }
+    ];
+
     const faireExpressionRows = [
       {
         expression: "faire un footing",
@@ -1376,6 +1405,15 @@
         rows: vouloirRows
       },
       {
+        key: "savoir",
+        group: "irregular",
+        label: "savoir",
+        title: "Savoir — to know / to know how to",
+        tag: "irregular",
+        descriptionHtml: "<strong>Savoir</strong> means “to know” facts or information, and <strong>savoir + infinitive</strong> means “to know how to do something”: <strong>je sais nager</strong>. For “I don’t know whether...,” French often uses <strong>je ne sais pas si...</strong>.",
+        rows: savoirRows
+      },
+      {
         key: "voir",
         group: "irregular",
         label: "voir",
@@ -1962,6 +2000,15 @@
       "vous voulez": "/vu vu.le/",
       "ils veulent": "/il vœl/",
       "elles veulent": "/ɛl vœl/",
+
+      "je sais": "/ʒə sɛ/",
+      "tu sais": "/ty sɛ/",
+      "il sait": "/il sɛ/",
+      "elle sait": "/ɛl sɛ/",
+      "nous savons": "/nu sa.vɔ̃/",
+      "vous savez": "/vu sa.ve/",
+      "ils savent": "/il sav/",
+      "elles savent": "/ɛl sav/",
 
       "je vois": "/ʒə vwa/",
       "tu vois": "/ty vwa/",

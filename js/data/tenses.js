@@ -554,6 +554,19 @@
             question: { fr: "Ai-je dû travailler tard ?", en: "Did I have to work late?" }
           },
           {
+            infinitive: "savoir",
+            infinitiveIpa: "/savwaʁ/",
+            meaning: "to know / to know how to",
+            auxiliary: "avoir",
+            pastParticiple: "su",
+            pastParticipleIpa: "/sy/",
+            pattern: "savoir → su",
+            note: "Irregular past participle. In passé composé, it can mean “knew,” “found out,” or “managed to know.”",
+            statement: { fr: "J’ai su la réponse.", en: "I knew / found out the answer." },
+            negative: { fr: "Je n’ai pas su la réponse.", en: "I did not know / find out the answer." },
+            question: { fr: "As-tu su la réponse ?", en: "Did you know / find out the answer?" }
+          },
+          {
             infinitive: "pouvoir",
             infinitiveIpa: "/puvwaʁ/",
             meaning: "can / to be able to",
