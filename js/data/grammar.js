@@ -721,6 +721,26 @@
       { pronoun: "elles", form: "font", full: "elles font", en: "they do / they make", example: "Elles font une vidéo.", exampleEn: "They are making a video.", negative: "Elles ne font pas de vidéo.", negativeEn: "They are not making a video." }
     ];
 
+    const devoirRows = [
+      {
+        pronoun: "je",
+        form: "dois",
+        full: "je dois",
+        en: "I must / have to / owe",
+        examples: [
+          { meaning: "obligation", fr: "Je dois partir tôt.", en: "I have to leave early.", negative: "Je ne dois pas partir tôt.", negativeEn: "I must not leave early.", question: "Dois-je partir tôt ?" },
+          { meaning: "owe", fr: "Je dois dix euros à Paul.", en: "I owe Paul ten euros.", negative: "Je ne dois pas dix euros à Paul.", negativeEn: "I do not owe Paul ten euros.", question: "Combien est-ce que je dois à Paul ?" }
+        ]
+      },
+      { pronoun: "tu", form: "dois", full: "tu dois", en: "you must / have to / owe", example: "Tu dois finir tes devoirs.", exampleEn: "You have to finish your homework.", negative: "Tu ne dois pas finir tes devoirs maintenant.", negativeEn: "You must not finish your homework now.", question: "Dois-tu finir tes devoirs maintenant ?" },
+      { pronoun: "il", form: "doit", full: "il doit", en: "he must / has to / owes", example: "Il doit appeler sa mère.", exampleEn: "He has to call his mother.", negative: "Il ne doit pas appeler sa mère ce soir.", negativeEn: "He must not call his mother tonight.", question: "Doit-il appeler sa mère ce soir ?" },
+      { pronoun: "elle", form: "doit", full: "elle doit", en: "she must / has to / owes", example: "Elle doit prendre le train.", exampleEn: "She has to take the train.", negative: "Elle ne doit pas prendre le train.", negativeEn: "She must not take the train.", question: "Quel train doit-elle prendre ?" },
+      { pronoun: "nous", form: "devons", full: "nous devons", en: "we must / have to / owe", example: "Nous devons réserver une table.", exampleEn: "We have to reserve a table.", negative: "Nous ne devons pas réserver de table.", negativeEn: "We must not reserve a table.", question: "Devons-nous réserver une table ?" },
+      { pronoun: "vous", form: "devez", full: "vous devez", en: "you must / have to / owe", example: "Vous devez remplir ce formulaire.", exampleEn: "You have to fill out this form.", negative: "Vous ne devez pas remplir ce formulaire.", negativeEn: "You must not fill out this form.", question: "Devez-vous remplir ce formulaire ?" },
+      { pronoun: "ils", form: "doivent", full: "ils doivent", en: "they must / have to / owe", example: "Ils doivent travailler demain.", exampleEn: "They have to work tomorrow.", negative: "Ils ne doivent pas travailler demain.", negativeEn: "They must not work tomorrow.", question: "Doivent-ils travailler demain ?" },
+      { pronoun: "elles", form: "doivent", full: "elles doivent", en: "they must / have to / owe", example: "Elles doivent étudier ce soir.", exampleEn: "They have to study tonight.", negative: "Elles ne doivent pas étudier ce soir.", negativeEn: "They must not study tonight.", question: "Que doivent-elles étudier ce soir ?" }
+    ];
+
     const pouvoirRows = [
       {
         pronoun: "je",
@@ -1216,7 +1236,7 @@
         key: "modal",
         title: "Modal Verbs",
         indexTitle: "Modal",
-        descriptionHtml: "Modal verbs usually pair with another infinitive to express ability, desire, permission, or intention: <strong>je peux venir</strong>, <strong>tu veux partir</strong>. They are irregular, but grouping them separately makes their sentence pattern easier to spot."
+        descriptionHtml: "Modal verbs usually pair with another infinitive to express obligation, ability, desire, permission, or intention: <strong>je dois partir</strong>, <strong>je peux venir</strong>, <strong>tu veux rester</strong>. They are irregular, but grouping them separately makes their sentence pattern easier to spot."
       },
       {
         key: "similar",
@@ -1327,6 +1347,15 @@
         descriptionHtml: "<strong>Faire</strong> is very common and irregular. Compare <strong>fais / fait</strong> <strong>/fɛ/</strong>, <strong>faisons</strong> <strong>/fə.zɔ̃/</strong>, <strong>faites</strong> <strong>/fɛt/</strong>, and <strong>font</strong> <strong>/fɔ̃/</strong>.",
         rows: faireRows,
         extras: ["faireExpressions"]
+      },
+      {
+        key: "devoir",
+        group: "modal",
+        label: "devoir",
+        title: "Devoir — must / to have to / to owe",
+        tag: "irregular modal verb",
+        descriptionHtml: "<strong>Devoir</strong> is often followed by an infinitive for obligation: <strong>je dois partir</strong>, <strong>nous devons réserver</strong>. With a noun or amount, it can also mean “to owe”: <strong>je dois dix euros</strong>. In the present tense, <strong>ne dois pas</strong> often means “must not / should not”; “don’t have to” is often clearer as <strong>ne pas être obligé de</strong>.",
+        rows: devoirRows
       },
       {
         key: "pouvoir",
@@ -1906,6 +1935,15 @@
       "vous faites": "/vu fɛt/",
       "ils font": "/il fɔ̃/",
       "elles font": "/ɛl fɔ̃/",
+
+      "je dois": "/ʒə dwa/",
+      "tu dois": "/ty dwa/",
+      "il doit": "/il dwa/",
+      "elle doit": "/ɛl dwa/",
+      "nous devons": "/nu də.vɔ̃/",
+      "vous devez": "/vu də.ve/",
+      "ils doivent": "/il dwav/",
+      "elles doivent": "/ɛl dwav/",
 
       "je peux": "/ʒə pø/",
       "tu peux": "/ty pø/",

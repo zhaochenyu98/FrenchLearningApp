@@ -541,6 +541,19 @@
             question: { fr: "Ont-ils pris le train ?", en: "Did they take the train?" }
           },
           {
+            infinitive: "devoir",
+            infinitiveIpa: "/dəvwaʁ/",
+            meaning: "must / to have to / to owe",
+            auxiliary: "avoir",
+            pastParticiple: "dû",
+            pastParticipleIpa: "/dy/",
+            pattern: "devoir → dû",
+            note: "Irregular past participle. In passé composé, it often means “had to”; with money or objects, it can mean “owed.”",
+            statement: { fr: "J’ai dû travailler tard.", en: "I had to work late." },
+            negative: { fr: "Je n’ai pas dû travailler tard.", en: "I did not have to work late." },
+            question: { fr: "Ai-je dû travailler tard ?", en: "Did I have to work late?" }
+          },
+          {
             infinitive: "pouvoir",
             infinitiveIpa: "/puvwaʁ/",
             meaning: "can / to be able to",
