@@ -1260,6 +1260,17 @@
       { pronoun: "elles", form: "regardent", full: "elles regardent", en: "they watch / look at", example: "Elles regardent la vidéo.", exampleEn: "They are watching the video.", negative: "Elles ne regardent pas la vidéo.", negativeEn: "They are not watching the video." }
     ];
 
+    const laisserRows = [
+      { pronoun: "je", form: "laisse", full: "je laisse", en: "I let / leave", example: "Je laisse mon frère utiliser mon ordinateur.", exampleEn: "I let my brother use my computer.", negative: "Je ne laisse pas mon frère utiliser mon ordinateur.", negativeEn: "I do not let my brother use my computer.", question: "Est-ce que je laisse mon frère utiliser mon ordinateur ?" },
+      { pronoun: "tu", form: "laisses", full: "tu laisses", en: "you let / leave", example: "Tu laisses les enfants jouer dehors.", exampleEn: "You let the children play outside.", negative: "Tu ne laisses pas les enfants jouer dehors.", negativeEn: "You do not let the children play outside.", question: "Laisses-tu les enfants jouer dehors ?" },
+      { pronoun: "il", form: "laisse", full: "il laisse", en: "he lets / leaves", example: "Il laisse sa sœur conduire la voiture.", exampleEn: "He lets his sister drive the car.", negative: "Il ne laisse pas sa sœur conduire la voiture.", negativeEn: "He does not let his sister drive the car.", question: "Qui laisse-t-il conduire la voiture ?" },
+      { pronoun: "elle", form: "laisse", full: "elle laisse", en: "she lets / leaves", example: "Elle laisse Paul finir le travail.", exampleEn: "She lets Paul finish the work.", negative: "Elle ne laisse pas Paul finir le travail.", negativeEn: "She does not let Paul finish the work.", question: "Que laisse-t-elle Paul finir ?" },
+      { pronoun: "nous", form: "laissons", full: "nous laissons", en: "we let / leave", example: "Nous laissons le chien dormir ici.", exampleEn: "We let the dog sleep here.", negative: "Nous ne laissons pas le chien dormir ici.", negativeEn: "We do not let the dog sleep here.", question: "Laissons-nous le chien dormir ici ?" },
+      { pronoun: "vous", form: "laissez", full: "vous laissez", en: "you let / leave", example: "Vous laissez vos amis entrer.", exampleEn: "You let your friends come in.", negative: "Vous ne laissez pas vos amis entrer.", negativeEn: "You do not let your friends come in.", question: "Qui laissez-vous entrer ?" },
+      { pronoun: "ils", form: "laissent", full: "ils laissent", en: "they let / leave", example: "Ils laissent leur fille choisir le dessert.", exampleEn: "They let their daughter choose dessert.", negative: "Ils ne laissent pas leur fille choisir le dessert.", negativeEn: "They do not let their daughter choose dessert.", question: "Que laissent-ils leur fille choisir ?" },
+      { pronoun: "elles", form: "laissent", full: "elles laissent", en: "they let / leave", example: "Elles laissent les étudiants poser des questions.", exampleEn: "They let the students ask questions.", negative: "Elles ne laissent pas les étudiants poser de questions.", negativeEn: "They do not let the students ask questions.", question: "Laissent-elles les étudiants poser des questions ?" }
+    ];
+
     const reserverRows = [
       { pronoun: "je", form: "réserve", full: "je réserve", en: "I reserve / book", example: "Je réserve une table pour ce soir.", exampleEn: "I reserve a table for tonight.", negative: "Je ne réserve pas de table pour ce soir.", negativeEn: "I do not reserve a table for tonight.", question: "Qu’est-ce que je réserve pour ce soir ?" },
       { pronoun: "tu", form: "réserves", full: "tu réserves", en: "you reserve / book", example: "Tu réserves une chambre en ligne.", exampleEn: "You book a room online.", negative: "Tu ne réserves pas de chambre en ligne.", negativeEn: "You do not book a room online.", question: "Réserves-tu une chambre en ligne ?" },
@@ -1915,6 +1926,15 @@
         rows: regarderRows
       },
       {
+        key: "laisser",
+        group: "regularEr",
+        label: "laisser",
+        title: "Laisser — to let / to leave",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Laisser</strong> follows the regular -er pattern. A very common structure is <strong>laisser quelqu’un faire quelque chose</strong>: “to let someone do something.”",
+        rows: laisserRows
+      },
+      {
         key: "reserver",
         group: "regularEr",
         label: "réserver",
@@ -2483,6 +2503,15 @@
       "vous regardez": "/vu ʁə.ɡaʁ.de/",
       "ils regardent": "/il ʁə.ɡaʁd/",
       "elles regardent": "/ɛl ʁə.ɡaʁd/",
+
+      "je laisse": "/ʒə lɛs/",
+      "tu laisses": "/ty lɛs/",
+      "il laisse": "/il lɛs/",
+      "elle laisse": "/ɛl lɛs/",
+      "nous laissons": "/nu lɛ.sɔ̃/",
+      "vous laissez": "/vu lɛ.se/",
+      "ils laissent": "/il lɛs/",
+      "elles laissent": "/ɛl lɛs/",
 
       "je réserve": "/ʒə ʁe.zɛʁv/",
       "tu réserves": "/ty ʁe.zɛʁv/",

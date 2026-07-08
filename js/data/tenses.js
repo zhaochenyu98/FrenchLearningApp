@@ -114,6 +114,19 @@
             question: { fr: "Qu’avons-nous regardé ?", en: "What did we watch?" }
           },
           {
+            infinitive: "laisser",
+            infinitiveIpa: "/lɛse/",
+            meaning: "to let / leave",
+            auxiliary: "avoir",
+            pastParticiple: "laissé",
+            pastParticipleIpa: "/lɛse/",
+            pattern: "laisser → laissé",
+            note: "Regular -er past participle. With another infinitive: laisser quelqu’un faire quelque chose.",
+            statement: { fr: "J’ai laissé mon frère utiliser mon ordinateur.", en: "I let my brother use my computer." },
+            negative: { fr: "Je n’ai pas laissé mon frère utiliser mon ordinateur.", en: "I did not let my brother use my computer." },
+            question: { fr: "As-tu laissé ton frère utiliser ton ordinateur ?", en: "Did you let your brother use your computer?" }
+          },
+          {
             infinitive: "réserver",
             infinitiveIpa: "/ʁezɛʁve/",
             meaning: "to reserve / book",
