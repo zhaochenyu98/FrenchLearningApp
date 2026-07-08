@@ -158,7 +158,7 @@
       });
     }
 
-    function getCoiPatternSentences(example, labels = {}) {
+    function getObjectPronounPatternSentences(example, labels = {}) {
       return [
         { label: labels.statement || "Statement", ...example.statement },
         { label: labels.negative || "Negative", ...example.negative },
@@ -166,15 +166,15 @@
       ].filter(sentence => sentence.fr);
     }
 
-    function renderCoiPatterns(rows = coiPatternRows) {
-      if (!coiPatternGrid) return;
-      coiPatternGrid.innerHTML = "";
+    function renderObjectPronounPatterns(targetGrid, rows, emptyMessage) {
+      if (!targetGrid) return;
+      targetGrid.innerHTML = "";
       if (!rows.length) {
-        coiPatternGrid.innerHTML = `<div class="empty-state">No COI placement patterns available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      coiPatternGrid.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="noun-rule-header">
           <div>Scenario</div>
           <div>Placement rule</div>
@@ -201,7 +201,7 @@
               ${rowData.examples.map((example, exampleIndex) => `
                 <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
                   <span class="subject-form-tag">${example.meaning}</span>
-                  ${getCoiPatternSentences(example, rowData.labels).map(sentence => `
+                  ${getObjectPronounPatternSentences(example, rowData.labels).map(sentence => `
                     <span class="tiny-label">${sentence.label}</span>
                     <span class="noun-example-main">${sentence.fr}</span>
                     <span class="translation">${sentence.en}</span>
@@ -215,13 +215,47 @@
           button.addEventListener("click", () => {
             const rowData = rows[Number(button.dataset.rowIndex)];
             const example = rowData.examples[Number(button.dataset.exampleIndex)];
-            speakSequence(getCoiPatternSentences(example, rowData.labels).map((sentence, index) => ({
+            speakSequence(getObjectPronounPatternSentences(example, rowData.labels).map((sentence, index) => ({
               text: sentence.fr,
               pauseBefore: index ? examplePauseMs : 0
             })), button);
           });
         });
-        coiPatternGrid.appendChild(row);
+        targetGrid.appendChild(row);
+      });
+    }
+
+    function renderCoiPatterns(rows = coiPatternRows) {
+      renderObjectPronounPatterns(coiPatternGrid, rows, "No COI placement patterns available.");
+    }
+
+    function renderCodPatterns(rows = codPatternRows) {
+      renderObjectPronounPatterns(codPatternGrid, rows, "No COD placement patterns available.");
+    }
+
+    function renderCodPronounForms(rows = codPronounRows) {
+      renderPronounFormsTable(codPronounGrid, rows, "No COD pronouns available.");
+    }
+
+    function renderCodTriggerRules(rules = codTriggerRules) {
+      renderCoiGuideTable(codTriggerGrid, rules, {
+        titleHeader: "Trigger",
+        patternHeader: "How it works",
+        examplesHeader: "COD transformations",
+        fromLabel: "Full phrase",
+        toLabel: "COD version",
+        emptyMessage: "No COD trigger examples available."
+      });
+    }
+
+    function renderCodAvoidRules(rules = codAvoidRules) {
+      renderCoiGuideTable(codAvoidGrid, rules, {
+        titleHeader: "Do not use COD",
+        patternHeader: "Why",
+        examplesHeader: "Correct contrast",
+        fromLabel: "Original",
+        toLabel: "Correct replacement",
+        emptyMessage: "No COD contrast examples available."
       });
     }
 

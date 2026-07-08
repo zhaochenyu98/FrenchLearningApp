@@ -85,6 +85,10 @@
     const mandatoryLiaisonGrid = document.getElementById("mandatoryLiaisonGrid");
     const pronunciationMatrixGrid = document.getElementById("pronunciationMatrixGrid");
     const pronunciationPracticeGrid = document.getElementById("pronunciationPracticeGrid");
+    const codPronounGrid = document.getElementById("codPronounGrid");
+    const codTriggerGrid = document.getElementById("codTriggerGrid");
+    const codAvoidGrid = document.getElementById("codAvoidGrid");
+    const codPatternGrid = document.getElementById("codPatternGrid");
     const coiPronounGrid = document.getElementById("coiPronounGrid");
     const coiTriggerGrid = document.getElementById("coiTriggerGrid");
     const coiAvoidGrid = document.getElementById("coiAvoidGrid");

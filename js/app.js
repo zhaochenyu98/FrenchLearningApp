@@ -17,6 +17,7 @@
       pronouns: {
         title: "Pronoun index",
         sections: [
+          { id: "cod", title: "COD pronouns", open: true, elements: ['[data-study-section="pronoun-cod"]'] },
           { id: "coi", title: "COI pronouns", open: true, elements: ['[data-study-section="pronoun-coi"]'] },
           { id: "tonic", title: "Tonic pronouns", open: true, elements: ['[data-study-section="pronoun-tonic"]'] },
           { id: "tonic-usage", title: "When to use tonic", elements: ['[data-study-section="pronoun-tonic-usage"]'] },
@@ -140,6 +141,10 @@
         initializeStudyIndex("pronunciation");
       },
       pronouns() {
+        renderCodPronounForms();
+        renderCodTriggerRules();
+        renderCodAvoidRules();
+        renderCodPatterns();
         renderCoiPronounForms();
         renderCoiTriggerRules();
         renderCoiAvoidRules();

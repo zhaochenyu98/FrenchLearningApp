@@ -67,6 +67,207 @@
       }
     ];
 
+    const codPronounRows = [
+      {
+        singularZh: "我",
+        singularForms: [{ fr: "me / m’", speech: "me", ipa: "/mə/", en: "me", example: "Il me voit.", exampleEn: "He sees me." }],
+        pluralZh: "我们",
+        pluralForms: [{ fr: "nous", ipa: "/nu/", en: "us", example: "Elle nous aide.", exampleEn: "She helps us." }]
+      },
+      {
+        singularZh: "你",
+        singularForms: [{ fr: "te / t’", speech: "te", ipa: "/tə/", en: "you", example: "Je te regarde.", exampleEn: "I look at you." }],
+        pluralZh: "你们",
+        pluralForms: [{ fr: "vous", ipa: "/vu/", en: "you", example: "Je vous invite.", exampleEn: "I invite you." }]
+      },
+      {
+        singularZh: "他 / 她 / 它",
+        singularForms: [
+          { fr: "le / l’", speech: "le", ipa: "/lə/", en: "him / it masculine", example: "Je le vois.", exampleEn: "I see him / it." },
+          { fr: "la / l’", speech: "la", ipa: "/la/", en: "her / it feminine", example: "Je la regarde.", exampleEn: "I look at her / it." }
+        ],
+        pluralZh: "他们 / 她们 / 它们",
+        pluralForms: [{ fr: "les", ipa: "/le/", en: "them", example: "Je les attends.", exampleEn: "I am waiting for them." }]
+      }
+    ];
+
+    const codTriggerRules = [
+      {
+        title: "Direct object person",
+        pattern: "When the verb acts directly on a person with no à or de, use me / te / le / la / nous / vous / les.",
+        examples: [
+          { from: "Je vois Marie.", to: "Je la vois.", en: "I see Marie. → I see her." },
+          { from: "Il invite Paul.", to: "Il l’invite.", en: "He invites Paul. → He invites him." },
+          { from: "Nous aidons nos amis.", to: "Nous les aidons.", en: "We help our friends. → We help them." }
+        ]
+      },
+      {
+        title: "Direct object thing",
+        pattern: "When a specific thing directly receives the action, replace it with le / la / l’ / les.",
+        examples: [
+          { from: "Tu lis le message.", to: "Tu le lis.", en: "You read the message. → You read it." },
+          { from: "Elle regarde la photo.", to: "Elle la regarde.", en: "She looks at the photo. → She looks at it." },
+          { from: "Je prends les clés.", to: "Je les prends.", en: "I take the keys. → I take them." }
+        ]
+      },
+      {
+        title: "French direct-object verbs",
+        pattern: "Some verbs that feel like they need a preposition in English are direct in French, so they trigger COD.",
+        examples: [
+          { from: "J’attends le bus.", to: "Je l’attends.", en: "I wait for the bus. → I wait for it." },
+          { from: "Tu écoutes ta sœur.", to: "Tu l’écoutes.", en: "You listen to your sister. → You listen to her." },
+          { from: "Il regarde le professeur.", to: "Il le regarde.", en: "He looks at the teacher. → He looks at him." }
+        ]
+      }
+    ];
+
+    const codAvoidRules = [
+      {
+        title: "à + person usually becomes COI",
+        pattern: "If the verb points to a person through à, use COI me / te / lui / nous / vous / leur, not COD le / la / les.",
+        examples: [
+          { from: "Je parle à Marie.", to: "Je lui parle.", avoid: "Not: Je la parle.", en: "I speak to Marie. → I speak to her." },
+          { from: "Tu téléphones à Paul.", to: "Tu lui téléphones.", avoid: "Not: Tu le téléphones.", en: "You call Paul. → You call him." },
+          { from: "Nous répondons aux enfants.", to: "Nous leur répondons.", avoid: "Not: Nous les répondons.", en: "We answer the children. → We answer them." }
+        ]
+      },
+      {
+        title: "de + thing often becomes en",
+        pattern: "For de + thing, quantity, or partitive idea, use en rather than COD.",
+        examples: [
+          { from: "Je parle de ce film.", to: "J’en parle.", avoid: "Not: Je le parle.", en: "I talk about this movie. → I talk about it." },
+          { from: "Elle boit de l’eau.", to: "Elle en boit.", avoid: "Not: Elle la boit.", en: "She drinks water. → She drinks some." },
+          { from: "Tu as besoin de ce livre.", to: "Tu en as besoin.", avoid: "Not: Tu l’as besoin.", en: "You need this book. → You need it." }
+        ]
+      },
+      {
+        title: "After most prepositions, use tonic pronouns",
+        pattern: "After avec, chez, pour, sans, devant, and many other prepositions, keep the preposition and use a tonic pronoun.",
+        examples: [
+          { from: "Je vais avec Paul.", to: "Je vais avec lui.", avoid: "Not: Je le vais avec.", en: "I go with Paul. → I go with him." },
+          { from: "Elle est chez Marie.", to: "Elle est chez elle.", avoid: "Not: Elle la est.", en: "She is at Marie’s place. → She is at her place." },
+          { from: "Ce cadeau est pour toi.", to: "Ce cadeau est pour toi.", avoid: "Not: Ce cadeau te est.", en: "This gift is for you." }
+        ]
+      },
+      {
+        title: "Reflexive or no-object action is not COD",
+        pattern: "When the subject acts on itself, use reflexive pronouns; when the verb has no direct object, there is no COD to replace.",
+        examples: [
+          { from: "Je lave mes mains.", to: "Je me lave les mains.", avoid: "Usually not: Je les lave, unless les is already clear from context.", en: "I wash my hands." },
+          { from: "Elle met ses vêtements.", to: "Elle s’habille.", avoid: "Elle l’habille means she dresses someone else.", en: "She gets dressed." },
+          { from: "Ils se reposent après le cours.", result: "No COD; se belongs to the pronominal verb.", avoid: "Not: Ils les reposent.", en: "They rest after class." }
+        ]
+      }
+    ];
+
+    const codPatternRows = [
+      {
+        title: "1. Statement",
+        placement: "Before the conjugated verb.",
+        note: "In a normal sentence, the COD pronoun goes directly before the verb it belongs to.",
+        examples: [
+          {
+            meaning: "see him / it",
+            statement: { fr: "Je le vois.", en: "I see him / it." },
+            negative: { fr: "Je ne le vois pas.", en: "I do not see him / it." },
+            question: { fr: "Le vois-tu ?", en: "Do you see him / it?" }
+          },
+          {
+            meaning: "help us",
+            statement: { fr: "Elle nous aide.", en: "She helps us." },
+            negative: { fr: "Elle ne nous aide pas.", en: "She does not help us." },
+            question: { fr: "Est-ce qu’elle nous aide ?", en: "Does she help us?" }
+          },
+          {
+            meaning: "wait for them",
+            statement: { fr: "Nous les attendons.", en: "We wait for them." },
+            negative: { fr: "Nous ne les attendons pas.", en: "We do not wait for them." },
+            question: { fr: "Les attendons-nous ?", en: "Are we waiting for them?" }
+          }
+        ]
+      },
+      {
+        title: "2. Imperative",
+        placement: "Affirmative command: after the verb with a hyphen. Negative command: before the verb.",
+        note: "Special case: me / te become moi / toi in affirmative commands, but return to me / te in negative commands.",
+        labels: {
+          statement: "Affirmative command",
+          negative: "Negative command",
+          question: "Question / request"
+        },
+        examples: [
+          {
+            meaning: "look at me",
+            statement: { fr: "Regarde-moi.", en: "Look at me." },
+            negative: { fr: "Ne me regarde pas.", en: "Do not look at me." },
+            question: { fr: "Peux-tu me regarder ?", en: "Can you look at me?" }
+          },
+          {
+            meaning: "wait for her",
+            statement: { fr: "Attends-la.", en: "Wait for her." },
+            negative: { fr: "Ne l’attends pas.", en: "Do not wait for her." },
+            question: { fr: "Peux-tu l’attendre ?", en: "Can you wait for her?" }
+          },
+          {
+            meaning: "help them",
+            statement: { fr: "Aidez-les.", en: "Help them." },
+            negative: { fr: "Ne les aidez pas.", en: "Do not help them." },
+            question: { fr: "Pouvez-vous les aider ?", en: "Can you help them?" }
+          }
+        ]
+      },
+      {
+        title: "3. Verb + infinitive",
+        placement: "Before the infinitive, not before the conjugated helper verb.",
+        note: "With aller + infinitive, pouvoir + infinitive, il faut + infinitive, etc., place COD before the infinitive.",
+        examples: [
+          {
+            meaning: "going to watch it",
+            statement: { fr: "Je vais le regarder.", en: "I am going to watch it." },
+            negative: { fr: "Je ne vais pas le regarder.", en: "I am not going to watch it." },
+            question: { fr: "Vas-tu le regarder ?", en: "Are you going to watch it?" }
+          },
+          {
+            meaning: "can help me",
+            statement: { fr: "Tu peux m’aider.", en: "You can help me." },
+            negative: { fr: "Tu ne peux pas m’aider.", en: "You cannot help me." },
+            question: { fr: "Peux-tu m’aider ?", en: "Can you help me?" }
+          },
+          {
+            meaning: "must invite them",
+            statement: { fr: "Il faut les inviter.", en: "It is necessary to invite them." },
+            negative: { fr: "Il ne faut pas les inviter.", en: "It is necessary not to invite them." },
+            question: { fr: "Faut-il les inviter ?", en: "Is it necessary to invite them?" }
+          }
+        ]
+      },
+      {
+        title: "4. Passé composé",
+        placement: "Before the auxiliary verb.",
+        note: "COD comes before avoir / être in passé composé. When the COD comes before the auxiliary, the past participle agrees with that COD.",
+        examples: [
+          {
+            meaning: "saw her",
+            statement: { fr: "Je l’ai vue.", en: "I saw her." },
+            negative: { fr: "Je ne l’ai pas vue.", en: "I did not see her." },
+            question: { fr: "L’ai-je vue ?", en: "Did I see her?" }
+          },
+          {
+            meaning: "invited them",
+            statement: { fr: "Nous les avons invités.", en: "We invited them." },
+            negative: { fr: "Nous ne les avons pas invités.", en: "We did not invite them." },
+            question: { fr: "Les avons-nous invités ?", en: "Did we invite them?" }
+          },
+          {
+            meaning: "helped us",
+            statement: { fr: "Elle nous a aidés.", en: "She helped us." },
+            negative: { fr: "Elle ne nous a pas aidés.", en: "She did not help us." },
+            question: { fr: "Nous a-t-elle aidés ?", en: "Did she help us?" }
+          }
+        ]
+      }
+    ];
+
     const coiTriggerRules = [
       {
         title: "à + person after verbs like parler",
