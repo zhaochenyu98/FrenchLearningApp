@@ -127,6 +127,19 @@
             question: { fr: "As-tu réservé une table ?", en: "Did you reserve a table?" }
           },
           {
+            infinitive: "quitter",
+            infinitiveIpa: "/kite/",
+            meaning: "to leave / quit",
+            auxiliary: "avoir",
+            pastParticiple: "quitté",
+            pastParticipleIpa: "/kite/",
+            pattern: "quitter → quitté",
+            note: "Regular -er past participle.",
+            statement: { fr: "Elle a quitté la ville.", en: "She left town." },
+            negative: { fr: "Elle n’a pas quitté la ville.", en: "She did not leave town." },
+            question: { fr: "A-t-elle quitté la ville ?", en: "Did she leave town?" }
+          },
+          {
             infinitive: "passer",
             infinitiveIpa: "/pase/",
             meaning: "to pass / spend / stop by",
@@ -528,6 +541,32 @@
             question: { fr: "As-tu lu le message ?", en: "Did you read the message?" }
           },
           {
+            infinitive: "offrir",
+            infinitiveIpa: "/ɔfʁiʁ/",
+            meaning: "to offer / give",
+            auxiliary: "avoir",
+            pastParticiple: "offert",
+            pastParticipleIpa: "/ɔfɛʁ/",
+            pattern: "offrir → offert",
+            note: "Irregular past participle; the final t is written but not pronounced.",
+            statement: { fr: "Nous avons offert un cadeau à notre professeur.", en: "We gave our teacher a gift." },
+            negative: { fr: "Nous n’avons pas offert de cadeau à notre professeur.", en: "We did not give our teacher a gift." },
+            question: { fr: "Avons-nous offert un cadeau à notre professeur ?", en: "Did we give our teacher a gift?" }
+          },
+          {
+            infinitive: "ouvrir",
+            infinitiveIpa: "/uvʁiʁ/",
+            meaning: "to open",
+            auxiliary: "avoir",
+            pastParticiple: "ouvert",
+            pastParticipleIpa: "/uvɛʁ/",
+            pattern: "ouvrir → ouvert",
+            note: "Irregular past participle; the final t is written but not pronounced.",
+            statement: { fr: "Tu as ouvert la fenêtre.", en: "You opened the window." },
+            negative: { fr: "Tu n’as pas ouvert la fenêtre.", en: "You did not open the window." },
+            question: { fr: "As-tu ouvert la fenêtre ?", en: "Did you open the window?" }
+          },
+          {
             infinitive: "faire",
             infinitiveIpa: "/fɛʁ/",
             meaning: "to do / make",
@@ -591,6 +630,19 @@
             statement: { fr: "J’ai su la réponse.", en: "I knew / found out the answer." },
             negative: { fr: "Je n’ai pas su la réponse.", en: "I did not know / find out the answer." },
             question: { fr: "As-tu su la réponse ?", en: "Did you know / find out the answer?" }
+          },
+          {
+            infinitive: "connaître",
+            infinitiveIpa: "/kɔnɛtʁ/",
+            meaning: "to know / be familiar with",
+            auxiliary: "avoir",
+            pastParticiple: "connu",
+            pastParticipleIpa: "/kɔny/",
+            pattern: "connaître → connu",
+            note: "Irregular past participle. In passé composé, it can mean “knew,” “met,” or “experienced.”",
+            statement: { fr: "Tu as connu Marie à l’université.", en: "You knew / met Marie at university." },
+            negative: { fr: "Tu n’as pas connu Marie à l’université.", en: "You did not know / meet Marie at university." },
+            question: { fr: "As-tu connu Marie à l’université ?", en: "Did you know / meet Marie at university?" }
           },
           {
             infinitive: "pouvoir",

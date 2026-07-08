@@ -1002,6 +1002,17 @@
       { pronoun: "elles", form: "savent", full: "elles savent", en: "they know", example: "Elles savent jouer du piano.", exampleEn: "They know how to play piano.", negative: "Elles ne savent pas jouer du piano.", negativeEn: "They do not know how to play piano.", question: "Savent-elles jouer du piano ?" }
     ];
 
+    const connaitreRows = [
+      { pronoun: "je", form: "connais", full: "je connais", en: "I know / am familiar with", example: "Je connais Marie.", exampleEn: "I know Marie.", negative: "Je ne connais pas Marie.", negativeEn: "I do not know Marie.", question: "Est-ce que je connais Marie ?" },
+      { pronoun: "tu", form: "connais", full: "tu connais", en: "you know / are familiar with", example: "Tu connais ce quartier.", exampleEn: "You know this neighborhood.", negative: "Tu ne connais pas ce quartier.", negativeEn: "You do not know this neighborhood.", question: "Connais-tu ce quartier ?" },
+      { pronoun: "il", form: "connaît", full: "il connaît", en: "he knows / is familiar with", example: "Il connaît bien Paris.", exampleEn: "He knows Paris well.", negative: "Il ne connaît pas bien Paris.", negativeEn: "He does not know Paris well.", question: "Connaît-il bien Paris ?" },
+      { pronoun: "elle", form: "connaît", full: "elle connaît", en: "she knows / is familiar with", example: "Elle connaît cette chanson.", exampleEn: "She knows this song.", negative: "Elle ne connaît pas cette chanson.", negativeEn: "She does not know this song.", question: "Quelle chanson connaît-elle ?" },
+      { pronoun: "nous", form: "connaissons", full: "nous connaissons", en: "we know / are familiar with", example: "Nous connaissons un bon restaurant.", exampleEn: "We know a good restaurant.", negative: "Nous ne connaissons pas de bon restaurant.", negativeEn: "We do not know a good restaurant.", question: "Connaissons-nous un bon restaurant ?" },
+      { pronoun: "vous", form: "connaissez", full: "vous connaissez", en: "you know / are familiar with", example: "Vous connaissez la règle.", exampleEn: "You know the rule.", negative: "Vous ne connaissez pas la règle.", negativeEn: "You do not know the rule.", question: "Connaissez-vous la règle ?" },
+      { pronoun: "ils", form: "connaissent", full: "ils connaissent", en: "they know / are familiar with", example: "Ils connaissent le professeur.", exampleEn: "They know the teacher.", negative: "Ils ne connaissent pas le professeur.", negativeEn: "They do not know the teacher.", question: "Qui connaissent-ils ?" },
+      { pronoun: "elles", form: "connaissent", full: "elles connaissent", en: "they know / are familiar with", example: "Elles connaissent cette adresse.", exampleEn: "They know this address.", negative: "Elles ne connaissent pas cette adresse.", negativeEn: "They do not know this address.", question: "Connaissent-elles cette adresse ?" }
+    ];
+
     const faireExpressionRows = [
       {
         expression: "faire un footing",
@@ -1117,6 +1128,28 @@
       { pronoun: "vous", form: "dites", full: "vous dites", en: "you say / tell", example: "Vous dites votre adresse au chauffeur.", exampleEn: "You tell the driver your address.", negative: "Vous ne dites pas votre adresse au chauffeur.", negativeEn: "You do not tell the driver your address.", question: "Dites-vous votre adresse au chauffeur ?" },
       { pronoun: "ils", form: "disent", full: "ils disent", en: "they say / tell", example: "Ils disent la nouvelle à leurs amis.", exampleEn: "They tell their friends the news.", negative: "Ils ne disent pas la nouvelle à leurs amis.", negativeEn: "They do not tell their friends the news.", question: "À qui disent-ils la nouvelle ?" },
       { pronoun: "elles", form: "disent", full: "elles disent", en: "they say / tell", example: "Elles disent qu’elles arrivent demain.", exampleEn: "They say that they are arriving tomorrow.", negative: "Elles ne disent pas qu’elles arrivent demain.", negativeEn: "They do not say that they are arriving tomorrow.", question: "Que disent-elles ?" }
+    ];
+
+    const offrirRows = [
+      { pronoun: "j’", form: "offre", full: "j’offre", en: "I offer / give", example: "J’offre un cadeau à ma mère.", exampleEn: "I give my mother a gift.", negative: "Je n’offre pas de cadeau à ma mère.", negativeEn: "I do not give my mother a gift.", question: "Qu’est-ce que j’offre à ma mère ?" },
+      { pronoun: "tu", form: "offres", full: "tu offres", en: "you offer / give", example: "Tu offres des fleurs à ton amie.", exampleEn: "You give flowers to your friend.", negative: "Tu n’offres pas de fleurs à ton amie.", negativeEn: "You do not give flowers to your friend.", question: "À qui offres-tu des fleurs ?" },
+      { pronoun: "il", form: "offre", full: "il offre", en: "he offers", example: "Il offre son aide.", exampleEn: "He offers his help.", negative: "Il n’offre pas son aide.", negativeEn: "He does not offer his help.", question: "Offre-t-il son aide ?" },
+      { pronoun: "elle", form: "offre", full: "elle offre", en: "she offers / gives", example: "Elle offre un café à Paul.", exampleEn: "She buys Paul a coffee.", negative: "Elle n’offre pas de café à Paul.", negativeEn: "She does not buy Paul a coffee.", question: "Qu’offre-t-elle à Paul ?" },
+      { pronoun: "nous", form: "offrons", full: "nous offrons", en: "we offer / treat", example: "Nous offrons le dîner.", exampleEn: "We are treating dinner.", negative: "Nous n’offrons pas le dîner.", negativeEn: "We are not treating dinner.", question: "Offrons-nous le dîner ?" },
+      { pronoun: "vous", form: "offrez", full: "vous offrez", en: "you offer / give", example: "Vous offrez une place à Julie.", exampleEn: "You give Julie a seat.", negative: "Vous n’offrez pas de place à Julie.", negativeEn: "You do not give Julie a seat.", question: "Offrez-vous une place à Julie ?" },
+      { pronoun: "ils", form: "offrent", full: "ils offrent", en: "they offer / give", example: "Ils offrent des billets.", exampleEn: "They give tickets.", negative: "Ils n’offrent pas de billets.", negativeEn: "They do not give tickets.", question: "Combien de billets offrent-ils ?" },
+      { pronoun: "elles", form: "offrent", full: "elles offrent", en: "they offer", example: "Elles offrent leur soutien.", exampleEn: "They offer their support.", negative: "Elles n’offrent pas leur soutien.", negativeEn: "They do not offer their support.", question: "Offrent-elles leur soutien ?" }
+    ];
+
+    const ouvrirRows = [
+      { pronoun: "j’", form: "ouvre", full: "j’ouvre", en: "I open", example: "J’ouvre la porte.", exampleEn: "I open the door.", negative: "Je n’ouvre pas la porte.", negativeEn: "I do not open the door.", question: "Quelle porte est-ce que j’ouvre ?" },
+      { pronoun: "tu", form: "ouvres", full: "tu ouvres", en: "you open", example: "Tu ouvres la fenêtre.", exampleEn: "You open the window.", negative: "Tu n’ouvres pas la fenêtre.", negativeEn: "You do not open the window.", question: "Ouvres-tu la fenêtre ?" },
+      { pronoun: "il", form: "ouvre", full: "il ouvre", en: "he opens", example: "Il ouvre son livre.", exampleEn: "He opens his book.", negative: "Il n’ouvre pas son livre.", negativeEn: "He does not open his book.", question: "Quel livre ouvre-t-il ?" },
+      { pronoun: "elle", form: "ouvre", full: "elle ouvre", en: "she opens", example: "Elle ouvre un compte bancaire.", exampleEn: "She opens a bank account.", negative: "Elle n’ouvre pas de compte bancaire.", negativeEn: "She does not open a bank account.", question: "Ouvre-t-elle un compte bancaire ?" },
+      { pronoun: "nous", form: "ouvrons", full: "nous ouvrons", en: "we open", example: "Nous ouvrons le magasin à neuf heures.", exampleEn: "We open the store at nine o’clock.", negative: "Nous n’ouvrons pas le magasin à neuf heures.", negativeEn: "We do not open the store at nine o’clock.", question: "À quelle heure ouvrons-nous le magasin ?" },
+      { pronoun: "vous", form: "ouvrez", full: "vous ouvrez", en: "you open", example: "Vous ouvrez le document.", exampleEn: "You open the document.", negative: "Vous n’ouvrez pas le document.", negativeEn: "You do not open the document.", question: "Ouvrez-vous le document ?" },
+      { pronoun: "ils", form: "ouvrent", full: "ils ouvrent", en: "they open", example: "Ils ouvrent les cadeaux.", exampleEn: "They open the gifts.", negative: "Ils n’ouvrent pas les cadeaux.", negativeEn: "They do not open the gifts.", question: "Quand ouvrent-ils les cadeaux ?" },
+      { pronoun: "elles", form: "ouvrent", full: "elles ouvrent", en: "they open", example: "Elles ouvrent la réunion.", exampleEn: "They open the meeting.", negative: "Elles n’ouvrent pas la réunion.", negativeEn: "They do not open the meeting.", question: "Ouvrent-elles la réunion ?" }
     ];
 
     const ecrireRows = [
@@ -1236,6 +1269,17 @@
       { pronoun: "vous", form: "réservez", full: "vous réservez", en: "you reserve / book", example: "Vous réservez par téléphone.", exampleEn: "You book by phone.", negative: "Vous ne réservez pas par téléphone.", negativeEn: "You do not book by phone.", question: "Comment réservez-vous ?" },
       { pronoun: "ils", form: "réservent", full: "ils réservent", en: "they reserve / book", example: "Ils réservent une voiture pour le week-end.", exampleEn: "They book a car for the weekend.", negative: "Ils ne réservent pas de voiture pour le week-end.", negativeEn: "They do not book a car for the weekend.", question: "Que réservent-ils pour le week-end ?" },
       { pronoun: "elles", form: "réservent", full: "elles réservent", en: "they reserve / book", example: "Elles réservent une salle pour la réunion.", exampleEn: "They reserve a room for the meeting.", negative: "Elles ne réservent pas de salle pour la réunion.", negativeEn: "They do not reserve a room for the meeting.", question: "Pourquoi réservent-elles une salle ?" }
+    ];
+
+    const quitterRows = [
+      { pronoun: "je", form: "quitte", full: "je quitte", en: "I leave / quit", example: "Je quitte la maison à huit heures.", exampleEn: "I leave the house at eight o’clock.", negative: "Je ne quitte pas la maison à huit heures.", negativeEn: "I do not leave the house at eight o’clock.", question: "À quelle heure est-ce que je quitte la maison ?" },
+      { pronoun: "tu", form: "quittes", full: "tu quittes", en: "you leave / quit", example: "Tu quittes le bureau tard.", exampleEn: "You leave the office late.", negative: "Tu ne quittes pas le bureau tard.", negativeEn: "You do not leave the office late.", question: "Quittes-tu le bureau tard ?" },
+      { pronoun: "il", form: "quitte", full: "il quitte", en: "he leaves / quits", example: "Il quitte Paris demain.", exampleEn: "He leaves Paris tomorrow.", negative: "Il ne quitte pas Paris demain.", negativeEn: "He does not leave Paris tomorrow.", question: "Quand quitte-t-il Paris ?" },
+      { pronoun: "elle", form: "quitte", full: "elle quitte", en: "she leaves / quits", example: "Elle quitte son travail.", exampleEn: "She quits her job.", negative: "Elle ne quitte pas son travail.", negativeEn: "She does not quit her job.", question: "Pourquoi quitte-t-elle son travail ?" },
+      { pronoun: "nous", form: "quittons", full: "nous quittons", en: "we leave / quit", example: "Nous quittons le restaurant.", exampleEn: "We leave the restaurant.", negative: "Nous ne quittons pas le restaurant.", negativeEn: "We do not leave the restaurant.", question: "Quittons-nous le restaurant ?" },
+      { pronoun: "vous", form: "quittez", full: "vous quittez", en: "you leave / quit", example: "Vous quittez la réunion maintenant.", exampleEn: "You are leaving the meeting now.", negative: "Vous ne quittez pas la réunion maintenant.", negativeEn: "You are not leaving the meeting now.", question: "Quand quittez-vous la réunion ?" },
+      { pronoun: "ils", form: "quittent", full: "ils quittent", en: "they leave / quit", example: "Ils quittent l’école à midi.", exampleEn: "They leave school at noon.", negative: "Ils ne quittent pas l’école à midi.", negativeEn: "They do not leave school at noon.", question: "À quelle heure quittent-ils l’école ?" },
+      { pronoun: "elles", form: "quittent", full: "elles quittent", en: "they leave / quit", example: "Elles quittent la ville ce soir.", exampleEn: "They leave town tonight.", negative: "Elles ne quittent pas la ville ce soir.", negativeEn: "They do not leave town tonight.", question: "Quittent-elles la ville ce soir ?" }
     ];
 
     const passerRows = [
@@ -1646,6 +1690,15 @@
         rows: savoirRows
       },
       {
+        key: "connaitre",
+        group: "irregular",
+        label: "connaître",
+        title: "Connaître — to know / be familiar with",
+        tag: "irregular",
+        descriptionHtml: "<strong>Connaître</strong> is for knowing a person, place, or being familiar with something: <strong>je connais Marie</strong>, <strong>tu connais Paris</strong>. Use <strong>savoir</strong> for facts or knowing how to do something.",
+        rows: connaitreRows
+      },
+      {
         key: "voir",
         group: "irregular",
         label: "voir",
@@ -1671,6 +1724,24 @@
         tag: "irregular",
         descriptionHtml: "<strong>Dire</strong> means “to say” or “to tell.” To say or tell something to someone, use <strong>dire quelque chose à quelqu’un</strong>: <strong>je dis la vérité à Marie</strong>. Watch the irregular <strong>vous dites</strong> form.",
         rows: direRows
+      },
+      {
+        key: "offrir",
+        group: "irregular",
+        label: "offrir",
+        title: "Offrir — to offer / give",
+        tag: "irregular -ir",
+        descriptionHtml: "<strong>Offrir</strong> is an <strong>-ir</strong> verb, but in the present tense it behaves like an <strong>-er</strong> verb: <strong>j’offre</strong>, <strong>tu offres</strong>, <strong>nous offrons</strong>. Its past participle is irregular: <strong>offert</strong>.",
+        rows: offrirRows
+      },
+      {
+        key: "ouvrir",
+        group: "irregular",
+        label: "ouvrir",
+        title: "Ouvrir — to open",
+        tag: "irregular -ir",
+        descriptionHtml: "<strong>Ouvrir</strong> follows the same present-tense pattern as <strong>offrir</strong>: <strong>j’ouvre</strong>, <strong>tu ouvres</strong>, <strong>nous ouvrons</strong>. Its past participle is irregular: <strong>ouvert</strong>.",
+        rows: ouvrirRows
       },
       {
         key: "ecrire",
@@ -1851,6 +1922,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Réserver</strong> follows the regular -er pattern and is useful for restaurants, hotels, tickets, seats, and appointments.",
         rows: reserverRows
+      },
+      {
+        key: "quitter",
+        group: "regularEr",
+        label: "quitter",
+        title: "Quitter — to leave / quit",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Quitter</strong> follows the regular -er pattern. It usually takes a direct object: <strong>quitter la maison</strong>, <strong>quitter Paris</strong>, <strong>quitter son travail</strong>.",
+        rows: quitterRows
       },
       {
         key: "passer",
@@ -2260,6 +2340,15 @@
       "ils savent": "/il sav/",
       "elles savent": "/ɛl sav/",
 
+      "je connais": "/ʒə kɔ.nɛ/",
+      "tu connais": "/ty kɔ.nɛ/",
+      "il connaît": "/il kɔ.nɛ/",
+      "elle connaît": "/ɛl kɔ.nɛ/",
+      "nous connaissons": "/nu kɔ.nɛ.sɔ̃/",
+      "vous connaissez": "/vu kɔ.nɛ.se/",
+      "ils connaissent": "/il kɔ.nɛs/",
+      "elles connaissent": "/ɛl kɔ.nɛs/",
+
       "je vois": "/ʒə vwa/",
       "tu vois": "/ty vwa/",
       "il voit": "/il vwa/",
@@ -2286,6 +2375,24 @@
       "vous dites": "/vu dit/",
       "ils disent": "/il diz/",
       "elles disent": "/ɛl diz/",
+
+      "j’offre": "/ʒɔfʁ/",
+      "tu offres": "/ty ɔfʁ/",
+      "il offre": "/il ɔfʁ/",
+      "elle offre": "/ɛl ɔfʁ/",
+      "nous offrons": "/nu.zɔ.fʁɔ̃/",
+      "vous offrez": "/vu.zɔ.fʁe/",
+      "ils offrent": "/il.zɔfʁ/",
+      "elles offrent": "/ɛl.zɔfʁ/",
+
+      "j’ouvre": "/ʒuvʁ/",
+      "tu ouvres": "/ty uvʁ/",
+      "il ouvre": "/il uvʁ/",
+      "elle ouvre": "/ɛl uvʁ/",
+      "nous ouvrons": "/nu.zuv.ʁɔ̃/",
+      "vous ouvrez": "/vu.zuv.ʁe/",
+      "ils ouvrent": "/il.zuvʁ/",
+      "elles ouvrent": "/ɛl.zuvʁ/",
 
       "j’écris": "/ʒe.kʁi/",
       "tu écris": "/ty e.kʁi/",
@@ -2385,6 +2492,15 @@
       "vous réservez": "/vu ʁe.zɛʁ.ve/",
       "ils réservent": "/il ʁe.zɛʁv/",
       "elles réservent": "/ɛl ʁe.zɛʁv/",
+
+      "je quitte": "/ʒə kit/",
+      "tu quittes": "/ty kit/",
+      "il quitte": "/il kit/",
+      "elle quitte": "/ɛl kit/",
+      "nous quittons": "/nu ki.tɔ̃/",
+      "vous quittez": "/vu ki.te/",
+      "ils quittent": "/il kit/",
+      "elles quittent": "/ɛl kit/",
 
       "je passe": "/ʒə pas/",
       "tu passes": "/ty pas/",
