@@ -304,11 +304,11 @@
       },
       {
         category: "Weather & natural things",
-        pattern: "Weather expressions often use mass nouns with il y a.",
+        pattern: "Weather can use il y a + noun, but rain is more naturally expressed with il pleut or in a forecast phrase such as de la pluie est prévue.",
         examples: [
           { phrase: "du soleil", en: "sunshine", note: "masculine", example: "Il y a du soleil.", exampleEn: "It is sunny." },
           { phrase: "du vent", en: "wind", note: "masculine", example: "Il y a du vent.", exampleEn: "It is windy." },
-          { phrase: "de la pluie", en: "rain", note: "feminine", example: "Il y a de la pluie.", exampleEn: "There is rain." },
+          { phrase: "de la pluie", en: "rain", note: "feminine", example: "La météo annonce de la pluie.", exampleEn: "The forecast calls for rain." },
           { phrase: "de la neige", en: "snow", note: "feminine", example: "Il y a de la neige.", exampleEn: "There is snow." }
         ]
       }
@@ -962,6 +962,53 @@
             negative: { fr: "N’y répondez pas avant midi.", en: "Do not answer it before noon." },
             question: { fr: "Pouvez-vous y répondre avant midi ?", en: "Can you answer it before noon?" }
           }
+        ]
+      }
+    ];
+
+    const toutAdverbRows = [
+      {
+        fr: "tout",
+        type: "Adverb before a masculine adjective",
+        meaning: "completely / very",
+        note: "Before a masculine adjective, adverbial tout stays invariable.",
+        examples: [
+          { fr: "Il est tout content.", en: "He is very happy." },
+          { fr: "Ils sont tout surpris.", en: "They are completely surprised." },
+          { fr: "Le sol est tout mouillé.", en: "The floor is completely wet." }
+        ]
+      },
+      {
+        fr: "toute / toutes",
+        type: "Adverb before a feminine adjective beginning with a consonant or aspirated h",
+        meaning: "completely / very",
+        note: "This is an unusual adverb agreement: tout becomes toute or toutes before a feminine adjective beginning with a consonant sound or aspirated h.",
+        examples: [
+          { fr: "Elle est toute contente.", en: "She is very happy." },
+          { fr: "Elles sont toutes petites.", en: "They are very small." },
+          { fr: "Elle est toute honteuse.", en: "She is completely ashamed." }
+        ]
+      },
+      {
+        fr: "tout",
+        type: "Adverb before a feminine adjective beginning with a vowel or mute h",
+        meaning: "completely / very",
+        note: "Before a vowel sound or mute h, adverbial tout stays invariable even with a feminine subject.",
+        examples: [
+          { fr: "Elle est tout étonnée.", en: "She is completely surprised." },
+          { fr: "Elles sont tout heureuses.", en: "They are very happy." },
+          { fr: "La salle est tout illuminée.", en: "The room is fully lit." }
+        ]
+      },
+      {
+        fr: "tout in fixed adverbial phrases",
+        type: "Common chunks",
+        meaning: "completely / right away / very quietly",
+        note: "Learn these high-frequency adverbial expressions as complete phrases.",
+        examples: [
+          { fr: "C’est tout à fait normal.", en: "That is completely normal." },
+          { fr: "Je reviens tout de suite.", en: "I will be right back." },
+          { fr: "Il parle tout bas.", en: "He speaks very quietly." }
         ]
       }
     ];

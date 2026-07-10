@@ -505,14 +505,15 @@
       });
     }
 
-    function renderModifierComparison(rows = modifierComparisonRows) {
-      modifierComparisonGrid.innerHTML = "";
+    function renderModifierRuleTable(target, rows, emptyMessage) {
+      if (!target) return;
+      target.innerHTML = "";
       if (!rows.length) {
-        modifierComparisonGrid.innerHTML = `<div class="empty-state">No modifier comparison examples available.</div>`;
+        target.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      modifierComparisonGrid.innerHTML = `
+      target.innerHTML = `
         <div class="noun-rule-header">
           <div>Word</div>
           <div>Use</div>
@@ -553,8 +554,16 @@
             speak(example.fr, button);
           });
         });
-        modifierComparisonGrid.appendChild(row);
+        target.appendChild(row);
       });
+    }
+
+    function renderModifierComparison(rows = modifierComparisonRows) {
+      renderModifierRuleTable(modifierComparisonGrid, rows, "No modifier comparison examples available.");
+    }
+
+    function renderToutAdverbUsage(rows = toutAdverbRows) {
+      renderModifierRuleTable(toutAdverbGrid, rows, "No adverbial tout examples available.");
     }
 
     function renderToutForms(rows = toutFormRows) {

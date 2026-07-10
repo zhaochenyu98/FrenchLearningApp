@@ -803,8 +803,8 @@
       },
       {
         sound: "短介词/副词 + 后词",
-        rule: "常见短词 chez / dans / en / sans / très / plus + 元音/哑音 h 开头的词",
-        note: "chez / dans / sans / très 的词尾 s/z 多读 [z]；en 的 n 读 [n]。",
+        rule: "常见短词 chez / dans / en / sans / très，以及表示‘更……’的 plus + 元音/哑音 h 开头的词",
+        note: "chez / dans / sans / très 的词尾 s/z 多读 [z]；en 的 n 读 [n]；比较级 plus 在元音前通常读 [z]。",
         examples: [
           { fr: "chez elle", ipa: "/ʃe.z‿ɛl/", zh: "在她家；在她那里" },
           { fr: "dans un sac", ipa: "/dɑ̃.z‿œ̃ sak/", zh: "在一个包里" },
@@ -820,6 +820,182 @@
           { fr: "de temps en temps", ipa: "/də tɑ̃.z‿ɑ̃ tɑ̃/", zh: "时不时" },
           { fr: "tout à fait", ipa: "/tu.t‿a fɛ/", zh: "完全；确实" },
           { fr: "petit à petit", ipa: "/pəti.t‿a pəti/", zh: "一点一点地" }
+        ]
+      }
+    ];
+
+    const optionalLiaisonRules = [
+      {
+        sound: "être 后",
+        rule: "être 的变位后面遇到元音时，联诵常见于较正式、较仔细的语音，但日常口语中也可以不联诵",
+        note: "先学会听懂两种读法；不要把可选联诵当成每次都必须读。",
+        examples: [
+          { fr: "Il est arrivé.", ipa: "/il ɛ(t)‿aʁive/", zh: "他到了" },
+          { fr: "Elle est heureuse.", ipa: "/ɛl ɛ(t)‿øʁøz/", zh: "她很开心" },
+          { fr: "C’est intéressant.", ipa: "/sɛ(t)‿ɛ̃teʁesɑ̃/", zh: "这很有趣" }
+        ]
+      },
+      {
+        sound: "部分副词后",
+        rule: "pas / plus / trop 等词后面的联诵会随语速、语体和强调而变化",
+        note: "仔细语音中更容易听到联诵；自然口语中常省略。",
+        examples: [
+          { fr: "pas encore", ipa: "/pɑ(z)‿ɑ̃kɔʁ/", zh: "还没有" },
+          { fr: "beaucoup apprécié", ipa: "/boku(p)‿apʁesje/", zh: "很受欢迎" },
+          { fr: "trop aimable", ipa: "/tʁo(p)‿ɛmabl/", zh: "太客气了" }
+        ]
+      },
+      {
+        sound: "复数名词后",
+        rule: "复数名词 + 元音开头的形容词之间，联诵多见于正式或朗读语体，日常口语通常不读",
+        note: "初学时可以不主动读，但要能辨认正式语音中的 [z]。",
+        examples: [
+          { fr: "des étudiants intelligents", ipa: "/de.zetydjɑ̃(z)‿ɛ̃teliʒɑ̃/", zh: "聪明的学生们" },
+          { fr: "des enfants adorables", ipa: "/de.zɑ̃fɑ̃(z)‿adɔʁabl/", zh: "可爱的孩子们" },
+          { fr: "des savants anglais", ipa: "/de savɑ̃(z)‿ɑ̃ɡlɛ/", zh: "英国学者们" }
+        ]
+      }
+    ];
+
+    const forbiddenLiaisonRules = [
+      {
+        sound: "et 后禁止",
+        rule: "连词 et 后面不做联诵，即使下一个词以元音开头",
+        note: "et 的 t 不读，也不要把它连到后面的词。",
+        examples: [
+          { fr: "toi et elle", ipa: "/twa e ɛl/", zh: "你和她" },
+          { fr: "un café et un thé", ipa: "/œ̃ kafe e œ̃ te/", zh: "一杯咖啡和一杯茶" },
+          { fr: "petit et agréable", ipa: "/pəti e aɡʁeabl/", zh: "小巧而舒适" }
+        ]
+      },
+      {
+        sound: "嘘音 h 前禁止",
+        rule: "嘘音 h（h aspiré）前面既不省音，也不联诵",
+        note: "字典常用特殊符号标出嘘音 h；需要跟着单词一起记。",
+        examples: [
+          { fr: "les héros", ipa: "/le eʁo/", zh: "英雄们" },
+          { fr: "des haricots", ipa: "/de aʁiko/", zh: "一些四季豆" },
+          { fr: "un haut mur", ipa: "/œ̃ o myʁ/", zh: "一堵高墙" }
+        ]
+      },
+      {
+        sound: "单数名词后禁止",
+        rule: "单数名词的静音词尾后面通常不与形容词联诵",
+        note: "这和限定词 + 名词的必读联诵不同。",
+        examples: [
+          { fr: "un étudiant intelligent", ipa: "/œ̃.n‿etydjɑ̃ ɛ̃teliʒɑ̃/", zh: "一名聪明的学生" },
+          { fr: "un repas excellent", ipa: "/œ̃ ʁəpɑ ɛksɛlɑ̃/", zh: "一顿很棒的饭" },
+          { fr: "un chat adorable", ipa: "/œ̃ ʃa adɔʁabl/", zh: "一只可爱的猫" }
+        ]
+      },
+      {
+        sound: "onze / oui 前禁止",
+        rule: "onze 和 oui 开头时通常阻止前面的联诵",
+        note: "把 les onze 和 mais oui 当作固定听辨块来记。",
+        examples: [
+          { fr: "les onze élèves", ipa: "/le ɔ̃.ze.lɛv/", zh: "这十一名学生" },
+          { fr: "des oui et des non", ipa: "/de wi e de nɔ̃/", zh: "一些赞成和反对" },
+          { fr: "mais oui", ipa: "/mɛ wi/", zh: "当然；是啊" }
+        ]
+      }
+    ];
+
+    const hPronunciationRules = [
+      {
+        sound: "h muet",
+        rules: [
+          {
+            rule: "哑音 h 不发音，并允许省音和联诵；把它当作元音开头处理",
+            examples: [
+              { fr: "l’homme", ipa: "/lɔm/", zh: "男人" },
+              { fr: "les hôtels", ipa: "/le.z‿otɛl/", zh: "酒店们" },
+              { fr: "une histoire", ipa: "/y.n‿istwaʁ/", zh: "一个故事" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "h aspiré",
+        rules: [
+          {
+            rule: "嘘音 h 本身也不发音，但会阻止省音和联诵；要说 le / la，不说 l’",
+            examples: [
+              { fr: "le héros", ipa: "/lə eʁo/", zh: "英雄" },
+              { fr: "les haricots", ipa: "/le aʁiko/", zh: "四季豆" },
+              { fr: "la honte", ipa: "/la ɔ̃t/", zh: "羞耻" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const connectedSpeechRules = [
+      {
+        sound: "enchaînement",
+        rules: [
+          {
+            rule: "连音：前一个词本来就发音的词尾辅音，会自然移到下一个元音开头词的音节中；这不是把静音辅音重新读出的联诵",
+            examples: [
+              { fr: "avec elle", ipa: "/a.vɛ.kɛl/", zh: "和她一起" },
+              { fr: "il arrive", ipa: "/i.la.ʁiv/", zh: "他到了" },
+              { fr: "une amie", ipa: "/y.na.mi/", zh: "一位女性朋友" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "e caduc",
+        rules: [
+          {
+            rule: "弱化 e（e caduc）在自然口语中有时省略；是否省略取决于语速和周围辅音，先熟悉完整读法，再练习听缩读",
+            examples: [
+              { fr: "samedi", ipa: "/sam(ə)di/", zh: "星期六" },
+              { fr: "petite fenêtre", ipa: "/p(ə)tit f(ə)nɛtʁ/", zh: "小窗户" },
+              { fr: "je te le donne", ipa: "/ʒə tə lə dɔn/", zh: "我把它给你" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const pronunciationContrastRules = [
+      {
+        sound: "鼻化 / 非鼻化",
+        rules: [
+          {
+            rule: "元音 + n / m 在词尾或另一个辅音前常鼻化；后面再有元音或 n / m 双写时，元音通常不鼻化",
+            examples: [
+              { fr: "bon / bonne", ipa: "/bɔ̃/ — /bɔn/", zh: "好的（阳性 / 阴性）" },
+              { fr: "un / une", ipa: "/œ̃/ — /yn/", zh: "一个（阳性 / 阴性）" },
+              { fr: "vin / vinaigre", ipa: "/vɛ̃/ — /vinɛɡʁ/", zh: "葡萄酒 / 醋" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[y] / [u]",
+        rules: [
+          {
+            rule: "[y] 要保持舌位像 [i]，同时圆唇；[u] 的舌位更靠后",
+            examples: [
+              { fr: "tu / tout", ipa: "/ty/ — /tu/", zh: "你 / 全部" },
+              { fr: "rue / roue", ipa: "/ʁy/ — /ʁu/", zh: "街道 / 轮子" },
+              { fr: "dessus / dessous", ipa: "/dəsy/ — /dəsu/", zh: "在上面 / 在下面" }
+            ]
+          }
+        ]
+      },
+      {
+        sound: "[e] / [ɛ]",
+        rules: [
+          {
+            rule: "[e] 比较闭，[ɛ] 比较开；注意词尾拼写和语法形式造成的对比",
+            examples: [
+              { fr: "été / était", ipa: "/ete/ — /etɛ/", zh: "夏天；曾经是 / 当时是" },
+              { fr: "mes / mais", ipa: "/me/ — /mɛ/", zh: "我的（复数）/ 但是" },
+              { fr: "parler / parlait", ipa: "/paʁle/ — /paʁlɛ/", zh: "说话（原形）/ 当时说" }
+            ]
+          }
         ]
       }
     ];

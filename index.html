@@ -17,6 +17,7 @@
       <div class="control-group">
         <label for="voiceSelect">Voice</label>
         <select id="voiceSelect"></select>
+        <span class="control-help">Uses voices installed in this browser or operating system. A Google French voice is preferred when available.</span>
       </div>
 
       <div class="control-group">
@@ -32,7 +33,7 @@
       </div>
 
       <div class="control-group theme-wrap">
-        <button id="stopAudio" class="theme-btn" type="button">Stop audio</button>
+        <button id="practiceModeToggle" class="theme-btn" type="button" aria-pressed="false">Practice: hide English</button>
       </div>
     </div>
 
@@ -84,6 +85,33 @@
         </div>
 
         <div id="mandatoryLiaisonGrid" class="pronunciation-grid"></div>
+
+        <div class="panel panel-section-heading" data-study-section="pronunciation-liaison-boundaries">
+          <h3>可选联诵与禁止联诵</h3>
+          <p>联诵并不是“看到元音就读”。先区分必须、可选和禁止三类，尤其注意 <strong>et</strong>、嘘音 h、单数名词词尾和 <strong>onze / oui</strong>。</p>
+        </div>
+
+        <div id="liaisonBoundaryContent" class="pronunciation-section-stack">
+          <h4 class="pronunciation-subheading">可选联诵（Optional liaison）</h4>
+          <div id="optionalLiaisonGrid" class="pronunciation-grid"></div>
+          <h4 class="pronunciation-subheading">禁止联诵（Forbidden liaison）</h4>
+          <div id="forbiddenLiaisonGrid" class="pronunciation-grid"></div>
+        </div>
+
+        <div class="panel panel-section-heading" data-study-section="pronunciation-connected-speech">
+          <h3>h、连音与自然口语</h3>
+          <p>哑音 h 和嘘音 h 的区别会影响省音与联诵；连音（enchaînement）与联诵也不是同一个现象。</p>
+        </div>
+
+        <div id="hPronunciationGrid" class="pronunciation-grid"></div>
+        <div id="connectedSpeechGrid" class="pronunciation-grid"></div>
+
+        <div class="panel panel-section-heading" data-study-section="pronunciation-contrasts">
+          <h3>常见听辨对比</h3>
+          <p>用最小对比练习鼻化元音、<strong>[y] / [u]</strong> 和 <strong>[e] / [ɛ]</strong>，避免只靠拼写猜发音。</p>
+        </div>
+
+        <div id="pronunciationContrastGrid" class="pronunciation-grid"></div>
 
         <div class="panel panel-section-heading" data-study-section="pronunciation-matrix-heading">
           <h3>辅音 + 元音拼读表</h3>
@@ -276,251 +304,7 @@
             <div id="verbIndex" class="verb-index-groups"></div>
           </aside>
 
-          <div id="verbGroupStack" class="verb-group-stack">
-            <div class="category-panel verb-group" data-verb-group="irregular">
-              <div class="verb-group-header">
-                <div>
-                  <h3>Irregular Verbs</h3>
-                  <p>These high-frequency verbs do not follow the regular -er ending pattern, so it helps to learn each full present-tense set.</p>
-                </div>
-                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
-              </div>
-
-              <div class="verb-group-content">
-          <div class="panel verb-panel">
-            <h3>Aller — to go <span class="translation">(irregular)</span></h3>
-            <p><strong>Aller</strong> changes a lot in the present tense, so it is best memorized as a core pattern.</p>
-            <div id="allerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Venir — to come <span class="translation">(irregular)</span></h3>
-            <p><strong>Venir</strong> is another common irregular verb. Notice the stem changes: <strong>viens / vient</strong>, <strong>venons</strong>, <strong>venez</strong>, <strong>viennent</strong>.</p>
-            <div id="venirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Prendre — to take / to have <span class="translation">(irregular)</span></h3>
-            <p><strong>Prendre</strong> is highly versatile. It is used for transport, food and drinks, time, photos, medicine, decisions, appointments, and expressions such as <strong>prendre soin de</strong>. Pronunciation changes noticeably: <strong>prends / prend</strong> use <strong>/pʁɑ̃/</strong>, while <strong>prenons</strong> uses <strong>/pʁə.nɔ̃/</strong>, <strong>prenez</strong> uses <strong>/pʁə.ne/</strong>, and <strong>prennent</strong> uses <strong>/pʁɛn/</strong>.</p>
-            <div id="prendreTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Faire — to do / to make <span class="translation">(irregular)</span></h3>
-            <p><strong>Faire</strong> is very common and irregular. Compare <strong>fais / fait</strong> <strong>/fɛ/</strong>, <strong>faisons</strong> <strong>/fə.zɔ̃/</strong>, <strong>faites</strong> <strong>/fɛt/</strong>, and <strong>font</strong> <strong>/fɔ̃/</strong>.</p>
-            <div id="faireTable" class="verb-matrix"></div>
-            <div class="verb-subtable-heading">
-              <div>
-                <h4>Common faire expressions</h4>
-                <p>These expressions are best learned as phrases. They do not need every pronoun form.</p>
-              </div>
-            </div>
-            <div id="faireExpressionsTable" class="noun-rules-table"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Voir — to see <span class="translation">(irregular)</span></h3>
-            <p><strong>Voir</strong> changes to <strong>voyons</strong> and <strong>voyez</strong> in the nous/vous forms, while <strong>vois / voit / voient</strong> are all pronounced like <strong>vwa</strong>.</p>
-            <div id="voirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Écrire — to write <span class="translation">(irregular)</span></h3>
-            <p><strong>Écrire</strong> changes from <strong>écris / écrit</strong> to <strong>écrivons</strong>, <strong>écrivez</strong>, and <strong>écrivent</strong>.</p>
-            <div id="ecrireTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Lire — to read <span class="translation">(irregular)</span></h3>
-            <p><strong>Lire</strong> has short singular forms <strong>lis / lit</strong>, then <strong>lisons</strong>, <strong>lisez</strong>, and <strong>lisent</strong>.</p>
-            <div id="lireTable" class="verb-matrix"></div>
-          </div>
-        </div>
-
-              </div>
-
-            <div class="category-panel verb-group" data-verb-group="similar">
-              <div class="verb-group-header">
-                <div>
-                  <h3>Similar Irregular Verbs</h3>
-                  <p><strong>Dormir, partir, sortir, servir,</strong> and <strong>sentir</strong> share a useful pattern: singular forms drop part of the stem, while plural forms bring it back.</p>
-                </div>
-                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
-              </div>
-
-              <div class="verb-group-content">
-          <div class="panel verb-panel">
-            <h3>Dormir — to sleep <span class="translation">(irregular pattern)</span></h3>
-            <p><strong>Dormir</strong>: <strong>dors / dort</strong>, then <strong>dormons</strong>, <strong>dormez</strong>, <strong>dorment</strong>.</p>
-            <div id="dormirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Partir — to leave <span class="translation">(irregular pattern)</span></h3>
-            <p><strong>Partir</strong> has silent final consonants in the singular: <strong>pars / part</strong> sound like <strong>/paʁ/</strong>, but <strong>partent</strong> pronounces the <strong>t</strong>.</p>
-            <div id="partirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Sortir — to go out / leave <span class="translation">(irregular pattern)</span></h3>
-            <p><strong>Sortir</strong> follows the same family pattern: <strong>sors / sort</strong>, then <strong>sortons</strong>, <strong>sortez</strong>, <strong>sortent</strong>.</p>
-            <div id="sortirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Servir — to serve <span class="translation">(irregular pattern)</span></h3>
-            <p><strong>Servir</strong> changes from <strong>sers / sert</strong> to <strong>servons</strong>, <strong>servez</strong>, and <strong>servent</strong>.</p>
-            <div id="servirTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Sentir — to smell / feel <span class="translation">(irregular pattern)</span></h3>
-            <p><strong>Sentir</strong> changes from <strong>sens / sent</strong> to <strong>sentons</strong>, <strong>sentez</strong>, and <strong>sentent</strong>.</p>
-            <div id="sentirTable" class="verb-matrix"></div>
-          </div>
-        </div>
-
-              </div>
-
-            <div class="category-panel verb-group" data-verb-group="regular">
-              <div class="verb-group-header">
-                <div>
-                  <h3>Regular Verbs</h3>
-                  <p>These verbs mostly follow the regular -er present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. A few keep pronunciation stable with spelling changes, like <strong>nous commençons</strong> and <strong>nous voyageons</strong>.</p>
-                </div>
-                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
-              </div>
-
-              <div class="verb-group-content">
-          <div class="panel verb-panel">
-            <h3>Habiter — to live <span class="translation">(regular -er)</span></h3>
-            <p><strong>Habiter</strong> follows the regular -er pattern. The <strong>je</strong> form becomes <strong>j’habite</strong>.</p>
-            <div id="habiterTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Trouver — to find / to think <span class="translation">(regular -er)</span></h3>
-            <p><strong>Trouver</strong> follows the regular -er pattern and is useful for both “find” and “think/find something to be.” The reflexive form <strong>se trouver</strong> commonly means “to be located.”</p>
-            <div id="trouverTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Regarder — to watch / to look at <span class="translation">(regular -er)</span></h3>
-            <p><strong>Regarder</strong> follows the regular -er pattern and is used for watching something or looking at something directly.</p>
-            <div id="regarderTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Passer — to pass / stop by / spend <span class="translation">(regular -er)</span></h3>
-            <p><strong>Passer</strong> is flexible: use it for passing through a place, stopping by, taking an exam, or spending time.</p>
-            <div id="passerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Commencer — to begin / to start <span class="translation">(regular -er with spelling change)</span></h3>
-            <p><strong>Commencer</strong> keeps the soft <strong>c</strong> sound in the nous form by changing <strong>c</strong> to <strong>ç</strong>: <strong>nous commençons</strong>.</p>
-            <div id="commencerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Voyager — to travel <span class="translation">(regular -er with spelling change)</span></h3>
-            <p><strong>Voyager</strong> keeps the soft <strong>g</strong> sound in the nous form by adding <strong>e</strong>: <strong>nous voyageons</strong>.</p>
-            <div id="voyagerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Travailler — to work <span class="translation">(regular -er)</span></h3>
-            <p><strong>Travailler</strong> follows the regular -er pattern and is useful for work, study, and schedule sentences.</p>
-            <div id="travaillerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Déjeuner — to have lunch <span class="translation">(regular -er)</span></h3>
-            <p><strong>Déjeuner</strong> follows the regular -er pattern. In France, it usually means “to have lunch.”</p>
-            <div id="dejeunerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Rentrer — to return / go home <span class="translation">(regular -er)</span></h3>
-            <p><strong>Rentrer</strong> follows the regular -er pattern. Use it for returning home, coming back from a place, or going back inside.</p>
-            <div id="rentrerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Demander — to ask <span class="translation">(regular -er)</span></h3>
-            <p><strong>Demander</strong> can mean “ask for” something, and <strong>demander à quelqu’un de faire quelque chose</strong> means “ask someone to do something.”</p>
-            <div id="demanderTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Jouer — to play <span class="translation">(regular -er)</span></h3>
-            <p>Use <strong>jouer à / au / aux</strong> for sports and games, and <strong>jouer de / du / de la</strong> for instruments.</p>
-            <div id="jouerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Nager — to swim <span class="translation">(regular -er with spelling change)</span></h3>
-            <p><strong>Nager</strong> keeps the soft <strong>g</strong> sound in the nous form by adding <strong>e</strong>: <strong>nous nageons</strong>.</p>
-            <div id="nagerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Tourner — to turn <span class="translation">(regular -er)</span></h3>
-            <p><strong>Tourner</strong> follows the regular -er pattern. Use it for turning left or right, rotating an object, going around something, and filming a movie.</p>
-            <div id="tournerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Coûter — to cost <span class="translation">(regular -er)</span></h3>
-            <p><strong>Coûter</strong> follows the regular -er pattern. The accent stays in the written forms.</p>
-            <div id="couterTable" class="verb-matrix"></div>
-          </div>
-        </div>
-
-              </div>
-
-            <div class="category-panel verb-group" data-verb-group="pronominal">
-              <div class="verb-group-header">
-                <div>
-                  <h3>Le Verbe Pronominal</h3>
-                  <p>Pronominal verbs use a reflexive pronoun: <strong>me, te, se, nous, vous, se</strong>. In negation, the reflexive pronoun stays with the verb: <strong>Je ne me lave pas.</strong> Questions can use inversion or <strong>est-ce que</strong>: <strong>À quelle heure te lèves-tu ?</strong></p>
-                </div>
-                <button class="verb-group-toggle" type="button" aria-expanded="true">Collapse</button>
-              </div>
-
-              <div class="verb-group-content">
-          <div class="panel verb-panel">
-            <h3>Se laver — to wash oneself</h3>
-            <p><strong>Se laver</strong> is useful for daily routines. With body parts, French often says <strong>se laver les mains</strong>. The base verb <strong>laver</strong> means “to wash” something or someone: <strong>Je lave la voiture.</strong></p>
-            <div id="seLaverTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Se lever — to get up</h3>
-            <p><strong>Se lever</strong> changes spelling in the singular and third-person plural: <strong>lève</strong>, but <strong>levons</strong> and <strong>levez</strong>. The base verb <strong>lever</strong> means “to lift / raise”: <strong>Je lève la main.</strong></p>
-            <div id="seLeverTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>Se reposer — to rest</h3>
-            <p><strong>Se reposer</strong> follows the regular -er pattern after the reflexive pronoun. The base verb <strong>reposer</strong> can mean “to put back / set down” something: <strong>Je repose le livre sur la table.</strong></p>
-            <div id="seReposerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>S’appeler — to be called / be named</h3>
-            <p><strong>S’appeler</strong> is the correct spelling. Notice <strong>je m’appelle</strong>, <strong>nous nous appelons</strong>, and <strong>ils s’appellent</strong>. The base verb <strong>appeler</strong> means “to call” someone: <strong>J’appelle ma mère.</strong></p>
-            <div id="sAppelerTable" class="verb-matrix"></div>
-          </div>
-
-          <div class="panel verb-panel">
-            <h3>S’habiller — to get dressed</h3>
-            <p><strong>S’habiller</strong> elides before the mute h: <strong>je m’habille</strong>, <strong>tu t’habilles</strong>, <strong>il s’habille</strong>. The base verb <strong>habiller</strong> means “to dress” someone: <strong>J’habille mon enfant.</strong></p>
-            <div id="sHabillerTable" class="verb-matrix"></div>
-          </div>
-              </div>
-            </div>
-          </div>
+          <div id="verbGroupStack" class="verb-group-stack"></div>
           </div>
         </div>
 
@@ -542,6 +326,22 @@
             <div class="summary-chip">
               <strong>Some movement verbs</strong>
               <span>Use <strong>être</strong>: <strong>elle est allée</strong>, <strong>nous sommes partis</strong>. The past participle agrees with the subject.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Agreement with être</strong>
+              <span>Match the subject’s gender and number in writing: <strong>il est allé</strong>, <strong>elle est allée</strong>, <strong>ils sont allés</strong>, <strong>elles sont allées</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Usually no subject agreement with avoir</strong>
+              <span>Write <strong>elle a parlé</strong> and <strong>elles ont parlé</strong>. The past participle does not simply agree with the subject.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Earlier COD can trigger agreement</strong>
+              <span>With <strong>avoir</strong>, a direct object placed before the verb can trigger agreement: <strong>les lettres que j’ai écrites</strong>, <strong>je les ai écrites</strong>.</span>
+            </div>
+            <div class="summary-chip">
+              <strong>Pronominal nuance</strong>
+              <span>Compare <strong>elle s’est lavée</strong> with <strong>elle s’est lavé les mains</strong>: a following direct object can block agreement with the reflexive pronoun.</span>
             </div>
           </div>
         </div>
@@ -718,8 +518,16 @@
         </div>
 
         <div class="category-panel" data-study-section="adverb-tout">
-          <h3>Tout forms</h3>
-          <p><strong>Tout</strong> can mean “all,” “every,” or “whole.” These agreement forms follow the same masculine/feminine by singular/plural layout.</p>
+          <h3>Tout: adverb vs determiner / adjective</h3>
+          <p><strong>Tout</strong> can be an adverb meaning “completely / very,” but it can also mean “all,” “every,” or “whole” and agree with a noun. Compare the two jobs below.</p>
+          <h4>Tout as an adverb</h4>
+          <div id="toutAdverbGrid" class="noun-rules-table"></div>
+          <div class="verb-subtable-heading">
+            <div>
+              <h4>Tout with a noun: all / every / whole</h4>
+              <p>These determiner or adjective forms follow the masculine/feminine by singular/plural layout.</p>
+            </div>
+          </div>
           <div id="toutFormsGrid" class="adjective-forms-table"></div>
         </div>
       </section>
@@ -874,6 +682,13 @@
             <h3>L’article partitif: du / de la / de l’ / des</h3>
             <p>Use partitive articles for an unspecified amount of something, especially food, drink, materials, and abstract nouns. English often says only the noun: <strong>Je bois du café.</strong> = “I drink coffee.”</p>
             <div id="partitiveArticleGrid" class="determiner-subgrid"></div>
+            <div class="verb-subtable-heading">
+              <div>
+                <h4>Partitive articles in negation and contrast</h4>
+                <p>The common beginner rule is <strong>du / de la / de l’ / des → de / d’</strong> after negation, but definite articles, <strong>être</strong>, contrast, and <strong>ne…que</strong> need separate treatment.</p>
+              </div>
+            </div>
+            <div id="partitiveUsageGrid" class="noun-rules-table"></div>
           </div>
 
           <div class="category-panel" data-study-section="determiners-a-de">
@@ -1052,7 +867,7 @@
               <button class="action-btn" type="button" id="revealNumberQuizAnswer">Reveal answer</button>
             </div>
 
-            <div id="numberQuizResult" class="number-quiz-result" hidden>
+            <div id="numberQuizResult" class="number-quiz-result" role="status" aria-live="polite" aria-atomic="true" hidden>
               <div id="numberQuizFeedback" class="french-line"></div>
               <div class="translation">Correct number: <strong id="numberQuizAnswerDigits"></strong></div>
               <div class="translation">French: <strong id="numberQuizAnswerFrench"></strong></div>
@@ -1086,7 +901,7 @@
               <button class="action-btn" type="button" id="revealYearQuizAnswer">Reveal answer</button>
             </div>
 
-            <div id="yearQuizResult" class="number-quiz-result" hidden>
+            <div id="yearQuizResult" class="number-quiz-result" role="status" aria-live="polite" aria-atomic="true" hidden>
               <div id="yearQuizFeedback" class="french-line"></div>
               <div class="translation">Correct year: <strong id="yearQuizAnswerDigits"></strong></div>
               <div class="translation">French: <strong id="yearQuizAnswerFrench"></strong></div>
@@ -1250,7 +1065,19 @@
     </p>
   </div>
 
+  <div id="playbackStatus" class="playback-status" role="status" aria-live="polite" hidden>
+    <span class="playback-status-pulse" aria-hidden="true"></span>
+    <span class="playback-status-copy">
+      <strong>Playing audio</strong>
+      <span id="playbackStatusText">French audio</span>
+    </span>
+    <button id="stopAudio" class="playback-stop-btn" type="button">Stop</button>
+  </div>
+
+  <script defer src="js/core/namespace.js"></script>
   <script defer src="js/data/numbers.js"></script>
+  <script defer src="js/data/pronouns.js"></script>
+  <script defer src="js/data/verbs.js"></script>
   <script defer src="js/data/grammar.js"></script>
   <script defer src="js/data/pronunciation.js"></script>
   <script defer src="js/data/questions.js"></script>

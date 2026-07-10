@@ -14,11 +14,11 @@
         row.className = "pronunciation-row";
         const examplesMarkup = group.rules.map((rule, ruleIndex) => `
           <div class="pronunciation-example-group">
-            <strong>${rule.rule}</strong>
+            <strong class="pronunciation-rule">${rule.rule}</strong>
             <div class="pronunciation-word-list">
               ${rule.examples.map((example, exampleIndex) => `
                 <button class="pronunciation-word-btn" type="button" data-rule-index="${ruleIndex}" data-example-index="${exampleIndex}">
-                  <span>${example.fr}</span>
+                  <span class="pronunciation-word-fr">${example.fr}</span>
                   <span class="pronunciation-word-ipa">${getPronunciationIpa(example)}</span>
                   <span class="pronunciation-word-zh">${example.zh}</span>
                 </button>
@@ -49,10 +49,11 @@
       renderPronunciationRuleGroups(consonantPronunciationGrid, list, "No consonant pronunciation rules available.");
     }
 
-    function renderMandatoryLiaisons(list = mandatoryLiaisonRules) {
-      mandatoryLiaisonGrid.innerHTML = "";
+    function renderLiaisonRules(container, list, emptyMessage) {
+      if (!container) return;
+      container.innerHTML = "";
       if (!list.length) {
-        mandatoryLiaisonGrid.innerHTML = `<div class="empty-state">No liaison rules available.</div>`;
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
@@ -63,12 +64,12 @@
           <div class="pronunciation-sound liaison-sound">${group.sound}</div>
           <div class="pronunciation-examples">
             <div class="pronunciation-example-group">
-              <strong>${group.rule}</strong>
+              <strong class="pronunciation-rule">${group.rule}</strong>
               <p class="liaison-rule-note">${group.note}</p>
               <div class="pronunciation-word-list">
                 ${group.examples.map((example, exampleIndex) => `
                   <button class="pronunciation-word-btn" type="button" data-group-index="${groupIndex}" data-example-index="${exampleIndex}">
-                    <span>${example.fr}</span>
+                    <span class="pronunciation-word-fr">${example.fr}</span>
                     <span class="pronunciation-word-ipa">${example.ipa}</span>
                     <span class="pronunciation-word-zh">${example.zh}</span>
                   </button>
@@ -83,8 +84,32 @@
             speak(example.fr, button);
           });
         });
-        mandatoryLiaisonGrid.appendChild(row);
+        container.appendChild(row);
       });
+    }
+
+    function renderMandatoryLiaisons(list = mandatoryLiaisonRules) {
+      renderLiaisonRules(mandatoryLiaisonGrid, list, "No mandatory liaison rules available.");
+    }
+
+    function renderOptionalLiaisons(list = optionalLiaisonRules) {
+      renderLiaisonRules(optionalLiaisonGrid, list, "No optional liaison rules available.");
+    }
+
+    function renderForbiddenLiaisons(list = forbiddenLiaisonRules) {
+      renderLiaisonRules(forbiddenLiaisonGrid, list, "No forbidden liaison rules available.");
+    }
+
+    function renderHPronunciationRules(list = hPronunciationRules) {
+      renderPronunciationRuleGroups(hPronunciationGrid, list, "No h pronunciation rules available.");
+    }
+
+    function renderConnectedSpeechRules(list = connectedSpeechRules) {
+      renderPronunciationRuleGroups(connectedSpeechGrid, list, "No connected-speech rules available.");
+    }
+
+    function renderPronunciationContrasts(list = pronunciationContrastRules) {
+      renderPronunciationRuleGroups(pronunciationContrastGrid, list, "No pronunciation contrasts available.");
     }
 
     function renderPronunciationMatrix(rows = pronunciationMatrixRows) {
@@ -110,7 +135,7 @@
           cell.className = "pronunciation-matrix-cell";
           cell.innerHTML = `
             <button class="pronunciation-word-btn" type="button" data-row-index="${rowIndex}" data-cell-index="${cellIndex}">
-              <span>${item.fr}</span>
+              <span class="pronunciation-word-fr">${item.fr}</span>
               <span class="pronunciation-word-ipa">${getPronunciationIpa(item)}</span>
               <span class="pronunciation-word-zh">${item.zh}</span>
             </button>
@@ -139,7 +164,7 @@
           <div class="pronunciation-word-list">
             ${group.words.map((item, wordIndex) => `
               <button class="pronunciation-word-btn" type="button" data-group-index="${groupIndex}" data-word-index="${wordIndex}">
-                <span>${item.fr}</span>
+                <span class="pronunciation-word-fr">${item.fr}</span>
                 <span class="pronunciation-word-ipa">${getPronunciationIpa(item)}</span>
                 <span class="pronunciation-word-zh">${item.zh}</span>
               </button>

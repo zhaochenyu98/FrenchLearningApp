@@ -169,7 +169,7 @@
     }
 
     function formatYearQuizFrench(year) {
-      return `en ${frenchNumber(year)}`;
+      return `en ${frenchYear(year)}`;
     }
 
     function formatYearQuizIpa(year) {

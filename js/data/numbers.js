@@ -114,6 +114,7 @@
     }
 
     function frenchNumberBeforeConsonantIpa(n) {
+      if (n === 5) return "sɛ̃";
       if (n === 6) return "si";
       if (n === 8) return "ɥi";
       if (n === 10) return "di";
@@ -172,6 +173,14 @@
       return "";
     }
 
+    function frenchYear(year) {
+      const cardinal = frenchNumber(year);
+      if (year % 100 === 0 && year % 1000 !== 0) {
+        return cardinal.replace(/cents$/, "cent");
+      }
+      return cardinal;
+    }
+
     const ageYearIpa = {
       1: "/œ̃n‿ɑ̃/",
       2: "/dø.zɑ̃/",
@@ -215,7 +224,7 @@
     }
 
     function makeYearLearningItem(year, note) {
-      const word = frenchNumber(year);
+      const word = frenchYear(year);
       return {
         number: year,
         word,
@@ -288,7 +297,7 @@
 
     const yearLearningItems = [
       makeYearLearningItem(1789, "Use en + year for dates and historical years."),
-      makeYearLearningItem(1900, "Exact hundreds keep cents with s."),
+      makeYearLearningItem(1900, "As a year, exact cent stays singular: mille neuf cent."),
       makeYearLearningItem(1998, "A common birth-year pattern."),
       makeYearLearningItem(2000, "For 2000, say deux mille."),
       makeYearLearningItem(2001, "After 2000, read the remaining number normally."),

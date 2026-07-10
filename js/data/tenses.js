@@ -1047,3 +1047,83 @@
         ]
       }
     ];
+
+    const regularErEtreAuxiliaryVerbs = new Set([
+      "entrer",
+      "monter",
+      "rester",
+      "retourner",
+      "tomber"
+    ]);
+
+    function addEtreAuxiliaryVerbsToPasseComposeGroups() {
+      const knownInfinitives = new Set(
+        passeComposeGroups.flatMap(group => group.verbs.map(verb => verb.infinitive))
+      );
+
+      etreAuxiliaryVerbs.forEach(verb => {
+        if (knownInfinitives.has(verb.infinitive)) return;
+        const example = verb.etreExamples && verb.etreExamples[0];
+        if (!example) return;
+        const groupKey = regularErEtreAuxiliaryVerbs.has(verb.infinitive) ? "er" : "irregular";
+        const group = passeComposeGroups.find(item => item.key === groupKey);
+        if (!group) return;
+
+        group.verbs.push({
+          infinitive: verb.infinitive,
+          infinitiveIpa: verb.infinitiveIpa,
+          meaning: verb.meaning,
+          auxiliary: "être",
+          pastParticiple: verb.pastParticiple,
+          pastParticipleIpa: verb.pastParticipleIpa,
+          pattern: `${verb.infinitive} → ${verb.pastParticiple.replace(/\(e\)\(s\)$/, "")}`,
+          note: verb.note,
+          statement: { fr: example.fr, en: example.en },
+          negative: { fr: example.negative, en: example.negativeEn },
+          question: { fr: example.question, en: example.questionEn }
+        });
+        knownInfinitives.add(verb.infinitive);
+      });
+    }
+
+    addEtreAuxiliaryVerbsToPasseComposeGroups();
+
+    (function registerVerbRuntime(FR) {
+      const normalizeName = value => value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[’‘]/g, "'")
+        .toLowerCase()
+        .replace(/^s'/, "se ")
+        .replace(/\s+/g, " ")
+        .trim();
+      const impersonalNames = new Map([
+        ["il faut", "falloir"],
+        ["il y a", "avoir"],
+        ["il fait", "faire"],
+        ["il est", "être"]
+      ]);
+      const tenseEntries = passeComposeGroups.flatMap(group =>
+        group.verbs.map(verb => ({ ...verb, groupKey: group.key }))
+      );
+      const tenseByName = new Map(tenseEntries.map(verb => [normalizeName(verb.infinitive), verb]));
+      const etreByName = new Map(etreAuxiliaryVerbs.map(verb => [normalizeName(verb.infinitive), verb]));
+
+      FR.data.tenses = {
+        groups: passeComposeGroups,
+        etreAuxiliaryVerbs
+      };
+      FR.data.verbs = {
+        groups: verbStudyGroups,
+        configs: verbConfigs,
+        items: verbStudyItems.map(item => {
+          const lookupName = item.syncInfinitive || impersonalNames.get(item.label) || item.label;
+          const normalized = normalizeName(lookupName);
+          return {
+            ...item,
+            passeCompose: tenseByName.get(normalized) || null,
+            etreAuxiliary: etreByName.get(normalized) || null
+          };
+        })
+      };
+    })(window.FR);

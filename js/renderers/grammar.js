@@ -331,7 +331,7 @@
             const example = rules[Number(button.dataset.ruleIndex)].examples[Number(button.dataset.exampleIndex)];
             speakSequence(example.lines.map((line, index) => ({
               text: line.fr,
-              pauseBefore: index < example.lines.length - 1 ? examplePauseMs : 0
+              pauseBefore: index ? examplePauseMs : 0
             })), button);
           });
         });
@@ -482,9 +482,10 @@
 
       function createVerbCellCard(item) {
         const examples = getVerbExamples(item);
-        const ipa = verbPhraseIpa[item.full] || "";
+        const ipa = item.ipa || verbPhraseIpa[item.full] || "";
         const card = document.createElement("div");
         card.className = "verb-cell-card";
+        card.dataset.rowIndex = String(rows.indexOf(item));
         card.innerHTML = `
           <button class="verb-form-btn" type="button">
             <div class="tiny-label">Click for pronoun + verb only</div>
@@ -504,15 +505,6 @@
             `).join("")}
           </div>
         `;
-        card.querySelector(".verb-form-btn").addEventListener("click", event => {
-          speakSequence(getVerbConjugationAudioItems(item), event.currentTarget);
-        });
-        card.querySelectorAll(".verb-example-btn").forEach(button => {
-          button.addEventListener("click", event => {
-            const example = examples[Number(event.currentTarget.dataset.exampleIndex)];
-            speakSequence(getVerbExampleAudioItems(example), event.currentTarget);
-          });
-        });
         return card;
       }
 
@@ -588,6 +580,26 @@
         }
         container.appendChild(columnEl);
       });
+
+      container._verbRows = rows;
+      if (container.dataset.audioDelegated !== "true") {
+        container.dataset.audioDelegated = "true";
+        container.addEventListener("click", event => {
+          const button = event.target.closest(".verb-form-btn, .verb-example-btn");
+          if (!button || !container.contains(button)) return;
+          const card = button.closest(".verb-cell-card");
+          const item = card && container._verbRows[Number(card.dataset.rowIndex)];
+          if (!item) return;
+
+          if (button.classList.contains("verb-form-btn")) {
+            speakSequence(getVerbConjugationAudioItems(item), button);
+            return;
+          }
+
+          const example = getVerbExamples(item)[Number(button.dataset.exampleIndex)];
+          if (example) speakSequence(getVerbExampleAudioItems(example), button);
+        });
+      }
     }
 
     function getFaireExpressionAudioItems(item) {
@@ -599,7 +611,7 @@
     }
 
     function renderFaireExpressionTable(container, list = faireExpressionRows) {
-      const target = container || document.getElementById("faireExpressionsTable");
+      const target = container;
       if (!target) return;
       target.innerHTML = "";
       if (!list.length) {

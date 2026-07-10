@@ -88,7 +88,7 @@
       const lines = getGrammarFlashcardAnswerLines(currentGrammarFlashcard);
       speakSequence(lines.map((line, index) => ({
         text: line.text,
-        pauseBefore: index < lines.length - 1 ? examplePauseMs : 0
+        pauseBefore: index ? examplePauseMs : 0
       })), grammarFlashcard);
     }
 

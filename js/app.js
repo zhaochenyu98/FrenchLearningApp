@@ -1,3 +1,4 @@
+(function initializeFrenchLearningApp() {
     const imperativeConfigs = [
       { tableId: "etreImperativeTable", rows: etreImperativeRows },
       { tableId: "avoirImperativeTable", rows: avoirImperativeRows }
@@ -10,6 +11,9 @@
           { id: "vowels", title: "Vowels", open: true, elements: ['[data-study-section="pronunciation-vowels"]', "#pronunciationGrid"] },
           { id: "consonants", title: "Consonants", elements: ['[data-study-section="pronunciation-consonants"]', "#consonantPronunciationGrid"] },
           { id: "liaison", title: "Mandatory liaison", elements: ['[data-study-section="pronunciation-liaison"]', "#mandatoryLiaisonGrid"] },
+          { id: "liaison-boundaries", title: "Optional / forbidden liaison", elements: ['[data-study-section="pronunciation-liaison-boundaries"]', "#liaisonBoundaryContent"] },
+          { id: "connected-speech", title: "h & connected speech", elements: ['[data-study-section="pronunciation-connected-speech"]', "#hPronunciationGrid", "#connectedSpeechGrid"] },
+          { id: "contrasts", title: "Listening contrasts", elements: ['[data-study-section="pronunciation-contrasts"]', "#pronunciationContrastGrid"] },
           { id: "matrix", title: "Consonant + vowel table", elements: ['[data-study-section="pronunciation-matrix-heading"]', '[data-study-section="pronunciation-matrix"]'] },
           { id: "practice", title: "Practice words", elements: ['[data-study-section="pronunciation-practice-heading"]', "#pronunciationPracticeGrid"] }
         ]
@@ -137,6 +141,11 @@
         renderPronunciationRules();
         renderConsonantPronunciationRules();
         renderMandatoryLiaisons();
+        renderOptionalLiaisons();
+        renderForbiddenLiaisons();
+        renderHPronunciationRules();
+        renderConnectedSpeechRules();
+        renderPronunciationContrasts();
         renderPronunciationMatrix();
         renderPronunciationPractice();
         initializeStudyIndex("pronunciation");
@@ -194,6 +203,7 @@
         renderTransitionWords();
         renderAdverbialPronouns();
         renderModifierComparison();
+        renderToutAdverbUsage();
         renderToutForms();
         initializeStudyIndex("adverbs");
       },
@@ -205,6 +215,7 @@
       determiners() {
         renderArticleComparison();
         renderPartitiveArticles();
+        renderPartitiveUsageRules();
         renderDeterminerCards(aArticleGrid, aArticleRules);
         renderDeterminerCards(deArticleGrid, deArticleRules);
         renderDemonstrativeTable();
@@ -247,6 +258,76 @@
     };
 
     const initializedTabs = new Set();
+    const studySectionStateKey = "frenchStudySectionState";
+    const verbGroupStateKey = "frenchStudyVerbGroupState";
+
+    function getPreferredScrollBehavior() {
+      return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth";
+    }
+
+    function rememberStudyCard(card) {
+      if (!card || !card.id) return;
+      const state = FR.storage.getJson(studySectionStateKey, {});
+      state[card.id] = card.open;
+      FR.storage.setJson(studySectionStateKey, state);
+    }
+
+    function restoreStudyCard(card, defaultOpen) {
+      const state = FR.storage.getJson(studySectionStateKey, {});
+      card.open = typeof state[card.id] === "boolean" ? state[card.id] : defaultOpen;
+      on(card, "toggle", () => rememberStudyCard(card));
+    }
+
+    function initializeMobileIndex(aside) {
+      if (!aside || aside.querySelector(".mobile-index-toggle")) return;
+      const title = aside.querySelector(".verb-index-title, .study-index-title");
+      if (!title) return;
+
+      const toggle = document.createElement("button");
+      toggle.className = "mobile-index-toggle";
+      toggle.type = "button";
+      toggle.textContent = "Show index";
+      toggle.setAttribute("aria-expanded", "false");
+      title.insertAdjacentElement("afterend", toggle);
+
+      on(toggle, "click", () => {
+        const expanded = !aside.classList.contains("mobile-index-open");
+        aside.classList.toggle("mobile-index-open", expanded);
+        toggle.textContent = expanded ? "Hide index" : "Show index";
+        toggle.setAttribute("aria-expanded", String(expanded));
+      });
+
+      on(aside, "click", event => {
+        if (!event.target.closest(".verb-index-link, .study-index-link")) return;
+        if (!window.matchMedia || !window.matchMedia("(max-width: 860px)").matches) return;
+        aside.classList.remove("mobile-index-open");
+        toggle.textContent = "Show index";
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function applyLanguageMetadata(root) {
+      if (!root) return;
+      root.querySelectorAll([
+        ".french-line",
+        ".noun-example-main",
+        ".pronoun-main",
+        ".conjugation-main",
+        ".verb-form-main",
+        ".adjective-form-main",
+        ".preposition-main",
+        ".pronunciation-word-fr",
+        ".number-word",
+        ".calendar-word"
+      ].join(",")).forEach(element => {
+        element.lang = "fr";
+      });
+      root.querySelectorAll(".pronunciation-rule, .pronunciation-word-zh, .tonic-pronoun-zh").forEach(element => {
+        element.lang = "zh-Hans";
+      });
+    }
 
     function getErrorMessage(error) {
       return error && error.message ? error.message : String(error);
@@ -287,6 +368,7 @@
           panel.classList.toggle("active", isActive);
           panel.hidden = !isActive;
         });
+        FR.storage.set("frenchStudyVerbMode", mode);
       }
 
       buttons.forEach((button, index) => {
@@ -311,7 +393,11 @@
         });
       });
 
-      activateMode(buttons.find(button => button.classList.contains("active"))?.dataset.verbMode || buttons[0].dataset.verbMode);
+      const savedMode = FR.storage.get("frenchStudyVerbMode", "verb");
+      const initialMode = buttons.some(button => button.dataset.verbMode === savedMode)
+        ? savedMode
+        : buttons[0].dataset.verbMode;
+      activateMode(initialMode);
     }
 
     const impersonalVerbSyncMap = new Map([
@@ -337,6 +423,7 @@
     }
 
     function findPasseComposeVerb(item) {
+      if (Object.prototype.hasOwnProperty.call(item, "passeCompose")) return item.passeCompose;
       const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
       return passeComposeGroups
         .flatMap(group => group.verbs)
@@ -344,6 +431,7 @@
     }
 
     function findEtreAuxiliaryVerb(item) {
+      if (Object.prototype.hasOwnProperty.call(item, "etreAuxiliary")) return item.etreAuxiliary;
       const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
       return etreAuxiliaryVerbs.find(verb => canonicalStudyVerbName(verb.infinitive) === target);
     }
@@ -540,7 +628,7 @@
       if (!verbGroupStack) return;
       verbGroupStack.replaceChildren();
 
-      verbStudyGroups.forEach((group, index) => {
+      FR.data.verbs.groups.forEach((group, index) => {
         const groupPanel = document.createElement("div");
         groupPanel.className = "category-panel verb-group";
         groupPanel.dataset.verbGroup = group.key;
@@ -565,7 +653,7 @@
         const content = document.createElement("div");
         content.className = "verb-group-content";
 
-        const groupItems = verbStudyItems
+        const groupItems = FR.data.verbs.items
           .filter(item => item.group === group.key)
           .sort((a, b) => a.label.localeCompare(b.label, "fr"));
         if (!groupItems.length) {
@@ -586,7 +674,7 @@
     }
 
     function renderVerbTables(tabName) {
-      verbConfigs
+      FR.data.verbs.configs
         .filter(config => config.tab === tabName)
         .forEach(config => {
           const table = document.getElementById(config.tableId);
@@ -612,18 +700,25 @@
       return panel;
     }
 
-    function setVerbGroupCollapsed(group, collapsed) {
+    function setVerbGroupCollapsed(group, collapsed, persist = true) {
       if (!group) return;
       const toggle = group.querySelector(".verb-group-toggle");
       group.classList.toggle("collapsed", collapsed);
       if (!toggle) return;
       toggle.setAttribute("aria-expanded", String(!collapsed));
       toggle.textContent = collapsed ? "Expand" : "Collapse";
+      if (persist && group.dataset.verbGroup) {
+        const state = FR.storage.getJson(verbGroupStateKey, {});
+        state[group.dataset.verbGroup] = collapsed;
+        FR.storage.setJson(verbGroupStateKey, state);
+      }
     }
 
     function initializeVerbGroups() {
+      const savedState = FR.storage.getJson(verbGroupStateKey, {});
       document.querySelectorAll("#verbsSection .verb-group").forEach((group, index) => {
-        setVerbGroupCollapsed(group, index > 0);
+        const savedCollapsed = savedState[group.dataset.verbGroup];
+        setVerbGroupCollapsed(group, typeof savedCollapsed === "boolean" ? savedCollapsed : index > 0, false);
         const toggle = group.querySelector(".verb-group-toggle");
         if (!toggle || toggle.dataset.initialized === "true") return;
         toggle.dataset.initialized = "true";
@@ -668,8 +763,8 @@
       controls.append(expandAll, collapseAll);
       index.appendChild(controls);
 
-      const configs = verbConfigs.filter(config => config.tab === "verbs");
-      verbStudyGroups.forEach(group => {
+      const configs = FR.data.verbs.configs.filter(config => config.tab === "verbs");
+      FR.data.verbs.groups.forEach(group => {
         const groupConfigs = configs.filter(config => config.group === group.key);
         if (!groupConfigs.length) return;
 
@@ -697,7 +792,7 @@
             button.addEventListener("click", () => {
               stopPlayback();
               setVerbGroupCollapsed(panel.closest(".verb-group"), false);
-              panel.scrollIntoView({ behavior: "smooth", block: "start" });
+              panel.scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
               panel.focus({ preventScroll: true });
             });
             links.appendChild(button);
@@ -706,6 +801,7 @@
         groupBlock.appendChild(links);
         index.appendChild(groupBlock);
       });
+      initializeMobileIndex(index.closest(".verb-index"));
     }
 
     function initializeTenseIndex() {
@@ -752,7 +848,7 @@
         const quickCard = document.createElement("details");
         quickCard.className = "study-collapse-card";
         quickCard.id = "tense-quick-notes-study-card";
-        quickCard.open = true;
+        restoreStudyCard(quickCard, true);
 
         const summary = document.createElement("summary");
         summary.className = "study-collapse-summary";
@@ -773,7 +869,7 @@
         const etreCard = document.createElement("details");
         etreCard.className = "study-collapse-card";
         etreCard.id = "tense-etre-auxiliary-study-card";
-        etreCard.open = true;
+        restoreStudyCard(etreCard, true);
 
         const summary = document.createElement("summary");
         summary.className = "study-collapse-summary";
@@ -807,7 +903,7 @@
             stopPlayback();
             etreCard.open = true;
             const target = document.getElementById(getEtreAuxiliaryVerbId(verb));
-            (target || etreCard).scrollIntoView({ behavior: "smooth", block: "start" });
+            (target || etreCard).scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
             if (target) target.focus({ preventScroll: true });
           });
           groupLinks.appendChild(button);
@@ -824,7 +920,7 @@
         const card = document.createElement("details");
         card.className = "study-collapse-card";
         card.id = `tense-${group.key}-study-card`;
-        card.open = groupIndex === 0;
+        restoreStudyCard(card, groupIndex === 0);
 
         const summary = document.createElement("summary");
         summary.className = "study-collapse-summary";
@@ -860,7 +956,7 @@
               stopPlayback();
               card.open = true;
               const target = document.getElementById(getPasseComposeVerbId(group, verb));
-              (target || card).scrollIntoView({ behavior: "smooth", block: "start" });
+              (target || card).scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
               if (target) target.focus({ preventScroll: true });
             });
             groupLinks.appendChild(button);
@@ -891,6 +987,7 @@
       } else {
         section.prepend(layout);
       }
+      initializeMobileIndex(aside);
     }
 
     function findDirectChildByHeading(section, heading) {
@@ -916,7 +1013,7 @@
       button.addEventListener("click", () => {
         stopPlayback();
         card.open = true;
-        card.scrollIntoView({ behavior: "smooth", block: "start" });
+        card.scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
       });
       return button;
     }
@@ -970,7 +1067,7 @@
         const card = document.createElement("details");
         card.className = "study-collapse-card";
         card.id = `${tabName}-${item.id}-study-card`;
-        card.open = item.open ?? index === 0;
+        restoreStudyCard(card, item.open ?? index === 0);
 
         const summary = document.createElement("summary");
         summary.className = "study-collapse-summary";
@@ -1007,6 +1104,7 @@
       } else {
         section.prepend(layout);
       }
+      initializeMobileIndex(aside);
 
       (config.cleanupSelectors || []).forEach(selector => {
         const element = section.querySelector(selector);
@@ -1027,6 +1125,8 @@
           console.error(`${tabName} tab failed to initialize`, error);
         }
       }
+      const section = Array.from(sections).find(item => item.dataset.tab === tabName);
+      applyLanguageMetadata(section);
       initializedTabs.add(tabName);
     }
 
@@ -1046,6 +1146,7 @@
 
     function activateTab(tabName) {
       activeTab = tabName;
+      FR.storage.set("frenchStudyActiveTab", tabName);
       tabButtons.forEach((button) => {
         const isActive = button.dataset.tab === tabName;
         button.classList.toggle("active", isActive);
@@ -1081,96 +1182,105 @@
       });
     });
 
-    rateInput.addEventListener("input", () => {
-      rateValue.textContent = `${Number(rateInput.value).toFixed(2)}x`;
+    on(rateInput, "input", () => {
+      if (rateValue) rateValue.textContent = `${Number(rateInput.value).toFixed(2)}x`;
+      FR.storage.set("frenchStudyRate", rateInput.value);
     });
 
-    themeToggle.addEventListener("click", () => {
+    on(voiceSelect, "change", () => {
+      FR.storage.set("frenchStudyVoice", voiceSelect.value);
+    });
+
+    on(themeToggle, "click", () => {
       stopPlayback();
       const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
       setTheme(nextTheme);
     });
 
-    stopAudioBtn.addEventListener("click", () => {
+    on(practiceModeToggle, "click", () => {
+      setPracticeMode(!document.body.classList.contains("practice-mode"));
+    });
+
+    on(stopAudioBtn, "click", () => {
       stopPlayback();
     });
 
-    grammarFlashcard.addEventListener("click", () => {
+    on(grammarFlashcard, "click", () => {
       revealGrammarFlashcard();
     });
 
-    previousGrammarFlashcardBtn.addEventListener("click", () => {
+    on(previousGrammarFlashcardBtn, "click", () => {
       moveGrammarFlashcard(-1);
     });
 
-    nextGrammarFlashcardBtn.addEventListener("click", () => {
+    on(nextGrammarFlashcardBtn, "click", () => {
       moveGrammarFlashcard(1);
     });
 
-    prepositionFlashcard.addEventListener("click", () => {
+    on(prepositionFlashcard, "click", () => {
       revealPrepositionFlashcard();
     });
 
-    numberFlashcard.addEventListener("click", () => {
+    on(numberFlashcard, "click", () => {
       revealNumberFlashcard();
     });
 
-    nextNumberFlashcardBtn.addEventListener("click", () => {
+    on(nextNumberFlashcardBtn, "click", () => {
       stopPlayback();
       showNumberFlashcard();
     });
 
-    playNumberQuizAudioBtn.addEventListener("click", () => {
+    on(playNumberQuizAudioBtn, "click", () => {
       playNumberQuizAudio();
     });
 
-    nextNumberQuizBtn.addEventListener("click", () => {
+    on(nextNumberQuizBtn, "click", () => {
       stopPlayback();
       showNumberQuiz(randomInt(1000, 9999), true);
       numberQuizInput.focus();
     });
 
-    checkNumberQuizAnswerBtn.addEventListener("click", () => {
+    on(checkNumberQuizAnswerBtn, "click", () => {
       checkNumberQuizAnswer();
     });
 
-    revealNumberQuizAnswerBtn.addEventListener("click", () => {
+    on(revealNumberQuizAnswerBtn, "click", () => {
       revealNumberQuizAnswer();
     });
 
-    numberQuizInput.addEventListener("keydown", (event) => {
+    on(numberQuizInput, "keydown", (event) => {
       if (event.key !== "Enter") return;
       event.preventDefault();
       checkNumberQuizAnswer();
     });
 
-    previousPrepositionFlashcardBtn.addEventListener("click", () => {
+    on(previousPrepositionFlashcardBtn, "click", () => {
       movePrepositionFlashcard(-1);
     });
 
-    nextPrepositionFlashcardBtn.addEventListener("click", () => {
+    on(nextPrepositionFlashcardBtn, "click", () => {
       movePrepositionFlashcard(1);
     });
 
-    playYearQuizAudioBtn.addEventListener("click", () => {
+    on(playYearQuizAudioBtn, "click", () => {
       playYearQuizAudio();
     });
 
-    nextYearQuizBtn.addEventListener("click", () => {
+    on(nextYearQuizBtn, "click", () => {
       stopPlayback();
       showYearQuiz(randomYearQuizValue(), true);
       yearQuizInput.focus();
     });
 
-    checkYearQuizAnswerBtn.addEventListener("click", () => {
+    on(checkYearQuizAnswerBtn, "click", () => {
       checkYearQuizAnswer();
     });
 
-    revealYearQuizAnswerBtn.addEventListener("click", () => {
+    on(revealYearQuizAnswerBtn, "click", () => {
       revealYearQuizAnswer();
     });
 
-    yearQuizInput.addEventListener("keydown", (event) => {
+    on(yearQuizInput, "keydown", (event) => {
       if (event.key !== "Enter") return;
       event.preventDefault();
       checkYearQuizAnswer();
@@ -1178,9 +1288,11 @@
 
     initializeTabAccessibility();
     initTheme();
+    initStudyPreferences();
     loadVoices();
     activateTab(activeTab);
 
     if (typeof speechSynthesis !== "undefined") {
       speechSynthesis.onvoiceschanged = loadVoices;
     }
+})();

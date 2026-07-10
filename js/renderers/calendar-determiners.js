@@ -169,6 +169,56 @@
       });
     }
 
+    function renderPartitiveUsageRules(rows = partitiveUsageRules) {
+      if (!partitiveUsageGrid) return;
+      partitiveUsageGrid.innerHTML = "";
+      if (!rows.length) {
+        partitiveUsageGrid.innerHTML = `<div class="empty-state">No partitive usage rules available.</div>`;
+        return;
+      }
+
+      partitiveUsageGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Situation</div>
+          <div>Rule</div>
+          <div>Examples</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Situation</span>
+            <div class="french-line">${rowData.title}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Rule</span>
+            <div class="grammar-note">${rowData.pattern}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${rowData.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  <span class="noun-example-main">${example.fr}</span>
+                  <span class="translation">${example.en}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const example = rows[Number(button.dataset.rowIndex)].examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        partitiveUsageGrid.appendChild(row);
+      });
+    }
+
     function renderDemonstrativeTable(rows = demonstrativeRows) {
       demonstrativeGrid.innerHTML = "";
       if (!rows.length) {

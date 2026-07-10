@@ -218,10 +218,10 @@
         ]
       },
       {
-        label: "Plural",
+        label: "Plural: partitive or indefinite",
         fr: "des",
         en: "some / any",
-        note: "Use des before plural nouns when you mean an unspecified amount or number.",
+        note: "The same form des can be partitive with mass-plural foods such as pâtes, or an indefinite plural article with countable things such as fruits and idées.",
         speech: "des",
         example: "J’achète des fruits.",
         exampleEn: "I am buying some fruit.",
@@ -245,6 +245,63 @@
           { fr: "Tu as de la chance.", en: "You are lucky." },
           { fr: "Elle a de l’expérience.", en: "She has experience." },
           { fr: "Nous avons des idées.", en: "We have ideas." }
+        ]
+      }
+    ];
+
+    const partitiveUsageRules = [
+      {
+        title: "Affirmative: unspecified amount",
+        pattern: "Use du, de la, de l’, or des when the amount is not counted or specified.",
+        examples: [
+          { fr: "Je bois du café.", en: "I drink coffee." },
+          { fr: "Elle achète de la farine.", en: "She buys flour." },
+          { fr: "Nous avons de l’espoir.", en: "We have hope." }
+        ]
+      },
+      {
+        title: "Negative: usually de / d’",
+        pattern: "After ne…pas, an indefinite or partitive article normally becomes de / d’.",
+        examples: [
+          { fr: "Je ne bois pas de café.", en: "I do not drink coffee." },
+          { fr: "Elle n’achète pas de farine.", en: "She does not buy flour." },
+          { fr: "Nous n’avons pas d’espoir.", en: "We do not have hope." }
+        ]
+      },
+      {
+        title: "Definite article stays definite",
+        pattern: "Do not change le / la / l’ / les when the noun is specific or used in a general statement.",
+        examples: [
+          { fr: "J’aime le café.", en: "I like coffee." },
+          { fr: "Je n’aime pas le café.", en: "I do not like coffee." },
+          { fr: "Elle ne prend pas la voiture aujourd’hui.", en: "She is not taking the car today." }
+        ]
+      },
+      {
+        title: "After être: article normally stays",
+        pattern: "With être, the partitive or indefinite article normally remains after negation.",
+        examples: [
+          { fr: "C’est du fromage.", en: "It is cheese." },
+          { fr: "Ce n’est pas du fromage.", en: "It is not cheese." },
+          { fr: "Ce ne sont pas des légumes.", en: "They are not vegetables." }
+        ]
+      },
+      {
+        title: "Contrast or correction can keep the article",
+        pattern: "Keep the article when negation rejects one specific choice and contrasts it with another.",
+        examples: [
+          { fr: "Je ne veux pas du café, mais du thé.", en: "I do not want coffee, but tea." },
+          { fr: "Ce n’est pas de la farine, c’est du sucre.", en: "That is not flour; it is sugar." },
+          { fr: "Il ne boit pas du vin rouge, mais du vin blanc.", en: "He is not drinking red wine, but white wine." }
+        ]
+      },
+      {
+        title: "Ne…que is a restriction, not a true negative",
+        pattern: "Ne…que means only, so it does not trigger the usual change to de.",
+        examples: [
+          { fr: "Je ne bois que du thé.", en: "I drink only tea." },
+          { fr: "Elle ne mange que de la soupe.", en: "She eats only soup." },
+          { fr: "Nous n’avons que de l’eau.", en: "We have only water." }
         ]
       }
     ];

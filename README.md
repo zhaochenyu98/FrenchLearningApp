@@ -10,10 +10,13 @@ scripts so it continues to work from `file://`.
 index.html                         Page structure and tab markup
 styles.css                         Shared visual styles
 js/app.js                          Tab registration, event wiring, and startup
+js/core/namespace.js               Shared FR registry and safe saved preferences
 js/core/core.js                    DOM references, audio, theme, and shared state
 js/renderers/                      Reusable renderers grouped by study topic
 js/data/numbers.js                 Number generation and IPA
-js/data/grammar.js                 Pronouns, verbs, and grammar flashcards
+js/data/pronouns.js                COD, COI, tonic, reflexive, and possessive data
+js/data/verbs.js                   Present-tense verb paradigms, IPA, and registry data
+js/data/grammar.js                 Être/avoir examples and grammar flashcards
 js/data/pronunciation.js           Pronunciation rules and practice words
 js/data/questions.js               Question-word learning content
 js/data/vocabulary.js              Calendar, nouns, and adjectives
@@ -30,7 +33,9 @@ node scripts/validate.js
 ```
 
 It checks JavaScript syntax, referenced assets, duplicate IDs, missing DOM
-references, and tab/section pairing.
+references, tab/section pairing, verb data integrity, verb/tense synchronization,
+and important number spelling and IPA edge cases. The deployment workflow runs
+the same validator before publishing.
 
 ## Add Content
 
@@ -43,11 +48,14 @@ references, and tab/section pairing.
 
 ## Add a Verb
 
-1. Add its conjugation rows to `js/data/grammar.js`.
-2. Add its table and play button markup to the appropriate group in `index.html`.
-3. Add one entry to `verbConfigs` in `js/app.js`.
+1. Add its conjugation rows and `verbStudyItems` entry to `js/data/verbs.js`.
+2. Add its passé composé study entry to `js/data/tenses.js`. Movement verbs
+   already listed in `etreAuxiliaryVerbs` are derived automatically when possible.
+3. Run `node scripts/validate.js` to confirm all pronouns, examples, IPA, groups,
+   and present/past entries stay synchronized.
 
-The registry handles rendering and play-all behavior.
+Verb panels, tables, index buttons, and compact tense summaries are generated
+from the data. Do not add verb markup to `index.html`.
 
 ## Add a Tab
 
