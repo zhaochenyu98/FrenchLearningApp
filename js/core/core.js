@@ -136,6 +136,7 @@
     const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
+    const adverbAmountComparisonGrid = document.getElementById("adverbAmountComparisonGrid");
     const transitionWordsGrid = document.getElementById("transitionWordsGrid");
     const adverbialPronounGrid = document.getElementById("adverbialPronounGrid");
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");

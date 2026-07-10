@@ -324,6 +324,70 @@
       ];
     }
 
+    function renderAdverbAmountComparison(rows = adverbAmountComparisonRows) {
+      if (!adverbAmountComparisonGrid) return;
+      adverbAmountComparisonGrid.innerHTML = "";
+      if (!rows.length) {
+        adverbAmountComparisonGrid.innerHTML = `<div class="empty-state">No adverb comparison examples available.</div>`;
+        return;
+      }
+
+      adverbAmountComparisonGrid.innerHTML = `
+        <div class="amount-comparison-header">
+          <div>Situation</div>
+          <div>Beaucoup</div>
+          <div>Un peu</div>
+          <div>Peu</div>
+        </div>
+      `;
+
+      rows.forEach((rowData, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "amount-comparison-card";
+        row.innerHTML = `
+          <div class="amount-scenario-cell">
+            <span class="question-cell-label">Situation</span>
+            <div class="french-line">${rowData.title}</div>
+            <div class="grammar-note">${rowData.note}</div>
+          </div>
+          ${rowData.forms.map((form, formIndex) => `
+            <div class="amount-comparison-cell">
+              <span class="question-cell-label">${form.fr}</span>
+              <button class="preposition-word-btn amount-word-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}">
+                <div class="french-line">${form.fr}</div>
+                <div class="calendar-ipa">${form.ipa}</div>
+                <div class="translation">${form.en}</div>
+              </button>
+              <div class="grammar-note">${form.note}</div>
+              <div class="noun-example-list">
+                ${form.examples.map((example, exampleIndex) => `
+                  <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-example-index="${exampleIndex}">
+                    <span class="noun-example-main">${example.fr}</span>
+                    <span class="translation">${example.en}</span>
+                  </button>
+                `).join("")}
+              </div>
+            </div>
+          `).join("")}
+        `;
+
+        row.querySelectorAll(".amount-word-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const form = rows[Number(button.dataset.rowIndex)].forms[Number(button.dataset.formIndex)];
+            speak(form.speech || form.fr, button);
+          });
+        });
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const form = rows[Number(button.dataset.rowIndex)].forms[Number(button.dataset.formIndex)];
+            const example = form.examples[Number(button.dataset.exampleIndex)];
+            speak(example.fr, button);
+          });
+        });
+        adverbAmountComparisonGrid.appendChild(row);
+      });
+    }
+
     function renderTransitionWords(rows = transitionWordRows) {
       if (!transitionWordsGrid) return;
       transitionWordsGrid.innerHTML = "";

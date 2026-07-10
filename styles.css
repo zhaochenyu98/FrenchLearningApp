@@ -1380,6 +1380,59 @@
       transition: background 0.25s ease, border-color 0.25s ease;
     }
 
+    .amount-comparison-table {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .amount-comparison-header,
+    .amount-comparison-card {
+      display: grid;
+      grid-template-columns: minmax(165px, 0.85fr) repeat(3, minmax(190px, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .amount-comparison-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .amount-comparison-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    .amount-scenario-cell,
+    .amount-comparison-cell {
+      display: grid;
+      gap: 8px;
+    }
+
+    .amount-word-btn {
+      min-height: 0;
+      padding: 12px;
+    }
+
+    .adverb-amount-note {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 14px 14px 0;
+      color: var(--text);
+      line-height: 1.55;
+      margin-top: 12px;
+      padding: 12px 14px;
+    }
+
     .time-span-header,
     .time-span-pair {
       display: grid;
@@ -2085,6 +2138,7 @@
       }
 
       .noun-rule-header,
+      .amount-comparison-header,
       .tonic-pronoun-header,
       .adjective-forms-header,
       .preposition-header,
@@ -2097,6 +2151,7 @@
       }
 
       .noun-rule-card,
+      .amount-comparison-card,
       .time-span-pair,
       .tonic-pronoun-row,
       .adjective-forms-row,

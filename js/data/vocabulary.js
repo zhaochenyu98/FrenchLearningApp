@@ -666,6 +666,129 @@
       }
     ];
 
+    const adverbAmountComparisonRows = [
+      {
+        title: "Frequency / repeated actions",
+        note: "These words show how much an action happens. For exact frequency words, use souvent (often), parfois / de temps en temps (sometimes), and rarement / presque jamais (hardly ever).",
+        forms: [
+          {
+            fr: "beaucoup",
+            ipa: "/boku/",
+            en: "a lot / often in context",
+            note: "With an action, beaucoup often means that it happens a lot or often.",
+            examples: [
+              { fr: "Je voyage beaucoup.", en: "I travel a lot / often." },
+              { fr: "J’ai beaucoup voyagé l’an dernier.", en: "I traveled a lot last year." },
+              { fr: "Je ne voyage pas beaucoup en hiver.", en: "I do not travel much in winter." }
+            ]
+          },
+          {
+            fr: "un peu",
+            ipa: "/œ̃ pø/",
+            en: "a little / somewhat",
+            note: "Un peu does not literally mean “sometimes”; use parfois for that exact frequency.",
+            examples: [
+              { fr: "Je voyage un peu pour le travail.", en: "I travel a little for work." },
+              { fr: "J’ai un peu voyagé ce printemps.", en: "I traveled a little this spring." },
+              { fr: "Je ne voyage qu’un peu pour le travail.", en: "I only travel a little for work." }
+            ]
+          },
+          {
+            fr: "peu",
+            ipa: "/pø/",
+            en: "little / rarely",
+            note: "With an action, peu means “not much” and can imply rarely. Presque jamais is stronger: hardly ever.",
+            examples: [
+              { fr: "Je voyage peu.", en: "I travel little / rarely." },
+              { fr: "J’ai peu voyagé cette année.", en: "I have traveled little this year." },
+              { fr: "Je ne voyage presque jamais.", en: "I hardly ever travel." }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Degree / extent with a verb",
+        note: "With a conjugated verb, these normally come after the verb. In passé composé, they usually go after the auxiliary: j’ai beaucoup travaillé.",
+        forms: [
+          {
+            fr: "beaucoup",
+            ipa: "/boku/",
+            en: "very much / a lot",
+            note: "Use beaucoup for a large degree or amount of an action.",
+            examples: [
+              { fr: "Je travaille beaucoup.", en: "I work a lot." },
+              { fr: "J’ai beaucoup travaillé hier.", en: "I worked a lot yesterday." },
+              { fr: "Je ne travaille pas beaucoup le dimanche.", en: "I do not work much on Sundays." }
+            ]
+          },
+          {
+            fr: "un peu",
+            ipa: "/œ̃ pø/",
+            en: "a little",
+            note: "Use un peu for a small, but real, degree. Ne...que means “only.”",
+            examples: [
+              { fr: "Je comprends un peu le français.", en: "I understand French a little." },
+              { fr: "J’ai un peu compris le film.", en: "I understood the movie a little." },
+              { fr: "Je ne comprends qu’un peu le français.", en: "I understand only a little French." }
+            ]
+          },
+          {
+            fr: "peu",
+            ipa: "/pø/",
+            en: "little / not much",
+            note: "Peu is a smaller amount than un peu and can sound more formal in positive statements.",
+            examples: [
+              { fr: "Il parle peu français.", en: "He speaks little French." },
+              { fr: "Il a peu parlé français hier.", en: "He spoke little French yesterday." },
+              { fr: "Il ne parle presque pas français.", en: "He hardly speaks French." }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Quantity before a noun",
+        note: "Before a noun, all three use de / d’: beaucoup de livres, un peu d’eau, peu de temps. The normal article does not stay after a quantity expression.",
+        forms: [
+          {
+            fr: "beaucoup de",
+            speech: "beaucoup",
+            ipa: "/boku də/",
+            en: "a lot of / many",
+            note: "Use with countable and uncountable nouns: beaucoup de livres, beaucoup d’eau.",
+            examples: [
+              { fr: "J’ai beaucoup de livres.", en: "I have many books." },
+              { fr: "J’ai acheté beaucoup de livres.", en: "I bought many books." },
+              { fr: "Je n’ai pas beaucoup de livres.", en: "I do not have many books." }
+            ]
+          },
+          {
+            fr: "un peu de",
+            speech: "un peu",
+            ipa: "/œ̃ pø də/",
+            en: "a little / some",
+            note: "Use mainly with uncountable or mass nouns: un peu de lait, de temps, d’argent. For a few countable items, use quelques livres instead.",
+            examples: [
+              { fr: "Je bois un peu de lait.", en: "I drink a little milk." },
+              { fr: "J’ai bu un peu de lait.", en: "I drank a little milk." },
+              { fr: "Je n’ai bu qu’un peu de lait.", en: "I only drank a little milk." }
+            ]
+          },
+          {
+            fr: "peu de",
+            speech: "peu",
+            ipa: "/pø də/",
+            en: "little / few",
+            note: "Works with countable and uncountable nouns: peu de temps, peu de livres.",
+            examples: [
+              { fr: "Nous avons peu de temps.", en: "We have little time." },
+              { fr: "Nous avons eu peu de temps.", en: "We had little time." },
+              { fr: "Nous n’avons presque pas de temps.", en: "We have almost no time." }
+            ]
+          }
+        ]
+      }
+    ];
+
     const modifierComparisonRows = [
       {
         fr: "bon",
