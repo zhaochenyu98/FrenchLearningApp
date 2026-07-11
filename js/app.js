@@ -320,7 +320,9 @@
         ".preposition-main",
         ".pronunciation-word-fr",
         ".number-word",
-        ".calendar-word"
+        ".calendar-word",
+        ".agreement-form-main",
+        ".agreement-form-ipa"
       ].join(",")).forEach(element => {
         element.lang = "fr";
       });

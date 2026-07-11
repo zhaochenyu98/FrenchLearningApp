@@ -261,6 +261,11 @@
       const genders = ["Masculine", "Feminine"];
       const numbers = ["Singular", "Plural"];
       const findForm = (forms, gender, number) => forms.find(form => form.gender === gender && form.number === number);
+      const getFormWords = form => form.words || [{
+        fr: form.fr || form.label,
+        ipa: form.ipa || "",
+        speech: form.speech || form.fr || form.label
+      }];
 
       rows.forEach((rowData, rowIndex) => {
         const row = document.createElement("div");
@@ -281,10 +286,18 @@
                   return `<div class="agreement-cell"><div class="empty-state">No ${number.toLowerCase()} ${gender.toLowerCase()} form.</div></div>`;
                 }
                 const formIndex = rowData.forms.indexOf(form);
+                const words = getFormWords(form);
                 return `
                   <div class="agreement-cell">
                     <div class="demonstrative-mobile-label">${number} · ${gender}</div>
-                    <div class="french-line">${form.fr || form.label}</div>
+                    <div class="agreement-form-audio-list">
+                      ${words.map((word, wordIndex) => `
+                        <button class="agreement-form-audio-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-word-index="${wordIndex}" aria-label="Play ${word.fr}">
+                          <span class="agreement-form-main">${word.fr}</span>
+                          ${word.ipa ? `<span class="agreement-form-ipa">${word.ipa}</span>` : ""}
+                        </button>
+                      `).join("")}
+                    </div>
                     <div class="grammar-note">${form.label}</div>
                     <div class="adjective-form-list">
                       ${form.examples.map((example, exampleIndex) => `
@@ -300,6 +313,14 @@
             `).join("")}
           </div>
         `;
+        row.querySelectorAll(".agreement-form-audio-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            const form = rows[Number(button.dataset.rowIndex)]
+              .forms[Number(button.dataset.formIndex)];
+            const word = getFormWords(form)[Number(button.dataset.wordIndex)];
+            speak(word.speech || word.fr, button);
+          });
+        });
         row.querySelectorAll(".adjective-form-btn").forEach(button => {
           button.addEventListener("click", () => {
             const example = rows[Number(button.dataset.rowIndex)]

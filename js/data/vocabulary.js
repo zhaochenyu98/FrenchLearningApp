@@ -439,6 +439,7 @@
         forms: [
           {
             fr: "bon",
+            ipa: "/bɔ̃/",
             gender: "Masculine",
             number: "Singular",
             label: "Masculine singular",
@@ -449,6 +450,7 @@
           },
           {
             fr: "bonne",
+            ipa: "/bɔn/",
             gender: "Feminine",
             number: "Singular",
             label: "Feminine singular",
@@ -459,6 +461,7 @@
           },
           {
             fr: "bons",
+            ipa: "/bɔ̃/",
             gender: "Masculine",
             number: "Plural",
             label: "Masculine plural",
@@ -469,6 +472,7 @@
           },
           {
             fr: "bonnes",
+            ipa: "/bɔn/",
             gender: "Feminine",
             number: "Plural",
             label: "Feminine plural",
@@ -485,6 +489,11 @@
         forms: [
           {
             fr: "beau / bel",
+            ipa: "/bo/ · /bɛl/",
+            words: [
+              { fr: "beau", ipa: "/bo/" },
+              { fr: "bel", ipa: "/bɛl/" }
+            ],
             gender: "Masculine",
             number: "Singular",
             label: "Masculine singular",
@@ -495,6 +504,7 @@
           },
           {
             fr: "belle",
+            ipa: "/bɛl/",
             gender: "Feminine",
             number: "Singular",
             label: "Feminine singular",
@@ -505,6 +515,7 @@
           },
           {
             fr: "beaux",
+            ipa: "/bo/",
             gender: "Masculine",
             number: "Plural",
             label: "Masculine plural",
@@ -515,6 +526,7 @@
           },
           {
             fr: "belles",
+            ipa: "/bɛl/",
             gender: "Feminine",
             number: "Plural",
             label: "Feminine plural",
@@ -531,6 +543,11 @@
         forms: [
           {
             fr: "nouveau / nouvel",
+            ipa: "/nu.vo/ · /nu.vɛl/",
+            words: [
+              { fr: "nouveau", ipa: "/nu.vo/" },
+              { fr: "nouvel", ipa: "/nu.vɛl/" }
+            ],
             gender: "Masculine",
             number: "Singular",
             label: "Masculine singular",
@@ -541,6 +558,7 @@
           },
           {
             fr: "nouvelle",
+            ipa: "/nu.vɛl/",
             gender: "Feminine",
             number: "Singular",
             label: "Feminine singular",
@@ -551,6 +569,7 @@
           },
           {
             fr: "nouveaux",
+            ipa: "/nu.vo/",
             gender: "Masculine",
             number: "Plural",
             label: "Masculine plural",
@@ -561,6 +580,7 @@
           },
           {
             fr: "nouvelles",
+            ipa: "/nu.vɛl/",
             gender: "Feminine",
             number: "Plural",
             label: "Feminine plural",
@@ -577,6 +597,11 @@
         forms: [
           {
             fr: "vieux / vieil",
+            ipa: "/vjø/ · /vjɛj/",
+            words: [
+              { fr: "vieux", ipa: "/vjø/" },
+              { fr: "vieil", ipa: "/vjɛj/" }
+            ],
             gender: "Masculine",
             number: "Singular",
             label: "Masculine singular",
@@ -587,6 +612,7 @@
           },
           {
             fr: "vieille",
+            ipa: "/vjɛj/",
             gender: "Feminine",
             number: "Singular",
             label: "Feminine singular",
@@ -597,6 +623,7 @@
           },
           {
             fr: "vieux",
+            ipa: "/vjø/",
             gender: "Masculine",
             number: "Plural",
             label: "Masculine plural",
@@ -607,6 +634,7 @@
           },
           {
             fr: "vieilles",
+            ipa: "/vjɛj/",
             gender: "Feminine",
             number: "Plural",
             label: "Feminine plural",
@@ -1020,6 +1048,7 @@
         forms: [
           {
             fr: "tout",
+            ipa: "/tu/",
             gender: "Masculine",
             number: "Singular",
             label: "Masculine singular",
@@ -1030,6 +1059,7 @@
           },
           {
             fr: "toute",
+            ipa: "/tut/",
             gender: "Feminine",
             number: "Singular",
             label: "Feminine singular",
@@ -1040,6 +1070,7 @@
           },
           {
             fr: "tous",
+            ipa: "/tu/; /tuz/ before a vowel",
             gender: "Masculine",
             number: "Plural",
             label: "Masculine plural",
@@ -1050,6 +1081,7 @@
           },
           {
             fr: "toutes",
+            ipa: "/tut/; /tutz/ before a vowel",
             gender: "Feminine",
             number: "Plural",
             label: "Feminine plural",

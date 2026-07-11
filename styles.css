@@ -1734,6 +1734,49 @@
       padding: 12px;
     }
 
+    .agreement-form-audio-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .agreement-form-audio-btn {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: var(--accent-soft);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .agreement-form-audio-btn:hover,
+    .agreement-form-audio-btn:focus-visible {
+      border-color: var(--accent);
+      background: var(--card);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .agreement-form-main {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .agreement-form-ipa {
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
     .adjective-form-btn {
       border-radius: 14px;
       padding: 10px 12px;
