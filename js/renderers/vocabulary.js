@@ -409,18 +409,22 @@
       });
     }
 
-    function renderTransitionWords(rows = transitionWordRows) {
-      if (!transitionWordsGrid) return;
-      transitionWordsGrid.innerHTML = "";
+    function renderAdverbWordTable(targetGrid, rows, {
+      emptyMessage,
+      wordLabel,
+      useLabel
+    }) {
+      if (!targetGrid) return;
+      targetGrid.innerHTML = "";
       if (!rows.length) {
-        transitionWordsGrid.innerHTML = `<div class="empty-state">No transition words available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      transitionWordsGrid.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="noun-rule-header">
-          <div>Transition word</div>
-          <div>Use</div>
+          <div>${wordLabel}</div>
+          <div>${useLabel}</div>
           <div>Examples</div>
         </div>
       `;
@@ -430,7 +434,7 @@
         row.className = "noun-rule-card";
         row.innerHTML = `
           <div>
-            <span class="question-cell-label">Word</span>
+            <span class="question-cell-label">${wordLabel}</span>
             <button class="preposition-word-btn" type="button" data-row-index="${rowIndex}">
               <div class="french-line">${rowData.fr}</div>
               <div class="calendar-ipa">${rowData.ipa}</div>
@@ -438,7 +442,7 @@
             </button>
           </div>
           <div>
-            <span class="question-cell-label">Use</span>
+            <span class="question-cell-label">${useLabel}</span>
             <div class="grammar-note">${rowData.note}</div>
           </div>
           <div>
@@ -462,7 +466,23 @@
             speak(example.fr, button);
           });
         });
-        transitionWordsGrid.appendChild(row);
+        targetGrid.appendChild(row);
+      });
+    }
+
+    function renderTransitionWords(rows = transitionWordRows) {
+      renderAdverbWordTable(transitionWordsGrid, rows, {
+        emptyMessage: "No transition words available.",
+        wordLabel: "Transition word",
+        useLabel: "Use"
+      });
+    }
+
+    function renderFrequencyWords(rows = frequencyWordRows) {
+      renderAdverbWordTable(frequencyWordsGrid, rows, {
+        emptyMessage: "No frequency adverbs available.",
+        wordLabel: "Adverb",
+        useLabel: "Meaning & placement"
       });
     }
 

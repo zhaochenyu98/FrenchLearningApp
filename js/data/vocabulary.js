@@ -694,10 +694,57 @@
       }
     ];
 
+    const frequencyWordRows = [
+      {
+        fr: "toujours",
+        ipa: "/tu.ʒuʁ/",
+        en: "always / still",
+        note: "A frequency adverb meaning always. It generally follows the conjugated verb; in some contexts, it can also mean still.",
+        examples: [
+          { fr: "Je prends toujours le métro.", en: "I always take the metro." },
+          { fr: "Elle est toujours en retard.", en: "She is always late." },
+          { fr: "Nous avons toujours aimé ce café.", en: "We have always liked this cafe." }
+        ]
+      },
+      {
+        fr: "souvent",
+        ipa: "/su.vɑ̃/",
+        en: "often",
+        note: "A frequency adverb meaning often. It generally follows the conjugated verb or the auxiliary in passé composé.",
+        examples: [
+          { fr: "Je cuisine souvent le soir.", en: "I often cook in the evening." },
+          { fr: "Vas-tu souvent au marché ?", en: "Do you often go to the market?" },
+          { fr: "Ils ont souvent voyagé ensemble.", en: "They have often traveled together." }
+        ]
+      },
+      {
+        fr: "parfois",
+        ipa: "/paʁ.fwa/",
+        en: "sometimes",
+        note: "A frequency adverb meaning sometimes. It can go at the beginning of the sentence or after the conjugated verb.",
+        examples: [
+          { fr: "Parfois, je travaille à la bibliothèque.", en: "Sometimes, I work at the library." },
+          { fr: "Elle oublie parfois ses clés.", en: "She sometimes forgets her keys." },
+          { fr: "Est-ce que vous partez parfois tôt ?", en: "Do you sometimes leave early?" }
+        ]
+      },
+      {
+        fr: "seulement",
+        ipa: "/sœl.mɑ̃/",
+        en: "only / just",
+        note: "A limiting adverb, not a frequency adverb. It restricts an amount, time, or action and usually sits close to what it limits.",
+        examples: [
+          { fr: "J’ai seulement dix minutes.", en: "I only have ten minutes." },
+          { fr: "Elle travaille seulement le matin.", en: "She works only in the morning." },
+          { fr: "Nous avons seulement acheté du pain.", en: "We only bought bread." }
+        ]
+      }
+    ];
+
     const adverbAmountComparisonRows = [
       {
-        title: "Frequency / repeated actions",
-        note: "These words show how much an action happens. For exact frequency words, use souvent (often), parfois / de temps en temps (sometimes), and rarement / presque jamais (hardly ever).",
+        title: "Amount / degree with actions",
+        note: "These words show how much an action happens, rather than exact frequency. For words such as often and sometimes, use the Frequency and limiting adverbs section below.",
         forms: [
           {
             fr: "beaucoup",
