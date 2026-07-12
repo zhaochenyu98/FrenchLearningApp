@@ -1038,6 +1038,137 @@
             question: { fr: "Pouvez-vous y répondre avant midi ?", en: "Can you answer it before noon?" }
           }
         ]
+      },
+      {
+        title: "En with de + a thing or idea",
+        pattern: "en + conjugated verb",
+        note: "En replaces <strong>de + a thing or idea</strong>: tu parles de ce livre → tu en parles. It can also replace <strong>de + a place</strong>. Do not use en for <strong>de + a person</strong>: je parle de Marie → je parle d’elle.",
+        examples: [
+          {
+            label: "tu parles de ce livre",
+            meaning: "You often talk about it.",
+            statement: { fr: "Tu en parles souvent.", en: "You often talk about it." },
+            negative: { fr: "Tu n’en parles pas souvent.", en: "You do not often talk about it." },
+            question: { fr: "En parles-tu souvent ?", en: "Do you often talk about it?" }
+          },
+          {
+            label: "elle a besoin de sucre",
+            meaning: "She needs some.",
+            statement: { fr: "Elle en a besoin.", en: "She needs some." },
+            negative: { fr: "Elle n’en a pas besoin.", en: "She does not need any." },
+            question: { fr: "En a-t-elle besoin ?", en: "Does she need any?" }
+          }
+        ]
+      },
+      {
+        title: "En with some or a quantity",
+        pattern: "en + verb (+ quantity)",
+        note: "En replaces a partitive or indefinite noun phrase: tu veux du pain → tu en veux. When a quantity remains, put it after the verb: vous avez trois pommes → vous en avez trois.",
+        examples: [
+          {
+            label: "tu veux du pain",
+            meaning: "You want some.",
+            statement: { fr: "Tu en veux.", en: "You want some." },
+            negative: { fr: "Tu n’en veux pas.", en: "You do not want any." },
+            question: { fr: "En veux-tu ?", en: "Do you want some?" }
+          },
+          {
+            label: "vous avez des pommes",
+            meaning: "You have three of them.",
+            statement: { fr: "Vous en avez trois.", en: "You have three of them." },
+            negative: { fr: "Vous n’en avez pas trois.", en: "You do not have three of them." },
+            question: { fr: "En avez-vous trois ?", en: "Do you have three of them?" }
+          }
+        ]
+      },
+      {
+        title: "En with il y a",
+        pattern: "il y en a (+ quantity)",
+        note: "<strong>Il y en a</strong> means “there is/are some.” When <strong>y</strong> and <strong>en</strong> occur together, the order is always <strong>y + en</strong>: il y en a. Keep a quantity after <strong>a</strong>: il y en a trois.",
+        examples: [
+          {
+            label: "il y a des croissants",
+            meaning: "There are some.",
+            statement: { fr: "Il y en a.", en: "There are some." },
+            negative: { fr: "Il n’y en a pas.", en: "There are not any." },
+            question: { fr: "Y en a-t-il ?", en: "Are there any?" }
+          },
+          {
+            label: "il y a trois places",
+            meaning: "There are three.",
+            statement: { fr: "Il y en a trois.", en: "There are three." },
+            negative: { fr: "Il n’y en a pas trois.", en: "There are not three." },
+            question: { fr: "Y en a-t-il trois ?", en: "Are there three?" }
+          }
+        ]
+      },
+      {
+        title: "En with an infinitive",
+        pattern: "conjugated verb + en + infinitive",
+        note: "When en belongs to an infinitive, it goes immediately before that infinitive: vous allez acheter du pain → vous allez en acheter. It does not go before the first conjugated verb.",
+        examples: [
+          {
+            label: "vous allez acheter du pain",
+            meaning: "You are going to buy some.",
+            statement: { fr: "Vous allez en acheter.", en: "You are going to buy some." },
+            negative: { fr: "Vous n’allez pas en acheter.", en: "You are not going to buy any." },
+            question: { fr: "Allez-vous en acheter ?", en: "Are you going to buy any?" }
+          },
+          {
+            label: "il faut acheter du lait",
+            meaning: "We need to buy some.",
+            statement: { fr: "Il faut en acheter.", en: "We need to buy some." },
+            negative: { fr: "Il ne faut pas en acheter.", en: "We must not buy any." },
+            question: { fr: "Faut-il en acheter ?", en: "Do we need to buy any?" }
+          }
+        ]
+      },
+      {
+        title: "En in passé composé",
+        pattern: "en + auxiliary + past participle",
+        note: "In compound tenses, en goes before the auxiliary: elles ont acheté des fleurs → elles en ont acheté. A quantity still comes after the past participle: elles en ont acheté trois.",
+        examples: [
+          {
+            label: "elles ont acheté des fleurs",
+            meaning: "They bought some.",
+            statement: { fr: "Elles en ont acheté.", en: "They bought some." },
+            negative: { fr: "Elles n’en ont pas acheté.", en: "They did not buy any." },
+            question: { fr: "En ont-elles acheté ?", en: "Did they buy any?" }
+          },
+          {
+            label: "nous avons pris des photos",
+            meaning: "We took many of them.",
+            statement: { fr: "Nous en avons pris beaucoup.", en: "We took many of them." },
+            negative: { fr: "Nous n’en avons pas pris beaucoup.", en: "We did not take many of them." },
+            question: { fr: "En avons-nous pris beaucoup ?", en: "Did we take many of them?" }
+          }
+        ]
+      },
+      {
+        title: "En in imperative",
+        pattern: "affirmative: verb-en; negative: n’en + verb + pas",
+        note: "In an affirmative command, en follows the verb with a hyphen: prends-en. In a negative command, it returns before the verb: n’en prends pas.",
+        labels: {
+          statement: "Affirmative command",
+          negative: "Negative command",
+          question: "Question / request"
+        },
+        examples: [
+          {
+            label: "tu: prendre des biscuits",
+            meaning: "Take two.",
+            statement: { fr: "Prends-en deux.", en: "Take two." },
+            negative: { fr: "N’en prends pas.", en: "Do not take any." },
+            question: { fr: "Veux-tu en prendre deux ?", en: "Do you want to take two?" }
+          },
+          {
+            label: "vous: acheter des billets",
+            meaning: "Buy two.",
+            statement: { fr: "Achetez-en deux.", en: "Buy two." },
+            negative: { fr: "N’en achetez pas.", en: "Do not buy any." },
+            question: { fr: "Voulez-vous en acheter deux ?", en: "Do you want to buy two?" }
+          }
+        ]
       }
     ];
 
