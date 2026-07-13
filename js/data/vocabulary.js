@@ -831,15 +831,15 @@
         ]
       },
       {
-        title: "Quantity before a noun",
-        note: "Before a noun, all three use de / d’: beaucoup de livres, un peu d’eau, peu de temps. The normal article does not stay after a quantity expression.",
+        title: "Quantity before a noun: use de / d’",
+        note: "Before a noun, all three use de / d’ even with plurals: des livres → beaucoup de livres / peu de livres. They replace du, de la, de l’, and ordinary plural des. Keep des only when it means de + les for a specific known group: beaucoup des livres que tu m’as prêtés.",
         forms: [
           {
             fr: "beaucoup de",
             speech: "beaucoup",
             ipa: "/boku də/",
             en: "a lot of / many",
-            note: "Use with countable and uncountable nouns: beaucoup de livres, beaucoup d’eau.",
+            note: "Use with countable and uncountable nouns. The plural article changes: des livres → beaucoup de livres, never beaucoup des livres for “many books.”",
             examples: [
               { fr: "J’ai beaucoup de livres.", en: "I have many books." },
               { fr: "J’ai acheté beaucoup de livres.", en: "I bought many books." },
@@ -851,11 +851,11 @@
             speech: "un peu",
             ipa: "/œ̃ pø də/",
             en: "a little / some",
-            note: "Use mainly with uncountable or mass nouns: un peu de lait, de temps, d’argent. For a few countable items, use quelques livres instead.",
+            note: "Use mainly with uncountable or mass nouns: un peu de lait, de temps, d’argent. It still uses de before a plural noun; for a few countable items, quelques livres is often more natural.",
             examples: [
               { fr: "Je bois un peu de lait.", en: "I drink a little milk." },
               { fr: "J’ai bu un peu de lait.", en: "I drank a little milk." },
-              { fr: "Je n’ai bu qu’un peu de lait.", en: "I only drank a little milk." }
+              { fr: "Il reste un peu de fraises.", en: "There are a few strawberries left." }
             ]
           },
           {
@@ -863,10 +863,10 @@
             speech: "peu",
             ipa: "/pø də/",
             en: "little / few",
-            note: "Works with countable and uncountable nouns: peu de temps, peu de livres.",
+            note: "Works with countable and uncountable nouns. The plural article changes: des livres → peu de livres.",
             examples: [
               { fr: "Nous avons peu de temps.", en: "We have little time." },
-              { fr: "Nous avons eu peu de temps.", en: "We had little time." },
+              { fr: "Nous avons peu de livres.", en: "We have few books." },
               { fr: "Nous n’avons presque pas de temps.", en: "We have almost no time." }
             ]
           }
