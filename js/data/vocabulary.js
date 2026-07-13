@@ -1185,6 +1185,86 @@
       }
     ];
 
+    const caPronounRows = [
+      {
+        title: "Ça as a subject",
+        pattern: "ça + verb",
+        note: "Use ça for a thing, idea, or situation as the subject of a sentence. It is informal and everyday; <strong>cela</strong> is more formal. Avoid using ça for a person.",
+        examples: [
+          {
+            label: "ça marche",
+            meaning: "It works.",
+            statement: { fr: "Ça marche bien.", en: "It works well." },
+            negative: { fr: "Ça ne marche pas.", en: "It does not work." },
+            question: { fr: "Est-ce que ça marche ?", en: "Does it work?" }
+          },
+          {
+            label: "ça te plaît",
+            meaning: "You like it.",
+            statement: { fr: "Ça te plaît.", en: "You like it." },
+            negative: { fr: "Ça ne te plaît pas.", en: "You do not like it." },
+            question: { fr: "Est-ce que ça te plaît ?", en: "Do you like it?" }
+          }
+        ]
+      },
+      {
+        title: "Ça as a direct object",
+        pattern: "verb + ça",
+        note: "Put ça after the verb when you want to say “that / it” explicitly. This is especially common in spoken French.",
+        examples: [
+          {
+            label: "tu comprends ça",
+            meaning: "You understand that.",
+            statement: { fr: "Tu comprends ça.", en: "You understand that." },
+            negative: { fr: "Tu ne comprends pas ça.", en: "You do not understand that." },
+            question: { fr: "Est-ce que tu comprends ça ?", en: "Do you understand that?" }
+          },
+          {
+            label: "elle veut ça",
+            meaning: "She wants that.",
+            statement: { fr: "Elle veut ça.", en: "She wants that." },
+            negative: { fr: "Elle ne veut pas ça.", en: "She does not want that." },
+            question: { fr: "Est-ce qu’elle veut ça ?", en: "Does she want that?" }
+          }
+        ]
+      },
+      {
+        title: "À ça / de ça: compare y and en",
+        pattern: "à ça ↔ y; de ça ↔ en",
+        note: "Use à ça or de ça when you want to name the thing or idea explicitly. <strong>Y</strong> and <strong>en</strong> can replace the same phrase: tu penses à ça → tu y penses; vous parlez de ça → vous en parlez.",
+        examples: [
+          {
+            label: "tu penses à ça",
+            meaning: "You think about that.",
+            statement: { fr: "Tu penses à ça.", en: "You think about that." },
+            negative: { fr: "Tu ne penses pas à ça.", en: "You do not think about that." },
+            question: { fr: "Est-ce que tu penses à ça ?", en: "Do you think about that?" }
+          },
+          {
+            label: "vous parlez de ça",
+            meaning: "You talk about that.",
+            statement: { fr: "Vous parlez de ça.", en: "You talk about that." },
+            negative: { fr: "Vous ne parlez pas de ça.", en: "You do not talk about that." },
+            question: { fr: "Est-ce que vous parlez de ça ?", en: "Do you talk about that?" }
+          }
+        ]
+      },
+      {
+        title: "C’est ça",
+        pattern: "c’est + ça",
+        note: "Use <strong>c’est ça</strong> for “that’s it / exactly.” With être, French uses <strong>ce / c’</strong>: c’est ça, not ça est.",
+        examples: [
+          {
+            label: "c’est ça",
+            meaning: "That’s it / exactly.",
+            statement: { fr: "C’est ça.", en: "That’s it / Exactly." },
+            negative: { fr: "Ce n’est pas ça.", en: "That is not it." },
+            question: { fr: "Est-ce que c’est ça ?", en: "Is that it?" }
+          }
+        ]
+      }
+    ];
+
     const toutAdverbRows = [
       {
         fr: "tout",

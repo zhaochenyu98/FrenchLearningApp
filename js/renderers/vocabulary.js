@@ -486,7 +486,7 @@
       });
     }
 
-    function renderAdverbialPronounTable(targetGrid, rows, emptyMessage) {
+    function renderPronounPatternTable(targetGrid, rows, emptyMessage) {
       if (!targetGrid) return;
       targetGrid.innerHTML = "";
       if (!rows.length) {
@@ -547,11 +547,15 @@
     }
 
     function renderYAdverbialPronouns(rows = yAdverbialPronounRows) {
-      renderAdverbialPronounTable(yAdverbialPronounGrid, rows, "No y examples available.");
+      renderPronounPatternTable(yAdverbialPronounGrid, rows, "No y examples available.");
     }
 
     function renderEnAdverbialPronouns(rows = enAdverbialPronounRows) {
-      renderAdverbialPronounTable(enAdverbialPronounGrid, rows, "No en examples available.");
+      renderPronounPatternTable(enAdverbialPronounGrid, rows, "No en examples available.");
+    }
+
+    function renderCaPronoun(rows = caPronounRows) {
+      renderPronounPatternTable(caPronounGrid, rows, "No ça examples available.");
     }
 
     function renderModifierRuleTable(target, rows, emptyMessage) {

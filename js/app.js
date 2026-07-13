@@ -59,6 +59,7 @@
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
           { id: "adverbial-y", title: "Y", open: true, elements: ['[data-study-section="adverbial-y"]'] },
           { id: "adverbial-en", title: "En", open: true, elements: ['[data-study-section="adverbial-en"]'] },
+          { id: "adverbial-ca", title: "Ça", open: true, elements: ['[data-study-section="adverbial-ca"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout forms", elements: ['[data-study-section="adverb-tout"]'] }
         ]
@@ -206,6 +207,7 @@
         renderTransitionWords();
         renderYAdverbialPronouns();
         renderEnAdverbialPronouns();
+        renderCaPronoun();
         renderModifierComparison();
         renderToutAdverbUsage();
         renderToutForms();
