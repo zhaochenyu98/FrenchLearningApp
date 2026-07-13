@@ -483,6 +483,17 @@
 
     const commonPrepositionUsages = [
       {
+        fr: "à la télé",
+        en: "on TV",
+        speech: "à la télé",
+        note: "À la télé is a fixed expression for something shown on television; it does not literally mean “at the television.”",
+        examples: [
+          { fr: "Il y a un film à la télé ce soir.", en: "There is a movie on TV tonight." },
+          { fr: "Qu’est-ce qu’il y a à la télé ?", en: "What is on TV?" },
+          { fr: "Je regarde un match à la télé.", en: "I am watching a game on TV." }
+        ]
+      },
+      {
         fr: "être à + pronom tonique",
         en: "to belong to someone / to be someone’s turn",
         speech: "être à moi, être à toi, être à elle",
