@@ -910,7 +910,7 @@
       }
     ];
 
-    const adverbialPronounRows = [
+    const yAdverbialPronounRows = [
       {
         title: "Y with aller",
         pattern: "y + conjugated aller",
@@ -1048,7 +1048,10 @@
             question: { fr: "Pouvez-vous y répondre avant midi ?", en: "Can you answer it before noon?" }
           }
         ]
-      },
+      }
+    ];
+
+    const enAdverbialPronounRows = [
       {
         title: "En with de + a thing or idea",
         pattern: "en + conjugated verb",

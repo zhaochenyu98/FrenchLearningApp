@@ -57,7 +57,8 @@
           { id: "amounts", title: "Beaucoup / un peu / peu", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
           { id: "frequency", title: "Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
-          { id: "adverbial-pronouns", title: "Adverbial pronouns", open: true, elements: ['[data-study-section="adverbial-pronouns"]'] },
+          { id: "adverbial-y", title: "Y", open: true, elements: ['[data-study-section="adverbial-y"]'] },
+          { id: "adverbial-en", title: "En", open: true, elements: ['[data-study-section="adverbial-en"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout forms", elements: ['[data-study-section="adverb-tout"]'] }
         ]
@@ -203,7 +204,8 @@
         renderAdverbAmountComparison();
         renderFrequencyWords();
         renderTransitionWords();
-        renderAdverbialPronouns();
+        renderYAdverbialPronouns();
+        renderEnAdverbialPronouns();
         renderModifierComparison();
         renderToutAdverbUsage();
         renderToutForms();

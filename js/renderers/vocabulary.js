@@ -486,15 +486,15 @@
       });
     }
 
-    function renderAdverbialPronouns(rows = adverbialPronounRows) {
-      if (!adverbialPronounGrid) return;
-      adverbialPronounGrid.innerHTML = "";
+    function renderAdverbialPronounTable(targetGrid, rows, emptyMessage) {
+      if (!targetGrid) return;
+      targetGrid.innerHTML = "";
       if (!rows.length) {
-        adverbialPronounGrid.innerHTML = `<div class="empty-state">No adverbial pronoun examples available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
         return;
       }
 
-      adverbialPronounGrid.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="noun-rule-header">
           <div>Pattern</div>
           <div>Placement rule</div>
@@ -542,8 +542,16 @@
             })), button);
           });
         });
-        adverbialPronounGrid.appendChild(row);
+        targetGrid.appendChild(row);
       });
+    }
+
+    function renderYAdverbialPronouns(rows = yAdverbialPronounRows) {
+      renderAdverbialPronounTable(yAdverbialPronounGrid, rows, "No y examples available.");
+    }
+
+    function renderEnAdverbialPronouns(rows = enAdverbialPronounRows) {
+      renderAdverbialPronounTable(enAdverbialPronounGrid, rows, "No en examples available.");
     }
 
     function renderModifierRuleTable(target, rows, emptyMessage) {

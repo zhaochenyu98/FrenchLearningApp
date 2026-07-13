@@ -145,7 +145,8 @@
     const adverbAmountComparisonGrid = document.getElementById("adverbAmountComparisonGrid");
     const frequencyWordsGrid = document.getElementById("frequencyWordsGrid");
     const transitionWordsGrid = document.getElementById("transitionWordsGrid");
-    const adverbialPronounGrid = document.getElementById("adverbialPronounGrid");
+    const yAdverbialPronounGrid = document.getElementById("yAdverbialPronounGrid");
+    const enAdverbialPronounGrid = document.getElementById("enAdverbialPronounGrid");
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
     const toutAdverbGrid = document.getElementById("toutAdverbGrid");
     const toutFormsGrid = document.getElementById("toutFormsGrid");
