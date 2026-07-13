@@ -88,6 +88,39 @@
       { pronoun: "elles", form: "invitent", full: "elles invitent", en: "they invite", example: "Elles invitent leurs parents.", exampleEn: "They invite their parents.", negative: "Elles n’invitent pas leurs parents.", negativeEn: "They do not invite their parents." }
     ];
 
+    const adorerRows = [
+      { pronoun: "j’", form: "adore", full: "j’adore", ipa: "/ʒa.dɔʁ/", en: "I love / really like", example: "J’adore ce film.", exampleEn: "I love this movie.", negative: "Je n’adore pas ce film.", negativeEn: "I do not love this movie.", question: "Est-ce que j’adore ce film ?" },
+      { pronoun: "tu", form: "adores", full: "tu adores", ipa: "/ty a.dɔʁ/", en: "you love / really like", example: "Tu adores les films français.", exampleEn: "You love French movies.", negative: "Tu n’adores pas les films français.", negativeEn: "You do not love French movies.", question: "Adores-tu les films français ?" },
+      { pronoun: "il", form: "adore", full: "il adore", ipa: "/il a.dɔʁ/", en: "he loves / really likes", example: "Il adore cuisiner.", exampleEn: "He loves cooking.", negative: "Il n’adore pas cuisiner.", negativeEn: "He does not love cooking.", question: "Est-ce qu’il adore cuisiner ?" },
+      { pronoun: "elle", form: "adore", full: "elle adore", ipa: "/ɛl a.dɔʁ/", en: "she loves / really likes", example: "Elle adore son chien.", exampleEn: "She loves her dog.", negative: "Elle n’adore pas son chien.", negativeEn: "She does not love her dog.", question: "Adore-t-elle son chien ?" },
+      { pronoun: "nous", form: "adorons", full: "nous adorons", ipa: "/nu a.dɔ.ʁɔ̃/", en: "we love / really like", example: "Nous adorons voyager ensemble.", exampleEn: "We love traveling together.", negative: "Nous n’adorons pas voyager ensemble.", negativeEn: "We do not love traveling together.", question: "Adorons-nous voyager ensemble ?" },
+      { pronoun: "vous", form: "adorez", full: "vous adorez", ipa: "/vu a.dɔ.ʁe/", en: "you love / really like", example: "Vous adorez ce restaurant.", exampleEn: "You love this restaurant.", negative: "Vous n’adorez pas ce restaurant.", negativeEn: "You do not love this restaurant.", question: "Est-ce que vous adorez ce restaurant ?" },
+      { pronoun: "ils", form: "adorent", full: "ils adorent", ipa: "/il a.dɔʁ/", en: "they love / really like", example: "Ils adorent jouer au foot.", exampleEn: "They love playing soccer.", negative: "Ils n’adorent pas jouer au foot.", negativeEn: "They do not love playing soccer.", question: "Adorent-ils jouer au foot ?" },
+      { pronoun: "elles", form: "adorent", full: "elles adorent", ipa: "/ɛl a.dɔʁ/", en: "they love / really like", example: "Elles adorent la musique classique.", exampleEn: "They love classical music.", negative: "Elles n’adorent pas la musique classique.", negativeEn: "They do not love classical music.", question: "Quelle musique adorent-elles ?" }
+    ];
+
+    const detesterRows = [
+      { pronoun: "je", form: "déteste", full: "je déteste", ipa: "/ʒə de.tɛst/", en: "I hate / really dislike", example: "Je déteste attendre.", exampleEn: "I hate waiting.", negative: "Je ne déteste pas attendre.", negativeEn: "I do not hate waiting.", question: "Est-ce que je déteste attendre ?" },
+      { pronoun: "tu", form: "détestes", full: "tu détestes", ipa: "/ty de.tɛst/", en: "you hate / really dislike", example: "Tu détestes te lever tôt.", exampleEn: "You hate getting up early.", negative: "Tu ne détestes pas te lever tôt.", negativeEn: "You do not hate getting up early.", question: "Détestes-tu te lever tôt ?" },
+      { pronoun: "il", form: "déteste", full: "il déteste", ipa: "/il de.tɛst/", en: "he hates / really dislikes", example: "Il déteste le bruit.", exampleEn: "He hates noise.", negative: "Il ne déteste pas le bruit.", negativeEn: "He does not hate noise.", question: "Est-ce qu’il déteste le bruit ?" },
+      { pronoun: "elle", form: "déteste", full: "elle déteste", ipa: "/ɛl de.tɛst/", en: "she hates / really dislikes", example: "Elle déteste faire la queue.", exampleEn: "She hates waiting in line.", negative: "Elle ne déteste pas faire la queue.", negativeEn: "She does not hate waiting in line.", question: "Pourquoi déteste-t-elle faire la queue ?" },
+      { pronoun: "nous", form: "détestons", full: "nous détestons", ipa: "/nu de.tɛs.tɔ̃/", en: "we hate / really dislike", example: "Nous détestons être en retard.", exampleEn: "We hate being late.", negative: "Nous ne détestons pas être en retard.", negativeEn: "We do not hate being late.", question: "Détestons-nous être en retard ?" },
+      { pronoun: "vous", form: "détestez", full: "vous détestez", ipa: "/vu de.tɛs.te/", en: "you hate / really dislike", example: "Vous détestez les embouteillages.", exampleEn: "You hate traffic jams.", negative: "Vous ne détestez pas les embouteillages.", negativeEn: "You do not hate traffic jams.", question: "Est-ce que vous détestez les embouteillages ?" },
+      { pronoun: "ils", form: "détestent", full: "ils détestent", ipa: "/il de.tɛst/", en: "they hate / really dislike", example: "Ils détestent les devoirs.", exampleEn: "They hate homework.", negative: "Ils ne détestent pas les devoirs.", negativeEn: "They do not hate homework.", question: "Détestent-ils les devoirs ?" },
+      { pronoun: "elles", form: "détestent", full: "elles détestent", ipa: "/ɛl de.tɛst/", en: "they hate / really dislike", example: "Elles détestent attendre le bus.", exampleEn: "They hate waiting for the bus.", negative: "Elles ne détestent pas attendre le bus.", negativeEn: "They do not hate waiting for the bus.", question: "Pourquoi détestent-elles attendre le bus ?" }
+    ];
+
+    const prefererRows = [
+      { pronoun: "je", form: "préfère", full: "je préfère", ipa: "/ʒə pʁe.fɛʁ/", en: "I prefer", example: "Je préfère le thé au café.", exampleEn: "I prefer tea to coffee.", negative: "Je ne préfère pas le thé au café.", negativeEn: "I do not prefer tea to coffee.", question: "Est-ce que je préfère le thé au café ?" },
+      { pronoun: "tu", form: "préfères", full: "tu préfères", ipa: "/ty pʁe.fɛʁ/", en: "you prefer", example: "Tu préfères le train à l’avion.", exampleEn: "You prefer the train to the plane.", negative: "Tu ne préfères pas le train à l’avion.", negativeEn: "You do not prefer the train to the plane.", question: "Que préfères-tu, le train ou l’avion ?" },
+      { pronoun: "il", form: "préfère", full: "il préfère", ipa: "/il pʁe.fɛʁ/", en: "he prefers", example: "Il préfère rester à la maison.", exampleEn: "He prefers to stay home.", negative: "Il ne préfère pas rester à la maison.", negativeEn: "He does not prefer to stay home.", question: "Préfère-t-il rester à la maison ?" },
+      { pronoun: "elle", form: "préfère", full: "elle préfère", ipa: "/ɛl pʁe.fɛʁ/", en: "she prefers", example: "Elle préfère le matin.", exampleEn: "She prefers the morning.", negative: "Elle ne préfère pas le matin.", negativeEn: "She does not prefer the morning.", question: "Est-ce qu’elle préfère le matin ?" },
+      { pronoun: "nous", form: "préférons", full: "nous préférons", ipa: "/nu pʁe.fe.ʁɔ̃/", en: "we prefer", example: "Nous préférons marcher.", exampleEn: "We prefer to walk.", negative: "Nous ne préférons pas marcher.", negativeEn: "We do not prefer to walk.", question: "Préférons-nous marcher ?" },
+      { pronoun: "vous", form: "préférez", full: "vous préférez", ipa: "/vu pʁe.fe.ʁe/", en: "you prefer", example: "Vous préférez cette table.", exampleEn: "You prefer this table.", negative: "Vous ne préférez pas cette table.", negativeEn: "You do not prefer this table.", question: "Quelle table préférez-vous ?" },
+      { pronoun: "ils", form: "préfèrent", full: "ils préfèrent", ipa: "/il pʁe.fɛʁ/", en: "they prefer", example: "Ils préfèrent partir tôt.", exampleEn: "They prefer to leave early.", negative: "Ils ne préfèrent pas partir tôt.", negativeEn: "They do not prefer to leave early.", question: "Préfèrent-ils partir tôt ?" },
+      { pronoun: "elles", form: "préfèrent", full: "elles préfèrent", ipa: "/ɛl pʁe.fɛʁ/", en: "they prefer", example: "Elles préfèrent la montagne à la plage.", exampleEn: "They prefer the mountains to the beach.", negative: "Elles ne préfèrent pas la montagne à la plage.", negativeEn: "They do not prefer the mountains to the beach.", question: "Est-ce qu’elles préfèrent la montagne à la plage ?" }
+    ];
+
     const arriverRows = [
       { pronoun: "j’", form: "arrive", full: "j’arrive", en: "I arrive / I manage", example: "J’arrive à huit heures.", exampleEn: "I arrive at eight o’clock.", negative: "Je n’arrive pas à huit heures.", negativeEn: "I do not arrive at eight o’clock." },
       { pronoun: "tu", form: "arrives", full: "tu arrives", en: "you arrive / you manage", example: "Tu arrives avant moi.", exampleEn: "You arrive before me.", negative: "Tu n’arrives pas avant moi.", negativeEn: "You do not arrive before me.", question: "Arrives-tu avant moi ?" },
@@ -1332,6 +1365,33 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Inviter</strong> follows the regular -er pattern. The <strong>je</strong> form becomes <strong>j’invite</strong>.",
         rows: inviterRows
+      },
+      {
+        key: "adorer",
+        group: "regularEr",
+        label: "adorer",
+        title: "Adorer — to love / really like",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Adorer</strong> follows the regular -er pattern and means “to love / really like.” It is stronger than <strong>aimer</strong>: <strong>j’adore ce film</strong>.",
+        rows: adorerRows
+      },
+      {
+        key: "detester",
+        group: "regularEr",
+        label: "détester",
+        title: "Détester — to hate / really dislike",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Détester</strong> follows the regular -er pattern and expresses strong dislike: <strong>je déteste attendre</strong>.",
+        rows: detesterRows
+      },
+      {
+        key: "preferer",
+        group: "regularEr",
+        label: "préférer",
+        title: "Préférer — to prefer",
+        tag: "regular -er with accent change",
+        descriptionHtml: "<strong>Préférer</strong> uses regular -er endings, but the second <strong>é</strong> becomes <strong>è</strong> in the singular and ils/elles forms: <strong>je préfère</strong>, <strong>ils préfèrent</strong>. <strong>Nous préférons</strong> and <strong>vous préférez</strong> keep <strong>é</strong>. Use <strong>préférer A à B</strong> for “to prefer A to B.”",
+        rows: prefererRows
       },
       {
         key: "finir",

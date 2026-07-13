@@ -62,6 +62,45 @@
             question: { fr: "Avons-nous invité nos amis ?", en: "Did we invite our friends?" }
           },
           {
+            infinitive: "adorer",
+            infinitiveIpa: "/a.dɔ.ʁe/",
+            meaning: "to love / really like",
+            auxiliary: "avoir",
+            pastParticiple: "adoré",
+            pastParticipleIpa: "/a.dɔ.ʁe/",
+            pattern: "adorer → adoré",
+            note: "Regular -er past participle.",
+            statement: { fr: "J’ai adoré ce concert.", en: "I loved this concert." },
+            negative: { fr: "Je n’ai pas adoré ce concert.", en: "I did not love this concert." },
+            question: { fr: "As-tu adoré ce concert ?", en: "Did you love this concert?" }
+          },
+          {
+            infinitive: "détester",
+            infinitiveIpa: "/de.tɛs.te/",
+            meaning: "to hate / really dislike",
+            auxiliary: "avoir",
+            pastParticiple: "détesté",
+            pastParticipleIpa: "/de.tɛs.te/",
+            pattern: "détester → détesté",
+            note: "Regular -er past participle.",
+            statement: { fr: "Elle a détesté faire la queue.", en: "She hated waiting in line." },
+            negative: { fr: "Elle n’a pas détesté faire la queue.", en: "She did not hate waiting in line." },
+            question: { fr: "A-t-elle détesté faire la queue ?", en: "Did she hate waiting in line?" }
+          },
+          {
+            infinitive: "préférer",
+            infinitiveIpa: "/pʁe.fe.ʁe/",
+            meaning: "to prefer",
+            auxiliary: "avoir",
+            pastParticiple: "préféré",
+            pastParticipleIpa: "/pʁe.fe.ʁe/",
+            pattern: "préférer → préféré",
+            note: "Regular -er past participle; the present-tense accent change does not change the past participle.",
+            statement: { fr: "Nous avons préféré le train à l’avion.", en: "We preferred the train to the plane." },
+            negative: { fr: "Nous n’avons pas préféré le train à l’avion.", en: "We did not prefer the train to the plane." },
+            question: { fr: "Avez-vous préféré le train à l’avion ?", en: "Did you prefer the train to the plane?" }
+          },
+          {
             infinitive: "arriver",
             infinitiveIpa: "/aʁive/",
             meaning: "to arrive",
