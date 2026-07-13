@@ -30,6 +30,16 @@
       { fr: "hiver", ipa: "/ivɛʁ/", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
     ];
 
+    const relativeTimeWords = [
+      { fr: "avant-hier", ipa: "/a.vɑ̃.tjɛʁ/", en: "the day before yesterday", note: "two days before today", example: "Avant-hier, nous avons visité le musée.", exampleEn: "The day before yesterday, we visited the museum." },
+      { fr: "hier", ipa: "/jɛʁ/", en: "yesterday", note: "the previous day", example: "Hier, j’ai fini mes devoirs.", exampleEn: "Yesterday, I finished my homework." },
+      { fr: "aujourd’hui", ipa: "/o.ʒuʁ.dɥi/", en: "today", note: "the current day", example: "Aujourd’hui, nous avons un cours de français.", exampleEn: "Today, we have a French class." },
+      { fr: "demain", ipa: "/də.mɛ̃/", en: "tomorrow", note: "the next day", example: "Demain, nous allons au marché.", exampleEn: "Tomorrow, we are going to the market." },
+      { fr: "après-demain", ipa: "/a.pʁɛ.də.mɛ̃/", en: "the day after tomorrow", note: "two days after today", example: "Après-demain, elle part en vacances.", exampleEn: "The day after tomorrow, she leaves for vacation." },
+      { fr: "tôt", ipa: "/to/", en: "early", note: "adverb: describes when an action happens; it does not agree", example: "Je me lève tôt le matin.", exampleEn: "I get up early in the morning." },
+      { fr: "tard", ipa: "/taʁ/", en: "late", note: "adverb: describes when an action happens; it does not agree", example: "Le train arrive tard ce soir.", exampleEn: "The train arrives late tonight." }
+    ];
+
     const timeSpanComparisons = [
       {
         short: {

@@ -157,6 +157,7 @@
     const timePrepositionTable = document.getElementById("timePrepositionTable");
     const dePrepositionVsArticleGrid = document.getElementById("dePrepositionVsArticleGrid");
     const timeSpanComparisonGrid = document.getElementById("timeSpanComparisonGrid");
+    const relativeTimeGrid = document.getElementById("relativeTimeGrid");
     const weekdaysGrid = document.getElementById("weekdaysGrid");
     const monthsGrid = document.getElementById("monthsGrid");
     const seasonsGrid = document.getElementById("seasonsGrid");

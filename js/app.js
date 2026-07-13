@@ -254,6 +254,7 @@
       },
       calendar() {
         renderTimeSpanComparisons();
+        renderCalendarCards(relativeTimeGrid, relativeTimeWords, "No relative time words available.");
         renderCalendarCards(weekdaysGrid, weekdays, "No days available.");
         renderCalendarCards(monthsGrid, months, "No months available.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons available.");
