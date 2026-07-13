@@ -507,12 +507,13 @@
       {
         fr: "nom + à + infinitif",
         en: "something to do / for doing",
-        speech: "appartement à louer, quelque chose à manger",
+        speech: "appartement à louer, quelque chose à manger, des devoirs à faire",
         note: "After a noun, à + infinitive often tells what something is for or available to do.",
         examples: [
           { fr: "C’est un appartement à louer.", en: "It is an apartment for rent." },
           { fr: "Est-ce que tu as quelque chose à manger ?", en: "Do you have something to eat?" },
-          { fr: "J’achète une machine à laver.", en: "I am buying a washing machine." }
+          { fr: "J’achète une machine à laver.", en: "I am buying a washing machine." },
+          { fr: "J’ai des devoirs à faire ce soir.", en: "I have homework to do tonight." }
         ]
       },
       {
