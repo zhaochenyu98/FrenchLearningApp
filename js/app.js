@@ -232,6 +232,7 @@
         renderDayQuestionExamples();
         renderTimeQuestionExamples();
         renderQueExamples();
+        renderQueConnectorExamples();
         renderQueCestExamples();
         renderCommentExamples();
         renderCombienExamples();

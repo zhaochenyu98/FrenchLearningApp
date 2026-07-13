@@ -130,6 +130,7 @@
     const dayQuestionExamplesGrid = document.getElementById("dayQuestionExamplesGrid");
     const timeQuestionExamplesGrid = document.getElementById("timeQuestionExamplesGrid");
     const queExamplesGrid = document.getElementById("queExamplesGrid");
+    const queConnectorExamplesGrid = document.getElementById("queConnectorExamplesGrid");
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");
     const commentExamplesGrid = document.getElementById("commentExamplesGrid");
     const combienExamplesGrid = document.getElementById("combienExamplesGrid");

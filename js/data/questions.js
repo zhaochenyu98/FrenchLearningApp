@@ -707,6 +707,67 @@
       }
     ];
 
+    const queConnectorColumns = [
+      {
+        key: "mainClause",
+        title: "Main clause",
+        note: "What someone thinks, says, knows, or hopes."
+      },
+      {
+        key: "secondClause",
+        title: "Second clause",
+        note: "The complete information being connected."
+      },
+      {
+        key: "combined",
+        title: "With que / qu’",
+        note: "One sentence with normal statement word order."
+      }
+    ];
+
+    const queConnectorRows = [
+      {
+        topic: "Opinion",
+        agreement: "qu’ before elle",
+        en: "I think that she is ready.",
+        examples: {
+          mainClause: { fr: "Je pense.", en: "I think." },
+          secondClause: { fr: "Elle est prête.", en: "She is ready." },
+          combined: { fr: "Je pense qu’elle est prête.", en: "I think that she is ready." }
+        }
+      },
+      {
+        topic: "Reporting information",
+        agreement: "que before le",
+        en: "He says that the train arrives at eight o’clock.",
+        examples: {
+          mainClause: { fr: "Il dit.", en: "He says." },
+          secondClause: { fr: "Le train arrive à huit heures.", en: "The train arrives at eight o’clock." },
+          combined: { fr: "Il dit que le train arrive à huit heures.", en: "He says that the train arrives at eight o’clock." }
+        }
+      },
+      {
+        topic: "Knowing something",
+        agreement: "qu’ before il",
+        en: "I know that he arrives tomorrow.",
+        examples: {
+          mainClause: { fr: "Je sais.", en: "I know." },
+          secondClause: { fr: "Il arrive demain.", en: "He arrives tomorrow." },
+          combined: { fr: "Je sais qu’il arrive demain.", en: "I know that he arrives tomorrow." }
+        }
+      },
+      {
+        topic: "Hoping",
+        agreement: "normal word order after que",
+        en: "She hopes that you understood the lesson.",
+        examples: {
+          mainClause: { fr: "Elle espère.", en: "She hopes." },
+          secondClause: { fr: "Vous avez compris la leçon.", en: "You understood the lesson." },
+          combined: { fr: "Elle espère que vous avez compris la leçon.", en: "She hopes that you understood the lesson." }
+        }
+      }
+    ];
+
     const queCestSpecialColumns = [
       {
         key: "quoiEnd",

@@ -16,7 +16,7 @@
       });
     }
 
-    function renderQuestionComparison(container, columns, rows, emptyMessage) {
+    function renderQuestionComparison(container, columns, rows, emptyMessage, topicHeader = "Same idea") {
       container.innerHTML = "";
       if (!rows.length) {
         container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
@@ -27,7 +27,7 @@
       header.className = "quel-comparison-header";
       header.style.setProperty("--comparison-cols", columns.length);
       header.innerHTML = `
-        <div>Same idea</div>
+        <div>${topicHeader}</div>
         ${columns.map(column => `<div>${column.title}<br><span>${column.note}</span></div>`).join("")}
       `;
       container.appendChild(header);
@@ -91,6 +91,10 @@
 
     function renderQueExamples(rows = queExampleRows) {
       renderQuestionComparison(queExamplesGrid, queExampleColumns, rows, "No que / quoi examples available.");
+    }
+
+    function renderQueConnectorExamples(rows = queConnectorRows) {
+      renderQuestionComparison(queConnectorExamplesGrid, queConnectorColumns, rows, "No que connector examples available.", "Meaning");
     }
 
     function renderQueCestExamples(rows = queCestSpecialRows) {
