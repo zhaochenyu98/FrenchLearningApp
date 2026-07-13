@@ -751,6 +751,31 @@
       }
     ];
 
+    const degreeWordRows = [
+      {
+        fr: "trop",
+        ipa: "/tʁo/",
+        en: "too much / too many / too",
+        note: "Use trop de + noun for too much / too many, and trop + adjective or adverb for too: trop cher, trop vite. With an action, it normally follows the conjugated verb or the auxiliary in passé composé.",
+        examples: [
+          { fr: "Je travaille trop.", en: "I work too much." },
+          { fr: "Il y a trop de bruit ici.", en: "There is too much noise here." },
+          { fr: "Ce sac est trop lourd.", en: "This bag is too heavy." }
+        ]
+      },
+      {
+        fr: "assez",
+        ipa: "/a.se/",
+        en: "enough / quite / fairly",
+        note: "Use assez de + noun for enough of something. With a verb, assez usually means enough; before an adjective or adverb, it often means quite or fairly.",
+        examples: [
+          { fr: "Je ne dors pas assez.", en: "I do not sleep enough." },
+          { fr: "Nous avons assez de temps.", en: "We have enough time." },
+          { fr: "Ce restaurant est assez bon.", en: "This restaurant is quite good." }
+        ]
+      }
+    ];
+
     const adverbAmountComparisonRows = [
       {
         title: "Amount / degree with actions",
@@ -832,7 +857,7 @@
       },
       {
         title: "Quantity before a noun: use de / d’",
-        note: "Before a noun, all three use de / d’ even with plurals: des livres → beaucoup de livres / peu de livres. They replace du, de la, de l’, and ordinary plural des. Keep des only when it means de + les for a specific known group: beaucoup des livres que tu m’as prêtés.",
+        note: "Before a noun, these quantity expressions use de / d’ even with plurals: des livres → beaucoup de livres / peu de livres. Trop and assez follow the same pattern: trop de livres / assez de livres. They replace du, de la, de l’, and ordinary plural des. Keep des only when it means de + les for a specific known group: beaucoup des livres que tu m’as prêtés.",
         forms: [
           {
             fr: "beaucoup de",

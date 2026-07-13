@@ -143,6 +143,7 @@
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
     const adverbAmountComparisonGrid = document.getElementById("adverbAmountComparisonGrid");
+    const degreeWordsGrid = document.getElementById("degreeWordsGrid");
     const frequencyWordsGrid = document.getElementById("frequencyWordsGrid");
     const transitionWordsGrid = document.getElementById("transitionWordsGrid");
     const yAdverbialPronounGrid = document.getElementById("yAdverbialPronounGrid");

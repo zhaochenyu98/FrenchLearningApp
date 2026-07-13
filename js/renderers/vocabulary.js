@@ -486,6 +486,14 @@
       });
     }
 
+    function renderDegreeWords(rows = degreeWordRows) {
+      renderAdverbWordTable(degreeWordsGrid, rows, {
+        emptyMessage: "No degree adverbs available.",
+        wordLabel: "Adverb",
+        useLabel: "Meaning & placement"
+      });
+    }
+
     function renderPronounPatternTable(targetGrid, rows, emptyMessage) {
       if (!targetGrid) return;
       targetGrid.innerHTML = "";
