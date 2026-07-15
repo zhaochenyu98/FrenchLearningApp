@@ -901,6 +901,105 @@
       { pronoun: "elles", form: "se promènent", full: "elles se promènent", en: "they take a walk / stroll", example: "Elles se promènent au bord de la mer.", exampleEn: "They take a walk by the sea.", negative: "Elles ne se promènent pas au bord de la mer.", negativeEn: "They do not take a walk by the sea.", question: "Où se promènent-elles ?" }
     ];
 
+    const sAimerRows = [
+      { pronoun: "je", form: "m’aime", full: "je m’aime", ipa: "/ʒə mɛm/", en: "I love myself", example: "Je m’aime comme je suis.", exampleEn: "I love myself as I am.", negative: "Je ne m’aime pas comme je suis.", negativeEn: "I do not love myself as I am.", question: "Est-ce que je m’aime comme je suis ?" },
+      { pronoun: "tu", form: "t’aimes", full: "tu t’aimes", ipa: "/ty tɛm/", en: "you love yourself", example: "Tu t’aimes beaucoup.", exampleEn: "You love yourself a lot.", negative: "Tu ne t’aimes pas beaucoup.", negativeEn: "You do not love yourself very much.", question: "Est-ce que tu t’aimes beaucoup ?" },
+      { pronoun: "il", form: "s’aime", full: "il s’aime", ipa: "/il sɛm/", en: "he loves himself", example: "Il s’aime tel qu’il est.", exampleEn: "He loves himself as he is.", negative: "Il ne s’aime pas tel qu’il est.", negativeEn: "He does not love himself as he is.", question: "S’aime-t-il tel qu’il est ?" },
+      { pronoun: "elle", form: "s’aime", full: "elle s’aime", ipa: "/ɛl sɛm/", en: "she loves herself", example: "Elle s’aime comme elle est.", exampleEn: "She loves herself as she is.", negative: "Elle ne s’aime pas comme elle est.", negativeEn: "She does not love herself as she is.", question: "Est-ce qu’elle s’aime comme elle est ?" },
+      { pronoun: "nous", form: "nous aimons", full: "nous nous aimons", ipa: "/nu nu.z‿ɛ.mɔ̃/", en: "we love each other", example: "Nous nous aimons depuis longtemps.", exampleEn: "We have loved each other for a long time.", negative: "Nous ne nous aimons pas depuis longtemps.", negativeEn: "We have not loved each other for a long time.", question: "Est-ce que nous nous aimons depuis longtemps ?" },
+      { pronoun: "vous", form: "vous aimez", full: "vous vous aimez", ipa: "/vu vu.z‿ɛ.me/", en: "you love each other / yourself", example: "Vous vous aimez beaucoup.", exampleEn: "You love each other a lot.", negative: "Vous ne vous aimez pas beaucoup.", negativeEn: "You do not love each other very much.", question: "Est-ce que vous vous aimez beaucoup ?" },
+      { pronoun: "ils", form: "s’aiment", full: "ils s’aiment", ipa: "/il sɛm/", en: "they love each other", example: "Ils s’aiment vraiment.", exampleEn: "They truly love each other.", negative: "Ils ne s’aiment pas vraiment.", negativeEn: "They do not truly love each other.", question: "S’aiment-ils vraiment ?" },
+      { pronoun: "elles", form: "s’aiment", full: "elles s’aiment", ipa: "/ɛl sɛm/", en: "they love each other", example: "Elles s’aiment depuis l’enfance.", exampleEn: "They have loved each other since childhood.", negative: "Elles ne s’aiment pas depuis l’enfance.", negativeEn: "They have not loved each other since childhood.", question: "Depuis quand s’aiment-elles ?" }
+    ];
+
+    const seConnaitreRows = [
+      { pronoun: "je", form: "me connais", full: "je me connais", ipa: "/ʒə mə kɔ.nɛ/", en: "I know myself", example: "Je me connais bien.", exampleEn: "I know myself well.", negative: "Je ne me connais pas bien.", negativeEn: "I do not know myself well.", question: "Est-ce que je me connais bien ?" },
+      { pronoun: "tu", form: "te connais", full: "tu te connais", ipa: "/ty tə kɔ.nɛ/", en: "you know yourself", example: "Tu te connais mieux maintenant.", exampleEn: "You know yourself better now.", negative: "Tu ne te connais pas mieux maintenant.", negativeEn: "You do not know yourself better now.", question: "Est-ce que tu te connais mieux maintenant ?" },
+      { pronoun: "il", form: "se connaît", full: "il se connaît", ipa: "/il sə kɔ.nɛ/", en: "he knows himself", example: "Il se connaît très bien.", exampleEn: "He knows himself very well.", negative: "Il ne se connaît pas très bien.", negativeEn: "He does not know himself very well.", question: "Se connaît-il très bien ?" },
+      { pronoun: "elle", form: "se connaît", full: "elle se connaît", ipa: "/ɛl sə kɔ.nɛ/", en: "she knows herself", example: "Elle se connaît bien.", exampleEn: "She knows herself well.", negative: "Elle ne se connaît pas bien.", negativeEn: "She does not know herself well.", question: "Est-ce qu’elle se connaît bien ?" },
+      { pronoun: "nous", form: "nous connaissons", full: "nous nous connaissons", ipa: "/nu nu kɔ.nɛ.sɔ̃/", en: "we know each other", example: "Nous nous connaissons depuis l’école.", exampleEn: "We have known each other since school.", negative: "Nous ne nous connaissons pas depuis l’école.", negativeEn: "We have not known each other since school.", question: "Est-ce que nous nous connaissons depuis l’école ?" },
+      { pronoun: "vous", form: "vous connaissez", full: "vous vous connaissez", ipa: "/vu vu kɔ.nɛ.se/", en: "you know each other / yourself", example: "Vous vous connaissez bien.", exampleEn: "You know each other well.", negative: "Vous ne vous connaissez pas bien.", negativeEn: "You do not know each other well.", question: "Est-ce que vous vous connaissez bien ?" },
+      { pronoun: "ils", form: "se connaissent", full: "ils se connaissent", ipa: "/il sə kɔ.nɛs/", en: "they know each other", example: "Ils se connaissent bien.", exampleEn: "They know each other well.", negative: "Ils ne se connaissent pas bien.", negativeEn: "They do not know each other well.", question: "Se connaissent-ils bien ?" },
+      { pronoun: "elles", form: "se connaissent", full: "elles se connaissent", ipa: "/ɛl sə kɔ.nɛs/", en: "they know each other", example: "Elles se connaissent depuis longtemps.", exampleEn: "They have known each other for a long time.", negative: "Elles ne se connaissent pas depuis longtemps.", negativeEn: "They have not known each other for a long time.", question: "Depuis quand se connaissent-elles ?" }
+    ];
+
+    const seMarierRows = [
+      { pronoun: "je", form: "me marie", full: "je me marie", ipa: "/ʒə mə ma.ʁi/", en: "I am getting married", example: "Je me marie en juin.", exampleEn: "I am getting married in June.", negative: "Je ne me marie pas en juin.", negativeEn: "I am not getting married in June.", question: "Est-ce que je me marie en juin ?" },
+      { pronoun: "tu", form: "te maries", full: "tu te maries", ipa: "/ty tə ma.ʁi/", en: "you are getting married", example: "Tu te maries avec Paul.", exampleEn: "You are getting married to Paul.", negative: "Tu ne te maries pas avec Paul.", negativeEn: "You are not getting married to Paul.", question: "Avec qui te maries-tu ?" },
+      { pronoun: "il", form: "se marie", full: "il se marie", ipa: "/il sə ma.ʁi/", en: "he is getting married", example: "Il se marie cet été.", exampleEn: "He is getting married this summer.", negative: "Il ne se marie pas cet été.", negativeEn: "He is not getting married this summer.", question: "Quand se marie-t-il ?" },
+      { pronoun: "elle", form: "se marie", full: "elle se marie", ipa: "/ɛl sə ma.ʁi/", en: "she is getting married", example: "Elle se marie à la mairie.", exampleEn: "She is getting married at city hall.", negative: "Elle ne se marie pas à la mairie.", negativeEn: "She is not getting married at city hall.", question: "Où se marie-t-elle ?" },
+      { pronoun: "nous", form: "nous marions", full: "nous nous marions", ipa: "/nu nu ma.ʁjɔ̃/", en: "we are getting married", example: "Nous nous marions en septembre.", exampleEn: "We are getting married in September.", negative: "Nous ne nous marions pas en septembre.", negativeEn: "We are not getting married in September.", question: "Est-ce que nous nous marions en septembre ?" },
+      { pronoun: "vous", form: "vous mariez", full: "vous vous mariez", ipa: "/vu vu ma.ʁje/", en: "you are getting married", example: "Vous vous mariez bientôt.", exampleEn: "You are getting married soon.", negative: "Vous ne vous mariez pas bientôt.", negativeEn: "You are not getting married soon.", question: "Vous mariez-vous bientôt ?" },
+      { pronoun: "ils", form: "se marient", full: "ils se marient", ipa: "/il sə ma.ʁi/", en: "they are getting married", example: "Ils se marient samedi.", exampleEn: "They are getting married on Saturday.", negative: "Ils ne se marient pas samedi.", negativeEn: "They are not getting married on Saturday.", question: "Se marient-ils samedi ?" },
+      { pronoun: "elles", form: "se marient", full: "elles se marient", ipa: "/ɛl sə ma.ʁi/", en: "they are getting married", example: "Elles se marient après leurs études.", exampleEn: "They are getting married after their studies.", negative: "Elles ne se marient pas après leurs études.", negativeEn: "They are not getting married after their studies.", question: "Quand se marient-elles ?" }
+    ];
+
+    const seVoirRows = [
+      { pronoun: "je", form: "me vois", full: "je me vois", ipa: "/ʒə mə vwa/", en: "I see myself", example: "Je me vois dans le miroir.", exampleEn: "I see myself in the mirror.", negative: "Je ne me vois pas dans le miroir.", negativeEn: "I do not see myself in the mirror.", question: "Est-ce que je me vois dans le miroir ?" },
+      { pronoun: "tu", form: "te vois", full: "tu te vois", ipa: "/ty tə vwa/", en: "you see yourself", example: "Tu te vois dans la photo.", exampleEn: "You see yourself in the photo.", negative: "Tu ne te vois pas dans la photo.", negativeEn: "You do not see yourself in the photo.", question: "Te vois-tu dans la photo ?" },
+      { pronoun: "il", form: "se voit", full: "il se voit", ipa: "/il sə vwa/", en: "he sees himself", example: "Il se voit dans le miroir.", exampleEn: "He sees himself in the mirror.", negative: "Il ne se voit pas dans le miroir.", negativeEn: "He does not see himself in the mirror.", question: "Se voit-il dans le miroir ?" },
+      { pronoun: "elle", form: "se voit", full: "elle se voit", ipa: "/ɛl sə vwa/", en: "she sees herself", example: "Elle se voit sur l’écran.", exampleEn: "She sees herself on the screen.", negative: "Elle ne se voit pas sur l’écran.", negativeEn: "She does not see herself on the screen.", question: "Est-ce qu’elle se voit sur l’écran ?" },
+      { pronoun: "nous", form: "nous voyons", full: "nous nous voyons", ipa: "/nu nu vwa.jɔ̃/", en: "we see each other", example: "Nous nous voyons chaque semaine.", exampleEn: "We see each other every week.", negative: "Nous ne nous voyons pas chaque semaine.", negativeEn: "We do not see each other every week.", question: "Est-ce que nous nous voyons chaque semaine ?" },
+      { pronoun: "vous", form: "vous voyez", full: "vous vous voyez", ipa: "/vu vu vwa.je/", en: "you see each other / yourself", example: "Vous vous voyez souvent.", exampleEn: "You see each other often.", negative: "Vous ne vous voyez pas souvent.", negativeEn: "You do not see each other often.", question: "Vous voyez-vous souvent ?" },
+      { pronoun: "ils", form: "se voient", full: "ils se voient", ipa: "/il sə vwa/", en: "they see each other", example: "Ils se voient souvent.", exampleEn: "They see each other often.", negative: "Ils ne se voient pas souvent.", negativeEn: "They do not see each other often.", question: "Se voient-ils souvent ?" },
+      { pronoun: "elles", form: "se voient", full: "elles se voient", ipa: "/ɛl sə vwa/", en: "they see each other", example: "Elles se voient le week-end.", exampleEn: "They see each other on weekends.", negative: "Elles ne se voient pas le week-end.", negativeEn: "They do not see each other on weekends.", question: "Quand se voient-elles ?" }
+    ];
+
+    const seRegarderRows = [
+      { pronoun: "je", form: "me regarde", full: "je me regarde", ipa: "/ʒə mə ʁə.ɡaʁd/", en: "I look at myself", example: "Je me regarde dans le miroir.", exampleEn: "I look at myself in the mirror.", negative: "Je ne me regarde pas dans le miroir.", negativeEn: "I do not look at myself in the mirror.", question: "Est-ce que je me regarde dans le miroir ?" },
+      { pronoun: "tu", form: "te regardes", full: "tu te regardes", ipa: "/ty tə ʁə.ɡaʁd/", en: "you look at yourself", example: "Tu te regardes dans la vitre.", exampleEn: "You look at yourself in the window.", negative: "Tu ne te regardes pas dans la vitre.", negativeEn: "You do not look at yourself in the window.", question: "Te regardes-tu dans la vitre ?" },
+      { pronoun: "il", form: "se regarde", full: "il se regarde", ipa: "/il sə ʁə.ɡaʁd/", en: "he looks at himself", example: "Il se regarde dans le miroir.", exampleEn: "He looks at himself in the mirror.", negative: "Il ne se regarde pas dans le miroir.", negativeEn: "He does not look at himself in the mirror.", question: "Se regarde-t-il dans le miroir ?" },
+      { pronoun: "elle", form: "se regarde", full: "elle se regarde", ipa: "/ɛl sə ʁə.ɡaʁd/", en: "she looks at herself", example: "Elle se regarde dans la glace.", exampleEn: "She looks at herself in the mirror.", negative: "Elle ne se regarde pas dans la glace.", negativeEn: "She does not look at herself in the mirror.", question: "Est-ce qu’elle se regarde dans la glace ?" },
+      { pronoun: "nous", form: "nous regardons", full: "nous nous regardons", ipa: "/nu nu ʁə.ɡaʁ.dɔ̃/", en: "we look at each other", example: "Nous nous regardons dans les yeux.", exampleEn: "We look into each other’s eyes.", negative: "Nous ne nous regardons pas dans les yeux.", negativeEn: "We do not look into each other’s eyes.", question: "Est-ce que nous nous regardons dans les yeux ?" },
+      { pronoun: "vous", form: "vous regardez", full: "vous vous regardez", ipa: "/vu vu ʁə.ɡaʁ.de/", en: "you look at each other / yourself", example: "Vous vous regardez dans le miroir.", exampleEn: "You look at yourselves in the mirror.", negative: "Vous ne vous regardez pas dans le miroir.", negativeEn: "You do not look at yourselves in the mirror.", question: "Vous regardez-vous dans le miroir ?" },
+      { pronoun: "ils", form: "se regardent", full: "ils se regardent", ipa: "/il sə ʁə.ɡaʁd/", en: "they look at each other", example: "Ils se regardent en silence.", exampleEn: "They look at each other silently.", negative: "Ils ne se regardent pas en silence.", negativeEn: "They do not look at each other silently.", question: "Se regardent-ils en silence ?" },
+      { pronoun: "elles", form: "se regardent", full: "elles se regardent", ipa: "/ɛl sə ʁə.ɡaʁd/", en: "they look at each other", example: "Elles se regardent et sourient.", exampleEn: "They look at each other and smile.", negative: "Elles ne se regardent pas et ne sourient pas.", negativeEn: "They do not look at each other or smile.", question: "Pourquoi se regardent-elles ?" }
+    ];
+
+    const seDireRows = [
+      { pronoun: "je", form: "me dis", full: "je me dis", ipa: "/ʒə mə di/", en: "I say to myself", example: "Je me dis que tout va bien.", exampleEn: "I tell myself that everything is fine.", negative: "Je ne me dis pas que tout va bien.", negativeEn: "I do not tell myself that everything is fine.", question: "Est-ce que je me dis que tout va bien ?" },
+      { pronoun: "tu", form: "te dis", full: "tu te dis", ipa: "/ty tə di/", en: "you say to yourself", example: "Tu te dis qu’il faut essayer.", exampleEn: "You tell yourself that you have to try.", negative: "Tu ne te dis pas qu’il faut essayer.", negativeEn: "You do not tell yourself that you have to try.", question: "Que te dis-tu avant l’examen ?" },
+      { pronoun: "il", form: "se dit", full: "il se dit", ipa: "/il sə di/", en: "he says to himself", example: "Il se dit qu’il est prêt.", exampleEn: "He tells himself that he is ready.", negative: "Il ne se dit pas qu’il est prêt.", negativeEn: "He does not tell himself that he is ready.", question: "Se dit-il qu’il est prêt ?" },
+      { pronoun: "elle", form: "se dit", full: "elle se dit", ipa: "/ɛl sə di/", en: "she says to herself", example: "Elle se dit la vérité.", exampleEn: "She tells herself the truth.", negative: "Elle ne se dit pas la vérité.", negativeEn: "She does not tell herself the truth.", question: "Est-ce qu’elle se dit la vérité ?" },
+      { pronoun: "nous", form: "nous disons", full: "nous nous disons", ipa: "/nu nu di.zɔ̃/", en: "we say to each other", example: "Nous nous disons bonjour en arrivant.", exampleEn: "We say hello to each other when we arrive.", negative: "Nous ne nous disons pas bonjour en arrivant.", negativeEn: "We do not say hello to each other when we arrive.", question: "Est-ce que nous nous disons bonjour en arrivant ?" },
+      { pronoun: "vous", form: "vous dites", full: "vous vous dites", ipa: "/vu vu dit/", en: "you say to each other", example: "Vous vous dites la vérité.", exampleEn: "You tell each other the truth.", negative: "Vous ne vous dites pas la vérité.", negativeEn: "You do not tell each other the truth.", question: "Vous dites-vous la vérité ?" },
+      { pronoun: "ils", form: "se disent", full: "ils se disent", ipa: "/il sə diz/", en: "they say to each other", example: "Ils se disent tout.", exampleEn: "They tell each other everything.", negative: "Ils ne se disent pas tout.", negativeEn: "They do not tell each other everything.", question: "Se disent-ils tout ?" },
+      { pronoun: "elles", form: "se disent", full: "elles se disent", ipa: "/ɛl sə diz/", en: "they say to each other", example: "Elles se disent au revoir le soir.", exampleEn: "They say goodbye to each other in the evening.", negative: "Elles ne se disent pas au revoir le soir.", negativeEn: "They do not say goodbye to each other in the evening.", question: "Quand se disent-elles au revoir ?" }
+    ];
+
+    const seVendreRows = [
+      { pronoun: "je", form: "me vends", full: "je me vends", ipa: "/ʒə mə vɑ̃/", en: "I market myself", example: "Je me vends bien en entretien.", exampleEn: "I market myself well in an interview.", negative: "Je ne me vends pas bien en entretien.", negativeEn: "I do not market myself well in an interview.", question: "Est-ce que je me vends bien en entretien ?" },
+      { pronoun: "tu", form: "te vends", full: "tu te vends", ipa: "/ty tə vɑ̃/", en: "you market yourself", example: "Tu te vends bien auprès des clients.", exampleEn: "You market yourself well to clients.", negative: "Tu ne te vends pas bien auprès des clients.", negativeEn: "You do not market yourself well to clients.", question: "Comment te vends-tu auprès des clients ?" },
+      { pronoun: "il", form: "se vend", full: "il se vend", ipa: "/il sə vɑ̃/", en: "it sells / is sold", example: "Ce livre se vend bien.", exampleEn: "This book sells well.", negative: "Ce livre ne se vend pas bien.", negativeEn: "This book does not sell well.", question: "Ce livre se vend-il bien ?" },
+      { pronoun: "elle", form: "se vend", full: "elle se vend", ipa: "/ɛl sə vɑ̃/", en: "it sells / is sold", example: "Cette robe se vend bien en ligne.", exampleEn: "This dress sells well online.", negative: "Cette robe ne se vend pas bien en ligne.", negativeEn: "This dress does not sell well online.", question: "Cette robe se vend-elle bien en ligne ?" },
+      { pronoun: "nous", form: "nous vendons", full: "nous nous vendons", ipa: "/nu nu vɑ̃.dɔ̃/", en: "we market ourselves", example: "Nous nous vendons bien comme équipe.", exampleEn: "We market ourselves well as a team.", negative: "Nous ne nous vendons pas bien comme équipe.", negativeEn: "We do not market ourselves well as a team.", question: "Est-ce que nous nous vendons bien comme équipe ?" },
+      { pronoun: "vous", form: "vous vendez", full: "vous vous vendez", ipa: "/vu vu vɑ̃.de/", en: "you market yourself / yourselves", example: "Vous vous vendez bien en entretien.", exampleEn: "You market yourselves well in interviews.", negative: "Vous ne vous vendez pas bien en entretien.", negativeEn: "You do not market yourselves well in interviews.", question: "Vous vendez-vous bien en entretien ?" },
+      { pronoun: "ils", form: "se vendent", full: "ils se vendent", ipa: "/il sə vɑ̃d/", en: "they sell / are sold", example: "Ces billets se vendent vite.", exampleEn: "These tickets sell quickly.", negative: "Ces billets ne se vendent pas vite.", negativeEn: "These tickets do not sell quickly.", question: "Ces billets se vendent-ils vite ?" },
+      { pronoun: "elles", form: "se vendent", full: "elles se vendent", ipa: "/ɛl sə vɑ̃d/", en: "they sell / are sold", example: "Ces places se vendent rapidement.", exampleEn: "These seats sell quickly.", negative: "Ces places ne se vendent pas rapidement.", negativeEn: "These seats do not sell quickly.", question: "Ces places se vendent-elles rapidement ?" }
+    ];
+
+    const seSouvenirRows = [
+      { pronoun: "je", form: "me souviens", full: "je me souviens", ipa: "/ʒə mə su.vjɛ̃/", en: "I remember", example: "Je me souviens de son nom.", exampleEn: "I remember his or her name.", negative: "Je ne me souviens pas de son nom.", negativeEn: "I do not remember his or her name.", question: "Est-ce que je me souviens de son nom ?" },
+      { pronoun: "tu", form: "te souviens", full: "tu te souviens", ipa: "/ty tə su.vjɛ̃/", en: "you remember", example: "Tu te souviens de cette chanson.", exampleEn: "You remember this song.", negative: "Tu ne te souviens pas de cette chanson.", negativeEn: "You do not remember this song.", question: "De quoi te souviens-tu ?" },
+      { pronoun: "il", form: "se souvient", full: "il se souvient", ipa: "/il sə su.vjɛ̃/", en: "he remembers", example: "Il se souvient de l’adresse.", exampleEn: "He remembers the address.", negative: "Il ne se souvient pas de l’adresse.", negativeEn: "He does not remember the address.", question: "Se souvient-il de l’adresse ?" },
+      { pronoun: "elle", form: "se souvient", full: "elle se souvient", ipa: "/ɛl sə su.vjɛ̃/", en: "she remembers", example: "Elle se souvient de ce jour.", exampleEn: "She remembers that day.", negative: "Elle ne se souvient pas de ce jour.", negativeEn: "She does not remember that day.", question: "Est-ce qu’elle se souvient de ce jour ?" },
+      { pronoun: "nous", form: "nous souvenons", full: "nous nous souvenons", ipa: "/nu nu su.və.nɔ̃/", en: "we remember", example: "Nous nous souvenons de ce voyage.", exampleEn: "We remember that trip.", negative: "Nous ne nous souvenons pas de ce voyage.", negativeEn: "We do not remember that trip.", question: "Est-ce que nous nous souvenons de ce voyage ?" },
+      { pronoun: "vous", form: "vous souvenez", full: "vous vous souvenez", ipa: "/vu vu su.və.ne/", en: "you remember", example: "Vous vous souvenez de la règle.", exampleEn: "You remember the rule.", negative: "Vous ne vous souvenez pas de la règle.", negativeEn: "You do not remember the rule.", question: "Vous souvenez-vous de la règle ?" },
+      { pronoun: "ils", form: "se souviennent", full: "ils se souviennent", ipa: "/il sə su.vjɛn/", en: "they remember", example: "Ils se souviennent du chemin.", exampleEn: "They remember the way.", negative: "Ils ne se souviennent pas du chemin.", negativeEn: "They do not remember the way.", question: "De quoi se souviennent-ils ?" },
+      { pronoun: "elles", form: "se souviennent", full: "elles se souviennent", ipa: "/ɛl sə su.vjɛn/", en: "they remember", example: "Elles se souviennent de leur voyage.", exampleEn: "They remember their trip.", negative: "Elles ne se souviennent pas de leur voyage.", negativeEn: "They do not remember their trip.", question: "Se souviennent-elles de leur voyage ?" }
+    ];
+
+    const sEnvolerRows = [
+      { pronoun: "je", form: "m’envole", full: "je m’envole", ipa: "/ʒə mɑ̃.vɔl/", en: "I fly away / take off", example: "Je m’envole demain matin.", exampleEn: "I fly out tomorrow morning.", negative: "Je ne m’envole pas demain matin.", negativeEn: "I am not flying out tomorrow morning.", question: "Est-ce que je m’envole demain matin ?" },
+      { pronoun: "tu", form: "t’envoles", full: "tu t’envoles", ipa: "/ty tɑ̃.vɔl/", en: "you fly away / take off", example: "Tu t’envoles pour Paris.", exampleEn: "You are flying to Paris.", negative: "Tu ne t’envoles pas pour Paris.", negativeEn: "You are not flying to Paris.", question: "Quand t’envoles-tu pour Paris ?" },
+      { pronoun: "il", form: "s’envole", full: "il s’envole", ipa: "/il sɑ̃.vɔl/", en: "it flies away / takes off", example: "L’avion s’envole à midi.", exampleEn: "The plane takes off at noon.", negative: "L’avion ne s’envole pas à midi.", negativeEn: "The plane does not take off at noon.", question: "À quelle heure s’envole l’avion ?" },
+      { pronoun: "elle", form: "s’envole", full: "elle s’envole", ipa: "/ɛl sɑ̃.vɔl/", en: "she flies away / takes off", example: "Elle s’envole pour Montréal.", exampleEn: "She is flying to Montreal.", negative: "Elle ne s’envole pas pour Montréal.", negativeEn: "She is not flying to Montreal.", question: "Est-ce qu’elle s’envole pour Montréal ?" },
+      { pronoun: "nous", form: "nous envolons", full: "nous nous envolons", ipa: "/nu nu.zɑ̃.vɔ.lɔ̃/", en: "we fly away / take off", example: "Nous nous envolons après le déjeuner.", exampleEn: "We fly out after lunch.", negative: "Nous ne nous envolons pas après le déjeuner.", negativeEn: "We do not fly out after lunch.", question: "Est-ce que nous nous envolons après le déjeuner ?" },
+      { pronoun: "vous", form: "vous envolez", full: "vous vous envolez", ipa: "/vu vu.zɑ̃.vɔ.le/", en: "you fly away / take off", example: "Vous vous envolez bientôt.", exampleEn: "You are flying out soon.", negative: "Vous ne vous envolez pas bientôt.", negativeEn: "You are not flying out soon.", question: "Vous envolez-vous bientôt ?" },
+      { pronoun: "ils", form: "s’envolent", full: "ils s’envolent", ipa: "/il sɑ̃.vɔl/", en: "they fly away / take off", example: "Les oiseaux s’envolent au coucher du soleil.", exampleEn: "The birds fly away at sunset.", negative: "Les oiseaux ne s’envolent pas au coucher du soleil.", negativeEn: "The birds do not fly away at sunset.", question: "Quand s’envolent les oiseaux ?" },
+      { pronoun: "elles", form: "s’envolent", full: "elles s’envolent", ipa: "/ɛl sɑ̃.vɔl/", en: "they fly away / take off", example: "Elles s’envolent dès l’aube.", exampleEn: "They fly away at dawn.", negative: "Elles ne s’envolent pas dès l’aube.", negativeEn: "They do not fly away at dawn.", question: "Quand s’envolent-elles ?" }
+    ];
+
     const tournerRows = [
       { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
       { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock.", question: "Que tournes-tu ?" },
@@ -1908,6 +2007,78 @@
         title: "Se promener — to take a walk / stroll",
         descriptionHtml: "<strong>Se promener</strong> means “to take a walk / stroll.” It changes spelling in the singular and third-person plural: <strong>je me promène</strong>, <strong>nous nous promenons</strong>, <strong>ils se promènent</strong>. The base verb <strong>promener</strong> means “to walk / take someone or something out”: <strong>Je promène le chien.</strong>",
         rows: sePromenerRows
+      },
+      {
+        key: "sAimer",
+        group: "pronominal",
+        label: "s’aimer",
+        title: "S’aimer — to love oneself / each other",
+        descriptionHtml: "<strong>S’aimer</strong> can mean “to love oneself,” but with a plural subject it often means “to love each other.” The base verb <strong>aimer</strong> means “to love / like” someone or something: <strong>J’aime ce film.</strong>",
+        rows: sAimerRows
+      },
+      {
+        key: "seConnaitre",
+        group: "pronominal",
+        label: "se connaître",
+        title: "Se connaître — to know oneself / each other",
+        descriptionHtml: "<strong>Se connaître</strong> means “to know oneself,” and with a plural subject it often means “to know each other / be acquainted.” The base verb <strong>connaître</strong> means “to know / be familiar with” a person, place, or thing: <strong>Je connais Marie.</strong>",
+        rows: seConnaitreRows
+      },
+      {
+        key: "seMarier",
+        group: "pronominal",
+        label: "se marier",
+        title: "Se marier — to get married",
+        descriptionHtml: "<strong>Se marier</strong> means “to get married”; use <strong>se marier avec quelqu’un</strong> to name the partner. The base verb <strong>marier</strong> means “to marry” someone in the sense of performing or arranging a marriage: <strong>Le maire marie les deux personnes.</strong>",
+        rows: seMarierRows
+      },
+      {
+        key: "seVoir",
+        group: "pronominal",
+        label: "se voir",
+        title: "Se voir — to see oneself / each other",
+        descriptionHtml: "<strong>Se voir</strong> means “to see oneself” or, with a plural subject, “to see each other / meet.” The base verb <strong>voir</strong> means “to see”: <strong>Je vois la gare.</strong>",
+        rows: seVoirRows
+      },
+      {
+        key: "seRegarder",
+        group: "pronominal",
+        label: "se regarder",
+        title: "Se regarder — to look at oneself / each other",
+        descriptionHtml: "<strong>Se regarder</strong> means “to look at oneself” or “to look at each other.” The base verb <strong>regarder</strong> means “to watch / look at”: <strong>Je regarde un film.</strong>",
+        rows: seRegarderRows
+      },
+      {
+        key: "seDire",
+        group: "pronominal",
+        label: "se dire",
+        title: "Se dire — to say to oneself / each other",
+        descriptionHtml: "<strong>Se dire</strong> means “to say to oneself” or “to say to each other.” The base verb <strong>dire</strong> means “to say / tell”: <strong>Je dis bonjour à mon voisin.</strong> In passé composé, <strong>se</strong> is normally indirect in <strong>dire quelque chose à quelqu’un</strong>, so use <strong>ils se sont dit bonjour</strong> (no agreement).",
+        rows: seDireRows
+      },
+      {
+        key: "seVendre",
+        group: "pronominal",
+        label: "se vendre",
+        title: "Se vendre — to market oneself / sell",
+        descriptionHtml: "<strong>Se vendre</strong> can literally mean “to sell oneself,” but it is also a common middle/passive structure: <strong>Ce livre se vend bien.</strong> (“This book sells well.”) The base verb <strong>vendre</strong> means “to sell” something: <strong>Je vends mon vélo.</strong>",
+        rows: seVendreRows
+      },
+      {
+        key: "seSouvenir",
+        group: "pronominal",
+        label: "se souvenir",
+        title: "Se souvenir de — to remember",
+        descriptionHtml: "<strong>Se souvenir de</strong> means “to remember.” It is a fixed pronominal verb; modern French does not use a standalone verb <strong><em>souvenir</em></strong>. Always keep <strong>de</strong>: <strong>Je me souviens de son nom.</strong>",
+        rows: seSouvenirRows
+      },
+      {
+        key: "sEnvoler",
+        group: "pronominal",
+        label: "s’envoler",
+        title: "S’envoler — to fly away / take off",
+        descriptionHtml: "<strong>S’envoler</strong> means “to fly away / take off,” for birds, planes, or figurative hopes. The base verb <strong>voler</strong> means “to fly” and can also mean “to steal”: <strong>L’oiseau vole au-dessus du parc.</strong>",
+        rows: sEnvolerRows
       }
     ];
 
