@@ -153,23 +153,36 @@
       {
         fr: "pourquoi",
         en: "why",
-        note: "asks for a reason",
+        note: "asks for a reason; answer with parce que + a clause",
         examples: [
           {
-            fr: "Pourquoi tu pars ?",
+            label: "Inversion",
+            fr: "Pourquoi pars-tu ?",
             en: "Why are you leaving?",
             variants: [
-              { fr: "Tu pars pourquoi ?", en: "Why are you leaving?" }
+              { label: "Est-ce que form", fr: "Pourquoi est-ce que tu pars ?", en: "Why are you leaving?" },
+              { label: "Spoken form", fr: "Tu pars pourquoi ?", en: "Why are you leaving?" },
+              { label: "Answer with parce que", fr: "Je pars parce que je dois travailler.", en: "I am leaving because I have to work." }
             ]
           },
           {
+            label: "Short form",
             fr: "Pourquoi est-ce important ?",
             en: "Why is it important?",
             variants: [
-              { fr: "C’est important pourquoi ?", en: "Why is it important?" }
+              { label: "Est-ce que form", fr: "Pourquoi est-ce que c’est important ?", en: "Why is it important?" },
+              { label: "Spoken form", fr: "C’est important pourquoi ?", en: "Why is it important?" },
+              { label: "Answer with parce que", fr: "Parce que ça aide tout le monde.", en: "Because it helps everyone." }
             ]
           },
-          { fr: "Pourquoi pas ?", en: "Why not?" }
+          {
+            label: "Fixed expression",
+            fr: "Pourquoi pas ?",
+            en: "Why not?",
+            variants: [
+              { label: "Answer with parce que", fr: "Parce que je suis déjà occupé.", en: "Because I am already busy." }
+            ]
+          }
         ]
       },
       {

@@ -134,6 +134,7 @@
             <button class="question-example-btn" type="button" data-example-index="${index}">
               ${getExampleVariants(example).map((variant, variantIndex) => `
                 <div class="${variantIndex ? "question-variant" : ""}">
+                  ${variant.label ? `<div class="tiny-label">${variant.label}</div>` : ""}
                   <div class="translation"><strong>${variant.fr}</strong></div>
                   <div class="translation">${variant.en}</div>
                 </div>
