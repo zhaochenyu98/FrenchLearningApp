@@ -1340,16 +1340,17 @@
     const toutFormRows = [
       {
         family: "tout",
-        note: "all / every; agrees when it works like a determiner or adjective before a noun",
+        note: "Singular forms mean whole / entire; plural forms mean all, or every with repeated time units. Agreement follows the noun’s gender and number.",
         forms: [
           {
             fr: "tout",
             ipa: "/tu/",
             gender: "Masculine",
             number: "Singular",
-            label: "Masculine singular",
+            label: "Masculine singular — whole / entire",
             examples: [
-              { fr: "tout le jour", en: "the whole day" },
+              { fr: "tout le gâteau", en: "the whole cake" },
+              { fr: "tout le jour", en: "all day (correct; everyday French often says toute la journée)" },
               { fr: "tout le monde", en: "everyone / all the world" }
             ]
           },
@@ -1358,9 +1359,9 @@
             ipa: "/tut/",
             gender: "Feminine",
             number: "Singular",
-            label: "Feminine singular",
+            label: "Feminine singular — whole / entire",
             examples: [
-              { fr: "toute la journée", en: "the whole day" },
+              { fr: "toute la journée", en: "all day / the whole day (everyday choice)" },
               { fr: "toute la famille", en: "the whole family" }
             ]
           },
@@ -1369,7 +1370,7 @@
             ipa: "/tu/; /tuz/ before a vowel",
             gender: "Masculine",
             number: "Plural",
-            label: "Masculine plural",
+            label: "Masculine plural — all / every",
             examples: [
               { fr: "tous les jours", en: "every day" },
               { fr: "tous mes amis", en: "all my friends" }
@@ -1380,7 +1381,7 @@
             ipa: "/tut/; /tutz/ before a vowel",
             gender: "Feminine",
             number: "Plural",
-            label: "Feminine plural",
+            label: "Feminine plural — all / every",
             examples: [
               { fr: "toutes les semaines", en: "every week" },
               { fr: "toutes mes questions", en: "all my questions" }
