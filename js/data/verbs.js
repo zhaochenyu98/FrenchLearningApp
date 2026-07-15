@@ -1049,6 +1049,82 @@
       { pronoun: "il", form: "est", full: "il est", en: "it is / time expression", example: "Il est huit heures.", exampleEn: "It is eight o’clock.", negative: "Il n’est pas huit heures.", negativeEn: "It is not eight o’clock.", question: "Est-il huit heures ?" }
     ];
 
+    const vivreRows = [
+      { pronoun: "je", form: "vis", full: "je vis", ipa: "/ʒə vi/", en: "I live / experience", example: "Je vis à Lyon.", exampleEn: "I live in Lyon.", negative: "Je ne vis pas à Lyon.", negativeEn: "I do not live in Lyon.", question: "Où est-ce que je vis ?" },
+      { pronoun: "tu", form: "vis", full: "tu vis", ipa: "/ty vi/", en: "you live / experience", example: "Tu vis avec tes parents.", exampleEn: "You live with your parents.", negative: "Tu ne vis pas avec tes parents.", negativeEn: "You do not live with your parents.", question: "Avec qui vis-tu ?" },
+      { pronoun: "il", form: "vit", full: "il vit", ipa: "/il vi/", en: "he lives / experiences", example: "Il vit en France.", exampleEn: "He lives in France.", negative: "Il ne vit pas en France.", negativeEn: "He does not live in France.", question: "Où vit-il ?" },
+      { pronoun: "elle", form: "vit", full: "elle vit", ipa: "/ɛl vi/", en: "she lives / experiences", example: "Elle vit seule.", exampleEn: "She lives alone.", negative: "Elle ne vit pas seule.", negativeEn: "She does not live alone.", question: "Vit-elle seule ?" },
+      { pronoun: "nous", form: "vivons", full: "nous vivons", ipa: "/nu vi.vɔ̃/", en: "we live / experience", example: "Nous vivons près de la mer.", exampleEn: "We live near the sea.", negative: "Nous ne vivons pas près de la mer.", negativeEn: "We do not live near the sea.", question: "Où vivons-nous ?" },
+      { pronoun: "vous", form: "vivez", full: "vous vivez", ipa: "/vu vi.ve/", en: "you live / experience", example: "Vous vivez en ville.", exampleEn: "You live in the city.", negative: "Vous ne vivez pas en ville.", negativeEn: "You do not live in the city.", question: "Est-ce que vous vivez en ville ?" },
+      { pronoun: "ils", form: "vivent", full: "ils vivent", ipa: "/il viv/", en: "they live / experience", example: "Ils vivent dans le même quartier.", exampleEn: "They live in the same neighborhood.", negative: "Ils ne vivent pas dans le même quartier.", negativeEn: "They do not live in the same neighborhood.", question: "Où vivent-ils ?" },
+      { pronoun: "elles", form: "vivent", full: "elles vivent", ipa: "/ɛl viv/", en: "they live / experience", example: "Elles vivent une grande aventure.", exampleEn: "They are experiencing a great adventure.", negative: "Elles ne vivent pas de grande aventure.", negativeEn: "They are not experiencing a great adventure.", question: "Quelle aventure vivent-elles ?" }
+    ];
+
+    const comprendreRows = [
+      { pronoun: "je", form: "comprends", full: "je comprends", ipa: "/ʒə kɔ̃.pʁɑ̃/", en: "I understand", example: "Je comprends cette règle.", exampleEn: "I understand this rule.", negative: "Je ne comprends pas cette règle.", negativeEn: "I do not understand this rule.", question: "Est-ce que je comprends cette règle ?" },
+      { pronoun: "tu", form: "comprends", full: "tu comprends", ipa: "/ty kɔ̃.pʁɑ̃/", en: "you understand", example: "Tu comprends le message.", exampleEn: "You understand the message.", negative: "Tu ne comprends pas le message.", negativeEn: "You do not understand the message.", question: "Comprends-tu le message ?" },
+      { pronoun: "il", form: "comprend", full: "il comprend", ipa: "/il kɔ̃.pʁɑ̃/", en: "he understands", example: "Il comprend bien le problème.", exampleEn: "He understands the problem well.", negative: "Il ne comprend pas bien le problème.", negativeEn: "He does not understand the problem well.", question: "Comprend-il bien le problème ?" },
+      { pronoun: "elle", form: "comprend", full: "elle comprend", ipa: "/ɛl kɔ̃.pʁɑ̃/", en: "she understands", example: "Elle comprend le français.", exampleEn: "She understands French.", negative: "Elle ne comprend pas le français.", negativeEn: "She does not understand French.", question: "Est-ce qu’elle comprend le français ?" },
+      { pronoun: "nous", form: "comprenons", full: "nous comprenons", ipa: "/nu kɔ̃.pʁə.nɔ̃/", en: "we understand", example: "Nous comprenons la leçon.", exampleEn: "We understand the lesson.", negative: "Nous ne comprenons pas la leçon.", negativeEn: "We do not understand the lesson.", question: "Comprenons-nous la leçon ?" },
+      { pronoun: "vous", form: "comprenez", full: "vous comprenez", ipa: "/vu kɔ̃.pʁə.ne/", en: "you understand", example: "Vous comprenez la consigne.", exampleEn: "You understand the instruction.", negative: "Vous ne comprenez pas la consigne.", negativeEn: "You do not understand the instruction.", question: "Que comprenez-vous ?" },
+      { pronoun: "ils", form: "comprennent", full: "ils comprennent", ipa: "/il kɔ̃.pʁɛn/", en: "they understand", example: "Ils comprennent le plan.", exampleEn: "They understand the plan.", negative: "Ils ne comprennent pas le plan.", negativeEn: "They do not understand the plan.", question: "Comprennent-ils le plan ?" },
+      { pronoun: "elles", form: "comprennent", full: "elles comprennent", ipa: "/ɛl kɔ̃.pʁɛn/", en: "they understand", example: "Elles comprennent les explications.", exampleEn: "They understand the explanations.", negative: "Elles ne comprennent pas les explications.", negativeEn: "They do not understand the explanations.", question: "Comprennent-elles les explications ?" }
+    ];
+
+    const attendreRows = [
+      { pronoun: "j’", form: "attends", full: "j’attends", ipa: "/ʒa.tɑ̃/", en: "I wait / expect", example: "J’attends le bus.", exampleEn: "I am waiting for the bus.", negative: "Je n’attends pas le bus.", negativeEn: "I am not waiting for the bus.", question: "Est-ce que j’attends le bus ?" },
+      {
+        pronoun: "tu",
+        form: "attends",
+        full: "tu attends",
+        ipa: "/ty a.tɑ̃/",
+        en: "you wait / expect",
+        examples: [
+          { meaning: "Wait for someone", fr: "Tu attends ta sœur.", en: "You are waiting for your sister.", negative: "Tu n’attends pas ta sœur.", negativeEn: "You are not waiting for your sister.", question: "Qui attends-tu ?" },
+          { meaning: "Imperative + direct object", statementLabel: "Imperative", fr: "Attends-moi !", en: "Wait for me!", negative: "Ne m’attends pas !", negativeEn: "Do not wait for me!", question: "Peux-tu m’attendre ?" }
+        ]
+      },
+      { pronoun: "il", form: "attend", full: "il attend", ipa: "/il a.tɑ̃/", en: "he waits / expects", example: "Il attend son ami devant le café.", exampleEn: "He is waiting for his friend in front of the café.", negative: "Il n’attend pas son ami devant le café.", negativeEn: "He is not waiting for his friend in front of the café.", question: "Qui attend-il devant le café ?" },
+      { pronoun: "elle", form: "attend", full: "elle attend", ipa: "/ɛl a.tɑ̃/", en: "she waits / expects", example: "Elle attend le train.", exampleEn: "She is waiting for the train.", negative: "Elle n’attend pas le train.", negativeEn: "She is not waiting for the train.", question: "Quel train attend-elle ?" },
+      { pronoun: "nous", form: "attendons", full: "nous attendons", ipa: "/nu za.tɑ̃.dɔ̃/", en: "we wait / expect", example: "Nous attendons devant le cinéma.", exampleEn: "We are waiting in front of the cinema.", negative: "Nous n’attendons pas devant le cinéma.", negativeEn: "We are not waiting in front of the cinema.", question: "Où attendons-nous ?" },
+      { pronoun: "vous", form: "attendez", full: "vous attendez", ipa: "/vu za.tɑ̃.de/", en: "you wait / expect", example: "Vous attendez le médecin.", exampleEn: "You are waiting for the doctor.", negative: "Vous n’attendez pas le médecin.", negativeEn: "You are not waiting for the doctor.", question: "Attendez-vous le médecin ?" },
+      { pronoun: "ils", form: "attendent", full: "ils attendent", ipa: "/il za.tɑ̃d/", en: "they wait / expect", example: "Ils attendent le début du cours.", exampleEn: "They are waiting for the start of class.", negative: "Ils n’attendent pas le début du cours.", negativeEn: "They are not waiting for the start of class.", question: "Attendent-ils le début du cours ?" },
+      { pronoun: "elles", form: "attendent", full: "elles attendent", ipa: "/ɛl za.tɑ̃d/", en: "they wait / expect", example: "Elles attendent une réponse.", exampleEn: "They are waiting for an answer.", negative: "Elles n’attendent pas de réponse.", negativeEn: "They are not waiting for an answer.", question: "Qu’attendent-elles ?" }
+    ];
+
+    const penserRows = [
+      { pronoun: "je", form: "pense", full: "je pense", ipa: "/ʒə pɑ̃s/", en: "I think", example: "Je pense à mes amis.", exampleEn: "I am thinking about my friends.", negative: "Je ne pense pas à mes amis.", negativeEn: "I am not thinking about my friends.", question: "À qui est-ce que je pense ?" },
+      {
+        pronoun: "tu",
+        form: "penses",
+        full: "tu penses",
+        ipa: "/ty pɑ̃s/",
+        en: "you think",
+        examples: [
+          { meaning: "penser de (have an opinion)", fr: "Tu penses du bien de ce film.", en: "You think highly of this movie.", negative: "Tu ne penses pas du bien de ce film.", negativeEn: "You do not think highly of this movie.", question: "Que penses-tu de ce film ?" },
+          { meaning: "penser que (think that)", fr: "Tu penses que c’est une bonne idée.", en: "You think that it is a good idea.", negative: "Tu ne penses pas que ce soit une bonne idée.", negativeEn: "You do not think that it is a good idea.", question: "Est-ce que tu penses que c’est une bonne idée ?" },
+          { meaning: "en penser (think of it)", fr: "Tu en penses du bien.", en: "You think highly of it.", negative: "Tu n’en penses pas beaucoup de bien.", negativeEn: "You do not think very highly of it.", question: "Qu’en penses-tu ?" }
+        ]
+      },
+      { pronoun: "il", form: "pense", full: "il pense", ipa: "/il pɑ̃s/", en: "he thinks", example: "Il pense à son voyage.", exampleEn: "He is thinking about his trip.", negative: "Il ne pense pas à son voyage.", negativeEn: "He is not thinking about his trip.", question: "À quoi pense-t-il ?" },
+      { pronoun: "elle", form: "pense", full: "elle pense", ipa: "/ɛl pɑ̃s/", en: "she thinks", example: "Elle pense à appeler sa mère.", exampleEn: "She is thinking about calling her mother.", negative: "Elle ne pense pas à appeler sa mère.", negativeEn: "She is not thinking about calling her mother.", question: "Est-ce qu’elle pense à appeler sa mère ?" },
+      { pronoun: "nous", form: "pensons", full: "nous pensons", ipa: "/nu pɑ̃.sɔ̃/", en: "we think", example: "Nous pensons à nos vacances.", exampleEn: "We are thinking about our vacation.", negative: "Nous ne pensons pas à nos vacances.", negativeEn: "We are not thinking about our vacation.", question: "À quoi pensons-nous ?" },
+      { pronoun: "vous", form: "pensez", full: "vous pensez", ipa: "/vu pɑ̃.se/", en: "you think", example: "Vous pensez à demain.", exampleEn: "You are thinking about tomorrow.", negative: "Vous ne pensez pas à demain.", negativeEn: "You are not thinking about tomorrow.", question: "À quoi pensez-vous ?" },
+      { pronoun: "ils", form: "pensent", full: "ils pensent", ipa: "/il pɑ̃s/", en: "they think", example: "Ils pensent à leur projet.", exampleEn: "They are thinking about their project.", negative: "Ils ne pensent pas à leur projet.", negativeEn: "They are not thinking about their project.", question: "À quoi pensent-ils ?" },
+      { pronoun: "elles", form: "pensent", full: "elles pensent", ipa: "/ɛl pɑ̃s/", en: "they think", example: "Elles pensent à leurs amis.", exampleEn: "They are thinking about their friends.", negative: "Elles ne pensent pas à leurs amis.", negativeEn: "They are not thinking about their friends.", question: "À qui pensent-elles ?" }
+    ];
+
+    const gagnerRows = [
+      { pronoun: "je", form: "gagne", full: "je gagne", ipa: "/ʒə ɡaɲ/", en: "I win / earn", example: "Je gagne du temps en prenant le métro.", exampleEn: "I save time by taking the metro.", negative: "Je ne gagne pas de temps en prenant le métro.", negativeEn: "I do not save time by taking the metro.", question: "Est-ce que je gagne du temps en prenant le métro ?" },
+      { pronoun: "tu", form: "gagnes", full: "tu gagnes", ipa: "/ty ɡaɲ/", en: "you win / earn", example: "Tu gagnes le match.", exampleEn: "You win the match.", negative: "Tu ne gagnes pas le match.", negativeEn: "You do not win the match.", question: "Gagnes-tu le match ?" },
+      { pronoun: "il", form: "gagne", full: "il gagne", ipa: "/il ɡaɲ/", en: "he wins / earns", example: "Il gagne sa vie comme professeur.", exampleEn: "He earns a living as a teacher.", negative: "Il ne gagne pas sa vie comme professeur.", negativeEn: "He does not earn a living as a teacher.", question: "Comment gagne-t-il sa vie ?" },
+      { pronoun: "elle", form: "gagne", full: "elle gagne", ipa: "/ɛl ɡaɲ/", en: "she wins / earns", example: "Elle gagne la course.", exampleEn: "She wins the race.", negative: "Elle ne gagne pas la course.", negativeEn: "She does not win the race.", question: "Gagne-t-elle la course ?" },
+      { pronoun: "nous", form: "gagnons", full: "nous gagnons", ipa: "/nu ɡa.ɲɔ̃/", en: "we win / earn", example: "Nous gagnons le concours.", exampleEn: "We win the competition.", negative: "Nous ne gagnons pas le concours.", negativeEn: "We do not win the competition.", question: "Gagnons-nous le concours ?" },
+      { pronoun: "vous", form: "gagnez", full: "vous gagnez", ipa: "/vu ɡa.ɲe/", en: "you win / earn", example: "Vous gagnez beaucoup d’argent.", exampleEn: "You earn a lot of money.", negative: "Vous ne gagnez pas beaucoup d’argent.", negativeEn: "You do not earn a lot of money.", question: "Est-ce que vous gagnez beaucoup d’argent ?" },
+      { pronoun: "ils", form: "gagnent", full: "ils gagnent", ipa: "/il ɡaɲ/", en: "they win / earn", example: "Ils gagnent du temps.", exampleEn: "They save time.", negative: "Ils ne gagnent pas de temps.", negativeEn: "They do not save time.", question: "Comment gagnent-ils du temps ?" },
+      { pronoun: "elles", form: "gagnent", full: "elles gagnent", ipa: "/ɛl ɡaɲ/", en: "they win / earn", example: "Elles gagnent le premier prix.", exampleEn: "They win first prize.", negative: "Elles ne gagnent pas le premier prix.", negativeEn: "They do not win first prize.", question: "Quel prix gagnent-elles ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
@@ -1084,6 +1160,12 @@
         title: "Regular -ir Verbs",
         indexTitle: "Regular -ir",
         descriptionHtml: "These verbs follow the regular <strong>-ir</strong> present-tense pattern used by <strong>finir</strong>: <strong>-is, -is, -it, -issons, -issez, -issent</strong>. This is different from irregular <strong>-ir</strong> verbs like <strong>venir</strong>, <strong>tenir</strong>, <strong>dormir</strong>, and <strong>partir</strong>."
+      },
+      {
+        key: "regularRe",
+        title: "Regular -re Verbs",
+        indexTitle: "Regular -re",
+        descriptionHtml: "These verbs follow the regular <strong>-re</strong> present-tense pattern: <strong>-s, -s, -, -ons, -ez, -ent</strong>. For example: <strong>j’attends</strong>, <strong>nous attendons</strong>, <strong>ils attendent</strong>."
       },
       {
         key: "impersonal",
@@ -1166,6 +1248,15 @@
         tag: "irregular",
         descriptionHtml: "<strong>Apprendre</strong> follows the same family as <strong>prendre</strong>: <strong>apprends / apprend</strong>, <strong>apprenons</strong>, <strong>apprenez</strong>, <strong>apprennent</strong>.",
         rows: apprendreRows
+      },
+      {
+        key: "comprendre",
+        group: "irregular",
+        label: "comprendre",
+        title: "Comprendre — to understand",
+        tag: "prendre family",
+        descriptionHtml: "<strong>Comprendre</strong> follows the <strong>prendre</strong> family: <strong>comprends / comprend</strong>, <strong>comprenons</strong>, <strong>comprenez</strong>, <strong>comprennent</strong>. Its past participle is <strong>compris</strong>.",
+        rows: comprendreRows
       },
       {
         key: "faire",
@@ -1286,6 +1377,15 @@
         rows: lireRows
       },
       {
+        key: "vivre",
+        group: "irregular",
+        label: "vivre",
+        title: "Vivre — to live / experience",
+        tag: "irregular",
+        descriptionHtml: "<strong>Vivre</strong> changes across the present tense: <strong>vis / vit</strong>, <strong>vivons</strong>, <strong>vivez</strong>, <strong>vivent</strong>. Its past participle is <strong>vécu</strong>.",
+        rows: vivreRows
+      },
+      {
         key: "dormir",
         group: "similar",
         label: "dormir",
@@ -1394,6 +1494,24 @@
         rows: prefererRows
       },
       {
+        key: "gagner",
+        group: "regularEr",
+        label: "gagner",
+        title: "Gagner — to win / earn",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Gagner</strong> follows the regular -er pattern. Use it to win a game or prize, earn money, or save time: <strong>gagner le match</strong>, <strong>gagner de l’argent</strong>, <strong>gagner du temps</strong>.",
+        rows: gagnerRows
+      },
+      {
+        key: "penser",
+        group: "regularEr",
+        label: "penser",
+        title: "Penser — to think",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Penser à</strong> means “to think about”; <strong>penser de</strong> asks for an opinion; and <strong>penser que</strong> means “to think that.” Use <strong>en</strong> for “what one thinks of it”: <strong>Qu’en penses-tu ?</strong> In a negative sentence, <strong>ne pas penser que</strong> often introduces the subjunctive, as in <strong>je ne pense pas que ce soit...</strong>.",
+        rows: penserRows
+      },
+      {
         key: "finir",
         group: "regularIr",
         label: "finir",
@@ -1428,6 +1546,15 @@
         tag: "regular -ir",
         descriptionHtml: "<strong>Unir</strong> follows the regular -ir pattern and is useful for phrases like <strong>unir nos forces</strong>.",
         rows: unirRows
+      },
+      {
+        key: "attendre",
+        group: "regularRe",
+        label: "attendre",
+        title: "Attendre — to wait / expect",
+        tag: "regular -re",
+        descriptionHtml: "<strong>Attendre</strong> takes a direct object: <strong>attendre quelqu’un / quelque chose</strong>, with no equivalent of English “for.” In the imperative, say <strong>Attends-moi !</strong> for “Wait for me!” Its past participle is <strong>attendu</strong>.",
+        rows: attendreRows
       },
       {
         key: "arriver",

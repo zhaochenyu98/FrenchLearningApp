@@ -346,6 +346,32 @@
             statement: { fr: "Le billet a coûté vingt euros.", en: "The ticket cost twenty euros." },
             negative: { fr: "Le billet n’a pas coûté vingt euros.", en: "The ticket did not cost twenty euros." },
             question: { fr: "Combien le billet a-t-il coûté ?", en: "How much did the ticket cost?" }
+          },
+          {
+            infinitive: "gagner",
+            infinitiveIpa: "/ɡaɲe/",
+            meaning: "to win / earn",
+            auxiliary: "avoir",
+            pastParticiple: "gagné",
+            pastParticipleIpa: "/ɡaɲe/",
+            pattern: "gagner → gagné",
+            note: "Regular -er past participle.",
+            statement: { fr: "Elle a gagné le match.", en: "She won the match." },
+            negative: { fr: "Elle n’a pas gagné le match.", en: "She did not win the match." },
+            question: { fr: "A-t-elle gagné le match ?", en: "Did she win the match?" }
+          },
+          {
+            infinitive: "penser",
+            infinitiveIpa: "/pɑ̃se/",
+            meaning: "to think",
+            auxiliary: "avoir",
+            pastParticiple: "pensé",
+            pastParticipleIpa: "/pɑ̃se/",
+            pattern: "penser → pensé",
+            note: "Regular -er past participle.",
+            statement: { fr: "Tu as pensé à Marie.", en: "You thought about Marie." },
+            negative: { fr: "Tu n’as pas pensé à Marie.", en: "You did not think about Marie." },
+            question: { fr: "As-tu pensé à Marie ?", en: "Did you think about Marie?" }
           }
         ]
       },
@@ -410,6 +436,31 @@
             statement: { fr: "La fête a uni la famille.", en: "The party brought the family together." },
             negative: { fr: "La fête n’a pas uni la famille.", en: "The party did not bring the family together." },
             question: { fr: "La fête a-t-elle uni la famille ?", en: "Did the party bring the family together?" }
+          }
+        ]
+      },
+      {
+        key: "re",
+        title: "Regular -re verbs → -u",
+        indexTitle: "-re → -u",
+        headers: {
+          verb: "Verb",
+          participle: "Passé composé",
+          examples: "Statement / negation / question"
+        },
+        verbs: [
+          {
+            infinitive: "attendre",
+            infinitiveIpa: "/atɑ̃dʁ/",
+            meaning: "to wait / expect",
+            auxiliary: "avoir",
+            pastParticiple: "attendu",
+            pastParticipleIpa: "/atɑ̃dy/",
+            pattern: "attendre → attendu",
+            note: "Regular -re past participle.",
+            statement: { fr: "Nous avons attendu le bus.", en: "We waited for the bus." },
+            negative: { fr: "Nous n’avons pas attendu le bus.", en: "We did not wait for the bus." },
+            question: { fr: "Avons-nous attendu le bus ?", en: "Did we wait for the bus?" }
           }
         ]
       },
@@ -760,6 +811,32 @@
             statement: { fr: "Il a fallu réserver une table.", en: "It was necessary to reserve a table." },
             negative: { fr: "Il n’a pas fallu réserver de table.", en: "It was not necessary to reserve a table." },
             question: { fr: "A-t-il fallu réserver une table ?", en: "Was it necessary to reserve a table?" }
+          },
+          {
+            infinitive: "comprendre",
+            infinitiveIpa: "/kɔ̃pʁɑ̃dʁ/",
+            meaning: "to understand",
+            auxiliary: "avoir",
+            pastParticiple: "compris",
+            pastParticipleIpa: "/kɔ̃pʁi/",
+            pattern: "comprendre → compris",
+            note: "Same past-participle family as prendre → pris.",
+            statement: { fr: "Tu as compris la consigne.", en: "You understood the instruction." },
+            negative: { fr: "Tu n’as pas compris la consigne.", en: "You did not understand the instruction." },
+            question: { fr: "As-tu compris la consigne ?", en: "Did you understand the instruction?" }
+          },
+          {
+            infinitive: "vivre",
+            infinitiveIpa: "/vivʁ/",
+            meaning: "to live / experience",
+            auxiliary: "avoir",
+            pastParticiple: "vécu",
+            pastParticipleIpa: "/veky/",
+            pattern: "vivre → vécu",
+            note: "Irregular past participle.",
+            statement: { fr: "Nous avons vécu à Lyon.", en: "We lived in Lyon." },
+            negative: { fr: "Nous n’avons pas vécu à Lyon.", en: "We did not live in Lyon." },
+            question: { fr: "Avons-nous vécu à Lyon ?", en: "Did we live in Lyon?" }
           }
         ]
       },

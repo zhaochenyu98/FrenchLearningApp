@@ -107,6 +107,7 @@
     const verbGroupStack = document.getElementById("verbGroupStack");
     const passeComposeErGrid = document.getElementById("passeComposeErGrid");
     const passeComposeIrGrid = document.getElementById("passeComposeIrGrid");
+    const passeComposeReGrid = document.getElementById("passeComposeReGrid");
     const etreAuxiliaryVerbGrid = document.getElementById("etreAuxiliaryVerbGrid");
     const passeComposeIrregularGrid = document.getElementById("passeComposeIrregularGrid");
     const passeComposePronominalGrid = document.getElementById("passeComposePronominalGrid");

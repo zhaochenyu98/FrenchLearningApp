@@ -498,7 +498,7 @@
               <button class="verb-example-btn" type="button" data-example-index="${index}">
                 <div class="tiny-label">${example.meaning ? example.meaning : examples.length > 1 ? `Example ${index + 1}` : "Example"}</div>
                 <div class="translation">${example.en}</div>
-                <div class="verb-example-line"><strong>Statement:</strong> ${example.fr}</div>
+                <div class="verb-example-line"><strong>${example.statementLabel || "Statement"}:</strong> ${example.fr}</div>
                 ${example.negative ? `<div class="verb-example-line"><strong>Negative:</strong> ${example.negative}</div>` : ""}
                 ${example.question ? `<div class="verb-example-line"><strong>Question:</strong> ${example.question}</div>` : ""}
               </button>

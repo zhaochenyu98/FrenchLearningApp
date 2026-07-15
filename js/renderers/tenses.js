@@ -213,6 +213,7 @@
       const containers = {
         er: passeComposeErGrid,
         ir: passeComposeIrGrid,
+        re: passeComposeReGrid,
         irregular: passeComposeIrregularGrid,
         pronominal: passeComposePronominalGrid
       };
