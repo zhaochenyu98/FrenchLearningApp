@@ -212,6 +212,7 @@
         renderModifierComparison();
         renderToutAdverbUsage();
         renderToutForms();
+        renderToutPronouns();
         initializeStudyIndex("adverbs");
       },
       prepositions() {

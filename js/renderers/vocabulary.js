@@ -450,6 +450,7 @@
             <div class="noun-example-list">
               ${rowData.examples.map((example, exampleIndex) => `
                 <button class="noun-example-btn" type="button" data-row-index="${rowIndex}" data-example-index="${exampleIndex}">
+                  ${example.label ? `<span class="subject-form-tag">${example.label}</span>` : ""}
                   <span class="noun-example-main">${example.fr}</span>
                   <span class="translation">${example.en}</span>
                 </button>
@@ -629,6 +630,14 @@
 
     function renderToutForms(rows = toutFormRows) {
       renderAgreementMatrixRows(toutFormsGrid, rows, "No tout forms available.");
+    }
+
+    function renderToutPronouns(rows = toutPronounRows) {
+      renderAdverbWordTable(toutPronounGrid, rows, {
+        emptyMessage: "No tout pronoun examples available.",
+        wordLabel: "Pronoun",
+        useLabel: "Meaning, role & pronunciation"
+      });
     }
 
     function renderPrepositionTable(targetGrid, list, emptyMessage) {

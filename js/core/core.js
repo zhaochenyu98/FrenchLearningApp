@@ -152,6 +152,7 @@
     const modifierComparisonGrid = document.getElementById("modifierComparisonGrid");
     const toutAdverbGrid = document.getElementById("toutAdverbGrid");
     const toutFormsGrid = document.getElementById("toutFormsGrid");
+    const toutPronounGrid = document.getElementById("toutPronounGrid");
     const corePrepositionTable = document.getElementById("corePrepositionTable");
     const commonPrepositionUsageTable = document.getElementById("commonPrepositionUsageTable");
     const prepositionAArticleGrid = document.getElementById("prepositionAArticleGrid");
