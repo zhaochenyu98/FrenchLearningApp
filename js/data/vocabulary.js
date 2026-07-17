@@ -1292,43 +1292,67 @@
 
     const toutAdverbRows = [
       {
-        fr: "tout",
-        type: "Adverb before a masculine adjective",
-        meaning: "completely / very",
-        note: "Before a masculine adjective, adverbial tout stays invariable.",
-        examples: [
-          { fr: "Il est tout content.", en: "He is very happy." },
-          { fr: "Ils sont tout surpris.", en: "They are completely surprised." },
-          { fr: "Le sol est tout mouillé.", en: "The floor is completely wet." }
+        family: "Tout as an adverb",
+        note: "Tout modifies an adjective here. Masculine forms always use <strong>tout</strong>. Feminine forms agree only before a consonant or aspirated h; before a vowel or mute h, they stay <strong>tout</strong>.",
+        forms: [
+          {
+            fr: "tout",
+            ipa: "/tu/",
+            gender: "Masculine",
+            number: "Singular",
+            label: "Invariable before any masculine adjective",
+            examples: [
+              { fr: "Il est tout content.", en: "He is very happy." },
+              { fr: "Le sol est tout mouillé.", en: "The floor is completely wet." }
+            ]
+          },
+          {
+            words: [
+              { fr: "toute", ipa: "/tut/" },
+              { fr: "tout", ipa: "/tu/" }
+            ],
+            gender: "Feminine",
+            number: "Singular",
+            label: "Consonant / aspirated h: toute. Vowel / mute h: tout.",
+            examples: [
+              { fr: "Elle est toute contente.", en: "She is very happy." },
+              { fr: "Elle est toute honteuse.", en: "She is completely ashamed." },
+              { fr: "Elle est tout étonnée.", en: "She is completely surprised." }
+            ]
+          },
+          {
+            fr: "tout",
+            ipa: "/tu/",
+            gender: "Masculine",
+            number: "Plural",
+            label: "Invariable before any masculine adjective",
+            examples: [
+              { fr: "Ils sont tout surpris.", en: "They are completely surprised." }
+            ]
+          },
+          {
+            words: [
+              { fr: "toutes", ipa: "/tut/" },
+              { fr: "tout", ipa: "/tu/" }
+            ],
+            gender: "Feminine",
+            number: "Plural",
+            label: "Consonant / aspirated h: toutes. Vowel / mute h: tout.",
+            examples: [
+              { fr: "Elles sont toutes petites.", en: "They are very small." },
+              { fr: "Elles sont tout heureuses.", en: "They are very happy." }
+            ]
+          }
         ]
-      },
+      }
+    ];
+
+    const toutAdverbPhraseRows = [
       {
-        fr: "toute / toutes",
-        type: "Adverb before a feminine adjective beginning with a consonant or aspirated h",
-        meaning: "completely / very",
-        note: "This is an unusual adverb agreement: tout becomes toute or toutes before a feminine adjective beginning with a consonant sound or aspirated h.",
-        examples: [
-          { fr: "Elle est toute contente.", en: "She is very happy." },
-          { fr: "Elles sont toutes petites.", en: "They are very small." },
-          { fr: "Elle est toute honteuse.", en: "She is completely ashamed." }
-        ]
-      },
-      {
-        fr: "tout",
-        type: "Adverb before a feminine adjective beginning with a vowel or mute h",
-        meaning: "completely / very",
-        note: "Before a vowel sound or mute h, adverbial tout stays invariable even with a feminine subject.",
-        examples: [
-          { fr: "Elle est tout étonnée.", en: "She is completely surprised." },
-          { fr: "Elles sont tout heureuses.", en: "They are very happy." },
-          { fr: "La salle est tout illuminée.", en: "The room is fully lit." }
-        ]
-      },
-      {
-        fr: "tout in fixed adverbial phrases",
-        type: "Common chunks",
+        fr: "Fixed adverbial phrases",
+        type: "Learn each as a complete chunk",
         meaning: "completely / right away / very quietly",
-        note: "Learn these high-frequency adverbial expressions as complete phrases.",
+        note: "These expressions are adverbial uses of tout, not gender-and-number agreement patterns.",
         examples: [
           { fr: "C’est tout à fait normal.", en: "That is completely normal." },
           { fr: "Je reviens tout de suite.", en: "I will be right back." },
@@ -1339,7 +1363,7 @@
 
     const toutFormRows = [
       {
-        family: "tout",
+        family: "Tout before a noun",
         note: "Singular forms mean whole / entire; plural forms mean all, or every with repeated time units. Agreement follows the noun’s gender and number.",
         forms: [
           {

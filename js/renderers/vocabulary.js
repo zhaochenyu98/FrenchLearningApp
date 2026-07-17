@@ -625,7 +625,11 @@
     }
 
     function renderToutAdverbUsage(rows = toutAdverbRows) {
-      renderModifierRuleTable(toutAdverbGrid, rows, "No adverbial tout examples available.");
+      renderAgreementMatrixRows(toutAdverbGrid, rows, "No adverbial tout examples available.");
+    }
+
+    function renderToutAdverbPhrases(rows = toutAdverbPhraseRows) {
+      renderModifierRuleTable(toutAdverbPhrasesGrid, rows, "No fixed adverbial tout phrases available.");
     }
 
     function renderToutForms(rows = toutFormRows) {
