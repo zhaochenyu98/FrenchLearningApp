@@ -47,7 +47,7 @@
           { id: "feminine", title: "Feminine rules", open: true, elements: [{ heading: "Adjective Feminine Rules" }] },
           { id: "plural", title: "Plural rules", elements: [{ heading: "Adjective Plural Rules" }] },
           { id: "preposed", title: "Before plural noun", elements: [{ heading: "Important: adjective before plural noun" }] },
-          { id: "special", title: "Special adjectives", elements: [{ heading: "特殊形容词: bon / beau / nouveau / vieux" }] }
+          { id: "special", title: "Special adjectives", elements: ['[data-study-section="adjective-special"]'] }
         ]
       },
       adverbs: {
@@ -1174,6 +1174,35 @@
       initializeTab(tabName);
     }
 
+    function navigateStudyLink(trigger) {
+      const tabName = trigger.dataset.studyLinkTab;
+      const targetId = trigger.dataset.studyLinkTarget;
+      const hasDestinationTab = Array.from(tabButtons).some(button => button.dataset.tab === tabName);
+      if (!tabName || !targetId || !hasDestinationTab) {
+        console.warn("Skipped study link because its destination is invalid.", trigger);
+        return;
+      }
+
+      stopPlayback();
+      activateTab(tabName);
+
+      const target = document.getElementById(targetId);
+      if (!target) {
+        console.warn(`Skipped study link because #${targetId} is missing.`);
+        return;
+      }
+
+      const card = target.closest(".study-collapse-card");
+      if (card) card.open = true;
+
+      window.requestAnimationFrame(() => {
+        const scrollTarget = card || target;
+        scrollTarget.scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
+        target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      });
+    }
+
     tabButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
         stopPlayback();
@@ -1193,6 +1222,12 @@
         activateTab(nextButton.dataset.tab);
         nextButton.focus();
       });
+    });
+
+    on(document, "click", (event) => {
+      if (!(event.target instanceof Element)) return;
+      const trigger = event.target.closest("[data-study-link-tab][data-study-link-target]");
+      if (trigger) navigateStudyLink(trigger);
     });
 
     on(rateInput, "input", () => {

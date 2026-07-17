@@ -558,6 +558,37 @@
       line-height: 1.5;
     }
 
+    .study-cross-link-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin: 12px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .study-cross-link {
+      border: 1px solid var(--accent-border);
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 850;
+      padding: 7px 10px;
+      text-align: left;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .study-cross-link:hover,
+    .study-cross-link:focus-visible {
+      background: var(--card);
+      border-color: var(--accent);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
     .table-wrap,
     .determiner-sections {
       display: grid;
