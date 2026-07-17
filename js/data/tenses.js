@@ -372,6 +372,32 @@
             statement: { fr: "Tu as pensé à Marie.", en: "You thought about Marie." },
             negative: { fr: "Tu n’as pas pensé à Marie.", en: "You did not think about Marie." },
             question: { fr: "As-tu pensé à Marie ?", en: "Did you think about Marie?" }
+          },
+          {
+            infinitive: "rêver",
+            infinitiveIpa: "/ʁeve/",
+            meaning: "to dream",
+            auxiliary: "avoir",
+            pastParticiple: "rêvé",
+            pastParticipleIpa: "/ʁeve/",
+            pattern: "rêver → rêvé",
+            note: "Regular -er past participle. Use rêver de for “to dream of.”",
+            statement: { fr: "J’ai rêvé de la mer.", en: "I dreamed of the sea." },
+            negative: { fr: "Je n’ai pas rêvé de la mer.", en: "I did not dream of the sea." },
+            question: { fr: "De quoi as-tu rêvé ?", en: "What did you dream of?" }
+          },
+          {
+            infinitive: "arrêter",
+            infinitiveIpa: "/aʁete/",
+            meaning: "to stop",
+            auxiliary: "avoir",
+            pastParticiple: "arrêté",
+            pastParticipleIpa: "/aʁete/",
+            pattern: "arrêter → arrêté",
+            note: "Regular -er past participle. Arrêter de + infinitive means “to stop doing.”",
+            statement: { fr: "Elle a arrêté de fumer.", en: "She stopped smoking." },
+            negative: { fr: "Elle n’a pas arrêté de fumer.", en: "She did not stop smoking." },
+            question: { fr: "A-t-elle arrêté de fumer ?", en: "Did she stop smoking?" }
           }
         ]
       },
@@ -1057,6 +1083,71 @@
             statement: { fr: "L’avion s’est envolé à midi.", en: "The plane took off at noon." },
             negative: { fr: "L’avion ne s’est pas envolé à midi.", en: "The plane did not take off at noon." },
             question: { fr: "L’avion s’est-il envolé à midi ?", en: "Did the plane take off at noon?" }
+          },
+          {
+            infinitive: "s’assumer",
+            infinitiveIpa: "/sa.sy.me/",
+            meaning: "to accept / own oneself",
+            auxiliary: "être",
+            pastParticiple: "assumé(e)(s)",
+            pastParticipleIpa: "/a.sy.me/",
+            pattern: "s’assumer → assumé",
+            note: "With a direct reflexive object, the past participle agrees with the subject.",
+            statement: { fr: "Elle s’est enfin assumée.", en: "She finally accepted herself." },
+            negative: { fr: "Elle ne s’est pas encore assumée.", en: "She has not accepted herself yet." },
+            question: { fr: "S’est-elle enfin assumée ?", en: "Did she finally accept herself?" }
+          },
+          {
+            infinitive: "s’ennuyer",
+            infinitiveIpa: "/sɑ̃nɥije/",
+            meaning: "to be bored",
+            auxiliary: "être",
+            pastParticiple: "ennuyé(e)(s)",
+            pastParticipleIpa: "/ɑ̃nɥije/",
+            pattern: "s’ennuyer → ennuyé",
+            note: "As a reflexive verb, s’ennuyer uses être; the past participle agrees with the subject.",
+            statement: { fr: "Ils se sont ennuyés pendant le film.", en: "They were bored during the movie." },
+            negative: { fr: "Ils ne se sont pas ennuyés pendant le film.", en: "They were not bored during the movie." },
+            question: { fr: "Se sont-ils ennuyés pendant le film ?", en: "Were they bored during the movie?" }
+          },
+          {
+            infinitive: "se détendre",
+            infinitiveIpa: "/sə detɑ̃dʁ/",
+            meaning: "to relax",
+            auxiliary: "être",
+            pastParticiple: "détendu(e)(s)",
+            pastParticipleIpa: "/detɑ̃dy/",
+            pattern: "se détendre → détendu",
+            note: "With a direct reflexive object, the past participle agrees with the subject.",
+            statement: { fr: "Nous nous sommes détendus après le travail.", en: "We relaxed after work." },
+            negative: { fr: "Nous ne nous sommes pas détendus après le travail.", en: "We did not relax after work." },
+            question: { fr: "Est-ce que nous nous sommes détendus après le travail ?", en: "Did we relax after work?" }
+          },
+          {
+            infinitive: "se calmer",
+            infinitiveIpa: "/sə kalme/",
+            meaning: "to calm down",
+            auxiliary: "être",
+            pastParticiple: "calmé(e)(s)",
+            pastParticipleIpa: "/kalme/",
+            pattern: "se calmer → calmé",
+            note: "With a direct reflexive object, the past participle agrees with the subject.",
+            statement: { fr: "Elle s’est calmée après quelques minutes.", en: "She calmed down after a few minutes." },
+            negative: { fr: "Elle ne s’est pas calmée après quelques minutes.", en: "She did not calm down after a few minutes." },
+            question: { fr: "S’est-elle calmée après quelques minutes ?", en: "Did she calm down after a few minutes?" }
+          },
+          {
+            infinitive: "se baigner",
+            infinitiveIpa: "/sə bɛɲe/",
+            meaning: "to swim / bathe",
+            auxiliary: "être",
+            pastParticiple: "baigné(e)(s)",
+            pastParticipleIpa: "/bɛɲe/",
+            pattern: "se baigner → baigné",
+            note: "As a reflexive verb, se baigner uses être; the past participle agrees with the subject.",
+            statement: { fr: "Ils se sont baignés dans la mer.", en: "They swam in the sea." },
+            negative: { fr: "Ils ne se sont pas baignés dans la mer.", en: "They did not swim in the sea." },
+            question: { fr: "Se sont-ils baignés dans la mer ?", en: "Did they swim in the sea?" }
           }
         ]
       }

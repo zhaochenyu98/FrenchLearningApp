@@ -1000,6 +1000,83 @@
       { pronoun: "elles", form: "s’envolent", full: "elles s’envolent", ipa: "/ɛl sɑ̃.vɔl/", en: "they fly away / take off", example: "Elles s’envolent dès l’aube.", exampleEn: "They fly away at dawn.", negative: "Elles ne s’envolent pas dès l’aube.", negativeEn: "They do not fly away at dawn.", question: "Quand s’envolent-elles ?" }
     ];
 
+    const reverRows = [
+      { pronoun: "je", form: "rêve", full: "je rêve", ipa: "/ʒə ʁɛv/", en: "I dream", example: "Je rêve de vacances.", exampleEn: "I dream of a vacation.", negative: "Je ne rêve pas de vacances.", negativeEn: "I do not dream of a vacation.", question: "De quoi est-ce que je rêve ?" },
+      { pronoun: "tu", form: "rêves", full: "tu rêves", ipa: "/ty ʁɛv/", en: "you dream", example: "Tu rêves souvent de voyages.", exampleEn: "You often dream of traveling.", negative: "Tu ne rêves pas souvent de voyages.", negativeEn: "You do not often dream of traveling.", question: "De quoi rêves-tu souvent ?" },
+      { pronoun: "il", form: "rêve", full: "il rêve", ipa: "/il ʁɛv/", en: "he dreams", example: "Il rêve de devenir musicien.", exampleEn: "He dreams of becoming a musician.", negative: "Il ne rêve pas de devenir musicien.", negativeEn: "He does not dream of becoming a musician.", question: "De quoi rêve-t-il ?" },
+      { pronoun: "elle", form: "rêve", full: "elle rêve", ipa: "/ɛl ʁɛv/", en: "she dreams", example: "Elle rêve en regardant les nuages.", exampleEn: "She dreams while looking at the clouds.", negative: "Elle ne rêve pas en regardant les nuages.", negativeEn: "She does not dream while looking at the clouds.", question: "Est-ce qu’elle rêve en regardant les nuages ?" },
+      { pronoun: "nous", form: "rêvons", full: "nous rêvons", ipa: "/nu ʁə.vɔ̃/", en: "we dream", example: "Nous rêvons de vivre près de la mer.", exampleEn: "We dream of living near the sea.", negative: "Nous ne rêvons pas de vivre près de la mer.", negativeEn: "We do not dream of living near the sea.", question: "Est-ce que nous rêvons de vivre près de la mer ?" },
+      { pronoun: "vous", form: "rêvez", full: "vous rêvez", ipa: "/vu ʁə.ve/", en: "you dream", example: "Vous rêvez d’un nouveau travail.", exampleEn: "You dream of a new job.", negative: "Vous ne rêvez pas d’un nouveau travail.", negativeEn: "You do not dream of a new job.", question: "Rêvez-vous d’un nouveau travail ?" },
+      { pronoun: "ils", form: "rêvent", full: "ils rêvent", ipa: "/il ʁɛv/", en: "they dream", example: "Ils rêvent de voyager ensemble.", exampleEn: "They dream of traveling together.", negative: "Ils ne rêvent pas de voyager ensemble.", negativeEn: "They do not dream of traveling together.", question: "De quoi rêvent-ils ?" },
+      { pronoun: "elles", form: "rêvent", full: "elles rêvent", ipa: "/ɛl ʁɛv/", en: "they dream", example: "Elles rêvent d’une grande maison.", exampleEn: "They dream of a big house.", negative: "Elles ne rêvent pas d’une grande maison.", negativeEn: "They do not dream of a big house.", question: "De quoi rêvent-elles ?" }
+    ];
+
+    const arreterRows = [
+      { pronoun: "je", form: "arrête", full: "j’arrête", ipa: "/ʒa.ʁɛt/", en: "I stop", example: "J’arrête de travailler à six heures.", exampleEn: "I stop working at six o’clock.", negative: "Je n’arrête pas de travailler à six heures.", negativeEn: "I do not stop working at six o’clock.", question: "À quelle heure est-ce que j’arrête de travailler ?" },
+      { pronoun: "tu", form: "arrêtes", full: "tu arrêtes", ipa: "/ty a.ʁɛt/", en: "you stop", example: "Tu arrêtes de parler pendant le film.", exampleEn: "You stop talking during the movie.", negative: "Tu n’arrêtes pas de parler pendant le film.", negativeEn: "You do not stop talking during the movie.", question: "Pourquoi arrêtes-tu de parler ?" },
+      { pronoun: "il", form: "arrête", full: "il arrête", ipa: "/i.la.ʁɛt/", en: "he stops", example: "Il arrête la voiture devant l’école.", exampleEn: "He stops the car in front of the school.", negative: "Il n’arrête pas la voiture devant l’école.", negativeEn: "He does not stop the car in front of the school.", question: "Où arrête-t-il la voiture ?" },
+      { pronoun: "elle", form: "arrête", full: "elle arrête", ipa: "/ɛ.la.ʁɛt/", en: "she stops", example: "Elle arrête de fumer.", exampleEn: "She stops smoking.", negative: "Elle n’arrête pas de fumer.", negativeEn: "She does not stop smoking.", question: "Est-ce qu’elle arrête de fumer ?" },
+      { pronoun: "nous", form: "arrêtons", full: "nous arrêtons", ipa: "/nu.za.ʁə.tɔ̃/", en: "we stop", example: "Nous arrêtons le film ici.", exampleEn: "We stop the movie here.", negative: "Nous n’arrêtons pas le film ici.", negativeEn: "We do not stop the movie here.", question: "Est-ce que nous arrêtons le film ici ?" },
+      { pronoun: "vous", form: "arrêtez", full: "vous arrêtez", ipa: "/vu.za.ʁə.te/", en: "you stop", example: "Vous arrêtez la musique.", exampleEn: "You stop the music.", negative: "Vous n’arrêtez pas la musique.", negativeEn: "You do not stop the music.", question: "Qu’est-ce que vous arrêtez ?" },
+      { pronoun: "ils", form: "arrêtent", full: "ils arrêtent", ipa: "/il.za.ʁɛt/", en: "they stop", example: "Ils arrêtent de jouer à midi.", exampleEn: "They stop playing at noon.", negative: "Ils n’arrêtent pas de jouer à midi.", negativeEn: "They do not stop playing at noon.", question: "Quand arrêtent-ils de jouer ?" },
+      { pronoun: "elles", form: "arrêtent", full: "elles arrêtent", ipa: "/ɛl.za.ʁɛt/", en: "they stop", example: "Elles arrêtent leur voiture devant la gare.", exampleEn: "They stop their car in front of the train station.", negative: "Elles n’arrêtent pas leur voiture devant la gare.", negativeEn: "They do not stop their car in front of the train station.", question: "Où arrêtent-elles leur voiture ?" }
+    ];
+
+    const sAssumerRows = [
+      { pronoun: "je", form: "m’assume", full: "je m’assume", ipa: "/ʒə ma.sym/", en: "I accept myself", example: "Je m’assume comme je suis.", exampleEn: "I accept myself as I am.", negative: "Je ne m’assume pas comme je suis.", negativeEn: "I do not accept myself as I am.", question: "Est-ce que je m’assume comme je suis ?" },
+      { pronoun: "tu", form: "t’assumes", full: "tu t’assumes", ipa: "/ty ta.sym/", en: "you accept yourself", example: "Tu t’assumes davantage maintenant.", exampleEn: "You accept yourself more now.", negative: "Tu ne t’assumes pas davantage maintenant.", negativeEn: "You do not accept yourself more now.", question: "Est-ce que tu t’assumes davantage maintenant ?" },
+      { pronoun: "il", form: "s’assume", full: "il s’assume", ipa: "/il sa.sym/", en: "he accepts himself", example: "Il s’assume sans honte.", exampleEn: "He accepts himself without shame.", negative: "Il ne s’assume pas sans honte.", negativeEn: "He does not accept himself without shame.", question: "S’assume-t-il sans honte ?" },
+      { pronoun: "elle", form: "s’assume", full: "elle s’assume", ipa: "/ɛl sa.sym/", en: "she accepts herself", example: "Elle s’assume complètement.", exampleEn: "She fully accepts herself.", negative: "Elle ne s’assume pas complètement.", negativeEn: "She does not fully accept herself.", question: "Est-ce qu’elle s’assume complètement ?" },
+      { pronoun: "nous", form: "nous assumons", full: "nous nous assumons", ipa: "/nu nu.za.sy.mɔ̃/", en: "we accept ourselves", example: "Nous nous assumons tels que nous sommes.", exampleEn: "We accept ourselves as we are.", negative: "Nous ne nous assumons pas tels que nous sommes.", negativeEn: "We do not accept ourselves as we are.", question: "Est-ce que nous nous assumons tels que nous sommes ?" },
+      { pronoun: "vous", form: "vous assumez", full: "vous vous assumez", ipa: "/vu vu.za.sy.me/", en: "you accept yourself / yourselves", example: "Vous vous assumez davantage.", exampleEn: "You accept yourselves more.", negative: "Vous ne vous assumez pas davantage.", negativeEn: "You do not accept yourselves more.", question: "Vous assumez-vous davantage ?" },
+      { pronoun: "ils", form: "s’assument", full: "ils s’assument", ipa: "/il sa.sym/", en: "they accept themselves", example: "Ils s’assument malgré leurs défauts.", exampleEn: "They accept themselves despite their flaws.", negative: "Ils ne s’assument pas malgré leurs défauts.", negativeEn: "They do not accept themselves despite their flaws.", question: "S’assument-ils malgré leurs défauts ?" },
+      { pronoun: "elles", form: "s’assument", full: "elles s’assument", ipa: "/ɛl sa.sym/", en: "they accept themselves", example: "Elles s’assument enfin.", exampleEn: "They finally accept themselves.", negative: "Elles ne s’assument pas encore.", negativeEn: "They do not accept themselves yet.", question: "Quand s’assument-elles enfin ?" }
+    ];
+
+    const sEnnuyerRows = [
+      { pronoun: "je", form: "m’ennuie", full: "je m’ennuie", ipa: "/ʒə mɑ̃.nɥi/", en: "I am bored", example: "Je m’ennuie quand j’attends.", exampleEn: "I get bored when I wait.", negative: "Je ne m’ennuie pas quand j’attends.", negativeEn: "I do not get bored when I wait.", question: "Pourquoi est-ce que je m’ennuie quand j’attends ?" },
+      { pronoun: "tu", form: "t’ennuies", full: "tu t’ennuies", ipa: "/ty tɑ̃.nɥi/", en: "you are bored", example: "Tu t’ennuies en classe.", exampleEn: "You are bored in class.", negative: "Tu ne t’ennuies pas en classe.", negativeEn: "You are not bored in class.", question: "Est-ce que tu t’ennuies en classe ?" },
+      { pronoun: "il", form: "s’ennuie", full: "il s’ennuie", ipa: "/il sɑ̃.nɥi/", en: "he is bored", example: "Il s’ennuie le dimanche.", exampleEn: "He gets bored on Sundays.", negative: "Il ne s’ennuie pas le dimanche.", negativeEn: "He does not get bored on Sundays.", question: "Pourquoi s’ennuie-t-il le dimanche ?" },
+      { pronoun: "elle", form: "s’ennuie", full: "elle s’ennuie", ipa: "/ɛl sɑ̃.nɥi/", en: "she is bored", example: "Elle s’ennuie sans ses amis.", exampleEn: "She is bored without her friends.", negative: "Elle ne s’ennuie pas sans ses amis.", negativeEn: "She is not bored without her friends.", question: "Est-ce qu’elle s’ennuie sans ses amis ?" },
+      { pronoun: "nous", form: "nous ennuyons", full: "nous nous ennuyons", ipa: "/nu nu.zɑ̃.nɥi.jɔ̃/", en: "we are bored", example: "Nous nous ennuyons parfois au bureau.", exampleEn: "We are sometimes bored at the office.", negative: "Nous ne nous ennuyons pas au bureau.", negativeEn: "We are not bored at the office.", question: "Est-ce que nous nous ennuyons parfois au bureau ?" },
+      { pronoun: "vous", form: "vous ennuyez", full: "vous vous ennuyez", ipa: "/vu vu.zɑ̃.nɥi.je/", en: "you are bored", example: "Vous vous ennuyez pendant le trajet.", exampleEn: "You get bored during the trip.", negative: "Vous ne vous ennuyez pas pendant le trajet.", negativeEn: "You do not get bored during the trip.", question: "Vous ennuyez-vous pendant le trajet ?" },
+      { pronoun: "ils", form: "s’ennuient", full: "ils s’ennuient", ipa: "/il sɑ̃.nɥi/", en: "they are bored", example: "Ils s’ennuient pendant le film.", exampleEn: "They are bored during the movie.", negative: "Ils ne s’ennuient pas pendant le film.", negativeEn: "They are not bored during the movie.", question: "Pourquoi s’ennuient-ils pendant le film ?" },
+      { pronoun: "elles", form: "s’ennuient", full: "elles s’ennuient", ipa: "/ɛl sɑ̃.nɥi/", en: "they are bored", example: "Elles s’ennuient quand il pleut.", exampleEn: "They get bored when it rains.", negative: "Elles ne s’ennuient pas quand il pleut.", negativeEn: "They do not get bored when it rains.", question: "Quand s’ennuient-elles ?" }
+    ];
+
+    const seDetendreRows = [
+      { pronoun: "je", form: "me détends", full: "je me détends", ipa: "/ʒə mə de.tɑ̃/", en: "I relax", example: "Je me détends en lisant.", exampleEn: "I relax by reading.", negative: "Je ne me détends pas en lisant.", negativeEn: "I do not relax by reading.", question: "Est-ce que je me détends en lisant ?" },
+      { pronoun: "tu", form: "te détends", full: "tu te détends", ipa: "/ty tə de.tɑ̃/", en: "you relax", example: "Tu te détends après le travail.", exampleEn: "You relax after work.", negative: "Tu ne te détends pas après le travail.", negativeEn: "You do not relax after work.", question: "Comment te détends-tu après le travail ?" },
+      { pronoun: "il", form: "se détend", full: "il se détend", ipa: "/il sə de.tɑ̃/", en: "he relaxes", example: "Il se détend en écoutant de la musique.", exampleEn: "He relaxes by listening to music.", negative: "Il ne se détend pas en écoutant de la musique.", negativeEn: "He does not relax by listening to music.", question: "Comment se détend-il ?" },
+      { pronoun: "elle", form: "se détend", full: "elle se détend", ipa: "/ɛl sə de.tɑ̃/", en: "she relaxes", example: "Elle se détend au bord de la mer.", exampleEn: "She relaxes by the sea.", negative: "Elle ne se détend pas au bord de la mer.", negativeEn: "She does not relax by the sea.", question: "Est-ce qu’elle se détend au bord de la mer ?" },
+      { pronoun: "nous", form: "nous détendons", full: "nous nous détendons", ipa: "/nu nu de.tɑ̃.dɔ̃/", en: "we relax", example: "Nous nous détendons le week-end.", exampleEn: "We relax on weekends.", negative: "Nous ne nous détendons pas le week-end.", negativeEn: "We do not relax on weekends.", question: "Est-ce que nous nous détendons le week-end ?" },
+      { pronoun: "vous", form: "vous détendez", full: "vous vous détendez", ipa: "/vu vu de.tɑ̃.de/", en: "you relax", example: "Vous vous détendez après le sport.", exampleEn: "You relax after sports.", negative: "Vous ne vous détendez pas après le sport.", negativeEn: "You do not relax after sports.", question: "Vous détendez-vous après le sport ?" },
+      { pronoun: "ils", form: "se détendent", full: "ils se détendent", ipa: "/il sə de.tɑ̃d/", en: "they relax", example: "Ils se détendent à la maison.", exampleEn: "They relax at home.", negative: "Ils ne se détendent pas à la maison.", negativeEn: "They do not relax at home.", question: "Où se détendent-ils ?" },
+      { pronoun: "elles", form: "se détendent", full: "elles se détendent", ipa: "/ɛl sə de.tɑ̃d/", en: "they relax", example: "Elles se détendent avant de dormir.", exampleEn: "They relax before sleeping.", negative: "Elles ne se détendent pas avant de dormir.", negativeEn: "They do not relax before sleeping.", question: "Quand se détendent-elles ?" }
+    ];
+
+    const seCalmerRows = [
+      { pronoun: "je", form: "me calme", full: "je me calme", ipa: "/ʒə mə kalm/", en: "I calm down", example: "Je me calme en respirant profondément.", exampleEn: "I calm down by breathing deeply.", negative: "Je ne me calme pas en respirant profondément.", negativeEn: "I do not calm down by breathing deeply.", question: "Est-ce que je me calme en respirant profondément ?" },
+      { pronoun: "tu", form: "te calmes", full: "tu te calmes", ipa: "/ty tə kalm/", en: "you calm down", example: "Tu te calmes vite.", exampleEn: "You calm down quickly.", negative: "Tu ne te calmes pas vite.", negativeEn: "You do not calm down quickly.", question: "Est-ce que tu te calmes vite ?" },
+      { pronoun: "il", form: "se calme", full: "il se calme", ipa: "/il sə kalm/", en: "he calms down", example: "Il se calme après quelques minutes.", exampleEn: "He calms down after a few minutes.", negative: "Il ne se calme pas après quelques minutes.", negativeEn: "He does not calm down after a few minutes.", question: "Quand se calme-t-il ?" },
+      { pronoun: "elle", form: "se calme", full: "elle se calme", ipa: "/ɛl sə kalm/", en: "she calms down", example: "Elle se calme avec de la musique.", exampleEn: "She calms down with music.", negative: "Elle ne se calme pas avec de la musique.", negativeEn: "She does not calm down with music.", question: "Est-ce qu’elle se calme avec de la musique ?" },
+      { pronoun: "nous", form: "nous calmons", full: "nous nous calmons", ipa: "/nu nu kal.mɔ̃/", en: "we calm down", example: "Nous nous calmons avant de répondre.", exampleEn: "We calm down before answering.", negative: "Nous ne nous calmons pas avant de répondre.", negativeEn: "We do not calm down before answering.", question: "Est-ce que nous nous calmons avant de répondre ?" },
+      { pronoun: "vous", form: "vous calmez", full: "vous vous calmez", ipa: "/vu vu kal.me/", en: "you calm down", example: "Vous vous calmez après la dispute.", exampleEn: "You calm down after the argument.", negative: "Vous ne vous calmez pas après la dispute.", negativeEn: "You do not calm down after the argument.", question: "Vous calmez-vous après la dispute ?" },
+      { pronoun: "ils", form: "se calment", full: "ils se calment", ipa: "/il sə kalm/", en: "they calm down", example: "Ils se calment quand le professeur arrive.", exampleEn: "They calm down when the teacher arrives.", negative: "Ils ne se calment pas quand le professeur arrive.", negativeEn: "They do not calm down when the teacher arrives.", question: "Quand se calment-ils ?" },
+      { pronoun: "elles", form: "se calment", full: "elles se calment", ipa: "/ɛl sə kalm/", en: "they calm down", example: "Elles se calment peu à peu.", exampleEn: "They calm down little by little.", negative: "Elles ne se calment pas tout de suite.", negativeEn: "They do not calm down right away.", question: "Comment se calment-elles ?" }
+    ];
+
+    const seBaignerRows = [
+      { pronoun: "je", form: "me baigne", full: "je me baigne", ipa: "/ʒə mə bɛɲ/", en: "I swim / bathe", example: "Je me baigne dans la mer en été.", exampleEn: "I swim in the sea in summer.", negative: "Je ne me baigne pas dans la mer en été.", negativeEn: "I do not swim in the sea in summer.", question: "Est-ce que je me baigne dans la mer en été ?" },
+      { pronoun: "tu", form: "te baignes", full: "tu te baignes", ipa: "/ty tə bɛɲ/", en: "you swim / bathe", example: "Tu te baignes à la piscine.", exampleEn: "You swim at the pool.", negative: "Tu ne te baignes pas à la piscine.", negativeEn: "You do not swim at the pool.", question: "Où te baignes-tu ?" },
+      { pronoun: "il", form: "se baigne", full: "il se baigne", ipa: "/il sə bɛɲ/", en: "he swims / bathes", example: "Il se baigne tous les matins.", exampleEn: "He swims every morning.", negative: "Il ne se baigne pas tous les matins.", negativeEn: "He does not swim every morning.", question: "Quand se baigne-t-il ?" },
+      { pronoun: "elle", form: "se baigne", full: "elle se baigne", ipa: "/ɛl sə bɛɲ/", en: "she swims / bathes", example: "Elle se baigne dans le lac.", exampleEn: "She swims in the lake.", negative: "Elle ne se baigne pas dans le lac.", negativeEn: "She does not swim in the lake.", question: "Est-ce qu’elle se baigne dans le lac ?" },
+      { pronoun: "nous", form: "nous baignons", full: "nous nous baignons", ipa: "/nu nu bɛ.ɲɔ̃/", en: "we swim / bathe", example: "Nous nous baignons après le déjeuner.", exampleEn: "We swim after lunch.", negative: "Nous ne nous baignons pas après le déjeuner.", negativeEn: "We do not swim after lunch.", question: "Est-ce que nous nous baignons après le déjeuner ?" },
+      { pronoun: "vous", form: "vous baignez", full: "vous vous baignez", ipa: "/vu vu bɛ.ɲe/", en: "you swim / bathe", example: "Vous vous baignez à la plage.", exampleEn: "You swim at the beach.", negative: "Vous ne vous baignez pas à la plage.", negativeEn: "You do not swim at the beach.", question: "Vous baignez-vous à la plage ?" },
+      { pronoun: "ils", form: "se baignent", full: "ils se baignent", ipa: "/il sə bɛɲ/", en: "they swim / bathe", example: "Ils se baignent dans la rivière.", exampleEn: "They swim in the river.", negative: "Ils ne se baignent pas dans la rivière.", negativeEn: "They do not swim in the river.", question: "Où se baignent-ils ?" },
+      { pronoun: "elles", form: "se baignent", full: "elles se baignent", ipa: "/ɛl sə bɛɲ/", en: "they swim / bathe", example: "Elles se baignent quand il fait chaud.", exampleEn: "They swim when it is hot.", negative: "Elles ne se baignent pas quand il fait chaud.", negativeEn: "They do not swim when it is hot.", question: "Quand se baignent-elles ?" }
+    ];
+
     const tournerRows = [
       { pronoun: "je", form: "tourne", full: "je tourne", en: "I turn", example: "Je tourne à gauche au prochain carrefour.", exampleEn: "I turn left at the next intersection.", negative: "Je ne tourne pas à gauche au prochain carrefour.", negativeEn: "I do not turn left at the next intersection." },
       { pronoun: "tu", form: "tournes", full: "tu tournes", en: "you turn", example: "Tu tournes la clé dans la serrure.", exampleEn: "You turn the key in the lock.", negative: "Tu ne tournes pas la clé dans la serrure.", negativeEn: "You do not turn the key in the lock.", question: "Que tournes-tu ?" },
@@ -2079,6 +2156,64 @@
         title: "S’envoler — to fly away / take off",
         descriptionHtml: "<strong>S’envoler</strong> means “to fly away / take off,” for birds, planes, or figurative hopes. The base verb <strong>voler</strong> means “to fly” and can also mean “to steal”: <strong>L’oiseau vole au-dessus du parc.</strong>",
         rows: sEnvolerRows
+      },
+      {
+        key: "rever",
+        group: "regularEr",
+        label: "rêver",
+        title: "Rêver — to dream",
+        tag: "regular -er with accent change",
+        descriptionHtml: "<strong>Rêver de</strong> means “to dream of.” Like other verbs ending in <strong>-éver</strong>, it has <strong>è</strong> in the singular and ils/elles forms: <strong>je rêve</strong>, but <strong>nous rêvons</strong> and <strong>vous rêvez</strong>.",
+        rows: reverRows
+      },
+      {
+        key: "arreter",
+        group: "regularEr",
+        label: "arrêter",
+        title: "Arrêter — to stop",
+        tag: "regular -er with accent change",
+        descriptionHtml: "<strong>Arrêter</strong> can take a direct object (<strong>arrêter la voiture</strong>) or use <strong>arrêter de + infinitive</strong> to mean “to stop doing.” It has <strong>è</strong> in the singular and ils/elles forms: <strong>j’arrête</strong>, but <strong>nous arrêtons</strong> and <strong>vous arrêtez</strong>.",
+        rows: arreterRows
+      },
+      {
+        key: "sAssumer",
+        group: "pronominal",
+        label: "s’assumer",
+        title: "S’assumer — to accept / own oneself",
+        descriptionHtml: "<strong>S’assumer</strong> means “to accept / own oneself,” often in the sense of being comfortable with who one is. The base verb <strong>assumer</strong> means “to accept responsibility for / take on”: <strong>J’assume mes choix.</strong>",
+        rows: sAssumerRows
+      },
+      {
+        key: "sEnnuyer",
+        group: "pronominal",
+        label: "s’ennuyer",
+        title: "S’ennuyer — to be bored",
+        descriptionHtml: "<strong>S’ennuyer</strong> means “to be bored.” The base verb <strong>ennuyer</strong> means “to bore” someone: <strong>Ce film m’ennuie.</strong> Notice the spelling: <strong>je m’ennuie</strong>, but <strong>nous nous ennuyons</strong>.",
+        rows: sEnnuyerRows
+      },
+      {
+        key: "seDetendre",
+        group: "pronominal",
+        label: "se détendre",
+        title: "Se détendre — to relax",
+        descriptionHtml: "<strong>Se détendre</strong> means “to relax.” The base verb <strong>détendre</strong> means “to loosen / relax” something: <strong>Je détends mes épaules.</strong>",
+        rows: seDetendreRows
+      },
+      {
+        key: "seCalmer",
+        group: "pronominal",
+        label: "se calmer",
+        title: "Se calmer — to calm down",
+        descriptionHtml: "<strong>Se calmer</strong> means “to calm down.” The base verb <strong>calmer</strong> means “to calm” someone or something: <strong>Je calme le bébé.</strong>",
+        rows: seCalmerRows
+      },
+      {
+        key: "seBaigner",
+        group: "pronominal",
+        label: "se baigner",
+        title: "Se baigner — to swim / bathe",
+        descriptionHtml: "<strong>Se baigner</strong> means “to swim / bathe,” usually with <strong>dans</strong> for the body of water. The base verb <strong>baigner</strong> means “to bathe” someone or something: <strong>Je baigne le bébé.</strong>",
+        rows: seBaignerRows
       }
     ];
 
