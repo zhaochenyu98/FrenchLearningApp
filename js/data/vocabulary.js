@@ -1417,42 +1417,58 @@
 
     const toutPronounRows = [
       {
-        fr: "tout",
-        ipa: "/tu/",
-        en: "everything / all of it",
-        note: "A neutral singular pronoun for things, ideas, or situations. It replaces what you are talking about; it does not become feminine <strong>*toute</strong> when used alone.",
-        examples: [
-          { label: "Subject · present", fr: "Tout va bien.", en: "Everything is going well." },
-          { label: "Object · present", fr: "Je comprends tout.", en: "I understand everything." },
-          { label: "Object · passé composé", fr: "J’ai tout compris.", en: "I understood everything." },
-          { label: "Before an infinitive", fr: "Je vais tout expliquer.", en: "I am going to explain everything." },
-          { label: "Predicative", fr: "C’est tout.", en: "That’s all." }
-        ]
-      },
-      {
-        fr: "tous",
-        ipa: "/tus/",
-        en: "all of them / everyone (masculine or mixed group)",
-        note: "A plural pronoun for a masculine or mixed group. The spelling is <strong>tous</strong>, and its final <strong>s</strong> is pronounced here: <strong>/tus/</strong>. Compare the determiner <strong>tous les jours</strong> <strong>/tu/</strong>.",
-        examples: [
-          { label: "Subject", fr: "Tous sont prêts.", en: "All of them are ready." },
-          { label: "Apposition · present", fr: "Ils sont tous prêts.", en: "They are all ready." },
-          { label: "Apposition · passé composé", fr: "Ils sont tous arrivés.", en: "They have all arrived." },
-          { label: "With verb + infinitive", fr: "Nous voulons tous partir.", en: "We all want to leave." },
-          { label: "Object", fr: "Je les ai tous vus.", en: "I saw all of them." }
-        ]
-      },
-      {
-        fr: "toutes",
-        ipa: "/tut/",
-        en: "all of them (feminine group)",
-        note: "A plural pronoun for an all-female group or feminine plural things. It agrees with the group it replaces.",
-        examples: [
-          { label: "Subject", fr: "Toutes sont prêtes.", en: "All of them are ready." },
-          { label: "Apposition · present", fr: "Elles sont toutes prêtes.", en: "They are all ready." },
-          { label: "Apposition · passé composé", fr: "Elles sont toutes arrivées.", en: "They have all arrived." },
-          { label: "With verb + infinitive", fr: "Elles veulent toutes venir.", en: "They all want to come." },
-          { label: "Object", fr: "Je les ai toutes vues.", en: "I saw all of them." }
+        family: "Tout as an indefinite pronoun",
+        note: "The singular pronoun is neutral: <strong>tout</strong> = “everything.” There is no standalone feminine singular pronoun <strong>*toute</strong>. In the plural, <strong>tous</strong> is masculine or mixed, and <strong>toutes</strong> is feminine.",
+        genders: ["Neutral / masculine", "Feminine"],
+        forms: [
+          {
+            fr: "tout",
+            ipa: "/tu/",
+            gender: "Neutral / masculine",
+            number: "Singular",
+            label: "Neutral singular — everything / all of it",
+            examples: [
+              { label: "Subject · present", fr: "Tout va bien.", en: "Everything is going well." },
+              { label: "Object · present", fr: "Je comprends tout.", en: "I understand everything." },
+              { label: "Object · passé composé", fr: "J’ai tout compris.", en: "I understood everything." },
+              { label: "Before an infinitive", fr: "Je vais tout expliquer.", en: "I am going to explain everything." },
+              { label: "Predicative", fr: "C’est tout.", en: "That’s all." }
+            ]
+          },
+          {
+            gender: "Feminine",
+            number: "Singular",
+            unavailable: "No standalone feminine singular form",
+            note: "Use neutral <strong>tout</strong> for “everything,” not <strong>*toute</strong>."
+          },
+          {
+            fr: "tous",
+            ipa: "/tus/",
+            gender: "Neutral / masculine",
+            number: "Plural",
+            label: "Masculine or mixed plural — all of them",
+            examples: [
+              { label: "Subject", fr: "Tous sont prêts.", en: "All of them are ready." },
+              { label: "Apposition · present", fr: "Ils sont tous prêts.", en: "They are all ready." },
+              { label: "Apposition · passé composé", fr: "Ils sont tous arrivés.", en: "They have all arrived." },
+              { label: "With verb + infinitive", fr: "Nous voulons tous partir.", en: "We all want to leave." },
+              { label: "Object", fr: "Je les ai tous vus.", en: "I saw all of them." }
+            ]
+          },
+          {
+            fr: "toutes",
+            ipa: "/tut/",
+            gender: "Feminine",
+            number: "Plural",
+            label: "Feminine plural — all of them",
+            examples: [
+              { label: "Subject", fr: "Toutes sont prêtes.", en: "All of them are ready." },
+              { label: "Apposition · present", fr: "Elles sont toutes prêtes.", en: "They are all ready." },
+              { label: "Apposition · passé composé", fr: "Elles sont toutes arrivées.", en: "They have all arrived." },
+              { label: "With verb + infinitive", fr: "Elles veulent toutes venir.", en: "They all want to come." },
+              { label: "Object", fr: "Je les ai toutes vues.", en: "I saw all of them." }
+            ]
+          }
         ]
       }
     ];

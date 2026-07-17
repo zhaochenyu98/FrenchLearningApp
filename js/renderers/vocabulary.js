@@ -258,7 +258,7 @@
         return;
       }
 
-      const genders = ["Masculine", "Feminine"];
+      const defaultGenders = ["Masculine", "Feminine"];
       const numbers = ["Singular", "Plural"];
       const findForm = (forms, gender, number) => forms.find(form => form.gender === gender && form.number === number);
       const getFormWords = form => form.words || [{
@@ -268,6 +268,7 @@
       }];
 
       rows.forEach((rowData, rowIndex) => {
+        const genders = rowData.genders || defaultGenders;
         const row = document.createElement("div");
         row.className = "agreement-family-card";
         row.innerHTML = `
@@ -284,6 +285,15 @@
                 const form = findForm(rowData.forms, gender, number);
                 if (!form) {
                   return `<div class="agreement-cell"><div class="empty-state">No ${number.toLowerCase()} ${gender.toLowerCase()} form.</div></div>`;
+                }
+                if (form.unavailable) {
+                  return `
+                    <div class="agreement-cell agreement-cell-unavailable">
+                      <div class="demonstrative-mobile-label">${number} · ${gender}</div>
+                      <div class="empty-state">${form.unavailable}</div>
+                      ${form.note ? `<div class="grammar-note">${form.note}</div>` : ""}
+                    </div>
+                  `;
                 }
                 const formIndex = rowData.forms.indexOf(form);
                 const words = getFormWords(form);
@@ -302,6 +312,7 @@
                     <div class="adjective-form-list">
                       ${form.examples.map((example, exampleIndex) => `
                         <button class="adjective-form-btn" type="button" data-row-index="${rowIndex}" data-form-index="${formIndex}" data-example-index="${exampleIndex}">
+                          ${example.label ? `<span class="tiny-label">${example.label}</span>` : ""}
                           <span class="noun-example-main">${example.fr}</span>
                           <span class="translation">${example.en}</span>
                         </button>
@@ -637,11 +648,7 @@
     }
 
     function renderToutPronouns(rows = toutPronounRows) {
-      renderAdverbWordTable(toutPronounGrid, rows, {
-        emptyMessage: "No tout pronoun examples available.",
-        wordLabel: "Pronoun",
-        useLabel: "Meaning, role & pronunciation"
-      });
+      renderAgreementMatrixRows(toutPronounGrid, rows, "No tout pronoun examples available.");
     }
 
     function renderPrepositionTable(targetGrid, list, emptyMessage) {
