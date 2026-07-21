@@ -202,7 +202,7 @@
       { pronoun: "je", form: "viens", full: "je viens", en: "I come / I am coming", example: "Je viens de la maison.", exampleEn: "I am coming from home.", negative: "Je ne viens pas de la maison.", negativeEn: "I am not coming from home." },
       { pronoun: "tu", form: "viens", full: "tu viens", en: "you come / you are coming", example: "Tu viens avec moi.", exampleEn: "You are coming with me.", negative: "Tu ne viens pas avec moi.", negativeEn: "You are not coming with me.", question: "Viens-tu avec moi ?" },
       { pronoun: "il", form: "vient", full: "il vient", en: "he comes / he is coming", example: "Il vient du bureau.", exampleEn: "He is coming from the office.", negative: "Il ne vient pas du bureau.", negativeEn: "He is not coming from the office.", question: "D’où vient-il ?" },
-      { pronoun: "elle", form: "vient", full: "elle vient", en: "she comes / she is coming", example: "Elle vient à la fête.", exampleEn: "She is coming to the party.", negative: "Elle ne vient pas à la fête.", negativeEn: "She is not coming to the party.", question: "Où vient-elle ?" },
+      { pronoun: "elle", form: "vient", full: "elle vient", en: "she comes / she is coming", example: "Elle vient à la fête.", exampleEn: "She is coming to the party.", negative: "Elle ne vient pas à la fête.", negativeEn: "She is not coming to the party.", question: "À quelle fête vient-elle ?" },
       { pronoun: "nous", form: "venons", full: "nous venons", en: "we come / we are coming", example: "Nous venons de Paris.", exampleEn: "We are coming from Paris.", negative: "Nous ne venons pas de Paris.", negativeEn: "We are not coming from Paris.", question: "D’où venons-nous ?" },
       { pronoun: "vous", form: "venez", full: "vous venez", en: "you come / you are coming", example: "Vous venez ce soir.", exampleEn: "You are coming tonight.", negative: "Vous ne venez pas ce soir.", negativeEn: "You are not coming tonight.", question: "Venez-vous ce soir ?" },
       { pronoun: "ils", form: "viennent", full: "ils viennent", en: "they come / they are coming", example: "Ils viennent en train.", exampleEn: "They are coming by train.", negative: "Ils ne viennent pas en train.", negativeEn: "They are not coming by train." },
@@ -1005,8 +1005,8 @@
       { pronoun: "tu", form: "rêves", full: "tu rêves", ipa: "/ty ʁɛv/", en: "you dream", example: "Tu rêves souvent de voyages.", exampleEn: "You often dream of traveling.", negative: "Tu ne rêves pas souvent de voyages.", negativeEn: "You do not often dream of traveling.", question: "De quoi rêves-tu souvent ?" },
       { pronoun: "il", form: "rêve", full: "il rêve", ipa: "/il ʁɛv/", en: "he dreams", example: "Il rêve de devenir musicien.", exampleEn: "He dreams of becoming a musician.", negative: "Il ne rêve pas de devenir musicien.", negativeEn: "He does not dream of becoming a musician.", question: "De quoi rêve-t-il ?" },
       { pronoun: "elle", form: "rêve", full: "elle rêve", ipa: "/ɛl ʁɛv/", en: "she dreams", example: "Elle rêve en regardant les nuages.", exampleEn: "She dreams while looking at the clouds.", negative: "Elle ne rêve pas en regardant les nuages.", negativeEn: "She does not dream while looking at the clouds.", question: "Est-ce qu’elle rêve en regardant les nuages ?" },
-      { pronoun: "nous", form: "rêvons", full: "nous rêvons", ipa: "/nu ʁə.vɔ̃/", en: "we dream", example: "Nous rêvons de vivre près de la mer.", exampleEn: "We dream of living near the sea.", negative: "Nous ne rêvons pas de vivre près de la mer.", negativeEn: "We do not dream of living near the sea.", question: "Est-ce que nous rêvons de vivre près de la mer ?" },
-      { pronoun: "vous", form: "rêvez", full: "vous rêvez", ipa: "/vu ʁə.ve/", en: "you dream", example: "Vous rêvez d’un nouveau travail.", exampleEn: "You dream of a new job.", negative: "Vous ne rêvez pas d’un nouveau travail.", negativeEn: "You do not dream of a new job.", question: "Rêvez-vous d’un nouveau travail ?" },
+      { pronoun: "nous", form: "rêvons", full: "nous rêvons", ipa: "/nu ʁɛ.vɔ̃/", en: "we dream", example: "Nous rêvons de vivre près de la mer.", exampleEn: "We dream of living near the sea.", negative: "Nous ne rêvons pas de vivre près de la mer.", negativeEn: "We do not dream of living near the sea.", question: "Est-ce que nous rêvons de vivre près de la mer ?" },
+      { pronoun: "vous", form: "rêvez", full: "vous rêvez", ipa: "/vu ʁɛ.ve/", en: "you dream", example: "Vous rêvez d’un nouveau travail.", exampleEn: "You dream of a new job.", negative: "Vous ne rêvez pas d’un nouveau travail.", negativeEn: "You do not dream of a new job.", question: "Rêvez-vous d’un nouveau travail ?" },
       { pronoun: "ils", form: "rêvent", full: "ils rêvent", ipa: "/il ʁɛv/", en: "they dream", example: "Ils rêvent de voyager ensemble.", exampleEn: "They dream of traveling together.", negative: "Ils ne rêvent pas de voyager ensemble.", negativeEn: "They do not dream of traveling together.", question: "De quoi rêvent-ils ?" },
       { pronoun: "elles", form: "rêvent", full: "elles rêvent", ipa: "/ɛl ʁɛv/", en: "they dream", example: "Elles rêvent d’une grande maison.", exampleEn: "They dream of a big house.", negative: "Elles ne rêvent pas d’une grande maison.", negativeEn: "They do not dream of a big house.", question: "De quoi rêvent-elles ?" }
     ];
@@ -1016,8 +1016,8 @@
       { pronoun: "tu", form: "arrêtes", full: "tu arrêtes", ipa: "/ty a.ʁɛt/", en: "you stop", example: "Tu arrêtes de parler pendant le film.", exampleEn: "You stop talking during the movie.", negative: "Tu n’arrêtes pas de parler pendant le film.", negativeEn: "You do not stop talking during the movie.", question: "Pourquoi arrêtes-tu de parler ?" },
       { pronoun: "il", form: "arrête", full: "il arrête", ipa: "/i.la.ʁɛt/", en: "he stops", example: "Il arrête la voiture devant l’école.", exampleEn: "He stops the car in front of the school.", negative: "Il n’arrête pas la voiture devant l’école.", negativeEn: "He does not stop the car in front of the school.", question: "Où arrête-t-il la voiture ?" },
       { pronoun: "elle", form: "arrête", full: "elle arrête", ipa: "/ɛ.la.ʁɛt/", en: "she stops", example: "Elle arrête de fumer.", exampleEn: "She stops smoking.", negative: "Elle n’arrête pas de fumer.", negativeEn: "She does not stop smoking.", question: "Est-ce qu’elle arrête de fumer ?" },
-      { pronoun: "nous", form: "arrêtons", full: "nous arrêtons", ipa: "/nu.za.ʁə.tɔ̃/", en: "we stop", example: "Nous arrêtons le film ici.", exampleEn: "We stop the movie here.", negative: "Nous n’arrêtons pas le film ici.", negativeEn: "We do not stop the movie here.", question: "Est-ce que nous arrêtons le film ici ?" },
-      { pronoun: "vous", form: "arrêtez", full: "vous arrêtez", ipa: "/vu.za.ʁə.te/", en: "you stop", example: "Vous arrêtez la musique.", exampleEn: "You stop the music.", negative: "Vous n’arrêtez pas la musique.", negativeEn: "You do not stop the music.", question: "Qu’est-ce que vous arrêtez ?" },
+      { pronoun: "nous", form: "arrêtons", full: "nous arrêtons", ipa: "/nu.za.ʁɛ.tɔ̃/", en: "we stop", example: "Nous arrêtons le film ici.", exampleEn: "We stop the movie here.", negative: "Nous n’arrêtons pas le film ici.", negativeEn: "We do not stop the movie here.", question: "Est-ce que nous arrêtons le film ici ?" },
+      { pronoun: "vous", form: "arrêtez", full: "vous arrêtez", ipa: "/vu.za.ʁɛ.te/", en: "you stop", example: "Vous arrêtez la musique.", exampleEn: "You stop the music.", negative: "Vous n’arrêtez pas la musique.", negativeEn: "You do not stop the music.", question: "Qu’est-ce que vous arrêtez ?" },
       { pronoun: "ils", form: "arrêtent", full: "ils arrêtent", ipa: "/il.za.ʁɛt/", en: "they stop", example: "Ils arrêtent de jouer à midi.", exampleEn: "They stop playing at noon.", negative: "Ils n’arrêtent pas de jouer à midi.", negativeEn: "They do not stop playing at noon.", question: "Quand arrêtent-ils de jouer ?" },
       { pronoun: "elles", form: "arrêtent", full: "elles arrêtent", ipa: "/ɛl.za.ʁɛt/", en: "they stop", example: "Elles arrêtent leur voiture devant la gare.", exampleEn: "They stop their car in front of the train station.", negative: "Elles n’arrêtent pas leur voiture devant la gare.", negativeEn: "They do not stop their car in front of the train station.", question: "Où arrêtent-elles leur voiture ?" }
     ];
@@ -1341,7 +1341,7 @@
         key: "regularRe",
         title: "Regular -re Verbs",
         indexTitle: "Regular -re",
-        descriptionHtml: "These verbs follow <strong>-s, -s, -, -ons, -ez, -ent</strong>. The singular endings and final <strong>-ent</strong> are silent, so <strong>j’attends / tu attends / il attend / ils attendent</strong> share the same final sound; <strong>nous attendons</strong> and <strong>vous attendez</strong> are distinct."
+        descriptionHtml: "These verbs follow <strong>-s, -s, -, -ons, -ez, -ent</strong>. The singular forms <strong>j’attends / tu attends / il attend</strong> sound alike because their final consonants are silent. In <strong>ils attendent</strong>, however, the stem-final <strong>d</strong> is pronounced: singular <strong>/atɑ̃/</strong> versus plural <strong>/atɑ̃d/</strong>."
       },
       {
         key: "impersonal",
@@ -1782,8 +1782,8 @@
         group: "regularEr",
         label: "réserver",
         title: "Réserver — to reserve / to book",
-        tag: "regular -er with accent change",
-        descriptionHtml: "<strong>Réserver</strong> follows regular -er endings, but the second <strong>é</strong> becomes <strong>è</strong> in the singular and ils/elles forms: <strong>je réserve</strong>, but <strong>nous réservons</strong> and <strong>vous réservez</strong>. It is useful for restaurants, hotels, tickets, seats, and appointments.",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Réserver</strong> keeps the same spelling pattern across its regular -er forms: <strong>je réserve</strong>, <strong>nous réservons</strong>, <strong>vous réservez</strong>, <strong>ils réservent</strong>. It is useful for restaurants, hotels, tickets, seats, and appointments.",
         rows: reserverRows
       },
       {
@@ -1854,8 +1854,8 @@
         group: "regularEr",
         label: "rentrer",
         title: "Rentrer — to return / go home",
-        tag: "regular -er",
-        descriptionHtml: "<strong>Rentrer</strong> follows the regular -er pattern. Use it for returning home, coming back from a place, or going back inside.",
+        tag: "regular -er / auxiliary changes by use",
+        descriptionHtml: "<strong>Rentrer</strong> follows the regular -er pattern. In passé composé, an intransitive return or going home normally uses <strong>être</strong> (<strong>je suis rentré</strong>); a transitive use with a direct object uses <strong>avoir</strong> (<strong>j’ai rentré la voiture</strong>).",
         rows: rentrerRows
       },
       {
@@ -1950,10 +1950,10 @@
       },
       {
         key: "descendre",
-        group: "irregular",
+        group: "regularRe",
         label: "descendre",
         title: "Descendre — to go down / take down",
-        tag: "irregular / auxiliary changes by use",
+        tag: "regular -re / auxiliary changes by use",
         descriptionHtml: "<strong>Descendre</strong> has silent singular endings: <strong>descends / descend</strong> sound like <strong>/desɑ̃/</strong>. In passé composé, going down uses <strong>être</strong>; taking something down uses <strong>avoir</strong>.",
         rows: descendreRows
       },
@@ -2237,7 +2237,6 @@
       lire: ["Singular <strong>lis / lit</strong> contrasts with plural <strong>lisons / lisez / lisent</strong>; the s in <strong>lisons</strong> is pronounced /z/."],
       acheter: ["The stem vowel changes in <strong>j’achète</strong> and <strong>ils achètent</strong>, but not in <strong>nous achetons</strong> or <strong>vous achetez</strong>."],
       preferer: ["The second accent changes in <strong>je préfère</strong> and <strong>ils préfèrent</strong>, but <strong>nous préférons / vous préférez</strong> keep é."],
-      reserver: ["The second accent changes in <strong>je réserve</strong> and <strong>ils réservent</strong>, but <strong>nous réservons / vous réservez</strong> keep é."],
       manger: ["Keep the soft g in <strong>nous mangeons</strong> by adding e before -ons."],
       voyager: ["Keep the soft g in <strong>nous voyageons</strong> by adding e before -ons."],
       nager: ["Keep the soft g in <strong>nous nageons</strong> by adding e before -ons."],

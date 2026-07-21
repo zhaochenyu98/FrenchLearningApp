@@ -95,11 +95,6 @@
       nous: "nous préférons",
       imparfait: "je préférais"
     }),
-    reserver: Object.freeze({
-      present: "je réserve",
-      nous: "nous réservons",
-      imparfait: "je réservais"
-    }),
     seLever: Object.freeze({
       present: "je me lève",
       nous: "nous nous levons",

@@ -2601,12 +2601,12 @@
       font-weight: 850;
     }
 
-    .practice-mode .translation {
+    .practice-mode .translation:not(.practice-visible) {
       visibility: hidden;
       user-select: none;
     }
 
-    .practice-mode .translation::selection {
+    .practice-mode .translation:not(.practice-visible)::selection {
       background: transparent;
     }
 
@@ -2657,10 +2657,6 @@
       .tonic-pronoun-row,
       .adjective-forms-row,
       .preposition-row-card {
-        grid-template-columns: 1fr;
-      }
-
-      .verb-matrix {
         grid-template-columns: 1fr;
       }
 
@@ -2846,11 +2842,11 @@
         grid-template-columns: 1fr;
       }
 
-      .pronominal-tense-matrix .verb-pair-header {
+      .verb-pair-header {
         display: none;
       }
 
-      .pronominal-tense-matrix .verb-pair-row {
+      .verb-pair-row {
         grid-template-columns: 1fr;
         min-width: 0;
       }

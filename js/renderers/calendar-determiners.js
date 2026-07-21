@@ -317,12 +317,12 @@
         <div class="tonic-pronoun-form-list">
           ${row.forms.map(form => `
             <div class="pronoun-study-card poss-study-card">
-              <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn poss-word-btn" type="button" data-speech="${form.form}">
+              <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn poss-word-btn" type="button" data-speech="${FR.utils.escapeAttribute(form.form)}">
                 <span class="matrix-label">${form.label}</span>
                 <span class="pronoun-main">${form.form}</span>
                 ${form.ipa ? `<span class="pronoun-ipa">${form.ipa}</span>` : ""}
               </button>
-              <button class="pronoun-example-btn poss-example-btn" type="button" data-example="${form.example}">
+              <button class="pronoun-example-btn poss-example-btn" type="button" data-example="${FR.utils.escapeAttribute(form.example)}">
                 <span class="tiny-label">Example</span>
                 <span class="noun-example-main">${form.example}</span>
                 <span class="translation">${form.exampleEn}</span>

@@ -21,7 +21,7 @@
             ]
           },
           {
-            rule: "字母e在字母mm前",
+            rule: "femme 中的字母 e，以及大多数以 -emment 结尾的副词中的字母 e",
             examples: [
               { fr: "femme", zh: "女人；妻子" },
               { fr: "évidemment", zh: "当然" },
@@ -119,7 +119,7 @@
             ]
           },
           {
-            rule: "字母组合er在包含两个或多个音节的单词词末时",
+            rule: "多数动词不定式词末的字母组合 -er（不适用于 hiver、cancer、super 等非动词）",
             examples: [
               { fr: "parler", zh: "说话" },
               { fr: "manger", zh: "吃" },
@@ -407,7 +407,7 @@
             ]
           },
           {
-            rule: "字母c在辅音字母前或在词末时",
+            rule: "字母 c 在辅音字母前；部分词末 c 读 [k]（blanc、tabac、porc 等词末 c 不发音）",
             examples: [
               { fr: "clé", zh: "钥匙" },
               { fr: "crème", zh: "奶油" },
@@ -517,7 +517,7 @@
             ]
           },
           {
-            rule: "字母组合ti遇到另外一个元音字母时t读[s]",
+            rule: "字母组合 ti + 元音在 -tion、-tiel 等许多词中 t 读 [s]（question、amitié、sortie 等不适用）",
             examples: [
               { fr: "nation", zh: "国家；民族" },
               { fr: "station", zh: "车站；站点" },

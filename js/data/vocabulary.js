@@ -24,7 +24,7 @@
     ];
 
     const seasons = [
-      { fr: "printemps", ipa: "/pʁɛ̃tɑ̃/", en: "spring", note: "spring often uses au", example: "au printemps", exampleEn: "in spring" },
+      { fr: "printemps", ipa: "/pʁɛ̃tɑ̃/", en: "spring", note: "use au for ‘in spring’", example: "au printemps", exampleEn: "in spring" },
       { fr: "été", ipa: "/ete/", en: "summer", note: "usually uses en", example: "en été", exampleEn: "in summer" },
       { fr: "automne", ipa: "/otɔn/", en: "autumn / fall", note: "usually uses en", example: "en automne", exampleEn: "in autumn" },
       { fr: "hiver", ipa: "/ivɛʁ/", en: "winter", note: "usually uses en", example: "en hiver", exampleEn: "in winter" }
@@ -52,7 +52,7 @@
             { fr: "J’habite ici depuis trois ans.", en: "I have lived here for three years." },
             { fr: "L’an dernier, nous avons déménagé.", en: "Last year, we moved." },
             { fr: "L’an prochain, je vais étudier le français.", en: "Next year, I am going to study French." },
-            { fr: "Il est resté ici un bon an.", en: "He stayed here for a good year." }
+            { fr: "Il est resté ici pendant un an.", en: "He stayed here for one year." }
           ]
         },
         long: {
@@ -68,7 +68,7 @@
             { fr: "Bonne année !", en: "Happy New Year!" }
           ]
         },
-        note: "Both l’an dernier / prochain and l’année dernière / prochaine are common. Année feels more like the whole lived year."
+        note: "Both l’an dernier / prochain and l’année dernière / prochaine are common. Année feels more like the whole lived year. Un bon an can validly mean a good full year of duration; une bonne année evaluates the quality or experience of that year."
       },
       {
         short: {
@@ -385,7 +385,7 @@
         examples: [
           { from: "un voisin parisien", to: "une voisine parisienne", en: "a Parisian neighbor" },
           { from: "un ami italien", to: "une amie italienne", en: "an Italian friend" },
-          { from: "un musicien ancien", to: "une chanson ancienne", en: "an old musician / an old song" }
+          { from: "un musicien canadien", to: "une musicienne canadienne", en: "a Canadian musician" }
         ]
       }
     ];
@@ -404,7 +404,7 @@
         rule: "-eau → -eaux",
         pattern: "Masculine adjectives ending in -eau usually become -eaux in the plural.",
         examples: [
-          { from: "un film nouveau", to: "des films nouveaux", en: "a new movie / new movies" },
+          { from: "un nouveau film", to: "de nouveaux films", en: "a new movie / new movies" },
           { from: "un beau manteau", to: "de beaux manteaux", en: "a beautiful coat / beautiful coats" },
           { from: "un nouveau tableau", to: "de nouveaux tableaux", en: "a new painting / new paintings" }
         ]
@@ -880,7 +880,7 @@
             examples: [
               { fr: "Je bois un peu de lait.", en: "I drink a little milk." },
               { fr: "J’ai bu un peu de lait.", en: "I drank a little milk." },
-              { fr: "Il reste un peu de fraises.", en: "There are a few strawberries left." }
+              { fr: "Il reste un peu de confiture.", en: "There is a little jam left." }
             ]
           },
           {

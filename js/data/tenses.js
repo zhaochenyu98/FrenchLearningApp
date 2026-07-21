@@ -199,7 +199,7 @@
             pastParticiple: "passé",
             pastParticipleIpa: "/pase/",
             pattern: "passer → passé",
-            note: "Usually uses avoir when it means “spend time” or “pass by.”",
+            note: "Uses avoir when passer takes a direct object, as in passer une journée or passer un examen. Intransitive passer meaning “stop / pass by” normally uses être: elle est passée chez moi.",
             statement: { fr: "Vous avez passé une bonne journée.", en: "You had a good day." },
             negative: { fr: "Vous n’avez pas passé une bonne journée.", en: "You did not have a good day." },
             question: { fr: "Avez-vous passé une bonne journée ?", en: "Did you have a good day?" }
@@ -1320,10 +1320,10 @@
         etreExamples: [
           { fr: "Elle est passée chez moi.", en: "She stopped by my place.", negative: "Elle n’est pas passée chez moi.", negativeEn: "She did not stop by my place.", question: "Est-elle passée chez moi ?", questionEn: "Did she stop by my place?" }
         ],
-        avoirNote: "Uses avoir for spending time, taking an exam, or passing something.",
+        avoirNote: "Uses avoir with a direct object for spending time, taking or sitting an exam, or passing something. Passer un examen means “take / sit an exam”; use réussir un examen for “pass an exam.”",
         avoirExamples: [
           { fr: "Elle a passé deux heures au café.", en: "She spent two hours at the cafe.", negative: "Elle n’a pas passé deux heures au café.", negativeEn: "She did not spend two hours at the cafe.", question: "A-t-elle passé deux heures au café ?", questionEn: "Did she spend two hours at the cafe?" },
-          { fr: "Il a passé l’examen.", en: "He took / passed the exam.", negative: "Il n’a pas passé l’examen.", negativeEn: "He did not take / pass the exam.", question: "A-t-il passé l’examen ?", questionEn: "Did he take / pass the exam?" }
+          { fr: "Il a passé l’examen.", en: "He took / sat the exam.", negative: "Il n’a pas passé l’examen.", negativeEn: "He did not take / sit the exam.", question: "A-t-il passé l’examen ?", questionEn: "Did he take / sit the exam?" }
         ]
       },
       {
@@ -1380,6 +1380,10 @@
       "tomber"
     ]);
 
+    const regularReEtreAuxiliaryVerbs = new Set([
+      "descendre"
+    ]);
+
     function addEtreAuxiliaryVerbsToPasseComposeGroups() {
       const knownInfinitives = new Set(
         passeComposeGroups.flatMap(group => group.verbs.map(verb => verb.infinitive))
@@ -1389,7 +1393,11 @@
         if (knownInfinitives.has(verb.infinitive)) return;
         const example = verb.etreExamples && verb.etreExamples[0];
         if (!example) return;
-        const groupKey = regularErEtreAuxiliaryVerbs.has(verb.infinitive) ? "er" : "irregular";
+        const groupKey = regularErEtreAuxiliaryVerbs.has(verb.infinitive)
+          ? "er"
+          : regularReEtreAuxiliaryVerbs.has(verb.infinitive)
+            ? "re"
+            : "irregular";
         const group = passeComposeGroups.find(item => item.key === groupKey);
         if (!group) return;
 

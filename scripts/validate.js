@@ -195,6 +195,33 @@ function validateVerbContent() {
   if (intonationOnlyQuestions.length) {
     fail(`verb questions repeat a statement with only a question mark: ${intonationOnlyQuestions.join("; ")}`);
   }
+
+  const reserver = verbStudyItems.find(item => item.key === "reserver");
+  const reserverGuidance = JSON.stringify({
+    tag: reserver && reserver.tag,
+    description: reserver && reserver.descriptionHtml,
+    highlights: reserver && reserver.presentHighlights
+  });
+  if (!reserver || /accent change|becomes[^.]*è/i.test(reserverGuidance)) {
+    fail("réserver must not be taught with a nonexistent written accent change");
+  }
+
+  const descendre = verbStudyItems.find(item => item.key === "descendre");
+  if (!descendre || descendre.group !== "regularRe") {
+    fail("descendre must be categorized with regular present-tense -re verbs");
+  }
+
+  const expectedIpa = new Map([
+    ["nous rêvons", "/nu ʁɛ.vɔ̃/"],
+    ["vous rêvez", "/vu ʁɛ.ve/"],
+    ["nous arrêtons", "/nu.za.ʁɛ.tɔ̃/"],
+    ["vous arrêtez", "/vu.za.ʁɛ.te/"]
+  ]);
+  verbStudyItems.flatMap(item => item.rows || []).forEach(row => {
+    if (expectedIpa.has(row.full) && row.ipa !== expectedIpa.get(row.full)) {
+      fail(`${row.full} IPA: expected ${expectedIpa.get(row.full)}, found ${row.ipa || "missing"}`);
+    }
+  });
 }
 
 function validateVerbTenseSync() {
@@ -280,6 +307,20 @@ function validateVerbTenseSync() {
   if (missingIpa.length) {
     fail(`tense tab verbs missing infinitive or past participle IPA: ${missingIpa.join(", ")}`);
   }
+
+  const passer = tenseEntries.find(entry => entry.infinitive === "passer");
+  const passerData = passeComposeGroups
+    .flatMap(group => group.verbs)
+    .find(verb => verb.infinitive === "passer");
+  if (!passer || !passerData || !/direct object/i.test(passerData.note) || !/uses être/i.test(passerData.note)) {
+    fail("passer must distinguish transitive avoir from intransitive être");
+  }
+
+  const passerReference = etreAuxiliaryVerbs.find(entry => entry.infinitive === "passer");
+  const examExample = passerReference && passerReference.avoirExamples.find(example => /examen/.test(example.fr));
+  if (!examExample || /passed|pass the exam/i.test(JSON.stringify(examExample))) {
+    fail("passer un examen must be glossed as taking/sitting an exam, not passing it");
+  }
 }
 
 function loadExtendedGrammarData() {
@@ -320,6 +361,9 @@ function validateImparfaitContent(data) {
   }
   if (imparfait.errors.length) {
     fail(`imparfait derivation errors: ${imparfait.errors.map(item => item.label || item.key).join(", ")}`);
+  }
+  if (imparfait.presentAlternations.reserver) {
+    fail("réserver must not appear among present-tense spelling alternations");
   }
 
   const missingItems = sourceItems.filter(item => !imparfait.getItem(item.key)).map(item => item.label);
@@ -517,6 +561,87 @@ function validatePronunciationContent() {
   if (invalid.length) {
     fail(`pronunciation rules need a rule, IPA, Chinese meaning, and at least 3 examples: ${invalid.join("; ")}`);
   }
+
+  const findRuleByExample = example => ruleGroups.find(rule =>
+    rule.examples.some(item => item.fr === example)
+  );
+  [
+    ["femme", "-emment"],
+    ["parler", "非动词"],
+    ["sac", "blanc"],
+    ["nation", "question"]
+  ].forEach(([example, exceptionText]) => {
+    const rule = findRuleByExample(example);
+    if (!rule || !rule.rule.includes(exceptionText)) {
+      fail(`pronunciation rule containing ${example} must state its ${exceptionText} limitation`);
+    }
+  });
+}
+
+function validateVocabularyCorrections() {
+  const context = {};
+  vm.createContext(context);
+  const code = fs.readFileSync(path.join(root, "js/data/vocabulary.js"), "utf8");
+  vm.runInContext(`${code}\nthis.__vocabulary = {
+    seasons,
+    timeSpanComparisons,
+    adjectiveFeminineRules,
+    adjectivePluralRules,
+    adverbAmountComparisonRows
+  };`, context);
+  const vocabulary = context.__vocabulary;
+
+  const spring = vocabulary.seasons.find(item => item.fr === "printemps");
+  if (!spring || spring.example !== "au printemps" || /often/i.test(spring.note)) {
+    fail("spring guidance must teach au printemps directly, not as an occasional pattern");
+  }
+
+  const amountText = JSON.stringify(vocabulary.adverbAmountComparisonRows);
+  if (amountText.includes("un peu de fraises")) {
+    fail("un peu de must not be glossed as a few countable strawberries");
+  }
+
+  const adjectiveText = JSON.stringify({
+    feminine: vocabulary.adjectiveFeminineRules,
+    plural: vocabulary.adjectivePluralRules
+  });
+  if (adjectiveText.includes("un musicien ancien") || adjectiveText.includes("des films nouveaux")) {
+    fail("adjective examples must preserve natural ancien/nouveau placement");
+  }
+}
+
+function validateInterfaceRegressions() {
+  const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+  const core = fs.readFileSync(path.join(root, "js/core/core.js"), "utf8");
+  const namespace = fs.readFileSync(path.join(root, "js/core/namespace.js"), "utf8");
+  const renderers = ["grammar.js", "calendar-determiners.js"]
+    .map(fileName => fs.readFileSync(path.join(root, "js/renderers", fileName), "utf8"))
+    .join("\n");
+
+  if (core.includes("voiceSelect.value || savedVoice") || !core.includes("voice.name === savedVoice")) {
+    fail("saved voice preference must take priority when the saved voice becomes available");
+  }
+  if (!css.includes(".translation:not(.practice-visible)") || !html.includes("translation practice-visible")) {
+    fail("practice mode must keep controls and revealed quiz answers visible");
+  }
+  if (!/\.verb-pair-row\s*\{[^}]*grid-template-columns:\s*1fr;[^}]*min-width:\s*0;/s.test(css)) {
+    fail("phone layouts must stack generic verb pairs without a forced minimum width");
+  }
+
+  const utilityContext = { window: {} };
+  vm.createContext(utilityContext);
+  vm.runInContext(namespace, utilityContext);
+  const escaped = utilityContext.window.FR.utils.escapeAttribute('Il dit "salut" & part.');
+  if (escaped !== "Il dit &quot;salut&quot; &amp; part.") {
+    fail("HTML attribute escaping utility does not preserve quoted speech safely");
+  }
+  const unsafeSpeechAttributes = Array.from(
+    renderers.matchAll(/data-(?:speech|example)="\$\{([^}]*)\}"/g),
+    match => match[1]
+  ).filter(expression => !expression.includes("escapeAttribute"));
+  if (unsafeSpeechAttributes.length) {
+    fail(`unescaped speech data attributes: ${unsafeSpeechAttributes.join(", ")}`);
+  }
 }
 
 try {
@@ -545,6 +670,13 @@ try {
   validatePronunciationContent();
 } catch (error) {
   fail(`pronunciation validation crashed: ${error.message}`);
+}
+
+try {
+  validateVocabularyCorrections();
+  validateInterfaceRegressions();
+} catch (error) {
+  fail(`feedback regression validation crashed: ${error.message}`);
 }
 
 if (!process.exitCode) {

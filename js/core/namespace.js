@@ -4,6 +4,15 @@
   FR.data = FR.data || {};
   FR.renderers = FR.renderers || {};
   FR.runtime = FR.runtime || {};
+  FR.utils = FR.utils || {};
+
+  FR.utils.escapeAttribute = FR.utils.escapeAttribute || function escapeAttribute(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  };
 
   FR.storage = FR.storage || {
     get(key, fallback = null) {

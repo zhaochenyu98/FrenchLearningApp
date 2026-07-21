@@ -11,13 +11,13 @@
       const exampleSpeech = form.exampleSpeech || form.example || "";
       return `
         <div class="pronoun-study-card">
-          <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn" type="button" data-speech="${formSpeech}">
+          <button class="pronoun-card tonic-pronoun-form-btn pronoun-word-btn" type="button" data-speech="${FR.utils.escapeAttribute(formSpeech)}">
             <span class="pronoun-main">${form.fr}</span>
             ${form.ipa ? `<span class="pronoun-ipa">${form.ipa}</span>` : ""}
             <span class="translation">${form.en}</span>
           </button>
           ${form.example ? `
-            <button class="pronoun-example-btn" type="button" data-example="${exampleSpeech}">
+            <button class="pronoun-example-btn" type="button" data-example="${FR.utils.escapeAttribute(exampleSpeech)}">
               <span class="tiny-label">Example</span>
               <span class="noun-example-main">${form.example}</span>
               <span class="translation">${form.exampleEn || ""}</span>

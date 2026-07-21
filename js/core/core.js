@@ -298,24 +298,21 @@
       const frenchVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith("fr"));
       const usable = frenchVoices.length ? frenchVoices : voices;
       const savedVoice = FR.storage.get("frenchStudyVoice", "");
-      const previousValue = voiceSelect.value || savedVoice;
+      const currentVoice = voiceSelect.value;
       const preferredVoice = getPreferredVoice(usable);
+      const selectedVoice = usable.find(voice => voice.name === savedVoice)
+        || usable.find(voice => voice.name === currentVoice)
+        || preferredVoice;
       voiceSelect.innerHTML = "";
 
       usable.forEach((voice) => {
         const option = document.createElement("option");
         option.value = voice.name;
         option.textContent = `${voice.name} (${voice.lang})`;
-        if (!previousValue && preferredVoice && voice.name === preferredVoice.name) option.selected = true;
         voiceSelect.appendChild(option);
       });
 
-      if (previousValue) {
-        const match = Array.from(voiceSelect.options).find(o => o.value === previousValue);
-        if (match) match.selected = true;
-      } else if (preferredVoice) {
-        voiceSelect.value = preferredVoice.name;
-      }
+      if (selectedVoice) voiceSelect.value = selectedVoice.name;
     }
 
     function isFrenchVoice(voice) {
