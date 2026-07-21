@@ -1073,6 +1073,22 @@
       gap: 4px;
     }
 
+    .verb-tense-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .verb-imparfait-form-btn {
+      display: grid;
+      gap: 3px;
+    }
+
+    .verb-imparfait-notes {
+      display: grid;
+      gap: 8px;
+    }
+
     .study-nav-layout {
       display: grid;
       grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
@@ -1348,6 +1364,248 @@
       font-size: 0.94rem;
       line-height: 1.45;
       margin-top: 7px;
+    }
+
+    .verb-form-highlights {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .verb-form-highlight {
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--text);
+      display: grid;
+      gap: 4px;
+      line-height: 1.45;
+      padding: 10px 12px;
+    }
+
+    .object-pronoun-header,
+    .object-pronoun-row {
+      display: grid;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .object-decision-table .object-pronoun-header,
+    .object-decision-table .object-pronoun-row {
+      grid-template-columns: minmax(150px, 0.9fr) minmax(125px, 0.65fr) minmax(230px, 1.25fr) minmax(280px, 1.55fr);
+    }
+
+    .object-forms-table .object-pronoun-header,
+    .object-forms-table .object-pronoun-row {
+      grid-template-columns: minmax(150px, 1fr) repeat(3, minmax(120px, 0.8fr));
+    }
+
+    .object-placement-table .object-pronoun-header,
+    .object-placement-table .object-pronoun-row {
+      grid-template-columns: minmax(160px, 0.8fr) minmax(240px, 1.2fr) minmax(320px, 1.6fr);
+    }
+
+    .object-pronoun-cell,
+    .object-pronoun-transformations,
+    .object-pronoun-transformation,
+    .object-pronoun-info-card,
+    .object-contrast-card,
+    .object-contrast-side {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .object-pronoun-choice {
+      color: var(--accent);
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+
+    .object-pronoun-warning {
+      border-left: 3px solid var(--accent);
+      padding-left: 9px;
+    }
+
+    .object-pronoun-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .object-pronoun-info-card,
+    .object-contrast-card,
+    .object-contrast-side {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 13px;
+    }
+
+    .object-pronoun-info-card h5,
+    .object-contrast-card h4,
+    .object-contrast-side h5 {
+      margin: 0;
+    }
+
+    .object-pronoun-audio {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .object-pronoun-audio:hover,
+    .object-pronoun-audio:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    .object-pronoun-order-banner {
+      border: 1px solid var(--accent-border);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      display: grid;
+      gap: 5px;
+      margin: 12px 0;
+      padding: 12px 14px;
+    }
+
+    .object-contrast-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .object-contrast-sides {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .imparfait-special-grid,
+    .pronominal-agreement-grid,
+    .pronominal-card-contrasts {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pronominal-overview-card,
+    .pronominal-agreement-card,
+    .pronominal-contrast-card,
+    .pronominal-badge {
+      align-content: start;
+      min-width: 0;
+    }
+
+    .pronominal-audio-button {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      gap: 3px;
+      padding: 10px 11px;
+      text-align: left;
+    }
+
+    .pronominal-audio-button:hover,
+    .pronominal-audio-button:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    .pronominal-verb-card {
+      scroll-margin-top: 18px;
+    }
+
+    .pronominal-verb-summary {
+      min-width: 0;
+    }
+
+    .pronominal-verb-title {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      min-width: 0;
+      padding-right: 12px;
+    }
+
+    .pronominal-metadata {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pronominal-badge > span {
+      display: block;
+    }
+
+    .pronominal-badge > .translation {
+      margin-top: 4px;
+    }
+
+    .pronominal-agreement-callout,
+    .pronominal-special-note,
+    .pronominal-contrast-compact {
+      border: 1px solid var(--accent-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      display: grid;
+      gap: 6px;
+      padding: 12px 14px;
+    }
+
+    .pronominal-agreement-callout p,
+    .pronominal-special-note p,
+    .pronominal-contrast-card p {
+      margin: 0;
+    }
+
+    .pronominal-tense-section,
+    .pronominal-examples-section {
+      min-width: 0;
+    }
+
+    .pronominal-tense-heading {
+      margin-top: 8px;
+    }
+
+    .pronominal-form-card {
+      min-height: 96px;
+    }
+
+    .pronominal-form-button {
+      border-bottom: 0;
+      display: grid;
+      gap: 4px;
+      height: 100%;
+    }
+
+    .pronominal-examples-header,
+    .pronominal-examples-row {
+      grid-template-columns: minmax(105px, 0.55fr) repeat(3, minmax(210px, 1fr));
+    }
+
+    .pronominal-tense-label {
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 900;
+      padding: 10px;
+    }
+
+    .pronominal-example-cell {
+      min-width: 0;
     }
 
     .imperative-sections {
@@ -2246,6 +2504,11 @@
       margin-bottom: 4px;
     }
 
+    .imparfait-guide-panel > .summary-chips .summary-chip > span strong {
+      display: inline;
+      margin-bottom: 0;
+    }
+
     .empty-state {
       border: 1px dashed var(--accent-border);
       border-radius: 16px;
@@ -2504,6 +2767,23 @@
       .quel-comparison-cell-label {
         display: block;
       }
+
+      .object-pronoun-header {
+        display: none;
+      }
+
+      .object-decision-table .object-pronoun-row,
+      .object-forms-table .object-pronoun-row,
+      .object-placement-table .object-pronoun-row,
+      .object-pronoun-card-grid,
+      .object-contrast-grid,
+      .object-contrast-sides {
+        grid-template-columns: 1fr;
+      }
+
+      .object-pronoun-cell .question-cell-label {
+        display: block;
+      }
     }
 
     @media (max-width: 640px) {
@@ -2559,6 +2839,20 @@
         float: none;
         display: block;
         margin-top: 4px;
+      }
+
+      .verb-tense-form-grid,
+      .pronominal-metadata {
+        grid-template-columns: 1fr;
+      }
+
+      .pronominal-tense-matrix .verb-pair-header {
+        display: none;
+      }
+
+      .pronominal-tense-matrix .verb-pair-row {
+        grid-template-columns: 1fr;
+        min-width: 0;
       }
 
     }

@@ -282,6 +282,166 @@ function validateVerbTenseSync() {
   }
 }
 
+function loadExtendedGrammarData() {
+  const context = {
+    FR: { data: {}, renderers: {}, runtime: {} },
+    window: {},
+    console
+  };
+  context.window.FR = context.FR;
+  context.window.window = context.window;
+  vm.createContext(context);
+
+  [
+    "js/core/namespace.js",
+    "js/data/pronouns.js",
+    "js/data/verbs.js",
+    "js/data/grammar.js",
+    "js/data/tenses.js",
+    "js/data/imparfait.js",
+    "js/data/pronominal-verbs.js",
+    "js/data/object-pronouns.js"
+  ].forEach(scriptPath => {
+    vm.runInContext(
+      fs.readFileSync(path.join(root, scriptPath), "utf8"),
+      context,
+      { filename: scriptPath }
+    );
+  });
+  return context.FR.data;
+}
+
+function validateImparfaitContent(data) {
+  const sourceItems = data.verbs.items.filter(item => item.group !== "pronominal");
+  const imparfait = data.imparfait;
+  if (!imparfait || !Array.isArray(imparfait.items)) {
+    fail("imparfait data is not registered");
+    return;
+  }
+  if (imparfait.errors.length) {
+    fail(`imparfait derivation errors: ${imparfait.errors.map(item => item.label || item.key).join(", ")}`);
+  }
+
+  const missingItems = sourceItems.filter(item => !imparfait.getItem(item.key)).map(item => item.label);
+  if (missingItems.length) {
+    fail(`verbs missing an imparfait paradigm: ${missingItems.join(", ")}`);
+  }
+
+  imparfait.items.forEach(item => {
+    const source = sourceItems.find(entry => entry.key === item.key);
+    const expectedPronouns = new Set((source && source.rows || []).map(row => {
+      const normalized = row.pronoun.replace(/[’']/g, "").toLowerCase();
+      return normalized === "j" ? "je" : normalized;
+    }));
+    const actualPronouns = new Set(item.rows.map(row => row.pronoun));
+    const missingPronouns = Array.from(expectedPronouns).filter(pronoun => !actualPronouns.has(pronoun));
+    if (missingPronouns.length) {
+      fail(`${item.label} imparfait is missing ${missingPronouns.join("/")}`);
+    }
+    if (item.rows.some(row => !row.full || !row.form || !row.ending)) {
+      fail(`${item.label} has an incomplete imparfait row`);
+    }
+  });
+
+  const expectedForms = [
+    ["etreVerb", "nous", "nous étions"],
+    ["manger", "nous", "nous mangions"],
+    ["commencer", "nous", "nous commencions"],
+    ["voyager", "je", "je voyageais"],
+    ["travailler", "nous", "nous travaillions"]
+  ];
+  expectedForms.forEach(([key, pronoun, expected]) => {
+    const item = imparfait.getItem(key);
+    const row = item && item.rows.find(entry => entry.pronoun === pronoun);
+    if (!row || row.full !== expected) {
+      fail(`${key} imparfait ${pronoun}: expected ${expected}, found ${row ? row.full : "missing"}`);
+    }
+  });
+}
+
+function validatePronominalContent(data) {
+  const pronominal = data.pronominalVerbs;
+  if (!pronominal || !Array.isArray(pronominal.items)) {
+    fail("pronominal-verb data is not registered");
+    return;
+  }
+  if (pronominal.errors.length) {
+    fail(`pronominal-verb data errors: ${pronominal.errors.map(item => item.infinitive || item.key).join(", ")}`);
+  }
+
+  const sourceItems = data.verbs.items.filter(item => item.group === "pronominal");
+  const missingSourceVerbs = sourceItems.filter(item => !pronominal.items.some(entry => entry.key === item.key));
+  if (missingSourceVerbs.length) {
+    fail(`pronominal tab is missing existing verbs: ${missingSourceVerbs.map(item => item.label).join(", ")}`);
+  }
+
+  const validTypes = new Set(pronominal.typeOrder);
+  const validAgreementModes = new Set(Object.keys(pronominal.agreementModes));
+  pronominal.items.forEach(item => {
+    if (!validTypes.has(item.type)) fail(`${item.infinitive} has an unknown pronominal type: ${item.type}`);
+    if (!validAgreementModes.has(item.agreementMode)) {
+      fail(`${item.infinitive} has an unknown agreement mode: ${item.agreementMode}`);
+    }
+    ["present", "imperfect", "passeCompose"].forEach(tense => {
+      const rows = item.paradigms[tense] || [];
+      if (rows.length !== 8 || rows.some(row => !row.full || !row.pronoun)) {
+        fail(`${item.infinitive} needs eight complete ${tense} forms`);
+      }
+      const examples = item.examples[tense] || {};
+      ["statement", "negative", "question"].forEach(kind => {
+        if (!examples[kind] || !examples[kind].fr || !examples[kind].en) {
+          fail(`${item.infinitive} is missing a ${tense} ${kind} example`);
+        }
+      });
+      if (examples.question && examples.statement) {
+        const statement = examples.statement.fr.replace(/[.!?]\s*$/u, "").toLowerCase();
+        const question = examples.question.fr.replace(/[.!?]\s*$/u, "").toLowerCase();
+        if (statement === question) {
+          fail(`${item.infinitive} repeats its ${tense} statement as an intonation-only question`);
+        }
+      }
+    });
+  });
+
+  const seDire = pronominal.getById("seDire");
+  if (!seDire || seDire.paradigms.passeCompose.some(row => row.participle !== "dit")) {
+    fail("se dire must keep dit invariant when se is indirect");
+  }
+  const seMarier = pronominal.getById("seMarier");
+  if (!seMarier || !seMarier.paradigms.imperfect.some(row => row.full === "nous nous mariions")) {
+    fail("se marier must preserve both written i letters in nous nous mariions");
+  }
+  const requiredContrasts = new Set(["se-laver-body-parts", "se-dire-objects", "se-trouver-context"]);
+  pronominal.agreementContrasts.forEach(item => requiredContrasts.delete(item.id));
+  if (requiredContrasts.size) {
+    fail(`missing pronominal agreement contrasts: ${Array.from(requiredContrasts).join(", ")}`);
+  }
+}
+
+function validateObjectPronounContent(data) {
+  const objects = data.objectPronouns;
+  if (!objects) {
+    fail("object-pronoun data is not registered");
+    return;
+  }
+  const choices = new Set(objects.decisionMatrix.map(item => item.id));
+  ["cod", "coi", "y", "en", "tonic", "ca", "pronominal"].forEach(id => {
+    if (!choices.has(id)) fail(`object-pronoun decision matrix is missing ${id}`);
+  });
+  const normalOrder = objects.placement && objects.placement.regularOrder;
+  if (!normalOrder || !normalOrder.sequence.includes("lui / leur → y → en")) {
+    fail("object-pronoun normal order is incomplete");
+  }
+  const imperativeExamples = objects.placement.affirmativeImperative.examples.map(item => item.fr);
+  ["Donne-le-moi.", "Parlez-lui-en.", "Donne-m'en.", "Vas-y.", "Penses-y.", "Manges-en."].forEach(example => {
+    if (!imperativeExamples.includes(example)) fail(`object-pronoun imperative guide is missing ${example}`);
+  });
+  const agreementText = JSON.stringify(objects.placement.agreementNotes);
+  if (!agreementText.includes("Des fleurs, j'en ai acheté.")) {
+    fail("object-pronoun guide must teach normal no agreement with en");
+  }
+}
+
 function validateNumberRules() {
   const context = {};
   vm.createContext(context);
@@ -364,6 +524,15 @@ try {
   validateVerbTenseSync();
 } catch (error) {
   fail(`verb validation crashed: ${error.message}`);
+}
+
+try {
+  const extendedData = loadExtendedGrammarData();
+  validateImparfaitContent(extendedData);
+  validatePronominalContent(extendedData);
+  validateObjectPronounContent(extendedData);
+} catch (error) {
+  fail(`extended grammar validation crashed: ${error.message}`);
 }
 
 try {

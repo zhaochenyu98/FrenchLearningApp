@@ -1329,19 +1329,19 @@
         key: "regularEr",
         title: "Regular -er Verbs",
         indexTitle: "Regular -er",
-        descriptionHtml: "These verbs follow the regular <strong>-er</strong> present-tense pattern: <strong>-e, -es, -e, -ons, -ez, -ent</strong>. Some still have small spelling changes to keep pronunciation stable, like <strong>nous mangeons</strong>, <strong>nous commençons</strong>, and <strong>nous voyageons</strong>."
+        descriptionHtml: "These verbs follow <strong>-e, -es, -e, -ons, -ez, -ent</strong>. The je/tu/il/elle/ils/elles endings are normally silent and often sound alike; <strong>-ons</strong> and <strong>-ez</strong> are pronounced. Some verbs still change spelling to preserve a sound: <strong>nous mangeons</strong>, <strong>nous commençons</strong>, <strong>nous voyageons</strong>."
       },
       {
         key: "regularIr",
         title: "Regular -ir Verbs",
         indexTitle: "Regular -ir",
-        descriptionHtml: "These verbs follow the regular <strong>-ir</strong> present-tense pattern used by <strong>finir</strong>: <strong>-is, -is, -it, -issons, -issez, -issent</strong>. This is different from irregular <strong>-ir</strong> verbs like <strong>venir</strong>, <strong>tenir</strong>, <strong>dormir</strong>, and <strong>partir</strong>."
+        descriptionHtml: "These verbs follow the <strong>finir</strong> pattern: <strong>-is, -is, -it, -issons, -issez, -issent</strong>. The singular endings are silent and sound alike; the plural forms pronounce the <strong>-iss-</strong> stem. This differs from irregular <strong>-ir</strong> verbs like <strong>venir</strong>, <strong>tenir</strong>, <strong>dormir</strong>, and <strong>partir</strong>."
       },
       {
         key: "regularRe",
         title: "Regular -re Verbs",
         indexTitle: "Regular -re",
-        descriptionHtml: "These verbs follow the regular <strong>-re</strong> present-tense pattern: <strong>-s, -s, -, -ons, -ez, -ent</strong>. For example: <strong>j’attends</strong>, <strong>nous attendons</strong>, <strong>ils attendent</strong>."
+        descriptionHtml: "These verbs follow <strong>-s, -s, -, -ons, -ez, -ent</strong>. The singular endings and final <strong>-ent</strong> are silent, so <strong>j’attends / tu attends / il attend / ils attendent</strong> share the same final sound; <strong>nous attendons</strong> and <strong>vous attendez</strong> are distinct."
       },
       {
         key: "impersonal",
@@ -1782,8 +1782,8 @@
         group: "regularEr",
         label: "réserver",
         title: "Réserver — to reserve / to book",
-        tag: "regular -er",
-        descriptionHtml: "<strong>Réserver</strong> follows the regular -er pattern and is useful for restaurants, hotels, tickets, seats, and appointments.",
+        tag: "regular -er with accent change",
+        descriptionHtml: "<strong>Réserver</strong> follows regular -er endings, but the second <strong>é</strong> becomes <strong>è</strong> in the singular and ils/elles forms: <strong>je réserve</strong>, but <strong>nous réservons</strong> and <strong>vous réservez</strong>. It is useful for restaurants, hotels, tickets, seats, and appointments.",
         rows: reserverRows
       },
       {
@@ -2162,8 +2162,8 @@
         group: "regularEr",
         label: "rêver",
         title: "Rêver — to dream",
-        tag: "regular -er with accent change",
-        descriptionHtml: "<strong>Rêver de</strong> means “to dream of.” Like other verbs ending in <strong>-éver</strong>, it has <strong>è</strong> in the singular and ils/elles forms: <strong>je rêve</strong>, but <strong>nous rêvons</strong> and <strong>vous rêvez</strong>.",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Rêver de</strong> means “to dream of.” The written circumflex stays in every present form: <strong>je rêve</strong>, <strong>nous rêvons</strong>, <strong>vous rêvez</strong>.",
         rows: reverRows
       },
       {
@@ -2171,8 +2171,8 @@
         group: "regularEr",
         label: "arrêter",
         title: "Arrêter — to stop",
-        tag: "regular -er with accent change",
-        descriptionHtml: "<strong>Arrêter</strong> can take a direct object (<strong>arrêter la voiture</strong>) or use <strong>arrêter de + infinitive</strong> to mean “to stop doing.” It has <strong>è</strong> in the singular and ils/elles forms: <strong>j’arrête</strong>, but <strong>nous arrêtons</strong> and <strong>vous arrêtez</strong>.",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Arrêter</strong> can take a direct object (<strong>arrêter la voiture</strong>) or use <strong>arrêter de + infinitive</strong> to mean “to stop doing.” The written circumflex stays in every present form: <strong>j’arrête</strong>, <strong>nous arrêtons</strong>, <strong>vous arrêtez</strong>.",
         rows: arreterRows
       },
       {
@@ -2216,6 +2216,39 @@
         rows: seBaignerRows
       }
     ];
+
+    const presentVerbHighlights = {
+      etreVerb: ["Highly irregular forms: <strong>suis / es / est / sommes / êtes / sont</strong>. Learn each form as a unit."],
+      aller: ["Three visible stems appear in the present: <strong>v-</strong> in <strong>vais / vas / va</strong>, <strong>all-</strong> in <strong>allons / allez</strong>, and <strong>vont</strong> for ils/elles."],
+      venir: ["Watch the stem and sound changes: <strong>viens / vient</strong>, <strong>venons / venez</strong>, <strong>viennent</strong>."],
+      tenir: ["Same family as venir: <strong>tiens / tient</strong>, <strong>tenons / tenez</strong>, <strong>tiennent</strong>."],
+      prendre: ["The plural changes twice: <strong>nous prenons</strong>, <strong>vous prenez</strong>, but <strong>ils prennent</strong> with written double n."],
+      apprendre: ["Same present pattern as prendre: <strong>nous apprenons</strong>, but <strong>ils apprennent</strong>."],
+      comprendre: ["Same present pattern as prendre: <strong>nous comprenons</strong>, but <strong>ils comprennent</strong>."],
+      faire: ["Pronunciation changes noticeably: <strong>nous faisons</strong> has /z/, <strong>vous faites</strong> ends in /t/, and <strong>ils font</strong> is /fɔ̃/."],
+      pouvoir: ["Watch <strong>peux / peut</strong>, <strong>pouvons / pouvez</strong>, and <strong>peuvent</strong>. Formal inversion uses the special form <strong>Puis-je... ?</strong>"],
+      vouloir: ["Watch <strong>veux / veut</strong>, <strong>voulons / voulez</strong>, and <strong>veulent</strong>."],
+      savoir: ["The stem changes across <strong>sais / sait</strong>, <strong>savons / savez</strong>, and <strong>savent</strong>."],
+      connaitre: ["The singular has <strong>connais / connaît</strong>; nous/vous use <strong>connaiss-</strong>, and ils/elles use <strong>connaissent</strong>."],
+      voir: ["Watch <strong>vois / voit</strong>, then <strong>voyons / voyez</strong>, but <strong>voient</strong>."],
+      boire: ["Three stems appear: <strong>boi-</strong>, <strong>buv-</strong>, and <strong>boiv-</strong>: je bois, nous buvons, ils boivent."],
+      dire: ["The vous form is <strong>vous dites</strong>, not <strong>*vous disez</strong>. Ils/elles use <strong>disent</strong>."],
+      ecrire: ["Singular <strong>écris / écrit</strong> contrasts with plural <strong>écrivons / écrivez / écrivent</strong>."],
+      lire: ["Singular <strong>lis / lit</strong> contrasts with plural <strong>lisons / lisez / lisent</strong>; the s in <strong>lisons</strong> is pronounced /z/."],
+      acheter: ["The stem vowel changes in <strong>j’achète</strong> and <strong>ils achètent</strong>, but not in <strong>nous achetons</strong> or <strong>vous achetez</strong>."],
+      preferer: ["The second accent changes in <strong>je préfère</strong> and <strong>ils préfèrent</strong>, but <strong>nous préférons / vous préférez</strong> keep é."],
+      reserver: ["The second accent changes in <strong>je réserve</strong> and <strong>ils réservent</strong>, but <strong>nous réservons / vous réservez</strong> keep é."],
+      manger: ["Keep the soft g in <strong>nous mangeons</strong> by adding e before -ons."],
+      voyager: ["Keep the soft g in <strong>nous voyageons</strong> by adding e before -ons."],
+      nager: ["Keep the soft g in <strong>nous nageons</strong> by adding e before -ons."],
+      commencer: ["Use ç before the a-sound ending in <strong>nous commençons</strong>, but c elsewhere: je commence, vous commencez."],
+      offrir: ["Despite ending in -ir, offrir uses present endings like an -er verb: <strong>j’offre, nous offrons, ils offrent</strong>."],
+      ouvrir: ["Despite ending in -ir, ouvrir uses present endings like an -er verb: <strong>j’ouvre, nous ouvrons, ils ouvrent</strong>."]
+    };
+
+    verbStudyItems.forEach(item => {
+      item.presentHighlights = presentVerbHighlights[item.key] || [];
+    });
 
     const verbConfigs = [
       ...grammarVerbConfigs,

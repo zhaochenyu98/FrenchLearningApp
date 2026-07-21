@@ -214,8 +214,7 @@
         er: passeComposeErGrid,
         ir: passeComposeIrGrid,
         re: passeComposeReGrid,
-        irregular: passeComposeIrregularGrid,
-        pronominal: passeComposePronominalGrid
+        irregular: passeComposeIrregularGrid
       };
 
       groups.forEach(group => {

@@ -21,13 +21,24 @@
       pronouns: {
         title: "Pronoun index",
         sections: [
-          { id: "cod", title: "COD pronouns", open: true, elements: ['[data-study-section="pronoun-cod"]'] },
-          { id: "coi", title: "COI pronouns", open: true, elements: ['[data-study-section="pronoun-coi"]'] },
           { id: "tonic", title: "Tonic pronouns", open: true, elements: ['[data-study-section="pronoun-tonic"]'] },
           { id: "tonic-usage", title: "When to use tonic", elements: ['[data-study-section="pronoun-tonic-usage"]'] },
           { id: "reflexive", title: "Reflexive pronouns", open: true, elements: ['[data-study-section="pronoun-reflexive"]'] },
           { id: "possessive", title: "Possessives", elements: ['[data-study-section="pronoun-possessive"]'] },
           { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
+        ]
+      },
+      objects: {
+        title: "Object pronoun index",
+        sections: [
+          { id: "start", title: "Start here", open: true, elements: ['[data-study-section="object-start"]'] },
+          { id: "cod", title: "COD", open: true, elements: ['[data-study-section="object-cod"]'] },
+          { id: "coi", title: "COI", open: true, elements: ['[data-study-section="object-coi"]'] },
+          { id: "y", title: "Y", elements: ['[data-study-section="object-y"]'] },
+          { id: "en", title: "En", elements: ['[data-study-section="object-en"]'] },
+          { id: "ca", title: "Ça & tonic fallback", elements: ['[data-study-section="object-ca"]'] },
+          { id: "placement", title: "Placement & order", elements: ['[data-study-section="object-placement"]'] },
+          { id: "contrast", title: "Contrast practice", elements: ['[data-study-section="object-contrast"]'] }
         ]
       },
       grammar: {
@@ -57,9 +68,6 @@
           { id: "amounts", title: "Amounts & degree", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
           { id: "frequency", title: "Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
-          { id: "adverbial-y", title: "Y", open: true, elements: ['[data-study-section="adverbial-y"]'] },
-          { id: "adverbial-en", title: "En", open: true, elements: ['[data-study-section="adverbial-en"]'] },
-          { id: "adverbial-ca", title: "Ça", open: true, elements: ['[data-study-section="adverbial-ca"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout: 3 roles", elements: ['[data-study-section="adverb-tout"]'] }
         ]
@@ -154,6 +162,15 @@
         initializeStudyIndex("pronunciation");
       },
       pronouns() {
+        renderTonicPronounForms();
+        renderReflexivePronounForms();
+        renderPossessives();
+        renderPossessiveExceptions();
+        renderTonicPronounUsage();
+        initializeStudyIndex("pronouns");
+      },
+      objects() {
+        FR.renderers.objectPronouns.renderAll();
         renderCodPronounForms();
         renderCodTriggerRules();
         renderCodAvoidRules();
@@ -162,12 +179,13 @@
         renderCoiTriggerRules();
         renderCoiAvoidRules();
         renderCoiPatterns();
-        renderTonicPronounForms();
-        renderReflexivePronounForms();
-        renderPossessives();
-        renderPossessiveExceptions();
-        renderTonicPronounUsage();
-        initializeStudyIndex("pronouns");
+        renderYAdverbialPronouns();
+        renderEnAdverbialPronouns();
+        renderCaPronoun();
+        initializeStudyIndex("objects");
+      },
+      pronominal() {
+        FR.renderers.pronominalVerbs.render();
       },
       grammar() {
         renderVerbTables("grammar");
@@ -187,6 +205,7 @@
         renderEtreAuxiliaryVerbs();
         renderPasseComposeGroups();
         initializeTenseIndex();
+        FR.renderers.imparfait.render();
       },
       nouns() {
         renderNounPluralRules();
@@ -206,9 +225,6 @@
         renderDegreeWords();
         renderFrequencyWords();
         renderTransitionWords();
-        renderYAdverbialPronouns();
-        renderEnAdverbialPronouns();
-        renderCaPronoun();
         renderModifierComparison();
         renderToutAdverbUsage();
         renderToutAdverbPhrases();
@@ -566,6 +582,62 @@
       return details;
     }
 
+    function createVerbImparfaitSummary(item) {
+      const imparfait = FR.data.imparfait && FR.data.imparfait.getItem(item.key);
+      if (!imparfait || !imparfait.rows || !imparfait.rows.length) return null;
+
+      const details = document.createElement("details");
+      details.className = "verb-tense-summary verb-imparfait-summary";
+
+      const sample = imparfait.rows.find(row => row.pronoun === "je") || imparfait.rows[0];
+      const summary = document.createElement("summary");
+      summary.className = "verb-tense-summary-toggle";
+      summary.innerHTML = `
+        <span>Imparfait</span>
+        <span class="verb-tense-summary-form">${sample.full}</span>
+      `;
+
+      const body = document.createElement("div");
+      body.className = "verb-tense-summary-body";
+
+      const formula = document.createElement("div");
+      formula.className = "grammar-note";
+      formula.innerHTML = `<strong>Formula:</strong> ${imparfait.formula.text}`;
+      body.appendChild(formula);
+
+      const formGrid = document.createElement("div");
+      formGrid.className = "verb-tense-form-grid";
+      imparfait.rows.forEach(row => {
+        const button = document.createElement("button");
+        button.className = "verb-tense-form-btn verb-imparfait-form-btn";
+        button.type = "button";
+        button.innerHTML = `
+          <span class="tiny-label">${row.pronoun}</span>
+          <span class="noun-example-main">${row.full}</span>
+        `;
+        button.addEventListener("click", () => {
+          speakSequence([{ text: row.full }], button);
+        });
+        formGrid.appendChild(button);
+      });
+      body.appendChild(formGrid);
+
+      if (imparfait.specialRules.length) {
+        const noteList = document.createElement("div");
+        noteList.className = "verb-imparfait-notes";
+        imparfait.specialRules.forEach(rule => {
+          const note = document.createElement("div");
+          note.className = "verb-form-highlight";
+          note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
+          noteList.appendChild(note);
+        });
+        body.appendChild(noteList);
+      }
+
+      details.append(summary, body);
+      return details;
+    }
+
     function getVerbTableId(item) {
       return item.tableId || `${item.key}Table`;
     }
@@ -619,16 +691,31 @@
       const description = document.createElement("p");
       description.innerHTML = item.descriptionHtml || "";
 
+      const highlights = document.createElement("div");
+      highlights.className = "verb-form-highlights";
+      (item.presentHighlights || []).forEach(note => {
+        const callout = document.createElement("div");
+        callout.className = "verb-form-highlight";
+        callout.innerHTML = `
+          <span class="tiny-label">Spelling / pronunciation watch</span>
+          <span>${note}</span>
+        `;
+        highlights.appendChild(callout);
+      });
+
       const table = document.createElement("div");
       table.id = getVerbTableId(item);
       table.className = "verb-matrix";
 
-      panel.append(header, description, table);
+      panel.append(header, description);
+      if (highlights.children.length) panel.appendChild(highlights);
+      panel.appendChild(table);
+
+      const imparfaitSummary = createVerbImparfaitSummary(item);
+      if (imparfaitSummary) panel.appendChild(imparfaitSummary);
 
       const tenseSummary = createVerbPasseComposeSummary(item);
-      if (tenseSummary) {
-        panel.appendChild(tenseSummary);
-      }
+      if (tenseSummary) panel.appendChild(tenseSummary);
 
       (item.extras || []).forEach(extra => {
         if (extra === "faireExpressions") appendFaireExpressions(panel);
@@ -641,7 +728,9 @@
       if (!verbGroupStack) return;
       verbGroupStack.replaceChildren();
 
-      FR.data.verbs.groups.forEach((group, index) => {
+      FR.data.verbs.groups
+        .filter(group => group.key !== "pronominal")
+        .forEach((group, index) => {
         const groupPanel = document.createElement("div");
         groupPanel.className = "category-panel verb-group";
         groupPanel.dataset.verbGroup = group.key;
@@ -683,12 +772,12 @@
 
         groupPanel.append(header, content);
         verbGroupStack.appendChild(groupPanel);
-      });
+        });
     }
 
     function renderVerbTables(tabName) {
       FR.data.verbs.configs
-        .filter(config => config.tab === tabName)
+        .filter(config => config.tab === tabName && !(tabName === "verbs" && config.group === "pronominal"))
         .forEach(config => {
           const table = document.getElementById(config.tableId);
           if (!table) {
@@ -776,8 +865,8 @@
       controls.append(expandAll, collapseAll);
       index.appendChild(controls);
 
-      const configs = FR.data.verbs.configs.filter(config => config.tab === "verbs");
-      FR.data.verbs.groups.forEach(group => {
+      const configs = FR.data.verbs.configs.filter(config => config.tab === "verbs" && config.group !== "pronominal");
+      FR.data.verbs.groups.filter(group => group.key !== "pronominal").forEach(group => {
         const groupConfigs = configs.filter(config => config.group === group.key);
         if (!groupConfigs.length) return;
 
@@ -926,7 +1015,9 @@
         links.appendChild(groupBlock);
       }
 
-      passeComposeGroups.forEach((group, groupIndex) => {
+      passeComposeGroups
+        .filter(group => group.key !== "pronominal")
+        .forEach((group, groupIndex) => {
         const element = resolveStudyElement(section, `[data-study-section="tense-${group.key}"]`);
         if (!element) return;
 
@@ -977,7 +1068,7 @@
 
         groupBlock.appendChild(groupLinks);
         links.appendChild(groupBlock);
-      });
+        });
 
       if (!cards.length) return;
 

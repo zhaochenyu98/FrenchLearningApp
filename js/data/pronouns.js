@@ -152,7 +152,7 @@
         title: "Reflexive or no-object action is not COD",
         pattern: "When the subject acts on itself, use reflexive pronouns; when the verb has no direct object, there is no COD to replace.",
         examples: [
-          { from: "Je lave mes mains.", to: "Je me lave les mains.", avoid: "Usually not: Je les lave, unless les is already clear from context.", en: "I wash my hands." },
+          { from: "Je me lave les mains.", result: "Me belongs to the pronominal verb; les mains is the following direct object.", avoid: "Not normally: Je lave mes mains.", en: "I wash my hands." },
           { from: "Elle met ses vêtements.", to: "Elle s’habille.", avoid: "Elle l’habille means she dresses someone else.", en: "She gets dressed." },
           { from: "Ils se reposent après le cours.", result: "No COD; se belongs to the pronominal verb.", avoid: "Not: Ils les reposent.", en: "They rest after class." }
         ]
@@ -580,7 +580,7 @@
       },
       {
         rule: "用在介词之后",
-        pattern: "Use them after prepositions like avec, pour, chez, and à. For parler à, lui / leur is common too; à elle / à elles adds emphasis.",
+        pattern: "Use them after prepositions like avec, pour, and chez. With parler à, neutral replacement uses lui / leur; keep à elle / à elles only for emphasis or contrast.",
         examples: [
           {
             lines: [
@@ -600,7 +600,8 @@
           {
             lines: [
               { fr: "À qui parles-tu ?", en: "Who are you speaking to?" },
-              { fr: "Je parle à elles.", en: "I am speaking to them." }
+              { fr: "Je leur parle.", en: "I am speaking to them." },
+              { fr: "Je parle à elles, pas à eux.", en: "I am speaking to them, not to the men / mixed group." }
             ]
           },
           {

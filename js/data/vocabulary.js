@@ -1080,7 +1080,7 @@
       {
         title: "En with de + a thing or idea",
         pattern: "en + conjugated verb",
-        note: "En replaces <strong>de + a thing or idea</strong>: tu parles de ce livre → tu en parles. It can also replace <strong>de + a place</strong>. Do not use en for <strong>de + a person</strong>: je parle de Marie → je parle d’elle.",
+        note: "En replaces <strong>de + a thing, idea, or place of origin</strong>: tu parles de ce livre → tu en parles; tu reviens de Paris → tu en reviens. For a person, a tonic pronoun is the clearest beginner default: je parle de Marie → je parle d’elle. Personal en can occur, so treat this as a strong learning default rather than an absolute ban.",
         examples: [
           {
             label: "tu parles de ce livre",
@@ -1164,7 +1164,7 @@
       {
         title: "En in passé composé",
         pattern: "en + auxiliary + past participle",
-        note: "In compound tenses, en goes before the auxiliary: elles ont acheté des fleurs → elles en ont acheté. A quantity still comes after the past participle: elles en ont acheté trois.",
+        note: "In compound tenses, en goes before the auxiliary: elles ont acheté des fleurs → elles en ont acheté. The past participle normally stays unchanged with en: <strong>Des fleurs, elles en ont acheté</strong>. A quantity still comes after the past participle: elles en ont acheté trois.",
         examples: [
           {
             label: "elles ont acheté des fleurs",
@@ -1214,7 +1214,7 @@
       {
         title: "Ça as a subject",
         pattern: "ça + verb",
-        note: "Use ça for a thing, idea, or situation as the subject of a sentence. It is informal and everyday; <strong>cela</strong> is more formal. Avoid using ça for a person.",
+        note: "Use ça for a nonhuman thing, idea, or situation as the subject of a sentence. It is informal and everyday; <strong>cela</strong> is more formal. Ça can point to people in dismissive speech, but do not use that as your neutral beginner pattern.",
         examples: [
           {
             label: "ça marche",

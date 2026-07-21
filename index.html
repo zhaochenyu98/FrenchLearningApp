@@ -10,7 +10,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes numbers, time expressions, pronunciation rules, pronouns, present-tense conjugations, noun and adjective patterns, prepositions, core French articles, determiners, and calendar vocabulary.
+      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present and past tense study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
     </p>
 
     <div class="controls">
@@ -41,6 +41,8 @@
       <div class="tabs" role="tablist" aria-label="French study topics">
         <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="pronouns">Pronouns</button>
+        <button class="tab-btn" type="button" data-tab="objects">Object Pronouns</button>
+        <button class="tab-btn" type="button" data-tab="pronominal">Pronominal Verbs</button>
         <button class="tab-btn" type="button" data-tab="grammar">Être / Avoir</button>
         <button class="tab-btn active" type="button" data-tab="verbs">Verbs &amp; Tenses</button>
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
@@ -134,44 +136,8 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronouns</h2>
-            <p class="section-desc">Study COD direct object pronouns, COI indirect object pronouns, stressed pronouns, reflexive pronouns, and possessive determiners. Click any form or example to hear it.</p>
+            <p class="section-desc">Study stressed pronouns, reflexive forms, and possessive determiners. Object replacement now has its own guided comparison tab.</p>
           </div>
-        </div>
-
-        <div class="category-panel" data-study-section="pronoun-cod">
-          <h3>COD Pronouns — direct object pronouns</h3>
-          <p><strong>COD</strong> answers “who?” or “what?” directly after the verb, without <strong>à</strong> or <strong>de</strong>. The core forms are <strong>me / te / le / la / nous / vous / les</strong>. Use COD for direct-object verbs such as <strong>voir</strong>, <strong>aider</strong>, <strong>inviter</strong>, <strong>regarder</strong>, and <strong>attendre</strong>.</p>
-          <div id="codPronounGrid" class="tonic-pronoun-table"></div>
-
-          <h4>When COD is triggered</h4>
-          <p>Use COD when the person, animal, or thing directly receives the action of the verb.</p>
-          <div id="codTriggerGrid" class="noun-rules-table"></div>
-
-          <h4>When not to use COD</h4>
-          <p>Do not use COD just because English says “him,” “her,” “it,” or “them.” French depends on the verb pattern: <strong>à + person</strong> usually points to COI, <strong>de + thing</strong> often points to <strong>en</strong>, and real prepositional phrases usually keep tonic pronouns.</p>
-          <div id="codAvoidGrid" class="noun-rules-table"></div>
-
-          <h4>COD placement in sentence patterns</h4>
-          <p>These examples show where the COD pronoun moves in normal statements, commands, verb + infinitive patterns, and passé composé. In passé composé, a preceding COD can make the past participle agree: <strong>vu / vue / vus / vues</strong>.</p>
-          <div id="codPatternGrid" class="noun-rules-table"></div>
-        </div>
-
-        <div class="category-panel" data-study-section="pronoun-coi">
-          <h3>COI Pronouns — indirect object pronouns</h3>
-          <p><strong>COI</strong> answers “to whom?” or “for whom?” with a person. The core forms are <strong>me / te / lui / nous / vous / leur</strong>. They usually replace <strong>à + person</strong>, and sometimes a beneficiary meaning like <strong>pour + person</strong> when the verb allows it. COI <strong>leur</strong> never takes <strong>s</strong>; <strong>leurs</strong> is a possessive determiner, not a COI pronoun.</p>
-          <div id="coiPronounGrid" class="tonic-pronoun-table"></div>
-
-          <h4>When COI is triggered</h4>
-          <p>Use COI when the verb naturally points to a person as the indirect recipient, listener, answer target, or beneficiary.</p>
-          <div id="coiTriggerGrid" class="noun-rules-table"></div>
-
-          <h4>When not to use COI</h4>
-          <p>Do not use <strong>lui / leur</strong> just because English says “to” or “for.” French depends on the verb pattern and whether the phrase is a person, place, thing, direct object, or real prepositional phrase.</p>
-          <div id="coiAvoidGrid" class="noun-rules-table"></div>
-
-          <h4>COI placement in sentence patterns</h4>
-          <p>These examples show where the COI pronoun moves in normal statements, commands, verb + infinitive patterns, and passé composé.</p>
-          <div id="coiPatternGrid" class="noun-rules-table"></div>
         </div>
 
         <div class="category-panel" data-study-section="pronoun-tonic">
@@ -183,6 +149,10 @@
         <div class="category-panel" data-study-section="pronoun-reflexive">
           <h3>Pronom réfléchi</h3>
           <p>自反代词 are used with pronominal verbs such as <strong>se laver</strong>, <strong>se lever</strong>, and <strong>s’appeler</strong>. They stay before the verb: <strong>Je me lave.</strong> In negation, they stay with the verb: <strong>Je ne me lave pas.</strong></p>
+          <div class="study-cross-link-row">
+            <span>Need full tense tables and agreement rules?</span>
+            <button class="study-cross-link" type="button" data-study-link-tab="pronominal" data-study-link-target="pronominalOverviewGrid">Open Pronominal Verbs</button>
+          </div>
           <div id="reflexivePronounGrid" class="tonic-pronoun-table"></div>
         </div>
 
@@ -202,6 +172,127 @@
           <h3>When to use tonic pronouns</h3>
           <p>Use these patterns when the pronoun needs stress, stands alone, or comes after a preposition.</p>
           <div id="tonicPronounUsageGrid" class="noun-rules-table"></div>
+        </div>
+      </section>
+
+      <section id="objectsSection" class="section" data-tab="objects">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Object Pronouns</h2>
+            <p class="section-desc">Choose between COD, COI, <strong>y</strong>, <strong>en</strong>, <strong>ça</strong>, and a tonic pronoun by looking at the original complement and the verb that introduces it.</p>
+          </div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-start">
+          <h3>Start here: what should replace the object?</h3>
+          <p>Do not translate an English pronoun mechanically. First identify whether French uses no preposition, <strong>à</strong>, <strong>de</strong>, a place phrase, or an explicit “this / that” idea.</p>
+          <div id="objectDecisionGrid" class="object-decision-grid"></div>
+          <h4>Forms at a glance</h4>
+          <p>COD and COI share most first- and second-person forms. The biggest contrast is third person: <strong>le / la / les</strong> versus <strong>lui / leur</strong>.</p>
+          <div id="objectFormsGrid" class="object-forms-grid"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-cod">
+          <h3>COD Pronouns — direct object pronouns</h3>
+          <p><strong>COD</strong> answers “who?” or “what?” directly after the verb, without <strong>à</strong> or <strong>de</strong>. The core forms are <strong>me / te / le / la / nous / vous / les</strong>. Use COD for direct-object verbs such as <strong>voir</strong>, <strong>aider</strong>, <strong>inviter</strong>, <strong>regarder</strong>, and <strong>attendre</strong>.</p>
+          <div id="codPronounGrid" class="tonic-pronoun-table"></div>
+
+          <h4>When COD is triggered</h4>
+          <p>Use COD when the person, animal, or thing directly receives the action of the verb.</p>
+          <div id="codTriggerGrid" class="noun-rules-table"></div>
+
+          <h4>When not to use COD</h4>
+          <p>Do not use COD just because English says “him,” “her,” “it,” or “them.” French depends on the verb pattern: <strong>à + person</strong> can point to COI, <strong>de + thing</strong> often points to <strong>en</strong>, and a real prepositional phrase usually keeps a tonic pronoun.</p>
+          <div id="codAvoidGrid" class="noun-rules-table"></div>
+
+          <h4>COD placement in sentence patterns</h4>
+          <p>The COD pronoun goes before the verb it complements. In passé composé, a preceding COD can trigger written agreement: <strong>vu / vue / vus / vues</strong>.</p>
+          <div id="codPatternGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-coi">
+          <h3>COI Pronouns — indirect object pronouns</h3>
+          <p><strong>COI</strong> commonly answers “to whom?” with a person. The core forms are <strong>me / te / lui / nous / vous / leur</strong>. A verb must license the indirect construction; <strong>à</strong> or English “for” alone does not automatically produce <strong>lui / leur</strong>. COI <strong>leur</strong> never takes <strong>s</strong>.</p>
+          <div id="coiPronounGrid" class="tonic-pronoun-table"></div>
+
+          <h4>When COI is triggered</h4>
+          <p>Use COI when the verb naturally points to a person as its indirect recipient, listener, answer target, or beneficiary.</p>
+          <div id="coiTriggerGrid" class="noun-rules-table"></div>
+
+          <h4>When not to use COI</h4>
+          <p>French depends on the verb pattern and whether the complement is a person, place, thing, direct object, or full prepositional phrase. Keep <strong>pour + tonic pronoun</strong> unless the verb itself allows a beneficiary COI.</p>
+          <div id="coiAvoidGrid" class="noun-rules-table"></div>
+
+          <h4>COI placement in sentence patterns</h4>
+          <p>The COI pronoun also goes before the verb it complements, not automatically before the first verb in the sentence.</p>
+          <div id="coiPatternGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-y">
+          <h3>Adverbial pronoun: y</h3>
+          <p><strong>Y</strong> replaces a location other than origin, or <strong>à + thing / idea</strong>. It goes before the verb it complements and before the auxiliary in passé composé; in an affirmative imperative it follows the verb: <strong>J’y vais</strong>, <strong>J’y suis allé</strong>, <strong>Vas-y</strong>.</p>
+          <div id="yAdverbialPronounGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-en">
+          <h3>Adverbial pronoun: en</h3>
+          <p><strong>En</strong> replaces <strong>de + thing / idea / origin</strong>, a partitive or indefinite phrase, or a quantity phrase. For people, a tonic pronoun is the clearest beginner default, although personal <strong>en</strong> can occur in real French.</p>
+          <div id="enAdverbialPronounGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-ca">
+          <h3>Demonstrative pronoun: ça</h3>
+          <p><strong>Ça</strong> means “that / it” and is the everyday spoken form of <strong>cela</strong>. It usually refers to a nonhuman thing, idea, or situation and keeps that reference explicit: <strong>Je pense à ça</strong>, <strong>Je parle de ça</strong>.</p>
+          <div id="caPronounGrid" class="noun-rules-table"></div>
+          <div class="study-cross-link-row">
+            <span>Need a person after a preposition?</span>
+            <button class="study-cross-link" type="button" data-study-link-tab="pronouns" data-study-link-target="tonicPronounGrid">Review tonic pronouns</button>
+          </div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-placement">
+          <h3>Placement and pronoun order</h3>
+          <p>Learn one default order, then treat the affirmative imperative as its own pattern.</p>
+          <div id="objectPlacementGrid" class="object-placement-grid"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="object-contrast">
+          <h3>Contrast practice</h3>
+          <p>Compare similar complements side by side. The preposition and the verb’s construction decide which replacement is natural.</p>
+          <div id="objectContrastGrid" class="object-contrast-grid"></div>
+          <div class="study-cross-link-row">
+            <span>When the object is the same person as the subject:</span>
+            <button class="study-cross-link" type="button" data-study-link-tab="pronominal" data-study-link-target="pronominalAgreementGrid">Study pronominal verbs</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="pronominalSection" class="section" data-tab="pronominal">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Pronominal Verbs</h2>
+            <p class="section-desc">Compare present, imparfait, and passé composé forms while learning the four meanings of pronominal constructions and the real past-participle agreement rule.</p>
+          </div>
+        </div>
+
+        <div class="category-panel pronominal-overview" data-study-section="pronominal-overview">
+          <h3>Four meanings, one visible form</h3>
+          <p>The pronoun can express 自反, 相互, 被动, or a 固有 / 惯用 meaning. The semantic type helps you interpret the verb; the pronoun’s grammatical role determines agreement.</p>
+          <div id="pronominalOverviewGrid" class="pronominal-overview-grid"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="pronominal-agreement">
+          <h3>性数配合 in passé composé</h3>
+          <p>All pronominal verbs use <strong>être</strong> in compound tenses, but agreement is not automatic. Check whether <strong>se</strong> is a preceding COD, a COI, or part of a lexical/passive construction.</p>
+          <div id="pronominalAgreementGrid" class="pronominal-agreement-grid"></div>
+        </div>
+
+        <div class="verb-study-layout pronominal-study-layout">
+          <aside class="verb-index" aria-label="Pronominal verb index">
+            <div class="verb-index-title">Pronominal verb index</div>
+            <div id="pronominalVerbIndex" class="verb-index-groups"></div>
+          </aside>
+          <div id="pronominalVerbStack" class="verb-group-stack"></div>
         </div>
       </section>
 
@@ -288,13 +379,14 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Verbs &amp; Tenses</h2>
-            <p class="section-desc">Study verbs either by individual verb or by tense pattern. The verb view keeps present tense first, with compact passé composé notes inside each card.</p>
+            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact Imparfait and passé composé references.</p>
           </div>
         </div>
 
         <div class="verb-mode-tabs" role="tablist" aria-label="Verb and tense study modes">
           <button id="verbModeVerb" class="verb-mode-btn active" type="button" role="tab" aria-selected="true" aria-controls="verbByVerbMode" data-verb-mode="verb">By Verb</button>
-          <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">By Tense</button>
+          <button id="verbModeImparfait" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="imparfaitSection" data-verb-mode="imparfait">Imparfait</button>
+          <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">Passé composé</button>
         </div>
 
         <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
@@ -305,6 +397,47 @@
           </aside>
 
           <div id="verbGroupStack" class="verb-group-stack"></div>
+          </div>
+        </div>
+
+        <div id="imparfaitSection" class="verb-mode-panel" data-verb-mode-panel="imparfait" role="tabpanel" aria-labelledby="verbModeImparfait" hidden>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Imparfait</h2>
+              <p class="section-desc">Use the imparfait for habits, repeated actions, descriptions, background conditions, and actions viewed as ongoing in the past.</p>
+            </div>
+          </div>
+
+          <div class="category-panel imparfait-guide-panel">
+            <h3>Build the tense from the present nous form</h3>
+            <div class="summary-chips">
+              <div class="summary-chip">
+                <strong>Stem</strong>
+                <span>Take the present <strong>nous</strong> form and remove <strong>-ons</strong>: <strong>nous parlons → parl-</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Endings</strong>
+                <span><strong>-ais, -ais, -ait, -ions, -iez, -aient</strong>. The singular forms and <strong>ils / elles</strong> usually sound alike.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Only core stem exception</strong>
+                <span><strong>Être</strong> uses <strong>ét-</strong>: <strong>j’étais</strong>, <strong>nous étions</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Meaning</strong>
+                <span>Think “used to,” “was doing,” or background description, not a bounded one-time completed event.</span>
+              </div>
+            </div>
+            <h4>Spelling and pronunciation watch</h4>
+            <div id="imparfaitSpecialRules" class="imparfait-special-grid"></div>
+          </div>
+
+          <div class="verb-study-layout imparfait-study-layout">
+            <aside class="verb-index" aria-label="Imparfait verb index">
+              <div class="verb-index-title">Imparfait index</div>
+              <div id="imparfaitIndex" class="verb-index-groups"></div>
+            </aside>
+            <div id="imparfaitGroupStack" class="verb-group-stack"></div>
           </div>
         </div>
 
@@ -380,11 +513,6 @@
           <div id="passeComposeIrregularGrid" class="noun-rules-table"></div>
         </div>
 
-        <div class="category-panel" data-study-section="tense-pronominal">
-          <h3>Pronominal verbs → être + past participle</h3>
-          <p>Pronominal verbs use <strong>être</strong> in passé composé: <strong>je me suis lavé</strong>, <strong>elle s’est habillée</strong>.</p>
-          <div id="passeComposePronominalGrid" class="noun-rules-table"></div>
-        </div>
         </div>
       </section>
 
@@ -474,7 +602,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Adverbs &amp; Modifiers</h2>
-            <p class="section-desc">Compare confusing modifier words like <strong>bon</strong>, <strong>bien</strong>, and <strong>beau</strong>; learn quantity, frequency, and degree words; practice transition words; then review adverbial pronouns like <strong>y</strong> and <strong>en</strong>.</p>
+            <p class="section-desc">Compare confusing modifier words like <strong>bon</strong>, <strong>bien</strong>, and <strong>beau</strong>; learn quantity, frequency, degree, transition words, and the complete uses of <strong>tout</strong>.</p>
           </div>
         </div>
 
@@ -492,18 +620,6 @@
             <div class="summary-chip">
               <strong>beau</strong>
               <span><strong>Beau</strong> is an adjective for “beautiful / nice-looking,” and appears in weather: <strong>Il fait beau.</strong></span>
-            </div>
-            <div class="summary-chip">
-              <strong>y</strong>
-              <span><strong>Y</strong> replaces a place or <strong>à + thing/idea</strong>: <strong>Je vais au parc → J’y vais.</strong></span>
-            </div>
-            <div class="summary-chip">
-              <strong>en</strong>
-              <span><strong>En</strong> replaces <strong>de + thing/idea</strong> or an indefinite, partitive, or quantity noun phrase: <strong>J’ai du pain → J’en ai.</strong></span>
-            </div>
-            <div class="summary-chip">
-              <strong>ça</strong>
-              <span><strong>Ça</strong> means “that / it” and is the informal form of <strong>cela</strong>: <strong>Ça marche.</strong> = “It works.”</span>
             </div>
           </div>
         </div>
@@ -534,24 +650,6 @@
           <h3>Transition words: sequencing</h3>
           <p>Use these words to connect steps in order: first, next, after, finally. Click the word for pronunciation, or click an example sentence for full-sentence audio.</p>
           <div id="transitionWordsGrid" class="noun-rules-table"></div>
-        </div>
-
-        <div class="category-panel" data-study-section="adverbial-y">
-          <h3>Adverbial pronoun: y</h3>
-          <p><strong>Y</strong> usually replaces <strong>à + place</strong> or <strong>à + thing/idea</strong>. It goes before the conjugated verb and before the auxiliary in passé composé; in an affirmative imperative it follows the verb with a hyphen: <strong>J’y vais</strong>, <strong>J’y suis allé</strong>, <strong>Vas-y</strong>.</p>
-          <div id="yAdverbialPronounGrid" class="noun-rules-table"></div>
-        </div>
-
-        <div class="category-panel" data-study-section="adverbial-en">
-          <h3>Adverbial pronoun: en</h3>
-          <p><strong>En</strong> usually replaces <strong>de + thing/idea</strong>, a partitive or indefinite noun phrase, or a quantity phrase. It goes before the conjugated verb and before the auxiliary in passé composé; in an affirmative imperative it follows the verb with a hyphen: <strong>J’en veux</strong>, <strong>J’en ai acheté</strong>, <strong>Prends-en</strong>.</p>
-          <div id="enAdverbialPronounGrid" class="noun-rules-table"></div>
-        </div>
-
-        <div class="category-panel" data-study-section="adverbial-ca">
-          <h3>Demonstrative pronoun: ça</h3>
-          <p><strong>Ça</strong> means “that / it” and is the everyday spoken form of <strong>cela</strong>. It can refer to a thing, idea, or situation, but avoid using it for a person. Unlike <strong>y</strong> and <strong>en</strong>, it keeps the reference explicit: <strong>Je pense à ça</strong>, <strong>Je parle de ça</strong>.</p>
-          <div id="caPronounGrid" class="noun-rules-table"></div>
         </div>
 
         <div id="adverbComparisonSection" class="category-panel" data-study-section="adverb-comparison">
@@ -1188,6 +1286,9 @@
   <script defer src="js/data/vocabulary.js"></script>
   <script defer src="js/data/determiners-prepositions.js"></script>
   <script defer src="js/data/tenses.js"></script>
+  <script defer src="js/data/imparfait.js"></script>
+  <script defer src="js/data/pronominal-verbs.js"></script>
+  <script defer src="js/data/object-pronouns.js"></script>
   <script defer src="js/core/core.js"></script>
   <script defer src="js/renderers/numbers.js"></script>
   <script defer src="js/renderers/pronunciation.js"></script>
@@ -1197,6 +1298,9 @@
   <script defer src="js/renderers/vocabulary.js"></script>
   <script defer src="js/renderers/questions.js"></script>
   <script defer src="js/renderers/calendar-determiners.js"></script>
+  <script defer src="js/renderers/imparfait.js"></script>
+  <script defer src="js/renderers/pronominal-verbs.js"></script>
+  <script defer src="js/renderers/object-pronouns.js"></script>
   <script defer src="js/app.js"></script>
 </body>
 </html>
