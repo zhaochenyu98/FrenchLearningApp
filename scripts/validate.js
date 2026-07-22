@@ -445,6 +445,27 @@ function validatePronominalContent(data) {
         }
       }
     });
+
+    const imperative = item.examples.imperative || {};
+    ["statement", "negative"].forEach(kind => {
+      if (!imperative[kind] || !imperative[kind].fr || !imperative[kind].en) {
+        fail(`${item.infinitive} is missing an imperative ${kind} example`);
+      }
+    });
+    if (imperative.statement && !/(?:-toi|-nous|-vous)\b/iu.test(imperative.statement.fr)) {
+      fail(`${item.infinitive} affirmative imperative must place toi, nous, or vous after the verb`);
+    }
+    if (imperative.negative) {
+      if (!/^Ne\b/iu.test(imperative.negative.fr)) {
+        fail(`${item.infinitive} negative imperative must begin with ne`);
+      }
+      if (!/(?:\bte\b|\bt[’']|\bnous\b|\bvous\b)/iu.test(imperative.negative.fr)) {
+        fail(`${item.infinitive} negative imperative must place te, nous, or vous before the verb`);
+      }
+      if (/(?:-toi|-nous|-vous)\b/iu.test(imperative.negative.fr)) {
+        fail(`${item.infinitive} negative imperative must not keep an attached reflexive pronoun`);
+      }
+    }
   });
 
   const seDire = pronominal.getById("seDire");

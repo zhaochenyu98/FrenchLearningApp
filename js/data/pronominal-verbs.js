@@ -122,6 +122,10 @@
     return { statement, negative, question };
   }
 
+  function imperativeExamples(affirmative, negative, note) {
+    return { statement: affirmative, negative, note: note || "" };
+  }
+
   const seeds = [
     {
       key: "seLaver",
@@ -137,6 +141,7 @@
       present: examples(sentence("Elle se lave avant le dîner.", "She washes before dinner."), sentence("Elle ne se lave pas avant le dîner.", "She does not wash before dinner."), sentence("Quand se lave-t-elle ?", "When does she wash?")),
       imperfect: examples(sentence("Elle se lavait avant le dîner.", "She used to wash before dinner."), sentence("Elle ne se lavait pas avant le dîner.", "She did not use to wash before dinner."), sentence("Quand se lavait-elle ?", "When did she use to wash?")),
       passeCompose: examples(sentence("Elle s’est lavée avant le dîner.", "She washed before dinner."), sentence("Elle ne s’est pas lavée avant le dîner.", "She did not wash before dinner."), sentence("S’est-elle lavée avant le dîner ?", "Did she wash before dinner?")),
+      imperative: imperativeExamples(sentence("Lave-toi les mains avant de manger !", "Wash your hands before eating!"), sentence("Ne te lave pas les mains avec ce produit !", "Do not wash your hands with this product!")),
       contrastIds: ["se-laver-body-parts"]
     },
     {
@@ -153,7 +158,8 @@
       specialNote: "Present lève / lèvent uses è, but the imperfect follows nous levons: je me levais.",
       present: examples(sentence("Elle se lève à six heures.", "She gets up at six."), sentence("Elle ne se lève pas à six heures.", "She does not get up at six."), sentence("À quelle heure se lève-t-elle ?", "What time does she get up?")),
       imperfect: examples(sentence("Elle se levait à six heures.", "She used to get up at six."), sentence("Elle ne se levait pas à six heures.", "She did not use to get up at six."), sentence("À quelle heure se levait-elle ?", "What time did she use to get up?")),
-      passeCompose: examples(sentence("Elle s’est levée à six heures.", "She got up at six."), sentence("Elle ne s’est pas levée à six heures.", "She did not get up at six."), sentence("À quelle heure s’est-elle levée ?", "What time did she get up?"))
+      passeCompose: examples(sentence("Elle s’est levée à six heures.", "She got up at six."), sentence("Elle ne s’est pas levée à six heures.", "She did not get up at six."), sentence("À quelle heure s’est-elle levée ?", "What time did she get up?")),
+      imperative: imperativeExamples(sentence("Lève-toi maintenant !", "Get up now!"), sentence("Ne te lève pas encore !", "Do not get up yet!"))
     },
     {
       key: "seReposer",
@@ -168,7 +174,8 @@
       participle: "reposé",
       present: examples(sentence("Elle se repose après le travail.", "She rests after work."), sentence("Elle ne se repose pas après le travail.", "She does not rest after work."), sentence("Quand se repose-t-elle ?", "When does she rest?")),
       imperfect: examples(sentence("Elle se reposait après le travail.", "She used to rest after work."), sentence("Elle ne se reposait pas après le travail.", "She did not use to rest after work."), sentence("Quand se reposait-elle ?", "When did she use to rest?")),
-      passeCompose: examples(sentence("Elle s’est reposée après le travail.", "She rested after work."), sentence("Elle ne s’est pas reposée après le travail.", "She did not rest after work."), sentence("S’est-elle reposée après le travail ?", "Did she rest after work?"))
+      passeCompose: examples(sentence("Elle s’est reposée après le travail.", "She rested after work."), sentence("Elle ne s’est pas reposée après le travail.", "She did not rest after work."), sentence("S’est-elle reposée après le travail ?", "Did she rest after work?")),
+      imperative: imperativeExamples(sentence("Repose-toi cet après-midi !", "Rest this afternoon!"), sentence("Ne te repose pas trop longtemps !", "Do not rest for too long!"))
     },
     {
       key: "sAppeler",
@@ -185,7 +192,8 @@
       specialNote: "Present appelle / appellent doubles l, but nous appelons and the imperfect stem appel- use one l: elle s’appelait.",
       present: examples(sentence("L’association s’appelle Horizon.", "The association is called Horizon."), sentence("L’association ne s’appelle pas Horizon.", "The association is not called Horizon."), sentence("Comment s’appelle l’association ?", "What is the association called?")),
       imperfect: examples(sentence("L’association s’appelait Horizon.", "The association used to be called Horizon."), sentence("L’association ne s’appelait pas Horizon.", "The association was not called Horizon."), sentence("Comment s’appelait l’association ?", "What was the association called?")),
-      passeCompose: examples(sentence("L’association s’est d’abord appelée Horizon.", "The association was first called Horizon."), sentence("L’association ne s’est jamais appelée Horizon.", "The association was never called Horizon."), sentence("Comment l’association s’est-elle d’abord appelée ?", "What was the association first called?"))
+      passeCompose: examples(sentence("L’association s’est d’abord appelée Horizon.", "The association was first called Horizon."), sentence("L’association ne s’est jamais appelée Horizon.", "The association was never called Horizon."), sentence("Comment l’association s’est-elle d’abord appelée ?", "What was the association first called?")),
+      imperative: imperativeExamples(sentence("Pour le jeu, appelle-toi Léo !", "For the game, call yourself Léo!"), sentence("Ne t’appelle pas Léo dans le jeu !", "Do not call yourself Léo in the game!"), "These commands use the literal reflexive sense ‘call yourself’; commands with the passive naming sense are uncommon.")
     },
     {
       key: "sHabiller",
@@ -200,7 +208,8 @@
       participle: "habillé",
       present: examples(sentence("Elle s’habille en noir.", "She dresses in black."), sentence("Elle ne s’habille pas en noir.", "She does not dress in black."), sentence("Comment s’habille-t-elle pour la soirée ?", "How does she dress for the evening?")),
       imperfect: examples(sentence("Elle s’habillait en noir.", "She used to dress in black."), sentence("Elle ne s’habillait pas en noir.", "She did not use to dress in black."), sentence("Comment s’habillait-elle pour la soirée ?", "How did she dress for the evening?")),
-      passeCompose: examples(sentence("Elle s’est habillée en noir.", "She got dressed in black."), sentence("Elle ne s’est pas habillée en noir.", "She did not get dressed in black."), sentence("Comment s’est-elle habillée pour la soirée ?", "How did she dress for the evening?"))
+      passeCompose: examples(sentence("Elle s’est habillée en noir.", "She got dressed in black."), sentence("Elle ne s’est pas habillée en noir.", "She did not get dressed in black."), sentence("Comment s’est-elle habillée pour la soirée ?", "How did she dress for the evening?")),
+      imperative: imperativeExamples(sentence("Habille-toi chaudement !", "Dress warmly!"), sentence("Ne t’habille pas trop légèrement !", "Do not dress too lightly!"))
     },
     {
       key: "seTrouver",
@@ -216,6 +225,7 @@
       present: examples(sentence("Elle se trouve devant la gare.", "She is in front of the train station."), sentence("Elle ne se trouve pas devant la gare.", "She is not in front of the train station."), sentence("Où se trouve-t-elle ?", "Where is she?")),
       imperfect: examples(sentence("Elle se trouvait devant la gare.", "She was in front of the train station."), sentence("Elle ne se trouvait pas devant la gare.", "She was not in front of the train station."), sentence("Où se trouvait-elle ?", "Where was she?")),
       passeCompose: examples(sentence("Elle s’est trouvée seule devant la gare.", "She found herself alone in front of the train station."), sentence("Elle ne s’est pas trouvée seule devant la gare.", "She did not find herself alone in front of the train station."), sentence("S’est-elle trouvée seule devant la gare ?", "Did she find herself alone in front of the train station?")),
+      imperative: imperativeExamples(sentence("Trouve-toi une place près de nous !", "Find yourself a seat near us!"), sentence("Ne te trouve pas de place trop loin de nous !", "Do not find yourself a seat too far from us!"), "The imperative naturally uses se trouver quelque chose (‘find oneself something’), not the static location sense."),
       contrastIds: ["se-trouver-context"]
     },
     {
@@ -232,7 +242,8 @@
       specialNote: "Present promène / promènent uses è, while the imperfect follows nous promenons: elles se promenaient.",
       present: examples(sentence("Elles se promènent au bord de la mer.", "They take a walk by the sea."), sentence("Elles ne se promènent pas au bord de la mer.", "They do not take a walk by the sea."), sentence("Où se promènent-elles ?", "Where do they take a walk?")),
       imperfect: examples(sentence("Elles se promenaient au bord de la mer.", "They used to walk by the sea."), sentence("Elles ne s’y promenaient pas.", "They did not use to walk there."), sentence("Où se promenaient-elles ?", "Where did they use to walk?")),
-      passeCompose: examples(sentence("Elles se sont promenées au bord de la mer.", "They took a walk by the sea."), sentence("Elles ne s’y sont pas promenées.", "They did not take a walk there."), sentence("Où se sont-elles promenées ?", "Where did they take a walk?"))
+      passeCompose: examples(sentence("Elles se sont promenées au bord de la mer.", "They took a walk by the sea."), sentence("Elles ne s’y sont pas promenées.", "They did not take a walk there."), sentence("Où se sont-elles promenées ?", "Where did they take a walk?")),
+      imperative: imperativeExamples(sentence("Promenons-nous dans le parc !", "Let’s take a walk in the park!"), sentence("Ne nous promenons pas sous la pluie !", "Let’s not take a walk in the rain!"))
     },
     {
       key: "sAimer",
@@ -248,7 +259,8 @@
       participle: "aimé",
       present: examples(sentence("Léa et Emma s’aiment beaucoup.", "Léa and Emma love each other very much."), sentence("Elles ne s’aiment pas beaucoup.", "They do not love each other very much."), sentence("Depuis quand s’aiment-elles ?", "How long have they loved each other?")),
       imperfect: examples(sentence("Elles s’aimaient beaucoup.", "They loved each other very much."), sentence("Elles ne s’aimaient pas beaucoup.", "They did not love each other very much."), sentence("Depuis quand s’aimaient-elles ?", "How long had they loved each other?")),
-      passeCompose: examples(sentence("Elles se sont aimées.", "They loved each other."), sentence("Elles ne se sont pas aimées.", "They did not love each other."), sentence("Se sont-elles aimées ?", "Did they love each other?"))
+      passeCompose: examples(sentence("Elles se sont aimées.", "They loved each other."), sentence("Elles ne se sont pas aimées.", "They did not love each other."), sentence("Se sont-elles aimées ?", "Did they love each other?")),
+      imperative: imperativeExamples(sentence("Aimez-vous les uns les autres !", "Love one another!"), sentence("Ne vous aimez pas seulement dans les bons moments !", "Do not love each other only in the good times!"))
     },
     {
       key: "seConnaitre",
@@ -265,7 +277,8 @@
       specialNote: "Present connaît contrasts with connaissons / connaissent. The imperfect uses connaiss-: elles se connaissaient.",
       present: examples(sentence("Elles se connaissent bien.", "They know each other well."), sentence("Elles ne se connaissent pas bien.", "They do not know each other well."), sentence("Depuis quand se connaissent-elles ?", "How long have they known each other?")),
       imperfect: examples(sentence("Elles se connaissaient déjà.", "They already knew each other."), sentence("Elles ne se connaissaient pas encore.", "They did not know each other yet."), sentence("Depuis quand se connaissaient-elles ?", "How long had they known each other?")),
-      passeCompose: examples(sentence("Elles se sont connues à l’université.", "They got to know each other at university."), sentence("Elles ne se sont pas connues à l’université.", "They did not get to know each other at university."), sentence("Où se sont-elles connues ?", "Where did they get to know each other?"))
+      passeCompose: examples(sentence("Elles se sont connues à l’université.", "They got to know each other at university."), sentence("Elles ne se sont pas connues à l’université.", "They did not get to know each other at university."), sentence("Où se sont-elles connues ?", "Where did they get to know each other?")),
+      imperative: imperativeExamples(sentence("Connais-toi toi-même !", "Know yourself!"), sentence("Ne te connais pas uniquement à travers le regard des autres !", "Do not know yourself only through other people’s eyes!"))
     },
     {
       key: "seMarier",
@@ -282,7 +295,8 @@
       specialNote: "The imperfect nous and vous forms contain written double i: nous nous mariions, vous vous mariiez.",
       present: examples(sentence("Elles se marient en juin.", "They are getting married in June."), sentence("Elles ne se marient pas en juin.", "They are not getting married in June."), sentence("Quand se marient-elles ?", "When are they getting married?")),
       imperfect: examples(sentence("Autrefois, on se mariait souvent plus jeune.", "In the past, people often married younger."), sentence("On ne se mariait pas toujours par amour.", "People did not always marry for love."), sentence("À quel âge se mariait-on autrefois ?", "At what age did people marry in the past?")),
-      passeCompose: examples(sentence("Elles se sont mariées en juin.", "They got married in June."), sentence("Elles ne se sont pas mariées en juin.", "They did not get married in June."), sentence("Quand se sont-elles mariées ?", "When did they get married?"))
+      passeCompose: examples(sentence("Elles se sont mariées en juin.", "They got married in June."), sentence("Elles ne se sont pas mariées en juin.", "They did not get married in June."), sentence("Quand se sont-elles mariées ?", "When did they get married?")),
+      imperative: imperativeExamples(sentence("Mariez-vous quand vous serez prêts !", "Get married when you are ready!"), sentence("Ne vous mariez pas trop vite !", "Do not get married too quickly!"))
     },
     {
       key: "seVoir",
@@ -299,7 +313,8 @@
       specialNote: "The imperfect uses the present nous stem voy-: je me voyais, nous nous voyions.",
       present: examples(sentence("Elles se voient chaque semaine.", "They see each other every week."), sentence("Elles ne se voient pas chaque semaine.", "They do not see each other every week."), sentence("Quand se voient-elles ?", "When do they see each other?")),
       imperfect: examples(sentence("Elles se voyaient chaque semaine.", "They used to see each other every week."), sentence("Elles ne se voyaient pas chaque semaine.", "They did not see each other every week."), sentence("Quand se voyaient-elles ?", "When did they use to see each other?")),
-      passeCompose: examples(sentence("Elles se sont vues hier.", "They saw each other yesterday."), sentence("Elles ne se sont pas vues hier.", "They did not see each other yesterday."), sentence("Se sont-elles vues hier ?", "Did they see each other yesterday?"))
+      passeCompose: examples(sentence("Elles se sont vues hier.", "They saw each other yesterday."), sentence("Elles ne se sont pas vues hier.", "They did not see each other yesterday."), sentence("Se sont-elles vues hier ?", "Did they see each other yesterday?")),
+      imperative: imperativeExamples(sentence("Voyons-nous demain !", "Let’s see each other tomorrow!"), sentence("Ne nous voyons pas trop tard !", "Let’s not meet too late!"))
     },
     {
       key: "seRegarder",
@@ -315,7 +330,8 @@
       participle: "regardé",
       present: examples(sentence("Elles se regardent dans le miroir.", "They look at themselves in the mirror."), sentence("Elles ne se regardent pas dans le miroir.", "They do not look at themselves in the mirror."), sentence("Pourquoi se regardent-elles ?", "Why are they looking at each other?")),
       imperfect: examples(sentence("Elles se regardaient en silence.", "They were looking at each other silently."), sentence("Elles ne se regardaient pas.", "They were not looking at each other."), sentence("Pourquoi se regardaient-elles ?", "Why were they looking at each other?")),
-      passeCompose: examples(sentence("Elles se sont regardées en silence.", "They looked at each other silently."), sentence("Elles ne se sont pas regardées.", "They did not look at each other."), sentence("Pourquoi se sont-elles regardées ?", "Why did they look at each other?"))
+      passeCompose: examples(sentence("Elles se sont regardées en silence.", "They looked at each other silently."), sentence("Elles ne se sont pas regardées.", "They did not look at each other."), sentence("Pourquoi se sont-elles regardées ?", "Why did they look at each other?")),
+      imperative: imperativeExamples(sentence("Regardez-vous dans le miroir !", "Look at yourselves in the mirror!"), sentence("Ne vous regardez pas pendant toute la réunion !", "Do not look at each other throughout the entire meeting!"))
     },
     {
       key: "seDire",
@@ -333,6 +349,7 @@
       present: examples(sentence("Elles se disent bonjour chaque matin.", "They say hello to each other every morning."), sentence("Elles ne se disent pas bonjour.", "They do not say hello to each other."), sentence("Que se disent-elles chaque matin ?", "What do they say to each other every morning?")),
       imperfect: examples(sentence("Elles se disaient tout.", "They used to tell each other everything."), sentence("Elles ne se disaient pas tout.", "They did not tell each other everything."), sentence("Que se disaient-elles ?", "What did they use to tell each other?")),
       passeCompose: examples(sentence("Elles se sont dit bonjour.", "They said hello to each other."), sentence("Elles ne se sont pas dit bonjour.", "They did not say hello to each other."), sentence("Se sont-elles dit bonjour ?", "Did they say hello to each other?")),
+      imperative: imperativeExamples(sentence("Dites-vous la vérité !", "Tell each other the truth!"), sentence("Ne vous dites pas de mensonges !", "Do not tell each other lies!")),
       contrastIds: ["se-dire-objects"]
     },
     {
@@ -348,7 +365,8 @@
       participle: "vendu",
       present: examples(sentence("Ces maisons se vendent vite.", "These houses sell quickly."), sentence("Ces maisons ne se vendent pas vite.", "These houses do not sell quickly."), sentence("Pourquoi ces maisons se vendent-elles si vite ?", "Why do these houses sell so quickly?")),
       imperfect: examples(sentence("Ces maisons se vendaient vite.", "These houses used to sell quickly."), sentence("Ces maisons ne se vendaient pas vite.", "These houses did not sell quickly."), sentence("Pourquoi ces maisons se vendaient-elles si vite ?", "Why did these houses sell so quickly?")),
-      passeCompose: examples(sentence("Ces maisons se sont vendues rapidement.", "These houses sold quickly."), sentence("Ces maisons ne se sont pas vendues rapidement.", "These houses did not sell quickly."), sentence("Ces maisons se sont-elles vendues rapidement ?", "Did these houses sell quickly?"))
+      passeCompose: examples(sentence("Ces maisons se sont vendues rapidement.", "These houses sold quickly."), sentence("Ces maisons ne se sont pas vendues rapidement.", "These houses did not sell quickly."), sentence("Ces maisons se sont-elles vendues rapidement ?", "Did these houses sell quickly?")),
+      imperative: imperativeExamples(sentence("Vends-toi avec confiance pendant l’entretien !", "Market yourself confidently during the interview!"), sentence("Ne te vends pas à n’importe quel prix !", "Do not sell yourself at just any price!"), "These commands use the direct reflexive sense ‘sell or market yourself’; the passive ‘be sold’ sense is not normally a command.")
     },
     {
       key: "seSouvenir",
@@ -364,7 +382,8 @@
       specialNote: "Present souviens / souvenons / souviennent alternates stems. The imperfect follows nous souvenons: elle se souvenait.",
       present: examples(sentence("Elle se souvient de ce voyage.", "She remembers this trip."), sentence("Elle ne se souvient pas de ce voyage.", "She does not remember this trip."), sentence("De quoi se souvient-elle ?", "What does she remember?")),
       imperfect: examples(sentence("Elle se souvenait de ce voyage.", "She remembered this trip."), sentence("Elle ne s’en souvenait pas.", "She did not remember it."), sentence("De quoi se souvenait-elle ?", "What did she remember?")),
-      passeCompose: examples(sentence("Elle s’est souvenue de ce voyage.", "She remembered this trip."), sentence("Elle ne s’en est pas souvenue.", "She did not remember it."), sentence("De quoi s’est-elle souvenue ?", "What did she remember?"))
+      passeCompose: examples(sentence("Elle s’est souvenue de ce voyage.", "She remembered this trip."), sentence("Elle ne s’en est pas souvenue.", "She did not remember it."), sentence("De quoi s’est-elle souvenue ?", "What did she remember?")),
+      imperative: imperativeExamples(sentence("Souviens-toi de cette adresse !", "Remember this address!"), sentence("Ne te souviens pas uniquement des mauvais moments !", "Do not remember only the bad times!"))
     },
     {
       key: "sEnvoler",
@@ -379,7 +398,8 @@
       participle: "envolé",
       present: examples(sentence("Les hirondelles s’envolent à l’aube.", "The swallows fly away at dawn."), sentence("Elles ne s’envolent pas à l’aube.", "They do not fly away at dawn."), sentence("Quand s’envolent-elles ?", "When do they fly away?")),
       imperfect: examples(sentence("Elles s’envolaient à l’aube.", "They used to fly away at dawn."), sentence("Elles ne s’envolaient pas à l’aube.", "They did not fly away at dawn."), sentence("Quand s’envolaient-elles ?", "When did they use to fly away?")),
-      passeCompose: examples(sentence("Elles se sont envolées à l’aube.", "They flew away at dawn."), sentence("Elles ne se sont pas envolées à l’aube.", "They did not fly away at dawn."), sentence("Quand se sont-elles envolées ?", "When did they fly away?"))
+      passeCompose: examples(sentence("Elles se sont envolées à l’aube.", "They flew away at dawn."), sentence("Elles ne se sont pas envolées à l’aube.", "They did not fly away at dawn."), sentence("Quand se sont-elles envolées ?", "When did they fly away?")),
+      imperative: imperativeExamples(sentence("Envole-toi, petit oiseau !", "Fly away, little bird!"), sentence("Ne t’envole pas trop loin !", "Do not fly too far away!"))
     },
     {
       key: "sAssumer",
@@ -394,7 +414,8 @@
       participle: "assumé",
       present: examples(sentence("Elle s’assume pleinement.", "She fully accepts herself."), sentence("Elle ne s’assume pas encore.", "She does not accept herself yet."), sentence("Est-ce qu’elle s’assume pleinement ?", "Does she fully accept herself?")),
       imperfect: examples(sentence("Elle s’assumait davantage.", "She was becoming more accepting of herself."), sentence("Elle ne s’assumait pas encore.", "She did not accept herself yet."), sentence("Est-ce qu’elle s’assumait davantage ?", "Was she becoming more accepting of herself?")),
-      passeCompose: examples(sentence("Elle s’est enfin assumée.", "She finally accepted herself."), sentence("Elle ne s’est pas encore assumée.", "She has not accepted herself yet."), sentence("S’est-elle enfin assumée ?", "Did she finally accept herself?"))
+      passeCompose: examples(sentence("Elle s’est enfin assumée.", "She finally accepted herself."), sentence("Elle ne s’est pas encore assumée.", "She has not accepted herself yet."), sentence("S’est-elle enfin assumée ?", "Did she finally accept herself?")),
+      imperative: imperativeExamples(sentence("Assume-toi pleinement !", "Accept yourself fully!"), sentence("Ne t’assume pas seulement en privé !", "Do not accept yourself only in private!"))
     },
     {
       key: "sEnnuyer",
@@ -410,7 +431,8 @@
       specialNote: "Present m’ennuie contrasts with nous nous ennuyons. The imperfect keeps y: je m’ennuyais, nous nous ennuyions.",
       present: examples(sentence("Elles s’ennuient pendant le trajet.", "They are bored during the trip."), sentence("Elles ne s’ennuient pas pendant le trajet.", "They are not bored during the trip."), sentence("Pourquoi s’ennuient-elles ?", "Why are they bored?")),
       imperfect: examples(sentence("Elles s’ennuyaient pendant le trajet.", "They were bored during the trip."), sentence("Elles ne s’ennuyaient pas.", "They were not bored."), sentence("Pourquoi s’ennuyaient-elles ?", "Why were they bored?")),
-      passeCompose: examples(sentence("Elles se sont ennuyées pendant le trajet.", "They were bored during the trip."), sentence("Elles ne se sont pas ennuyées.", "They were not bored."), sentence("Pourquoi se sont-elles ennuyées ?", "Why were they bored?"))
+      passeCompose: examples(sentence("Elles se sont ennuyées pendant le trajet.", "They were bored during the trip."), sentence("Elles ne se sont pas ennuyées.", "They were not bored."), sentence("Pourquoi se sont-elles ennuyées ?", "Why were they bored?")),
+      imperative: imperativeExamples(sentence("Ennuyez-vous sans moi si vous voulez !", "Be bored without me if you want!"), sentence("Ne vous ennuyez pas pendant le trajet !", "Do not be bored during the trip!"), "The affirmative command is grammatically possible but usually sarcastic or strongly context-dependent; the negative command is much more common.")
     },
     {
       key: "seDetendre",
@@ -425,7 +447,8 @@
       participle: "détendu",
       present: examples(sentence("Elles se détendent après le travail.", "They relax after work."), sentence("Elles ne se détendent pas après le travail.", "They do not relax after work."), sentence("Comment se détendent-elles ?", "How do they relax?")),
       imperfect: examples(sentence("Elles se détendaient après le travail.", "They used to relax after work."), sentence("Elles ne se détendaient pas.", "They did not relax."), sentence("Comment se détendaient-elles ?", "How did they use to relax?")),
-      passeCompose: examples(sentence("Elles se sont détendues après le travail.", "They relaxed after work."), sentence("Elles ne se sont pas détendues.", "They did not relax."), sentence("Comment se sont-elles détendues ?", "How did they relax?"))
+      passeCompose: examples(sentence("Elles se sont détendues après le travail.", "They relaxed after work."), sentence("Elles ne se sont pas détendues.", "They did not relax."), sentence("Comment se sont-elles détendues ?", "How did they relax?")),
+      imperative: imperativeExamples(sentence("Détends-toi après le travail !", "Relax after work!"), sentence("Ne te détends pas avant d’avoir fini !", "Do not relax before you have finished!"))
     },
     {
       key: "seCalmer",
@@ -440,7 +463,8 @@
       participle: "calmé",
       present: examples(sentence("Elles se calment grâce à la musique.", "They calm down thanks to music."), sentence("Elles ne se calment pas.", "They do not calm down."), sentence("Comment se calment-elles ?", "How do they calm down?")),
       imperfect: examples(sentence("Elles se calmaient grâce à la musique.", "They used to calm down thanks to music."), sentence("Elles ne se calmaient pas.", "They did not calm down."), sentence("Comment se calmaient-elles ?", "How did they calm down?")),
-      passeCompose: examples(sentence("Elles se sont calmées.", "They calmed down."), sentence("Elles ne se sont pas calmées.", "They did not calm down."), sentence("Comment se sont-elles calmées ?", "How did they calm down?"))
+      passeCompose: examples(sentence("Elles se sont calmées.", "They calmed down."), sentence("Elles ne se sont pas calmées.", "They did not calm down."), sentence("Comment se sont-elles calmées ?", "How did they calm down?")),
+      imperative: imperativeExamples(sentence("Calme-toi avant de répondre !", "Calm down before answering!"), sentence("Ne te calme pas trop vite : le danger n’est pas passé !", "Do not calm down too quickly: the danger has not passed!"), "A negative command needs a context where remaining alert matters; the affirmative is far more common.")
     },
     {
       key: "seBaigner",
@@ -456,7 +480,8 @@
       specialNote: "The imperfect nous and vous forms are nous nous baignions and vous vous baigniez.",
       present: examples(sentence("Elles se baignent dans la mer.", "They swim in the sea."), sentence("Elles ne se baignent pas dans la mer.", "They do not swim in the sea."), sentence("Où se baignent-elles ?", "Where do they swim?")),
       imperfect: examples(sentence("Elles se baignaient dans la mer.", "They used to swim in the sea."), sentence("Elles ne s’y baignaient pas.", "They did not use to swim there."), sentence("Où se baignaient-elles ?", "Where did they use to swim?")),
-      passeCompose: examples(sentence("Elles se sont baignées dans la mer.", "They swam in the sea."), sentence("Elles ne s’y sont pas baignées.", "They did not swim there."), sentence("Où se sont-elles baignées ?", "Where did they swim?"))
+      passeCompose: examples(sentence("Elles se sont baignées dans la mer.", "They swam in the sea."), sentence("Elles ne s’y sont pas baignées.", "They did not swim there."), sentence("Où se sont-elles baignées ?", "Where did they swim?")),
+      imperative: imperativeExamples(sentence("Baignez-vous ici !", "Swim here!"), sentence("Ne vous baignez pas ici !", "Do not swim here!"))
     },
     {
       key: "sInteresser",
@@ -482,7 +507,8 @@
       ],
       present: examples(sentence("Elles s’intéressent à l’histoire.", "They are interested in history."), sentence("Elles ne s’intéressent pas à l’histoire.", "They are not interested in history."), sentence("À quoi s’intéressent-elles ?", "What are they interested in?")),
       imperfect: examples(sentence("Elles s’intéressaient à l’histoire.", "They were interested in history."), sentence("Elles ne s’y intéressaient pas.", "They were not interested in it."), sentence("À quoi s’intéressaient-elles ?", "What were they interested in?")),
-      passeCompose: examples(sentence("Elles se sont intéressées à l’histoire.", "They became interested in history."), sentence("Elles ne s’y sont pas intéressées.", "They did not become interested in it."), sentence("À quoi se sont-elles intéressées ?", "What did they become interested in?"))
+      passeCompose: examples(sentence("Elles se sont intéressées à l’histoire.", "They became interested in history."), sentence("Elles ne s’y sont pas intéressées.", "They did not become interested in it."), sentence("À quoi se sont-elles intéressées ?", "What did they become interested in?")),
+      imperative: imperativeExamples(sentence("Intéresse-toi à l’histoire locale !", "Take an interest in local history!"), sentence("Ne t’intéresse pas seulement aux dates !", "Do not be interested only in dates!"))
     }
   ];
 
@@ -628,7 +654,8 @@
       examples: {
         present: seed.present,
         imperfect: seed.imperfect,
-        passeCompose: seed.passeCompose
+        passeCompose: seed.passeCompose,
+        imperative: seed.imperative
       },
       paradigms: {
         present: orderPresentRows(presentRows),

@@ -1608,6 +1608,15 @@
       min-width: 0;
     }
 
+    .pronominal-imperative-note {
+      border-left: 3px solid var(--accent-border);
+      padding: 8px 10px;
+    }
+
+    .pronominal-imperative-note p {
+      margin: 4px 0 0;
+    }
+
     .imperative-sections {
       align-items: start;
       margin-top: 12px;

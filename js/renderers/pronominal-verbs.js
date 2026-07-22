@@ -17,6 +17,11 @@
     { key: "passeCompose", label: "Passé composé" }
   ]);
 
+  const EXAMPLE_ROWS = Object.freeze([
+    ...TENSES,
+    { key: "imperative", label: "Imperative", isImperative: true }
+  ]);
+
   const MATRIX_PAIRS = Object.freeze([
     ["je", "nous"],
     ["tu", "vous"],
@@ -303,40 +308,55 @@
   function createExamplesTable(item) {
     const section = createElement("section", "pronominal-examples-section");
     const heading = createElement("div", "verb-subtable-heading");
-    heading.appendChild(createElement("h4", "", "Examples by tense"));
+    const headingCopy = createElement("div");
+    headingCopy.append(
+      createElement("h4", "", "Examples by tense and mood"),
+      createElement("p", "grammar-note", "Imperative is a mood: affirmative commands attach toi / nous / vous after the verb; negative commands put te / nous / vous before it.")
+    );
+    heading.appendChild(headingCopy);
 
     const table = createElement("div", "amount-comparison-table pronominal-examples-table");
     table.setAttribute("role", "table");
-    table.setAttribute("aria-label", `${item.infinitive}: examples by tense and sentence type`);
+    table.setAttribute("aria-label", `${item.infinitive}: examples by tense, mood, and sentence type`);
 
     const header = createElement("div", "amount-comparison-header pronominal-examples-header");
     header.setAttribute("role", "row");
-    ["Tense", "Statement", "Negative", "Question"].forEach(label => {
+    ["Tense / mood", "Statement / affirmative", "Negative", "Question / usage note"].forEach(label => {
       const cell = createElement("div", "", label);
       cell.setAttribute("role", "columnheader");
       header.appendChild(cell);
     });
     table.appendChild(header);
 
-    TENSES.forEach(tense => {
-      const examples = item.examples && item.examples[tense.key];
+    EXAMPLE_ROWS.forEach(rowDefinition => {
+      const examples = item.examples && item.examples[rowDefinition.key];
       if (!examples) {
-        throw new Error(`${item.infinitive} is missing its ${tense.label} examples.`);
+        throw new Error(`${item.infinitive} is missing its ${rowDefinition.label} examples.`);
       }
 
       const row = createElement("div", "amount-comparison-card pronominal-examples-row");
       row.setAttribute("role", "row");
-      const tenseCell = createElement("div", "pronominal-tense-label", tense.label);
+      const tenseCell = createElement("div", "pronominal-tense-label", rowDefinition.label);
       tenseCell.setAttribute("role", "rowheader");
       row.appendChild(tenseCell);
 
       ["statement", "negative", "question"].forEach(kind => {
         const cell = createElement("div", "pronominal-example-cell");
         cell.setAttribute("role", "cell");
+        if (rowDefinition.isImperative && kind === "question") {
+          cell.classList.add("pronominal-imperative-note");
+          cell.append(
+            createElement("span", "tiny-label", "usage note"),
+            createElement("p", "grammar-note", examples.note || "Imperative gives a command, so it does not have a question form.")
+          );
+          row.appendChild(cell);
+          return;
+        }
         try {
-          cell.appendChild(createAudioSentence(examples[kind], kind));
+          const label = rowDefinition.isImperative && kind === "statement" ? "affirmative" : kind;
+          cell.appendChild(createAudioSentence(examples[kind], label));
         } catch (error) {
-          cell.appendChild(createErrorCard(`${tense.label}: ${kind}`, error));
+          cell.appendChild(createErrorCard(`${rowDefinition.label}: ${kind}`, error));
         }
         row.appendChild(cell);
       });
