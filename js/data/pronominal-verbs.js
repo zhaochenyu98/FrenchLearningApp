@@ -14,6 +14,7 @@
     sAppeler: Object.freeze({ common: "a.pə.lɛ", nous: "a.pə.ljɔ̃", vous: "a.pə.lje" }),
     sHabiller: Object.freeze({ common: "a.bi.jɛ", nous: "a.bij.jɔ̃", vous: "a.bij.je" }),
     seTrouver: Object.freeze({ common: "tʁu.vɛ", nous: "tʁu.vjɔ̃", vous: "tʁu.vje" }),
+    sePasser: Object.freeze({ common: "pa.sɛ", nous: "pa.sjɔ̃", vous: "pa.sje" }),
     sePromener: Object.freeze({ common: "pʁɔm.nɛ", nous: "pʁɔm.njɔ̃", vous: "pʁɔm.nje" }),
     sAimer: Object.freeze({ common: "ɛ.mɛ", nous: "ɛ.mjɔ̃", vous: "ɛ.mje" }),
     seConnaitre: Object.freeze({ common: "kɔ.nɛ.sɛ", nous: "kɔ.nɛ.sjɔ̃", vous: "kɔ.nɛ.sje" }),
@@ -187,6 +188,17 @@
         { fr: "Elles se sont trouvées seules.", en: "They found themselves alone." },
         { fr: "Elles se sont trouvé un appartement.", en: "They found themselves an apartment." }
       ]
+    },
+    {
+      id: "se-passer-context",
+      title: "Se passer: lexicalized meaning or indirect reciprocal se",
+      explanation: "In the lexicalized meanings ‘happen / go’ and se passer de (‘do without’), agree with the subject. In se passer quelque chose (‘pass something to one another’), se is indirect, so a following COD does not trigger agreement; a preceding COD still can.",
+      forms: [
+        { fr: "La réunion s’est bien passée.", en: "The meeting went well." },
+        { fr: "Elles se sont passées de voiture.", en: "They managed without a car." },
+        { fr: "Elles se sont passé le sel.", en: "They passed the salt to each other." },
+        { fr: "Les notes qu’elles se sont passées.", en: "The notes that they passed to each other." }
+      ]
     }
   ];
 
@@ -303,6 +315,25 @@
       passeCompose: examples(sentence("Elle s’est trouvée seule devant la gare.", "She found herself alone in front of the train station."), sentence("Elle ne s’est pas trouvée seule devant la gare.", "She did not find herself alone in front of the train station."), sentence("S’est-elle trouvée seule devant la gare ?", "Did she find herself alone in front of the train station?")),
       imperative: imperativeExamples(sentence("Trouve-toi une place près de nous !", "Find yourself a seat near us!"), sentence("Ne te trouve pas de place trop loin de nous !", "Do not find yourself a seat too far from us!"), "The imperative naturally uses se trouver quelque chose (‘find oneself something’), not the static location sense."),
       contrastIds: ["se-trouver-context"]
+    },
+    {
+      key: "sePasser",
+      infinitive: "se passer",
+      ipa: "/sə pa.se/",
+      meaning: "to happen / go / do without",
+      type: "essential",
+      secondaryTypes: ["reciprocal"],
+      lexicalStatus: "lexicalized",
+      agreementMode: "contextual",
+      agreementTitle: "Main meanings agree; reciprocal indirect se does not",
+      agreementExplanation: "Agree with the subject in the lexicalized meanings ‘happen / go’ and se passer de: la réunion s’est bien passée; elles se sont passées de voiture. Do not agree in se passer quelque chose when se is indirect and a COD follows: elles se sont passé le sel.",
+      participle: "passé",
+      specialNote: "Keep the three structures distinct: se passer = happen / go; se passer de = do without; se passer quelque chose = pass something to one another.",
+      present: examples(sentence("La réunion se passe bien.", "The meeting is going well."), sentence("La réunion ne se passe pas bien.", "The meeting is not going well."), sentence("Comment se passe la réunion ?", "How is the meeting going?")),
+      imperfect: examples(sentence("La réunion se passait bien.", "The meeting was going well."), sentence("La réunion ne se passait pas bien.", "The meeting was not going well."), sentence("Comment se passait la réunion ?", "How was the meeting going?")),
+      passeCompose: examples(sentence("La réunion s’est bien passée.", "The meeting went well."), sentence("La réunion ne s’est pas bien passée.", "The meeting did not go well."), sentence("Comment la réunion s’est-elle passée ?", "How did the meeting go?")),
+      imperative: imperativeExamples(sentence("Passe-toi de ton téléphone pendant une heure !", "Go without your phone for an hour!"), sentence("Ne te passe pas de ton téléphone si tu attends un appel important !", "Do not go without your phone if you are expecting an important call!"), "Commands use se passer de (‘do without’); the ‘happen’ meaning does not naturally take a command."),
+      contrastIds: ["se-passer-context"]
     },
     {
       key: "sePromener",

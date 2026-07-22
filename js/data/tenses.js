@@ -968,6 +968,19 @@
             question: { fr: "Nous sommes-nous trouvés devant la gare ?", en: "Did we find ourselves in front of the train station?" }
           },
           {
+            infinitive: "se passer",
+            infinitiveIpa: "/sə pa.se/",
+            meaning: "to happen / go / do without",
+            auxiliary: "être",
+            pastParticiple: "passé(e)(s)",
+            pastParticipleIpa: "/pa.se/",
+            pattern: "se passer → passé",
+            note: "The ordinary lexicalized meanings agree with the subject: la réunion s’est bien passée. In se passer quelque chose, se is indirect, so there is no agreement: elles se sont passé le sel.",
+            statement: { fr: "La réunion s’est bien passée.", en: "The meeting went well." },
+            negative: { fr: "La réunion ne s’est pas bien passée.", en: "The meeting did not go well." },
+            question: { fr: "Comment la réunion s’est-elle passée ?", en: "How did the meeting go?" }
+          },
+          {
             infinitive: "se promener",
             infinitiveIpa: "/sə pʁɔmne/",
             meaning: "to take a walk / stroll",

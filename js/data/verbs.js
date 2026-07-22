@@ -890,6 +890,17 @@
       { pronoun: "elles", form: "se trouvent", full: "elles se trouvent", en: "they are located", example: "Les clés se trouvent sur la table.", exampleEn: "The keys are on the table.", negative: "Les clés ne se trouvent pas sur la table.", negativeEn: "The keys are not on the table.", question: "Les clés se trouvent-elles sur la table ?" }
     ];
 
+    const sePasserRows = [
+      { pronoun: "je", form: "me passe", full: "je me passe", ipa: "/ʒə mə pas/", en: "I do without", example: "Je me passe de sucre dans mon café.", exampleEn: "I do without sugar in my coffee.", negative: "Je ne me passe pas de sucre dans mon café.", negativeEn: "I do not do without sugar in my coffee.", question: "De quoi est-ce que je me passe dans mon café ?" },
+      { pronoun: "tu", form: "te passes", full: "tu te passes", ipa: "/ty tə pas/", en: "you do without", example: "Tu te passes de voiture en ville.", exampleEn: "You manage without a car in the city.", negative: "Tu ne te passes pas de voiture en ville.", negativeEn: "You do not manage without a car in the city.", question: "Te passes-tu de voiture en ville ?" },
+      { pronoun: "il", form: "se passe", full: "il se passe", ipa: "/il sə pas/", en: "something happens / is happening", example: "Il se passe quelque chose d’étrange ici.", exampleEn: "Something strange is happening here.", negative: "Il ne se passe rien d’étrange ici.", negativeEn: "Nothing strange is happening here.", question: "Que se passe-t-il ici ?" },
+      { pronoun: "elle", form: "se passe", full: "elle se passe", ipa: "/ɛl sə pas/", en: "it happens / goes", example: "La soirée se passe bien.", exampleEn: "The evening is going well.", negative: "La soirée ne se passe pas bien.", negativeEn: "The evening is not going well.", question: "Comment se passe la soirée ?" },
+      { pronoun: "nous", form: "nous passons", full: "nous nous passons", ipa: "/nu nu pa.sɔ̃/", en: "we do without", example: "Nous nous passons de télévision pendant la semaine.", exampleEn: "We do without television during the week.", negative: "Nous ne nous passons pas de télévision pendant la semaine.", negativeEn: "We do not do without television during the week.", question: "Est-ce que nous nous passons de télévision pendant la semaine ?" },
+      { pronoun: "vous", form: "vous passez", full: "vous vous passez", ipa: "/vu vu pa.se/", en: "you do without", example: "Vous vous passez d’aide pour ce projet.", exampleEn: "You manage without help for this project.", negative: "Vous ne vous passez pas d’aide pour ce projet.", negativeEn: "You do not manage without help for this project.", question: "Vous passez-vous d’aide pour ce projet ?" },
+      { pronoun: "ils", form: "se passent", full: "ils se passent", ipa: "/il sə pas/", en: "they do without", example: "Ils se passent de chauffage au printemps.", exampleEn: "They do without heating in spring.", negative: "Ils ne se passent pas de chauffage au printemps.", negativeEn: "They do not do without heating in spring.", question: "Se passent-ils de chauffage au printemps ?" },
+      { pronoun: "elles", form: "se passent", full: "elles se passent", ipa: "/ɛl sə pas/", en: "they do without", example: "Elles se passent de dessert.", exampleEn: "They do without dessert.", negative: "Elles ne se passent pas de dessert.", negativeEn: "They do not do without dessert.", question: "De quoi se passent-elles après le dîner ?" }
+    ];
+
     const sePromenerRows = [
       { pronoun: "je", form: "me promène", full: "je me promène", en: "I take a walk / stroll", example: "Je me promène dans le parc.", exampleEn: "I take a walk in the park.", negative: "Je ne me promène pas dans le parc.", negativeEn: "I do not take a walk in the park.", question: "Où est-ce que je me promène ?" },
       { pronoun: "tu", form: "te promènes", full: "tu te promènes", en: "you take a walk / stroll", example: "Tu te promènes après le déjeuner.", exampleEn: "You take a walk after lunch.", negative: "Tu ne te promènes pas après le déjeuner.", negativeEn: "You do not take a walk after lunch.", question: "Te promènes-tu après le déjeuner ?" },
@@ -2096,6 +2107,14 @@
         title: "Se trouver — to be located / find oneself",
         descriptionHtml: "<strong>Se trouver</strong> often means “to be located” for places and things: <strong>Le musée se trouve au centre-ville.</strong> The base verb <strong>trouver</strong> means “to find” or “to think/find something to be”: <strong>Je trouve la clé.</strong>",
         rows: seTrouverRows
+      },
+      {
+        key: "sePasser",
+        group: "pronominal",
+        label: "se passer",
+        title: "Se passer — to happen / go / do without",
+        descriptionHtml: "<strong>Se passer</strong> means “to happen” (<strong>Que se passe-t-il ?</strong>) or describes how something goes (<strong>La réunion se passe bien.</strong>). With <strong>de</strong>, it means “to do / manage without”: <strong>Je me passe de voiture.</strong> The base verb <strong>passer</strong> has several other meanings, including “to pass,” “to spend,” and “to stop by.”",
+        rows: sePasserRows
       },
       {
         key: "sePromener",

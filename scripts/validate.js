@@ -573,7 +573,12 @@ function validatePronominalContent(data) {
   if (!seMarier || !seMarier.paradigms.imperfect.some(row => row.full === "nous nous mariions")) {
     fail("se marier must preserve both written i letters in nous nous mariions");
   }
-  const requiredContrasts = new Set(["se-laver-body-parts", "se-dire-objects", "se-trouver-context"]);
+  const sePasserContrast = pronominal.agreementContrasts.find(item => item.id === "se-passer-context");
+  const sePasserForms = sePasserContrast ? sePasserContrast.forms.map(item => item.fr) : [];
+  if (!sePasserForms.includes("Elles se sont passées de voiture.") || !sePasserForms.includes("Elles se sont passé le sel.")) {
+    fail("se passer must contrast subject agreement with invariant indirect se");
+  }
+  const requiredContrasts = new Set(["se-laver-body-parts", "se-dire-objects", "se-trouver-context", "se-passer-context"]);
   pronominal.agreementContrasts.forEach(item => requiredContrasts.delete(item.id));
   if (requiredContrasts.size) {
     fail(`missing pronominal agreement contrasts: ${Array.from(requiredContrasts).join(", ")}`);
