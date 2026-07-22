@@ -240,6 +240,12 @@
       "Ne pense pas seulement au travail !",
       "Do not think only about work!"
     ),
+    porter: command(
+      "Porte ce carton avec les deux mains !",
+      "Carry this box with both hands!",
+      "Ne porte pas cette valise tout seul !",
+      "Do not carry this suitcase by yourself!"
+    ),
     finir: command(
       "Finis tes devoirs avant de sortir !",
       "Finish your homework before going out!",

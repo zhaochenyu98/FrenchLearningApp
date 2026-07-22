@@ -374,6 +374,19 @@
             question: { fr: "As-tu pensé à Marie ?", en: "Did you think about Marie?" }
           },
           {
+            infinitive: "porter",
+            infinitiveIpa: "/pɔʁte/",
+            meaning: "to wear / carry",
+            auxiliary: "avoir",
+            pastParticiple: "porté",
+            pastParticipleIpa: "/pɔʁte/",
+            pattern: "porter → porté",
+            note: "Regular -er past participle.",
+            statement: { fr: "Elle a porté une robe bleue à la fête.", en: "She wore a blue dress to the party." },
+            negative: { fr: "Elle n’a pas porté de robe bleue à la fête.", en: "She did not wear a blue dress to the party." },
+            question: { fr: "Qu’a-t-elle porté à la fête ?", en: "What did she wear to the party?" }
+          },
+          {
             infinitive: "rêver",
             infinitiveIpa: "/ʁeve/",
             meaning: "to dream",

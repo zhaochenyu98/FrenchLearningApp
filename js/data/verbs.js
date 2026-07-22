@@ -1290,6 +1290,17 @@
       { pronoun: "elles", form: "pensent", full: "elles pensent", ipa: "/ɛl pɑ̃s/", en: "they think", example: "Elles pensent à leurs amis.", exampleEn: "They are thinking about their friends.", negative: "Elles ne pensent pas à leurs amis.", negativeEn: "They are not thinking about their friends.", question: "À qui pensent-elles ?" }
     ];
 
+    const porterRows = [
+      { pronoun: "je", form: "porte", full: "je porte", ipa: "/ʒə pɔʁt/", en: "I wear / carry", example: "Je porte un manteau noir.", exampleEn: "I am wearing a black coat.", negative: "Je ne porte pas de manteau noir.", negativeEn: "I am not wearing a black coat.", question: "Qu’est-ce que je porte aujourd’hui ?" },
+      { pronoun: "tu", form: "portes", full: "tu portes", ipa: "/ty pɔʁt/", en: "you wear / carry", example: "Tu portes cette valise.", exampleEn: "You are carrying this suitcase.", negative: "Tu ne portes pas cette valise.", negativeEn: "You are not carrying this suitcase.", question: "Portes-tu cette valise ?" },
+      { pronoun: "il", form: "porte", full: "il porte", ipa: "/il pɔʁt/", en: "he wears / carries", example: "Il porte des lunettes.", exampleEn: "He wears glasses.", negative: "Il ne porte pas de lunettes.", negativeEn: "He does not wear glasses.", question: "Porte-t-il des lunettes ?" },
+      { pronoun: "elle", form: "porte", full: "elle porte", ipa: "/ɛl pɔʁt/", en: "she wears / carries", example: "Elle porte une robe rouge.", exampleEn: "She is wearing a red dress.", negative: "Elle ne porte pas de robe rouge.", negativeEn: "She is not wearing a red dress.", question: "Quelle robe porte-t-elle ?" },
+      { pronoun: "nous", form: "portons", full: "nous portons", ipa: "/nu pɔʁ.tɔ̃/", en: "we wear / carry", example: "Nous portons ces cartons ensemble.", exampleEn: "We are carrying these boxes together.", negative: "Nous ne portons pas ces cartons ensemble.", negativeEn: "We are not carrying these boxes together.", question: "Que portons-nous ensemble ?" },
+      { pronoun: "vous", form: "portez", full: "vous portez", ipa: "/vu pɔʁ.te/", en: "you wear / carry", example: "Vous portez un chapeau.", exampleEn: "You are wearing a hat.", negative: "Vous ne portez pas de chapeau.", negativeEn: "You are not wearing a hat.", question: "Portez-vous un chapeau ?" },
+      { pronoun: "ils", form: "portent", full: "ils portent", ipa: "/il pɔʁt/", en: "they wear / carry", example: "Ils portent leurs sacs à dos.", exampleEn: "They are carrying their backpacks.", negative: "Ils ne portent pas leurs sacs à dos.", negativeEn: "They are not carrying their backpacks.", question: "Quels sacs portent-ils ?" },
+      { pronoun: "elles", form: "portent", full: "elles portent", ipa: "/ɛl pɔʁt/", en: "they wear / carry", example: "Elles portent des chaussures confortables.", exampleEn: "They are wearing comfortable shoes.", negative: "Elles ne portent pas de chaussures confortables.", negativeEn: "They are not wearing comfortable shoes.", question: "Quelles chaussures portent-elles ?" }
+    ];
+
     const gagnerRows = [
       { pronoun: "je", form: "gagne", full: "je gagne", ipa: "/ʒə ɡaɲ/", en: "I win / earn", example: "Je gagne du temps en prenant le métro.", exampleEn: "I save time by taking the metro.", negative: "Je ne gagne pas de temps en prenant le métro.", negativeEn: "I do not save time by taking the metro.", question: "Est-ce que je gagne du temps en prenant le métro ?" },
       { pronoun: "tu", form: "gagnes", full: "tu gagnes", ipa: "/ty ɡaɲ/", en: "you win / earn", example: "Tu gagnes le match.", exampleEn: "You win the match.", negative: "Tu ne gagnes pas le match.", negativeEn: "You do not win the match.", question: "Gagnes-tu le match ?" },
@@ -1686,6 +1697,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Penser à</strong> means “to think about”; <strong>penser de</strong> asks for an opinion; and <strong>penser que</strong> means “to think that.” Use <strong>en</strong> for “what one thinks of it”: <strong>Qu’en penses-tu ?</strong> In a negative sentence, <strong>ne pas penser que</strong> often introduces the subjunctive, as in <strong>je ne pense pas que ce soit...</strong>.",
         rows: penserRows
+      },
+      {
+        key: "porter",
+        group: "regularEr",
+        label: "porter",
+        title: "Porter — to wear / carry",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Porter</strong> follows the regular -er pattern. It means both “to wear” clothing or accessories (<strong>porter un manteau</strong>) and “to carry” something (<strong>porter une valise</strong>).",
+        rows: porterRows
       },
       {
         key: "finir",

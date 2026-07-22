@@ -200,6 +200,7 @@
     preferer: "pʁefeʁ",
     gagner: "ɡaɲ",
     penser: "pɑ̃s",
+    porter: "pɔʁt",
     finir: "finis",
     choisir: "ʃwazis",
     reussir: "ʁeysis",
@@ -309,6 +310,7 @@
     preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
     gagner: Object.freeze(["souvent le match", "often win the match"]),
     penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
+    porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),
     finir: Object.freeze(["le travail à cinq heures", "finish work at five o’clock"]),
     choisir: Object.freeze(["toujours le même menu", "always choose the same menu"]),
     reussir: Object.freeze(["tous nos examens", "pass all our exams"]),
@@ -360,6 +362,14 @@
       "The trip did not use to cost twenty euros.",
       "Combien coûtait le trajet ?",
       "How much did the trip cost?"
+    ),
+    porter: exampleSet(
+      "Autrefois, nous portions des manteaux en hiver.",
+      "We used to wear coats in winter.",
+      "Nous ne portions pas de manteaux en hiver.",
+      "We did not use to wear coats in winter.",
+      "Portions-nous des manteaux en hiver à cette époque ?",
+      "Did we use to wear coats in winter at that time?"
     ),
     naitre: exampleSet(
       "Beaucoup d’enfants naissaient à la maison à cette époque.",
