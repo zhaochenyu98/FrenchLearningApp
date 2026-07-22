@@ -1236,6 +1236,10 @@
       { pronoun: "il", form: "est", full: "il est", en: "it is / time expression", example: "Il est huit heures.", exampleEn: "It is eight o’clock.", negative: "Il n’est pas huit heures.", negativeEn: "It is not eight o’clock.", question: "Est-il huit heures ?" }
     ];
 
+    const pleuvoirRows = [
+      { pronoun: "il", form: "pleut", full: "il pleut", ipa: "/il plø/", en: "it rains / is raining", example: "Il pleut ce matin.", exampleEn: "It is raining this morning.", negative: "Il ne pleut pas ce matin.", negativeEn: "It is not raining this morning.", question: "Pleut-il ce matin ?" }
+    ];
+
     const vivreRows = [
       { pronoun: "je", form: "vis", full: "je vis", ipa: "/ʒə vi/", en: "I live / experience", example: "Je vis à Lyon.", exampleEn: "I live in Lyon.", negative: "Je ne vis pas à Lyon.", negativeEn: "I do not live in Lyon.", question: "Où est-ce que je vis ?" },
       { pronoun: "tu", form: "vis", full: "tu vis", ipa: "/ty vi/", en: "you live / experience", example: "Tu vis avec tes parents.", exampleEn: "You live with your parents.", negative: "Tu ne vis pas avec tes parents.", negativeEn: "You do not live with your parents.", question: "Avec qui vis-tu ?" },
@@ -1245,6 +1249,17 @@
       { pronoun: "vous", form: "vivez", full: "vous vivez", ipa: "/vu vi.ve/", en: "you live / experience", example: "Vous vivez en ville.", exampleEn: "You live in the city.", negative: "Vous ne vivez pas en ville.", negativeEn: "You do not live in the city.", question: "Est-ce que vous vivez en ville ?" },
       { pronoun: "ils", form: "vivent", full: "ils vivent", ipa: "/il viv/", en: "they live / experience", example: "Ils vivent dans le même quartier.", exampleEn: "They live in the same neighborhood.", negative: "Ils ne vivent pas dans le même quartier.", negativeEn: "They do not live in the same neighborhood.", question: "Où vivent-ils ?" },
       { pronoun: "elles", form: "vivent", full: "elles vivent", ipa: "/ɛl viv/", en: "they live / experience", example: "Elles vivent une grande aventure.", exampleEn: "They are experiencing a great adventure.", negative: "Elles ne vivent pas de grande aventure.", negativeEn: "They are not experiencing a great adventure.", question: "Quelle aventure vivent-elles ?" }
+    ];
+
+    const suivreRows = [
+      { pronoun: "je", form: "suis", full: "je suis", ipa: "/ʒə sɥi/", en: "I follow / take", example: "Je suis un cours de français le lundi.", exampleEn: "I take a French class on Mondays.", negative: "Je ne suis pas de cours de français le lundi.", negativeEn: "I do not take a French class on Mondays.", question: "Quel cours est-ce que je suis le lundi ?" },
+      { pronoun: "tu", form: "suis", full: "tu suis", ipa: "/ty sɥi/", en: "you follow", example: "Tu suis ton guide dans la foule.", exampleEn: "You follow your guide through the crowd.", negative: "Tu ne suis pas ton guide dans la foule.", negativeEn: "You do not follow your guide through the crowd.", question: "Qui suis-tu dans la foule ?" },
+      { pronoun: "il", form: "suit", full: "il suit", ipa: "/il sɥi/", en: "he follows", example: "Il suit les instructions du médecin.", exampleEn: "He follows the doctor’s instructions.", negative: "Il ne suit pas les instructions du médecin.", negativeEn: "He does not follow the doctor’s instructions.", question: "Suit-il les instructions du médecin ?" },
+      { pronoun: "elle", form: "suit", full: "elle suit", ipa: "/ɛl sɥi/", en: "she follows / keeps up with", example: "Elle suit une série française en ce moment.", exampleEn: "She is following a French series right now.", negative: "Elle ne suit pas de série française en ce moment.", negativeEn: "She is not following a French series right now.", question: "Quelle série suit-elle en ce moment ?" },
+      { pronoun: "nous", form: "suivons", full: "nous suivons", ipa: "/nu sɥi.vɔ̃/", en: "we follow", example: "Nous suivons ce chemin jusqu’à la gare.", exampleEn: "We follow this path to the train station.", negative: "Nous ne suivons pas ce chemin jusqu’à la gare.", negativeEn: "We do not follow this path to the train station.", question: "Quel chemin suivons-nous jusqu’à la gare ?" },
+      { pronoun: "vous", form: "suivez", full: "vous suivez", ipa: "/vu sɥi.ve/", en: "you follow / keep up with", example: "Vous suivez les actualités chaque matin.", exampleEn: "You follow the news every morning.", negative: "Vous ne suivez pas les actualités chaque matin.", negativeEn: "You do not follow the news every morning.", question: "Est-ce que vous suivez les actualités chaque matin ?" },
+      { pronoun: "ils", form: "suivent", full: "ils suivent", ipa: "/il sɥiv/", en: "they follow", example: "Ils suivent leurs amis sur les réseaux sociaux.", exampleEn: "They follow their friends on social media.", negative: "Ils ne suivent pas leurs amis sur les réseaux sociaux.", negativeEn: "They do not follow their friends on social media.", question: "Qui suivent-ils sur les réseaux sociaux ?" },
+      { pronoun: "elles", form: "suivent", full: "elles suivent", ipa: "/ɛl sɥiv/", en: "they follow", example: "Elles suivent un régime végétarien.", exampleEn: "They follow a vegetarian diet.", negative: "Elles ne suivent pas de régime végétarien.", negativeEn: "They do not follow a vegetarian diet.", question: "Suivent-elles un régime végétarien ?" }
     ];
 
     const comprendreRows = [
@@ -1369,7 +1384,7 @@
         key: "impersonal",
         title: "Verbes impersonnels",
         indexTitle: "Impersonal",
-        descriptionHtml: "Impersonal verbs keep the fixed subject <strong>il</strong>. Here, <strong>il</strong> does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, and <strong>il est</strong> are set patterns to learn as chunks."
+        descriptionHtml: "Impersonal verbs keep the fixed subject <strong>il</strong>. Here, <strong>il</strong> does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, and <strong>il pleut</strong> are set patterns to learn as chunks."
       },
       {
         key: "pronominal",
@@ -1573,6 +1588,15 @@
         tag: "irregular",
         descriptionHtml: "<strong>Lire</strong> has short singular forms <strong>lis / lit</strong>, then <strong>lisons</strong>, <strong>lisez</strong>, and <strong>lisent</strong>.",
         rows: lireRows
+      },
+      {
+        key: "suivre",
+        group: "irregular",
+        label: "suivre",
+        title: "Suivre — to follow / attend / keep up with",
+        tag: "irregular",
+        descriptionHtml: "<strong>Suivre</strong> is used for following a person, route, course, instructions, news, or a series. Its present forms are <strong>suis / suit</strong>, <strong>suivons</strong>, <strong>suivez</strong>, and <strong>suivent</strong>. <strong>Je suis</strong> is spelled exactly like “I am” from <strong>être</strong>, so the surrounding words reveal which verb it is.",
+        rows: suivreRows
       },
       {
         key: "vivre",
@@ -2059,6 +2083,16 @@
         tag: "impersonal",
         descriptionHtml: "Use <strong>il est</strong> for time and some fixed impersonal descriptions. For time, the question form can use inversion: <strong>Est-il huit heures ?</strong>",
         rows: impersonalEtreRows
+      },
+      {
+        key: "pleuvoir",
+        group: "impersonal",
+        label: "il pleut",
+        syncInfinitive: "pleuvoir",
+        title: "Il pleut — pleuvoir",
+        tag: "weather / impersonal",
+        descriptionHtml: "<strong>Pleuvoir</strong> is normally impersonal: use the fixed subject <strong>il</strong> for weather. Learn its common tense forms together: <strong>il pleut</strong> (present), <strong>il pleuvait</strong> (imparfait), and <strong>il a plu</strong> (passé composé). Its imperative is not used.",
+        rows: pleuvoirRows
       },
       {
         key: "seLaver",

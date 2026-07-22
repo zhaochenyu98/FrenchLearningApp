@@ -125,6 +125,13 @@
       prefix: "il ",
       note: "Falloir has no present nous form, so its fixed imparfait stem is fall-."
     }),
+    pleuvoir: Object.freeze({
+      persons: Object.freeze(["il"]),
+      stemOverride: "pleuv",
+      formulaSource: "pleuvoir",
+      prefix: "il ",
+      note: "For weather, pleuvoir keeps the fixed impersonal subject il: il pleuvait."
+    }),
     ilYA: Object.freeze({
       persons: Object.freeze(["il"]),
       baseKey: "avoirVerb",
@@ -185,6 +192,7 @@
     ouvrir: "uvʁ",
     ecrire: "ekʁiv",
     lire: "liz",
+    suivre: "sɥiv",
     vivre: "viv",
     dormir: "dɔʁm",
     partir: "paʁt",
@@ -236,6 +244,7 @@
     naitre: "nɛs",
     mourir: "muʁ",
     falloir: "fal",
+    pleuvoir: "pløv",
     ilYA: "av",
     impersonalFaire: "fəz",
     impersonalEtre: "et",
@@ -295,6 +304,7 @@
     ouvrir: Object.freeze(["la fenêtre chaque matin", "open the window every morning"]),
     ecrire: Object.freeze(["à nos grands-parents chaque mois", "write to our grandparents every month"]),
     lire: Object.freeze(["le journal au petit-déjeuner", "read the newspaper at breakfast"]),
+    suivre: Object.freeze(["les instructions avec attention", "follow the instructions carefully"]),
     vivre: Object.freeze(["près de la mer", "live near the sea"]),
     dormir: Object.freeze(["huit heures par nuit", "sleep eight hours a night"]),
     partir: Object.freeze(["tôt le lundi", "leave early on Mondays"]),
@@ -394,6 +404,14 @@
       "One was not supposed to wait until the last moment.",
       "Fallait-il réserver à l’avance ?",
       "Was it necessary to book in advance?"
+    ),
+    pleuvoir: exampleSet(
+      "Il pleuvait souvent en automne.",
+      "It often rained in autumn.",
+      "Il ne pleuvait pas souvent en automne.",
+      "It did not often rain in autumn.",
+      "Pleuvait-il souvent en automne ?",
+      "Did it often rain in autumn?"
     ),
     ilYA: exampleSet(
       "Il y avait un marché ici.",

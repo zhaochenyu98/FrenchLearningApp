@@ -683,6 +683,19 @@
             question: { fr: "As-tu lu le message ?", en: "Did you read the message?" }
           },
           {
+            infinitive: "suivre",
+            infinitiveIpa: "/sɥivʁ/",
+            meaning: "to follow / attend / keep up with",
+            auxiliary: "avoir",
+            pastParticiple: "suivi",
+            pastParticipleIpa: "/sɥivi/",
+            pattern: "suivre → suivi",
+            note: "Irregular present tense; its past participle is suivi.",
+            statement: { fr: "Vous avez suivi les instructions.", en: "You followed the instructions." },
+            negative: { fr: "Vous n’avez pas suivi les instructions.", en: "You did not follow the instructions." },
+            question: { fr: "Avez-vous suivi les instructions ?", en: "Did you follow the instructions?" }
+          },
+          {
             infinitive: "offrir",
             infinitiveIpa: "/ɔfʁiʁ/",
             meaning: "to offer / give",
@@ -850,6 +863,19 @@
             statement: { fr: "Il a fallu réserver une table.", en: "It was necessary to reserve a table." },
             negative: { fr: "Il n’a pas fallu réserver de table.", en: "It was not necessary to reserve a table." },
             question: { fr: "A-t-il fallu réserver une table ?", en: "Was it necessary to reserve a table?" }
+          },
+          {
+            infinitive: "pleuvoir",
+            infinitiveIpa: "/pløvwaʁ/",
+            meaning: "to rain",
+            auxiliary: "avoir",
+            pastParticiple: "plu",
+            pastParticipleIpa: "/ply/",
+            pattern: "pleuvoir → plu",
+            note: "For weather, pleuvoir is impersonal and normally stays in the third-person singular: il a plu.",
+            statement: { fr: "Il a plu hier.", en: "It rained yesterday." },
+            negative: { fr: "Il n’a pas plu hier.", en: "It did not rain yesterday." },
+            question: { fr: "A-t-il plu hier ?", en: "Did it rain yesterday?" }
           },
           {
             infinitive: "comprendre",

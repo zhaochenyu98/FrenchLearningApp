@@ -147,6 +147,12 @@
       "Ne lis pas la réponse tout de suite !",
       "Do not read the answer right away!"
     ),
+    suivre: command(
+      "Suis-moi jusqu’à la gare !",
+      "Follow me to the train station!",
+      "Ne suis pas cette route après la tombée de la nuit !",
+      "Do not follow this route after nightfall!"
+    ),
     vivre: command(
       "Vis pleinement chaque journée !",
       "Live every day fully!",
