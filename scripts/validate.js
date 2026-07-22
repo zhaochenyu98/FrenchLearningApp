@@ -102,6 +102,15 @@ function canonicalVerbName(value) {
     .trim();
 }
 
+function normalizeComparableSentence(value) {
+  return String(value || "")
+    .replace(/[’]/g, "'")
+    .replace(/[.!?…,:;]+$/u, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
 function loadGrammarAndTenseData() {
   const context = { FR: { data: {} }, window: {} };
   context.window.FR = context.FR;
@@ -339,6 +348,7 @@ function loadExtendedGrammarData() {
     "js/data/verbs.js",
     "js/data/grammar.js",
     "js/data/tenses.js",
+    "js/data/imperative.js",
     "js/data/imparfait.js",
     "js/data/pronominal-verbs.js",
     "js/data/object-pronouns.js"
@@ -365,6 +375,10 @@ function validateImparfaitContent(data) {
   if (imparfait.presentAlternations.reserver) {
     fail("réserver must not appear among present-tense spelling alternations");
   }
+  const expectedPairs = [["je", "nous"], ["tu", "vous"], ["il", "ils"], ["elle", "elles"]];
+  if (JSON.stringify(imparfait.alignedPairs) !== JSON.stringify(expectedPairs)) {
+    fail("imparfait columns must align je/nous, tu/vous, il/ils, and elle/elles");
+  }
 
   const missingItems = sourceItems.filter(item => !imparfait.getItem(item.key)).map(item => item.label);
   if (missingItems.length) {
@@ -382,10 +396,37 @@ function validateImparfaitContent(data) {
     if (missingPronouns.length) {
       fail(`${item.label} imparfait is missing ${missingPronouns.join("/")}`);
     }
-    if (item.rows.some(row => !row.full || !row.form || !row.ending)) {
+    if (item.rows.some(row =>
+      !row.full || !row.form || !row.ending || !/^\/[^/]+\/$/u.test(row.ipa || "")
+    )) {
       fail(`${item.label} has an incomplete imparfait row`);
     }
+    const examples = item.examples || {};
+    ["statement", "negative", "question"].forEach(kind => {
+      if (!examples[kind] || !examples[kind].fr || !examples[kind].en) {
+        fail(`${item.label} is missing an imparfait ${kind} example`);
+      }
+    });
+    if (examples.question && !/[?？]\s*$/.test(examples.question.fr)) {
+      fail(`${item.label} imparfait question must end with a question mark`);
+    }
+    if (
+      examples.statement && examples.question &&
+      normalizeComparableSentence(examples.statement.fr) === normalizeComparableSentence(examples.question.fr)
+    ) {
+      fail(`${item.label} repeats its imparfait statement as an intonation-only question`);
+    }
   });
+
+  const imparfaitQuestions = imparfait.items
+    .map(item => item.examples && item.examples.question && item.examples.question.fr)
+    .filter(Boolean);
+  if (!imparfaitQuestions.some(question => /^Est-ce que\b/iu.test(question))) {
+    fail("imparfait practice needs some est-ce que questions");
+  }
+  if (!imparfaitQuestions.some(question => /-nous\b/iu.test(question))) {
+    fail("imparfait practice needs some subject-verb inversion questions");
+  }
 
   const expectedForms = [
     ["etreVerb", "nous", "nous étions"],
@@ -399,6 +440,60 @@ function validateImparfaitContent(data) {
     const row = item && item.rows.find(entry => entry.pronoun === pronoun);
     if (!row || row.full !== expected) {
       fail(`${key} imparfait ${pronoun}: expected ${expected}, found ${row ? row.full : "missing"}`);
+    }
+  });
+}
+
+function validateImperativeContent(data) {
+  const imperative = data.imperative;
+  if (!imperative || !Array.isArray(imperative.items) || typeof imperative.getItem !== "function") {
+    fail("imperative data is not registered");
+    return;
+  }
+  if (imperative.errors && imperative.errors.length) {
+    fail(`imperative data errors: ${imperative.errors.map(item => item.label || item.key).join(", ")}`);
+  }
+
+  const sourceItems = data.verbs.items.filter(item =>
+    item.group !== "pronominal" && item.group !== "impersonal" && item.key !== "pouvoir"
+  );
+  const missingItems = sourceItems.filter(item => !imperative.getItem(item.key)).map(item => item.label);
+  if (missingItems.length) {
+    fail(`verbs missing an imperative paradigm: ${missingItems.join(", ")}`);
+  }
+
+  const expectedPersons = ["tu", "nous", "vous"];
+  imperative.items.forEach(item => {
+    const persons = (item.rows || []).map(row => row.person);
+    if (JSON.stringify(persons) !== JSON.stringify(expectedPersons)) {
+      fail(`${item.label} imperative must use tu, nous, vous order`);
+    }
+    if (item.rows.some(row => !row.form || !/^\/[^/]+\/$/u.test(row.ipa || ""))) {
+      fail(`${item.label} has an incomplete imperative row`);
+    }
+    const examples = item.examples || {};
+    ["affirmative", "negative"].forEach(kind => {
+      if (!examples[kind] || !examples[kind].fr || !examples[kind].en) {
+        fail(`${item.label} is missing an imperative ${kind} example`);
+      }
+    });
+    if (examples.negative && !/^(?:N(?:e\b|['’])|Veuillez\s+ne\b)/iu.test(examples.negative.fr)) {
+      fail(`${item.label} must use a recognized negative imperative structure`);
+    }
+  });
+
+  const expectedSpecialForms = {
+    etreVerb: ["sois", "soyons", "soyez"],
+    avoirVerb: ["aie", "ayons", "ayez"],
+    aller: ["va", "allons", "allez"],
+    savoir: ["sache", "sachons", "sachez"],
+    vouloir: ["veuille", "veuillons", "veuillez"]
+  };
+  Object.entries(expectedSpecialForms).forEach(([key, expectedForms]) => {
+    const item = imperative.getItem(key);
+    const actualForms = item && item.rows.map(row => row.form);
+    if (!actualForms || JSON.stringify(actualForms) !== JSON.stringify(expectedForms)) {
+      fail(`${key} imperative forms must be ${expectedForms.join(" / ")}`);
     }
   });
 }
@@ -428,7 +523,9 @@ function validatePronominalContent(data) {
     }
     ["present", "imperfect", "passeCompose"].forEach(tense => {
       const rows = item.paradigms[tense] || [];
-      if (rows.length !== 8 || rows.some(row => !row.full || !row.pronoun)) {
+      if (rows.length !== 8 || rows.some(row =>
+        !row.full || !row.pronoun || !/^\/[^/]+\/$/u.test(row.ipa || "")
+      )) {
         fail(`${item.infinitive} needs eight complete ${tense} forms`);
       }
       const examples = item.examples[tense] || {};
@@ -675,6 +772,7 @@ try {
 try {
   const extendedData = loadExtendedGrammarData();
   validateImparfaitContent(extendedData);
+  validateImperativeContent(extendedData);
   validatePronominalContent(extendedData);
   validateObjectPronounContent(extendedData);
 } catch (error) {

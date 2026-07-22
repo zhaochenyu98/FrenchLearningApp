@@ -605,22 +605,95 @@
       formula.innerHTML = `<strong>Formula:</strong> ${imparfait.formula.text}`;
       body.appendChild(formula);
 
-      const formGrid = document.createElement("div");
-      formGrid.className = "verb-tense-form-grid";
-      imparfait.rows.forEach(row => {
+      const createImparfaitFormCard = row => {
+        const card = document.createElement("div");
+        card.className = "verb-cell-card";
         const button = document.createElement("button");
         button.className = "verb-tense-form-btn verb-imparfait-form-btn";
         button.type = "button";
+        button.setAttribute("aria-label", `Play Imparfait: ${row.full}`);
         button.innerHTML = `
           <span class="tiny-label">${row.pronoun}</span>
           <span class="noun-example-main">${row.full}</span>
+          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
         `;
         button.addEventListener("click", () => {
-          speakSequence([{ text: row.full }], button);
+          speakSequence([{ text: row.speech || row.full }], button);
         });
-        formGrid.appendChild(button);
-      });
-      body.appendChild(formGrid);
+        card.appendChild(button);
+        return card;
+      };
+
+      if (imparfait.rows.length === 1) {
+        const fixedForm = document.createElement("div");
+        fixedForm.className = "verb-extra-column verb-tense-fixed-form";
+        const fixedTitle = document.createElement("div");
+        fixedTitle.className = "verb-column-title";
+        fixedTitle.textContent = "Fixed impersonal form";
+        fixedForm.append(fixedTitle, createImparfaitFormCard(imparfait.rows[0]));
+        body.appendChild(fixedForm);
+      } else {
+        const matrix = document.createElement("div");
+        matrix.className = "verb-matrix verb-tense-mini-matrix";
+        matrix.setAttribute("role", "table");
+        matrix.setAttribute("aria-label", `${item.label}: Imparfait conjugation`);
+
+        const matrixHeader = document.createElement("div");
+        matrixHeader.className = "verb-pair-header";
+        matrixHeader.setAttribute("role", "row");
+        ["Singular", "Plural"].forEach(label => {
+          const cell = document.createElement("div");
+          cell.setAttribute("role", "columnheader");
+          cell.textContent = label;
+          matrixHeader.appendChild(cell);
+        });
+        matrix.appendChild(matrixHeader);
+
+        FR.data.imparfait.alignedPairs.forEach(pair => {
+          const pairRow = document.createElement("div");
+          pairRow.className = "verb-pair-row";
+          pairRow.setAttribute("role", "row");
+          pair.forEach(pronoun => {
+            const row = imparfait.rows.find(entry => entry.pronoun === pronoun);
+            if (row) {
+              const card = createImparfaitFormCard(row);
+              card.setAttribute("role", "cell");
+              pairRow.appendChild(card);
+              return;
+            }
+            const placeholder = document.createElement("div");
+            placeholder.className = "verb-cell-placeholder";
+            placeholder.setAttribute("role", "cell");
+            placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
+            pairRow.appendChild(placeholder);
+          });
+          matrix.appendChild(pairRow);
+        });
+        body.appendChild(matrix);
+
+        const onRow = imparfait.rows.find(row => row.pronoun === "on");
+        if (onRow) {
+          const onColumn = document.createElement("div");
+          onColumn.className = "verb-extra-column verb-tense-on-form";
+          const onTitle = document.createElement("div");
+          onTitle.className = "verb-column-title";
+          onTitle.textContent = "On: spoken French";
+          onColumn.append(onTitle, createImparfaitFormCard(onRow));
+          body.appendChild(onColumn);
+        }
+      }
+
+      if (imparfait.examples) {
+        const usage = document.createElement("div");
+        usage.className = "verb-tense-usage";
+        usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
+        appendCompactTenseExampleList(usage, [
+          { label: "Statement", ...imparfait.examples.statement },
+          { label: "Negative", ...imparfait.examples.negative },
+          { label: "Question", ...imparfait.examples.question }
+        ].filter(sentence => sentence.fr));
+        body.appendChild(usage);
+      }
 
       if (imparfait.specialRules.length) {
         const noteList = document.createElement("div");
@@ -632,6 +705,70 @@
           noteList.appendChild(note);
         });
         body.appendChild(noteList);
+      }
+
+      details.append(summary, body);
+      return details;
+    }
+
+    function createVerbImperativeSummary(item) {
+      const imperative = FR.data.imperative && FR.data.imperative.getItem(item.key);
+      if (!imperative || !Array.isArray(imperative.rows) || !imperative.rows.length) return null;
+
+      const details = document.createElement("details");
+      details.className = "verb-tense-summary verb-imperative-summary";
+
+      const sample = imperative.rows.find(row => row.person === "tu") || imperative.rows[0];
+      const summary = document.createElement("summary");
+      summary.className = "verb-tense-summary-toggle";
+      summary.innerHTML = `
+        <span>Imperative</span>
+        <span class="verb-tense-summary-form">${sample.form}</span>
+      `;
+
+      const body = document.createElement("div");
+      body.className = "verb-tense-summary-body";
+
+      const rule = document.createElement("div");
+      rule.className = "grammar-note";
+      rule.innerHTML = `<strong>Command forms:</strong> use tu, nous, or vous without saying the subject pronoun.`;
+      body.appendChild(rule);
+
+      const formGrid = document.createElement("div");
+      formGrid.className = "imperative-grid verb-imperative-form-grid";
+      imperative.rows.forEach(row => {
+        const button = document.createElement("button");
+        button.className = "verb-tense-form-btn verb-imperative-form-btn";
+        button.type = "button";
+        button.setAttribute("aria-label", `Play Imperative: ${row.form}`);
+        button.innerHTML = `
+          <span class="tiny-label">${row.person}</span>
+          <span class="noun-example-main">${row.form}</span>
+          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
+        `;
+        button.addEventListener("click", () => {
+          speakSequence([{ text: row.speech || row.form }], button);
+        });
+        formGrid.appendChild(button);
+      });
+      body.appendChild(formGrid);
+
+      if (imperative.note) {
+        const note = document.createElement("div");
+        note.className = "verb-form-highlight";
+        note.innerHTML = `<strong>Usage note</strong><span>${imperative.note}</span>`;
+        body.appendChild(note);
+      }
+
+      if (imperative.examples) {
+        const usage = document.createElement("div");
+        usage.className = "verb-tense-usage";
+        usage.innerHTML = `<div class="tiny-label">Command examples</div>`;
+        appendCompactTenseExampleList(usage, [
+          { label: "Affirmative", ...imperative.examples.affirmative },
+          { label: "Negative", ...imperative.examples.negative }
+        ].filter(sentence => sentence.fr));
+        body.appendChild(usage);
       }
 
       details.append(summary, body);
@@ -716,6 +853,9 @@
 
       const tenseSummary = createVerbPasseComposeSummary(item);
       if (tenseSummary) panel.appendChild(tenseSummary);
+
+      const imperativeSummary = createVerbImperativeSummary(item);
+      if (imperativeSummary) panel.appendChild(imperativeSummary);
 
       (item.extras || []).forEach(extra => {
         if (extra === "faireExpressions") appendFaireExpressions(panel);

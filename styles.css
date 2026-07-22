@@ -1082,6 +1082,44 @@
     .verb-imparfait-form-btn {
       display: grid;
       gap: 3px;
+      height: 100%;
+    }
+
+    .verb-tense-mini-matrix {
+      margin-top: 0;
+    }
+
+    .verb-tense-mini-matrix .verb-cell-card,
+    .verb-tense-mini-matrix .verb-cell-placeholder {
+      border-radius: 12px;
+      box-shadow: none;
+      min-height: 0;
+    }
+
+    .verb-tense-mini-matrix .verb-pair-header,
+    .verb-tense-mini-matrix .verb-pair-row {
+      grid-template-columns: repeat(2, minmax(190px, 1fr));
+      min-width: 400px;
+    }
+
+    .verb-tense-fixed-form,
+    .verb-tense-on-form {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .verb-tense-fixed-form .verb-cell-card,
+    .verb-tense-on-form .verb-cell-card {
+      box-shadow: none;
+      min-height: 0;
+    }
+
+    .verb-imperative-form-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .verb-imperative-form-btn {
+      display: grid;
+      gap: 3px;
     }
 
     .verb-imparfait-notes {
@@ -2847,6 +2885,7 @@
       }
 
       .verb-tense-form-grid,
+      .verb-imperative-form-grid,
       .pronominal-metadata {
         grid-template-columns: 1fr;
       }
@@ -2856,6 +2895,11 @@
       }
 
       .verb-pair-row {
+        grid-template-columns: 1fr;
+        min-width: 0;
+      }
+
+      .verb-tense-mini-matrix .verb-pair-row {
         grid-template-columns: 1fr;
         min-width: 0;
       }

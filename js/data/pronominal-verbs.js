@@ -7,6 +7,82 @@
   const TYPE_ORDER = ["reflexive", "reciprocal", "passive", "essential"];
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
+  const imperfectIpaProfiles = Object.freeze({
+    seLaver: Object.freeze({ common: "la.vɛ", nous: "la.vjɔ̃", vous: "la.vje" }),
+    seLever: Object.freeze({ common: "lə.vɛ", nous: "lə.vjɔ̃", vous: "lə.vje" }),
+    seReposer: Object.freeze({ common: "ʁə.po.zɛ", nous: "ʁə.po.zjɔ̃", vous: "ʁə.po.zje" }),
+    sAppeler: Object.freeze({ common: "a.pə.lɛ", nous: "a.pə.ljɔ̃", vous: "a.pə.lje" }),
+    sHabiller: Object.freeze({ common: "a.bi.jɛ", nous: "a.bij.jɔ̃", vous: "a.bij.je" }),
+    seTrouver: Object.freeze({ common: "tʁu.vɛ", nous: "tʁu.vjɔ̃", vous: "tʁu.vje" }),
+    sePromener: Object.freeze({ common: "pʁɔm.nɛ", nous: "pʁɔm.njɔ̃", vous: "pʁɔm.nje" }),
+    sAimer: Object.freeze({ common: "ɛ.mɛ", nous: "ɛ.mjɔ̃", vous: "ɛ.mje" }),
+    seConnaitre: Object.freeze({ common: "kɔ.nɛ.sɛ", nous: "kɔ.nɛ.sjɔ̃", vous: "kɔ.nɛ.sje" }),
+    seMarier: Object.freeze({ common: "ma.ʁjɛ", nous: "ma.ʁij.jɔ̃", vous: "ma.ʁij.je" }),
+    seVoir: Object.freeze({ common: "vwa.jɛ", nous: "vwaj.jɔ̃", vous: "vwaj.je" }),
+    seRegarder: Object.freeze({ common: "ʁə.ɡaʁ.dɛ", nous: "ʁə.ɡaʁ.djɔ̃", vous: "ʁə.ɡaʁ.dje" }),
+    seDire: Object.freeze({ common: "di.zɛ", nous: "di.zjɔ̃", vous: "di.zje" }),
+    seVendre: Object.freeze({ common: "vɑ̃.dɛ", nous: "vɑ̃.djɔ̃", vous: "vɑ̃.dje" }),
+    seSouvenir: Object.freeze({ common: "su.və.nɛ", nous: "su.və.njɔ̃", vous: "su.və.nje" }),
+    sEnvoler: Object.freeze({ common: "ɑ̃.vɔ.lɛ", nous: "ɑ̃.vɔ.ljɔ̃", vous: "ɑ̃.vɔ.lje" }),
+    sAssumer: Object.freeze({ common: "a.sy.mɛ", nous: "a.sy.mjɔ̃", vous: "a.sy.mje" }),
+    sEnnuyer: Object.freeze({ common: "ɑ̃.nɥi.jɛ", nous: "ɑ̃.nɥij.jɔ̃", vous: "ɑ̃.nɥij.je" }),
+    seDetendre: Object.freeze({ common: "de.tɑ̃.dɛ", nous: "de.tɑ̃.djɔ̃", vous: "de.tɑ̃.dje" }),
+    seCalmer: Object.freeze({ common: "kal.mɛ", nous: "kal.mjɔ̃", vous: "kal.mje" }),
+    seBaigner: Object.freeze({ common: "bɛ.ɲɛ", nous: "bɛ.ɲjɔ̃", vous: "bɛ.ɲje" }),
+    sInteresser: Object.freeze({
+      common: "ɛ̃.te.ʁe.sɛ",
+      nous: "ɛ̃.te.ʁe.sjɔ̃",
+      vous: "ɛ̃.te.ʁe.sje",
+      participle: "ɛ̃.te.ʁe.se"
+    })
+  });
+
+  const simplePronominalPrefixIpa = Object.freeze({
+    consonant: Object.freeze({
+      je: "ʒə mə ",
+      tu: "ty tə ",
+      il: "il sə ",
+      elle: "ɛl sə ",
+      nous: "nu nu ",
+      vous: "vu vu ",
+      ils: "il sə ",
+      elles: "ɛl sə "
+    }),
+    vowel: Object.freeze({
+      je: "ʒə m",
+      tu: "ty t",
+      il: "il s",
+      elle: "ɛl s",
+      nous: "nu nu.z‿",
+      vous: "vu vu.z‿",
+      ils: "il s",
+      elles: "ɛl s"
+    })
+  });
+
+  const compoundPronominalPrefixIpa = Object.freeze({
+    consonant: Object.freeze({
+      je: "ʒə mə sɥi ",
+      tu: "ty tɛ ",
+      il: "il sɛ ",
+      elle: "ɛl sɛ ",
+      nous: "nu nu sɔm ",
+      vous: "vu vu.zɛt ",
+      ils: "il sə sɔ̃ ",
+      elles: "ɛl sə sɔ̃ "
+    }),
+    vowel: Object.freeze({
+      je: "ʒə mə sɥi.z‿",
+      tu: "ty t‿ɛ.z‿",
+      il: "il s‿ɛ.t‿",
+      elle: "ɛl s‿ɛ.t‿",
+      nous: "nu nu sɔm.z‿",
+      vous: "vu vu.z‿ɛt.z‿",
+      ils: "il sə sɔ̃.t‿",
+      elles: "ɛl sə sɔ̃.t‿"
+    })
+  });
+
   const typeDefinitions = [
     {
       key: "reflexive",
@@ -527,6 +603,41 @@
     return Array.isArray(rows) ? rows.map(row => ({ ...row })) : [];
   }
 
+  function unwrapIpa(value) {
+    return String(value || "").trim().replace(/^\//, "").replace(/\/$/, "");
+  }
+
+  function wrapIpa(value) {
+    return `/${unwrapIpa(value)}/`;
+  }
+
+  function beginsWithVowelSound(value) {
+    return /^[aeiouyɑɛəɔœø]/u.test(unwrapIpa(value));
+  }
+
+  function getImperfectLexicalIpa(seed, pronoun) {
+    const profile = imperfectIpaProfiles[seed.key];
+    if (!profile) throw new Error(`${seed.infinitive} needs an imparfait IPA profile.`);
+    return profile[pronoun] || profile.common;
+  }
+
+  function composeSimplePronominalIpa(seed, pronoun) {
+    const lexicalIpa = getImperfectLexicalIpa(seed, pronoun);
+    const prefixGroup = beginsWithVowelSound(lexicalIpa) ? "vowel" : "consonant";
+    const prefix = simplePronominalPrefixIpa[prefixGroup][pronoun];
+    if (!prefix) throw new Error(`${seed.infinitive} is missing an IPA prefix for ${pronoun}.`);
+    return wrapIpa(`${prefix}${lexicalIpa}`);
+  }
+
+  function composeCompoundPronominalIpa(seed, pronoun, participleIpa) {
+    const lexicalIpa = unwrapIpa(participleIpa);
+    if (!lexicalIpa) throw new Error(`${seed.infinitive} needs a past-participle IPA.`);
+    const prefixGroup = beginsWithVowelSound(lexicalIpa) ? "vowel" : "consonant";
+    const prefix = compoundPronominalPrefixIpa[prefixGroup][pronoun];
+    if (!prefix) throw new Error(`${seed.infinitive} is missing a compound IPA prefix for ${pronoun}.`);
+    return wrapIpa(`${prefix}${lexicalIpa}`);
+  }
+
   function findSourceItem(seed) {
     const items = FR.data.verbs && Array.isArray(FR.data.verbs.items)
       ? FR.data.verbs.items
@@ -542,7 +653,12 @@
     if (!Array.isArray(rows) || rows.length !== 8) {
       throw new Error(`${seed.infinitive} needs eight canonical present rows.`);
     }
-    return cloneRows(rows);
+    const sharedIpa = FR.data.grammar && FR.data.grammar.verbPhraseIpa || {};
+    return cloneRows(rows).map(row => {
+      const ipa = row.ipa || sharedIpa[row.full];
+      if (!ipa) throw new Error(`${seed.infinitive} is missing present IPA for ${row.full}.`);
+      return { ...row, ipa };
+    });
   }
 
   function buildImparfaitRows(seed, presentRows) {
@@ -555,11 +671,20 @@
       key: seed.key,
       label: seed.infinitive,
       rows: presentRows
+    }, {
+      // Pronominal prefixes need their own IPA composition below.
+      skipIpa: true
     });
     return MATRIX_PRONOUNS.map(pronoun => {
       const row = derived.rows.find(entry => entry.pronoun === pronoun);
       if (!row) throw new Error(`${seed.infinitive} is missing the ${pronoun} imparfait form.`);
-      return { pronoun, form: row.full.replace(new RegExp(`^${pronoun}\\s+`), ""), full: row.full, speech: row.full };
+      return {
+        pronoun,
+        form: row.full.replace(new RegExp(`^${pronoun}\\s+`), ""),
+        full: row.full,
+        speech: row.full,
+        ipa: composeSimplePronominalIpa(seed, pronoun)
+      };
     });
   }
 
@@ -570,6 +695,14 @@
   function getParticiple(seed, sourceItem) {
     const sourceParticiple = sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.pastParticiple;
     return stripAgreementMarkers(sourceParticiple) || seed.participle;
+  }
+
+  function getParticipleIpa(seed, sourceItem) {
+    const sourceIpa = sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.pastParticipleIpa;
+    const profile = imperfectIpaProfiles[seed.key];
+    const ipa = sourceIpa || profile && profile.participle;
+    if (!ipa) throw new Error(`${seed.infinitive} needs a past-participle IPA.`);
+    return wrapIpa(ipa);
   }
 
   function getAgreedParticiple(base, pronoun, invariant) {
@@ -608,7 +741,7 @@
     }[pronoun];
   }
 
-  function buildPasseComposeRows(seed, sourceItem) {
+  function buildPasseComposeRows(seed, sourceItem, participleIpa) {
     const participle = getParticiple(seed, sourceItem);
     const invariant = seed.agreementMode === "indirect-se";
     return MATRIX_PRONOUNS.map(pronoun => {
@@ -620,7 +753,8 @@
         form: `${prefix.replace(new RegExp(`^${pronoun}\\s+`), "")}${displayParticiple}`,
         full: `${prefix}${displayParticiple}`,
         speech: `${prefix}${spokenParticiple}`,
-        participle: displayParticiple
+        participle: displayParticiple,
+        ipa: composeCompoundPronominalIpa(seed, pronoun, participleIpa)
       };
     });
   }
@@ -634,6 +768,7 @@
     const presentRows = getPresentRows(seed, sourceItem);
     const infinitiveIpa = seed.ipa || (sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.infinitiveIpa) || "";
     const participle = getParticiple(seed, sourceItem);
+    const participleIpa = getParticipleIpa(seed, sourceItem);
     const item = {
       id: seed.key,
       key: seed.key,
@@ -650,7 +785,7 @@
       specialNote: seed.specialNote || "",
       contrastIds: seed.contrastIds || [],
       participle,
-      participleIpa: (sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.pastParticipleIpa) || "",
+      participleIpa,
       examples: {
         present: seed.present,
         imperfect: seed.imperfect,
@@ -660,7 +795,7 @@
       paradigms: {
         present: orderPresentRows(presentRows),
         imperfect: buildImparfaitRows(seed, presentRows),
-        passeCompose: buildPasseComposeRows(seed, sourceItem)
+        passeCompose: buildPasseComposeRows(seed, sourceItem, participleIpa)
       },
       source: sourceItem ? "FR.data.verbs" : "promoted"
     };

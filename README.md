@@ -17,6 +17,10 @@ js/data/numbers.js                 Number generation and IPA
 js/data/pronouns.js                COD, COI, tonic, reflexive, and possessive data
 js/data/verbs.js                   Present-tense verb paradigms, IPA, and registry data
 js/data/grammar.js                 Être/avoir examples and grammar flashcards
+js/data/tenses.js                  Passé composé forms and example sentences
+js/data/imparfait.js               Derived Imparfait forms, IPA, and examples
+js/data/imperative.js              Imperative paradigms, IPA, and examples
+js/data/pronominal-verbs.js        Pronominal paradigms, agreement, IPA, and examples
 js/data/pronunciation.js           Pronunciation rules and practice words
 js/data/questions.js               Question-word learning content
 js/data/vocabulary.js              Calendar, nouns, and adjectives
@@ -51,7 +55,9 @@ the same validator before publishing.
 1. Add its conjugation rows and `verbStudyItems` entry to `js/data/verbs.js`.
 2. Add its passé composé study entry to `js/data/tenses.js`. Movement verbs
    already listed in `etreAuxiliaryVerbs` are derived automatically when possible.
-3. Run `node scripts/validate.js` to confirm all pronouns, examples, IPA, groups,
+3. Add imperative metadata to `js/data/imperative.js` when the verb has a natural
+   imperative. Imparfait rows and examples are derived from the shared verb registry.
+4. Run `node scripts/validate.js` to confirm all pronouns, examples, IPA, groups,
    and present/past entries stay synchronized.
 
 Verb panels, tables, index buttons, and compact tense summaries are generated

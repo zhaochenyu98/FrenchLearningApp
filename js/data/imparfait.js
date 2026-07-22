@@ -17,7 +17,7 @@
   });
 
   const personOrder = Object.freeze([
-    "je", "tu", "il", "elle", "nous", "on", "vous", "ils", "elles"
+    "je", "nous", "tu", "vous", "il", "ils", "elle", "elles", "on"
   ]);
 
   const alignedPairs = Object.freeze([
@@ -149,6 +149,268 @@
     })
   });
 
+  const ipaEndings = Object.freeze({
+    je: "ɛ",
+    tu: "ɛ",
+    il: "ɛ",
+    elle: "ɛ",
+    on: "ɛ",
+    nous: "jɔ̃",
+    vous: "je",
+    ils: "ɛ",
+    elles: "ɛ"
+  });
+
+  // Broad phonemic stems keep the derived paradigms compact while still
+  // preserving pronunciation changes such as fais- /fəz/ and buv- /byv/.
+  const ipaStems = Object.freeze({
+    etreVerb: "et",
+    avoirVerb: "av",
+    aller: "al",
+    venir: "vən",
+    tenir: "tən",
+    prendre: "pʁən",
+    apprendre: "apʁən",
+    comprendre: "kɔ̃pʁən",
+    faire: "fəz",
+    devoir: "dəv",
+    pouvoir: "puv",
+    vouloir: "vul",
+    savoir: "sav",
+    connaitre: "kɔnɛs",
+    voir: "vwaj",
+    boire: "byv",
+    dire: "diz",
+    offrir: "ɔfʁ",
+    ouvrir: "uvʁ",
+    ecrire: "ekʁiv",
+    lire: "liz",
+    vivre: "viv",
+    dormir: "dɔʁm",
+    partir: "paʁt",
+    sortir: "sɔʁt",
+    servir: "sɛʁv",
+    sentir: "sɑ̃t",
+    parler: "paʁl",
+    chercher: "ʃɛʁʃ",
+    manger: "mɑ̃ʒ",
+    inviter: "ɛ̃vit",
+    adorer: "adɔʁ",
+    detester: "detɛst",
+    preferer: "pʁefeʁ",
+    gagner: "ɡaɲ",
+    penser: "pɑ̃s",
+    finir: "finis",
+    choisir: "ʃwazis",
+    reussir: "ʁeysis",
+    unir: "ynis",
+    attendre: "atɑ̃d",
+    arriver: "aʁiv",
+    habiter: "abit",
+    trouver: "tʁuv",
+    regarder: "ʁəɡaʁd",
+    laisser: "les",
+    reserver: "ʁezɛʁv",
+    quitter: "kit",
+    passer: "pas",
+    commencer: "kɔmɑ̃s",
+    voyager: "vwajaʒ",
+    travailler: "tʁavaj",
+    dejeuner: "deʒœn",
+    acheter: "aʃət",
+    rentrer: "ʁɑ̃tʁ",
+    demander: "dəmɑ̃d",
+    jouer: "ʒw",
+    nager: "naʒ",
+    tourner: "tuʁn",
+    couter: "kut",
+    entrer: "ɑ̃tʁ",
+    monter: "mɔ̃t",
+    retourner: "ʁətuʁn",
+    rester: "ʁɛst",
+    tomber: "tɔ̃b",
+    descendre: "desɑ̃d",
+    revenir: "ʁəvən",
+    devenir: "dəvən",
+    naitre: "nɛs",
+    mourir: "muʁ",
+    falloir: "fal",
+    ilYA: "av",
+    impersonalFaire: "fəz",
+    impersonalEtre: "et",
+    rever: "ʁɛv",
+    arreter: "aʁɛt"
+  });
+
+  const ipaVerbFormOverrides = Object.freeze({
+    jouer: Object.freeze({
+      je: "ʒwɛ",
+      tu: "ʒwɛ",
+      il: "ʒwɛ",
+      elle: "ʒwɛ",
+      on: "ʒwɛ",
+      nous: "ʒujɔ̃",
+      vous: "ʒuje",
+      ils: "ʒwɛ",
+      elles: "ʒwɛ"
+    })
+  });
+
+  const ipaPhraseOverrides = Object.freeze({
+    "ilYA:il": "/il i avɛ/"
+  });
+
+  const subjectIpa = Object.freeze({
+    je: Object.freeze({ consonant: "ʒə", vowel: "ʒ" }),
+    tu: Object.freeze({ consonant: "ty", vowel: "ty" }),
+    il: Object.freeze({ consonant: "il", vowel: "il" }),
+    elle: Object.freeze({ consonant: "ɛl", vowel: "ɛl" }),
+    on: Object.freeze({ consonant: "ɔ̃", vowel: "ɔ̃n‿" }),
+    nous: Object.freeze({ consonant: "nu", vowel: "nuz‿" }),
+    vous: Object.freeze({ consonant: "vu", vowel: "vuz‿" }),
+    ils: Object.freeze({ consonant: "il", vowel: "ilz‿" }),
+    elles: Object.freeze({ consonant: "ɛl", vowel: "ɛlz‿" })
+  });
+
+  const exampleUsage = Object.freeze({
+    etreVerb: Object.freeze(["souvent fatigués après le travail", "be tired after work"]),
+    avoirVerb: Object.freeze(["peur des orages", "be afraid of storms"]),
+    aller: Object.freeze(["à l’école à pied", "go to school on foot"]),
+    venir: Object.freeze(["chez nos grands-parents le dimanche", "come to our grandparents’ house on Sundays"]),
+    tenir: Object.freeze(["la porte ouverte pour les autres", "hold the door open for others"]),
+    prendre: Object.freeze(["le bus chaque matin", "take the bus every morning"]),
+    apprendre: Object.freeze(["le français ensemble", "learn French together"]),
+    comprendre: Object.freeze(["mieux cette règle", "understand this rule better"]),
+    faire: Object.freeze(["du sport le samedi", "exercise on Saturdays"]),
+    devoir: Object.freeze(["partir tôt", "have to leave early"]),
+    pouvoir: Object.freeze(["jouer dehors après l’école", "be able to play outside after school"]),
+    vouloir: Object.freeze(["rester plus longtemps", "want to stay longer"]),
+    savoir: Object.freeze(["nager", "know how to swim"]),
+    connaitre: Object.freeze(["bien ce quartier", "know this neighborhood well"]),
+    voir: Object.freeze(["nos voisins chaque semaine", "see our neighbors every week"]),
+    boire: Object.freeze(["l’eau du robinet", "drink tap water"]),
+    dire: Object.freeze(["toujours la vérité", "always tell the truth"]),
+    offrir: Object.freeze(["ce livre à nos amis", "give this book to our friends"]),
+    ouvrir: Object.freeze(["la fenêtre chaque matin", "open the window every morning"]),
+    ecrire: Object.freeze(["à nos grands-parents chaque mois", "write to our grandparents every month"]),
+    lire: Object.freeze(["le journal au petit-déjeuner", "read the newspaper at breakfast"]),
+    vivre: Object.freeze(["près de la mer", "live near the sea"]),
+    dormir: Object.freeze(["huit heures par nuit", "sleep eight hours a night"]),
+    partir: Object.freeze(["tôt le lundi", "leave early on Mondays"]),
+    sortir: Object.freeze(["ensemble le vendredi", "go out together on Fridays"]),
+    servir: Object.freeze(["le dîner à sept heures", "serve dinner at seven o’clock"]),
+    sentir: Object.freeze(["le parfum des fleurs", "smell the flowers’ fragrance"]),
+    parler: Object.freeze(["français à la maison", "speak French at home"]),
+    chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
+    manger: Object.freeze(["à la cantine", "eat in the cafeteria"]),
+    inviter: Object.freeze(["nos voisins à dîner", "invite our neighbors to dinner"]),
+    adorer: Object.freeze(["ce petit café", "love this little café"]),
+    detester: Object.freeze(["attendre dans les files", "hate waiting in lines"]),
+    preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
+    gagner: Object.freeze(["souvent le match", "often win the match"]),
+    penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
+    finir: Object.freeze(["le travail à cinq heures", "finish work at five o’clock"]),
+    choisir: Object.freeze(["toujours le même menu", "always choose the same menu"]),
+    reussir: Object.freeze(["tous nos examens", "pass all our exams"]),
+    unir: Object.freeze(["nos efforts", "join our efforts"]),
+    attendre: Object.freeze(["le bus devant l’école", "wait for the bus in front of the school"]),
+    arriver: Object.freeze(["toujours à l’heure", "always arrive on time"]),
+    habiter: Object.freeze(["près de la gare", "live near the train station"]),
+    trouver: Object.freeze(["facilement notre chemin", "find our way easily"]),
+    regarder: Object.freeze(["les informations le soir", "watch the news in the evening"]),
+    laisser: Object.freeze(["la porte ouverte", "leave the door open"]),
+    reserver: Object.freeze(["cette table le vendredi", "reserve this table on Fridays"]),
+    quitter: Object.freeze(["le bureau à six heures", "leave the office at six o’clock"]),
+    passer: Object.freeze(["par Lyon chaque été", "go through Lyon every summer"]),
+    commencer: Object.freeze(["à huit heures", "start at eight o’clock"]),
+    voyager: Object.freeze(["en train", "travel by train"]),
+    travailler: Object.freeze(["le samedi", "work on Saturdays"]),
+    dejeuner: Object.freeze(["ensemble à midi", "have lunch together at noon"]),
+    acheter: Object.freeze(["le pain au marché", "buy bread at the market"]),
+    rentrer: Object.freeze(["avant la nuit", "return home before nightfall"]),
+    demander: Object.freeze(["de l’aide au professeur", "ask the teacher for help"]),
+    jouer: Object.freeze(["au tennis après l’école", "play tennis after school"]),
+    nager: Object.freeze(["chaque matin", "swim every morning"]),
+    tourner: Object.freeze(["à gauche à ce carrefour", "turn left at this intersection"]),
+    entrer: Object.freeze(["par cette porte", "enter through this door"]),
+    monter: Object.freeze(["à pied", "go upstairs on foot"]),
+    retourner: Object.freeze(["à Paris chaque hiver", "return to Paris every winter"]),
+    rester: Object.freeze(["chez nous le dimanche", "stay home on Sundays"]),
+    tomber: Object.freeze(["souvent en jouant", "often fall while playing"]),
+    descendre: Object.freeze(["à pied", "go downstairs on foot"]),
+    revenir: Object.freeze(["chaque été", "come back every summer"]),
+    devenir: Object.freeze(["plus patients avec le temps", "become more patient over time"]),
+    rever: Object.freeze(["de voyager autour du monde", "dream of traveling around the world"]),
+    arreter: Object.freeze(["de travailler à six heures", "stop working at six o’clock"])
+  });
+
+  function exampleSet(statementFr, statementEn, negativeFr, negativeEn, questionFr, questionEn) {
+    return Object.freeze({
+      statement: Object.freeze({ fr: statementFr, en: statementEn }),
+      negative: Object.freeze({ fr: negativeFr, en: negativeEn }),
+      question: Object.freeze({ fr: questionFr, en: questionEn })
+    });
+  }
+
+  const exampleOverrides = Object.freeze({
+    couter: exampleSet(
+      "Le trajet coûtait vingt euros.",
+      "The trip used to cost twenty euros.",
+      "Le trajet ne coûtait pas vingt euros.",
+      "The trip did not use to cost twenty euros.",
+      "Combien coûtait le trajet ?",
+      "How much did the trip cost?"
+    ),
+    naitre: exampleSet(
+      "Beaucoup d’enfants naissaient à la maison à cette époque.",
+      "Many children were born at home at that time.",
+      "Les enfants ne naissaient pas tous à l’hôpital.",
+      "Not all children were born in a hospital.",
+      "Où naissaient beaucoup d’enfants à cette époque ?",
+      "Where were many children born at that time?"
+    ),
+    mourir: exampleSet(
+      "Les plantes mouraient sans eau.",
+      "The plants used to die without water.",
+      "Les plantes ne mouraient pas quand nous les arrosions.",
+      "The plants did not die when we watered them.",
+      "Pourquoi les plantes mouraient-elles ?",
+      "Why were the plants dying?"
+    ),
+    falloir: exampleSet(
+      "Il fallait réserver à l’avance.",
+      "It was necessary to book in advance.",
+      "Il ne fallait pas attendre le dernier moment.",
+      "One was not supposed to wait until the last moment.",
+      "Fallait-il réserver à l’avance ?",
+      "Was it necessary to book in advance?"
+    ),
+    ilYA: exampleSet(
+      "Il y avait un marché ici.",
+      "There used to be a market here.",
+      "Il n’y avait pas de supermarché dans le quartier.",
+      "There was no supermarket in the neighborhood.",
+      "Y avait-il un marché ici ?",
+      "Was there a market here?"
+    ),
+    impersonalFaire: exampleSet(
+      "Il faisait froid le matin.",
+      "It used to be cold in the morning.",
+      "Il ne faisait pas froid l’après-midi.",
+      "It was not cold in the afternoon.",
+      "Faisait-il froid le matin ?",
+      "Was it cold in the morning?"
+    ),
+    impersonalEtre: exampleSet(
+      "Il était huit heures quand nous partions.",
+      "It was eight o’clock when we left.",
+      "Il n’était pas encore huit heures.",
+      "It was not eight o’clock yet.",
+      "Était-il déjà huit heures ?",
+      "Was it already eight o’clock?"
+    )
+  });
+
   function normalizePronoun(value) {
     const normalized = String(value || "")
       .toLowerCase()
@@ -181,6 +443,129 @@
     const full = String(row && row.full || "");
     if (!lexicalForm || !full.endsWith(lexicalForm)) return "";
     return full.slice(0, full.length - lexicalForm.length);
+  }
+
+  function unwrapIpa(value) {
+    return String(value || "")
+      .trim()
+      .replace(/^[/\\]/, "")
+      .replace(/[/\\]$/, "");
+  }
+
+  function isVowelInitialSpelling(value) {
+    return /^[aeiouhàâäéèêëîïôöùûüœ]/i.test(String(value || ""));
+  }
+
+  function isVowelInitialIpa(value) {
+    return /^[aeɛiɪoɔuʊyøœəɑɒ]/.test(String(value || ""));
+  }
+
+  function deriveStemIpaFromPresent(item) {
+    const sourceRow = findRow(item, "nous");
+    if (!sourceRow) return "";
+
+    const phraseMap = FR.data.grammar && FR.data.grammar.verbPhraseIpa || {};
+    const phraseIpa = sourceRow.ipa || phraseMap[sourceRow.full];
+    if (!phraseIpa) return "";
+
+    let compact = unwrapIpa(phraseIpa).replace(/[.\s‿]/g, "");
+    const lexicalForm = getLexicalForm(sourceRow);
+    const subjectPrefix = isVowelInitialSpelling(lexicalForm) ? "nuz" : "nu";
+    if (!compact.startsWith(subjectPrefix)) return "";
+    compact = compact.slice(subjectPrefix.length);
+    return compact.endsWith("ɔ̃") ? compact.slice(0, -2) : "";
+  }
+
+  function resolveStemIpa(item) {
+    const exact = ipaStems[item.key];
+    if (exact) return exact;
+
+    const derived = deriveStemIpaFromPresent(item);
+    if (derived) return derived;
+
+    throw new Error(
+      `${item.label || item.key} needs an IPA stem or a full-phrase IPA on its present nous row.`
+    );
+  }
+
+  function getVerbFormIpa(item, pronoun) {
+    const override = ipaVerbFormOverrides[item.key] && ipaVerbFormOverrides[item.key][pronoun];
+    if (override) return override;
+
+    const ending = ipaEndings[pronoun];
+    if (!ending) throw new Error(`No imparfait IPA ending is registered for ${pronoun}.`);
+    return `${resolveStemIpa(item)}${ending}`;
+  }
+
+  function buildRowIpa(item, row) {
+    const phraseOverride = ipaPhraseOverrides[`${item.key}:${row.pronoun}`];
+    if (phraseOverride) return phraseOverride;
+
+    const verbIpa = getVerbFormIpa(item, row.pronoun);
+    const pronounForms = subjectIpa[row.pronoun];
+    if (!pronounForms) throw new Error(`No subject IPA is registered for ${row.pronoun}.`);
+
+    const beginsWithVowel = isVowelInitialIpa(verbIpa);
+    const subject = pronounForms[beginsWithVowel ? "vowel" : "consonant"];
+    const separator = subject.endsWith("‿") || (row.pronoun === "je" && beginsWithVowel)
+      ? ""
+      : " ";
+    return `/${subject}${separator}${verbIpa}/`;
+  }
+
+  function capitalizeFirst(value) {
+    const text = String(value || "");
+    return text ? `${text.charAt(0).toLocaleUpperCase("fr-FR")}${text.slice(1)}` : text;
+  }
+
+  function getFallbackEnglishBase(item) {
+    const sourceRow = findRow(item, "nous");
+    const rowMeaning = String(sourceRow && sourceRow.en || "").trim();
+    if (/^we\s+/i.test(rowMeaning)) return rowMeaning.replace(/^we\s+/i, "");
+
+    const titleMeaning = String(item.title || "").split("—")[1] || "";
+    return titleMeaning
+      .trim()
+      .replace(/^to\s+/i, "")
+      .split(" / ")[0]
+      .trim() || "use this verb";
+  }
+
+  function makeNegativeNous(row) {
+    const negativeMarker = isVowelInitialSpelling(row.form) ? "n’" : "ne ";
+    return `Nous ${negativeMarker}${row.form} pas`;
+  }
+
+  function usesInversionQuestion(item) {
+    return Array.from(String(item.key || ""))
+      .reduce((total, character) => total + character.codePointAt(0), 0) % 2 === 0;
+  }
+
+  function createDerivedExamples(item, rows) {
+    const override = exampleOverrides[item.key];
+    if (override) return override;
+
+    const row = rows.find(entry => entry.pronoun === "nous");
+    if (!row) {
+      throw new Error(`${item.label || item.key} needs a nous row or an Imparfait example override.`);
+    }
+
+    const usage = exampleUsage[item.key] || Object.freeze([
+      "régulièrement",
+      `${getFallbackEnglishBase(item)} regularly`
+    ]);
+    const [frComplement, enPredicate] = usage;
+    const questionFr = usesInversionQuestion(item)
+      ? `${capitalizeFirst(row.form)}-nous ${frComplement} à cette époque ?`
+      : `Est-ce que ${row.full} ${frComplement} à cette époque ?`;
+    return exampleSet(
+      `Autrefois, ${row.full} ${frComplement}.`,
+      `We used to ${enPredicate}.`,
+      `${makeNegativeNous(row)} ${frComplement}.`,
+      `We did not use to ${enPredicate}.`,
+      questionFr,
+      `Did we use to ${enPredicate} at that time?`
+    );
   }
 
   function deriveStem(item, options) {
@@ -300,7 +685,7 @@
       if (!ending) throw new Error(`No imparfait ending is registered for ${pronoun}.`);
       const verbForm = inflectStem(stemData.stem, ending, ruleIds);
       const full = composeFullForm(item, pronoun, verbForm, options);
-      return {
+      const row = {
         pronoun,
         form: verbForm,
         full,
@@ -314,6 +699,7 @@
           return true;
         })
       };
+      return options.skipIpa ? row : { ...row, ipa: buildRowIpa(item, row) };
     });
 
     return {
@@ -366,6 +752,7 @@
       tag: item.tag || "",
       sourceItem: item,
       rows: derived.rows,
+      examples: createDerivedExamples(item, derived.rows),
       stem: derived.stem,
       formula: derived.formula,
       specialRules,
@@ -393,6 +780,7 @@
           title: item.title,
           sourceItem: item,
           rows: [],
+          examples: {},
           specialRules: [],
           error
         };
@@ -423,11 +811,24 @@
       ruleCatalog,
       presentAlternations,
       impersonalMappings,
+      ipaEndings,
+      ipaStems,
+      ipaVerbFormOverrides,
+      ipaPhraseOverrides,
+      subjectIpa,
+      exampleUsage,
+      exampleOverrides,
       groups: built.groups,
       items: built.items,
       errors: built.errors,
       deriveRows,
       deriveItem,
+      deriveStemIpaFromPresent,
+      resolveStemIpa,
+      getVerbFormIpa,
+      buildRowIpa,
+      createDerivedExamples,
+      usesInversionQuestion,
       getItem(key) {
         return built.items.find(item => item.key === key) || null;
       }
@@ -441,11 +842,24 @@
       ruleCatalog,
       presentAlternations,
       impersonalMappings,
+      ipaEndings,
+      ipaStems,
+      ipaVerbFormOverrides,
+      ipaPhraseOverrides,
+      subjectIpa,
+      exampleUsage,
+      exampleOverrides,
       groups: [],
       items: [],
       errors: [{ key: "initialization", label: "Imparfait", error }],
       deriveRows,
       deriveItem,
+      deriveStemIpaFromPresent,
+      resolveStemIpa,
+      getVerbFormIpa,
+      buildRowIpa,
+      createDerivedExamples,
+      usesInversionQuestion,
       getItem() {
         return null;
       }

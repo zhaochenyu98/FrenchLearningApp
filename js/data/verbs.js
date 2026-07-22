@@ -1459,7 +1459,7 @@
         label: "pouvoir",
         title: "Pouvoir — can / to be able to",
         tag: "irregular modal verb",
-        descriptionHtml: "<strong>Pouvoir</strong> is a common modal verb before another infinitive: <strong>je peux venir</strong>, <strong>tu peux aider</strong>. In first-person inversion, <strong>je peux</strong> usually becomes <strong>puis-je</strong>: <strong>Puis-je vous aider ?</strong>",
+        descriptionHtml: "<strong>Pouvoir</strong> is a common modal verb before another infinitive: <strong>je peux venir</strong>, <strong>tu peux aider</strong>. In first-person inversion, <strong>je peux</strong> usually becomes <strong>puis-je</strong>: <strong>Puis-je vous aider ?</strong> Unlike the other verbs in this group, <strong>pouvoir has no standard modern imperative</strong>.",
         rows: pouvoirRows
       },
       {
