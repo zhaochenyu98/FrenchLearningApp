@@ -9,18 +9,18 @@
     ];
 
     const months = [
-      { fr: "janvier", ipa: "/ʒɑ̃vje/", en: "January", note: "month", example: "en janvier", exampleEn: "in January" },
-      { fr: "février", ipa: "/fevʁije/", en: "February", note: "month", example: "en février", exampleEn: "in February" },
-      { fr: "mars", ipa: "/maʁs/", en: "March", note: "month", example: "en mars", exampleEn: "in March" },
-      { fr: "avril", ipa: "/avʁil/", en: "April", note: "month", example: "en avril", exampleEn: "in April" },
-      { fr: "mai", ipa: "/mɛ/", en: "May", note: "month", example: "en mai", exampleEn: "in May" },
-      { fr: "juin", ipa: "/ʒɥɛ̃/", en: "June", note: "month", example: "en juin", exampleEn: "in June" },
-      { fr: "juillet", ipa: "/ʒɥijɛ/", en: "July", note: "month", example: "en juillet", exampleEn: "in July" },
-      { fr: "août", ipa: "/ut/", en: "August", note: "month", example: "en août", exampleEn: "in August" },
-      { fr: "septembre", ipa: "/sɛptɑ̃bʁ/", en: "September", note: "month", example: "en septembre", exampleEn: "in September" },
-      { fr: "octobre", ipa: "/ɔktɔbʁ/", en: "October", note: "month", example: "en octobre", exampleEn: "in October" },
-      { fr: "novembre", ipa: "/nɔvɑ̃bʁ/", en: "November", note: "month", example: "en novembre", exampleEn: "in November" },
-      { fr: "décembre", ipa: "/desɑ̃bʁ/", en: "December", note: "month", example: "en décembre", exampleEn: "in December" }
+      { fr: "janvier", ipa: "/ʒɑ̃vje/", en: "January", note: "month", example: "En janvier, il fait souvent froid.", exampleEn: "In January, it is often cold." },
+      { fr: "février", ipa: "/fevʁije/", en: "February", note: "month", example: "Mon anniversaire est en février.", exampleEn: "My birthday is in February." },
+      { fr: "mars", ipa: "/maʁs/", en: "March", note: "month", example: "Le printemps commence en mars.", exampleEn: "Spring begins in March." },
+      { fr: "avril", ipa: "/avʁil/", en: "April", note: "month", example: "Nous partons à Paris en avril.", exampleEn: "We are leaving for Paris in April." },
+      { fr: "mai", ipa: "/mɛ/", en: "May", note: "month", example: "Les fleurs sont belles en mai.", exampleEn: "The flowers are beautiful in May." },
+      { fr: "juin", ipa: "/ʒɥɛ̃/", en: "June", note: "month", example: "Nous allons à la plage en juin.", exampleEn: "We go to the beach in June." },
+      { fr: "juillet", ipa: "/ʒɥijɛ/", en: "July", note: "month", example: "Je prends mes vacances en juillet.", exampleEn: "I take my vacation in July." },
+      { fr: "août", ipa: "/ut/", en: "August", note: "month", example: "Beaucoup de Français voyagent en août.", exampleEn: "Many French people travel in August." },
+      { fr: "septembre", ipa: "/sɛptɑ̃bʁ/", en: "September", note: "month", example: "Les enfants retournent à l'école en septembre.", exampleEn: "The children go back to school in September." },
+      { fr: "octobre", ipa: "/ɔktɔbʁ/", en: "October", note: "month", example: "Les feuilles tombent en octobre.", exampleEn: "The leaves fall in October." },
+      { fr: "novembre", ipa: "/nɔvɑ̃bʁ/", en: "November", note: "month", example: "Il pleut souvent en novembre.", exampleEn: "It often rains in November." },
+      { fr: "décembre", ipa: "/desɑ̃bʁ/", en: "December", note: "month", example: "Nous fêtons Noël en décembre.", exampleEn: "We celebrate Christmas in December." }
     ];
 
     const monthQuestionExamples = [
