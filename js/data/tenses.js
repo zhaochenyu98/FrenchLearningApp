@@ -828,7 +828,7 @@
           {
             infinitive: "apprendre",
             infinitiveIpa: "/apʁɑ̃dʁ/",
-            meaning: "to learn",
+            meaning: "to learn / to teach",
             auxiliary: "avoir",
             pastParticiple: "appris",
             pastParticipleIpa: "/apʁi/",

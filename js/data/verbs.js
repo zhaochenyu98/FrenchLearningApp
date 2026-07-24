@@ -293,14 +293,14 @@
     ];
 
     const apprendreRows = [
-      { pronoun: "j’", form: "apprends", full: "j’apprends", en: "I learn", example: "J’apprends le français.", exampleEn: "I am learning French.", negative: "Je n’apprends pas le français.", negativeEn: "I am not learning French.", question: "Qu’est-ce que j’apprends ?" },
-      { pronoun: "tu", form: "apprends", full: "tu apprends", en: "you learn", example: "Tu apprends une nouvelle règle.", exampleEn: "You are learning a new rule.", negative: "Tu n’apprends pas de nouvelle règle.", negativeEn: "You are not learning a new rule.", question: "Qu’apprends-tu ?" },
-      { pronoun: "il", form: "apprend", full: "il apprend", en: "he learns", example: "Il apprend à conduire.", exampleEn: "He is learning to drive.", negative: "Il n’apprend pas à conduire.", negativeEn: "He is not learning to drive.", question: "Apprend-il à conduire ?" },
-      { pronoun: "elle", form: "apprend", full: "elle apprend", en: "she learns", example: "Elle apprend beaucoup en classe.", exampleEn: "She learns a lot in class.", negative: "Elle n’apprend pas beaucoup en classe.", negativeEn: "She does not learn a lot in class." },
-      { pronoun: "nous", form: "apprenons", full: "nous apprenons", en: "we learn", example: "Nous apprenons les verbes irréguliers.", exampleEn: "We are learning irregular verbs.", negative: "Nous n’apprenons pas les verbes irréguliers.", negativeEn: "We are not learning irregular verbs.", question: "Quels verbes apprenons-nous ?" },
-      { pronoun: "vous", form: "apprenez", full: "vous apprenez", en: "you learn", example: "Vous apprenez vite.", exampleEn: "You learn quickly.", negative: "Vous n’apprenez pas vite.", negativeEn: "You do not learn quickly.", question: "Apprenez-vous vite ?" },
-      { pronoun: "ils", form: "apprennent", full: "ils apprennent", en: "they learn", example: "Ils apprennent une chanson.", exampleEn: "They are learning a song.", negative: "Ils n’apprennent pas de chanson.", negativeEn: "They are not learning a song." },
-      { pronoun: "elles", form: "apprennent", full: "elles apprennent", en: "they learn", example: "Elles apprennent à nager.", exampleEn: "They are learning to swim.", negative: "Elles n’apprennent pas à nager.", negativeEn: "They are not learning to swim.", question: "Qu’apprennent-elles à faire ?" }
+      { pronoun: "j’", form: "apprends", full: "j’apprends", en: "I learn / teach", example: "J’apprends le français.", exampleEn: "I am learning French.", negative: "Je n’apprends pas le français.", negativeEn: "I am not learning French.", question: "Qu’est-ce que j’apprends ?" },
+      { pronoun: "tu", form: "apprends", full: "tu apprends", en: "you learn / teach", example: "Tu apprends à cuisiner.", exampleEn: "You are learning to cook.", negative: "Tu n’apprends pas à cuisiner.", negativeEn: "You are not learning to cook.", question: "Qu’apprends-tu à faire ?" },
+      { pronoun: "il", form: "apprend", full: "il apprend", en: "he learns / teaches", example: "Il apprend cette chanson à son fils.", exampleEn: "He is teaching this song to his son.", negative: "Il n’apprend pas cette chanson à son fils.", negativeEn: "He is not teaching this song to his son.", question: "Quelle chanson apprend-il à son fils ?" },
+      { pronoun: "elle", form: "apprend", full: "elle apprend", en: "she learns / teaches", example: "Elle apprend à sa fille à nager.", exampleEn: "She is teaching her daughter to swim.", negative: "Elle n’apprend pas à sa fille à nager.", negativeEn: "She is not teaching her daughter to swim.", question: "À qui apprend-elle à nager ?" },
+      { pronoun: "nous", form: "apprenons", full: "nous apprenons", en: "we learn / teach", example: "Nous apprenons les verbes irréguliers.", exampleEn: "We are learning irregular verbs.", negative: "Nous n’apprenons pas les verbes irréguliers.", negativeEn: "We are not learning irregular verbs.", question: "Quels verbes apprenons-nous ?" },
+      { pronoun: "vous", form: "apprenez", full: "vous apprenez", en: "you learn / teach", example: "Vous apprenez les nombres aux enfants.", exampleEn: "You are teaching numbers to the children.", negative: "Vous n’apprenez pas les nombres aux enfants.", negativeEn: "You are not teaching numbers to the children.", question: "Qu’apprenez-vous aux enfants ?" },
+      { pronoun: "ils", form: "apprennent", full: "ils apprennent", en: "they learn / teach", example: "Ils apprennent à leurs enfants à lire.", exampleEn: "They are teaching their children to read.", negative: "Ils n’apprennent pas à leurs enfants à lire.", negativeEn: "They are not teaching their children to read.", question: "À qui apprennent-ils à lire ?" },
+      { pronoun: "elles", form: "apprennent", full: "elles apprennent", en: "they learn / teach", example: "Elles apprennent à conduire.", exampleEn: "They are learning to drive.", negative: "Elles n’apprennent pas à conduire.", negativeEn: "They are not learning to drive.", question: "Qu’apprennent-elles à faire ?" }
     ];
 
     const habiterRows = [
@@ -1457,9 +1457,9 @@
         key: "apprendre",
         group: "irregular",
         label: "apprendre",
-        title: "Apprendre — to learn",
+        title: "Apprendre — to learn / to teach",
         tag: "irregular",
-        descriptionHtml: "<strong>Apprendre</strong> follows the same family as <strong>prendre</strong>: <strong>apprends / apprend</strong>, <strong>apprenons</strong>, <strong>apprenez</strong>, <strong>apprennent</strong>.",
+        descriptionHtml: "<strong>Apprendre</strong> follows the same family as <strong>prendre</strong>: <strong>apprends / apprend</strong>, <strong>apprenons</strong>, <strong>apprenez</strong>, <strong>apprennent</strong>. Learn these four patterns: <strong>apprendre quelque chose</strong> (learn something), <strong>apprendre à + infinitif</strong> (learn to do something), <strong>apprendre quelque chose à quelqu’un</strong> (teach someone something), and <strong>apprendre à quelqu’un à + infinitif</strong> (teach someone to do something). The two uses of <strong>à</strong> in the final pattern are both required.",
         rows: apprendreRows
       },
       {
