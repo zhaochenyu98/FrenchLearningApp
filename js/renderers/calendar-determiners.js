@@ -5,18 +5,36 @@
         return;
       }
       list.forEach(item => {
+        const examples = item.examples || (item.example ? [{ fr: item.example, en: item.exampleEn }] : []);
         const button = document.createElement("button");
-        button.className = "example-card";
+        button.className = `example-card${examples.length > 1 ? " calendar-multi-example-card" : ""}`;
         button.type = "button";
         button.innerHTML = `
           <div class="french-line">${item.fr}</div>
           ${item.ipa ? `<div class="calendar-ipa">${item.ipa}</div>` : ""}
           <div class="translation">${item.en}</div>
           <div class="grammar-note">${item.note}</div>
-          <div class="translation"><strong>Example:</strong> ${item.example}</div>
-          <div class="translation">${item.exampleEn}</div>
+          ${examples.length === 1 ? `
+            <div class="translation"><strong>Example:</strong> ${examples[0].fr}</div>
+            <div class="translation">${examples[0].en}</div>
+          ` : examples.length ? `
+            <div class="calendar-example-list">
+              ${examples.map((example, index) => `
+                <div class="calendar-example-item">
+                  <div class="tiny-label">${example.label || `Example ${index + 1}`}</div>
+                  <div class="translation"><strong>${example.fr}</strong></div>
+                  <div class="translation">${example.en}</div>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
         `;
-        button.addEventListener("click", () => speakWithPause(item.speech || item.fr, item.example, button));
+        button.addEventListener("click", () => {
+          speakSequence([
+            { text: item.speech || item.fr },
+            ...examples.map(example => ({ text: example.fr, pauseBefore: examplePauseMs }))
+          ], button);
+        });
         container.appendChild(button);
       });
     }

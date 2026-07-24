@@ -44,11 +44,57 @@
       { fr: "après-demain", ipa: "/a.pʁɛ.də.mɛ̃/", en: "the day after tomorrow", note: "two days after today", example: "Après-demain, elle part en vacances.", exampleEn: "The day after tomorrow, she leaves for vacation." },
       { fr: "tôt", ipa: "/to/", en: "early", note: "adverb: describes when an action happens; it does not agree", example: "Je me lève tôt le matin.", exampleEn: "I get up early in the morning." },
       { fr: "tard", ipa: "/taʁ/", en: "late", note: "adverb: describes when an action happens; it does not agree", example: "Le train arrive tard ce soir.", exampleEn: "The train arrives late tonight." },
+      {
+        fr: "avant",
+        ipa: "/a.vɑ̃/",
+        en: "before / earlier",
+        note: "Use avant + a noun or time. Before an infinitive, use avant de. A duration can come before avant when the reference event is stated or already understood.",
+        examples: [
+          { label: "avant + noun / time", fr: "Je prends un café avant le cours.", en: "I have a coffee before class." },
+          { label: "avant de + infinitive", fr: "Ferme la porte avant de partir.", en: "Close the door before leaving." },
+          { label: "duration + avant", fr: "Deux jours avant le voyage, nous avons préparé les valises.", en: "Two days before the trip, we packed the suitcases." }
+        ]
+      },
+      {
+        fr: "après",
+        ipa: "/a.pʁɛ/",
+        en: "after / afterward",
+        note: "Use après + a noun or time. For “after doing,” use après avoir or après être + past participle, not après de + infinitive. A duration can come before après.",
+        examples: [
+          { label: "après + noun / time", fr: "Nous dînons après le cours.", en: "We have dinner after class." },
+          { label: "après avoir + past participle", fr: "Après avoir mangé, je fais la vaisselle.", en: "After eating, I do the dishes." },
+          { label: "après être + past participle", fr: "Après être arrivée à Paris, elle a appelé sa mère.", en: "After arriving in Paris, she called her mother." },
+          { label: "duration + après", fr: "Deux jours après son arrivée, il a commencé les cours.", en: "Two days after his arrival, he started classes." }
+        ]
+      },
+      {
+        fr: "prochain / prochaine",
+        speech: "prochain, prochaine",
+        ipa: "/pʁɔ.ʃɛ̃/ · /pʁɔ.ʃɛn/",
+        en: "next",
+        note: "It agrees with the noun. For the next calendar period, place it after the time noun: lundi prochain, la semaine prochaine. Before a noun, it can mean the next one in a sequence: le prochain train.",
+        examples: [
+          { label: "specific day — no article", fr: "Nous partons lundi prochain.", en: "We are leaving next Monday." },
+          { label: "calendar period — agreement", fr: "Elle revient la semaine prochaine.", en: "She is returning next week." },
+          { label: "next in a sequence", fr: "Je prends le prochain train.", en: "I am taking the next train." }
+        ]
+      },
+      {
+        fr: "dernier / dernière",
+        speech: "dernier, dernière",
+        ipa: "/dɛʁ.nje/ · /dɛʁ.njɛʁ/",
+        en: "last / previous",
+        note: "It agrees with the noun. After a calendar noun, it means the previous one: mardi dernier, la semaine dernière. Before a noun, it means the final or last one in a sequence: le dernier train.",
+        examples: [
+          { label: "specific day — no article", fr: "J’ai vu Paul mardi dernier.", en: "I saw Paul last Tuesday." },
+          { label: "calendar period — agreement", fr: "Elle a beaucoup travaillé la semaine dernière.", en: "She worked a lot last week." },
+          { label: "final in a sequence", fr: "Nous prenons le dernier train ce soir.", en: "We are taking the last train tonight." }
+        ]
+      },
       { fr: "dans + durée", speech: "dans vingt minutes", ipa: "/dɑ̃/", en: "in + an amount of time", note: "Marks how long from now (or another reference point) until an event begins. It answers ‘when?’, not ‘for how long?’", example: "Le cours commence dans vingt minutes.", exampleEn: "The class starts in twenty minutes." },
       { fr: "pour + durée", speech: "pour six mois", ipa: "/puʁ/", en: "for + a planned duration", note: "Presents an intended or scheduled length, especially with plans, travel, rentals, and arrangements. For an actual completed duration, pendant is usually clearer.", example: "Je vais louer cet appartement pour six mois.", exampleEn: "I am going to rent this apartment for six months." },
       { fr: "à partir de + moment", speech: "à partir de lundi", ipa: "/a paʁ.tiʁ də/", en: "starting from / as of", note: "Marks the point when a new situation begins and continues afterward.", example: "À partir de lundi, je travaille à la maison.", exampleEn: "Starting Monday, I work from home." },
       { fr: "durée + plus tard", speech: "trois jours plus tard", ipa: "/ply taʁ/", en: "an amount of time later", note: "Places an event a measured time after an earlier reference in the story or conversation.", example: "Trois jours plus tard, elle a répondu.", exampleEn: "Three days later, she replied." },
-      { fr: "durée + après", speech: "deux jours après", ipa: "/a.pʁɛ/", en: "an amount of time afterward / after something", note: "Often points to a stated event: deux jours après son arrivée. When the reference is already clear, deux jours après can stand alone.", example: "Deux jours après son arrivée, il a commencé les cours.", exampleEn: "Two days after his arrival, he started classes." },
       { fr: "de ... à ...", speech: "de neuf heures à dix-huit heures", ipa: "/də ... a .../", en: "from ... to ...", note: "Gives the starting and ending boundaries of a schedule, date range, or period.", example: "La bibliothèque est ouverte de neuf heures à dix-huit heures.", exampleEn: "The library is open from nine a.m. to six p.m." },
       { fr: "jusqu’en + mois / année", speech: "jusqu’en décembre", ipa: "/ʒys.kɑ̃/", en: "until + a month / year / season", note: "Use jusqu’en before a month, year, or season introduced by en. Compare jusqu’à lundi and jusqu’à dix heures.", example: "Nous restons ici jusqu’en décembre.", exampleEn: "We are staying here until December." },
       { fr: "pendant + durée", speech: "pendant deux heures", ipa: "/pɑ̃.dɑ̃/", en: "for / during a bounded duration", note: "Measures the actual duration of an action, whether past, present, or future. It can also mean ‘during’: pendant le cours.", example: "Nous avons étudié pendant deux heures.", exampleEn: "We studied for two hours." },

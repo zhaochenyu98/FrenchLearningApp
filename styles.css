@@ -1853,6 +1853,35 @@
       gap: 8px;
     }
 
+    .calendar-example-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    #relativeTimeGrid {
+      align-items: start;
+      grid-auto-flow: dense;
+    }
+
+    #relativeTimeGrid .calendar-multi-example-card {
+      grid-column: span 2;
+    }
+
+    .calendar-multi-example-card .calendar-example-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .calendar-example-item {
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+
+    .calendar-example-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
     .noun-example-btn {
       border-radius: 14px;
       padding: 10px 12px;
@@ -2832,6 +2861,14 @@
     @media (max-width: 640px) {
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #relativeTimeGrid .calendar-multi-example-card {
+        grid-column: 1 / -1;
+      }
+
+      .calendar-multi-example-card .calendar-example-list {
+        grid-template-columns: 1fr;
       }
 
       .tout-role-guide {
