@@ -21,6 +21,29 @@
       });
     }
 
+    function renderCalendarQuestionExamples(container, list, emptyMessage) {
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML = `<div class="empty-state">${emptyMessage}</div>`;
+        return;
+      }
+      list.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "example-card";
+        button.type = "button";
+        button.innerHTML = `
+          <div class="tiny-label">Question</div>
+          <div class="french-line">${item.fr}</div>
+          <div class="translation">${item.en}</div>
+          <div class="tiny-label">Example answer</div>
+          <div class="translation"><strong>${item.answer}</strong></div>
+          <div class="translation">${item.answerEn}</div>
+        `;
+        button.addEventListener("click", () => speakWithPause(item.fr, item.answer, button));
+        container.appendChild(button);
+      });
+    }
+
     function renderTimeSpanTerm(term, rowIndex, side) {
       return `
         <div class="time-span-term">

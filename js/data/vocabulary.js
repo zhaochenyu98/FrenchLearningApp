@@ -23,6 +23,12 @@
       { fr: "décembre", ipa: "/desɑ̃bʁ/", en: "December", note: "month", example: "en décembre", exampleEn: "in December" }
     ];
 
+    const monthQuestionExamples = [
+      { fr: "Quel mois sommes-nous ?", en: "What month is it?", answer: "Nous sommes en juillet.", answerEn: "It is July." },
+      { fr: "Nous sommes en quel mois ?", en: "What month are we in?", answer: "Nous sommes en novembre.", answerEn: "We are in November." },
+      { fr: "En quel mois est ton anniversaire ?", en: "In which month is your birthday?", answer: "Mon anniversaire est en mai.", answerEn: "My birthday is in May." }
+    ];
+
     const seasons = [
       { fr: "printemps", ipa: "/pʁɛ̃tɑ̃/", en: "spring", note: "use au for ‘in spring’", example: "au printemps", exampleEn: "in spring" },
       { fr: "été", ipa: "/ete/", en: "summer", note: "usually uses en", example: "en été", exampleEn: "in summer" },
@@ -37,7 +43,16 @@
       { fr: "demain", ipa: "/də.mɛ̃/", en: "tomorrow", note: "the next day", example: "Demain, nous allons au marché.", exampleEn: "Tomorrow, we are going to the market." },
       { fr: "après-demain", ipa: "/a.pʁɛ.də.mɛ̃/", en: "the day after tomorrow", note: "two days after today", example: "Après-demain, elle part en vacances.", exampleEn: "The day after tomorrow, she leaves for vacation." },
       { fr: "tôt", ipa: "/to/", en: "early", note: "adverb: describes when an action happens; it does not agree", example: "Je me lève tôt le matin.", exampleEn: "I get up early in the morning." },
-      { fr: "tard", ipa: "/taʁ/", en: "late", note: "adverb: describes when an action happens; it does not agree", example: "Le train arrive tard ce soir.", exampleEn: "The train arrives late tonight." }
+      { fr: "tard", ipa: "/taʁ/", en: "late", note: "adverb: describes when an action happens; it does not agree", example: "Le train arrive tard ce soir.", exampleEn: "The train arrives late tonight." },
+      { fr: "dans + durée", speech: "dans vingt minutes", ipa: "/dɑ̃/", en: "in + an amount of time", note: "Marks how long from now (or another reference point) until an event begins. It answers ‘when?’, not ‘for how long?’", example: "Le cours commence dans vingt minutes.", exampleEn: "The class starts in twenty minutes." },
+      { fr: "pour + durée", speech: "pour six mois", ipa: "/puʁ/", en: "for + a planned duration", note: "Presents an intended or scheduled length, especially with plans, travel, rentals, and arrangements. For an actual completed duration, pendant is usually clearer.", example: "Je vais louer cet appartement pour six mois.", exampleEn: "I am going to rent this apartment for six months." },
+      { fr: "à partir de + moment", speech: "à partir de lundi", ipa: "/a paʁ.tiʁ də/", en: "starting from / as of", note: "Marks the point when a new situation begins and continues afterward.", example: "À partir de lundi, je travaille à la maison.", exampleEn: "Starting Monday, I work from home." },
+      { fr: "durée + plus tard", speech: "trois jours plus tard", ipa: "/ply taʁ/", en: "an amount of time later", note: "Places an event a measured time after an earlier reference in the story or conversation.", example: "Trois jours plus tard, elle a répondu.", exampleEn: "Three days later, she replied." },
+      { fr: "durée + après", speech: "deux jours après", ipa: "/a.pʁɛ/", en: "an amount of time afterward / after something", note: "Often points to a stated event: deux jours après son arrivée. When the reference is already clear, deux jours après can stand alone.", example: "Deux jours après son arrivée, il a commencé les cours.", exampleEn: "Two days after his arrival, he started classes." },
+      { fr: "de ... à ...", speech: "de neuf heures à dix-huit heures", ipa: "/də ... a .../", en: "from ... to ...", note: "Gives the starting and ending boundaries of a schedule, date range, or period.", example: "La bibliothèque est ouverte de neuf heures à dix-huit heures.", exampleEn: "The library is open from nine a.m. to six p.m." },
+      { fr: "jusqu’en + mois / année", speech: "jusqu’en décembre", ipa: "/ʒys.kɑ̃/", en: "until + a month / year / season", note: "Use jusqu’en before a month, year, or season introduced by en. Compare jusqu’à lundi and jusqu’à dix heures.", example: "Nous restons ici jusqu’en décembre.", exampleEn: "We are staying here until December." },
+      { fr: "pendant + durée", speech: "pendant deux heures", ipa: "/pɑ̃.dɑ̃/", en: "for / during a bounded duration", note: "Measures the actual duration of an action, whether past, present, or future. It can also mean ‘during’: pendant le cours.", example: "Nous avons étudié pendant deux heures.", exampleEn: "We studied for two hours." },
+      { fr: "depuis + point / durée", speech: "depuis trois ans", ipa: "/də.pɥi/", en: "since / for, continuing at the reference time", note: "Use a starting point (depuis lundi) or a duration (depuis trois ans). If the situation still continues now, French normally uses the present tense.", example: "J’habite ici depuis trois ans.", exampleEn: "I have lived here for three years." }
     ];
 
     const timeSpanComparisons = [

@@ -129,6 +129,7 @@
     const quelColorExamplesGrid = document.getElementById("quelColorExamplesGrid");
     const dayQuestionExamplesGrid = document.getElementById("dayQuestionExamplesGrid");
     const timeQuestionExamplesGrid = document.getElementById("timeQuestionExamplesGrid");
+    const monthQuestionExamplesGrid = document.getElementById("monthQuestionExamplesGrid");
     const queExamplesGrid = document.getElementById("queExamplesGrid");
     const queConnectorExamplesGrid = document.getElementById("queConnectorExamplesGrid");
     const queCestExamplesGrid = document.getElementById("queCestExamplesGrid");

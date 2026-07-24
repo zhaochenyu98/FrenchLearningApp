@@ -279,6 +279,7 @@
         renderTimeSpanComparisons();
         renderCalendarCards(relativeTimeGrid, relativeTimeWords, "No relative time words available.");
         renderCalendarCards(weekdaysGrid, weekdays, "No days available.");
+        renderCalendarQuestionExamples(monthQuestionExamplesGrid, monthQuestionExamples, "No month questions available.");
         renderCalendarCards(monthsGrid, months, "No months available.");
         renderCalendarCards(seasonsGrid, seasons, "No seasons available.");
       }
