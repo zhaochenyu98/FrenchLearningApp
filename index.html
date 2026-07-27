@@ -10,7 +10,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present and past tense study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
+      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present, past, and future tense study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
     </p>
 
     <div class="controls">
@@ -385,7 +385,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Verbs &amp; Tenses</h2>
-            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact Imparfait, passé composé, and imperative references.</p>
+            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, and imperative references.</p>
           </div>
         </div>
 
@@ -393,6 +393,7 @@
           <button id="verbModeVerb" class="verb-mode-btn active" type="button" role="tab" aria-selected="true" aria-controls="verbByVerbMode" data-verb-mode="verb">By Verb</button>
           <button id="verbModeImparfait" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="imparfaitSection" data-verb-mode="imparfait">Imparfait</button>
           <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">Passé composé</button>
+          <button id="verbModeFuturSimple" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="futurSimpleSection" data-verb-mode="futur-simple">Futur simple</button>
         </div>
 
         <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
@@ -519,6 +520,55 @@
           <div id="passeComposeIrregularGrid" class="noun-rules-table"></div>
         </div>
 
+        </div>
+
+        <div id="futurSimpleSection" class="verb-mode-panel" data-verb-mode-panel="futur-simple" role="tabpanel" aria-labelledby="verbModeFuturSimple" hidden>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Futur simple</h2>
+              <p class="section-desc">Use the futur simple for future plans, predictions, promises, and events viewed as complete future facts. Every verb includes an aligned conjugation table, IPA, and statement, negation, and genuine question practice.</p>
+            </div>
+          </div>
+
+          <div class="category-panel">
+            <h3>Build and use the futur simple</h3>
+            <div class="summary-chips">
+              <div class="summary-chip">
+                <strong>Regular stem</strong>
+                <span>Most <strong>-er</strong> and <strong>-ir</strong> verbs keep the infinitive. Verbs ending in <strong>-re</strong> drop only the final <strong>e</strong>: <strong>parler-</strong>, <strong>finir-</strong>, <strong>attendr-</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Same six endings</strong>
+                <span>Add <strong>-ai, -as, -a, -ons, -ez, -ont</strong>. These endings are used even with irregular stems: <strong>je serai</strong>, <strong>nous irons</strong>, <strong>elles viendront</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Future time clauses</strong>
+                <span>French often uses the future after <strong>quand</strong>, <strong>lorsque</strong>, or <strong>dès que</strong>: <strong>Quand tu arriveras, nous mangerons.</strong></span>
+              </div>
+              <div class="summary-chip">
+                <strong>Si + present</strong>
+                <span>For a real future condition, keep the <strong>si</strong> clause in the present: <strong>Si tu viens, nous mangerons ensemble</strong>, not <strong>si tu viendras</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Futur proche vs futur simple</strong>
+                <span><strong>Je vais partir</strong> often feels immediate or already planned. <strong>Je partirai</strong> presents the departure as a future fact, promise, or prediction.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Pronunciation</strong>
+                <span><strong>-ai</strong> and <strong>-ez</strong> end in <strong>/e/</strong>; <strong>-as</strong> and <strong>-a</strong> in <strong>/a/</strong>; <strong>-ons</strong> and <strong>-ont</strong> in <strong>/ɔ̃/</strong>.</span>
+              </div>
+            </div>
+            <h4>Stem, spelling, and pronoun watch</h4>
+            <div id="futurSimpleSpecialRules" class="imparfait-special-grid"></div>
+          </div>
+
+          <div class="verb-study-layout imparfait-study-layout">
+            <aside class="verb-index" aria-label="Futur simple verb index">
+              <div class="verb-index-title">Futur simple index</div>
+              <div id="futurSimpleIndex" class="verb-index-groups"></div>
+            </aside>
+            <div id="futurSimpleGroupStack" class="verb-group-stack"></div>
+          </div>
         </div>
       </section>
 
@@ -1297,6 +1347,7 @@
   <script defer src="js/data/tenses.js"></script>
   <script defer src="js/data/imperative.js"></script>
   <script defer src="js/data/imparfait.js"></script>
+  <script defer src="js/data/futur-simple.js"></script>
   <script defer src="js/data/pronominal-verbs.js"></script>
   <script defer src="js/data/object-pronouns.js"></script>
   <script defer src="js/core/core.js"></script>
@@ -1309,6 +1360,7 @@
   <script defer src="js/renderers/questions.js"></script>
   <script defer src="js/renderers/calendar-determiners.js"></script>
   <script defer src="js/renderers/imparfait.js"></script>
+  <script defer src="js/renderers/futur-simple.js"></script>
   <script defer src="js/renderers/pronominal-verbs.js"></script>
   <script defer src="js/renderers/object-pronouns.js"></script>
   <script defer src="js/app.js"></script>

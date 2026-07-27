@@ -350,6 +350,7 @@ function loadExtendedGrammarData() {
     "js/data/tenses.js",
     "js/data/imperative.js",
     "js/data/imparfait.js",
+    "js/data/futur-simple.js",
     "js/data/pronominal-verbs.js",
     "js/data/object-pronouns.js"
   ].forEach(scriptPath => {
@@ -442,6 +443,140 @@ function validateImparfaitContent(data) {
       fail(`${key} imparfait ${pronoun}: expected ${expected}, found ${row ? row.full : "missing"}`);
     }
   });
+}
+
+function validateFuturSimpleContent(data) {
+  const future = data.futurSimple;
+  const sourceItems = data.verbs.items;
+  if (!future || !Array.isArray(future.items) || typeof future.getItem !== "function") {
+    fail("futur-simple data is not registered");
+    return;
+  }
+  if (future.errors.length) {
+    fail(`futur-simple derivation errors: ${future.errors.map(item => item.label || item.key).join(", ")}`);
+  }
+
+  const expectedPairs = [["je", "nous"], ["tu", "vous"], ["il", "ils"], ["elle", "elles"]];
+  if (JSON.stringify(future.alignedPairs) !== JSON.stringify(expectedPairs)) {
+    fail("futur-simple columns must align je/nous, tu/vous, il/ils, and elle/elles");
+  }
+
+  const missingItems = sourceItems.filter(item => !future.getItem(item.key)).map(item => item.label);
+  if (missingItems.length) {
+    fail(`verbs missing a futur-simple paradigm: ${missingItems.join(", ")}`);
+  }
+  if (future.items.length !== sourceItems.length) {
+    fail(`futur-simple registry has ${future.items.length} entries for ${sourceItems.length} verbs`);
+  }
+
+  future.items.forEach(item => {
+    const source = sourceItems.find(entry => entry.key === item.key);
+    const expectedPronouns = new Set((source && source.rows || []).map(row => {
+      const normalized = row.pronoun.replace(/[’']/g, "").toLowerCase();
+      return normalized === "j" ? "je" : normalized;
+    }));
+    const actualPronouns = new Set(item.rows.map(row => row.pronoun));
+    const missingPronouns = Array.from(expectedPronouns).filter(pronoun => !actualPronouns.has(pronoun));
+    if (missingPronouns.length) {
+      fail(`${item.label} futur simple is missing ${missingPronouns.join("/")}`);
+    }
+    if (!item.stem || !item.formula || !item.formula.text) {
+      fail(`${item.label} has incomplete futur-simple stem information`);
+    }
+    if (item.rows.some(row =>
+      !row.full || !row.form || !row.ending || !/^\/[^/]+\/$/u.test(row.ipa || "")
+    )) {
+      fail(`${item.label} has an incomplete futur-simple row`);
+    }
+
+    const examples = item.examples || {};
+    ["statement", "negative", "question"].forEach(kind => {
+      if (!examples[kind] || !examples[kind].fr || !examples[kind].en) {
+        fail(`${item.label} is missing a futur-simple ${kind} example`);
+      }
+    });
+    if (examples.question && !/[?？]\s*$/.test(examples.question.fr)) {
+      fail(`${item.label} futur-simple question must end with a question mark`);
+    }
+    if (
+      examples.statement && examples.question &&
+      normalizeComparableSentence(examples.statement.fr) === normalizeComparableSentence(examples.question.fr)
+    ) {
+      fail(`${item.label} repeats its futur-simple statement as an intonation-only question`);
+    }
+  });
+
+  const questions = future.items
+    .map(item => item.examples && item.examples.question && item.examples.question.fr)
+    .filter(Boolean);
+  if (!questions.some(question => /^Est-ce que\b/iu.test(question))) {
+    fail("futur-simple practice needs some est-ce que questions");
+  }
+  if (!questions.some(question => /-(?:nous|vous|t-il|t-elle|ils|elles)\b/iu.test(question))) {
+    fail("futur-simple practice needs some subject-verb inversion questions");
+  }
+
+  const expectedForms = [
+    ["parler", "je", "je parlerai"],
+    ["finir", "nous", "nous finirons"],
+    ["attendre", "je", "j’attendrai"],
+    ["etreVerb", "je", "je serai"],
+    ["avoirVerb", "nous", "nous aurons"],
+    ["aller", "ils", "ils iront"],
+    ["venir", "elle", "elle viendra"],
+    ["faire", "vous", "vous ferez"],
+    ["pouvoir", "je", "je pourrai"],
+    ["vouloir", "elles", "elles voudront"],
+    ["savoir", "tu", "tu sauras"],
+    ["voir", "nous", "nous verrons"],
+    ["mourir", "il", "il mourra"],
+    ["acheter", "je", "j’achèterai"],
+    ["sAppeler", "je", "je m’appellerai"],
+    ["seLever", "nous", "nous nous lèverons"],
+    ["seSouvenir", "elles", "elles se souviendront"],
+    ["falloir", "il", "il faudra"],
+    ["ilYA", "il", "il y aura"],
+    ["pleuvoir", "il", "il pleuvra"]
+  ];
+  expectedForms.forEach(([key, pronoun, expected]) => {
+    const item = future.getItem(key);
+    const row = item && item.rows.find(entry => entry.pronoun === pronoun);
+    if (!row || row.full !== expected) {
+      fail(`${key} futur simple ${pronoun}: expected ${expected}, found ${row ? row.full : "missing"}`);
+    }
+  });
+
+  const expectedStems = {
+    reserver: "réserver",
+    preferer: "préférer",
+    acheter: "achèter",
+    sAppeler: "appeller",
+    sEnnuyer: "ennuier"
+  };
+  Object.entries(expectedStems).forEach(([key, expected]) => {
+    const item = future.getItem(key);
+    if (!item || item.stem !== expected) {
+      fail(`${key} futur-simple stem: expected ${expected}, found ${item ? item.stem : "missing"}`);
+    }
+  });
+
+  const negationChecks = {
+    faire: "nous ne ferons pas de sport",
+    porter: "nous ne porterons pas de manteaux",
+    demander: "nous ne demanderons pas d’aide"
+  };
+  Object.entries(negationChecks).forEach(([key, expected]) => {
+    const item = future.getItem(key);
+    const sentence = item && item.examples && item.examples.negative && item.examples.negative.fr;
+    if (!sentence || !sentence.includes(expected)) {
+      fail(`${key} futur-simple negation must include ${expected}`);
+    }
+  });
+
+  const seLeverQuestion = future.getItem("seLever").examples.question.fr;
+  if (seLeverQuestion !== "Nous lèverons-nous plus tôt ?") {
+    fail("se lever inversion must keep the reflexive nous before the verb and subject -nous after it");
+  }
 }
 
 function validateImperativeContent(data) {
@@ -777,6 +912,7 @@ try {
 try {
   const extendedData = loadExtendedGrammarData();
   validateImparfaitContent(extendedData);
+  validateFuturSimpleContent(extendedData);
   validateImperativeContent(extendedData);
   validatePronominalContent(extendedData);
   validateObjectPronounContent(extendedData);

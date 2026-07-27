@@ -208,6 +208,7 @@
         renderPasseComposeGroups();
         initializeTenseIndex();
         FR.renderers.imparfait.render();
+        FR.renderers.futurSimple.render();
       },
       nouns() {
         renderNounPluralRules();
@@ -714,6 +715,135 @@
       return details;
     }
 
+    function createVerbFuturSimpleSummary(item) {
+      const future = FR.data.futurSimple && FR.data.futurSimple.getItem(item.key);
+      if (!future || !future.rows || !future.rows.length) return null;
+
+      const details = document.createElement("details");
+      details.className = "verb-tense-summary verb-futur-simple-summary";
+
+      const sample = future.rows.find(row => row.pronoun === "je") || future.rows[0];
+      const summary = document.createElement("summary");
+      summary.className = "verb-tense-summary-toggle";
+      summary.innerHTML = `
+        <span>Futur simple</span>
+        <span class="verb-tense-summary-form">${sample.full}</span>
+      `;
+
+      const body = document.createElement("div");
+      body.className = "verb-tense-summary-body";
+
+      const formula = document.createElement("div");
+      formula.className = "grammar-note";
+      formula.innerHTML = `<strong>Build it:</strong> ${future.formula.text}`;
+      body.appendChild(formula);
+
+      const createFutureFormCard = row => {
+        const card = document.createElement("div");
+        card.className = "verb-cell-card";
+        const button = document.createElement("button");
+        button.className = "verb-tense-form-btn verb-futur-simple-form-btn";
+        button.type = "button";
+        button.setAttribute("aria-label", `Play futur simple: ${row.full}`);
+        button.innerHTML = `
+          <span class="tiny-label">${row.pronoun}</span>
+          <span class="noun-example-main">${row.full}</span>
+          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
+        `;
+        button.addEventListener("click", () => {
+          speakSequence([{ text: row.speech || row.full }], button);
+        });
+        card.appendChild(button);
+        return card;
+      };
+
+      if (future.rows.length === 1) {
+        const fixedForm = document.createElement("div");
+        fixedForm.className = "verb-extra-column verb-tense-fixed-form";
+        const fixedTitle = document.createElement("div");
+        fixedTitle.className = "verb-column-title";
+        fixedTitle.textContent = "Fixed impersonal form";
+        fixedForm.append(fixedTitle, createFutureFormCard(future.rows[0]));
+        body.appendChild(fixedForm);
+      } else {
+        const matrix = document.createElement("div");
+        matrix.className = "verb-matrix verb-tense-mini-matrix";
+        matrix.setAttribute("role", "table");
+        matrix.setAttribute("aria-label", `${item.label}: futur simple conjugation`);
+
+        const matrixHeader = document.createElement("div");
+        matrixHeader.className = "verb-pair-header";
+        matrixHeader.setAttribute("role", "row");
+        ["Singular", "Plural"].forEach(label => {
+          const cell = document.createElement("div");
+          cell.setAttribute("role", "columnheader");
+          cell.textContent = label;
+          matrixHeader.appendChild(cell);
+        });
+        matrix.appendChild(matrixHeader);
+
+        FR.data.futurSimple.alignedPairs.forEach(pair => {
+          const pairRow = document.createElement("div");
+          pairRow.className = "verb-pair-row";
+          pairRow.setAttribute("role", "row");
+          pair.forEach(pronoun => {
+            const row = future.rows.find(entry => entry.pronoun === pronoun);
+            if (row) {
+              const card = createFutureFormCard(row);
+              card.setAttribute("role", "cell");
+              pairRow.appendChild(card);
+              return;
+            }
+            const placeholder = document.createElement("div");
+            placeholder.className = "verb-cell-placeholder";
+            placeholder.setAttribute("role", "cell");
+            placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
+            pairRow.appendChild(placeholder);
+          });
+          matrix.appendChild(pairRow);
+        });
+        body.appendChild(matrix);
+
+        const onRow = future.rows.find(row => row.pronoun === "on");
+        if (onRow) {
+          const onColumn = document.createElement("div");
+          onColumn.className = "verb-extra-column verb-tense-on-form";
+          const onTitle = document.createElement("div");
+          onTitle.className = "verb-column-title";
+          onTitle.textContent = "On: spoken French";
+          onColumn.append(onTitle, createFutureFormCard(onRow));
+          body.appendChild(onColumn);
+        }
+      }
+
+      if (future.examples) {
+        const usage = document.createElement("div");
+        usage.className = "verb-tense-usage";
+        usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
+        appendCompactTenseExampleList(usage, [
+          { label: "Statement", ...future.examples.statement },
+          { label: "Negative", ...future.examples.negative },
+          { label: "Question", ...future.examples.question }
+        ].filter(sentence => sentence.fr));
+        body.appendChild(usage);
+      }
+
+      if (future.specialRules.length) {
+        const noteList = document.createElement("div");
+        noteList.className = "verb-imparfait-notes";
+        future.specialRules.forEach(rule => {
+          const note = document.createElement("div");
+          note.className = "verb-form-highlight";
+          note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
+          noteList.appendChild(note);
+        });
+        body.appendChild(noteList);
+      }
+
+      details.append(summary, body);
+      return details;
+    }
+
     function createVerbImperativeSummary(item) {
       const imperative = FR.data.imperative && FR.data.imperative.getItem(item.key);
       if (!imperative || !Array.isArray(imperative.rows) || !imperative.rows.length) return null;
@@ -856,6 +986,9 @@
 
       const tenseSummary = createVerbPasseComposeSummary(item);
       if (tenseSummary) panel.appendChild(tenseSummary);
+
+      const futureSummary = createVerbFuturSimpleSummary(item);
+      if (futureSummary) panel.appendChild(futureSummary);
 
       const imperativeSummary = createVerbImperativeSummary(item);
       if (imperativeSummary) panel.appendChild(imperativeSummary);
