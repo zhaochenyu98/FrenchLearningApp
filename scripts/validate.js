@@ -234,6 +234,43 @@ function validateVerbContent() {
       fail(`${row.full} IPA: expected ${expectedIpa.get(row.full)}, found ${row.ipa || "missing"}`);
     }
   });
+
+  const pronunciationWatchKeys = [
+    "avoirVerb",
+    "devoir",
+    "suivre",
+    "vivre",
+    "revenir",
+    "devenir",
+    "naitre",
+    "mourir",
+    "jouer",
+    "seLever",
+    "sAppeler",
+    "sePromener",
+    "seConnaitre",
+    "seMarier",
+    "seVoir",
+    "seDire",
+    "seVendre",
+    "seSouvenir",
+    "sEnnuyer",
+    "sInquieter",
+    "seDetendre"
+  ];
+  const missingPronunciationWatches = pronunciationWatchKeys.filter(key => {
+    const item = verbStudyItems.find(candidate => candidate.key === key);
+    return !item || !Array.isArray(item.presentHighlights) || !item.presentHighlights.length;
+  });
+  if (missingPronunciationWatches.length) {
+    fail(`learner-relevant present-tense sound shifts need highlights: ${missingPronunciationWatches.join(", ")}`);
+  }
+
+  const sInquieter = verbStudyItems.find(item => item.key === "sInquieter");
+  const sInquieterHighlight = (sInquieter && sInquieter.presentHighlights || []).join(" ");
+  if (!sInquieterHighlight.includes("/ɛ̃.kjɛt/") || !sInquieterHighlight.includes("/ɛ̃.kje.tɔ̃/")) {
+    fail("s’inquiéter pronunciation watch must contrast open /ɛ/ with closed /e/");
+  }
 }
 
 function validateVerbTenseSync() {
@@ -730,6 +767,10 @@ function validatePronominalContent(data) {
   }
   if (!sInquieterPasse || sInquieterPasse.participle !== "inquiétées") {
     fail("s’inquiéter must agree as inquiétées with feminine plural elles");
+  }
+  const sInquieterPronunciation = (sInquieter && sInquieter.pronunciationHighlights || []).join(" ");
+  if (!sInquieterPronunciation.includes("/ɛ̃.kjɛt/") || !sInquieterPronunciation.includes("/ɛ̃.kje.tɔ̃/")) {
+    fail("the dedicated s’inquiéter card must expose its present-tense pronunciation contrast");
   }
   const sePasserContrast = pronominal.agreementContrasts.find(item => item.id === "se-passer-context");
   const sePasserForms = sePasserContrast ? sePasserContrast.forms.map(item => item.fr) : [];

@@ -422,6 +422,26 @@
     body.appendChild(wrapper);
   }
 
+  function appendPronunciationHighlights(body, item) {
+    if (!item.pronunciationHighlights || !item.pronunciationHighlights.length) return;
+
+    const highlights = createElement(
+      "div",
+      "verb-form-highlights pronominal-pronunciation-highlights"
+    );
+    item.pronunciationHighlights.forEach(highlight => {
+      const callout = createElement("div", "verb-form-highlight");
+      const explanation = createElement("span");
+      explanation.innerHTML = highlight;
+      callout.append(
+        createElement("span", "tiny-label", "Spelling / pronunciation watch"),
+        explanation
+      );
+      highlights.appendChild(callout);
+    });
+    body.appendChild(highlights);
+  }
+
   function createVerbCard(item, data) {
     if (item.error) throw new Error(item.error);
     if (!item.infinitive || !item.meaning || !item.agreementExplanation) {
@@ -443,6 +463,7 @@
 
     const body = createElement("div", "study-collapse-body pronominal-verb-body");
     body.appendChild(createMetadata(item, data));
+    appendPronunciationHighlights(body, item);
 
     const agreement = createElement("div", "grammar-note pronominal-agreement-callout");
     agreement.append(

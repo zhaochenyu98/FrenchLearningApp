@@ -1552,6 +1552,7 @@
       FR.data.verbs = {
         groups: verbStudyGroups,
         configs: verbConfigs,
+        presentHighlightsByKey: presentVerbHighlights,
         items: verbStudyItems.map(item => {
           const lookupName = item.syncInfinitive || impersonalNames.get(item.label) || item.label;
           const normalized = normalizeName(lookupName);

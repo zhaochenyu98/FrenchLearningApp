@@ -244,7 +244,7 @@
       agreementTitle: "Direct se: agree with the person getting up",
       agreementExplanation: "In the ordinary use, se is direct, so the participle agrees: elle s’est levée, elles se sont levées.",
       participle: "levé",
-      specialNote: "Present lève / lèvent uses è, but the imperfect follows nous levons: je me levais.",
+      specialNote: "The imperfect follows the present nous stem lev-: je me levais, nous nous levions.",
       present: examples(sentence("Elle se lève à six heures.", "She gets up at six."), sentence("Elle ne se lève pas à six heures.", "She does not get up at six."), sentence("À quelle heure se lève-t-elle ?", "What time does she get up?")),
       imperfect: examples(sentence("Elle se levait à six heures.", "She used to get up at six."), sentence("Elle ne se levait pas à six heures.", "She did not use to get up at six."), sentence("À quelle heure se levait-elle ?", "What time did she use to get up?")),
       passeCompose: examples(sentence("Elle s’est levée à six heures.", "She got up at six."), sentence("Elle ne s’est pas levée à six heures.", "She did not get up at six."), sentence("À quelle heure s’est-elle levée ?", "What time did she get up?")),
@@ -278,7 +278,7 @@
       agreementTitle: "Naming use: agree with the subject",
       agreementExplanation: "In the meaning to be called, the subject receives the name, so the participle agrees. The form can also be directly reflexive when it means to call oneself.",
       participle: "appelé",
-      specialNote: "Present appelle / appellent doubles l, but nous appelons and the imperfect stem appel- use one l: elle s’appelait.",
+      specialNote: "The imperfect uses one l: elle s’appelait. The futur simple doubles l: elle s’appellera.",
       present: examples(sentence("L’association s’appelle Horizon.", "The association is called Horizon."), sentence("L’association ne s’appelle pas Horizon.", "The association is not called Horizon."), sentence("Comment s’appelle l’association ?", "What is the association called?")),
       imperfect: examples(sentence("L’association s’appelait Horizon.", "The association used to be called Horizon."), sentence("L’association ne s’appelait pas Horizon.", "The association was not called Horizon."), sentence("Comment s’appelait l’association ?", "What was the association called?")),
       passeCompose: examples(sentence("L’association s’est d’abord appelée Horizon.", "The association was first called Horizon."), sentence("L’association ne s’est jamais appelée Horizon.", "The association was never called Horizon."), sentence("Comment l’association s’est-elle d’abord appelée ?", "What was the association first called?")),
@@ -347,7 +347,7 @@
       agreementTitle: "Lexicalized movement use: agree with the subject",
       agreementExplanation: "In the ordinary meaning to take a walk, the participle agrees with the subject.",
       participle: "promené",
-      specialNote: "Present promène / promènent uses è, while the imperfect follows nous promenons: elles se promenaient.",
+      specialNote: "The imperfect follows the present nous stem promen-: elles se promenaient.",
       present: examples(sentence("Elles se promènent au bord de la mer.", "They take a walk by the sea."), sentence("Elles ne se promènent pas au bord de la mer.", "They do not take a walk by the sea."), sentence("Où se promènent-elles ?", "Where do they take a walk?")),
       imperfect: examples(sentence("Elles se promenaient au bord de la mer.", "They used to walk by the sea."), sentence("Elles ne s’y promenaient pas.", "They did not use to walk there."), sentence("Où se promenaient-elles ?", "Where did they use to walk?")),
       passeCompose: examples(sentence("Elles se sont promenées au bord de la mer.", "They took a walk by the sea."), sentence("Elles ne s’y sont pas promenées.", "They did not take a walk there."), sentence("Où se sont-elles promenées ?", "Where did they take a walk?")),
@@ -382,7 +382,7 @@
       agreementTitle: "Direct reciprocal or reflexive se: agreement",
       agreementExplanation: "Connaître takes a direct object, so se is direct in the ordinary reflexive and reciprocal meanings.",
       participle: "connu",
-      specialNote: "Present connaît contrasts with connaissons / connaissent. The imperfect uses connaiss-: elles se connaissaient.",
+      specialNote: "The imperfect uses the connaiss- stem: elles se connaissaient.",
       present: examples(sentence("Elles se connaissent bien.", "They know each other well."), sentence("Elles ne se connaissent pas bien.", "They do not know each other well."), sentence("Depuis quand se connaissent-elles ?", "How long have they known each other?")),
       imperfect: examples(sentence("Elles se connaissaient déjà.", "They already knew each other."), sentence("Elles ne se connaissaient pas encore.", "They did not know each other yet."), sentence("Depuis quand se connaissaient-elles ?", "How long had they known each other?")),
       passeCompose: examples(sentence("Elles se sont connues à l’université.", "They got to know each other at university."), sentence("Elles ne se sont pas connues à l’université.", "They did not get to know each other at university."), sentence("Où se sont-elles connues ?", "Where did they get to know each other?")),
@@ -487,7 +487,7 @@
       agreementTitle: "Essentially pronominal: agree with the subject",
       agreementExplanation: "Se has no separate object function in se souvenir de. The participle agrees with the subject.",
       participle: "souvenu",
-      specialNote: "Present souviens / souvenons / souviennent alternates stems. The imperfect follows nous souvenons: elle se souvenait.",
+      specialNote: "The imperfect follows the present nous stem souven-: elle se souvenait.",
       present: examples(sentence("Elle se souvient de ce voyage.", "She remembers this trip."), sentence("Elle ne se souvient pas de ce voyage.", "She does not remember this trip."), sentence("De quoi se souvient-elle ?", "What does she remember?")),
       imperfect: examples(sentence("Elle se souvenait de ce voyage.", "She remembered this trip."), sentence("Elle ne s’en souvenait pas.", "She did not remember it."), sentence("De quoi se souvenait-elle ?", "What did she remember?")),
       passeCompose: examples(sentence("Elle s’est souvenue de ce voyage.", "She remembered this trip."), sentence("Elle ne s’en est pas souvenue.", "She did not remember it."), sentence("De quoi s’est-elle souvenue ?", "What did she remember?")),
@@ -536,7 +536,7 @@
       agreementTitle: "Lexicalized meaning: agree with the subject",
       agreementExplanation: "In the lexicalized meaning to be bored, se has no useful separate object role and the participle agrees with the subject.",
       participle: "ennuyé",
-      specialNote: "Present m’ennuie contrasts with nous nous ennuyons. The imperfect keeps y: je m’ennuyais, nous nous ennuyions.",
+      specialNote: "The imperfect keeps y; nous and vous also add a written i: je m’ennuyais, nous nous ennuyions, vous vous ennuyiez.",
       present: examples(sentence("Elles s’ennuient pendant le trajet.", "They are bored during the trip."), sentence("Elles ne s’ennuient pas pendant le trajet.", "They are not bored during the trip."), sentence("Pourquoi s’ennuient-elles ?", "Why are they bored?")),
       imperfect: examples(sentence("Elles s’ennuyaient pendant le trajet.", "They were bored during the trip."), sentence("Elles ne s’ennuyaient pas.", "They were not bored."), sentence("Pourquoi s’ennuyaient-elles ?", "Why were they bored?")),
       passeCompose: examples(sentence("Elles se sont ennuyées pendant le trajet.", "They were bored during the trip."), sentence("Elles ne se sont pas ennuyées.", "They were not bored."), sentence("Pourquoi se sont-elles ennuyées ?", "Why were they bored?")),
@@ -553,7 +553,7 @@
       agreementTitle: "Lexicalized meaning: agree with the subject",
       agreementExplanation: "In the established pronominal meaning to worry or be worried, se has no separate object role and the participle agrees with the subject.",
       participle: "inquiété",
-      specialNote: "The written accent changes in the present: je m’inquiète, but nous nous inquiétons. This app uses the traditional future spelling je m’inquiéterai; je m’inquièterai is also accepted.",
+      specialNote: "For the futur simple, this app uses the traditional spelling je m’inquiéterai; the rectified spelling je m’inquièterai is also accepted.",
       present: examples(sentence("Elles s’inquiètent pour leur mère.", "They worry about their mother."), sentence("Elles ne s’inquiètent pas pour leur mère.", "They do not worry about their mother."), sentence("Pourquoi s’inquiètent-elles pour leur mère ?", "Why do they worry about their mother?")),
       imperfect: examples(sentence("Elles s’inquiétaient souvent pour leur mère.", "They often worried about their mother."), sentence("Elles ne s’inquiétaient pas pour leur mère.", "They did not worry about their mother."), sentence("Pourquoi s’inquiétaient-elles pour leur mère ?", "Why did they worry about their mother?")),
       passeCompose: examples(sentence("Elles se sont inquiétées pour leur mère.", "They worried about their mother."), sentence("Elles ne se sont pas inquiétées pour leur mère.", "They did not worry about their mother."), sentence("Pourquoi se sont-elles inquiétées pour leur mère ?", "Why did they worry about their mother?")),
@@ -814,6 +814,7 @@
 
   function buildItem(seed) {
     const sourceItem = findSourceItem(seed);
+    const sharedHighlights = FR.data.verbs && FR.data.verbs.presentHighlightsByKey;
     const presentRows = getPresentRows(seed, sourceItem);
     const infinitiveIpa = seed.ipa || (sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.infinitiveIpa) || "";
     const participle = getParticiple(seed, sourceItem);
@@ -831,6 +832,10 @@
       agreementMode: seed.agreementMode,
       agreementTitle: seed.agreementTitle,
       agreementExplanation: seed.agreementExplanation,
+      pronunciationHighlights: seed.pronunciationHighlights
+        || (sourceItem && sourceItem.presentHighlights)
+        || (sharedHighlights && sharedHighlights[seed.key])
+        || [],
       specialNote: seed.specialNote || "",
       contrastIds: seed.contrastIds || [],
       participle,
@@ -869,6 +874,7 @@
         agreementMode: seed.agreementMode,
         agreementTitle: seed.agreementTitle,
         agreementExplanation: seed.agreementExplanation,
+        pronunciationHighlights: seed.pronunciationHighlights || [],
         examples: {},
         paradigms: { present: [], imperfect: [], passeCompose: [] },
         error: error.message
