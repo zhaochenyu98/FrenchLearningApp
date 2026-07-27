@@ -224,7 +224,10 @@ function validateVerbContent() {
     ["nous rêvons", "/nu ʁɛ.vɔ̃/"],
     ["vous rêvez", "/vu ʁɛ.ve/"],
     ["nous arrêtons", "/nu.za.ʁɛ.tɔ̃/"],
-    ["vous arrêtez", "/vu.za.ʁɛ.te/"]
+    ["vous arrêtez", "/vu.za.ʁɛ.te/"],
+    ["nous croyons", "/nu kʁwa.jɔ̃/"],
+    ["nous éteignons", "/nu.ze.tɛ.ɲɔ̃/"],
+    ["nous nous inquiétons", "/nu nu.zɛ̃.kje.tɔ̃/"]
   ]);
   verbStudyItems.flatMap(item => item.rows || []).forEach(row => {
     if (expectedIpa.has(row.full) && row.ipa !== expectedIpa.get(row.full)) {
@@ -434,7 +437,10 @@ function validateImparfaitContent(data) {
     ["manger", "nous", "nous mangions"],
     ["commencer", "nous", "nous commencions"],
     ["voyager", "je", "je voyageais"],
-    ["travailler", "nous", "nous travaillions"]
+    ["travailler", "nous", "nous travaillions"],
+    ["croire", "nous", "nous croyions"],
+    ["eteindre", "nous", "nous éteignions"],
+    ["fermer", "nous", "nous fermions"]
   ];
   expectedForms.forEach(([key, pronoun, expected]) => {
     const item = imparfait.getItem(key);
@@ -529,6 +535,10 @@ function validateFuturSimpleContent(data) {
     ["vouloir", "elles", "elles voudront"],
     ["savoir", "tu", "tu sauras"],
     ["voir", "nous", "nous verrons"],
+    ["croire", "je", "je croirai"],
+    ["eteindre", "nous", "nous éteindrons"],
+    ["fermer", "vous", "vous fermerez"],
+    ["sInquieter", "je", "je m’inquiéterai"],
     ["mourir", "il", "il mourra"],
     ["acheter", "je", "j’achèterai"],
     ["sAppeler", "je", "je m’appellerai"],
@@ -551,7 +561,8 @@ function validateFuturSimpleContent(data) {
     preferer: "préférer",
     acheter: "achèter",
     sAppeler: "appeller",
-    sEnnuyer: "ennuier"
+    sEnnuyer: "ennuier",
+    sInquieter: "inquiéter"
   };
   Object.entries(expectedStems).forEach(([key, expected]) => {
     const item = future.getItem(key);
@@ -621,6 +632,9 @@ function validateImperativeContent(data) {
     etreVerb: ["sois", "soyons", "soyez"],
     avoirVerb: ["aie", "ayons", "ayez"],
     aller: ["va", "allons", "allez"],
+    croire: ["crois", "croyons", "croyez"],
+    eteindre: ["éteins", "éteignons", "éteignez"],
+    fermer: ["ferme", "fermons", "fermez"],
     savoir: ["sache", "sachons", "sachez"],
     vouloir: ["veuille", "veuillons", "veuillez"]
   };
@@ -707,6 +721,15 @@ function validatePronominalContent(data) {
   const seMarier = pronominal.getById("seMarier");
   if (!seMarier || !seMarier.paradigms.imperfect.some(row => row.full === "nous nous mariions")) {
     fail("se marier must preserve both written i letters in nous nous mariions");
+  }
+  const sInquieter = pronominal.getById("sInquieter");
+  const sInquieterImperfect = sInquieter && sInquieter.paradigms.imperfect.find(row => row.pronoun === "nous");
+  const sInquieterPasse = sInquieter && sInquieter.paradigms.passeCompose.find(row => row.pronoun === "elles");
+  if (!sInquieter || !sInquieterImperfect || sInquieterImperfect.full !== "nous nous inquiétions") {
+    fail("s’inquiéter must preserve nous nous inquiétions in the imparfait");
+  }
+  if (!sInquieterPasse || sInquieterPasse.participle !== "inquiétées") {
+    fail("s’inquiéter must agree as inquiétées with feminine plural elles");
   }
   const sePasserContrast = pronominal.agreementContrasts.find(item => item.id === "se-passer-context");
   const sePasserForms = sePasserContrast ? sePasserContrast.forms.map(item => item.fr) : [];

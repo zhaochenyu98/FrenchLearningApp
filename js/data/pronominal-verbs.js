@@ -27,6 +27,7 @@
     sEnvoler: Object.freeze({ common: "ɑ̃.vɔ.lɛ", nous: "ɑ̃.vɔ.ljɔ̃", vous: "ɑ̃.vɔ.lje" }),
     sAssumer: Object.freeze({ common: "a.sy.mɛ", nous: "a.sy.mjɔ̃", vous: "a.sy.mje" }),
     sEnnuyer: Object.freeze({ common: "ɑ̃.nɥi.jɛ", nous: "ɑ̃.nɥij.jɔ̃", vous: "ɑ̃.nɥij.je" }),
+    sInquieter: Object.freeze({ common: "ɛ̃.kje.tɛ", nous: "ɛ̃.kje.tjɔ̃", vous: "ɛ̃.kje.tje" }),
     seDetendre: Object.freeze({ common: "de.tɑ̃.dɛ", nous: "de.tɑ̃.djɔ̃", vous: "de.tɑ̃.dje" }),
     seCalmer: Object.freeze({ common: "kal.mɛ", nous: "kal.mjɔ̃", vous: "kal.mje" }),
     seBaigner: Object.freeze({ common: "bɛ.ɲɛ", nous: "bɛ.ɲjɔ̃", vous: "bɛ.ɲje" }),
@@ -540,6 +541,23 @@
       imperfect: examples(sentence("Elles s’ennuyaient pendant le trajet.", "They were bored during the trip."), sentence("Elles ne s’ennuyaient pas.", "They were not bored."), sentence("Pourquoi s’ennuyaient-elles ?", "Why were they bored?")),
       passeCompose: examples(sentence("Elles se sont ennuyées pendant le trajet.", "They were bored during the trip."), sentence("Elles ne se sont pas ennuyées.", "They were not bored."), sentence("Pourquoi se sont-elles ennuyées ?", "Why were they bored?")),
       imperative: imperativeExamples(sentence("Ennuyez-vous sans moi si vous voulez !", "Be bored without me if you want!"), sentence("Ne vous ennuyez pas pendant le trajet !", "Do not be bored during the trip!"), "The affirmative command is grammatically possible but usually sarcastic or strongly context-dependent; the negative command is much more common.")
+    },
+    {
+      key: "sInquieter",
+      infinitive: "s’inquiéter",
+      ipa: "/sɛ̃.kje.te/",
+      meaning: "to worry / be worried",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "subject",
+      agreementTitle: "Lexicalized meaning: agree with the subject",
+      agreementExplanation: "In the established pronominal meaning to worry or be worried, se has no separate object role and the participle agrees with the subject.",
+      participle: "inquiété",
+      specialNote: "The written accent changes in the present: je m’inquiète, but nous nous inquiétons. This app uses the traditional future spelling je m’inquiéterai; je m’inquièterai is also accepted.",
+      present: examples(sentence("Elles s’inquiètent pour leur mère.", "They worry about their mother."), sentence("Elles ne s’inquiètent pas pour leur mère.", "They do not worry about their mother."), sentence("Pourquoi s’inquiètent-elles pour leur mère ?", "Why do they worry about their mother?")),
+      imperfect: examples(sentence("Elles s’inquiétaient souvent pour leur mère.", "They often worried about their mother."), sentence("Elles ne s’inquiétaient pas pour leur mère.", "They did not worry about their mother."), sentence("Pourquoi s’inquiétaient-elles pour leur mère ?", "Why did they worry about their mother?")),
+      passeCompose: examples(sentence("Elles se sont inquiétées pour leur mère.", "They worried about their mother."), sentence("Elles ne se sont pas inquiétées pour leur mère.", "They did not worry about their mother."), sentence("Pourquoi se sont-elles inquiétées pour leur mère ?", "Why did they worry about their mother?")),
+      imperative: imperativeExamples(sentence("Inquiète-toi seulement si la fièvre monte !", "Worry only if the fever rises!"), sentence("Ne t’inquiète pas pour moi !", "Do not worry about me!"), "The affirmative command is possible, but the reassuring negative Ne t’inquiète pas is much more common.")
     },
     {
       key: "seDetendre",

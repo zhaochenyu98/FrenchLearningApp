@@ -493,6 +493,17 @@
       { pronoun: "elles", form: "voient", full: "elles voient", en: "they see", example: "Elles voient un film ce soir.", exampleEn: "They are seeing a movie tonight.", negative: "Elles ne voient pas de film ce soir.", negativeEn: "They are not seeing a movie tonight." }
     ];
 
+    const croireRows = [
+      { pronoun: "je", form: "crois", full: "je crois", ipa: "/ʒə kʁwa/", en: "I believe / think", example: "Je crois en toi.", exampleEn: "I believe in you.", negative: "Je ne crois pas en toi.", negativeEn: "I do not believe in you.", question: "En qui est-ce que je crois ?" },
+      { pronoun: "tu", form: "crois", full: "tu crois", ipa: "/ty kʁwa/", en: "you believe / think", example: "Tu crois cette histoire.", exampleEn: "You believe this story.", negative: "Tu ne crois pas cette histoire.", negativeEn: "You do not believe this story.", question: "Crois-tu cette histoire ?" },
+      { pronoun: "il", form: "croit", full: "il croit", ipa: "/il kʁwa/", en: "he believes / thinks", example: "Il croit que le train arrive à huit heures.", exampleEn: "He thinks the train arrives at eight o’clock.", negative: "Il ne croit pas que le train arrive à huit heures.", negativeEn: "He does not think the train arrives at eight o’clock.", question: "À quelle heure croit-il que le train arrive ?" },
+      { pronoun: "elle", form: "croit", full: "elle croit", ipa: "/ɛl kʁwa/", en: "she believes / thinks", example: "Elle croit sa sœur.", exampleEn: "She believes her sister.", negative: "Elle ne croit pas sa sœur.", negativeEn: "She does not believe her sister.", question: "Qui croit-elle ?" },
+      { pronoun: "nous", form: "croyons", full: "nous croyons", ipa: "/nu kʁwa.jɔ̃/", en: "we believe / think", example: "Nous croyons aux fantômes.", exampleEn: "We believe in ghosts.", negative: "Nous ne croyons pas aux fantômes.", negativeEn: "We do not believe in ghosts.", question: "Croyons-nous aux fantômes ?" },
+      { pronoun: "vous", form: "croyez", full: "vous croyez", ipa: "/vu kʁwa.je/", en: "you believe / think", example: "Vous croyez en ce projet.", exampleEn: "You believe in this project.", negative: "Vous ne croyez pas en ce projet.", negativeEn: "You do not believe in this project.", question: "Croyez-vous en ce projet ?" },
+      { pronoun: "ils", form: "croient", full: "ils croient", ipa: "/il kʁwa/", en: "they believe / think", example: "Ils croient cette version.", exampleEn: "They believe this version.", negative: "Ils ne croient pas cette version.", negativeEn: "They do not believe this version.", question: "Quelle version croient-ils ?" },
+      { pronoun: "elles", form: "croient", full: "elles croient", ipa: "/ɛl kʁwa/", en: "they believe / think", example: "Elles croient leurs enfants.", exampleEn: "They believe their children.", negative: "Elles ne croient pas leurs enfants.", negativeEn: "They do not believe their children.", question: "Qui croient-elles ?" }
+    ];
+
     const boireRows = [
       {
         pronoun: "je",
@@ -553,6 +564,17 @@
       { pronoun: "vous", form: "ouvrez", full: "vous ouvrez", en: "you open", example: "Vous ouvrez le document.", exampleEn: "You open the document.", negative: "Vous n’ouvrez pas le document.", negativeEn: "You do not open the document.", question: "Ouvrez-vous le document ?" },
       { pronoun: "ils", form: "ouvrent", full: "ils ouvrent", en: "they open", example: "Ils ouvrent les cadeaux.", exampleEn: "They open the gifts.", negative: "Ils n’ouvrent pas les cadeaux.", negativeEn: "They do not open the gifts.", question: "Quand ouvrent-ils les cadeaux ?" },
       { pronoun: "elles", form: "ouvrent", full: "elles ouvrent", en: "they open", example: "Elles ouvrent la réunion.", exampleEn: "They open the meeting.", negative: "Elles n’ouvrent pas la réunion.", negativeEn: "They do not open the meeting.", question: "Ouvrent-elles la réunion ?" }
+    ];
+
+    const eteindreRows = [
+      { pronoun: "j’", form: "éteins", full: "j’éteins", ipa: "/ʒe.tɛ̃/", en: "I turn off / extinguish", example: "J’éteins la lumière avant de sortir.", exampleEn: "I turn off the light before leaving.", negative: "Je n’éteins pas la lumière avant de sortir.", negativeEn: "I do not turn off the light before leaving.", question: "Qu’est-ce que j’éteins avant de sortir ?" },
+      { pronoun: "tu", form: "éteins", full: "tu éteins", ipa: "/ty e.tɛ̃/", en: "you turn off / extinguish", example: "Tu éteins ton téléphone pendant le film.", exampleEn: "You turn off your phone during the movie.", negative: "Tu n’éteins pas ton téléphone pendant le film.", negativeEn: "You do not turn off your phone during the movie.", question: "Éteins-tu ton téléphone pendant le film ?" },
+      { pronoun: "il", form: "éteint", full: "il éteint", ipa: "/il e.tɛ̃/", en: "he turns off / extinguishes", example: "Il éteint la télévision à minuit.", exampleEn: "He turns off the television at midnight.", negative: "Il n’éteint pas la télévision à minuit.", negativeEn: "He does not turn off the television at midnight.", question: "Quand éteint-il la télévision ?" },
+      { pronoun: "elle", form: "éteint", full: "elle éteint", ipa: "/ɛl e.tɛ̃/", en: "she turns off / extinguishes", example: "Elle éteint son ordinateur après le travail.", exampleEn: "She turns off her computer after work.", negative: "Elle n’éteint pas son ordinateur après le travail.", negativeEn: "She does not turn off her computer after work.", question: "Éteint-elle son ordinateur après le travail ?" },
+      { pronoun: "nous", form: "éteignons", full: "nous éteignons", ipa: "/nu.ze.tɛ.ɲɔ̃/", en: "we turn off / extinguish", example: "Nous éteignons les lumières à dix heures.", exampleEn: "We turn off the lights at ten o’clock.", negative: "Nous n’éteignons pas les lumières à dix heures.", negativeEn: "We do not turn off the lights at ten o’clock.", question: "À quelle heure éteignons-nous les lumières ?" },
+      { pronoun: "vous", form: "éteignez", full: "vous éteignez", ipa: "/vu.ze.tɛ.ɲe/", en: "you turn off / extinguish", example: "Vous éteignez le chauffage au printemps.", exampleEn: "You turn off the heating in spring.", negative: "Vous n’éteignez pas le chauffage au printemps.", negativeEn: "You do not turn off the heating in spring.", question: "Est-ce que vous éteignez le chauffage au printemps ?" },
+      { pronoun: "ils", form: "éteignent", full: "ils éteignent", ipa: "/il.ze.tɛɲ/", en: "they turn off / extinguish", example: "Ils éteignent les bougies après le dîner.", exampleEn: "They put out the candles after dinner.", negative: "Ils n’éteignent pas les bougies après le dîner.", negativeEn: "They do not put out the candles after dinner.", question: "Quand éteignent-ils les bougies ?" },
+      { pronoun: "elles", form: "éteignent", full: "elles éteignent", ipa: "/ɛl.ze.tɛɲ/", en: "they turn off / extinguish", example: "Elles éteignent le feu avec de l’eau.", exampleEn: "They put out the fire with water.", negative: "Elles n’éteignent pas le feu avec de l’eau.", negativeEn: "They do not put out the fire with water.", question: "Comment éteignent-elles le feu ?" }
     ];
 
     const ecrireRows = [
@@ -683,6 +705,17 @@
       { pronoun: "vous", form: "réservez", full: "vous réservez", en: "you reserve / book", example: "Vous réservez par téléphone.", exampleEn: "You book by phone.", negative: "Vous ne réservez pas par téléphone.", negativeEn: "You do not book by phone.", question: "Comment réservez-vous ?" },
       { pronoun: "ils", form: "réservent", full: "ils réservent", en: "they reserve / book", example: "Ils réservent une voiture pour le week-end.", exampleEn: "They book a car for the weekend.", negative: "Ils ne réservent pas de voiture pour le week-end.", negativeEn: "They do not book a car for the weekend.", question: "Que réservent-ils pour le week-end ?" },
       { pronoun: "elles", form: "réservent", full: "elles réservent", en: "they reserve / book", example: "Elles réservent une salle pour la réunion.", exampleEn: "They reserve a room for the meeting.", negative: "Elles ne réservent pas de salle pour la réunion.", negativeEn: "They do not reserve a room for the meeting.", question: "Pourquoi réservent-elles une salle ?" }
+    ];
+
+    const fermerRows = [
+      { pronoun: "je", form: "ferme", full: "je ferme", ipa: "/ʒə fɛʁm/", en: "I close / shut", example: "Je ferme la porte à clé.", exampleEn: "I lock the door.", negative: "Je ne ferme pas la porte à clé.", negativeEn: "I do not lock the door.", question: "Quelle porte est-ce que je ferme à clé ?" },
+      { pronoun: "tu", form: "fermes", full: "tu fermes", ipa: "/ty fɛʁm/", en: "you close / shut", example: "Tu fermes la fenêtre avant de partir.", exampleEn: "You close the window before leaving.", negative: "Tu ne fermes pas la fenêtre avant de partir.", negativeEn: "You do not close the window before leaving.", question: "Fermes-tu la fenêtre avant de partir ?" },
+      { pronoun: "il", form: "ferme", full: "il ferme", ipa: "/il fɛʁm/", en: "he closes / shuts", example: "Il ferme le magasin à dix-neuf heures.", exampleEn: "He closes the store at seven p.m.", negative: "Il ne ferme pas le magasin à dix-neuf heures.", negativeEn: "He does not close the store at seven p.m.", question: "À quelle heure ferme-t-il le magasin ?" },
+      { pronoun: "elle", form: "ferme", full: "elle ferme", ipa: "/ɛl fɛʁm/", en: "she closes / shuts", example: "Elle ferme les rideaux le soir.", exampleEn: "She closes the curtains in the evening.", negative: "Elle ne ferme pas les rideaux le soir.", negativeEn: "She does not close the curtains in the evening.", question: "Quand ferme-t-elle les rideaux ?" },
+      { pronoun: "nous", form: "fermons", full: "nous fermons", ipa: "/nu fɛʁ.mɔ̃/", en: "we close / shut", example: "Nous fermons le bureau à six heures.", exampleEn: "We close the office at six o’clock.", negative: "Nous ne fermons pas le bureau à six heures.", negativeEn: "We do not close the office at six o’clock.", question: "Fermons-nous le bureau à six heures ?" },
+      { pronoun: "vous", form: "fermez", full: "vous fermez", ipa: "/vu fɛʁ.me/", en: "you close / shut", example: "Vous fermez votre valise.", exampleEn: "You close your suitcase.", negative: "Vous ne fermez pas votre valise.", negativeEn: "You do not close your suitcase.", question: "Est-ce que vous fermez votre valise ?" },
+      { pronoun: "ils", form: "ferment", full: "ils ferment", ipa: "/il fɛʁm/", en: "they close / shut", example: "Ils ferment les portes du musée.", exampleEn: "They close the museum doors.", negative: "Ils ne ferment pas les portes du musée.", negativeEn: "They do not close the museum doors.", question: "Quelles portes ferment-ils ?" },
+      { pronoun: "elles", form: "ferment", full: "elles ferment", ipa: "/ɛl fɛʁm/", en: "they close / shut", example: "Elles ferment leurs livres.", exampleEn: "They close their books.", negative: "Elles ne ferment pas leurs livres.", negativeEn: "They do not close their books.", question: "Que ferment-elles ?" }
     ];
 
     const quitterRows = [
@@ -1053,6 +1086,17 @@
       { pronoun: "vous", form: "vous ennuyez", full: "vous vous ennuyez", ipa: "/vu vu.zɑ̃.nɥi.je/", en: "you are bored", example: "Vous vous ennuyez pendant le trajet.", exampleEn: "You get bored during the trip.", negative: "Vous ne vous ennuyez pas pendant le trajet.", negativeEn: "You do not get bored during the trip.", question: "Vous ennuyez-vous pendant le trajet ?" },
       { pronoun: "ils", form: "s’ennuient", full: "ils s’ennuient", ipa: "/il sɑ̃.nɥi/", en: "they are bored", example: "Ils s’ennuient pendant le film.", exampleEn: "They are bored during the movie.", negative: "Ils ne s’ennuient pas pendant le film.", negativeEn: "They are not bored during the movie.", question: "Pourquoi s’ennuient-ils pendant le film ?" },
       { pronoun: "elles", form: "s’ennuient", full: "elles s’ennuient", ipa: "/ɛl sɑ̃.nɥi/", en: "they are bored", example: "Elles s’ennuient quand il pleut.", exampleEn: "They get bored when it rains.", negative: "Elles ne s’ennuient pas quand il pleut.", negativeEn: "They do not get bored when it rains.", question: "Quand s’ennuient-elles ?" }
+    ];
+
+    const sInquieterRows = [
+      { pronoun: "je", form: "m’inquiète", full: "je m’inquiète", ipa: "/ʒə mɛ̃.kjɛt/", en: "I worry / am worried", example: "Je m’inquiète pour ma famille.", exampleEn: "I worry about my family.", negative: "Je ne m’inquiète pas pour ma famille.", negativeEn: "I do not worry about my family.", question: "Pourquoi est-ce que je m’inquiète pour ma famille ?" },
+      { pronoun: "tu", form: "t’inquiètes", full: "tu t’inquiètes", ipa: "/ty tɛ̃.kjɛt/", en: "you worry / are worried", example: "Tu t’inquiètes pour ton examen.", exampleEn: "You worry about your exam.", negative: "Tu ne t’inquiètes pas pour ton examen.", negativeEn: "You do not worry about your exam.", question: "Pourquoi t’inquiètes-tu pour ton examen ?" },
+      { pronoun: "il", form: "s’inquiète", full: "il s’inquiète", ipa: "/il sɛ̃.kjɛt/", en: "he worries / is worried", example: "Il s’inquiète de son retard.", exampleEn: "He is worried about being late.", negative: "Il ne s’inquiète pas de son retard.", negativeEn: "He is not worried about being late.", question: "De quoi s’inquiète-t-il ?" },
+      { pronoun: "elle", form: "s’inquiète", full: "elle s’inquiète", ipa: "/ɛl sɛ̃.kjɛt/", en: "she worries / is worried", example: "Elle s’inquiète pour son fils.", exampleEn: "She worries about her son.", negative: "Elle ne s’inquiète pas pour son fils.", negativeEn: "She does not worry about her son.", question: "Pour qui s’inquiète-t-elle ?" },
+      { pronoun: "nous", form: "nous inquiétons", full: "nous nous inquiétons", ipa: "/nu nu.zɛ̃.kje.tɔ̃/", en: "we worry / are worried", example: "Nous nous inquiétons de la météo.", exampleEn: "We are worried about the weather.", negative: "Nous ne nous inquiétons pas de la météo.", negativeEn: "We are not worried about the weather.", question: "De quoi nous inquiétons-nous ?" },
+      { pronoun: "vous", form: "vous inquiétez", full: "vous vous inquiétez", ipa: "/vu vu.zɛ̃.kje.te/", en: "you worry / are worried", example: "Vous vous inquiétez sans raison.", exampleEn: "You worry for no reason.", negative: "Vous ne vous inquiétez pas sans raison.", negativeEn: "You do not worry for no reason.", question: "Est-ce que vous vous inquiétez sans raison ?" },
+      { pronoun: "ils", form: "s’inquiètent", full: "ils s’inquiètent", ipa: "/il sɛ̃.kjɛt/", en: "they worry / are worried", example: "Ils s’inquiètent pour leur avenir.", exampleEn: "They worry about their future.", negative: "Ils ne s’inquiètent pas pour leur avenir.", negativeEn: "They do not worry about their future.", question: "Pourquoi s’inquiètent-ils pour leur avenir ?" },
+      { pronoun: "elles", form: "s’inquiètent", full: "elles s’inquiètent", ipa: "/ɛl sɛ̃.kjɛt/", en: "they worry / are worried", example: "Elles s’inquiètent du résultat.", exampleEn: "They are worried about the result.", negative: "Elles ne s’inquiètent pas du résultat.", negativeEn: "They are not worried about the result.", question: "De quel résultat s’inquiètent-elles ?" }
     ];
 
     const seDetendreRows = [
@@ -2287,6 +2331,41 @@
         title: "Se baigner — to swim / bathe",
         descriptionHtml: "<strong>Se baigner</strong> means “to swim / bathe,” usually with <strong>dans</strong> for the body of water. The base verb <strong>baigner</strong> means “to bathe” someone or something: <strong>Je baigne le bébé.</strong>",
         rows: seBaignerRows
+      },
+      {
+        key: "croire",
+        group: "irregular",
+        label: "croire",
+        title: "Croire — to believe / think",
+        tag: "irregular",
+        descriptionHtml: "<strong>Croire que + clause</strong> means “to believe / think that,” and <strong>croire quelqu’un</strong> means “to believe someone.” Use <strong>croire à</strong> for accepting that something exists or is possible (<strong>croire aux fantômes</strong>), and <strong>croire en</strong> for trust or faith in a person, project, or idea (<strong>croire en toi</strong>).",
+        rows: croireRows
+      },
+      {
+        key: "eteindre",
+        group: "irregular",
+        label: "éteindre",
+        title: "Éteindre — to turn off / extinguish",
+        tag: "irregular",
+        descriptionHtml: "<strong>Éteindre</strong> means “to turn off” a light, device, or appliance and “to extinguish / put out” a candle or fire. Watch the stem change: <strong>éteins / éteint</strong>, <strong>éteignons / éteignez</strong>, and <strong>éteignent</strong>. Its past participle is <strong>éteint</strong>.",
+        rows: eteindreRows
+      },
+      {
+        key: "fermer",
+        group: "regularEr",
+        label: "fermer",
+        title: "Fermer — to close / shut",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Fermer</strong> follows the regular -er pattern. Use it for closing doors, windows, shops, books, or devices. <strong>Fermer à clé</strong> means “to lock.”",
+        rows: fermerRows
+      },
+      {
+        key: "sInquieter",
+        group: "pronominal",
+        label: "s’inquiéter",
+        title: "S’inquiéter — to worry / be worried",
+        descriptionHtml: "<strong>S’inquiéter pour quelqu’un</strong> means “to worry about someone,” while <strong>s’inquiéter de quelque chose</strong> means “to be concerned about something.” The non-pronominal verb <strong>inquiéter</strong> means “to worry” someone: <strong>Cette nouvelle inquiète Marie.</strong> Notice the accent change: <strong>je m’inquiète</strong>, but <strong>nous nous inquiétons</strong>.",
+        rows: sInquieterRows
       }
     ];
 
@@ -2303,6 +2382,7 @@
       vouloir: ["Watch <strong>veux / veut</strong>, <strong>voulons / voulez</strong>, and <strong>veulent</strong>."],
       savoir: ["The stem changes across <strong>sais / sait</strong>, <strong>savons / savez</strong>, and <strong>savent</strong>."],
       connaitre: ["The singular has <strong>connais / connaît</strong>; nous/vous use <strong>connaiss-</strong>, and ils/elles use <strong>connaissent</strong>."],
+      croire: ["The singular and ils/elles forms sound like <strong>/kʁwa/</strong>, while nous/vous keep the written and pronounced <strong>y</strong>: <strong>croyons / croyez</strong>."],
       voir: ["Watch <strong>vois / voit</strong>, then <strong>voyons / voyez</strong>, but <strong>voient</strong>."],
       boire: ["Three stems appear: <strong>boi-</strong>, <strong>buv-</strong>, and <strong>boiv-</strong>: je bois, nous buvons, ils boivent."],
       dire: ["The vous form is <strong>vous dites</strong>, not <strong>*vous disez</strong>. Ils/elles use <strong>disent</strong>."],
@@ -2315,7 +2395,9 @@
       nager: ["Keep the soft g in <strong>nous nageons</strong> by adding e before -ons."],
       commencer: ["Use ç before the a-sound ending in <strong>nous commençons</strong>, but c elsewhere: je commence, vous commencez."],
       offrir: ["Despite ending in -ir, offrir uses present endings like an -er verb: <strong>j’offre, nous offrons, ils offrent</strong>."],
-      ouvrir: ["Despite ending in -ir, ouvrir uses present endings like an -er verb: <strong>j’ouvre, nous ouvrons, ils ouvrent</strong>."]
+      ouvrir: ["Despite ending in -ir, ouvrir uses present endings like an -er verb: <strong>j’ouvre, nous ouvrons, ils ouvrent</strong>."],
+      eteindre: ["The singular uses <strong>éteins / éteint</strong> <strong>/e.tɛ̃/</strong>; nous/vous and ils/elles change to <strong>éteign-</strong>: <strong>éteignons / éteignez / éteignent</strong>."],
+      sInquieter: ["The stem vowel changes in <strong>je m’inquiète</strong> and <strong>ils s’inquiètent</strong>, but <strong>nous nous inquiétons / vous vous inquiétez</strong> keep <strong>é</strong>."]
     };
 
     verbStudyItems.forEach(item => {

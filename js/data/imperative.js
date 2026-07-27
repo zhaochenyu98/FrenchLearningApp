@@ -103,6 +103,12 @@
       "Do not know only your rights; know your responsibilities too!",
       "The imperative of connaître is most natural in advice, instructions, and slogans."
     ),
+    croire: command(
+      "Crois en toi !",
+      "Believe in yourself!",
+      "Ne crois pas tout ce que tu lis !",
+      "Do not believe everything you read!"
+    ),
     voir: command(
       "Vois le bon côté des choses !",
       "See the bright side of things!",
@@ -134,6 +140,12 @@
       "N’ouvre pas cette porte !",
       "Do not open this door!",
       "Although ouvrir ends in -ir, its tu imperative is ouvre without final -s, like an -er verb."
+    ),
+    eteindre: command(
+      "Éteins la lumière avant de partir !",
+      "Turn off the light before leaving!",
+      "N’éteins pas ton téléphone pendant l’appel !",
+      "Do not turn off your phone during the call!"
     ),
     ecrire: command(
       "Écris ton nom ici !",
@@ -318,6 +330,12 @@
       "Reserve a table for tonight!",
       "Ne réserve pas avant de confirmer la date !",
       "Do not make a reservation before confirming the date!"
+    ),
+    fermer: command(
+      "Ferme la porte à clé !",
+      "Lock the door!",
+      "Ne ferme pas la fenêtre !",
+      "Do not close the window!"
     ),
     quitter: command(
       "Quitte le bureau avant dix-huit heures !",

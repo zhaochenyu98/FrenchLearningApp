@@ -114,6 +114,11 @@
       present: "je m’ennuie",
       nous: "nous nous ennuyons",
       imparfait: "je m’ennuyais"
+    }),
+    sInquieter: Object.freeze({
+      present: "je m’inquiète",
+      nous: "nous nous inquiétons",
+      imparfait: "je m’inquiétais"
     })
   });
 
@@ -185,11 +190,13 @@
     vouloir: "vul",
     savoir: "sav",
     connaitre: "kɔnɛs",
+    croire: "kʁwaj",
     voir: "vwaj",
     boire: "byv",
     dire: "diz",
     offrir: "ɔfʁ",
     ouvrir: "uvʁ",
+    eteindre: "etɛɲ",
     ecrire: "ekʁiv",
     lire: "liz",
     suivre: "sɥiv",
@@ -220,6 +227,7 @@
     regarder: "ʁəɡaʁd",
     laisser: "les",
     reserver: "ʁezɛʁv",
+    fermer: "fɛʁm",
     quitter: "kit",
     passer: "pas",
     commencer: "kɔmɑ̃s",
@@ -297,11 +305,13 @@
     vouloir: Object.freeze(["rester plus longtemps", "want to stay longer"]),
     savoir: Object.freeze(["nager", "know how to swim"]),
     connaitre: Object.freeze(["bien ce quartier", "know this neighborhood well"]),
+    croire: Object.freeze(["encore à cette histoire", "still believe this story"]),
     voir: Object.freeze(["nos voisins chaque semaine", "see our neighbors every week"]),
     boire: Object.freeze(["l’eau du robinet", "drink tap water"]),
     dire: Object.freeze(["toujours la vérité", "always tell the truth"]),
     offrir: Object.freeze(["ce livre à nos amis", "give this book to our friends"]),
     ouvrir: Object.freeze(["la fenêtre chaque matin", "open the window every morning"]),
+    eteindre: Object.freeze(["la lumière avant de dormir", "turn off the light before going to sleep"]),
     ecrire: Object.freeze(["à nos grands-parents chaque mois", "write to our grandparents every month"]),
     lire: Object.freeze(["le journal au petit-déjeuner", "read the newspaper at breakfast"]),
     suivre: Object.freeze(["les instructions avec attention", "follow the instructions carefully"]),
@@ -332,6 +342,7 @@
     regarder: Object.freeze(["les informations le soir", "watch the news in the evening"]),
     laisser: Object.freeze(["la porte ouverte", "leave the door open"]),
     reserver: Object.freeze(["cette table le vendredi", "reserve this table on Fridays"]),
+    fermer: Object.freeze(["la boutique à dix-neuf heures", "close the shop at seven p.m."]),
     quitter: Object.freeze(["le bureau à six heures", "leave the office at six o’clock"]),
     passer: Object.freeze(["par Lyon chaque été", "go through Lyon every summer"]),
     commencer: Object.freeze(["à huit heures", "start at eight o’clock"]),

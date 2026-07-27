@@ -71,6 +71,11 @@
       title: "Préférer has two accepted spellings",
       note: "This app uses the traditional préférer- forms: je préférerai. The rectified spelling je préfèrerai is also accepted."
     }),
+    "inquieter-spelling": Object.freeze({
+      id: "inquieter-spelling",
+      title: "S’inquiéter has two accepted future spellings",
+      note: "This app uses the traditional inquiéter- forms: je m’inquiéterai. The rectified spelling je m’inquièterai is also accepted."
+    }),
     "pronominal-order": Object.freeze({
       id: "pronominal-order",
       title: "Keep the reflexive pronoun before the future verb",
@@ -183,6 +188,7 @@
     seSouvenir: Object.freeze(["de ce voyage", "remember this trip"]),
     sAssumer: Object.freeze(["davantage", "accept ourselves more fully"]),
     sEnnuyer: Object.freeze(["pendant le trajet", "get bored during the trip"]),
+    sInquieter: Object.freeze(["pour notre famille", "worry about our family"]),
     seDetendre: Object.freeze(["après le travail", "relax after work"]),
     seCalmer: Object.freeze(["dans quelques minutes", "calm down in a few minutes"]),
     seBaigner: Object.freeze(["demain matin", "go swimming tomorrow morning"])
@@ -359,6 +365,7 @@
     const dropsFinalE = infinitive.endsWith("e");
     const ruleIds = [dropsFinalE ? "drop-final-e" : "infinitive-stem"];
     if (source.key === "preferer") ruleIds.push("preferer-spelling");
+    if (source.key === "sInquieter") ruleIds.push("inquieter-spelling");
     const config = {
       infinitive,
       stem: dropsFinalE ? infinitive.slice(0, -1) : infinitive,

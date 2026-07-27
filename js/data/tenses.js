@@ -179,6 +179,19 @@
             question: { fr: "As-tu réservé une table ?", en: "Did you reserve a table?" }
           },
           {
+            infinitive: "fermer",
+            infinitiveIpa: "/fɛʁme/",
+            meaning: "to close / shut",
+            auxiliary: "avoir",
+            pastParticiple: "fermé",
+            pastParticipleIpa: "/fɛʁme/",
+            pattern: "fermer → fermé",
+            note: "Regular -er past participle.",
+            statement: { fr: "Elle a fermé la fenêtre avant de partir.", en: "She closed the window before leaving." },
+            negative: { fr: "Elle n’a pas fermé la fenêtre avant de partir.", en: "She did not close the window before leaving." },
+            question: { fr: "A-t-elle fermé la fenêtre avant de partir ?", en: "Did she close the window before leaving?" }
+          },
+          {
             infinitive: "quitter",
             infinitiveIpa: "/kite/",
             meaning: "to leave / quit",
@@ -722,6 +735,19 @@
             question: { fr: "As-tu ouvert la fenêtre ?", en: "Did you open the window?" }
           },
           {
+            infinitive: "éteindre",
+            infinitiveIpa: "/etɛ̃dʁ/",
+            meaning: "to turn off / extinguish",
+            auxiliary: "avoir",
+            pastParticiple: "éteint",
+            pastParticipleIpa: "/etɛ̃/",
+            pattern: "éteindre → éteint",
+            note: "Irregular past participle; the final t is written but not pronounced.",
+            statement: { fr: "Tu as éteint la lumière avant de sortir.", en: "You turned off the light before leaving." },
+            negative: { fr: "Tu n’as pas éteint la lumière avant de sortir.", en: "You did not turn off the light before leaving." },
+            question: { fr: "As-tu éteint la lumière avant de sortir ?", en: "Did you turn off the light before leaving?" }
+          },
+          {
             infinitive: "faire",
             infinitiveIpa: "/fɛʁ/",
             meaning: "to do / make",
@@ -798,6 +824,19 @@
             statement: { fr: "Tu as connu Marie à l’université.", en: "You knew / met Marie at university." },
             negative: { fr: "Tu n’as pas connu Marie à l’université.", en: "You did not know / meet Marie at university." },
             question: { fr: "As-tu connu Marie à l’université ?", en: "Did you know / meet Marie at university?" }
+          },
+          {
+            infinitive: "croire",
+            infinitiveIpa: "/kʁwaʁ/",
+            meaning: "to believe / think",
+            auxiliary: "avoir",
+            pastParticiple: "cru",
+            pastParticipleIpa: "/kʁy/",
+            pattern: "croire → cru",
+            note: "Irregular past participle.",
+            statement: { fr: "Nous avons cru cette histoire.", en: "We believed this story." },
+            negative: { fr: "Nous n’avons pas cru cette histoire.", en: "We did not believe this story." },
+            question: { fr: "Avons-nous cru cette histoire ?", en: "Did we believe this story?" }
           },
           {
             infinitive: "pouvoir",
@@ -1200,6 +1239,19 @@
             statement: { fr: "Ils se sont baignés dans la mer.", en: "They swam in the sea." },
             negative: { fr: "Ils ne se sont pas baignés dans la mer.", en: "They did not swim in the sea." },
             question: { fr: "Se sont-ils baignés dans la mer ?", en: "Did they swim in the sea?" }
+          },
+          {
+            infinitive: "s’inquiéter",
+            infinitiveIpa: "/sɛ̃kjete/",
+            meaning: "to worry / be worried",
+            auxiliary: "être",
+            pastParticiple: "inquiété(e)(s)",
+            pastParticipleIpa: "/ɛ̃kjete/",
+            pattern: "s’inquiéter → inquiété",
+            note: "The lexicalized pronominal form uses être; the past participle agrees with the subject.",
+            statement: { fr: "Elles se sont inquiétées pour leur mère.", en: "They worried about their mother." },
+            negative: { fr: "Elles ne se sont pas inquiétées pour leur mère.", en: "They did not worry about their mother." },
+            question: { fr: "Pourquoi se sont-elles inquiétées pour leur mère ?", en: "Why did they worry about their mother?" }
           }
         ]
       }
