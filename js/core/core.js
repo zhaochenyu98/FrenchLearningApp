@@ -104,6 +104,7 @@
     const possessiveExceptionGrid = document.getElementById("possessiveExceptionGrid");
     const tonicPronounUsageGrid = document.getElementById("tonicPronounUsageGrid");
     const exampleGrid = document.getElementById("exampleGrid");
+    const avoirExpressionGrid = document.getElementById("avoirExpressionGrid");
     const verbGroupStack = document.getElementById("verbGroupStack");
     const passeComposeErGrid = document.getElementById("passeComposeErGrid");
     const passeComposeIrGrid = document.getElementById("passeComposeIrGrid");

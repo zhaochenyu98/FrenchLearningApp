@@ -8,6 +8,61 @@
       { fr: "Ils ont faim.", en: "They are hungry.", note: "common expression with avoir", negative: "Ils n’ont pas faim.", negativeEn: "They are not hungry." }
     ];
 
+    const avoirExpressionRows = [
+      {
+        expression: "avoir besoin de",
+        ipa: "/a.vwaʁ bə.zwɛ̃ də/",
+        meaning: "to need",
+        note: "Use de + noun for what is needed, or de + infinitive for an action that is necessary.",
+        examples: [
+          {
+            label: "de + noun",
+            fr: "Tu as besoin d’aide.",
+            en: "You need help.",
+            negative: "Tu n’as pas besoin d’aide.",
+            negativeEn: "You do not need help.",
+            question: "As-tu besoin d’aide ?",
+            questionEn: "Do you need help?"
+          },
+          {
+            label: "de + infinitive",
+            fr: "Nous avons besoin de partir tôt.",
+            en: "We need to leave early.",
+            negative: "Nous n’avons pas besoin de partir tôt.",
+            negativeEn: "We do not need to leave early.",
+            question: "Avons-nous besoin de partir tôt ?",
+            questionEn: "Do we need to leave early?"
+          }
+        ]
+      },
+      {
+        expression: "avoir envie de",
+        ipa: "/a.vwaʁ ɑ̃.vi də/",
+        meaning: "to feel like / to want",
+        note: "Use de + noun for a desired thing, or de + infinitive for an action someone feels like doing.",
+        examples: [
+          {
+            label: "de + noun",
+            fr: "Elle a envie d’un café.",
+            en: "She feels like having a coffee.",
+            negative: "Elle n’a pas envie d’un café.",
+            negativeEn: "She does not feel like having a coffee.",
+            question: "A-t-elle envie d’un café ?",
+            questionEn: "Does she feel like having a coffee?"
+          },
+          {
+            label: "de + infinitive",
+            fr: "Ils ont envie de voyager cet été.",
+            en: "They feel like traveling this summer.",
+            negative: "Ils n’ont pas envie de voyager cet été.",
+            negativeEn: "They do not feel like traveling this summer.",
+            question: "Est-ce qu’ils ont envie de voyager cet été ?",
+            questionEn: "Do they feel like traveling this summer?"
+          }
+        ]
+      }
+    ];
+
     const extraGrammarFlashcards = [
       { fr: "Je suis au café.", en: "I am at the café.", source: "être: location" },
       { fr: "Je suis prêt.", en: "I am ready.", source: "être: state" },
@@ -177,6 +232,13 @@
         source: item.note,
         negative: item.negative
       })),
+      ...avoirExpressionRows.flatMap(item => item.examples.map(example => completeGrammarFlashcard({
+        fr: example.fr,
+        en: example.en,
+        source: item.expression,
+        negative: example.negative,
+        question: example.question
+      }))),
       ...extraGrammarFlashcards.map(completeGrammarFlashcard)
     ];
 
@@ -185,5 +247,6 @@
       verbItems: verbStudyItems,
       verbConfigs,
       verbPhraseIpa,
+      avoirExpressions: avoirExpressionRows,
       grammarFlashcards
     };

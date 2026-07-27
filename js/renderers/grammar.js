@@ -658,6 +658,77 @@
       });
     }
 
+    function getAvoirExpressionAudioItems(example) {
+      return [
+        { text: example.fr },
+        { text: example.negative, pauseBefore: examplePauseMs },
+        { text: example.question, pauseBefore: examplePauseMs }
+      ];
+    }
+
+    function renderAvoirExpressions(list = FR.data.grammar.avoirExpressions) {
+      if (!avoirExpressionGrid) return;
+      avoirExpressionGrid.innerHTML = "";
+      if (!list.length) {
+        avoirExpressionGrid.innerHTML = `<div class="empty-state">No avoir expressions available.</div>`;
+        return;
+      }
+
+      avoirExpressionGrid.innerHTML = `
+        <div class="noun-rule-header">
+          <div>Expression</div>
+          <div>Meaning / structure</div>
+          <div>Noun and infinitive examples</div>
+        </div>
+      `;
+
+      list.forEach((item, rowIndex) => {
+        const row = document.createElement("div");
+        row.className = "noun-rule-card";
+        row.innerHTML = `
+          <div>
+            <span class="question-cell-label">Expression</span>
+            <button class="preposition-word-btn avoir-expression-word-btn" type="button">
+              <span class="french-line">${item.expression}</span>
+              <span class="verb-ipa">${item.ipa}</span>
+              <span class="translation">${item.meaning}</span>
+            </button>
+          </div>
+          <div>
+            <span class="question-cell-label">Meaning / structure</span>
+            <div class="grammar-note">${item.note}</div>
+          </div>
+          <div>
+            <span class="question-cell-label">Examples</span>
+            <div class="noun-example-list">
+              ${item.examples.map((example, exampleIndex) => `
+                <button class="noun-example-btn" type="button" data-example-index="${exampleIndex}">
+                  <span class="subject-form-tag">${example.label}</span>
+                  <span class="noun-example-main"><strong>Statement:</strong> ${example.fr}</span>
+                  <span class="translation">${example.en}</span>
+                  <span class="noun-example-main"><strong>Negative:</strong> ${example.negative}</span>
+                  <span class="translation">${example.negativeEn}</span>
+                  <span class="noun-example-main"><strong>Question:</strong> ${example.question}</span>
+                  <span class="translation">${example.questionEn}</span>
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        `;
+
+        row.querySelector(".avoir-expression-word-btn").addEventListener("click", buttonEvent => {
+          speak(item.expression, buttonEvent.currentTarget);
+        });
+        row.querySelectorAll(".noun-example-btn").forEach(button => {
+          button.addEventListener("click", buttonEvent => {
+            const example = list[rowIndex].examples[Number(buttonEvent.currentTarget.dataset.exampleIndex)];
+            speakSequence(getAvoirExpressionAudioItems(example), buttonEvent.currentTarget);
+          });
+        });
+        avoirExpressionGrid.appendChild(row);
+      });
+    }
+
     function renderExamples(list = exampleSentences) {
       exampleGrid.innerHTML = "";
       list.forEach(item => {

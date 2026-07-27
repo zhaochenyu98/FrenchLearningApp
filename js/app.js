@@ -47,6 +47,7 @@
           { id: "flashcards", title: "Flash cards", open: true, elements: [{ heading: "Être / Avoir flash card test" }] },
           { id: "etre", title: "Être", open: true, elements: [{ heading: "Être — to be" }] },
           { id: "avoir", title: "Avoir", open: true, elements: [{ heading: "Avoir — to have" }] },
+          { id: "avoir-expressions", title: "Besoin / envie", open: true, elements: ['[data-study-section="avoir-expressions"]'] },
           { id: "imperative", title: "Imperative", elements: [{ heading: "Imperative: être and avoir" }] },
           { id: "notes", title: "Notes & examples", elements: ["#grammarSection > .two-col"] }
         ]
@@ -189,6 +190,7 @@
       },
       grammar() {
         renderVerbTables("grammar");
+        renderAvoirExpressions();
         imperativeConfigs.forEach(config => {
           renderImperativeTable(document.getElementById(config.tableId), config.rows);
         });
