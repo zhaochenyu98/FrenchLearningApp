@@ -42,6 +42,8 @@
       { fr: "aujourd’hui", ipa: "/o.ʒuʁ.dɥi/", en: "today", note: "the current day", example: "Aujourd’hui, nous avons un cours de français.", exampleEn: "Today, we have a French class." },
       { fr: "demain", ipa: "/də.mɛ̃/", en: "tomorrow", note: "the next day", example: "Demain, nous allons au marché.", exampleEn: "Tomorrow, we are going to the market." },
       { fr: "après-demain", ipa: "/a.pʁɛ.də.mɛ̃/", en: "the day after tomorrow", note: "two days after today", example: "Après-demain, elle part en vacances.", exampleEn: "The day after tomorrow, she leaves for vacation." },
+      { fr: "tout de suite", ipa: "/tu də sɥit/", en: "immediately / right away", note: "The action happens now, without waiting. This is stronger and more immediate than bientôt.", example: "Appelle-moi tout de suite.", exampleEn: "Call me right away." },
+      { fr: "bientôt", ipa: "/bjɛ̃.to/", en: "soon", note: "The action will happen after a short or unspecified delay, but not necessarily immediately.", example: "Le cours va bientôt commencer.", exampleEn: "The class will start soon." },
       { fr: "tôt", ipa: "/to/", en: "early", note: "adverb: describes when an action happens; it does not agree", example: "Je me lève tôt le matin.", exampleEn: "I get up early in the morning." },
       { fr: "tard", ipa: "/taʁ/", en: "late", note: "adverb: describes when an action happens; it does not agree", example: "Le train arrive tard ce soir.", exampleEn: "The train arrives late tonight." },
       {

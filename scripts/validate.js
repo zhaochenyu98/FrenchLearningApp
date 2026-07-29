@@ -906,6 +906,7 @@ function validateVocabularyCorrections() {
   const code = fs.readFileSync(path.join(root, "js/data/vocabulary.js"), "utf8");
   vm.runInContext(`${code}\nthis.__vocabulary = {
     seasons,
+    relativeTimeWords,
     timeSpanComparisons,
     adjectiveFeminineRules,
     adjectivePluralRules,
@@ -916,6 +917,16 @@ function validateVocabularyCorrections() {
   const spring = vocabulary.seasons.find(item => item.fr === "printemps");
   if (!spring || spring.example !== "au printemps" || /often/i.test(spring.note)) {
     fail("spring guidance must teach au printemps directly, not as an occasional pattern");
+  }
+
+  const relativeTimeByWord = new Map(vocabulary.relativeTimeWords.map(item => [item.fr, item]));
+  const immediate = relativeTimeByWord.get("tout de suite");
+  const soon = relativeTimeByWord.get("bientôt");
+  if (!immediate || immediate.ipa !== "/tu də sɥit/" || !/immediate/i.test(immediate.note)) {
+    fail("relative-time guidance must include tout de suite as an immediate action");
+  }
+  if (!soon || soon.ipa !== "/bjɛ̃.to/" || !/delay/i.test(soon.note)) {
+    fail("relative-time guidance must include bientôt for a short or unspecified delay");
   }
 
   const amountText = JSON.stringify(vocabulary.adverbAmountComparisonRows);
