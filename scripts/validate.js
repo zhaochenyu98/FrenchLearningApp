@@ -245,9 +245,11 @@ function validateVerbContent() {
     "naitre",
     "mourir",
     "jouer",
+    "essayer",
     "seLever",
     "sAppeler",
     "sePromener",
+    "seRappeler",
     "seConnaitre",
     "seMarier",
     "seVoir",
@@ -474,6 +476,7 @@ function validateImparfaitContent(data) {
     ["manger", "nous", "nous mangions"],
     ["commencer", "nous", "nous commencions"],
     ["voyager", "je", "je voyageais"],
+    ["essayer", "nous", "nous essayions"],
     ["travailler", "nous", "nous travaillions"],
     ["croire", "nous", "nous croyions"],
     ["eteindre", "nous", "nous éteignions"],
@@ -578,7 +581,9 @@ function validateFuturSimpleContent(data) {
     ["sInquieter", "je", "je m’inquiéterai"],
     ["mourir", "il", "il mourra"],
     ["acheter", "je", "j’achèterai"],
+    ["essayer", "je", "j’essaierai"],
     ["sAppeler", "je", "je m’appellerai"],
+    ["seRappeler", "elle", "elle se rappellera"],
     ["seLever", "nous", "nous nous lèverons"],
     ["seSouvenir", "elles", "elles se souviendront"],
     ["falloir", "il", "il faudra"],
@@ -597,7 +602,9 @@ function validateFuturSimpleContent(data) {
     reserver: "réserver",
     preferer: "préférer",
     acheter: "achèter",
+    essayer: "essaier",
     sAppeler: "appeller",
+    seRappeler: "rappeller",
     sEnnuyer: "ennuier",
     sInquieter: "inquiéter"
   };
@@ -622,8 +629,12 @@ function validateFuturSimpleContent(data) {
   });
 
   const seLeverQuestion = future.getItem("seLever").examples.question.fr;
-  if (seLeverQuestion !== "Nous lèverons-nous plus tôt ?") {
-    fail("se lever inversion must keep the reflexive nous before the verb and subject -nous after it");
+  const validSeLeverQuestions = new Set([
+    "Nous lèverons-nous plus tôt ?",
+    "Est-ce que nous nous lèverons plus tôt ?"
+  ]);
+  if (!validSeLeverQuestions.has(seLeverQuestion)) {
+    fail("se lever future question must use correct reflexive inversion or est-ce que order");
   }
 }
 
@@ -671,6 +682,7 @@ function validateImperativeContent(data) {
     aller: ["va", "allons", "allez"],
     croire: ["crois", "croyons", "croyez"],
     eteindre: ["éteins", "éteignons", "éteignez"],
+    essayer: ["essaie", "essayons", "essayez"],
     fermer: ["ferme", "fermons", "fermez"],
     savoir: ["sache", "sachons", "sachez"],
     vouloir: ["veuille", "veuillons", "veuillez"]
@@ -755,6 +767,13 @@ function validatePronominalContent(data) {
   if (!seDire || seDire.paradigms.passeCompose.some(row => row.participle !== "dit")) {
     fail("se dire must keep dit invariant when se is indirect");
   }
+  const seRappeler = pronominal.getById("seRappeler");
+  if (!seRappeler || seRappeler.paradigms.passeCompose.some(row => row.participle !== "rappelé")) {
+    fail("se rappeler must keep rappelé invariant when a following direct object controls agreement");
+  }
+  if (!seRappeler || !seRappeler.examples.passeCompose.question.fr.includes("rappelée")) {
+    fail("se rappeler must demonstrate agreement with a preceding feminine direct object");
+  }
   const seMarier = pronominal.getById("seMarier");
   if (!seMarier || !seMarier.paradigms.imperfect.some(row => row.full === "nous nous mariions")) {
     fail("se marier must preserve both written i letters in nous nous mariions");
@@ -777,7 +796,7 @@ function validatePronominalContent(data) {
   if (!sePasserForms.includes("Elles se sont passées de voiture.") || !sePasserForms.includes("Elles se sont passé le sel.")) {
     fail("se passer must contrast subject agreement with invariant indirect se");
   }
-  const requiredContrasts = new Set(["se-laver-body-parts", "se-dire-objects", "se-trouver-context", "se-passer-context"]);
+  const requiredContrasts = new Set(["se-laver-body-parts", "se-dire-objects", "se-trouver-context", "se-passer-context", "se-rappeler-object"]);
   pronominal.agreementContrasts.forEach(item => requiredContrasts.delete(item.id));
   if (requiredContrasts.size) {
     fail(`missing pronominal agreement contrasts: ${Array.from(requiredContrasts).join(", ")}`);

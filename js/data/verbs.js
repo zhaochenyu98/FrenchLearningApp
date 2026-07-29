@@ -121,6 +121,17 @@
       { pronoun: "elles", form: "préfèrent", full: "elles préfèrent", ipa: "/ɛl pʁe.fɛʁ/", en: "they prefer", example: "Elles préfèrent la montagne à la plage.", exampleEn: "They prefer the mountains to the beach.", negative: "Elles ne préfèrent pas la montagne à la plage.", negativeEn: "They do not prefer the mountains to the beach.", question: "Est-ce qu’elles préfèrent la montagne à la plage ?" }
     ];
 
+    const essayerRows = [
+      { pronoun: "j’", form: "essaie", full: "j’essaie", ipa: "/ʒe.sɛ/", en: "I try", example: "J’essaie de parler français tous les jours.", exampleEn: "I try to speak French every day.", negative: "Je n’essaie pas de parler français tous les jours.", negativeEn: "I do not try to speak French every day.", question: "Est-ce que j’essaie de parler français tous les jours ?" },
+      { pronoun: "tu", form: "essaies", full: "tu essaies", ipa: "/ty e.sɛ/", en: "you try", example: "Tu essaies cette veste.", exampleEn: "You try on this jacket.", negative: "Tu n’essaies pas cette veste.", negativeEn: "You do not try on this jacket.", question: "Essaies-tu cette veste ?" },
+      { pronoun: "il", form: "essaie", full: "il essaie", ipa: "/i.le.sɛ/", en: "he tries", example: "Il essaie de réparer son vélo.", exampleEn: "He tries to repair his bicycle.", negative: "Il n’essaie pas de réparer son vélo.", negativeEn: "He does not try to repair his bicycle.", question: "Qu’essaie-t-il de réparer ?" },
+      { pronoun: "elle", form: "essaie", full: "elle essaie", ipa: "/ɛ.le.sɛ/", en: "she tries", example: "Elle essaie une nouvelle recette.", exampleEn: "She tries a new recipe.", negative: "Elle n’essaie pas de nouvelle recette.", negativeEn: "She does not try a new recipe.", question: "Quelle recette essaie-t-elle ?" },
+      { pronoun: "nous", form: "essayons", full: "nous essayons", ipa: "/nu.z‿e.sɛ.jɔ̃/", en: "we try", example: "Nous essayons de comprendre cette règle.", exampleEn: "We try to understand this rule.", negative: "Nous n’essayons pas de comprendre cette règle.", negativeEn: "We do not try to understand this rule.", question: "Qu’essayons-nous de comprendre ?" },
+      { pronoun: "vous", form: "essayez", full: "vous essayez", ipa: "/vu.z‿e.sɛ.je/", en: "you try", example: "Vous essayez ces chaussures.", exampleEn: "You try on these shoes.", negative: "Vous n’essayez pas ces chaussures.", negativeEn: "You do not try on these shoes.", question: "Essayez-vous ces chaussures ?" },
+      { pronoun: "ils", form: "essaient", full: "ils essaient", ipa: "/il.z‿e.sɛ/", en: "they try", example: "Ils essaient de venir plus tôt.", exampleEn: "They try to come earlier.", negative: "Ils n’essaient pas de venir plus tôt.", negativeEn: "They do not try to come earlier.", question: "Pourquoi essaient-ils de venir plus tôt ?" },
+      { pronoun: "elles", form: "essaient", full: "elles essaient", ipa: "/ɛl.z‿e.sɛ/", en: "they try", example: "Elles essaient le nouveau restaurant.", exampleEn: "They try the new restaurant.", negative: "Elles n’essaient pas le nouveau restaurant.", negativeEn: "They do not try the new restaurant.", question: "Quel restaurant essaient-elles ?" }
+    ];
+
     const arriverRows = [
       { pronoun: "j’", form: "arrive", full: "j’arrive", en: "I arrive / I manage", example: "J’arrive à huit heures.", exampleEn: "I arrive at eight o’clock.", negative: "Je n’arrive pas à huit heures.", negativeEn: "I do not arrive at eight o’clock." },
       { pronoun: "tu", form: "arrives", full: "tu arrives", en: "you arrive / you manage", example: "Tu arrives avant moi.", exampleEn: "You arrive before me.", negative: "Tu n’arrives pas avant moi.", negativeEn: "You do not arrive before me.", question: "Arrives-tu avant moi ?" },
@@ -945,6 +956,17 @@
       { pronoun: "elles", form: "se promènent", full: "elles se promènent", en: "they take a walk / stroll", example: "Elles se promènent au bord de la mer.", exampleEn: "They take a walk by the sea.", negative: "Elles ne se promènent pas au bord de la mer.", negativeEn: "They do not take a walk by the sea.", question: "Où se promènent-elles ?" }
     ];
 
+    const seRappelerRows = [
+      { pronoun: "je", form: "me rappelle", full: "je me rappelle", ipa: "/ʒə mə ʁa.pɛl/", en: "I remember", example: "Je me rappelle cette adresse.", exampleEn: "I remember this address.", negative: "Je ne me rappelle pas cette adresse.", negativeEn: "I do not remember this address.", question: "Quelle adresse est-ce que je me rappelle ?" },
+      { pronoun: "tu", form: "te rappelles", full: "tu te rappelles", ipa: "/ty tə ʁa.pɛl/", en: "you remember", example: "Tu te rappelles notre premier cours.", exampleEn: "You remember our first class.", negative: "Tu ne te rappelles pas notre premier cours.", negativeEn: "You do not remember our first class.", question: "Te rappelles-tu notre premier cours ?" },
+      { pronoun: "il", form: "se rappelle", full: "il se rappelle", ipa: "/il sə ʁa.pɛl/", en: "he remembers", example: "Il se rappelle le nom du restaurant.", exampleEn: "He remembers the restaurant’s name.", negative: "Il ne se rappelle pas le nom du restaurant.", negativeEn: "He does not remember the restaurant’s name.", question: "Quel nom se rappelle-t-il ?" },
+      { pronoun: "elle", form: "se rappelle", full: "elle se rappelle", ipa: "/ɛl sə ʁa.pɛl/", en: "she remembers", example: "Elle se rappelle avoir fermé la porte.", exampleEn: "She remembers closing the door.", negative: "Elle ne se rappelle pas avoir fermé la porte.", negativeEn: "She does not remember closing the door.", question: "Que se rappelle-t-elle avoir fait ?" },
+      { pronoun: "nous", form: "nous rappelons", full: "nous nous rappelons", ipa: "/nu nu ʁa.pə.lɔ̃/", en: "we remember", example: "Nous nous rappelons cette chanson.", exampleEn: "We remember this song.", negative: "Nous ne nous rappelons pas cette chanson.", negativeEn: "We do not remember this song.", question: "Quelle chanson nous rappelons-nous ?" },
+      { pronoun: "vous", form: "vous rappelez", full: "vous vous rappelez", ipa: "/vu vu ʁa.pə.le/", en: "you remember", example: "Vous vous rappelez ce quartier.", exampleEn: "You remember this neighborhood.", negative: "Vous ne vous rappelez pas ce quartier.", negativeEn: "You do not remember this neighborhood.", question: "Vous rappelez-vous ce quartier ?" },
+      { pronoun: "ils", form: "se rappellent", full: "ils se rappellent", ipa: "/il sə ʁa.pɛl/", en: "they remember", example: "Ils se rappellent leur professeur de français.", exampleEn: "They remember their French teacher.", negative: "Ils ne se rappellent pas leur professeur de français.", negativeEn: "They do not remember their French teacher.", question: "Quel professeur se rappellent-ils ?" },
+      { pronoun: "elles", form: "se rappellent", full: "elles se rappellent", ipa: "/ɛl sə ʁa.pɛl/", en: "they remember", example: "Elles se rappellent ces vacances.", exampleEn: "They remember that vacation.", negative: "Elles ne se rappellent pas ces vacances.", negativeEn: "They do not remember that vacation.", question: "Quelles vacances se rappellent-elles ?" }
+    ];
+
     const sAimerRows = [
       { pronoun: "je", form: "m’aime", full: "je m’aime", ipa: "/ʒə mɛm/", en: "I love myself", example: "Je m’aime comme je suis.", exampleEn: "I love myself as I am.", negative: "Je ne m’aime pas comme je suis.", negativeEn: "I do not love myself as I am.", question: "Est-ce que je m’aime comme je suis ?" },
       { pronoun: "tu", form: "t’aimes", full: "tu t’aimes", ipa: "/ty tɛm/", en: "you love yourself", example: "Tu t’aimes beaucoup.", exampleEn: "You love yourself a lot.", negative: "Tu ne t’aimes pas beaucoup.", negativeEn: "You do not love yourself very much.", question: "Est-ce que tu t’aimes beaucoup ?" },
@@ -1760,6 +1782,15 @@
         rows: prefererRows
       },
       {
+        key: "essayer",
+        group: "regularEr",
+        label: "essayer",
+        title: "Essayer — to try / try on",
+        tag: "regular -er with optional spelling change",
+        descriptionHtml: "<strong>Essayer de + infinitive</strong> means “to try to do something,” while <strong>essayer + noun</strong> means “to try / test” something and can mean “to try on” clothing. This app uses <strong>j’essaie</strong> and <strong>j’essaierai</strong>; the spellings <strong>j’essaye</strong> and <strong>j’essayerai</strong> are also accepted.",
+        rows: essayerRows
+      },
+      {
         key: "gagner",
         group: "regularEr",
         label: "gagner",
@@ -2203,6 +2234,14 @@
         rows: sePromenerRows
       },
       {
+        key: "seRappeler",
+        group: "pronominal",
+        label: "se rappeler",
+        title: "Se rappeler — to remember",
+        descriptionHtml: "<strong>Se rappeler</strong> takes a direct object: <strong>se rappeler quelque chose / quelqu’un</strong>, without <strong>de</strong>. Compare <strong>se souvenir de quelque chose</strong>. Use <strong>je me le rappelle</strong>, not <strong><em>je m’en rappelle</em></strong>, in careful standard French. The base verb <strong>rappeler</strong> means “to call back / remind”: <strong>Je rappelle ma mère ce soir.</strong>",
+        rows: seRappelerRows
+      },
+      {
         key: "sAimer",
         group: "pronominal",
         label: "s’aimer",
@@ -2401,6 +2440,7 @@
       mourir: ["The vowel changes between <strong>meurs / meurent /mœʁ/</strong>, <strong>mourons /mu.ʁɔ̃/</strong>, and <strong>mourez /mu.ʁe/</strong>."],
       acheter: ["The open vowel appears in <strong>achète /a.ʃɛt/</strong> and <strong>achètent /a.ʃɛt/</strong>. With pronounced endings, the unstressed <strong>e</strong> weakens or disappears: <strong>achetons /aʃ.tɔ̃/</strong>, <strong>achetez /aʃ.te/</strong>."],
       preferer: ["The second vowel changes with the accent: <strong>préfère /pʁe.fɛʁ/</strong> uses open <strong>/ɛ/</strong>, while <strong>préférons /pʁe.fe.ʁɔ̃/</strong> and <strong>préférez /pʁe.fe.ʁe/</strong> use closed <strong>/e/</strong>."],
+      essayer: ["Before a silent ending, this app writes <strong>essaie / essaient /e.sɛ/</strong>; before pronounced endings, keep <strong>y</strong> and hear <strong>/j/</strong>: <strong>essayons /e.sɛ.jɔ̃/</strong>, <strong>essayez /e.sɛ.je/</strong>. The variants <strong>essaye / essayent</strong> are also accepted."],
       jouer: ["The vowel sequence contracts in singular and ils/elles forms: <strong>joue / jouent /ʒu/</strong>. Before pronounced endings, hear <strong>/w/</strong>: <strong>jouons /ʒwɔ̃/</strong>, <strong>jouez /ʒwe/</strong>."],
       manger: ["The added <strong>e</strong> in <strong>nous mangeons /mɑ̃.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       voyager: ["The added <strong>e</strong> in <strong>nous voyageons /vwa.ja.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
@@ -2412,6 +2452,7 @@
       seLever: ["The vowel opens in <strong>lève / lèvent /lɛv/</strong>, but becomes <strong>/ə/</strong> before pronounced endings: <strong>levons /lə.vɔ̃/</strong>, <strong>levez /lə.ve/</strong>."],
       sAppeler: ["The doubled <strong>ll</strong> marks the open vowel in <strong>appelle / appellent /a.pɛl/</strong>. Compare <strong>appelons /a.pə.lɔ̃/</strong> and <strong>appelez /a.pə.le/</strong>."],
       sePromener: ["The vowel opens in <strong>promène / promènent /pʁɔ.mɛn/</strong>. Compare <strong>promenons /pʁɔm.nɔ̃/</strong> and <strong>promenez /pʁɔm.ne/</strong>."],
+      seRappeler: ["The doubled <strong>ll</strong> marks the open vowel in <strong>rappelle / rappellent /ʁa.pɛl/</strong>. Compare <strong>rappelons /ʁa.pə.lɔ̃/</strong> and <strong>rappelez /ʁa.pə.le/</strong>."],
       seMarier: ["Before a pronounced vowel ending, <strong>i</strong> becomes the glide <strong>/j/</strong>: <strong>se marie /ma.ʁi/</strong>, but <strong>nous nous marions /ma.ʁjɔ̃/</strong> and <strong>vous vous mariez /ma.ʁje/</strong>."],
       seVendre: ["The final <strong>d</strong> is silent in <strong>se vend /vɑ̃/</strong> but audible in <strong>nous nous vendons /vɑ̃.dɔ̃/</strong> and <strong>se vendent /vɑ̃d/</strong>."],
       seSouvenir: ["Like <strong>venir</strong>: <strong>se souvient /su.vjɛ̃/</strong>, <strong>nous nous souvenons /su.və.nɔ̃/</strong>, and <strong>se souviennent /su.vjɛn/</strong> use three audible stem shapes."],

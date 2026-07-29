@@ -246,6 +246,13 @@
       "Do not favor price over quality!",
       "The imperative of préférer is most natural when giving a recommendation, especially with vous."
     ),
+    essayer: command(
+      "Essaie encore une fois !",
+      "Try one more time!",
+      "N’essaie pas de tout faire en même temps !",
+      "Do not try to do everything at once!",
+      "This app uses essaie; essaye is also an accepted spelling."
+    ),
     gagner: command(
       "Gagne cette partie sans tricher !",
       "Win this game without cheating!",

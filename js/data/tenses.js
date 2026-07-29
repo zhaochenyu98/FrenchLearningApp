@@ -101,6 +101,19 @@
             question: { fr: "Avez-vous préféré le train à l’avion ?", en: "Did you prefer the train to the plane?" }
           },
           {
+            infinitive: "essayer",
+            infinitiveIpa: "/e.sɛ.je/",
+            meaning: "to try / try on",
+            auxiliary: "avoir",
+            pastParticiple: "essayé",
+            pastParticipleIpa: "/e.sɛ.je/",
+            pattern: "essayer → essayé",
+            note: "Regular -er past participle. The optional present/future spelling variation does not change essayé.",
+            statement: { fr: "J’ai essayé de parler français.", en: "I tried to speak French." },
+            negative: { fr: "Je n’ai pas essayé de parler français.", en: "I did not try to speak French." },
+            question: { fr: "As-tu essayé de parler français ?", en: "Did you try to speak French?" }
+          },
+          {
             infinitive: "arriver",
             infinitiveIpa: "/aʁive/",
             meaning: "to arrive",
@@ -1057,6 +1070,19 @@
             statement: { fr: "Nous nous sommes promenés dans le parc.", en: "We took a walk in the park." },
             negative: { fr: "Nous ne nous sommes pas promenés dans le parc.", en: "We did not take a walk in the park." },
             question: { fr: "Nous sommes-nous promenés dans le parc ?", en: "Did we take a walk in the park?" }
+          },
+          {
+            infinitive: "se rappeler",
+            infinitiveIpa: "/sə ʁa.pə.le/",
+            meaning: "to remember",
+            auxiliary: "être",
+            pastParticiple: "rappelé",
+            pastParticipleIpa: "/ʁa.pə.le/",
+            pattern: "se rappeler → rappelé",
+            note: "Se rappeler takes a direct object without de. A following direct object keeps rappelé invariant: elles se sont rappelé cette histoire. A preceding direct object triggers agreement: l’histoire qu’elles se sont rappelée.",
+            statement: { fr: "Elles se sont rappelé cette histoire.", en: "They remembered this story." },
+            negative: { fr: "Elles ne se sont pas rappelé cette histoire.", en: "They did not remember this story." },
+            question: { fr: "Se sont-elles rappelé cette histoire ?", en: "Did they remember this story?" }
           },
           {
             infinitive: "s’aimer",

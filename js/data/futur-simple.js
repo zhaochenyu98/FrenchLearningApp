@@ -58,8 +58,13 @@
     }),
     "double-consonant": Object.freeze({
       id: "double-consonant",
-      title: "Appeler doubles the l",
-      note: "Keep appeller- throughout the future: je m’appellerai, nous nous appellerons, elles s’appelleront."
+      title: "The appeler family doubles the l",
+      note: "Keep appeller- / rappeller- throughout the future: je m’appellerai, je me rappellerai, nous nous rappellerons."
+    }),
+    "ayer-optional": Object.freeze({
+      id: "ayer-optional",
+      title: "-ayer verbs allow two future spellings",
+      note: "This app changes y to i in essayer: j’essaierai. Keeping y is also accepted: j’essayerai."
     }),
     "y-to-i": Object.freeze({
       id: "y-to-i",
@@ -119,9 +124,11 @@
 
   const spellingOverrides = Object.freeze({
     acheter: Object.freeze({ stem: "achèter", ipa: "aʃɛtʁ", ruleId: "e-to-grave" }),
+    essayer: Object.freeze({ stem: "essaier", ipa: "esɛʁ", ruleId: "ayer-optional" }),
     seLever: Object.freeze({ stem: "lèver", ipa: "lɛvʁ", ruleId: "e-to-grave" }),
     sePromener: Object.freeze({ stem: "promèner", ipa: "pʁɔmɛnʁ", ruleId: "e-to-grave" }),
     sAppeler: Object.freeze({ stem: "appeller", ipa: "apɛlʁ", ruleId: "double-consonant" }),
+    seRappeler: Object.freeze({ stem: "rappeller", ipa: "ʁapɛlʁ", ruleId: "double-consonant" }),
     sEnnuyer: Object.freeze({ stem: "ennuier", ipa: "ɑ̃nɥiʁ", ruleId: "y-to-i" })
   });
 
@@ -179,6 +186,7 @@
     sHabiller: Object.freeze(["avant le dîner", "get dressed before dinner"]),
     seTrouver: Object.freeze(["devant la gare", "be in front of the station"]),
     sePromener: Object.freeze(["au bord de la mer", "take a walk by the sea"]),
+    seRappeler: Object.freeze(["cette adresse", "remember this address"]),
     sAimer: Object.freeze(["encore dans dix ans", "still love each other in ten years"]),
     seConnaitre: Object.freeze(["beaucoup mieux", "know each other much better"]),
     seMarier: Object.freeze(["l’année prochaine", "get married next year"]),

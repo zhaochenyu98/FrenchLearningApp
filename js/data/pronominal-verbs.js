@@ -16,6 +16,7 @@
     seTrouver: Object.freeze({ common: "tʁu.vɛ", nous: "tʁu.vjɔ̃", vous: "tʁu.vje" }),
     sePasser: Object.freeze({ common: "pa.sɛ", nous: "pa.sjɔ̃", vous: "pa.sje" }),
     sePromener: Object.freeze({ common: "pʁɔm.nɛ", nous: "pʁɔm.njɔ̃", vous: "pʁɔm.nje" }),
+    seRappeler: Object.freeze({ common: "ʁa.pə.lɛ", nous: "ʁa.pə.ljɔ̃", vous: "ʁa.pə.lje", participle: "ʁa.pə.le" }),
     sAimer: Object.freeze({ common: "ɛ.mɛ", nous: "ɛ.mjɔ̃", vous: "ɛ.mje" }),
     seConnaitre: Object.freeze({ common: "kɔ.nɛ.sɛ", nous: "kɔ.nɛ.sjɔ̃", vous: "kɔ.nɛ.sje" }),
     seMarier: Object.freeze({ common: "ma.ʁjɛ", nous: "ma.ʁij.jɔ̃", vous: "ma.ʁij.je" }),
@@ -200,6 +201,15 @@
         { fr: "Elles se sont passé le sel.", en: "They passed the salt to each other." },
         { fr: "Les notes qu’elles se sont passées.", en: "The notes that they passed to each other." }
       ]
+    },
+    {
+      id: "se-rappeler-object",
+      title: "Se rappeler: the direct object controls agreement",
+      explanation: "Se rappeler takes a direct object, while se is indirect in this construction. A direct object after the participle leaves rappelé invariant; a direct object placed before it triggers agreement.",
+      forms: [
+        { fr: "Elles se sont rappelé cette histoire.", en: "They remembered this story." },
+        { fr: "L’histoire qu’elles se sont rappelée.", en: "The story that they remembered." }
+      ]
     }
   ];
 
@@ -352,6 +362,24 @@
       imperfect: examples(sentence("Elles se promenaient au bord de la mer.", "They used to walk by the sea."), sentence("Elles ne s’y promenaient pas.", "They did not use to walk there."), sentence("Où se promenaient-elles ?", "Where did they use to walk?")),
       passeCompose: examples(sentence("Elles se sont promenées au bord de la mer.", "They took a walk by the sea."), sentence("Elles ne s’y sont pas promenées.", "They did not take a walk there."), sentence("Où se sont-elles promenées ?", "Where did they take a walk?")),
       imperative: imperativeExamples(sentence("Promenons-nous dans le parc !", "Let’s take a walk in the park!"), sentence("Ne nous promenons pas sous la pluie !", "Let’s not take a walk in the rain!"))
+    },
+    {
+      key: "seRappeler",
+      infinitive: "se rappeler",
+      ipa: "/sə ʁa.pə.le/",
+      meaning: "to remember",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "indirect-se",
+      agreementTitle: "The direct object controls agreement",
+      agreementExplanation: "Use se rappeler quelque chose without de. Se is indirect here, so rappelé stays invariant before a following direct object: elles se sont rappelé cette histoire. It agrees with a preceding direct object: l’histoire qu’elles se sont rappelée.",
+      participle: "rappelé",
+      specialNote: "The present doubles l except with nous and vous: elle se rappelle, nous nous rappelons. The imperfect keeps one l (elle se rappelait), while the futur simple doubles it (elle se rappellera). Compare se rappeler quelque chose with se souvenir de quelque chose.",
+      present: examples(sentence("Elle se rappelle cette adresse.", "She remembers this address."), sentence("Elle ne se rappelle pas cette adresse.", "She does not remember this address."), sentence("Quelle adresse se rappelle-t-elle ?", "Which address does she remember?")),
+      imperfect: examples(sentence("Elle se rappelait cette adresse.", "She remembered this address."), sentence("Elle ne se rappelait pas cette adresse.", "She did not remember this address."), sentence("Quelle adresse se rappelait-elle ?", "Which address did she remember?")),
+      passeCompose: examples(sentence("Elle s’est rappelé cette adresse.", "She remembered this address."), sentence("Elle ne s’est pas rappelé cette adresse.", "She did not remember this address."), sentence("Quelle adresse s’est-elle rappelée ?", "Which address did she remember?")),
+      imperative: imperativeExamples(sentence("Rappelle-toi cette adresse !", "Remember this address!"), sentence("Ne te rappelle pas seulement les mauvais moments !", "Do not remember only the bad moments!")),
+      contrastIds: ["se-rappeler-object"]
     },
     {
       key: "sAimer",

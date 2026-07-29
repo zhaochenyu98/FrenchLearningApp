@@ -95,6 +95,11 @@
       nous: "nous préférons",
       imparfait: "je préférais"
     }),
+    essayer: Object.freeze({
+      present: "j’essaie",
+      nous: "nous essayons",
+      imparfait: "j’essayais"
+    }),
     seLever: Object.freeze({
       present: "je me lève",
       nous: "nous nous levons",
@@ -109,6 +114,11 @@
       present: "je m’appelle",
       nous: "nous nous appelons",
       imparfait: "je m’appelais"
+    }),
+    seRappeler: Object.freeze({
+      present: "je me rappelle",
+      nous: "nous nous rappelons",
+      imparfait: "je me rappelais"
     }),
     sEnnuyer: Object.freeze({
       present: "je m’ennuie",
@@ -213,6 +223,7 @@
     adorer: "adɔʁ",
     detester: "detɛst",
     preferer: "pʁefeʁ",
+    essayer: "esɛj",
     gagner: "ɡaɲ",
     penser: "pɑ̃s",
     porter: "pɔʁt",
@@ -261,6 +272,17 @@
   });
 
   const ipaVerbFormOverrides = Object.freeze({
+    essayer: Object.freeze({
+      je: "esɛjɛ",
+      tu: "esɛjɛ",
+      il: "esɛjɛ",
+      elle: "esɛjɛ",
+      on: "esɛjɛ",
+      nous: "esɛjjɔ̃",
+      vous: "esɛjje",
+      ils: "esɛjɛ",
+      elles: "esɛjɛ"
+    }),
     jouer: Object.freeze({
       je: "ʒwɛ",
       tu: "ʒwɛ",
@@ -328,6 +350,7 @@
     adorer: Object.freeze(["ce petit café", "love this little café"]),
     detester: Object.freeze(["attendre dans les files", "hate waiting in lines"]),
     preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
+    essayer: Object.freeze(["de parler français chaque jour", "try to speak French every day"]),
     gagner: Object.freeze(["souvent le match", "often win the match"]),
     penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
     porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),
