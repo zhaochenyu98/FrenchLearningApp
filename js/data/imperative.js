@@ -75,6 +75,12 @@
       "Ne fais pas tout à la dernière minute !",
       "Do not do everything at the last minute!"
     ),
+    mettre: command(
+      "Mets les clés sur la table !",
+      "Put the keys on the table!",
+      "Ne mets pas les clés dans ta poche !",
+      "Do not put the keys in your pocket!"
+    ),
     devoir: command(
       "Dans ce jeu, dois dix euros à la banque !",
       "In this game, owe ten euros to the bank!",
@@ -213,6 +219,12 @@
       "Ne cherche pas une solution trop compliquée !",
       "Do not look for an overly complicated solution!"
     ),
+    changer: command(
+      "Change de train à Lyon !",
+      "Change trains in Lyon!",
+      "Ne change pas la date sans me prévenir !",
+      "Do not change the date without telling me!"
+    ),
     manger: command(
       "Mange tes légumes !",
       "Eat your vegetables!",
@@ -270,6 +282,12 @@
       "Carry this box with both hands!",
       "Ne porte pas cette valise tout seul !",
       "Do not carry this suitcase by yourself!"
+    ),
+    supprimer: command(
+      "Supprime ce fichier après l’avoir vérifié !",
+      "Delete this file after checking it!",
+      "Ne supprime pas ce message important !",
+      "Do not delete this important message!"
     ),
     finir: command(
       "Finis tes devoirs avant de sortir !",

@@ -530,7 +530,7 @@
         { singularLabel: "il", singular: findVerbRow(["il"]), pluralLabel: "ils", plural: findVerbRow(["ils"]) },
         { singularLabel: "elle", singular: findVerbRow(["elle"]), pluralLabel: "elles", plural: findVerbRow(["elles"]) }
       ].filter(pair => pair.singular || pair.plural);
-      const endingItems = ["on"]
+      const endingItems = ["on", "ça"]
         .map(pronoun => rows.find(item => item.pronoun === pronoun))
         .filter(Boolean);
 
@@ -571,7 +571,10 @@
       endingItems.forEach(item => {
         const columnEl = document.createElement("div");
         columnEl.className = "verb-extra-column";
-        columnEl.innerHTML = `<div class="verb-column-title">On — spoken French</div>`;
+        const columnTitle = item.pronoun === "on"
+          ? "On — spoken French"
+          : "Ça — impersonal expression";
+        columnEl.innerHTML = `<div class="verb-column-title">${columnTitle}</div>`;
         try {
           columnEl.appendChild(createVerbCellCard(item));
         } catch (error) {

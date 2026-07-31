@@ -478,9 +478,13 @@ function validateImparfaitContent(data) {
     ["voyager", "je", "je voyageais"],
     ["essayer", "nous", "nous essayions"],
     ["travailler", "nous", "nous travaillions"],
+    ["changer", "nous", "nous changions"],
     ["croire", "nous", "nous croyions"],
     ["eteindre", "nous", "nous éteignions"],
-    ["fermer", "nous", "nous fermions"]
+    ["fermer", "nous", "nous fermions"],
+    ["mettre", "je", "je mettais"],
+    ["supprimer", "vous", "vous supprimiez"],
+    ["impersonalFaire", "ça", "ça faisait"]
   ];
   expectedForms.forEach(([key, pronoun, expected]) => {
     const item = imparfait.getItem(key);
@@ -576,8 +580,11 @@ function validateFuturSimpleContent(data) {
     ["savoir", "tu", "tu sauras"],
     ["voir", "nous", "nous verrons"],
     ["croire", "je", "je croirai"],
+    ["changer", "nous", "nous changerons"],
     ["eteindre", "nous", "nous éteindrons"],
     ["fermer", "vous", "vous fermerez"],
+    ["mettre", "je", "je mettrai"],
+    ["supprimer", "elles", "elles supprimeront"],
     ["sInquieter", "je", "je m’inquiéterai"],
     ["mourir", "il", "il mourra"],
     ["acheter", "je", "j’achèterai"],
@@ -588,6 +595,7 @@ function validateFuturSimpleContent(data) {
     ["seSouvenir", "elles", "elles se souviendront"],
     ["falloir", "il", "il faudra"],
     ["ilYA", "il", "il y aura"],
+    ["impersonalFaire", "ça", "ça fera"],
     ["pleuvoir", "il", "il pleuvra"]
   ];
   expectedForms.forEach(([key, pronoun, expected]) => {
@@ -684,6 +692,7 @@ function validateImperativeContent(data) {
     eteindre: ["éteins", "éteignons", "éteignez"],
     essayer: ["essaie", "essayons", "essayez"],
     fermer: ["ferme", "fermons", "fermez"],
+    mettre: ["mets", "mettons", "mettez"],
     savoir: ["sache", "sachons", "sachez"],
     vouloir: ["veuille", "veuillons", "veuillez"]
   };

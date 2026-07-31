@@ -165,22 +165,26 @@
       matrix.appendChild(pairRow);
     });
 
-    const onRow = item.rows.find(row => row && row.pronoun === "on");
-    if (onRow) {
+    [
+      { pronoun: "on", title: "On: spoken French" },
+      { pronoun: "ça", title: "Ça: impersonal expression" }
+    ].forEach(extra => {
+      const row = item.rows.find(entry => entry && entry.pronoun === extra.pronoun);
+      if (!row) return;
       const column = document.createElement("div");
       column.className = "verb-extra-column";
       const title = document.createElement("div");
       title.className = "verb-column-title";
-      title.textContent = "On: spoken French";
+      title.textContent = extra.title;
       try {
-        column.append(title, createFormCard(onRow));
+        column.append(title, createFormCard(row));
       } catch (error) {
-        const failure = createErrorCard("on conjugation failed", error);
+        const failure = createErrorCard(`${extra.pronoun} conjugation failed`, error);
         failure.setAttribute("role", "cell");
         column.append(title, failure);
       }
       matrix.appendChild(column);
-    }
+    });
 
     return matrix;
   }

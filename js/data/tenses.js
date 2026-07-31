@@ -36,6 +36,19 @@
             question: { fr: "As-tu cherché tes clés ?", en: "Did you look for your keys?" }
           },
           {
+            infinitive: "changer",
+            infinitiveIpa: "/ʃɑ̃ʒe/",
+            meaning: "to change / switch",
+            auxiliary: "avoir",
+            pastParticiple: "changé",
+            pastParticipleIpa: "/ʃɑ̃ʒe/",
+            pattern: "changer → changé",
+            note: "Regular -er past participle. Changer de + noun normally keeps de without an article.",
+            statement: { fr: "Nous avons changé de train à Lyon.", en: "We changed trains in Lyon." },
+            negative: { fr: "Nous n’avons pas changé de train à Lyon.", en: "We did not change trains in Lyon." },
+            question: { fr: "Où avons-nous changé de train ?", en: "Where did we change trains?" }
+          },
+          {
             infinitive: "manger",
             infinitiveIpa: "/mɑ̃ʒe/",
             meaning: "to eat",
@@ -413,6 +426,19 @@
             question: { fr: "Qu’a-t-elle porté à la fête ?", en: "What did she wear to the party?" }
           },
           {
+            infinitive: "supprimer",
+            infinitiveIpa: "/sy.pʁi.me/",
+            meaning: "to delete / remove",
+            auxiliary: "avoir",
+            pastParticiple: "supprimé",
+            pastParticipleIpa: "/sy.pʁi.me/",
+            pattern: "supprimer → supprimé",
+            note: "Regular -er past participle.",
+            statement: { fr: "J’ai supprimé l’ancien fichier.", en: "I deleted the old file." },
+            negative: { fr: "Je n’ai pas supprimé l’ancien fichier.", en: "I did not delete the old file." },
+            question: { fr: "As-tu supprimé l’ancien fichier ?", en: "Did you delete the old file?" }
+          },
+          {
             infinitive: "rêver",
             infinitiveIpa: "/ʁeve/",
             meaning: "to dream",
@@ -772,6 +798,19 @@
             statement: { fr: "Elle a beaucoup fait de sport.", en: "She exercised a lot." },
             negative: { fr: "Elle n’a pas beaucoup fait de sport.", en: "She did not exercise a lot." },
             question: { fr: "A-t-elle beaucoup fait de sport ?", en: "Did she exercise a lot?" }
+          },
+          {
+            infinitive: "mettre",
+            infinitiveIpa: "/mɛtʁ/",
+            meaning: "to put / put on",
+            auxiliary: "avoir",
+            pastParticiple: "mis",
+            pastParticipleIpa: "/mi/",
+            pattern: "mettre → mis",
+            note: "Irregular past participle.",
+            statement: { fr: "Elle a mis les clés sur la table.", en: "She put the keys on the table." },
+            negative: { fr: "Elle n’a pas mis les clés sur la table.", en: "She did not put the keys on the table." },
+            question: { fr: "Où a-t-elle mis les clés ?", en: "Where did she put the keys?" }
           },
           {
             infinitive: "écrire",

@@ -10,6 +10,7 @@
     il: "a",
     elle: "a",
     on: "a",
+    ça: "a",
     nous: "ons",
     vous: "ez",
     ils: "ont",
@@ -22,6 +23,7 @@
     il: "a",
     elle: "a",
     on: "a",
+    ça: "a",
     nous: "ɔ̃",
     vous: "e",
     ils: "ɔ̃",
@@ -88,8 +90,8 @@
     }),
     "impersonal-only": Object.freeze({
       id: "impersonal-only",
-      title: "Impersonal expressions keep fixed il",
-      note: "These entries do not build a full person table: il faudra, il y aura, il fera, il sera, il pleuvra."
+      title: "Impersonal expressions keep a fixed subject",
+      note: "Most entries use il: il faudra, il y aura, il fera, il sera, il pleuvra. The expression ça fait also keeps ça in the future: ça fera."
     }),
     "future-pronunciation": Object.freeze({
       id: "future-pronunciation",
@@ -140,7 +142,12 @@
   const impersonalForms = Object.freeze({
     falloir: Object.freeze({ prefix: "il ", baseInfinitive: "falloir" }),
     ilYA: Object.freeze({ prefix: "il y ", baseInfinitive: "avoir" }),
-    impersonalFaire: Object.freeze({ prefix: "il ", baseInfinitive: "faire" }),
+    impersonalFaire: Object.freeze({
+      prefix: "il ",
+      prefixes: Object.freeze({ il: "il ", ça: "ça " }),
+      persons: Object.freeze(["il", "ça"]),
+      baseInfinitive: "faire"
+    }),
     impersonalEtre: Object.freeze({ prefix: "il ", baseInfinitive: "être" }),
     pleuvoir: Object.freeze({ prefix: "il ", baseInfinitive: "pleuvoir" })
   });
@@ -151,6 +158,7 @@
     il: Object.freeze({ consonant: "il ", vowel: "il " }),
     elle: Object.freeze({ consonant: "ɛl ", vowel: "ɛl " }),
     on: Object.freeze({ consonant: "ɔ̃ ", vowel: "ɔ̃n‿" }),
+    ça: Object.freeze({ consonant: "sa ", vowel: "sa " }),
     nous: Object.freeze({ consonant: "nu ", vowel: "nuz‿" }),
     vous: Object.freeze({ consonant: "vu ", vowel: "vuz‿" }),
     ils: Object.freeze({ consonant: "il ", vowel: "ilz‿" }),
@@ -282,7 +290,7 @@
     regularEr: "Most -er verbs keep the written infinitive before the future endings. Watch the smaller spelling-change families highlighted on their cards.",
     regularIr: "Regular -ir verbs keep the full infinitive before -ai, -as, -a, -ons, -ez, and -ont.",
     regularRe: "Verbs ending in -re remove the final e before adding the future endings.",
-    impersonal: "These fixed expressions use only il, but their future stems are essential: il faudra, il y aura, il fera, il sera, il pleuvra.",
+    impersonal: "Most fixed expressions use il, while ça fait also appears with ça. Their future stems are essential: il faudra, il y aura, il fera / ça fera, il sera, il pleuvra.",
     pronominal: "Keep the reflexive pronoun before the future form. The verb stem follows the same future rule as its non-pronominal base."
   });
 
@@ -383,8 +391,9 @@
   }
 
   function getPersons(source) {
-    return impersonalForms[source.key]
-      ? ["il"]
+    const impersonal = impersonalForms[source.key];
+    return impersonal
+      ? impersonal.persons || ["il"]
       : source.rows.map(row => {
           const normalized = row.pronoun.replace(/[’']/g, "").toLocaleLowerCase("fr");
           return normalized === "j" ? "je" : normalized;
@@ -393,7 +402,9 @@
 
   function buildFullForm(source, person, form) {
     const impersonal = impersonalForms[source.key];
-    if (impersonal) return `${impersonal.prefix}${form}`;
+    if (impersonal) {
+      return `${impersonal.prefixes && impersonal.prefixes[person] || impersonal.prefix}${form}`;
+    }
 
     if (isPronominal(source)) {
       const prefix = reflexiveWritten[person];

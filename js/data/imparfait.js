@@ -10,6 +10,7 @@
     il: "ait",
     elle: "ait",
     on: "ait",
+    ça: "ait",
     nous: "ions",
     vous: "iez",
     ils: "aient",
@@ -17,7 +18,7 @@
   });
 
   const personOrder = Object.freeze([
-    "je", "nous", "tu", "vous", "il", "ils", "elle", "elles", "on"
+    "je", "nous", "tu", "vous", "il", "ils", "elle", "elles", "on", "ça"
   ]);
 
   const alignedPairs = Object.freeze([
@@ -155,11 +156,12 @@
       note: "The fixed expression il y a uses the avoir stem: il y avait."
     }),
     impersonalFaire: Object.freeze({
-      persons: Object.freeze(["il"]),
+      persons: Object.freeze(["il", "ça"]),
       baseKey: "faire",
       formulaSource: "nous faisons",
       prefix: "il ",
-      note: "The weather expression il fait uses the faire stem: il faisait."
+      prefixes: Object.freeze({ il: "il ", ça: "ça " }),
+      note: "The expressions il fait and ça fait use the faire stem: il faisait, ça faisait."
     }),
     impersonalEtre: Object.freeze({
       persons: Object.freeze(["il"]),
@@ -177,6 +179,7 @@
     il: "ɛ",
     elle: "ɛ",
     on: "ɛ",
+    ça: "ɛ",
     nous: "jɔ̃",
     vous: "je",
     ils: "ɛ",
@@ -195,6 +198,7 @@
     apprendre: "apʁən",
     comprendre: "kɔ̃pʁən",
     faire: "fəz",
+    mettre: "mɛt",
     devoir: "dəv",
     pouvoir: "puv",
     vouloir: "vul",
@@ -218,6 +222,7 @@
     sentir: "sɑ̃t",
     parler: "paʁl",
     chercher: "ʃɛʁʃ",
+    changer: "ʃɑ̃ʒ",
     manger: "mɑ̃ʒ",
     inviter: "ɛ̃vit",
     adorer: "adɔʁ",
@@ -227,6 +232,7 @@
     gagner: "ɡaɲ",
     penser: "pɑ̃s",
     porter: "pɔʁt",
+    supprimer: "sypʁim",
     finir: "finis",
     choisir: "ʃwazis",
     reussir: "ʁeysis",
@@ -306,6 +312,7 @@
     il: Object.freeze({ consonant: "il", vowel: "il" }),
     elle: Object.freeze({ consonant: "ɛl", vowel: "ɛl" }),
     on: Object.freeze({ consonant: "ɔ̃", vowel: "ɔ̃n‿" }),
+    ça: Object.freeze({ consonant: "sa", vowel: "sa" }),
     nous: Object.freeze({ consonant: "nu", vowel: "nuz‿" }),
     vous: Object.freeze({ consonant: "vu", vowel: "vuz‿" }),
     ils: Object.freeze({ consonant: "il", vowel: "ilz‿" }),
@@ -322,6 +329,7 @@
     apprendre: Object.freeze(["le français ensemble", "learn French together"]),
     comprendre: Object.freeze(["mieux cette règle", "understand this rule better"]),
     faire: Object.freeze(["du sport le samedi", "exercise on Saturdays"]),
+    mettre: Object.freeze(["la table avant le dîner", "set the table before dinner"]),
     devoir: Object.freeze(["partir tôt", "have to leave early"]),
     pouvoir: Object.freeze(["jouer dehors après l’école", "be able to play outside after school"]),
     vouloir: Object.freeze(["rester plus longtemps", "want to stay longer"]),
@@ -345,6 +353,7 @@
     sentir: Object.freeze(["le parfum des fleurs", "smell the flowers’ fragrance"]),
     parler: Object.freeze(["français à la maison", "speak French at home"]),
     chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
+    changer: Object.freeze(["souvent de train à Lyon", "often change trains in Lyon"]),
     manger: Object.freeze(["à la cantine", "eat in the cafeteria"]),
     inviter: Object.freeze(["nos voisins à dîner", "invite our neighbors to dinner"]),
     adorer: Object.freeze(["ce petit café", "love this little café"]),
@@ -354,6 +363,7 @@
     gagner: Object.freeze(["souvent le match", "often win the match"]),
     penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
     porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),
+    supprimer: Object.freeze(["les anciens fichiers chaque mois", "delete the old files every month"]),
     finir: Object.freeze(["le travail à cinq heures", "finish work at five o’clock"]),
     choisir: Object.freeze(["toujours le même menu", "always choose the same menu"]),
     reussir: Object.freeze(["tous nos examens", "pass all our exams"]),
@@ -791,7 +801,8 @@
       options = {
         ...impersonal,
         sourceItem,
-        composeFull: ({ verbForm }) => `${impersonal.prefix}${verbForm}`
+        composeFull: ({ pronoun, verbForm }) =>
+          `${impersonal.prefixes && impersonal.prefixes[pronoun] || impersonal.prefix}${verbForm}`
       };
     }
 

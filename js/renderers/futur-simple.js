@@ -175,16 +175,20 @@
       matrix.appendChild(pairRow);
     });
 
-    const onRow = item.rows.find(row => row && row.pronoun === "on");
-    if (onRow) {
+    [
+      { pronoun: "on", title: "On: spoken French" },
+      { pronoun: "ça", title: "Ça: impersonal expression" }
+    ].forEach(extra => {
+      const row = item.rows.find(entry => entry && entry.pronoun === extra.pronoun);
+      if (!row) return;
       const column = document.createElement("div");
       column.className = "verb-extra-column";
       const title = document.createElement("div");
       title.className = "verb-column-title";
-      title.textContent = "On: spoken French";
-      column.append(title, createFormCard(onRow));
+      title.textContent = extra.title;
+      column.append(title, createFormCard(row));
       matrix.appendChild(column);
-    }
+    });
     return matrix;
   }
 

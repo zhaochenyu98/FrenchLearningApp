@@ -702,16 +702,20 @@
         });
         body.appendChild(matrix);
 
-        const onRow = imparfait.rows.find(row => row.pronoun === "on");
-        if (onRow) {
-          const onColumn = document.createElement("div");
-          onColumn.className = "verb-extra-column verb-tense-on-form";
-          const onTitle = document.createElement("div");
-          onTitle.className = "verb-column-title";
-          onTitle.textContent = "On: spoken French";
-          onColumn.append(onTitle, createImparfaitFormCard(onRow));
-          body.appendChild(onColumn);
-        }
+        [
+          { pronoun: "on", title: "On: spoken French" },
+          { pronoun: "ça", title: "Ça: impersonal expression" }
+        ].forEach(extra => {
+          const row = imparfait.rows.find(entry => entry.pronoun === extra.pronoun);
+          if (!row) return;
+          const column = document.createElement("div");
+          column.className = "verb-extra-column verb-tense-on-form";
+          const title = document.createElement("div");
+          title.className = "verb-column-title";
+          title.textContent = extra.title;
+          column.append(title, createImparfaitFormCard(row));
+          body.appendChild(column);
+        });
       }
 
       if (imparfait.examples) {
@@ -831,16 +835,20 @@
         });
         body.appendChild(matrix);
 
-        const onRow = future.rows.find(row => row.pronoun === "on");
-        if (onRow) {
-          const onColumn = document.createElement("div");
-          onColumn.className = "verb-extra-column verb-tense-on-form";
-          const onTitle = document.createElement("div");
-          onTitle.className = "verb-column-title";
-          onTitle.textContent = "On: spoken French";
-          onColumn.append(onTitle, createFutureFormCard(onRow));
-          body.appendChild(onColumn);
-        }
+        [
+          { pronoun: "on", title: "On: spoken French" },
+          { pronoun: "ça", title: "Ça: impersonal expression" }
+        ].forEach(extra => {
+          const row = future.rows.find(entry => entry.pronoun === extra.pronoun);
+          if (!row) return;
+          const column = document.createElement("div");
+          column.className = "verb-extra-column verb-tense-on-form";
+          const title = document.createElement("div");
+          title.className = "verb-column-title";
+          title.textContent = extra.title;
+          column.append(title, createFutureFormCard(row));
+          body.appendChild(column);
+        });
       }
 
       if (future.examples) {

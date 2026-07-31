@@ -490,6 +490,15 @@
         exampleEn: "You ski in winter.",
         negative: "Vous ne faites pas de ski en hiver.",
         negativeEn: "You do not ski in winter."
+      },
+      {
+        expression: "faire des travaux",
+        meaning: "to do / have renovation work done",
+        note: "Travaux is normally plural here. After negation, des becomes de.",
+        example: "Nous faisons des travaux dans la cuisine.",
+        exampleEn: "We are having renovation work done in the kitchen.",
+        negative: "Nous ne faisons pas de travaux dans la cuisine.",
+        negativeEn: "We are not having renovation work done in the kitchen."
       }
     ];
 
@@ -1286,6 +1295,49 @@
       { pronoun: "elles", form: "deviennent", full: "elles deviennent", ipa: "/ɛl də.vjɛn/", en: "they become", example: "Elles deviennent indépendantes.", exampleEn: "They become independent.", negative: "Elles ne deviennent pas indépendantes.", negativeEn: "They do not become independent." }
     ];
 
+    const mettreRows = [
+      { pronoun: "je", form: "mets", full: "je mets", ipa: "/ʒə mɛ/", en: "I put / put on", example: "Je mets les clés sur la table.", exampleEn: "I put the keys on the table.", negative: "Je ne mets pas les clés sur la table.", negativeEn: "I do not put the keys on the table.", question: "Où est-ce que je mets les clés ?" },
+      { pronoun: "tu", form: "mets", full: "tu mets", ipa: "/ty mɛ/", en: "you put / put on", example: "Tu mets ton manteau avant de sortir.", exampleEn: "You put on your coat before going out.", negative: "Tu ne mets pas ton manteau avant de sortir.", negativeEn: "You do not put on your coat before going out.", question: "Mets-tu ton manteau avant de sortir ?" },
+      { pronoun: "il", form: "met", full: "il met", ipa: "/il mɛ/", en: "he puts / sets", example: "Il met la table avant le dîner.", exampleEn: "He sets the table before dinner.", negative: "Il ne met pas la table avant le dîner.", negativeEn: "He does not set the table before dinner.", question: "Met-il la table avant le dîner ?" },
+      { pronoun: "elle", form: "met", full: "elle met", ipa: "/ɛl mɛ/", en: "she puts", example: "Elle met du lait dans son café.", exampleEn: "She puts milk in her coffee.", negative: "Elle ne met pas de lait dans son café.", negativeEn: "She does not put milk in her coffee.", question: "Que met-elle dans son café ?" },
+      { pronoun: "nous", form: "mettons", full: "nous mettons", ipa: "/nu mɛ.tɔ̃/", en: "we put / take time", example: "Nous mettons vingt minutes pour aller à la gare.", exampleEn: "We take twenty minutes to get to the train station.", negative: "Nous ne mettons pas vingt minutes pour aller à la gare.", negativeEn: "We do not take twenty minutes to get to the train station.", question: "Combien de temps mettons-nous pour aller à la gare ?" },
+      { pronoun: "vous", form: "mettez", full: "vous mettez", ipa: "/vu mɛ.te/", en: "you put", example: "Vous mettez le document dans ce dossier.", exampleEn: "You put the document in this folder.", negative: "Vous ne mettez pas le document dans ce dossier.", negativeEn: "You do not put the document in this folder.", question: "Dans quel dossier mettez-vous le document ?" },
+      { pronoun: "ils", form: "mettent", full: "ils mettent", ipa: "/il mɛt/", en: "they put", example: "Ils mettent la musique trop fort.", exampleEn: "They play the music too loudly.", negative: "Ils ne mettent pas la musique trop fort.", negativeEn: "They do not play the music too loudly.", question: "Pourquoi mettent-ils la musique si fort ?" },
+      { pronoun: "elles", form: "mettent", full: "elles mettent", ipa: "/ɛl mɛt/", en: "they put", example: "Elles mettent leurs chaussures dans l’entrée.", exampleEn: "They put their shoes in the entryway.", negative: "Elles ne mettent pas leurs chaussures dans l’entrée.", negativeEn: "They do not put their shoes in the entryway.", question: "Où mettent-elles leurs chaussures ?" }
+    ];
+
+    const changerRows = [
+      {
+        pronoun: "je",
+        form: "change",
+        full: "je change",
+        ipa: "/ʒə ʃɑ̃ʒ/",
+        en: "I change",
+        examples: [
+          { meaning: "changer + direct object", fr: "Je change le mot dans cette phrase.", en: "I change the word in this sentence.", negative: "Je ne change pas le mot dans cette phrase.", negativeEn: "I do not change the word in this sentence.", question: "Quel mot est-ce que je change dans cette phrase ?" },
+          { meaning: "changer de + noun", fr: "Je change de train à Lyon.", en: "I change trains in Lyon.", negative: "Je ne change pas de train à Lyon.", negativeEn: "I do not change trains in Lyon.", question: "Où est-ce que je change de train ?" }
+        ]
+      },
+      { pronoun: "tu", form: "changes", full: "tu changes", ipa: "/ty ʃɑ̃ʒ/", en: "you change", example: "Tu changes d’avis après la réunion.", exampleEn: "You change your mind after the meeting.", negative: "Tu ne changes pas d’avis après la réunion.", negativeEn: "You do not change your mind after the meeting.", question: "Pourquoi changes-tu d’avis ?" },
+      { pronoun: "il", form: "change", full: "il change", ipa: "/il ʃɑ̃ʒ/", en: "he changes", example: "Il change la date du rendez-vous.", exampleEn: "He changes the appointment date.", negative: "Il ne change pas la date du rendez-vous.", negativeEn: "He does not change the appointment date.", question: "Quand change-t-il la date du rendez-vous ?" },
+      { pronoun: "elle", form: "change", full: "elle change", ipa: "/ɛl ʃɑ̃ʒ/", en: "she changes", example: "Elle change de travail en septembre.", exampleEn: "She changes jobs in September.", negative: "Elle ne change pas de travail en septembre.", negativeEn: "She does not change jobs in September.", question: "Quand change-t-elle de travail ?" },
+      { pronoun: "nous", form: "changeons", full: "nous changeons", ipa: "/nu ʃɑ̃.ʒɔ̃/", en: "we change", example: "Nous changeons la couleur du mur.", exampleEn: "We change the color of the wall.", negative: "Nous ne changeons pas la couleur du mur.", negativeEn: "We do not change the color of the wall.", question: "Que changeons-nous dans la pièce ?" },
+      { pronoun: "vous", form: "changez", full: "vous changez", ipa: "/vu ʃɑ̃.ʒe/", en: "you change", example: "Vous changez de sujet.", exampleEn: "You change the subject.", negative: "Vous ne changez pas de sujet.", negativeEn: "You do not change the subject.", question: "Pourquoi changez-vous de sujet ?" },
+      { pronoun: "ils", form: "changent", full: "ils changent", ipa: "/il ʃɑ̃ʒ/", en: "they change", example: "Ils changent le plan du voyage.", exampleEn: "They change the travel plan.", negative: "Ils ne changent pas le plan du voyage.", negativeEn: "They do not change the travel plan.", question: "Que changent-ils dans le plan du voyage ?" },
+      { pronoun: "elles", form: "changent", full: "elles changent", ipa: "/ɛl ʃɑ̃ʒ/", en: "they change", example: "Elles changent de place après la pause.", exampleEn: "They change seats after the break.", negative: "Elles ne changent pas de place après la pause.", negativeEn: "They do not change seats after the break.", question: "Quand changent-elles de place ?" }
+    ];
+
+    const supprimerRows = [
+      { pronoun: "je", form: "supprime", full: "je supprime", ipa: "/ʒə sy.pʁim/", en: "I delete / remove", example: "Je supprime un ancien message.", exampleEn: "I delete an old message.", negative: "Je ne supprime pas d’ancien message.", negativeEn: "I do not delete an old message.", question: "Quel message est-ce que je supprime ?" },
+      { pronoun: "tu", form: "supprimes", full: "tu supprimes", ipa: "/ty sy.pʁim/", en: "you delete / remove", example: "Tu supprimes cette application.", exampleEn: "You delete this app.", negative: "Tu ne supprimes pas cette application.", negativeEn: "You do not delete this app.", question: "Pourquoi supprimes-tu cette application ?" },
+      { pronoun: "il", form: "supprime", full: "il supprime", ipa: "/il sy.pʁim/", en: "he deletes / removes", example: "Il supprime le fichier par erreur.", exampleEn: "He deletes the file by mistake.", negative: "Il ne supprime pas le fichier par erreur.", negativeEn: "He does not delete the file by mistake.", question: "Quel fichier supprime-t-il par erreur ?" },
+      { pronoun: "elle", form: "supprime", full: "elle supprime", ipa: "/ɛl sy.pʁim/", en: "she removes", example: "Elle supprime le sucre de son café.", exampleEn: "She removes sugar from her coffee.", negative: "Elle ne supprime pas le sucre de son café.", negativeEn: "She does not remove sugar from her coffee.", question: "Pourquoi supprime-t-elle le sucre de son café ?" },
+      { pronoun: "nous", form: "supprimons", full: "nous supprimons", ipa: "/nu sy.pʁi.mɔ̃/", en: "we delete / remove", example: "Nous supprimons les photos floues.", exampleEn: "We delete the blurry photos.", negative: "Nous ne supprimons pas les photos floues.", negativeEn: "We do not delete the blurry photos.", question: "Quelles photos supprimons-nous ?" },
+      { pronoun: "vous", form: "supprimez", full: "vous supprimez", ipa: "/vu sy.pʁi.me/", en: "you delete / remove", example: "Vous supprimez un paragraphe du texte.", exampleEn: "You remove a paragraph from the text.", negative: "Vous ne supprimez pas de paragraphe du texte.", negativeEn: "You do not remove a paragraph from the text.", question: "Quel paragraphe supprimez-vous du texte ?" },
+      { pronoun: "ils", form: "suppriment", full: "ils suppriment", ipa: "/il sy.pʁim/", en: "they delete / remove", example: "Ils suppriment les informations personnelles du document.", exampleEn: "They remove the personal information from the document.", negative: "Ils ne suppriment pas les informations personnelles du document.", negativeEn: "They do not remove the personal information from the document.", question: "Quelles informations suppriment-ils du document ?" },
+      { pronoun: "elles", form: "suppriment", full: "elles suppriment", ipa: "/ɛl sy.pʁim/", en: "they delete / remove", example: "Elles suppriment leurs anciens comptes.", exampleEn: "They delete their old accounts.", negative: "Elles ne suppriment pas leurs anciens comptes.", negativeEn: "They do not delete their old accounts.", question: "Quels comptes suppriment-elles ?" }
+    ];
+
     const falloirRows = [
       { pronoun: "il", form: "faut", full: "il faut", en: "one must / needs to", example: "Il faut réserver une table.", exampleEn: "We need to reserve a table.", negative: "Il ne faut pas réserver de table.", negativeEn: "We must not reserve a table.", question: "Faut-il réserver une table ?" }
     ];
@@ -1295,7 +1347,30 @@
     ];
 
     const impersonalFaireRows = [
-      { pronoun: "il", form: "fait", full: "il fait", en: "it is / weather expression", example: "Il fait chaud aujourd’hui.", exampleEn: "It is hot today.", negative: "Il ne fait pas chaud aujourd’hui.", negativeEn: "It is not hot today.", question: "Fait-il chaud aujourd’hui ?" }
+      { pronoun: "il", form: "fait", full: "il fait", ipa: "/il fɛ/", en: "it is / weather expression", example: "Il fait chaud aujourd’hui.", exampleEn: "It is hot today.", negative: "Il ne fait pas chaud aujourd’hui.", negativeEn: "It is not hot today.", question: "Fait-il chaud aujourd’hui ?" },
+      {
+        pronoun: "ça",
+        form: "fait",
+        full: "ça fait",
+        ipa: "/sa fɛ/",
+        en: "it has been / it makes / it feels",
+        examples: [
+          {
+            meaning: "elapsed duration: ça fait ... que",
+            fr: "Ça fait deux ans que j’habite ici.",
+            en: "I have lived here for two years.",
+            negative: "Ça ne fait pas deux ans que j’habite ici.",
+            question: "Ça fait combien de temps que vous habitez ici ?"
+          },
+          {
+            meaning: "effect or feeling: ça fait ...",
+            fr: "Ça fait du bien de se reposer.",
+            en: "Resting feels good.",
+            negative: "Ça ne fait pas de bien de travailler sans pause.",
+            question: "Est-ce que ça fait du bien de marcher un peu ?"
+          }
+        ]
+      }
     ];
 
     const impersonalEtreRows = [
@@ -1450,7 +1525,7 @@
         key: "impersonal",
         title: "Verbes impersonnels",
         indexTitle: "Impersonal",
-        descriptionHtml: "Impersonal verbs keep the fixed subject <strong>il</strong>. Here, <strong>il</strong> does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, and <strong>il pleut</strong> are set patterns to learn as chunks."
+        descriptionHtml: "Most impersonal verbs keep the fixed subject <strong>il</strong>, which does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, and <strong>il pleut</strong>. Spoken French also uses the fixed expression <strong>ça fait</strong> for elapsed time and effects. Learn these patterns as chunks."
       },
       {
         key: "pronominal",
@@ -1546,6 +1621,15 @@
         descriptionHtml: "<strong>Faire</strong> is very common and irregular. Compare <strong>fais / fait</strong> <strong>/fɛ/</strong>, <strong>faisons</strong> <strong>/fə.zɔ̃/</strong>, <strong>faites</strong> <strong>/fɛt/</strong>, and <strong>font</strong> <strong>/fɔ̃/</strong>.",
         rows: faireRows,
         extras: ["faireExpressions"]
+      },
+      {
+        key: "mettre",
+        group: "irregular",
+        label: "mettre",
+        title: "Mettre — to put / put on",
+        tag: "irregular",
+        descriptionHtml: "<strong>Mettre</strong> commonly means “to put,” but it also appears in <strong>mettre un manteau</strong> (put on a coat), <strong>mettre la table</strong> (set the table), and <strong>mettre du temps</strong> (take time). Its past participle is <strong>mis</strong>.",
+        rows: mettreRows
       },
       {
         key: "devoir",
@@ -1737,6 +1821,15 @@
         rows: chercherRows
       },
       {
+        key: "changer",
+        group: "regularEr",
+        label: "changer",
+        title: "Changer — to change / switch",
+        tag: "regular -er with spelling change",
+        descriptionHtml: "Use <strong>changer + direct object</strong> to alter or replace a specific thing: <strong>changer la date</strong>, <strong>changer une ampoule</strong>. Use <strong>changer de + noun</strong>, normally without an article, to switch from one item or category to another: <strong>changer de train</strong>, <strong>changer de travail</strong>, <strong>changer d’avis</strong>. The nous form keeps a soft <strong>g</strong> with an added <strong>e</strong>: <strong>nous changeons</strong>.",
+        rows: changerRows
+      },
+      {
         key: "manger",
         group: "regularEr",
         label: "manger",
@@ -1816,6 +1909,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Porter</strong> follows the regular -er pattern. It means both “to wear” clothing or accessories (<strong>porter un manteau</strong>) and “to carry” something (<strong>porter une valise</strong>).",
         rows: porterRows
+      },
+      {
+        key: "supprimer",
+        group: "regularEr",
+        label: "supprimer",
+        title: "Supprimer — to delete / remove",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Supprimer</strong> means “to delete, remove, or eliminate.” It is useful for digital items (<strong>supprimer un fichier</strong>) and for removing something from a text, plan, or routine. The double <strong>pp</strong> is pronounced as a single <strong>/p/</strong>.",
+        rows: supprimerRows
       },
       {
         key: "finir",
@@ -2144,10 +2246,11 @@
       {
         key: "impersonalFaire",
         group: "impersonal",
-        label: "il fait",
-        title: "Il fait — faire",
-        tag: "weather",
-        descriptionHtml: "Use <strong>il fait</strong> for many weather and temperature expressions: <strong>Il fait chaud.</strong>, <strong>Il fait froid.</strong>, <strong>Il fait beau.</strong>",
+        label: "il fait / ça fait",
+        syncInfinitive: "faire",
+        title: "Il fait / Ça fait — impersonal faire",
+        tag: "weather / duration / effect",
+        descriptionHtml: "Use <strong>il fait</strong> for weather and temperature: <strong>Il fait chaud.</strong> Use <strong>ça fait + duration + que</strong> for elapsed time and <strong>ça fait + expression</strong> for an effect or feeling: <strong>Ça fait deux ans que...</strong>, <strong>Ça fait du bien.</strong>",
         rows: impersonalFaireRows
       },
       {
@@ -2420,6 +2523,7 @@
       apprendre: ["The same sound pattern appears in <strong>apprends /a.pʁɑ̃/</strong>, <strong>apprenons /a.pʁə.nɔ̃/</strong>, and <strong>apprennent /a.pʁɛn/</strong>."],
       comprendre: ["The same sound pattern appears in <strong>comprends /kɔ̃.pʁɑ̃/</strong>, <strong>comprenons /kɔ̃.pʁə.nɔ̃/</strong>, and <strong>comprennent /kɔ̃.pʁɛn/</strong>."],
       faire: ["Pronunciation changes noticeably: <strong>fais / fait /fɛ/</strong>, <strong>faisons /fə.zɔ̃/</strong>, <strong>faites /fɛt/</strong>, and <strong>font /fɔ̃/</strong>."],
+      mettre: ["The final consonants are silent in <strong>mets / met /mɛ/</strong>, but the <strong>t</strong> is pronounced in <strong>mettons /mɛ.tɔ̃/</strong>, <strong>mettez /mɛ.te/</strong>, and <strong>mettent /mɛt/</strong>."],
       devoir: ["Three stem sounds appear: <strong>dois / doit /dwa/</strong>, <strong>devons /də.vɔ̃/</strong>, <strong>devez /də.ve/</strong>, and <strong>doivent /dwav/</strong>."],
       pouvoir: ["Compare <strong>peux / peut /pø/</strong>, <strong>pouvons / pouvez /pu.v-/</strong>, and <strong>peuvent /pœv/</strong>. Formal inversion uses <strong>Puis-je... ? /pɥiʒ/</strong>."],
       vouloir: ["Compare <strong>veux / veut /vø/</strong>, <strong>voulons /vu.lɔ̃/</strong>, <strong>voulez /vu.le/</strong>, and <strong>veulent /vœl/</strong>."],
@@ -2443,6 +2547,7 @@
       essayer: ["Before a silent ending, this app writes <strong>essaie / essaient /e.sɛ/</strong>; before pronounced endings, keep <strong>y</strong> and hear <strong>/j/</strong>: <strong>essayons /e.sɛ.jɔ̃/</strong>, <strong>essayez /e.sɛ.je/</strong>. The variants <strong>essaye / essayent</strong> are also accepted."],
       jouer: ["The vowel sequence contracts in singular and ils/elles forms: <strong>joue / jouent /ʒu/</strong>. Before pronounced endings, hear <strong>/w/</strong>: <strong>jouons /ʒwɔ̃/</strong>, <strong>jouez /ʒwe/</strong>."],
       manger: ["The added <strong>e</strong> in <strong>nous mangeons /mɑ̃.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
+      changer: ["The added <strong>e</strong> in <strong>nous changeons /ʃɑ̃.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       voyager: ["The added <strong>e</strong> in <strong>nous voyageons /vwa.ja.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       nager: ["The added <strong>e</strong> in <strong>nous nageons /na.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       commencer: ["The cedilla keeps the same <strong>/s/</strong> sound before <strong>o</strong>: <strong>commence /kɔ.mɑ̃s/</strong> and <strong>commençons /kɔ.mɑ̃.sɔ̃/</strong>."],
