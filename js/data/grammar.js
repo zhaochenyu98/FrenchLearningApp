@@ -13,7 +13,7 @@
         expression: "avoir besoin de",
         ipa: "/a.vwaʁ bə.zwɛ̃ də/",
         meaning: "to need",
-        note: "Use de + noun for what is needed, or de + infinitive for an action that is necessary.",
+        note: "Use de + noun for what is needed, or de + infinitive for a necessary action. The de remains in negative sentences.",
         examples: [
           {
             label: "de + noun",
@@ -32,6 +32,15 @@
             negativeEn: "We do not need to leave early.",
             question: "Avons-nous besoin de partir tôt ?",
             questionEn: "Do we need to leave early?"
+          },
+          {
+            label: "necessity",
+            fr: "Tu as besoin de te reposer.",
+            en: "You need to rest.",
+            negative: "Tu n’as pas besoin de te reposer.",
+            negativeEn: "You do not need to rest.",
+            question: "Pourquoi as-tu besoin de te reposer ?",
+            questionEn: "Why do you need to rest?"
           }
         ]
       },
@@ -39,7 +48,7 @@
         expression: "avoir envie de",
         ipa: "/a.vwaʁ ɑ̃.vi də/",
         meaning: "to feel like / to want",
-        note: "Use de + noun for a desired thing, or de + infinitive for an action someone feels like doing.",
+        note: "Use de + noun for a desired thing, or de + infinitive for an action someone feels like doing. This is a desire, not a necessity.",
         examples: [
           {
             label: "de + noun",
@@ -58,6 +67,15 @@
             negativeEn: "They do not feel like traveling this summer.",
             question: "Est-ce qu’ils ont envie de voyager cet été ?",
             questionEn: "Do they feel like traveling this summer?"
+          },
+          {
+            label: "desire",
+            fr: "Tu as envie de te reposer.",
+            en: "You feel like resting.",
+            negative: "Tu n’as pas envie de te reposer.",
+            negativeEn: "You do not feel like resting.",
+            question: "Pourquoi as-tu envie de te reposer ?",
+            questionEn: "Why do you feel like resting?"
           }
         ]
       }
