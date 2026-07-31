@@ -2575,6 +2575,181 @@
       box-shadow: var(--shadow);
     }
 
+    .conjunction-overview-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .conjunction-quick-note {
+      display: grid;
+      align-content: start;
+      gap: 5px;
+    }
+
+    .conjunction-quick-note > strong {
+      color: var(--accent);
+      font-size: 1.08rem;
+    }
+
+    .conjunction-quick-note .subject-form-tag {
+      justify-self: start;
+      margin-bottom: 0;
+    }
+
+    .conjunction-quick-note .grammar-note {
+      margin: 0;
+    }
+
+    .conjunction-quick-example {
+      border-top: 1px dashed var(--accent-border);
+      font-size: 0.96rem;
+      margin-top: 4px;
+      padding-top: 8px;
+    }
+
+    .conjunction-lesson-intro {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1.45fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .conjunction-word-btn {
+      width: 100%;
+      min-height: 176px;
+      border: 1px solid var(--accent-border);
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent-soft) 78%, var(--card)), var(--card));
+      color: var(--text);
+      cursor: pointer;
+      display: grid;
+      align-content: center;
+      justify-items: start;
+      gap: 7px;
+      padding: 18px;
+      text-align: left;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.2s ease;
+    }
+
+    .conjunction-word-btn:hover,
+    .conjunction-word-btn:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .conjunction-word-main {
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.08;
+    }
+
+    .conjunction-word-btn .pronunciation-word-ipa {
+      margin-top: 0;
+    }
+
+    .conjunction-word-btn .translation {
+      margin-top: 2px;
+      font-weight: 750;
+    }
+
+    .conjunction-lesson-copy {
+      min-width: 0;
+    }
+
+    .conjunction-lesson-copy > h3 {
+      margin-top: 0;
+    }
+
+    .conjunction-note-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .conjunction-note-card {
+      box-shadow: none;
+    }
+
+    .conjunction-rule-callout {
+      border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: var(--accent-soft);
+      display: grid;
+      gap: 4px;
+      line-height: 1.5;
+      margin-top: 12px;
+      padding: 12px 14px;
+    }
+
+    .conjunction-rule-callout strong {
+      color: var(--accent);
+    }
+
+    .conjunction-examples-heading {
+      margin-top: 18px;
+    }
+
+    .conjunction-example-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .conjunction-example-btn {
+      align-content: start;
+      display: grid;
+      min-height: 112px;
+    }
+
+    .conjunction-elision-table {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .conjunction-elision-header,
+    .conjunction-elision-row {
+      display: grid;
+      grid-template-columns: minmax(110px, 0.55fr) minmax(150px, 0.75fr) minmax(240px, 1.7fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .conjunction-elision-header {
+      border: 1px dashed var(--accent-border);
+      border-radius: 13px;
+      background: var(--accent-soft);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 9px 12px;
+    }
+
+    .conjunction-elision-row {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 11px 12px;
+    }
+
+    .conjunction-elision-cell {
+      min-width: 0;
+      line-height: 1.45;
+    }
+
+    .conjunction-elision-form {
+      display: grid;
+      justify-items: start;
+      gap: 2px;
+    }
+
+    .conjunction-elision-form .pronunciation-word-ipa {
+      margin-top: 2px;
+    }
+
     .summary-chip strong {
       display: block;
       margin-bottom: 4px;
@@ -2855,6 +3030,17 @@
 
       .object-pronoun-cell .question-cell-label {
         display: block;
+      }
+
+      .conjunction-overview-grid,
+      .conjunction-lesson-intro,
+      .conjunction-example-grid,
+      .conjunction-elision-row {
+        grid-template-columns: 1fr;
+      }
+
+      .conjunction-elision-header {
+        display: none;
       }
     }
 

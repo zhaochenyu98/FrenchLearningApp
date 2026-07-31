@@ -73,6 +73,29 @@
           { id: "tout", title: "Tout: 3 roles", elements: ['[data-study-section="adverb-tout"]'] }
         ]
       },
+      conjunctions: {
+        title: "Conjunction index",
+        sections() {
+          const items = FR.data.conjunctions && Array.isArray(FR.data.conjunctions.items)
+            ? FR.data.conjunctions.items
+            : [];
+          return [
+            {
+              id: "quick-notes",
+              title: "Quick guide",
+              open: true,
+              elements: ['[data-study-section="conjunction-quick-notes"]']
+            },
+            ...items.map(item => ({
+              id: item.id,
+              title: item.term,
+              open: item.id === "si",
+              elements: [`[data-study-section="conjunction-${item.id}"]`]
+            }))
+          ];
+        },
+        cleanupSelectors: ["#conjunctionSections"]
+      },
       prepositions: {
         title: "Preposition index",
         sections: [
@@ -234,6 +257,10 @@
         renderToutForms();
         renderToutPronouns();
         initializeStudyIndex("adverbs");
+      },
+      conjunctions() {
+        FR.renderers.conjunctions.renderAll();
+        initializeStudyIndex("conjunctions");
       },
       prepositions() {
         showPrepositionFlashcard();
@@ -1402,6 +1429,13 @@
       const config = studyIndexConfigs[tabName];
       const section = Array.from(sections).find(item => item.dataset.tab === tabName);
       if (!config || !section || section.querySelector(".study-nav-layout")) return;
+      const configuredSections = typeof config.sections === "function"
+        ? config.sections()
+        : config.sections;
+      if (!Array.isArray(configuredSections)) {
+        console.warn(`Skipped ${tabName} study index because its sections are invalid.`);
+        return;
+      }
 
       const layout = document.createElement("div");
       layout.className = "study-nav-layout";
@@ -1438,7 +1472,7 @@
       stack.className = "study-section-stack";
 
       const cards = [];
-      config.sections.forEach((item, index) => {
+      configuredSections.forEach((item, index) => {
         const elements = item.elements
           .map(descriptor => resolveStudyElement(section, descriptor))
           .filter(Boolean);

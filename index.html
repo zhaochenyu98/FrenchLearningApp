@@ -48,6 +48,7 @@
         <button class="tab-btn" type="button" data-tab="nouns">Nouns</button>
         <button class="tab-btn" type="button" data-tab="adjectives">Adjectives</button>
         <button class="tab-btn" type="button" data-tab="adverbs">Adverbs</button>
+        <button class="tab-btn" type="button" data-tab="conjunctions">Conjunctions</button>
         <button class="tab-btn" type="button" data-tab="prepositions">Prepositions</button>
         <button class="tab-btn" type="button" data-tab="determiners">Articles &amp; Determiners</button>
         <button class="tab-btn" type="button" data-tab="questions">Question Words</button>
@@ -769,6 +770,23 @@
         </div>
       </section>
 
+      <section id="conjunctionsSection" class="section" data-tab="conjunctions">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">French Conjunctions</h2>
+            <p class="section-desc">Learn how <strong>que</strong>, <strong>si</strong>, <strong>parce que</strong>, and <strong>quand</strong> connect ideas. Click a conjunction or example sentence for French audio.</p>
+          </div>
+        </div>
+
+        <div class="panel panel-bottom" data-study-section="conjunction-quick-notes">
+          <h3>Choose the connector by meaning</h3>
+          <p>Each conjunction introduces a different relationship between two clauses: content, condition, reason, or time.</p>
+          <div id="conjunctionQuickNotesGrid"></div>
+        </div>
+
+        <div id="conjunctionSections"></div>
+      </section>
+
       <section id="prepositionsSection" class="section" data-tab="prepositions">
         <div class="section-header">
           <div>
@@ -1344,6 +1362,7 @@
   <script defer src="js/data/questions.js"></script>
   <script defer src="js/data/vocabulary.js"></script>
   <script defer src="js/data/determiners-prepositions.js"></script>
+  <script defer src="js/data/conjunctions.js"></script>
   <script defer src="js/data/tenses.js"></script>
   <script defer src="js/data/imperative.js"></script>
   <script defer src="js/data/imparfait.js"></script>
@@ -1358,6 +1377,7 @@
   <script defer src="js/renderers/flashcards.js"></script>
   <script defer src="js/renderers/vocabulary.js"></script>
   <script defer src="js/renderers/questions.js"></script>
+  <script defer src="js/renderers/conjunctions.js"></script>
   <script defer src="js/renderers/calendar-determiners.js"></script>
   <script defer src="js/renderers/imparfait.js"></script>
   <script defer src="js/renderers/futur-simple.js"></script>

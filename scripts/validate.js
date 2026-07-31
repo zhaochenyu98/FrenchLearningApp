@@ -919,6 +919,70 @@ function validatePronunciationContent() {
   });
 }
 
+function validateConjunctionContent() {
+  const context = { window: {}, console };
+  context.window.window = context.window;
+  vm.createContext(context);
+  [
+    "js/core/namespace.js",
+    "js/data/conjunctions.js"
+  ].forEach(scriptPath => {
+    vm.runInContext(
+      fs.readFileSync(path.join(root, scriptPath), "utf8"),
+      context,
+      { filename: scriptPath }
+    );
+  });
+
+  const data = context.window.FR && context.window.FR.data.conjunctions;
+  if (!data || !Array.isArray(data.items)) {
+    fail("conjunction data is not registered");
+    return;
+  }
+
+  const expectedIds = ["que", "si", "parce-que", "quand"];
+  const actualIds = data.items.map(item => item.id);
+  const missingItems = expectedIds.filter(id => !actualIds.includes(id));
+  if (missingItems.length) {
+    fail(`conjunction tab is missing: ${missingItems.join(", ")}`);
+  }
+
+  data.items.forEach(item => {
+    if (!item.term || !item.ipa || !item.english || !item.description) {
+      fail(`${item.id || "unnamed conjunction"} is missing its word, IPA, English equivalent, or description`);
+    }
+    if (!Array.isArray(item.examples) || item.examples.length < 4) {
+      fail(`${item.term} needs at least four example sentences`);
+    } else if (item.examples.some(example => !example.fr || !example.en)) {
+      fail(`${item.term} has an example missing French or English`);
+    }
+  });
+
+  const si = data.items.find(item => item.id === "si");
+  const expectedElisions = new Map([
+    ["il", "s’il"],
+    ["ils", "s’ils"],
+    ["elle", "si elle"],
+    ["elles", "si elles"],
+    ["on", "si on"]
+  ]);
+  const siRows = new Map((si && si.elisionRows || []).map(row => [row.subject, row.form]));
+  expectedElisions.forEach((form, subject) => {
+    if (siRows.get(subject) !== form) {
+      fail(`si + ${subject}: expected ${form}, found ${siRows.get(subject) || "missing"}`);
+    }
+  });
+
+  const conjunctionText = JSON.stringify(data);
+  ["s’elle", "s’elles", "s’on"].forEach(invalidForm => {
+    const validCorrection = `never *${invalidForm}`;
+    const occurrences = conjunctionText.split(invalidForm).length - 1;
+    if (occurrences && !conjunctionText.includes(validCorrection)) {
+      fail(`conjunction content contains invalid ${invalidForm} without marking it as incorrect`);
+    }
+  });
+}
+
 function validateVocabularyCorrections() {
   const context = {};
   vm.createContext(context);
@@ -1024,6 +1088,12 @@ try {
   validatePronunciationContent();
 } catch (error) {
   fail(`pronunciation validation crashed: ${error.message}`);
+}
+
+try {
+  validateConjunctionContent();
+} catch (error) {
+  fail(`conjunction validation crashed: ${error.message}`);
 }
 
 try {
