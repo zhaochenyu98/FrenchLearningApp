@@ -33,6 +33,7 @@
         sections: [
           { id: "start", title: "Start here", open: true, elements: ['[data-study-section="object-start"]'] },
           { id: "cod", title: "COD", open: true, elements: ['[data-study-section="object-cod"]'] },
+          { id: "tout", title: "Les + tous / toutes", open: true, elements: ['[data-study-section="object-tout"]'] },
           { id: "coi", title: "COI", open: true, elements: ['[data-study-section="object-coi"]'] },
           { id: "y", title: "Y", elements: ['[data-study-section="object-y"]'] },
           { id: "en", title: "En", elements: ['[data-study-section="object-en"]'] },

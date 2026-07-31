@@ -834,6 +834,27 @@ function validateObjectPronounContent(data) {
   if (!agreementText.includes("Des fleurs, j'en ai acheté.")) {
     fail("object-pronoun guide must teach normal no agreement with en");
   }
+  const totalGuide = objects.totalWithObjects;
+  if (!totalGuide || !Array.isArray(totalGuide.forms) || !Array.isArray(totalGuide.patterns)) {
+    fail("object-pronoun guide must include tout, tous, and toutes");
+    return;
+  }
+  const totalForms = new Map(totalGuide.forms.map(item => [item.form, item.ipa]));
+  [["tout", "/tu/"], ["tous", "/tus/"], ["toutes", "/tut/"]].forEach(([form, ipa]) => {
+    if (totalForms.get(form) !== ipa) fail(`object-pronoun ${form} must use IPA ${ipa}`);
+  });
+  const totalExamples = JSON.stringify(totalGuide.patterns);
+  [
+    "Mes voisins, je les connais tous.",
+    "Mes voisines, je les connais toutes.",
+    "Ces livres, je les ai tous lus.",
+    "Ces lettres, je les ai toutes lues.",
+    "Je vais tous les inviter.",
+    "Invitez-les toutes !",
+    "Je ne les connais pas tous."
+  ].forEach(example => {
+    if (!totalExamples.includes(example)) fail(`object-pronoun totality guide is missing ${example}`);
+  });
 }
 
 function validateNumberRules() {

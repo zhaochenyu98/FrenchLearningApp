@@ -169,6 +169,90 @@
     ]
   };
 
+  const totalWithObjects = {
+    forms: [
+      {
+        form: "tout",
+        ipa: "/tu/",
+        label: "Neutral singular",
+        meaning: "everything / all of it",
+        note: "Tout replaces an entire idea or set of things by itself. Do not add le or la before it.",
+        example: { fr: "Je comprends tout.", en: "I understand everything." }
+      },
+      {
+        form: "tous",
+        ipa: "/tus/",
+        label: "Masculine or mixed plural",
+        meaning: "all of them",
+        note: "Tous agrees with a masculine or mixed plural noun resumed by the COD pronoun. As a pronoun, its final s is pronounced.",
+        example: { fr: "Ces étudiants, je les connais tous.", en: "These students, I know all of them." }
+      },
+      {
+        form: "toutes",
+        ipa: "/tut/",
+        label: "Feminine plural",
+        meaning: "all of them",
+        note: "Toutes agrees with a feminine plural noun resumed by the COD pronoun.",
+        example: { fr: "Ces étudiantes, je les connais toutes.", en: "These female students, I know all of them." }
+      }
+    ],
+    patterns: [
+      {
+        id: "tout-simple",
+        title: "Simple tense and question",
+        template: "les + conjugated verb + tous / toutes",
+        note: "After a simple conjugated verb, place tous or toutes after the verb. It agrees with the noun represented by les.",
+        examples: [
+          { label: "Masculine or mixed", fr: "Mes voisins, je les connais tous.", en: "My neighbors, I know all of them." },
+          { label: "Feminine", fr: "Mes voisines, je les connais toutes.", en: "My female neighbors, I know all of them." },
+          { label: "Question", fr: "Les connais-tu tous ?", en: "Do you know all of them?" }
+        ]
+      },
+      {
+        id: "tout-passe-compose",
+        title: "Passé composé",
+        template: "les + auxiliary + tous / toutes + past participle",
+        note: "Place tous or toutes between the auxiliary and past participle. The preceding COD les, not tous or toutes, controls past-participle agreement.",
+        examples: [
+          { label: "Masculine plural", fr: "Ces livres, je les ai tous lus.", en: "These books, I read all of them." },
+          { label: "Feminine plural", fr: "Ces lettres, je les ai toutes lues.", en: "These letters, I read all of them." },
+          { label: "Question", fr: "Les as-tu toutes lues ?", en: "Did you read all of them?" }
+        ]
+      },
+      {
+        id: "tout-infinitive",
+        title: "Conjugated verb + infinitive",
+        template: "conjugated verb + tous / toutes + les + infinitive",
+        note: "When les belongs to an infinitive, a common placement puts tous or toutes immediately before les and the infinitive.",
+        examples: [
+          { label: "Masculine or mixed", fr: "Je vais tous les inviter.", en: "I am going to invite all of them." },
+          { label: "Feminine", fr: "Je veux toutes les rencontrer.", en: "I want to meet all of them." }
+        ]
+      },
+      {
+        id: "tout-imperative",
+        title: "Affirmative imperative",
+        template: "imperative + les + tous / toutes",
+        note: "Attach the COD pronoun to the affirmative imperative, then place tous or toutes after it.",
+        examples: [
+          { label: "Masculine or mixed", fr: "Invitez-les tous !", en: "Invite all of them!" },
+          { label: "Feminine", fr: "Invitez-les toutes !", en: "Invite all of them!" }
+        ]
+      },
+      {
+        id: "tout-negation",
+        title: "Negation: not all is not none",
+        template: "ne + les + verb + pas + tous / toutes",
+        note: "Pas tous or pas toutes means “not all of them.” It does not mean that none are included.",
+        examples: [
+          { label: "Not all, masculine or mixed", fr: "Je ne les connais pas tous.", en: "I do not know all of them." },
+          { label: "Not all, feminine", fr: "Je ne les connais pas toutes.", en: "I do not know all of them." },
+          { label: "None", fr: "Je ne connais aucun de mes voisins.", en: "I know none of my neighbors." }
+        ]
+      }
+    ]
+  };
+
   const placement = {
     regularOrder: {
       label: "Normal order before a verb",
@@ -405,9 +489,10 @@
   ];
 
   FR.data.objectPronouns = {
-    version: 1,
+    version: 2,
     decisionMatrix,
     formsAtAGlance,
+    totalWithObjects,
     placement,
     contrasts
   };

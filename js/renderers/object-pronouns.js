@@ -7,6 +7,7 @@
   const targetIds = Object.freeze({
     decision: "objectDecisionGrid",
     forms: "objectFormsGrid",
+    totals: "objectToutGrid",
     placement: "objectPlacementGrid",
     contrasts: "objectContrastGrid"
   });
@@ -59,6 +60,10 @@
     const french = createElement("span", "noun-example-main", sentence.fr);
     french.lang = "fr";
     button.appendChild(french);
+
+    if (sentence.ipa) {
+      button.appendChild(createElement("span", "ipa", sentence.ipa));
+    }
 
     if (sentence.en) {
       const translation = createElement("span", "translation", sentence.en);
@@ -255,10 +260,10 @@
     });
   }
 
-  function renderPlacementRows(target, rows) {
+  function renderPlacementRows(target, rows, ariaLabel = "Object-pronoun placement by sentence type") {
     const table = createTable(
       ["Sentence type", "Placement", "Examples"],
-      "Object-pronoun placement by sentence type",
+      ariaLabel,
       "object-placement-table"
     );
 
@@ -284,6 +289,40 @@
     });
 
     target.appendChild(table);
+  }
+
+  function renderTotalWithObjects() {
+    return renderSafely(targetIds.totals, "Tout with COD pronouns", (target, data) => {
+      const guide = data.totalWithObjects;
+      if (!guide || !Array.isArray(guide.forms) || !Array.isArray(guide.patterns)) {
+        throw new Error("The tout-with-objects guide is incomplete.");
+      }
+
+      target.appendChild(createSectionHeading(
+        "Choose the agreeing form",
+        "The object pronoun remains les. Tout, tous, or toutes adds the idea of totality."
+      ));
+
+      const formCards = createElement("div", "object-pronoun-card-grid object-total-form-grid");
+      guide.forms.forEach(item => {
+        const card = createElement("article", "object-pronoun-info-card");
+        card.dataset.totalForm = item.form;
+        card.appendChild(createAudioSentence(
+          { fr: item.form, ipa: item.ipa, en: item.meaning },
+          item.label
+        ));
+        card.appendChild(createNote(item.note));
+        card.appendChild(createAudioSentence(item.example, "Example"));
+        formCards.appendChild(card);
+      });
+      target.appendChild(formCards);
+
+      target.appendChild(createSectionHeading(
+        "Placement with a COD pronoun",
+        "The position changes with the verb structure. Click any example to hear the full sentence."
+      ));
+      renderPlacementRows(target, guide.patterns, "Tout, tous, and toutes with COD pronouns");
+    });
   }
 
   function renderImperative(target, imperative) {
@@ -373,6 +412,7 @@
     return {
       decision: renderDecisionMatrix(),
       forms: renderFormsAtAGlance(),
+      totals: renderTotalWithObjects(),
       placement: renderPlacementGuide(),
       contrasts: renderContrastTransformations()
     };
@@ -383,6 +423,7 @@
     renderAll,
     renderDecisionMatrix,
     renderFormsAtAGlance,
+    renderTotalWithObjects,
     renderPlacementGuide,
     renderContrastTransformations
   };
