@@ -213,6 +213,13 @@
       "Ne parle pas pendant le film !",
       "Do not talk during the movie!"
     ),
+    expliquer: command(
+      "Explique la règle à Marie !",
+      "Explain the rule to Marie!",
+      "N’explique pas tout trop vite !",
+      "Do not explain everything too quickly!",
+      "Regular -er imperative: explique, expliquons, expliquez. The tu form drops its final -s."
+    ),
     chercher: command(
       "Cherche tes clés dans l’entrée !",
       "Look for your keys in the entryway!",

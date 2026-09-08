@@ -352,6 +352,7 @@
     servir: Object.freeze(["le dîner à sept heures", "serve dinner at seven o’clock"]),
     sentir: Object.freeze(["le parfum des fleurs", "smell the flowers’ fragrance"]),
     parler: Object.freeze(["français à la maison", "speak French at home"]),
+    expliquer: Object.freeze(["la leçon aux élèves", "explain the lesson to the students"]),
     chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
     changer: Object.freeze(["souvent de train à Lyon", "often change trains in Lyon"]),
     manger: Object.freeze(["à la cantine", "eat in the cafeteria"]),

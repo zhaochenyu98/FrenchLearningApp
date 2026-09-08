@@ -12,6 +12,14 @@
             variants: [
               { fr: "Qui connais-tu ?", en: "Who do you know?" }
             ]
+          },
+          {
+            label: "Inversion complexe · qui as object",
+            fr: "Qui Marie invite-t-elle ?",
+            en: "Who is Marie inviting?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Marie invite qui ?", en: "Who is Marie inviting?" }
+            ]
           }
         ]
       },
@@ -31,7 +39,8 @@
             fr: "Quand commence le cours ?",
             en: "When does the class start?",
             variants: [
-              { fr: "Le cours commence quand ?", en: "When does the class start?" }
+              { label: "Without inversion · spoken form", fr: "Le cours commence quand ?", en: "When does the class start?" },
+              { label: "Inversion complexe", fr: "Quand le cours commence-t-il ?", en: "When does the class start?" }
             ]
           },
           {
@@ -68,6 +77,14 @@
             variants: [
               { fr: "Où va-t-on ?", en: "Where are we going?" }
             ]
+          },
+          {
+            label: "Inversion complexe",
+            fr: "Où les enfants vont-ils ?",
+            en: "Where are the children going?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Les enfants vont où ?", en: "Where are the children going?" }
+            ]
           }
         ]
       },
@@ -90,13 +107,21 @@
             variants: [
               { fr: "On dit ça comment en français ?", en: "How do you say that in French?" }
             ]
+          },
+          {
+            label: "Inversion complexe",
+            fr: "Comment Marie apprend-elle le français ?",
+            en: "How does Marie learn French?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Marie apprend le français comment ?", en: "How does Marie learn French?" }
+            ]
           }
         ]
       },
       {
         fr: "quoi",
         en: "what",
-        note: "common in informal questions",
+        note: "common in informal questions; also used after a preposition",
         examples: [
           {
             fr: "Tu fais quoi ?",
@@ -117,6 +142,14 @@
             en: "What do you want?",
             variants: [
               { fr: "Que veux-tu ?", en: "What do you want?" }
+            ]
+          },
+          {
+            label: "Inversion complexe · preposition + quoi",
+            fr: "À quoi Marie pense-t-elle ?",
+            en: "What is Marie thinking about?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Marie pense à quoi ?", en: "What is Marie thinking about?" }
             ]
           }
         ]
@@ -147,6 +180,11 @@
             variants: [
               { fr: "Qu’est-ce que vous cherchez ?", en: "What are you looking for?" }
             ]
+          },
+          {
+            label: "Noun-subject inversion · no repeated pronoun with que",
+            fr: "Que regarde Marie ?",
+            en: "What is Marie watching?"
           }
         ]
       },
@@ -182,6 +220,14 @@
             variants: [
               { label: "Answer with parce que", fr: "Parce que je suis déjà occupé.", en: "Because I am already busy." }
             ]
+          },
+          {
+            label: "Inversion complexe",
+            fr: "Pourquoi le train est-il en retard ?",
+            en: "Why is the train late?",
+            variants: [
+              { label: "Without inversion · est-ce que form", fr: "Pourquoi est-ce que le train est en retard ?", en: "Why is the train late?" }
+            ]
           }
         ]
       },
@@ -211,6 +257,14 @@
             variants: [
               { fr: "Tu aimes quels livres ?", en: "Which books do you like?" }
             ]
+          },
+          {
+            label: "Inversion complexe",
+            fr: "Quels livres les filles lisent-elles ?",
+            en: "Which books are the girls reading?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Les filles lisent quels livres ?", en: "Which books are the girls reading?" }
+            ]
           }
         ]
       },
@@ -233,7 +287,23 @@
               { fr: "Tu as combien de frères ?", en: "How many brothers do you have?" }
             ]
           },
-          { fr: "Il y a combien de personnes ?", en: "How many people are there?" }
+          { fr: "Il y a combien de personnes ?", en: "How many people are there?" },
+          {
+            label: "Inversion complexe · price",
+            fr: "Combien ce livre coûte-t-il ?",
+            en: "How much does this book cost?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Ce livre coûte combien ?", en: "How much does this book cost?" }
+            ]
+          },
+          {
+            label: "Inversion complexe · combien de + noun",
+            fr: "Combien de livres Marie a-t-elle ?",
+            en: "How many books does Marie have?",
+            variants: [
+              { label: "Without inversion · spoken form", fr: "Marie a combien de livres ?", en: "How many books does Marie have?" }
+            ]
+          }
         ]
       },
       {
@@ -245,7 +315,8 @@
             fr: "À quelle heure commence le cours ?",
             en: "What time does the class start?",
             variants: [
-              { fr: "Le cours commence à quelle heure ?", en: "What time does the class start?" }
+              { label: "Without inversion · spoken form", fr: "Le cours commence à quelle heure ?", en: "What time does the class start?" },
+              { label: "Inversion complexe", fr: "À quelle heure le cours commence-t-il ?", en: "What time does the class start?" }
             ]
           },
           {
@@ -291,6 +362,14 @@
             variants: [
               { fr: "Il pleut ?", en: "Is it raining?" },
               { fr: "Pleut-il ?", en: "Is it raining?" }
+            ]
+          },
+          {
+            label: "Without inversion · est-ce que form",
+            fr: "Est-ce que Marie est prête ?",
+            en: "Is Marie ready?",
+            variants: [
+              { label: "Inversion complexe · alternative to est-ce que", fr: "Marie est-elle prête ?", en: "Is Marie ready?" }
             ]
           }
         ]

@@ -55,6 +55,17 @@
       { pronoun: "elles", form: "parlent", full: "elles parlent", en: "they speak / talk", example: "Elles parlent anglais au bureau.", exampleEn: "They speak English at the office.", negative: "Elles ne parlent pas anglais au bureau.", negativeEn: "They do not speak English at the office." }
     ];
 
+    const expliquerRows = [
+      { pronoun: "j’", form: "explique", full: "j’explique", ipa: "/ʒɛks.plik/", en: "I explain", example: "J’explique la règle à Marie.", exampleEn: "I explain the rule to Marie.", negative: "Je n’explique pas la règle à Marie.", negativeEn: "I do not explain the rule to Marie.", question: "Est-ce que j’explique la règle à Marie ?" },
+      { pronoun: "tu", form: "expliques", full: "tu expliques", ipa: "/ty ɛks.plik/", en: "you explain", example: "Tu expliques le problème.", exampleEn: "You explain the problem.", negative: "Tu n’expliques pas le problème.", negativeEn: "You do not explain the problem.", question: "Quel problème expliques-tu ?" },
+      { pronoun: "il", form: "explique", full: "il explique", ipa: "/il ɛks.plik/", en: "he explains", example: "Il explique son choix.", exampleEn: "He explains his choice.", negative: "Il n’explique pas son choix.", negativeEn: "He does not explain his choice.", question: "Pourquoi explique-t-il son choix ?" },
+      { pronoun: "elle", form: "explique", full: "elle explique", ipa: "/ɛl ɛks.plik/", en: "she explains", example: "Elle explique comment ouvrir le fichier.", exampleEn: "She explains how to open the file.", negative: "Elle n’explique pas comment ouvrir le fichier.", negativeEn: "She does not explain how to open the file.", question: "Explique-t-elle comment ouvrir le fichier ?" },
+      { pronoun: "nous", form: "expliquons", full: "nous expliquons", ipa: "/nu.zɛks.pli.kɔ̃/", en: "we explain", example: "Nous expliquons la leçon aux élèves.", exampleEn: "We explain the lesson to the students.", negative: "Nous n’expliquons pas la leçon aux élèves.", negativeEn: "We do not explain the lesson to the students.", question: "À qui expliquons-nous la leçon ?" },
+      { pronoun: "vous", form: "expliquez", full: "vous expliquez", ipa: "/vu.zɛks.pli.ke/", en: "you explain", example: "Vous expliquez les instructions clairement.", exampleEn: "You explain the instructions clearly.", negative: "Vous n’expliquez pas les instructions clairement.", negativeEn: "You do not explain the instructions clearly.", question: "Comment expliquez-vous les instructions ?" },
+      { pronoun: "ils", form: "expliquent", full: "ils expliquent", ipa: "/il.zɛks.plik/", en: "they explain", example: "Ils expliquent pourquoi le train est en retard.", exampleEn: "They explain why the train is late.", negative: "Ils n’expliquent pas pourquoi le train est en retard.", negativeEn: "They do not explain why the train is late.", question: "Expliquent-ils pourquoi le train est en retard ?" },
+      { pronoun: "elles", form: "expliquent", full: "elles expliquent", ipa: "/ɛl.zɛks.plik/", en: "they explain", example: "Elles expliquent leur méthode.", exampleEn: "They explain their method.", negative: "Elles n’expliquent pas leur méthode.", negativeEn: "They do not explain their method.", question: "Quelle méthode expliquent-elles ?" }
+    ];
+
     const chercherRows = [
       { pronoun: "je", form: "cherche", full: "je cherche", en: "I look for", example: "Je cherche mes clés.", exampleEn: "I am looking for my keys.", negative: "Je ne cherche pas mes clés.", negativeEn: "I am not looking for my keys." },
       { pronoun: "tu", form: "cherches", full: "tu cherches", en: "you look for", example: "Tu cherches un café.", exampleEn: "You are looking for a café.", negative: "Tu ne cherches pas de café.", negativeEn: "You are not looking for a café.", question: "Que cherches-tu ?" },
@@ -1810,6 +1821,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Parler</strong> follows the regular -er present-tense pattern. Learn its three common patterns: <strong>parler français</strong> (speak French), <strong>parler à quelqu’un</strong> (talk to someone), and <strong>parler de quelque chose / quelqu’un</strong> (talk about something/someone).",
         rows: parlerRows
+      },
+      {
+        key: "expliquer",
+        group: "regularEr",
+        label: "expliquer",
+        title: "Expliquer — to explain",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Expliquer</strong> follows the regular -er pattern. Use <strong>expliquer quelque chose à quelqu’un</strong> to explain something to someone: <strong>J’explique la règle à Marie.</strong> Keep <strong>qu</strong> in every form, including <strong>nous expliquons</strong>. You can also explain how or why: <strong>Elle explique comment ouvrir le fichier.</strong>",
+        rows: expliquerRows
       },
       {
         key: "chercher",

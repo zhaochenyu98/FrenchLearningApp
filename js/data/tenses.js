@@ -23,6 +23,19 @@
             question: { fr: "Est-ce que j’ai bien parlé avec le professeur ?", en: "Did I speak well with the teacher?" }
           },
           {
+            infinitive: "expliquer",
+            infinitiveIpa: "/ɛks.pli.ke/",
+            meaning: "to explain",
+            auxiliary: "avoir",
+            pastParticiple: "expliqué",
+            pastParticipleIpa: "/ɛks.pli.ke/",
+            pattern: "expliquer → expliqué",
+            note: "Regular -er past participle. Use expliquer quelque chose à quelqu’un to explain something to someone.",
+            statement: { fr: "J’ai expliqué la règle à Marie.", en: "I explained the rule to Marie." },
+            negative: { fr: "Je n’ai pas expliqué la règle à Marie.", en: "I did not explain the rule to Marie." },
+            question: { fr: "As-tu expliqué la règle à Marie ?", en: "Did you explain the rule to Marie?" }
+          },
+          {
             infinitive: "chercher",
             infinitiveIpa: "/ʃɛʁʃe/",
             meaning: "to look for",

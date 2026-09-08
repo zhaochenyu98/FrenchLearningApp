@@ -495,12 +495,36 @@
     const adjectivePreposedPluralRules = [
       {
         rule: "des → de",
-        pattern: "When an adjective comes before a plural noun, des often becomes de.",
+        pattern: "Before an adjective placed before a plural noun, the indefinite article des usually becomes de in writing and careful speech. The noun stays plural.",
         examples: [
-          { from: "un nouveau film", to: "de nouveaux films", en: "a new movie / new movies" },
-          { from: "un beau vêtement", to: "de beaux vêtements", en: "a beautiful garment / beautiful clothes" },
-          { from: "une belle fleur", to: "de belles fleurs", en: "a beautiful flower / beautiful flowers" },
-          { from: "un vieux tableau", to: "de vieux tableaux", en: "an old painting / old paintings" }
+          { from: "des films", to: "de nouveaux films", en: "some movies → some new movies" },
+          { from: "des vêtements", to: "de beaux vêtements", en: "some clothes → some beautiful clothes" },
+          { from: "des fleurs", to: "de belles fleurs", en: "some flowers → some beautiful flowers" },
+          { from: "J’achète des livres.", to: "J’achète de bons livres.", en: "I buy some books. → I buy some good books." }
+        ]
+      },
+      {
+        rule: "des → d’",
+        pattern: "Use d’ instead of de before an adjective beginning with a vowel sound or mute h.",
+        examples: [
+          { from: "des idées", to: "d’excellentes idées", en: "some ideas → some excellent ideas" },
+          { from: "Nous avons des amis.", to: "Nous avons d’autres amis.", en: "We have some friends. → We have other friends." }
+        ]
+      },
+      {
+        rule: "After the noun: keep des",
+        pattern: "Adding an adjective after the noun does not trigger this change. Compare the position of the adjective.",
+        examples: [
+          { from: "des maisons", to: "des maisons rouges", en: "some houses → some red houses" },
+          { from: "J’achète des livres.", to: "J’achète des livres intéressants.", en: "I buy some books. → I buy some interesting books." }
+        ]
+      },
+      {
+        rule: "Fixed combinations: keep des",
+        pattern: "When the adjective and noun form a compound with its own meaning, keep des: petits pois means peas, and grands-parents means grandparents.",
+        examples: [
+          { from: "un petit pois", to: "des petits pois", en: "a pea → some peas" },
+          { from: "un grand-parent", to: "des grands-parents", en: "a grandparent → some grandparents" }
         ]
       }
     ];

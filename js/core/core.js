@@ -143,6 +143,7 @@
     const adjectiveFeminineGrid = document.getElementById("adjectiveFeminineGrid");
     const adjectivePluralGrid = document.getElementById("adjectivePluralGrid");
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
+    const articlePreposedPluralGrid = document.getElementById("articlePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
     const adverbAmountComparisonGrid = document.getElementById("adverbAmountComparisonGrid");
     const degreeWordsGrid = document.getElementById("degreeWordsGrid");

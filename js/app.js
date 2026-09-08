@@ -270,6 +270,7 @@
       },
       determiners() {
         renderArticleComparison();
+        renderAdjectivePreposedPluralRules(adjectivePreposedPluralRules, articlePreposedPluralGrid);
         renderPartitiveArticles();
         renderPartitiveUsageRules();
         renderDeterminerCards(aArticleGrid, aArticleRules);

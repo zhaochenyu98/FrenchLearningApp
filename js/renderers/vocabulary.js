@@ -242,12 +242,12 @@
       );
     }
 
-    function renderAdjectivePreposedPluralRules(list = adjectivePreposedPluralRules) {
+    function renderAdjectivePreposedPluralRules(list = adjectivePreposedPluralRules, container = adjectivePreposedPluralGrid) {
       renderAdjectiveRuleTable(
-        adjectivePreposedPluralGrid,
+        container,
         list,
         "No preposed adjective rules available.",
-        { rule: "Article rule", pattern: "How it changes", examples: "Singular → plural examples" }
+        { rule: "Article rule", pattern: "How it changes", examples: "Compare the phrases / sentences" }
       );
     }
 
