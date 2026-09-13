@@ -162,6 +162,7 @@
     const prepositionAArticleGrid = document.getElementById("prepositionAArticleGrid");
     const prepositionDeArticleGrid = document.getElementById("prepositionDeArticleGrid");
     const prepositionTable = document.getElementById("prepositionTable");
+    const geographicPrepositionGrid = document.getElementById("geographicPrepositionGrid");
     const timePrepositionTable = document.getElementById("timePrepositionTable");
     const dePrepositionVsArticleGrid = document.getElementById("dePrepositionVsArticleGrid");
     const timeSpanComparisonGrid = document.getElementById("timeSpanComparisonGrid");

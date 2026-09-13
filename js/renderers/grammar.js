@@ -65,6 +65,7 @@
             <span class="tonic-pronoun-cell-label">Plural French</span>
             <div class="tonic-pronoun-form-list">
               ${rowData.pluralForms.map(getPronounFormCardHtml).join("")}
+              ${rowData.pluralNote ? `<span class="translation">${rowData.pluralNote}</span>` : ""}
             </div>
           </div>
         `;

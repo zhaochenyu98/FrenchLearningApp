@@ -606,6 +606,115 @@
       }
     ];
 
+    const geographicPrepositionColumns = [
+      { key: "destination", title: "Going to · 去", note: "Aller + place" },
+      { key: "location", title: "Being in · 在", note: "Habiter / être + place" },
+      { key: "origin", title: "Coming from · 来自", note: "Venir / revenir de + place" }
+    ];
+
+    const geographicPrepositionRows = [
+      {
+        en: "Paris · city",
+        topic: "Most cities: à → de / d’",
+        agreement: "No article: à Paris, de Paris; à Amsterdam, d’Amsterdam.",
+        examples: {
+          destination: { fr: "Je vais à Paris.", en: "I am going to Paris." },
+          location: { fr: "J’habite à Paris.", en: "I live in Paris." },
+          origin: { fr: "Je viens de Paris.", en: "I come from Paris." }
+        }
+      },
+      {
+        en: "La France · feminine country",
+        topic: "en → de / d’",
+        agreement: "Drop la for origin: de France. Before a vowel: en Allemagne, d’Allemagne.",
+        examples: {
+          destination: { fr: "Je vais en France.", en: "I am going to France." },
+          location: { fr: "J’habite en France.", en: "I live in France." },
+          origin: { fr: "Je viens de France.", en: "I come from France." }
+        }
+      },
+      {
+        en: "Le Canada · masculine country",
+        topic: "Consonant initial: au → du",
+        agreement: "à + le = au; de + le = du. Also au Japon / du Japon and au Mexique / du Mexique.",
+        examples: {
+          destination: { fr: "Je vais au Canada.", en: "I am going to Canada." },
+          location: { fr: "J’habite au Canada.", en: "I live in Canada." },
+          origin: { fr: "Je viens du Canada.", en: "I come from Canada." }
+        }
+      },
+      {
+        en: "L’Iran · masculine country",
+        topic: "Vowel initial: en → d’",
+        agreement: "Singular masculine countries beginning with a vowel use en. For origin, drop the article and use d’.",
+        examples: {
+          destination: { fr: "Je vais en Iran.", en: "I am going to Iran." },
+          location: { fr: "J’habite en Iran.", en: "I live in Iran." },
+          origin: { fr: "Je viens d’Iran.", en: "I come from Iran." }
+        }
+      },
+      {
+        en: "Les États-Unis · plural country",
+        topic: "aux → des",
+        agreement: "Plural takes priority, even before a vowel: à + les = aux; de + les = des. Also aux Pays-Bas / des Pays-Bas.",
+        examples: {
+          destination: { fr: "Je vais aux États-Unis.", en: "I am going to the United States." },
+          location: { fr: "J’habite aux États-Unis.", en: "I live in the United States." },
+          origin: { fr: "Je viens des États-Unis.", en: "I come from the United States." }
+        }
+      },
+      {
+        en: "L’Europe · continent",
+        topic: "en → de / d’",
+        agreement: "Continents use en: en Europe / d’Europe, en Asie / d’Asie.",
+        examples: {
+          destination: { fr: "Je vais en Europe.", en: "I am going to Europe." },
+          location: { fr: "J’habite en Europe.", en: "I live in Europe." },
+          origin: { fr: "Je viens d’Europe.", en: "I come from Europe." }
+        }
+      },
+      {
+        en: "La Californie · state",
+        topic: "Common feminine pattern: en → de",
+        agreement: "Learn the usual preposition with each state or region; regional names have exceptions.",
+        examples: {
+          destination: { fr: "Je vais en Californie.", en: "I am going to California." },
+          location: { fr: "J’habite en Californie.", en: "I live in California." },
+          origin: { fr: "Je viens de Californie.", en: "I come from California." }
+        }
+      },
+      {
+        en: "Le Québec · province",
+        topic: "au → du",
+        agreement: "The province is au Québec / du Québec; the city is à Québec / de Québec.",
+        examples: {
+          destination: { fr: "Je vais au Québec.", en: "I am going to Quebec (the province)." },
+          location: { fr: "J’habite au Québec.", en: "I live in Quebec (the province)." },
+          origin: { fr: "Je viens du Québec.", en: "I come from Quebec (the province)." }
+        }
+      },
+      {
+        en: "Cuba · country without an article",
+        topic: "Learn exceptions: à → de",
+        agreement: "Some country names take no article and use à, such as Cuba and Monaco. Island names vary; learn each with its preposition.",
+        examples: {
+          destination: { fr: "Je vais à Cuba.", en: "I am going to Cuba." },
+          location: { fr: "J’habite à Cuba.", en: "I live in Cuba." },
+          origin: { fr: "Je viens de Cuba.", en: "I come from Cuba." }
+        }
+      },
+      {
+        en: "Le Havre · city with an article",
+        topic: "à + le → au; de + le → du",
+        agreement: "A city's article can change the pattern. La stays separate: à La Rochelle / de La Rochelle.",
+        examples: {
+          destination: { fr: "Je vais au Havre.", en: "I am going to Le Havre." },
+          location: { fr: "J’habite au Havre.", en: "I live in Le Havre." },
+          origin: { fr: "Je viens du Havre.", en: "I come from Le Havre." }
+        }
+      }
+    ];
+
     const placePrepositions = [
       {
         fr: "sur",

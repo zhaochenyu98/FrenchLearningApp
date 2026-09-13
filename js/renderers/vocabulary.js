@@ -496,6 +496,11 @@
         wordLabel: "Adverb",
         useLabel: "Meaning & placement"
       });
+      renderAdverbWordTable(document.getElementById("limitingWordsGrid"), limitingWordRows, {
+        emptyMessage: "No limiting adverbs available.",
+        wordLabel: "Limiting adverb",
+        useLabel: "Meaning & placement"
+      });
     }
 
     function renderDegreeWords(rows = degreeWordRows) {
@@ -710,6 +715,7 @@
     }
 
     function renderPrepositions(list = placePrepositions) {
+      renderQuestionComparison(geographicPrepositionGrid, geographicPrepositionColumns, geographicPrepositionRows, "No geographic preposition examples available.", "Place and rule");
       renderPrepositionTable(corePrepositionTable, corePrepositions, "No core prepositions available.");
       renderPrepositionTable(commonPrepositionUsageTable, commonPrepositionUsages, "No common preposition usage patterns available.");
       renderPrepositionTable(prepositionAArticleGrid, aArticleRules, "No à + article rules available.");

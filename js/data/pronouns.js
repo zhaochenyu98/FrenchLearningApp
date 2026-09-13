@@ -22,6 +22,13 @@
           { fr: "eux", ipa: "/ø/", en: "them / themselves (masculine or mixed)", example: "C’est pour eux.", exampleEn: "It’s for them." },
           { fr: "elles", ipa: "/ɛl/", en: "them / themselves (feminine)", example: "Je parle avec elles.", exampleEn: "I am speaking with them." }
         ]
+      },
+      {
+        singularZh: "自己（泛指）",
+        singularForms: [{ fr: "soi", ipa: "/swa/", en: "oneself (general / indefinite reference)", example: "On doit avoir confiance en soi.", exampleEn: "One must have confidence in oneself." }],
+        pluralZh: "无独立复数形式",
+        pluralForms: [],
+        pluralNote: "Soi has no separate plural form. It refers back to a general or indefinite subject."
       }
     ];
     const reflexivePronounRows = [
@@ -481,6 +488,34 @@
     ];
 
     const tonicPronounUsageRules = [
+      {
+        rule: "Soi / soi-même：泛指自己",
+        pattern: "Use soi after a preposition when it refers back to a general or indefinite subject, such as on (people in general), chacun, or personne. It also appears with an infinitive used generally. Soi-même adds emphasis: oneself. For a specific person, normally use lui / elle or lui-même / elle-même instead.",
+        examples: [
+          {
+            lines: [
+              { fr: "On doit avoir confiance en soi.", en: "One must have confidence in oneself." },
+              { fr: "Elle doit avoir confiance en elle.", en: "She must have confidence in herself." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Chacun a besoin de temps pour soi.", en: "Everyone needs time for themselves." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "Il est agréable de travailler chez soi.", en: "It is pleasant to work at home." }
+            ]
+          },
+          {
+            lines: [
+              { fr: "On peut apprendre à le faire soi-même.", en: "One can learn to do it oneself." },
+              { fr: "Marie peut apprendre à le faire elle-même.", en: "Marie can learn to do it herself." }
+            ]
+          }
+        ]
+      },
       {
         rule: "用在 c’est / ce sont 后",
         pattern: "Use tonic pronouns after c’est / ce sont, especially when answering “who?”",

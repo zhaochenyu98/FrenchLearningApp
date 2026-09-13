@@ -795,7 +795,7 @@
       {
         fr: "toujours",
         ipa: "/tu.ʒuʁ/",
-        en: "always / still",
+        en: "always / still · 总是 / 仍然",
         note: "A frequency adverb meaning always. It generally follows the conjugated verb; in some contexts, it can also mean still.",
         examples: [
           { fr: "Je prends toujours le métro.", en: "I always take the metro." },
@@ -806,7 +806,7 @@
       {
         fr: "souvent",
         ipa: "/su.vɑ̃/",
-        en: "often",
+        en: "often · 经常",
         note: "A frequency adverb meaning often. It generally follows the conjugated verb or the auxiliary in passé composé.",
         examples: [
           { fr: "Je cuisine souvent le soir.", en: "I often cook in the evening." },
@@ -815,9 +815,20 @@
         ]
       },
       {
+        fr: "régulièrement",
+        ipa: "/ʁe.ɡy.ljɛʁ.mɑ̃/",
+        en: "regularly · 定期地 / 经常地",
+        note: "Describes a repeated habit or regular intervals. It can follow the verb; with a longer verb phrase, it also works naturally at the end. Regularly does not necessarily mean every day.",
+        examples: [
+          { fr: "Je fais régulièrement du sport.", en: "I exercise regularly." },
+          { fr: "Elle révise son vocabulaire régulièrement.", en: "She reviews her vocabulary regularly." },
+          { fr: "Nous avons travaillé régulièrement cette année.", en: "We have worked regularly this year." }
+        ]
+      },
+      {
         fr: "parfois",
         ipa: "/paʁ.fwa/",
-        en: "sometimes",
+        en: "sometimes · 有时",
         note: "A frequency adverb meaning sometimes. It can go at the beginning of the sentence or after the conjugated verb.",
         examples: [
           { fr: "Parfois, je travaille à la bibliothèque.", en: "Sometimes, I work at the library." },
@@ -825,6 +836,53 @@
           { fr: "Est-ce que vous partez parfois tôt ?", en: "Do you sometimes leave early?" }
         ]
       },
+      {
+        fr: "de temps en temps",
+        ipa: "/də tɑ̃ z‿ɑ̃ tɑ̃/",
+        en: "from time to time · 偶尔",
+        note: "A frequency phrase for an occasional event, close to parfois. It can appear at the beginning or end, or after the conjugated verb. Keep the whole phrase together.",
+        examples: [
+          { fr: "De temps en temps, je prends un taxi.", en: "From time to time, I take a taxi." },
+          { fr: "Nous mangeons au restaurant de temps en temps.", en: "We eat at a restaurant from time to time." },
+          { fr: "Elle vient de temps en temps chez nous.", en: "She comes to our home from time to time." }
+        ]
+      },
+      {
+        fr: "rarement",
+        ipa: "/ʁɑʁ.mɑ̃/",
+        en: "rarely / seldom · 很少",
+        note: "Means an action happens infrequently. Rarement has a negative sense but does not normally take ne or pas: je sors rarement. It often follows the verb or the auxiliary in a compound tense.",
+        examples: [
+          { fr: "Je prends rarement un taxi.", en: "I rarely take a taxi." },
+          { fr: "Elle est rarement absente.", en: "She is rarely absent." },
+          { fr: "Nous avons rarement mangé ici.", en: "We have rarely eaten here." }
+        ]
+      },
+      {
+        fr: "presque jamais",
+        ipa: "/pʁɛsk ʒa.mɛ/",
+        en: "hardly ever / almost never · 几乎从不",
+        note: "Stronger than rarement, but short of never. In standard written French use ne / n’ + verb + presque jamais, without pas. In a compound tense, put presque jamais after the auxiliary.",
+        examples: [
+          { fr: "Je ne prends presque jamais de taxi.", en: "I hardly ever take a taxi." },
+          { fr: "Elle n’est presque jamais en retard.", en: "She is almost never late." },
+          { fr: "Nous n’avons presque jamais mangé ici.", en: "We have hardly ever eaten here." }
+        ]
+      },
+      {
+        fr: "jamais",
+        ipa: "/ʒa.mɛ/",
+        en: "never · 从不",
+        note: "For never, use ne / n’ + verb + jamais in standard written French; do not add pas. With passé composé: ne + auxiliary + jamais + past participle. Ne is often omitted in casual speech. In other contexts, especially questions, jamais can mean ever.",
+        examples: [
+          { fr: "Je ne prends jamais de taxi.", en: "I never take a taxi." },
+          { fr: "Elle n’est jamais en retard.", en: "She is never late." },
+          { fr: "Je n’ai jamais visité ce musée.", en: "I have never visited this museum." }
+        ]
+      }
+    ];
+
+    const limitingWordRows = [
       {
         fr: "seulement",
         ipa: "/sœl.mɑ̃/",
@@ -840,10 +898,21 @@
 
     const degreeWordRows = [
       {
+        fr: "très",
+        ipa: "/tʁɛ/",
+        en: "very · 很 / 非常",
+        note: "Put très directly before an adjective or another adverb: très intéressant, très bien. To intensify a verb such as aimer or travailler, use beaucoup instead: j’aime beaucoup, not j’aime très. Très does not change for gender or number.",
+        examples: [
+          { label: "Before an adjective", fr: "Ce film est très intéressant.", en: "This film is very interesting." },
+          { label: "Before an adverb", fr: "Elle parle très bien français.", en: "She speaks French very well." },
+          { label: "Compare: with a verb", fr: "J’aime beaucoup ce film.", en: "I like this film very much." }
+        ]
+      },
+      {
         fr: "trop",
         ipa: "/tʁo/",
-        en: "too much / too many / too",
-        note: "Use trop de + noun for too much / too many, and trop + adjective or adverb for too: trop cher, trop vite. With an action, it normally follows the conjugated verb or the auxiliary in passé composé.",
+        en: "too much / too many / too · 太 / 过于",
+        note: "Trop normally means more than wanted or needed. Use trop de + noun and trop + adjective or adverb: trop cher, trop vite. With an action, it normally follows the conjugated verb or the auxiliary in passé composé. Informal trop bon can mean really good; learn the basic excess meaning first.",
         examples: [
           { fr: "Je travaille trop.", en: "I work too much." },
           { fr: "Il y a trop de bruit ici.", en: "There is too much noise here." },
@@ -853,12 +922,68 @@
       {
         fr: "assez",
         ipa: "/a.se/",
-        en: "enough / quite / fairly",
-        note: "Use assez de + noun for enough of something. With a verb, assez usually means enough; before an adjective or adverb, it often means quite or fairly.",
+        en: "enough / quite / fairly · 足够 / 相当",
+        note: "Use assez de + noun for enough of something. With a verb, assez usually means enough. Before an adjective or adverb, it often means quite or fairly; assez + adjective / adverb + pour + infinitive means enough to do something.",
         examples: [
           { fr: "Je ne dors pas assez.", en: "I do not sleep enough." },
           { fr: "Nous avons assez de temps.", en: "We have enough time." },
-          { fr: "Ce restaurant est assez bon.", en: "This restaurant is quite good." }
+          { fr: "Ce restaurant est assez bon.", en: "This restaurant is quite good." },
+          { fr: "Ce sac est assez grand pour contenir mes livres.", en: "This bag is big enough to hold my books." }
+        ]
+      },
+      {
+        fr: "vraiment",
+        ipa: "/vʁɛ.mɑ̃/",
+        en: "really / truly · 真的 / 非常",
+        note: "Adds emphasis before an adjective or adverb, or with a verb. It can express a strong degree or insist that something is true. In a compound tense it often goes after the auxiliary.",
+        examples: [
+          { fr: "Ce cours est vraiment utile.", en: "This course is really useful." },
+          { fr: "Tu chantes vraiment bien.", en: "You sing really well." },
+          { fr: "J’ai vraiment aimé ce livre.", en: "I really liked this book." }
+        ]
+      },
+      {
+        fr: "tellement",
+        ipa: "/tɛl.mɑ̃/",
+        en: "so / so much / so many · 这么 / 那么",
+        note: "Expresses a strong degree: tellement + adjective / adverb, verb + tellement, or tellement de + noun. Add que + clause to express a result: so…that. Before a vowel, de becomes d’.",
+        examples: [
+          { fr: "Cette histoire est tellement drôle !", en: "This story is so funny!" },
+          { fr: "J’ai tellement travaillé que je suis fatigué.", en: "I have worked so much that I am tired." },
+          { fr: "Elle a tellement d’idées !", en: "She has so many ideas!" }
+        ]
+      },
+      {
+        fr: "si",
+        ipa: "/si/",
+        en: "so · 这么 / 那么",
+        note: "As an intensity adverb, si comes before an adjective or adverb; si…que means so…that. This use is different from the conjunction si meaning if. To intensify an action or a noun quantity, use tellement / tellement de instead.",
+        examples: [
+          { fr: "Ce jardin est si beau !", en: "This garden is so beautiful!" },
+          { fr: "Elle parle si vite que je ne comprends pas.", en: "She speaks so fast that I do not understand." },
+          { fr: "Ce sac est si lourd que je ne peux pas le porter.", en: "This bag is so heavy that I cannot carry it." }
+        ]
+      },
+      {
+        fr: "extrêmement",
+        ipa: "/ɛks.tʁɛm.mɑ̃/",
+        en: "extremely · 极其",
+        note: "A very strong degree, usually before an adjective or adverb. It describes high intensity; unlike the basic meaning of trop, it does not by itself say that a limit has been exceeded.",
+        examples: [
+          { fr: "Cet exercice est extrêmement difficile.", en: "This exercise is extremely difficult." },
+          { fr: "Elle répond extrêmement vite.", en: "She answers extremely quickly." },
+          { fr: "Ces explications sont extrêmement claires.", en: "These explanations are extremely clear." }
+        ]
+      },
+      {
+        fr: "presque",
+        ipa: "/pʁɛsk/",
+        en: "almost / nearly · 几乎 / 差不多",
+        note: "Marks a degree close to a point that has not quite been reached: presque prêt. It can modify another adverb (presque toujours) or an action; in a compound tense it often goes after the auxiliary: j’ai presque fini.",
+        examples: [
+          { fr: "Le dîner est presque prêt.", en: "Dinner is almost ready." },
+          { fr: "J’ai presque fini mes devoirs.", en: "I have almost finished my homework." },
+          { fr: "Elle arrive presque toujours à l’heure.", en: "She almost always arrives on time." }
         ]
       }
     ];
@@ -866,7 +991,7 @@
     const adverbAmountComparisonRows = [
       {
         title: "Amount / degree with actions",
-        note: "These words show how much an action happens, rather than exact frequency. For words such as often and sometimes, use the Frequency and limiting adverbs section below.",
+        note: "These words show how much an action happens, rather than exact frequency. For words such as often and sometimes, use the 频率副词 · Frequency adverbs section below.",
         forms: [
           {
             fr: "beaucoup",

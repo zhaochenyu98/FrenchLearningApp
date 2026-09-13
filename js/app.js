@@ -67,8 +67,9 @@
         title: "Adverb index",
         sections: [
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="adverb-quick-notes"]'] },
-          { id: "amounts", title: "Amounts & degree", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
-          { id: "frequency", title: "Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
+          { id: "amounts", title: "Amounts", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
+          { id: "degree", title: "强度副词 · Intensity", open: true, elements: ['[data-study-section="adverb-degree"]'] },
+          { id: "frequency", title: "频率副词 · Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout: 3 roles", elements: ['[data-study-section="adverb-tout"]'] }
@@ -105,6 +106,7 @@
           { id: "common-usages", title: "Common usages", open: true, elements: ['[data-study-section="preposition-common-usages"]'] },
           { id: "core", title: "Core prepositions", open: true, elements: ['[data-study-section="preposition-core"]'] },
           { id: "article-combos", title: "À / De + articles", open: true, elements: ['[data-study-section="preposition-article-combos"]'] },
+          { id: "geography", title: "Countries & cities · 地点", open: true, elements: ['[data-study-section="preposition-geography"]'] },
           { id: "place", title: "Place phrases", elements: ['[data-study-section="preposition-place"]'] },
           { id: "time", title: "Time duration", elements: ['[data-study-section="preposition-time"]'] },
           { id: "de-vs-article", title: "De vs article", elements: ['[data-study-section="preposition-de-article"]'] }
