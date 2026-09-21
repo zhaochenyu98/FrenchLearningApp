@@ -446,8 +446,7 @@
         button.textContent = item.label;
         button.addEventListener("click", () => {
           setGroupCollapsed(target.group, false);
-          target.card.scrollIntoView({ behavior: "smooth", block: "start" });
-          target.card.focus({ preventScroll: true });
+          FR.utils.jumpToVerb(target.card);
         });
         links.appendChild(button);
       });

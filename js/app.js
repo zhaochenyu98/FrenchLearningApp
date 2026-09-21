@@ -1219,8 +1219,7 @@
             button.addEventListener("click", () => {
               stopPlayback();
               setVerbGroupCollapsed(panel.closest(".verb-group"), false);
-              panel.scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
-              panel.focus({ preventScroll: true });
+              FR.utils.jumpToVerb(panel);
             });
             links.appendChild(button);
           });
@@ -1330,8 +1329,7 @@
             stopPlayback();
             etreCard.open = true;
             const target = document.getElementById(getEtreAuxiliaryVerbId(verb));
-            (target || etreCard).scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
-            if (target) target.focus({ preventScroll: true });
+            FR.utils.jumpToVerb(target || etreCard, target);
           });
           groupLinks.appendChild(button);
         });
@@ -1385,8 +1383,7 @@
               stopPlayback();
               card.open = true;
               const target = document.getElementById(getPasseComposeVerbId(group, verb));
-              (target || card).scrollIntoView({ behavior: getPreferredScrollBehavior(), block: "start" });
-              if (target) target.focus({ preventScroll: true });
+              FR.utils.jumpToVerb(target || card, target);
             });
             groupLinks.appendChild(button);
           });

@@ -6,6 +6,15 @@
   FR.runtime = FR.runtime || {};
   FR.utils = FR.utils || {};
 
+  FR.utils.jumpToVerb = function jumpToVerb(target, focusTarget = target) {
+    if (!target) return;
+    // Let the index finish closing on mobile before measuring the destination.
+    global.requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "instant", block: "start" });
+      if (focusTarget) focusTarget.focus({ preventScroll: true });
+    });
+  };
+
   FR.utils.escapeAttribute = FR.utils.escapeAttribute || function escapeAttribute(value) {
     return String(value)
       .replace(/&/g, "&amp;")

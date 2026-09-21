@@ -591,10 +591,8 @@
     }
 
     card.open = true;
-    const reduceMotion = global.matchMedia && global.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    card.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
     const summary = card.querySelector("summary");
-    if (summary) summary.focus({ preventScroll: true });
+    FR.utils.jumpToVerb(card, summary);
   }
 
   function renderIndex(target, data, stack) {
