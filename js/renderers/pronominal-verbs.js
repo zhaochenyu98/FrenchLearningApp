@@ -627,6 +627,7 @@
       body.appendChild(group);
     });
 
+    FR.utils.addVerbIndexSearch(body, "Pronominal Verbs");
     if (!targetIsGroupContainer) {
       target.classList.add("verb-index");
       target.append(

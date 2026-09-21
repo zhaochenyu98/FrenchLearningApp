@@ -454,6 +454,7 @@
       block.append(groupTitle, links);
       container.appendChild(block);
     });
+    FR.utils.addVerbIndexSearch(container, "Imparfait");
   }
 
   function render() {

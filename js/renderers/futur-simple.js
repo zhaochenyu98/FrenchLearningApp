@@ -442,6 +442,7 @@
         block.append(title, links);
         container.appendChild(block);
       });
+      FR.utils.addVerbIndexSearch(container, tenseTitle);
     }
 
     function render() {

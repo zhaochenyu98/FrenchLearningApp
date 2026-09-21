@@ -1227,6 +1227,7 @@
         groupBlock.appendChild(links);
         index.appendChild(groupBlock);
       });
+      FR.utils.addVerbIndexSearch(index, "By Verb");
       initializeMobileIndex(index.closest(".verb-index"));
     }
 
@@ -1413,6 +1414,7 @@
       } else {
         section.prepend(layout);
       }
+      FR.utils.addVerbIndexSearch(links, "Passé composé");
       initializeMobileIndex(aside);
     }
 
