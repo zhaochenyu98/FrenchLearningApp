@@ -92,6 +92,53 @@
       }
     ];
 
+    const interrogativePronounRows = [
+      {
+        number: "Singular", gender: "Masculine",
+        forms: [{
+          fr: "lequel", en: "which one? (masculine singular)",
+          note: "Replaces a masculine singular noun, such as le livre.",
+          examples: [
+            { fr: "Parmi ces livres, lequel veux-tu ?", en: "Among these books, which one do you want?" },
+            { fr: "Voici deux livres. Lequel est à toi ?", en: "Here are two books. Which one is yours?" }
+          ]
+        }]
+      },
+      {
+        number: "Singular", gender: "Feminine",
+        forms: [{
+          fr: "laquelle", en: "which one? (feminine singular)",
+          note: "Replaces a feminine singular noun, such as la robe.",
+          examples: [
+            { fr: "Parmi ces robes, laquelle veux-tu ?", en: "Among these dresses, which one do you want?" },
+            { fr: "Voici deux robes. Laquelle est à toi ?", en: "Here are two dresses. Which one is yours?" }
+          ]
+        }]
+      },
+      {
+        number: "Plural", gender: "Masculine",
+        forms: [{
+          fr: "lesquels", en: "which ones? (masculine plural)",
+          note: "Replaces masculine plural nouns, such as les livres, or a mixed group of people.",
+          examples: [
+            { fr: "Parmi ces livres, lesquels veux-tu ?", en: "Among these books, which ones do you want?" },
+            { fr: "Voici plusieurs livres. Lesquels sont à toi ?", en: "Here are several books. Which ones are yours?" }
+          ]
+        }]
+      },
+      {
+        number: "Plural", gender: "Feminine",
+        forms: [{
+          fr: "lesquelles", en: "which ones? (feminine plural)",
+          note: "Replaces feminine plural nouns, such as les robes.",
+          examples: [
+            { fr: "Parmi ces robes, lesquelles veux-tu ?", en: "Among these dresses, which ones do you want?" },
+            { fr: "Voici plusieurs robes. Lesquelles sont à toi ?", en: "Here are several dresses. Which ones are yours?" }
+          ]
+        }]
+      }
+    ];
+
     const tonicPronounRows = [
       {
         singularZh: "我",
