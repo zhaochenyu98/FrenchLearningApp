@@ -13,13 +13,15 @@ js/app.js                          Tab registration, event wiring, and startup
 js/core/namespace.js               Shared FR registry and safe saved preferences
 js/core/core.js                    DOM references, audio, theme, and shared state
 js/renderers/                      Reusable renderers grouped by study topic
+js/renderers/futur-simple.js        Shared future and conditional tense renderer
 js/data/numbers.js                 Number generation and IPA
 js/data/pronouns.js                COD, COI, tonic, reflexive, and possessive data
 js/data/verbs.js                   Present-tense verb paradigms, IPA, and registry data
 js/data/grammar.js                 Être/avoir examples and grammar flashcards
 js/data/tenses.js                  Passé composé forms and example sentences
 js/data/imparfait.js               Derived Imparfait forms, IPA, and examples
-js/data/futur-simple.js            Derived futur-simple forms, IPA, stems, and examples
+js/data/futur-simple.js            Shared future stems and form builder; future examples
+js/data/conditionnel-present.js    Conditional forms, IPA, and examples
 js/data/imperative.js              Imperative paradigms, IPA, and examples
 js/data/pronominal-verbs.js        Pronominal paradigms, agreement, IPA, and examples
 js/data/pronunciation.js           Pronunciation rules and practice words
@@ -58,9 +60,11 @@ the same validator before publishing.
    already listed in `etreAuxiliaryVerbs` are derived automatically when possible.
 3. Add imperative metadata to `js/data/imperative.js` when the verb has a natural
    imperative. Imparfait and futur-simple rows are derived from the shared verb registry;
-   add an explicit stem override only when the new verb needs one.
+   add an explicit stem override only when the new verb needs one. Conditionnel présent
+   shares the future stems and automatically covers the same verbs; add conditional
+   examples for verbs that need custom sentence patterns.
 4. Run `node scripts/validate.js` to confirm all pronouns, examples, IPA, groups,
-   and present/past/future entries stay synchronized.
+   and present/past/future/conditional entries stay synchronized.
 
 Verb panels, tables, index buttons, and compact tense summaries are generated
 from the data. Do not add verb markup to `index.html`.

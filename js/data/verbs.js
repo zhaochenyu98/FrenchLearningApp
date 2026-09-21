@@ -132,6 +132,28 @@
       { pronoun: "elles", form: "préfèrent", full: "elles préfèrent", ipa: "/ɛl pʁe.fɛʁ/", en: "they prefer", example: "Elles préfèrent la montagne à la plage.", exampleEn: "They prefer the mountains to the beach.", negative: "Elles ne préfèrent pas la montagne à la plage.", negativeEn: "They do not prefer the mountains to the beach.", question: "Est-ce qu’elles préfèrent la montagne à la plage ?" }
     ];
 
+    const envoyerRows = [
+      { pronoun: "j’", form: "envoie", full: "j’envoie", ipa: "/ʒɑ̃.vwa/", en: "I send", example: "J’envoie un message à Marie.", exampleEn: "I send a message to Marie.", negative: "Je n’envoie pas de message à Marie.", negativeEn: "I do not send a message to Marie.", question: "Est-ce que j’envoie un message à Marie ?" },
+      { pronoun: "tu", form: "envoies", full: "tu envoies", ipa: "/ty ɑ̃.vwa/", en: "you send", example: "Tu envoies une lettre à ton ami.", exampleEn: "You send a letter to your friend.", negative: "Tu n’envoies pas de lettre à ton ami.", negativeEn: "You do not send a letter to your friend.", question: "À qui envoies-tu une lettre ?" },
+      { pronoun: "il", form: "envoie", full: "il envoie", ipa: "/il ɑ̃.vwa/", en: "he sends", example: "Il envoie le colis par la poste.", exampleEn: "He sends the parcel by mail.", negative: "Il n’envoie pas le colis par la poste.", negativeEn: "He does not send the parcel by mail.", question: "Comment envoie-t-il le colis ?" },
+      { pronoun: "elle", form: "envoie", full: "elle envoie", ipa: "/ɛl ɑ̃.vwa/", en: "she sends", example: "Elle envoie une photo à sa sœur.", exampleEn: "She sends a photo to her sister.", negative: "Elle n’envoie pas de photo à sa sœur.", negativeEn: "She does not send a photo to her sister.", question: "Envoie-t-elle une photo à sa sœur ?" },
+      { pronoun: "nous", form: "envoyons", full: "nous envoyons", ipa: "/nu.zɑ̃.vwa.jɔ̃/", en: "we send", example: "Nous envoyons des cartes à nos amis.", exampleEn: "We send cards to our friends.", negative: "Nous n’envoyons pas de cartes à nos amis.", negativeEn: "We do not send cards to our friends.", question: "À qui envoyons-nous des cartes ?" },
+      { pronoun: "vous", form: "envoyez", full: "vous envoyez", ipa: "/vu.zɑ̃.vwa.je/", en: "you send", example: "Vous envoyez le document par courriel.", exampleEn: "You send the document by email.", negative: "Vous n’envoyez pas le document par courriel.", negativeEn: "You do not send the document by email.", question: "Quel document envoyez-vous par courriel ?" },
+      { pronoun: "ils", form: "envoient", full: "ils envoient", ipa: "/il.zɑ̃.vwa/", en: "they send", example: "Ils envoient les invitations aujourd’hui.", exampleEn: "They send the invitations today.", negative: "Ils n’envoient pas les invitations aujourd’hui.", negativeEn: "They do not send the invitations today.", question: "Quand envoient-ils les invitations ?" },
+      { pronoun: "elles", form: "envoient", full: "elles envoient", ipa: "/ɛl.zɑ̃.vwa/", en: "they send", example: "Elles envoient des cadeaux à leurs parents.", exampleEn: "They send gifts to their parents.", negative: "Elles n’envoient pas de cadeaux à leurs parents.", negativeEn: "They do not send gifts to their parents.", question: "Envoient-elles des cadeaux à leurs parents ?" }
+    ];
+
+    const payerRows = [
+      { pronoun: "je", form: "paie", full: "je paie", ipa: "/ʒə pɛ/", en: "I pay", example: "Je paie l’addition.", exampleEn: "I pay the bill.", negative: "Je ne paie pas l’addition.", negativeEn: "I do not pay the bill.", question: "Est-ce que je paie l’addition ?" },
+      { pronoun: "tu", form: "paies", full: "tu paies", ipa: "/ty pɛ/", en: "you pay", example: "Tu paies par carte.", exampleEn: "You pay by card.", negative: "Tu ne paies pas par carte.", negativeEn: "You do not pay by card.", question: "Paies-tu par carte ?" },
+      { pronoun: "il", form: "paie", full: "il paie", ipa: "/il pɛ/", en: "he pays", example: "Il paie le loyer à temps.", exampleEn: "He pays the rent on time.", negative: "Il ne paie pas le loyer à temps.", negativeEn: "He does not pay the rent on time.", question: "Quand paie-t-il le loyer ?" },
+      { pronoun: "elle", form: "paie", full: "elle paie", ipa: "/ɛl pɛ/", en: "she pays", example: "Elle paie en espèces.", exampleEn: "She pays in cash.", negative: "Elle ne paie pas en espèces.", negativeEn: "She does not pay in cash.", question: "Comment paie-t-elle ?" },
+      { pronoun: "nous", form: "payons", full: "nous payons", ipa: "/nu pɛ.jɔ̃/", en: "we pay", example: "Nous payons les billets en ligne.", exampleEn: "We pay for the tickets online.", negative: "Nous ne payons pas les billets en ligne.", negativeEn: "We do not pay for the tickets online.", question: "Payons-nous les billets en ligne ?" },
+      { pronoun: "vous", form: "payez", full: "vous payez", ipa: "/vu pɛ.je/", en: "you pay", example: "Vous payez la facture aujourd’hui.", exampleEn: "You pay the invoice today.", negative: "Vous ne payez pas la facture aujourd’hui.", negativeEn: "You do not pay the invoice today.", question: "Quand payez-vous la facture ?" },
+      { pronoun: "ils", form: "paient", full: "ils paient", ipa: "/il pɛ/", en: "they pay", example: "Ils paient leurs employés chaque mois.", exampleEn: "They pay their employees every month.", negative: "Ils ne paient pas leurs employés chaque mois.", negativeEn: "They do not pay their employees every month.", question: "Quand paient-ils leurs employés ?" },
+      { pronoun: "elles", form: "paient", full: "elles paient", ipa: "/ɛl pɛ/", en: "they pay", example: "Elles paient le repas.", exampleEn: "They pay for the meal.", negative: "Elles ne paient pas le repas.", negativeEn: "They do not pay for the meal.", question: "Paient-elles le repas ?" }
+    ];
+
     const essayerRows = [
       { pronoun: "j’", form: "essaie", full: "j’essaie", ipa: "/ʒe.sɛ/", en: "I try", example: "J’essaie de parler français tous les jours.", exampleEn: "I try to speak French every day.", negative: "Je n’essaie pas de parler français tous les jours.", negativeEn: "I do not try to speak French every day.", question: "Est-ce que j’essaie de parler français tous les jours ?" },
       { pronoun: "tu", form: "essaies", full: "tu essaies", ipa: "/ty e.sɛ/", en: "you try", example: "Tu essaies cette veste.", exampleEn: "You try on this jacket.", negative: "Tu n’essaies pas cette veste.", negativeEn: "You do not try on this jacket.", question: "Essaies-tu cette veste ?" },
@@ -1490,6 +1512,39 @@
       { pronoun: "elles", form: "gagnent", full: "elles gagnent", ipa: "/ɛl ɡaɲ/", en: "they win / earn", example: "Elles gagnent le premier prix.", exampleEn: "They win first prize.", negative: "Elles ne gagnent pas le premier prix.", negativeEn: "They do not win first prize.", question: "Quel prix gagnent-elles ?" }
     ];
 
+    const montrerRows = [
+      { pronoun: "je", form: "montre", full: "je montre", ipa: "/ʒə mɔ̃tʁ/", en: "I show", example: "Je montre les photos à Marie.", exampleEn: "I show the photos to Marie.", negative: "Je ne montre pas les photos à Marie.", negativeEn: "I do not show the photos to Marie.", question: "Quelles photos est-ce que je montre à Marie ?" },
+      { pronoun: "tu", form: "montres", full: "tu montres", ipa: "/ty mɔ̃tʁ/", en: "you show", example: "Tu montres ton dessin au professeur.", exampleEn: "You show your drawing to the teacher.", negative: "Tu ne montres pas ton dessin au professeur.", negativeEn: "You do not show your drawing to the teacher.", question: "À qui montres-tu ton dessin ?" },
+      { pronoun: "il", form: "montre", full: "il montre", ipa: "/il mɔ̃tʁ/", en: "he shows", example: "Il montre le chemin aux touristes.", exampleEn: "He shows the tourists the way.", negative: "Il ne montre pas le chemin aux touristes.", negativeEn: "He does not show the tourists the way.", question: "À qui montre-t-il le chemin ?" },
+      { pronoun: "elle", form: "montre", full: "elle montre", ipa: "/ɛl mɔ̃tʁ/", en: "she shows", example: "Elle montre comment préparer la soupe.", exampleEn: "She shows how to prepare the soup.", negative: "Elle ne montre pas comment préparer la soupe.", negativeEn: "She does not show how to prepare the soup.", question: "Montre-t-elle comment préparer la soupe ?" },
+      { pronoun: "nous", form: "montrons", full: "nous montrons", ipa: "/nu mɔ̃.tʁɔ̃/", en: "we show", example: "Nous montrons notre maison à nos amis.", exampleEn: "We show our house to our friends.", negative: "Nous ne montrons pas notre maison à nos amis.", negativeEn: "We do not show our house to our friends.", question: "À qui montrons-nous notre maison ?" },
+      { pronoun: "vous", form: "montrez", full: "vous montrez", ipa: "/vu mɔ̃.tʁe/", en: "you show", example: "Vous montrez votre billet au contrôleur.", exampleEn: "You show your ticket to the ticket inspector.", negative: "Vous ne montrez pas votre billet au contrôleur.", negativeEn: "You do not show your ticket to the ticket inspector.", question: "À qui montrez-vous votre billet ?" },
+      { pronoun: "ils", form: "montrent", full: "ils montrent", ipa: "/il mɔ̃tʁ/", en: "they show", example: "Ils montrent leurs résultats à la classe.", exampleEn: "They show their results to the class.", negative: "Ils ne montrent pas leurs résultats à la classe.", negativeEn: "They do not show their results to the class.", question: "Quels résultats montrent-ils à la classe ?" },
+      { pronoun: "elles", form: "montrent", full: "elles montrent", ipa: "/ɛl mɔ̃tʁ/", en: "they show", example: "Elles montrent leurs photos de voyage.", exampleEn: "They show their travel photos.", negative: "Elles ne montrent pas leurs photos de voyage.", negativeEn: "They do not show their travel photos.", question: "Quelles photos montrent-elles ?" }
+    ];
+
+    const interesserRows = [
+      { pronoun: "je", form: "intéresse", full: "j’intéresse", ipa: "/ʒɛ̃.te.ʁɛs/", en: "I interest", example: "J’intéresse les élèves à l’histoire.", exampleEn: "I get the students interested in history.", negative: "Je n’intéresse pas les élèves à l’histoire.", negativeEn: "I do not get the students interested in history.", question: "Comment est-ce que j’intéresse les élèves à l’histoire ?" },
+      { pronoun: "tu", form: "intéresses", full: "tu intéresses", ipa: "/ty ɛ̃.te.ʁɛs/", en: "you interest", example: "Tu intéresses les enfants à la lecture.", exampleEn: "You get the children interested in reading.", negative: "Tu n’intéresses pas les enfants à la lecture.", negativeEn: "You do not get the children interested in reading.", question: "Comment intéresses-tu les enfants à la lecture ?" },
+      { pronoun: "il", form: "intéresse", full: "il intéresse", ipa: "/il ɛ̃.te.ʁɛs/", en: "he / it interests", example: "Ce livre, il intéresse Marie.", exampleEn: "This book interests Marie.", negative: "Ce livre, il n’intéresse pas Marie.", negativeEn: "This book does not interest Marie.", question: "Ce livre intéresse-t-il Marie ?" },
+      { pronoun: "elle", form: "intéresse", full: "elle intéresse", ipa: "/ɛl ɛ̃.te.ʁɛs/", en: "she / it interests", example: "Cette exposition, elle intéresse Paul.", exampleEn: "This exhibition interests Paul.", negative: "Cette exposition, elle n’intéresse pas Paul.", negativeEn: "This exhibition does not interest Paul.", question: "Cette exposition intéresse-t-elle Paul ?" },
+      { pronoun: "nous", form: "intéressons", full: "nous intéressons", ipa: "/nu.zɛ̃.te.ʁe.sɔ̃/", en: "we interest", example: "Nous intéressons les élèves aux sciences.", exampleEn: "We get the students interested in science.", negative: "Nous n’intéressons pas les élèves aux sciences.", negativeEn: "We do not get the students interested in science.", question: "Comment intéressons-nous les élèves aux sciences ?" },
+      { pronoun: "vous", form: "intéressez", full: "vous intéressez", ipa: "/vu.zɛ̃.te.ʁe.se/", en: "you interest", example: "Vous intéressez le public à votre projet.", exampleEn: "You get the public interested in your project.", negative: "Vous n’intéressez pas le public à votre projet.", negativeEn: "You do not get the public interested in your project.", question: "Comment intéressez-vous le public à votre projet ?" },
+      { pronoun: "ils", form: "intéressent", full: "ils intéressent", ipa: "/il.zɛ̃.te.ʁɛs/", en: "they interest", example: "Ces cours, ils intéressent les étudiants.", exampleEn: "These classes interest the students.", negative: "Ces cours, ils n’intéressent pas les étudiants.", negativeEn: "These classes do not interest the students.", question: "Quels étudiants ces cours intéressent-ils ?" },
+      { pronoun: "elles", form: "intéressent", full: "elles intéressent", ipa: "/ɛl.zɛ̃.te.ʁɛs/", en: "they interest", example: "Ces activités, elles intéressent les enfants.", exampleEn: "These activities interest the children.", negative: "Ces activités, elles n’intéressent pas les enfants.", negativeEn: "These activities do not interest the children.", question: "Quels enfants ces activités intéressent-elles ?" }
+    ];
+
+    const sInteresserRows = [
+      { pronoun: "je", form: "m’intéresse", full: "je m’intéresse", ipa: "/ʒə mɛ̃.te.ʁɛs/", en: "I am interested", example: "Je m’intéresse à l’histoire.", exampleEn: "I am interested in history.", negative: "Je ne m’intéresse pas à l’histoire.", negativeEn: "I am not interested in history.", question: "À quoi est-ce que je m’intéresse ?" },
+      { pronoun: "tu", form: "t’intéresses", full: "tu t’intéresses", ipa: "/ty tɛ̃.te.ʁɛs/", en: "you are interested", example: "Tu t’intéresses à la musique.", exampleEn: "You are interested in music.", negative: "Tu ne t’intéresses pas à la musique.", negativeEn: "You are not interested in music.", question: "À quoi t’intéresses-tu ?" },
+      { pronoun: "il", form: "s’intéresse", full: "il s’intéresse", ipa: "/il sɛ̃.te.ʁɛs/", en: "he is interested", example: "Il s’intéresse au cinéma.", exampleEn: "He is interested in cinema.", negative: "Il ne s’intéresse pas au cinéma.", negativeEn: "He is not interested in cinema.", question: "À quoi s’intéresse-t-il ?" },
+      { pronoun: "elle", form: "s’intéresse", full: "elle s’intéresse", ipa: "/ɛl sɛ̃.te.ʁɛs/", en: "she is interested", example: "Elle s’intéresse à ce cours.", exampleEn: "She is interested in this class.", negative: "Elle ne s’intéresse pas à ce cours.", negativeEn: "She is not interested in this class.", question: "À quoi s’intéresse-t-elle ?" },
+      { pronoun: "nous", form: "nous intéressons", full: "nous nous intéressons", ipa: "/nu nu.zɛ̃.te.ʁe.sɔ̃/", en: "we are interested", example: "Nous nous intéressons à l’art.", exampleEn: "We are interested in art.", negative: "Nous ne nous intéressons pas à l’art.", negativeEn: "We are not interested in art.", question: "À quoi nous intéressons-nous ?" },
+      { pronoun: "vous", form: "vous intéressez", full: "vous vous intéressez", ipa: "/vu vu.zɛ̃.te.ʁe.se/", en: "you are interested", example: "Vous vous intéressez aux langues.", exampleEn: "You are interested in languages.", negative: "Vous ne vous intéressez pas aux langues.", negativeEn: "You are not interested in languages.", question: "À quoi vous intéressez-vous ?" },
+      { pronoun: "ils", form: "s’intéressent", full: "ils s’intéressent", ipa: "/il sɛ̃.te.ʁɛs/", en: "they are interested", example: "Ils s’intéressent au sport.", exampleEn: "They are interested in sports.", negative: "Ils ne s’intéressent pas au sport.", negativeEn: "They are not interested in sports.", question: "À quoi s’intéressent-ils ?" },
+      { pronoun: "elles", form: "s’intéressent", full: "elles s’intéressent", ipa: "/ɛl sɛ̃.te.ʁɛs/", en: "they are interested", example: "Elles s’intéressent à l’histoire.", exampleEn: "They are interested in history.", negative: "Elles ne s’intéressent pas à l’histoire.", negativeEn: "They are not interested in history.", question: "À quoi s’intéressent-elles ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
@@ -1547,6 +1602,32 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "montrer",
+        group: "regularEr",
+        label: "montrer",
+        title: "Montrer — to show",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Montrer quelque chose à quelqu’un</strong> means “to show someone something”: <strong>Je montre les photos à Marie.</strong> The thing shown is the direct object; the person is introduced by <strong>à</strong>. With pronouns: <strong>Je les lui montre.</strong> (“I show them to her.”) Use <strong>montrer comment + infinitive</strong> to show how to do something. Do not confuse <strong>montrer</strong> (“to show”) with <strong>monter</strong> (“to go up”).",
+        rows: montrerRows
+      },
+      {
+        key: "interesser",
+        group: "regularEr",
+        label: "intéresser",
+        title: "Intéresser — to interest",
+        tag: "regular -er / direct object",
+        descriptionHtml: "<strong>Intéresser quelqu’un</strong> means “to interest someone”: <strong>Ce cours m’intéresse.</strong> (“This class interests me.”) The person interested is the direct object. <strong>Intéresser quelqu’un à quelque chose</strong> means “to get someone interested in something.” Compare <strong>Je m’intéresse à ce cours.</strong> (“I am interested in this class.”)",
+        rows: interesserRows
+      },
+      {
+        key: "sInteresser",
+        group: "pronominal",
+        label: "s’intéresser",
+        title: "S’intéresser à — to be interested in / take an interest in",
+        descriptionHtml: "Use <strong>s’intéresser à + topic</strong>: <strong>Je m’intéresse à l’histoire.</strong> The reflexive pronoun changes with the subject, and <strong>à</strong> introduces the topic. Replace <strong>à + thing</strong> with <strong>y</strong>: <strong>Je m’y intéresse.</strong> Compare <strong>L’histoire m’intéresse.</strong> (“History interests me.”) Passé composé uses <strong>être</strong> with subject agreement: <strong>elles se sont intéressées</strong>.",
+        rows: sInteresserRows
+      },
       {
         key: "etreVerb",
         group: "irregular",
@@ -1893,6 +1974,24 @@
         tag: "regular -er with accent change",
         descriptionHtml: "<strong>Préférer</strong> uses regular -er endings, but the second <strong>é</strong> becomes <strong>è</strong> in the singular and ils/elles forms: <strong>je préfère</strong>, <strong>ils préfèrent</strong>. <strong>Nous préférons</strong> and <strong>vous préférez</strong> keep <strong>é</strong>. Use <strong>préférer A à B</strong> for “to prefer A to B.”",
         rows: prefererRows
+      },
+      {
+        key: "envoyer",
+        group: "regularEr",
+        label: "envoyer",
+        title: "Envoyer — to send",
+        tag: "-er with y → i; irregular future",
+        descriptionHtml: "Use <strong>envoyer quelque chose à quelqu’un</strong> to send something to someone. Change <strong>y → i</strong> before silent endings: <strong>j’envoie, tu envoies, il / elle envoie, ils / elles envoient</strong>. Keep <strong>y</strong> in <strong>nous envoyons</strong> and <strong>vous envoyez</strong>. The past participle is <strong>envoyé</strong> with <strong>avoir</strong>; the future uses <strong>enverr-</strong>: <strong>j’enverrai</strong>.",
+        rows: envoyerRows
+      },
+      {
+        key: "payer",
+        group: "regularEr",
+        label: "payer",
+        title: "Payer — to pay",
+        tag: "-ayer: paie / paye",
+        descriptionHtml: "<strong>Payer</strong> means “to pay.” Use a direct object: <strong>payer l’addition</strong> (pay the bill), <strong>payer le repas</strong> (pay for the meal), or <strong>payer quelqu’un</strong> (pay someone). Pay <strong>par carte</strong> (by card) or <strong>en espèces</strong> (in cash). This app uses <strong>je paie, tu paies, il/elle paie, ils/elles paient</strong>; <strong>je paye, tu payes, il/elle paye, ils/elles payent</strong> are also correct. Keep y in <strong>nous payons</strong> and <strong>vous payez</strong>. Both <strong>je paierai</strong> and <strong>je payerai</strong> are accepted in the future.",
+        rows: payerRows
       },
       {
         key: "essayer",

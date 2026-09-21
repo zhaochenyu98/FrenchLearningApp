@@ -260,10 +260,10 @@
       });
     }
 
-    function renderDemonstrativeTable(rows = demonstrativeRows) {
-      demonstrativeGrid.innerHTML = "";
+    function renderDemonstrativeTable(rows = demonstrativeRows, targetGrid = demonstrativeGrid) {
+      targetGrid.innerHTML = "";
       if (!rows.length) {
-        demonstrativeGrid.innerHTML = `<div class="empty-state">No demonstrative determiners available.</div>`;
+        targetGrid.innerHTML = `<div class="empty-state">No demonstrative forms available.</div>`;
         return;
       }
 
@@ -271,7 +271,7 @@
       const numbers = ["Singular", "Plural"];
       const findRow = (gender, number) => rows.find(row => row.gender === gender && row.number === number);
 
-      demonstrativeGrid.innerHTML = `
+      targetGrid.innerHTML = `
         <div class="demonstrative-corner">Number / gender</div>
         ${genders.map(gender => `<div class="demonstrative-axis-header">${gender}</div>`).join("")}
       `;
@@ -280,7 +280,7 @@
         const rowHeader = document.createElement("div");
         rowHeader.className = "demonstrative-row-header";
         rowHeader.textContent = number;
-        demonstrativeGrid.appendChild(rowHeader);
+        targetGrid.appendChild(rowHeader);
 
         genders.forEach(gender => {
           const row = findRow(gender, number);
@@ -288,7 +288,7 @@
             const emptyCell = document.createElement("div");
             emptyCell.className = "demonstrative-card";
             emptyCell.innerHTML = `<div class="empty-state">No ${gender.toLowerCase()} ${number.toLowerCase()} form.</div>`;
-            demonstrativeGrid.appendChild(emptyCell);
+            targetGrid.appendChild(emptyCell);
             return;
           }
 
@@ -327,7 +327,7 @@
             formList.appendChild(button);
           });
 
-          demonstrativeGrid.appendChild(cell);
+          targetGrid.appendChild(cell);
         });
       });
     }

@@ -1,3 +1,97 @@
+    const demonstrativePronounSimpleRows = [
+      {
+        number: "Singular", gender: "Masculine",
+        forms: [{
+          fr: "celui", en: "the one (masculine singular)",
+          note: "Replaces a masculine singular noun, such as le livre.",
+          examples: [
+            { fr: "Mon livre est ici ; celui de Paul est sur la table.", en: "My book is here; Paul’s is on the table." },
+            { fr: "Parmi ces livres, je prends celui que tu recommandes.", en: "Among these books, I’ll take the one you recommend." }
+          ]
+        }]
+      },
+      {
+        number: "Singular", gender: "Feminine",
+        forms: [{
+          fr: "celle", en: "the one (feminine singular)",
+          note: "Replaces a feminine singular noun, such as la robe.",
+          examples: [
+            { fr: "Ma robe est bleue ; celle de Marie est rouge.", en: "My dress is blue; Marie’s is red." },
+            { fr: "Parmi ces robes, je préfère celle qui est bleue.", en: "Among these dresses, I prefer the one that is blue." }
+          ]
+        }]
+      },
+      {
+        number: "Plural", gender: "Masculine",
+        forms: [{
+          fr: "ceux", en: "the ones (masculine plural)",
+          note: "Replaces masculine plural nouns, such as les livres, or a mixed group of people.",
+          examples: [
+            { fr: "Mes livres sont ici ; ceux de Paul sont sur la table.", en: "My books are here; Paul’s are on the table." },
+            { fr: "Parmi ces livres, je prends ceux que tu recommandes.", en: "Among these books, I’ll take the ones you recommend." }
+          ]
+        }]
+      },
+      {
+        number: "Plural", gender: "Feminine",
+        forms: [{
+          fr: "celles", en: "the ones (feminine plural)",
+          note: "Replaces feminine plural nouns, such as les robes.",
+          examples: [
+            { fr: "Mes robes sont bleues ; celles de Marie sont rouges.", en: "My dresses are blue; Marie’s are red." },
+            { fr: "Parmi ces robes, je préfère celles qui sont bleues.", en: "Among these dresses, I prefer the ones that are blue." }
+          ]
+        }]
+      }
+    ];
+
+    const demonstrativePronounCompoundRows = [
+      {
+        number: "Singular", gender: "Masculine",
+        forms: [
+          { fr: "celui-ci", en: "this one", note: "Masculine singular · -ci", examples: [
+            { fr: "Tu veux quel livre ? Celui-ci.", en: "Which book do you want? This one." }
+          ] },
+          { fr: "celui-là", en: "that one", note: "Masculine singular · -là", examples: [
+            { fr: "Tu préfères quel livre ? Celui-là.", en: "Which book do you prefer? That one." }
+          ] }
+        ]
+      },
+      {
+        number: "Singular", gender: "Feminine",
+        forms: [
+          { fr: "celle-ci", en: "this one", note: "Feminine singular · -ci", examples: [
+            { fr: "Tu veux quelle robe ? Celle-ci.", en: "Which dress do you want? This one." }
+          ] },
+          { fr: "celle-là", en: "that one", note: "Feminine singular · -là", examples: [
+            { fr: "Tu préfères quelle robe ? Celle-là.", en: "Which dress do you prefer? That one." }
+          ] }
+        ]
+      },
+      {
+        number: "Plural", gender: "Masculine",
+        forms: [
+          { fr: "ceux-ci", en: "these ones", note: "Masculine plural · -ci", examples: [
+            { fr: "Tu veux quels livres ? Ceux-ci.", en: "Which books do you want? These ones." }
+          ] },
+          { fr: "ceux-là", en: "those ones", note: "Masculine plural · -là", examples: [
+            { fr: "Tu préfères quels livres ? Ceux-là.", en: "Which books do you prefer? Those ones." }
+          ] }
+        ]
+      },
+      {
+        number: "Plural", gender: "Feminine",
+        forms: [
+          { fr: "celles-ci", en: "these ones", note: "Feminine plural · -ci", examples: [
+            { fr: "Tu veux quelles robes ? Celles-ci.", en: "Which dresses do you want? These ones." }
+          ] },
+          { fr: "celles-là", en: "those ones", note: "Feminine plural · -là", examples: [
+            { fr: "Tu préfères quelles robes ? Celles-là.", en: "Which dresses do you prefer? Those ones." }
+          ] }
+        ]
+      }
+    ];
+
     const tonicPronounRows = [
       {
         singularZh: "我",

@@ -24,6 +24,7 @@
           { id: "tonic", title: "Tonic pronouns", open: true, elements: ['[data-study-section="pronoun-tonic"]'] },
           { id: "tonic-usage", title: "When to use tonic", elements: ['[data-study-section="pronoun-tonic-usage"]'] },
           { id: "reflexive", title: "Reflexive pronouns", open: true, elements: ['[data-study-section="pronoun-reflexive"]'] },
+          { id: "demonstrative", title: "Les pronoms démonstratifs", open: true, elements: ['[data-study-section="pronoun-demonstrative"]'] },
           { id: "possessive", title: "Possessives", elements: ['[data-study-section="pronoun-possessive"]'] },
           { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
         ]
@@ -70,6 +71,7 @@
           { id: "amounts", title: "Amounts", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
           { id: "degree", title: "强度副词 · Intensity", open: true, elements: ['[data-study-section="adverb-degree"]'] },
           { id: "frequency", title: "频率副词 · Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
+          { id: "focus", title: "Focus & emphasis", open: true, elements: ['[data-study-section="adverb-focus"]'] },
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout: 3 roles", elements: ['[data-study-section="adverb-tout"]'] }
@@ -191,6 +193,8 @@
       pronouns() {
         renderTonicPronounForms();
         renderReflexivePronounForms();
+        renderDemonstrativeTable(demonstrativePronounSimpleRows, document.getElementById("demonstrativePronounSimpleGrid"));
+        renderDemonstrativeTable(demonstrativePronounCompoundRows, document.getElementById("demonstrativePronounCompoundGrid"));
         renderPossessives();
         renderPossessiveExceptions();
         renderTonicPronounUsage();
@@ -235,6 +239,7 @@
         initializeTenseIndex();
         FR.renderers.imparfait.render();
         FR.renderers.futurSimple.render();
+        FR.renderers.conditionnelPresent.render();
       },
       nouns() {
         renderNounPluralRules();
@@ -250,6 +255,7 @@
         initializeStudyIndex("adjectives");
       },
       adverbs() {
+        renderFocusWords();
         renderAdverbAmountComparison();
         renderDegreeWords();
         renderFrequencyWords();
@@ -750,18 +756,19 @@
       return details;
     }
 
-    function createVerbFuturSimpleSummary(item) {
-      const future = FR.data.futurSimple && FR.data.futurSimple.getItem(item.key);
-      if (!future || !future.rows || !future.rows.length) return null;
+    function createVerbSimpleTenseSummary(item, dataKey, slug, title) {
+      const tenseData = FR.data[dataKey];
+      const tense = tenseData && tenseData.getItem(item.key);
+      if (!tense || !tense.rows || !tense.rows.length) return null;
 
       const details = document.createElement("details");
-      details.className = "verb-tense-summary verb-futur-simple-summary";
+      details.className = `verb-tense-summary verb-${slug}-summary`;
 
-      const sample = future.rows.find(row => row.pronoun === "je") || future.rows[0];
+      const sample = tense.rows.find(row => row.pronoun === "je") || tense.rows[0];
       const summary = document.createElement("summary");
       summary.className = "verb-tense-summary-toggle";
       summary.innerHTML = `
-        <span>Futur simple</span>
+        <span>${title}</span>
         <span class="verb-tense-summary-form">${sample.full}</span>
       `;
 
@@ -770,16 +777,16 @@
 
       const formula = document.createElement("div");
       formula.className = "grammar-note";
-      formula.innerHTML = `<strong>Build it:</strong> ${future.formula.text}`;
+      formula.innerHTML = `<strong>Build it:</strong> ${tense.formula.text}`;
       body.appendChild(formula);
 
-      const createFutureFormCard = row => {
+      const createTenseFormCard = row => {
         const card = document.createElement("div");
         card.className = "verb-cell-card";
         const button = document.createElement("button");
-        button.className = "verb-tense-form-btn verb-futur-simple-form-btn";
+        button.className = `verb-tense-form-btn verb-${slug}-form-btn`;
         button.type = "button";
-        button.setAttribute("aria-label", `Play futur simple: ${row.full}`);
+        button.setAttribute("aria-label", `Play ${title}: ${row.full}`);
         button.innerHTML = `
           <span class="tiny-label">${row.pronoun}</span>
           <span class="noun-example-main">${row.full}</span>
@@ -792,19 +799,19 @@
         return card;
       };
 
-      if (future.rows.length === 1) {
+      if (tense.rows.length === 1) {
         const fixedForm = document.createElement("div");
         fixedForm.className = "verb-extra-column verb-tense-fixed-form";
         const fixedTitle = document.createElement("div");
         fixedTitle.className = "verb-column-title";
         fixedTitle.textContent = "Fixed impersonal form";
-        fixedForm.append(fixedTitle, createFutureFormCard(future.rows[0]));
+        fixedForm.append(fixedTitle, createTenseFormCard(tense.rows[0]));
         body.appendChild(fixedForm);
       } else {
         const matrix = document.createElement("div");
         matrix.className = "verb-matrix verb-tense-mini-matrix";
         matrix.setAttribute("role", "table");
-        matrix.setAttribute("aria-label", `${item.label}: futur simple conjugation`);
+        matrix.setAttribute("aria-label", `${item.label}: ${title} conjugation`);
 
         const matrixHeader = document.createElement("div");
         matrixHeader.className = "verb-pair-header";
@@ -817,14 +824,14 @@
         });
         matrix.appendChild(matrixHeader);
 
-        FR.data.futurSimple.alignedPairs.forEach(pair => {
+        tenseData.alignedPairs.forEach(pair => {
           const pairRow = document.createElement("div");
           pairRow.className = "verb-pair-row";
           pairRow.setAttribute("role", "row");
           pair.forEach(pronoun => {
-            const row = future.rows.find(entry => entry.pronoun === pronoun);
+            const row = tense.rows.find(entry => entry.pronoun === pronoun);
             if (row) {
-              const card = createFutureFormCard(row);
+              const card = createTenseFormCard(row);
               card.setAttribute("role", "cell");
               pairRow.appendChild(card);
               return;
@@ -843,34 +850,34 @@
           { pronoun: "on", title: "On: spoken French" },
           { pronoun: "ça", title: "Ça: impersonal expression" }
         ].forEach(extra => {
-          const row = future.rows.find(entry => entry.pronoun === extra.pronoun);
+          const row = tense.rows.find(entry => entry.pronoun === extra.pronoun);
           if (!row) return;
           const column = document.createElement("div");
           column.className = "verb-extra-column verb-tense-on-form";
           const title = document.createElement("div");
           title.className = "verb-column-title";
           title.textContent = extra.title;
-          column.append(title, createFutureFormCard(row));
+          column.append(title, createTenseFormCard(row));
           body.appendChild(column);
         });
       }
 
-      if (future.examples) {
+      if (tense.examples) {
         const usage = document.createElement("div");
         usage.className = "verb-tense-usage";
         usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
         appendCompactTenseExampleList(usage, [
-          { label: "Statement", ...future.examples.statement },
-          { label: "Negative", ...future.examples.negative },
-          { label: "Question", ...future.examples.question }
+          { label: "Statement", ...tense.examples.statement },
+          { label: "Negative", ...tense.examples.negative },
+          { label: "Question", ...tense.examples.question }
         ].filter(sentence => sentence.fr));
         body.appendChild(usage);
       }
 
-      if (future.specialRules.length) {
+      if (tense.specialRules.length) {
         const noteList = document.createElement("div");
         noteList.className = "verb-imparfait-notes";
-        future.specialRules.forEach(rule => {
+        tense.specialRules.forEach(rule => {
           const note = document.createElement("div");
           note.className = "verb-form-highlight";
           note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
@@ -1026,8 +1033,11 @@
       const tenseSummary = createVerbPasseComposeSummary(item);
       if (tenseSummary) panel.appendChild(tenseSummary);
 
-      const futureSummary = createVerbFuturSimpleSummary(item);
+      const futureSummary = createVerbSimpleTenseSummary(item, "futurSimple", "futur-simple", "Futur simple");
       if (futureSummary) panel.appendChild(futureSummary);
+
+      const conditionalSummary = createVerbSimpleTenseSummary(item, "conditionnelPresent", "conditionnel-present", "Conditionnel présent");
+      if (conditionalSummary) panel.appendChild(conditionalSummary);
 
       const imperativeSummary = createVerbImperativeSummary(item);
       if (imperativeSummary) panel.appendChild(imperativeSummary);

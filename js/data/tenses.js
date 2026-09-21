@@ -10,6 +10,32 @@
         },
         verbs: [
           {
+            infinitive: "montrer",
+            infinitiveIpa: "/mɔ̃.tʁe/",
+            meaning: "to show",
+            auxiliary: "avoir",
+            pastParticiple: "montré",
+            pastParticipleIpa: "/mɔ̃.tʁe/",
+            pattern: "montrer → montré",
+            note: "Regular -er past participle. Use montrer quelque chose à quelqu’un to show someone something.",
+            statement: { fr: "Nous avons montré les photos à Marie.", en: "We showed the photos to Marie." },
+            negative: { fr: "Nous n’avons pas montré les photos à Marie.", en: "We did not show the photos to Marie." },
+            question: { fr: "Avez-vous montré les photos à Marie ?", en: "Did you show the photos to Marie?" }
+          },
+          {
+            infinitive: "intéresser",
+            infinitiveIpa: "/ɛ̃.te.ʁe.se/",
+            meaning: "to interest",
+            auxiliary: "avoir",
+            pastParticiple: "intéressé",
+            pastParticipleIpa: "/ɛ̃.te.ʁe.se/",
+            pattern: "intéresser → intéressé",
+            note: "Intéresser quelqu’un takes a direct object and uses avoir. Compare s’intéresser à, which uses être and agrees with the subject.",
+            statement: { fr: "Ce cours a intéressé Marie.", en: "This class interested Marie." },
+            negative: { fr: "Ce cours n’a pas intéressé Marie.", en: "This class did not interest Marie." },
+            question: { fr: "Ce cours a-t-il intéressé Marie ?", en: "Did this class interest Marie?" }
+          },
+          {
             infinitive: "parler",
             infinitiveIpa: "/paʁle/",
             meaning: "to speak / talk",
@@ -125,6 +151,32 @@
             statement: { fr: "Nous avons préféré le train à l’avion.", en: "We preferred the train to the plane." },
             negative: { fr: "Nous n’avons pas préféré le train à l’avion.", en: "We did not prefer the train to the plane." },
             question: { fr: "Avez-vous préféré le train à l’avion ?", en: "Did you prefer the train to the plane?" }
+          },
+          {
+            infinitive: "envoyer",
+            infinitiveIpa: "/ɑ̃.vwa.je/",
+            meaning: "to send",
+            auxiliary: "avoir",
+            pastParticiple: "envoyé",
+            pastParticipleIpa: "/ɑ̃.vwa.je/",
+            pattern: "envoyer → envoyé",
+            note: "Use avoir + envoyé. The past participle keeps y; envoyer quelque chose à quelqu’un means to send something to someone.",
+            statement: { fr: "J’ai envoyé un message à Marie.", en: "I sent a message to Marie." },
+            negative: { fr: "Je n’ai pas envoyé de message à Marie.", en: "I did not send a message to Marie." },
+            question: { fr: "As-tu envoyé un message à Marie ?", en: "Did you send a message to Marie?" }
+          },
+          {
+            infinitive: "payer",
+            infinitiveIpa: "/pɛ.je/",
+            meaning: "to pay",
+            auxiliary: "avoir",
+            pastParticiple: "payé",
+            pastParticipleIpa: "/pɛ.je/",
+            pattern: "payer → payé",
+            note: "Use avoir + payé. The past participle always keeps y, regardless of the present-tense spelling paie or paye.",
+            statement: { fr: "J’ai payé l’addition par carte.", en: "I paid the bill by card." },
+            negative: { fr: "Je n’ai pas payé l’addition par carte.", en: "I did not pay the bill by card." },
+            question: { fr: "As-tu payé l’addition par carte ?", en: "Did you pay the bill by card?" }
           },
           {
             infinitive: "essayer",
@@ -1019,6 +1071,19 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            infinitive: "s’intéresser",
+            infinitiveIpa: "/sɛ̃.te.ʁe.se/",
+            meaning: "to be interested in / take an interest in",
+            auxiliary: "être",
+            pastParticiple: "intéressé(e)(s)",
+            pastParticipleIpa: "/ɛ̃.te.ʁe.se/",
+            pattern: "s’intéresser → intéressé",
+            note: "Use s’intéresser à + topic. The participle agrees with the subject: elle s’est intéressée; elles se sont intéressées.",
+            statement: { fr: "Elles se sont intéressées à l’histoire.", en: "They became interested in history." },
+            negative: { fr: "Elles ne se sont pas intéressées à l’histoire.", en: "They did not become interested in history." },
+            question: { fr: "À quoi se sont-elles intéressées ?", en: "What did they become interested in?" }
+          },
           {
             infinitive: "se laver",
             infinitiveIpa: "/sə lave/",

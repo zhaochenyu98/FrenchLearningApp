@@ -882,7 +882,7 @@
       }
     ];
 
-    const limitingWordRows = [
+    const focusWordRows = [
       {
         fr: "seulement",
         ipa: "/sœl.mɑ̃/",
@@ -892,6 +892,28 @@
           { fr: "J’ai seulement dix minutes.", en: "I only have ten minutes." },
           { fr: "Elle travaille seulement le matin.", en: "She works only in the morning." },
           { fr: "Nous avons seulement acheté du pain.", en: "We only bought bread." }
+        ]
+      },
+      {
+        fr: "même",
+        ipa: "/mɛm/",
+        en: "even · 甚至 / 连……都",
+        note: "As an adverb, même highlights something surprising or unexpected and does not change for gender or number. Put it before the word or phrase it emphasizes; with a whole action in a compound tense, it often follows the auxiliary. In ne…même pas, it means not even. Distinguish this from the adjective meaning same, which can agree: les mêmes livres.",
+        examples: [
+          { label: "Emphasize the subject", fr: "Même Paul est venu.", en: "Even Paul came." },
+          { label: "Emphasize an action", fr: "Elle a même préparé un dessert.", en: "She even made a dessert." },
+          { label: "Not even", fr: "Il n’a même pas répondu.", en: "He did not even reply." }
+        ]
+      },
+      {
+        fr: "surtout",
+        ipa: "/syʁ.tu/",
+        en: "especially / mainly / above all · 尤其 / 主要 / 最重要的是",
+        note: "Surtout singles out what matters most or is especially true. It often follows the conjugated verb or comes directly before the phrase it emphasizes. At the start of advice, it means above all. It is invariable and does not describe how often something happens.",
+        examples: [
+          { label: "Especially", fr: "J’aime les fruits, surtout les fraises.", en: "I like fruit, especially strawberries." },
+          { label: "Mainly", fr: "Je travaille surtout le matin.", en: "I mainly work in the morning." },
+          { label: "Above all", fr: "Surtout, n’oublie pas tes clés !", en: "Above all, don’t forget your keys!" }
         ]
       }
     ];

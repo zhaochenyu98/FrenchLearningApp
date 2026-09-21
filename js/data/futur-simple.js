@@ -66,7 +66,7 @@
     "ayer-optional": Object.freeze({
       id: "ayer-optional",
       title: "-ayer verbs allow two future spellings",
-      note: "This app changes y to i in essayer: j’essaierai. Keeping y is also accepted: j’essayerai."
+      note: "This app changes y to i in essayer and payer: j’essaierai, je paierai. Keeping y is also accepted: j’essayerai, je payerai."
     }),
     "y-to-i": Object.freeze({
       id: "y-to-i",
@@ -101,6 +101,7 @@
   });
 
   const stemOverrides = Object.freeze({
+    envoyer: Object.freeze({ stem: "enverr", ipa: "ɑ̃vɛʁ" }),
     etreVerb: Object.freeze({ stem: "ser", ipa: "səʁ" }),
     avoirVerb: Object.freeze({ stem: "aur", ipa: "oʁ" }),
     aller: Object.freeze({ stem: "ir", ipa: "iʁ" }),
@@ -125,6 +126,7 @@
   });
 
   const spellingOverrides = Object.freeze({
+    payer: Object.freeze({ stem: "paier", ipa: "pɛʁ", ruleId: "ayer-optional" }),
     acheter: Object.freeze({ stem: "achèter", ipa: "aʃɛtʁ", ruleId: "e-to-grave" }),
     essayer: Object.freeze({ stem: "essaier", ipa: "esɛʁ", ruleId: "ayer-optional" }),
     seLever: Object.freeze({ stem: "lèver", ipa: "lɛvʁ", ruleId: "e-to-grave" }),
@@ -188,6 +190,7 @@
   });
 
   const pronominalUsage = Object.freeze({
+    sInteresser: Object.freeze(["à l’histoire locale", "take an interest in local history"]),
     seLaver: Object.freeze(["avant de dîner", "wash before dinner"]),
     seLever: Object.freeze(["plus tôt", "get up earlier"]),
     seReposer: Object.freeze(["après le voyage", "rest after the trip"]),
@@ -416,8 +419,8 @@
     return subject.endsWith("’") ? `${subject}${form}` : `${subject} ${form}`;
   }
 
-  function buildRowIpa(source, person, stemIpa) {
-    const core = `${stemIpa}${endingIpa[person]}`;
+  function buildRowIpa(source, person, stemIpa, tenseEndingIpa = endingIpa) {
+    const core = `${stemIpa}${tenseEndingIpa[person]}`;
     if (source.key === "ilYA") return `/il i ${core}/`;
     if (isPronominal(source)) {
       const prefix = reflexiveIpa[person];
@@ -429,9 +432,9 @@
     return `/${startsWithIpaVowel(stemIpa) ? subject.vowel : subject.consonant}${core}/`;
   }
 
-  function deriveRows(source, stemConfig) {
+  function deriveRows(source, stemConfig, tenseEndings = endings, tenseEndingIpa = endingIpa) {
     return getPersons(source).map(person => {
-      const ending = endings[person];
+      const ending = tenseEndings[person];
       if (!ending) throw new Error(`${source.label} has unsupported future person ${person}.`);
       const form = `${stemConfig.stem}${ending}`;
       const full = buildFullForm(source, person, form);
@@ -441,7 +444,7 @@
         form,
         full,
         speech: full,
-        ipa: buildRowIpa(source, person, stemConfig.ipa)
+        ipa: buildRowIpa(source, person, stemConfig.ipa, tenseEndingIpa)
       });
     });
   }
@@ -582,6 +585,7 @@
     const built = buildData();
     const itemByKey = new Map(built.items.map(item => [item.key, item]));
     FR.data.futurSimple = Object.freeze({
+      pronominalUsage,
       endings,
       endingIpa,
       alignedPairs,

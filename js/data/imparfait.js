@@ -86,6 +86,16 @@
   });
 
   const presentAlternations = Object.freeze({
+    payer: Object.freeze({
+      present: "je paie",
+      nous: "nous payons",
+      imparfait: "je payais"
+    }),
+    envoyer: Object.freeze({
+      present: "j’envoie",
+      nous: "nous envoyons",
+      imparfait: "j’envoyais"
+    }),
     acheter: Object.freeze({
       present: "j’achète",
       nous: "nous achetons",
@@ -221,6 +231,8 @@
     servir: "sɛʁv",
     sentir: "sɑ̃t",
     parler: "paʁl",
+    interesser: "ɛ̃.te.ʁe.s",
+    montrer: "mɔ̃.tʁ",
     chercher: "ʃɛʁʃ",
     changer: "ʃɑ̃ʒ",
     manger: "mɑ̃ʒ",
@@ -352,6 +364,8 @@
     servir: Object.freeze(["le dîner à sept heures", "serve dinner at seven o’clock"]),
     sentir: Object.freeze(["le parfum des fleurs", "smell the flowers’ fragrance"]),
     parler: Object.freeze(["français à la maison", "speak French at home"]),
+    interesser: Object.freeze(["les élèves à l’histoire", "get the students interested in history"]),
+    montrer: Object.freeze(["nos photos à nos amis", "show our photos to our friends"]),
     expliquer: Object.freeze(["la leçon aux élèves", "explain the lesson to the students"]),
     chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
     changer: Object.freeze(["souvent de train à Lyon", "often change trains in Lyon"]),
@@ -361,6 +375,8 @@
     detester: Object.freeze(["attendre dans les files", "hate waiting in lines"]),
     preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
     essayer: Object.freeze(["de parler français chaque jour", "try to speak French every day"]),
+    payer: Object.freeze(["le loyer à temps", "pay the rent on time"]),
+    envoyer: Object.freeze(["des cartes à nos amis", "send cards to our friends"]),
     gagner: Object.freeze(["souvent le match", "often win the match"]),
     penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
     porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),

@@ -10,7 +10,7 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present, past, and future tense study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
+      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present, past, future, and conditional study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
     </p>
 
     <div class="controls">
@@ -137,7 +137,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">French Pronouns</h2>
-            <p class="section-desc">Study stressed pronouns, reflexive forms, and possessive determiners. Object replacement now has its own guided comparison tab.</p>
+            <p class="section-desc">Study stressed pronouns, reflexive forms, demonstrative pronouns, and possessive determiners. Object replacement now has its own guided comparison tab.</p>
           </div>
         </div>
 
@@ -156,6 +156,18 @@
             <button class="study-cross-link" type="button" data-study-link-tab="pronominal" data-study-link-target="pronominalOverviewGrid">Open Pronominal Verbs</button>
           </div>
           <div id="reflexivePronounGrid" class="tonic-pronoun-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="pronoun-demonstrative">
+          <h3>Les pronoms démonstratifs</h3>
+          <p>Demonstrative pronouns replace a noun and agree with its gender and number: <strong>ce livre → celui-ci</strong> (“this book → this one”), <strong>cette robe → celle-là</strong> (“that dress → that one”).</p>
+          <h4>Formes simples</h4>
+          <p><strong>Celui / celle / ceux / celles</strong> mean “the one / the ones.” They normally need a complement, such as <strong>de + noun</strong> or a relative clause with <strong>qui / que</strong>, to identify which one(s).</p>
+          <div id="demonstrativePronounSimpleGrid" class="demonstrative-table"></div>
+          <h4>Formes composées</h4>
+          <p>Add <strong>-ci</strong> for “this one / these ones” and <strong>-là</strong> for “that one / those ones.” These forms can stand alone. <strong>-Ci</strong> often points to something nearer and <strong>-là</strong> to something farther away; they can also distinguish two choices. In everyday speech, <strong>-là</strong> is common even without a distance contrast.</p>
+          <div id="demonstrativePronounCompoundGrid" class="demonstrative-table"></div>
+          <p><strong>Neutral forms:</strong> <strong>ce / c’</strong>, <strong>ceci</strong>, <strong>cela</strong>, and everyday <strong>ça</strong> can refer to an idea or situation and do not change for gender or number: <strong>C’est intéressant.</strong> (“That’s interesting.”) <strong>Ça me plaît.</strong> (“I like that.”)</p>
         </div>
 
         <div class="category-panel" data-study-section="pronoun-possessive">
@@ -397,7 +409,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Verbs &amp; Tenses</h2>
-            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, and imperative references.</p>
+            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, conditionnel présent, and imperative references.</p>
           </div>
         </div>
 
@@ -406,6 +418,7 @@
           <button id="verbModeImparfait" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="imparfaitSection" data-verb-mode="imparfait">Imparfait</button>
           <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">Passé composé</button>
           <button id="verbModeFuturSimple" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="futurSimpleSection" data-verb-mode="futur-simple">Futur simple</button>
+          <button id="verbModeConditionnelPresent" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="conditionnelPresentSection" data-verb-mode="conditionnel-present">Conditionnel présent</button>
         </div>
 
         <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
@@ -582,6 +595,52 @@
             <div id="futurSimpleGroupStack" class="verb-group-stack"></div>
           </div>
         </div>
+        <div id="conditionnelPresentSection" class="verb-mode-panel" data-verb-mode-panel="conditionnel-present" role="tabpanel" aria-labelledby="verbModeConditionnelPresent" hidden>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Conditionnel présent</h2>
+              <p class="section-desc">Express what would happen, make polite requests, give advice, or describe the future from a past viewpoint. Every verb includes aligned forms, IPA, audio, and statement, negative, and question practice.</p>
+            </div>
+          </div>
+          <div class="category-panel">
+            <h3>Build and use the conditionnel présent</h3>
+            <div class="summary-chips">
+              <div class="summary-chip">
+                <strong>Future stem + imparfait endings</strong>
+                <span>Add <strong>-ais, -ais, -ait, -ions, -iez, -aient</strong> to the future stem: <strong>je parlerais</strong>, <strong>nous finirions</strong>, <strong>vous attendriez</strong>. Irregular stems stay the same: <strong>je serais</strong>, <strong>j’aurais</strong>, <strong>j’irais</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Si + imparfait → conditional</strong>
+                <span><strong>Si j’avais le temps, je voyagerais.</strong> (“If I had time, I would travel.”) In a hypothetical condition introduced by <strong>si</strong>, use the imparfait, not the conditional: <strong>si j’avais</strong>, not <strong>si j’aurais</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Polite requests and wishes</strong>
+                <span><strong>Je voudrais un café.</strong> (“I would like a coffee.”) <strong>Pourriez-vous m’aider ?</strong> (“Could you help me?”) <strong>J’aimerais partir.</strong> (“I would like to leave.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Advice</strong>
+                <span><strong>Tu devrais te reposer.</strong> (“You should rest.”) <strong>Il faudrait partir tôt.</strong> (“We should leave early.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Future viewed from the past</strong>
+                <span><strong>Elle a dit qu’elle viendrait.</strong> (“She said she would come.”) Compare <strong>Elle dit qu’elle viendra.</strong> (“She says she will come.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Compare the three tenses</strong>
+                <span><strong>Je parlais</strong> = “I was speaking / used to speak”; <strong>je parlerai</strong> = “I will speak”; <strong>je parlerais</strong> = “I would speak.” The conditional uses the future stem with imparfait endings.</span>
+              </div>
+            </div>
+            <h4>Stem, spelling, and pronunciation watch</h4>
+            <div id="conditionnelPresentSpecialRules" class="imparfait-special-grid"></div>
+          </div>
+          <div class="verb-study-layout imparfait-study-layout">
+            <aside class="verb-index" aria-label="Conditionnel présent verb index">
+              <div class="verb-index-title">Conditionnel présent index</div>
+              <div id="conditionnelPresentIndex" class="verb-index-groups"></div>
+            </aside>
+            <div id="conditionnelPresentGroupStack" class="verb-group-stack"></div>
+          </div>
+        </div>
       </section>
 
       <section id="nounsSection" class="section" data-tab="nouns">
@@ -717,9 +776,12 @@
             <strong>Placement:</strong> short frequency adverbs often follow the conjugated verb: <strong>Je cuisine souvent.</strong> (“I often cook.”) In passé composé, they often follow the auxiliary: <strong>J’ai souvent cuisiné.</strong> (“I have often cooked.”) Use <strong>ne / n’…jamais</strong> or <strong>ne / n’…presque jamais</strong> without <strong>pas</strong>. <strong>Rarement</strong> does not normally need <strong>ne</strong>.
           </div>
           <div id="frequencyWordsGrid" class="noun-rules-table"></div>
-          <h4>Limiting adverb: seulement</h4>
-          <p><strong>Seulement</strong> means “only”; it limits what is included rather than saying how often something happens.</p>
-          <div id="limitingWordsGrid" class="noun-rules-table"></div>
+        </div>
+
+        <div class="category-panel" data-study-section="adverb-focus">
+          <h3>Focus &amp; emphasis: seulement, même, surtout</h3>
+          <p>These adverbs draw attention to a particular part of a sentence: <strong>seulement</strong> limits it (“only”), <strong>même</strong> includes something unexpected (“even”), and <strong>surtout</strong> highlights it (“especially / above all”). Place them close to what they focus on. Click any word or sentence for French audio.</p>
+          <div id="focusWordsGrid" class="noun-rules-table"></div>
         </div>
 
         <div class="category-panel" data-study-section="adverb-transitions">
@@ -1416,6 +1478,7 @@
   <script defer src="js/data/imperative.js"></script>
   <script defer src="js/data/imparfait.js"></script>
   <script defer src="js/data/futur-simple.js"></script>
+  <script defer src="js/data/conditionnel-present.js"></script>
   <script defer src="js/data/pronominal-verbs.js"></script>
   <script defer src="js/data/object-pronouns.js"></script>
   <script defer src="js/core/core.js"></script>

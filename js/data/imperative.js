@@ -18,6 +18,20 @@
   }
 
   const curated = Object.freeze({
+    montrer: command(
+      "Montre ton billet au contrôleur !",
+      "Show your ticket to the ticket inspector!",
+      "Ne montre pas ton billet à tout le monde !",
+      "Do not show your ticket to everyone!",
+      "Regular -er imperative: montre, montrons, montrez. Pronouns follow an affirmative command: montre-le-moi (show it to me)."
+    ),
+    interesser: command(
+      "Intéresse les élèves à l’histoire locale !",
+      "Get the students interested in local history!",
+      "N’intéresse pas les élèves seulement aux dates !",
+      "Do not get the students interested only in dates!",
+      "Intéresser quelqu’un à quelque chose: get someone interested in something. Compare the pronominal command intéresse-toi à l’histoire."
+    ),
     etreVerb: command(
       "Sois patient pendant l’exercice !",
       "Be patient during the exercise!",
@@ -264,6 +278,20 @@
       "Ne préférez pas le prix à la qualité !",
       "Do not favor price over quality!",
       "The imperative of préférer is most natural when giving a recommendation, especially with vous."
+    ),
+    envoyer: command(
+      "Envoie le document à Marie !",
+      "Send the document to Marie!",
+      "N’envoie pas le mauvais fichier !",
+      "Do not send the wrong file!",
+      "The imperative is envoie, envoyons, envoyez. The tu form drops its final -s; nous and vous keep y."
+    ),
+    payer: command(
+      "Paie l’addition !",
+      "Pay the bill!",
+      "Ne paie pas deux fois !",
+      "Do not pay twice!",
+      "The imperative is paie, payons, payez. Paye is also correct for tu; neither paie nor paye takes a final -s here."
     ),
     essayer: command(
       "Essaie encore une fois !",

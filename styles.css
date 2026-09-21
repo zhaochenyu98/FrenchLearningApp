@@ -2755,7 +2755,8 @@
       margin-bottom: 4px;
     }
 
-    .imparfait-guide-panel > .summary-chips .summary-chip > span strong {
+    .imparfait-guide-panel > .summary-chips .summary-chip > span strong,
+    [data-study-section="preposition-geography"] .summary-chip > span strong {
       display: inline;
       margin-bottom: 0;
     }

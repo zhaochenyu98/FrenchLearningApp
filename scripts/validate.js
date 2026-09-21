@@ -393,6 +393,7 @@ function loadExtendedGrammarData() {
     "js/data/imperative.js",
     "js/data/imparfait.js",
     "js/data/futur-simple.js",
+    "js/data/conditionnel-present.js",
     "js/data/pronominal-verbs.js",
     "js/data/object-pronouns.js"
   ].forEach(scriptPath => {
@@ -643,6 +644,85 @@ function validateFuturSimpleContent(data) {
   ]);
   if (!validSeLeverQuestions.has(seLeverQuestion)) {
     fail("se lever future question must use correct reflexive inversion or est-ce que order");
+  }
+}
+
+function validateConditionnelPresentContent(data) {
+  const conditional = data.conditionnelPresent;
+  if (!conditional || typeof conditional.getItem !== "function") {
+    fail("conditionnel-present data is not registered");
+    return;
+  }
+  if (conditional.errors.length) {
+    fail(`conditional derivation errors: ${conditional.errors.map(entry => `${entry.label}: ${entry.error.message}`).join(", ")}`);
+  }
+  if (conditional.items.length !== data.verbs.items.length) {
+    fail(`conditional has ${conditional.items.length} entries for ${data.verbs.items.length} verbs`);
+  }
+  const expectedEndings = { je: "ais", tu: "ais", il: "ait", elle: "ait", on: "ait", ça: "ait", nous: "ions", vous: "iez", ils: "aient", elles: "aient" };
+  data.verbs.items.forEach(source => {
+    const item = conditional.getItem(source.key);
+    if (!item) return fail(`${source.label} is missing its conditional paradigm`);
+    const future = data.futurSimple.getItem(source.key);
+    if (item.stem !== future.stem) fail(`${source.label} must share its future and conditional stem`);
+    const persons = future.rows.map(row => row.pronoun);
+    if (JSON.stringify(item.rows.map(row => row.pronoun)) !== JSON.stringify(persons)) {
+      fail(`${source.label} conditional must preserve applicable persons, including impersonal restrictions`);
+    }
+    item.rows.forEach(row => {
+      if (row.form !== item.stem + expectedEndings[row.pronoun] || !row.full.endsWith(row.form) || row.speech !== row.full || !/^\/[^/]+\/$/u.test(row.ipa || "")) {
+        fail(`${source.label}: incomplete or incorrect conditional row for ${row.pronoun}`);
+      }
+    });
+    ["statement", "negative", "question"].forEach(kind => {
+      const example = item.examples && item.examples[kind];
+      if (!example || !example.fr || !example.en || !item.rows.some(row => example.fr.toLocaleLowerCase("fr").includes(row.form))) {
+        fail(`${source.label} needs a conditional ${kind} example and translation`);
+      }
+    });
+    const examples = item.examples;
+    if (!examples.question.fr.endsWith("?") || normalizeComparableSentence(examples.question.fr) === normalizeComparableSentence(examples.statement.fr)) {
+      fail(`${source.label} needs a genuine conditional question`);
+    }
+  });
+  [
+    ["parler", "je", "je parlerais", "/ʒə paʁləʁɛ/"],
+    ["finir", "nous", "nous finirions", "/nu finiʁjɔ̃/"],
+    ["attendre", "vous", "vous attendriez"],
+    ["etreVerb", "je", "je serais", "/ʒə səʁɛ/"],
+    ["avoirVerb", "je", "j’aurais", "/ʒoʁɛ/"],
+    ["aller", "ils", "ils iraient", "/ilz‿iʁɛ/"],
+    ["venir", "elle", "elle viendrait"],
+    ["faire", "vous", "vous feriez", "/vu fəʁje/"],
+    ["pouvoir", "je", "je pourrais"],
+    ["vouloir", "elles", "elles voudraient"],
+    ["savoir", "tu", "tu saurais"],
+    ["envoyer", "je", "j’enverrais"],
+    ["acheter", "je", "j’achèterais"],
+    ["payer", "je", "je paierais"],
+    ["essayer", "je", "j’essaierais"],
+    ["sAppeler", "je", "je m’appellerais"],
+    ["sInquieter", "je", "je m’inquiéterais"],
+    ["sEnnuyer", "nous", "nous nous ennuierions"],
+    ["seRappeler", "elle", "elle se rappellerait"],
+    ["seLever", "nous", "nous nous lèverions"],
+    ["seSouvenir", "elles", "elles se souviendraient"],
+    ["falloir", "il", "il faudrait"],
+    ["ilYA", "il", "il y aurait", "/il i oʁɛ/"],
+    ["impersonalFaire", "ça", "ça ferait", "/sa fəʁɛ/"],
+    ["pleuvoir", "il", "il pleuvrait"]
+  ].forEach(([key, pronoun, expected, ipa]) => {
+    const item = conditional.getItem(key);
+    const row = item && item.rows.find(entry => entry.pronoun === pronoun);
+    if (!row || row.full !== expected) fail(`${key} conditional ${pronoun}: expected ${expected}, found ${row && row.full}`);
+    if (ipa && row && row.ipa.replace(/\./g, "") !== ipa) fail(`${key} conditional IPA: expected ${ipa}, found ${row.ipa}`);
+  });
+  for (const [key, phrase] of Object.entries({ faire: "nous ne ferions pas de sport", porter: "nous ne porterions pas de manteaux", demander: "nous ne demanderions pas d’aide" })) {
+    if (!conditional.getItem(key).examples.negative.fr.includes(phrase)) fail(`${key}: incorrect conditional negation`);
+  }
+  const question = conditional.getItem("seLever").examples.question.fr;
+  if (!["Nous lèverions-nous plus tôt ?", "Est-ce que nous nous lèverions plus tôt ?"].includes(question)) {
+    fail("conditional reflexive question must preserve pronoun order");
   }
 }
 
@@ -1101,6 +1181,7 @@ try {
   const extendedData = loadExtendedGrammarData();
   validateImparfaitContent(extendedData);
   validateFuturSimpleContent(extendedData);
+  validateConditionnelPresentContent(extendedData);
   validateImperativeContent(extendedData);
   validatePronominalContent(extendedData);
   validateObjectPronounContent(extendedData);

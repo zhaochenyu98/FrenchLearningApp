@@ -496,9 +496,12 @@
         wordLabel: "Adverb",
         useLabel: "Meaning & placement"
       });
-      renderAdverbWordTable(document.getElementById("limitingWordsGrid"), limitingWordRows, {
-        emptyMessage: "No limiting adverbs available.",
-        wordLabel: "Limiting adverb",
+    }
+
+    function renderFocusWords(rows = focusWordRows) {
+      renderAdverbWordTable(document.getElementById("focusWordsGrid"), rows, {
+        emptyMessage: "No focus adverbs available.",
+        wordLabel: "Focus adverb",
         useLabel: "Meaning & placement"
       });
     }
