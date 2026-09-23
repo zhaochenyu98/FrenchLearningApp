@@ -66,6 +66,11 @@
       ["Avec assez d’eau, cette plante ne mourrait pas.", "With enough water, this plant would not die."],
       ["Cette plante mourrait-elle sans eau ?", "Would this plant die without water?"]
     ),
+    sAgir: examples(
+      ["Dans ce cas, il s’agirait d’une erreur.", "In that case, it would be an error."],
+      ["Dans ce cas, il ne s’agirait pas d’une erreur.", "In that case, it would not be an error."],
+      ["S’agirait-il d’une erreur ?", "Could it be an error?"]
+    ),
     falloir: examples(
       ["Il faudrait réserver une table.", "It would be necessary to reserve a table."],
       ["Il ne faudrait pas arriver en retard.", "We should not arrive late."],

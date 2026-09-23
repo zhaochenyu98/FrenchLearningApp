@@ -66,6 +66,17 @@
       { pronoun: "elles", form: "expliquent", full: "elles expliquent", ipa: "/ɛl.zɛks.plik/", en: "they explain", example: "Elles expliquent leur méthode.", exampleEn: "They explain their method.", negative: "Elles n’expliquent pas leur méthode.", negativeEn: "They do not explain their method.", question: "Quelle méthode expliquent-elles ?" }
     ];
 
+    const proposerRows = [
+      { pronoun: "je", form: "propose", full: "je propose", ipa: "/ʒə pʁɔ.poz/", en: "I suggest / offer", example: "Je propose une idée.", exampleEn: "I suggest an idea.", negative: "Je ne propose pas d’idée.", negativeEn: "I do not suggest an idea.", question: "Quelle idée est-ce que je propose ?" },
+      { pronoun: "tu", form: "proposes", full: "tu proposes", ipa: "/ty pʁɔ.poz/", en: "you suggest / offer", example: "Tu proposes de partir tôt.", exampleEn: "You suggest leaving early.", negative: "Tu ne proposes pas de partir tôt.", negativeEn: "You do not suggest leaving early.", question: "Proposes-tu de partir tôt ?" },
+      { pronoun: "il", form: "propose", full: "il propose", ipa: "/il pʁɔ.poz/", en: "he suggests / offers", example: "Il propose son aide à Marie.", exampleEn: "He offers his help to Marie.", negative: "Il ne propose pas son aide à Marie.", negativeEn: "He does not offer his help to Marie.", question: "À qui propose-t-il son aide ?" },
+      { pronoun: "elle", form: "propose", full: "elle propose", ipa: "/ɛl pʁɔ.poz/", en: "she suggests / offers", example: "Elle propose un autre restaurant.", exampleEn: "She suggests another restaurant.", negative: "Elle ne propose pas d’autre restaurant.", negativeEn: "She does not suggest another restaurant.", question: "Quel restaurant propose-t-elle ?" },
+      { pronoun: "nous", form: "proposons", full: "nous proposons", ipa: "/nu pʁɔ.po.zɔ̃/", en: "we suggest / offer", example: "Nous proposons une solution au problème.", exampleEn: "We suggest a solution to the problem.", negative: "Nous ne proposons pas de solution au problème.", negativeEn: "We do not suggest a solution to the problem.", question: "Quelle solution proposons-nous ?" },
+      { pronoun: "vous", form: "proposez", full: "vous proposez", ipa: "/vu pʁɔ.po.ze/", en: "you suggest / offer", example: "Vous proposez à Paul de venir.", exampleEn: "You suggest that Paul come.", negative: "Vous ne proposez pas à Paul de venir.", negativeEn: "You do not suggest that Paul come.", question: "À qui proposez-vous de venir ?" },
+      { pronoun: "ils", form: "proposent", full: "ils proposent", ipa: "/il pʁɔ.poz/", en: "they suggest / offer", example: "Ils proposent de préparer le dîner.", exampleEn: "They offer to prepare dinner.", negative: "Ils ne proposent pas de préparer le dîner.", negativeEn: "They do not offer to prepare dinner.", question: "Que proposent-ils de préparer ?" },
+      { pronoun: "elles", form: "proposent", full: "elles proposent", ipa: "/ɛl pʁɔ.poz/", en: "they suggest / offer", example: "Elles proposent une promenade.", exampleEn: "They suggest a walk.", negative: "Elles ne proposent pas de promenade.", negativeEn: "They do not suggest a walk.", question: "Proposent-elles une promenade ?" }
+    ];
+
     const chercherRows = [
       { pronoun: "je", form: "cherche", full: "je cherche", en: "I look for", example: "Je cherche mes clés.", exampleEn: "I am looking for my keys.", negative: "Je ne cherche pas mes clés.", negativeEn: "I am not looking for my keys." },
       { pronoun: "tu", form: "cherches", full: "tu cherches", en: "you look for", example: "Tu cherches un café.", exampleEn: "You are looking for a café.", negative: "Tu ne cherches pas de café.", negativeEn: "You are not looking for a café.", question: "Que cherches-tu ?" },
@@ -97,6 +108,17 @@
       { pronoun: "vous", form: "invitez", full: "vous invitez", en: "you invite", example: "Vous invitez les enfants.", exampleEn: "You invite the children.", negative: "Vous n’invitez pas les enfants.", negativeEn: "You do not invite the children." },
       { pronoun: "ils", form: "invitent", full: "ils invitent", en: "they invite", example: "Ils invitent tout le monde.", exampleEn: "They invite everyone.", negative: "Ils n’invitent pas tout le monde.", negativeEn: "They do not invite everyone." },
       { pronoun: "elles", form: "invitent", full: "elles invitent", en: "they invite", example: "Elles invitent leurs parents.", exampleEn: "They invite their parents.", negative: "Elles n’invitent pas leurs parents.", negativeEn: "They do not invite their parents." }
+    ];
+
+    const aimerRows = [
+      { pronoun: "j’", form: "aime", full: "j’aime", ipa: "/ʒɛm/", en: "I like / love", example: "J’aime le chocolat.", exampleEn: "I like chocolate.", negative: "Je n’aime pas le chocolat.", negativeEn: "I do not like chocolate.", question: "Est-ce que j’aime le chocolat ?" },
+      { pronoun: "tu", form: "aimes", full: "tu aimes", ipa: "/ty ɛm/", en: "you like / love", example: "Tu aimes lire.", exampleEn: "You like reading.", negative: "Tu n’aimes pas lire.", negativeEn: "You do not like reading.", question: "Aimes-tu lire ?" },
+      { pronoun: "il", form: "aime", full: "il aime", ipa: "/il ɛm/", en: "he likes / loves", example: "Il aime sa famille.", exampleEn: "He loves his family.", negative: "Il n’aime pas sa famille.", negativeEn: "He does not love his family.", question: "Est-ce qu’il aime sa famille ?" },
+      { pronoun: "elle", form: "aime", full: "elle aime", ipa: "/ɛl ɛm/", en: "she likes / loves", example: "Elle aime bien ce voisin.", exampleEn: "She likes this neighbor.", negative: "Elle n’aime pas beaucoup ce voisin.", negativeEn: "She does not like this neighbor very much.", question: "Aime-t-elle bien ce voisin ?" },
+      { pronoun: "nous", form: "aimons", full: "nous aimons", ipa: "/nu.ze.mɔ̃/", en: "we like / love", example: "Nous aimons apprendre le français.", exampleEn: "We like learning French.", negative: "Nous n’aimons pas apprendre le français.", negativeEn: "We do not like learning French.", question: "Aimons-nous apprendre le français ?" },
+      { pronoun: "vous", form: "aimez", full: "vous aimez", ipa: "/vu.ze.me/", en: "you like / love", example: "Vous aimez la musique.", exampleEn: "You like music.", negative: "Vous n’aimez pas la musique.", negativeEn: "You do not like music.", question: "Quelle musique aimez-vous ?" },
+      { pronoun: "ils", form: "aiment", full: "ils aiment", ipa: "/il.zɛm/", en: "they like / love", example: "Ils aiment voyager ensemble.", exampleEn: "They like traveling together.", negative: "Ils n’aiment pas voyager ensemble.", negativeEn: "They do not like traveling together.", question: "Aiment-ils voyager ensemble ?" },
+      { pronoun: "elles", form: "aiment", full: "elles aiment", ipa: "/ɛl.zɛm/", en: "they like / love", example: "Elles aiment les films français.", exampleEn: "They like French movies.", negative: "Elles n’aiment pas les films français.", negativeEn: "They do not like French movies.", question: "Quels films aiment-elles ?" }
     ];
 
     const adorerRows = [
@@ -1414,6 +1436,17 @@
       { pronoun: "il", form: "pleut", full: "il pleut", ipa: "/il plø/", en: "it rains / is raining", example: "Il pleut ce matin.", exampleEn: "It is raining this morning.", negative: "Il ne pleut pas ce matin.", negativeEn: "It is not raining this morning.", question: "Pleut-il ce matin ?" }
     ];
 
+    const sAgirRows = [
+      {
+        pronoun: "il", form: "s’agit", full: "il s’agit", ipa: "/il sa.ʒi/", en: "it is about / it is a matter of",
+        examples: [
+          { meaning: "il s’agit de + noun — it is about", fr: "Il s’agit du nouveau projet.", en: "It is about the new project.", negative: "Il ne s’agit pas du nouveau projet.", negativeEn: "It is not about the new project.", question: "De quoi s’agit-il ?" },
+          { meaning: "de becomes d’ before a vowel", fr: "Il s’agit d’un problème technique.", en: "It is a technical problem.", negative: "Il ne s’agit pas d’un problème technique.", negativeEn: "It is not a technical problem.", question: "S’agit-il d’un problème technique ?" },
+          { meaning: "il s’agit de + infinitive — the aim is to", fr: "Il s’agit de trouver une solution.", en: "The aim is to find a solution.", negative: "Il ne s’agit pas de trouver une solution.", negativeEn: "The aim is not to find a solution.", question: "S’agit-il de trouver une solution ?" }
+        ]
+      }
+    ];
+
     const vivreRows = [
       { pronoun: "je", form: "vis", full: "je vis", ipa: "/ʒə vi/", en: "I live / experience", example: "Je vis à Lyon.", exampleEn: "I live in Lyon.", negative: "Je ne vis pas à Lyon.", negativeEn: "I do not live in Lyon.", question: "Où est-ce que je vis ?" },
       { pronoun: "tu", form: "vis", full: "tu vis", ipa: "/ty vi/", en: "you live / experience", example: "Tu vis avec tes parents.", exampleEn: "You live with your parents.", negative: "Tu ne vis pas avec tes parents.", negativeEn: "You do not live with your parents.", question: "Avec qui vis-tu ?" },
@@ -1591,7 +1624,7 @@
         key: "impersonal",
         title: "Verbes impersonnels",
         indexTitle: "Impersonal",
-        descriptionHtml: "Most impersonal verbs keep the fixed subject <strong>il</strong>, which does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, and <strong>il pleut</strong>. Spoken French also uses the fixed expression <strong>ça fait</strong> for elapsed time and effects. Learn these patterns as chunks."
+        descriptionHtml: "Most impersonal verbs keep the fixed subject <strong>il</strong>, which does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, <strong>il pleut</strong>, and <strong>il s’agit de</strong>. Spoken French also uses the fixed expression <strong>ça fait</strong> for elapsed time and effects. Learn these patterns as chunks."
       },
       {
         key: "pronominal",
@@ -1913,6 +1946,15 @@
         rows: expliquerRows
       },
       {
+        key: "proposer",
+        group: "regularEr",
+        label: "proposer",
+        title: "Proposer — to suggest / offer",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Proposer</strong> follows the regular -er pattern. Use <strong>proposer quelque chose à quelqu’un</strong> to suggest or offer something to someone, and <strong>proposer de + infinitive</strong> to suggest or offer to do something: <strong>Je propose de partir tôt.</strong> Use <strong>proposer à quelqu’un de + infinitive</strong> to suggest that someone do something: <strong>Je propose à Paul de venir.</strong>",
+        rows: proposerRows
+      },
+      {
         key: "chercher",
         group: "regularEr",
         label: "chercher",
@@ -1947,6 +1989,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Inviter</strong> follows the regular -er pattern. The <strong>je</strong> form becomes <strong>j’invite</strong>.",
         rows: inviterRows
+      },
+      {
+        key: "aimer",
+        group: "regularEr",
+        label: "aimer",
+        title: "Aimer — to like / love",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Aimer</strong> follows the regular -er pattern: <strong>j’aime</strong>, <strong>nous aimons</strong>. Use <strong>aimer + noun</strong> to like a thing or love a person, and <strong>aimer + infinitive</strong> to enjoy an activity: <strong>J’aime lire.</strong> With a person, <strong>aimer bien</strong> usually means “to like.” Keep the definite article in general preferences, including negatives: <strong>J’aime le chocolat</strong> → <strong>Je n’aime pas le chocolat</strong>.",
+        rows: aimerRows
       },
       {
         key: "adorer",
@@ -2390,6 +2441,17 @@
         tag: "weather / impersonal",
         descriptionHtml: "<strong>Pleuvoir</strong> is normally impersonal: use the fixed subject <strong>il</strong> for weather. Learn its common tense forms together: <strong>il pleut</strong> (present), <strong>il pleuvait</strong> (imparfait), and <strong>il a plu</strong> (passé composé). Its imperative is not used.",
         rows: pleuvoirRows
+      },
+      {
+        key: "sAgir",
+        group: "impersonal",
+        label: "il s’agit de",
+        syncInfinitive: "s’agir",
+        syncTenseGroup: "ir",
+        title: "Il s’agit de — to be about / be a matter of",
+        tag: "impersonal / pronominal",
+        descriptionHtml: "<strong>Il s’agit de</strong> introduces what something concerns: “it is about / it is a matter of.” This pronominal expression is impersonal: always use <strong>il</strong>, even before a plural noun. Use <strong>de + noun</strong> or <strong>de + infinitive</strong>; before an infinitive it can express what needs to be done. <strong>De</strong> becomes <strong>d’</strong> before a vowel, and <strong>de + le / les</strong> becomes <strong>du / des</strong>. Learn <strong>il ne s’agit pas de</strong> and <strong>De quoi s’agit-il ?</strong> (“What is it about?”). The past uses <strong>être</strong>: <strong>il s’est agi de</strong>. There is no imperative.",
+        rows: sAgirRows
       },
       {
         key: "seLaver",

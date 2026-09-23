@@ -137,11 +137,13 @@
   });
 
   const ipaOnlyOverrides = Object.freeze({
+    aimer: "ɛməʁ",
     jouer: "ʒuʁ",
     seMarier: "maʁiʁ"
   });
 
   const impersonalForms = Object.freeze({
+    sAgir: Object.freeze({ prefix: "il ", baseInfinitive: "s’agir" }),
     falloir: Object.freeze({ prefix: "il ", baseInfinitive: "falloir" }),
     ilYA: Object.freeze({ prefix: "il y ", baseInfinitive: "avoir" }),
     impersonalFaire: Object.freeze({
@@ -172,8 +174,8 @@
     tu: Object.freeze({ full: "ty tə ", elided: "ty t" }),
     il: Object.freeze({ full: "il sə ", elided: "il s" }),
     elle: Object.freeze({ full: "ɛl sə ", elided: "ɛl s" }),
-    nous: Object.freeze({ full: "nu nu ", elided: "nu nu " }),
-    vous: Object.freeze({ full: "vu vu ", elided: "vu vu " }),
+    nous: Object.freeze({ full: "nu nu ", elided: "nu nuz‿" }),
+    vous: Object.freeze({ full: "vu vu ", elided: "vu vuz‿" }),
     ils: Object.freeze({ full: "il sə ", elided: "il s" }),
     elles: Object.freeze({ full: "ɛl sə ", elided: "ɛl s" })
   });
@@ -238,6 +240,11 @@
       statement: Object.freeze({ fr: "Sans eau, cette plante mourra.", en: "Without water, this plant will die." }),
       negative: Object.freeze({ fr: "Avec assez d’eau, cette plante ne mourra pas.", en: "With enough water, this plant will not die." }),
       question: Object.freeze({ fr: "Cette plante mourra-t-elle sans eau ?", en: "Will this plant die without water?" })
+    }),
+    sAgir: Object.freeze({
+      statement: Object.freeze({ fr: "Il s’agira de préparer la réunion.", en: "It will be a matter of preparing the meeting." }),
+      negative: Object.freeze({ fr: "Il ne s’agira pas de préparer la réunion.", en: "It will not be a matter of preparing the meeting." }),
+      question: Object.freeze({ fr: "De quoi s’agira-t-il ?", en: "What will it be about?" })
     }),
     falloir: Object.freeze({
       statement: Object.freeze({ fr: "Il faudra réserver une table demain.", en: "We will need to reserve a table tomorrow." }),

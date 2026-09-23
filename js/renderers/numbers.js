@@ -131,7 +131,7 @@
 
     function playNumberQuizAudio() {
       if (!currentNumberQuiz) showNumberQuiz();
-      speak(currentNumberQuiz.word, numberQuizCard);
+      speakSequence([{ text: currentNumberQuiz.word, label: "Number listening quiz" }], numberQuizCard);
     }
 
     function checkNumberQuizAnswer() {
@@ -215,7 +215,7 @@
 
     function playYearQuizAudio() {
       if (!currentYearQuiz) showYearQuiz();
-      speak(currentYearQuiz.word, yearQuizCard);
+      speakSequence([{ text: currentYearQuiz.word, label: "Year listening quiz" }], yearQuizCard);
     }
 
     function checkYearQuizAnswer() {

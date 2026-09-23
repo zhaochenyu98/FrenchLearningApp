@@ -62,6 +62,19 @@
             question: { fr: "As-tu expliqué la règle à Marie ?", en: "Did you explain the rule to Marie?" }
           },
           {
+            infinitive: "proposer",
+            infinitiveIpa: "/pʁɔ.po.ze/",
+            meaning: "to propose / suggest / offer",
+            auxiliary: "avoir",
+            pastParticiple: "proposé",
+            pastParticipleIpa: "/pʁɔ.po.ze/",
+            pattern: "proposer → proposé",
+            note: "Regular -er past participle. Use proposer quelque chose à quelqu’un to offer someone something, or proposer de + infinitive to suggest doing something.",
+            statement: { fr: "J’ai proposé une solution à Marie.", en: "I suggested a solution to Marie." },
+            negative: { fr: "Je n’ai pas proposé de solution à Marie.", en: "I did not suggest a solution to Marie." },
+            question: { fr: "As-tu proposé une solution à Marie ?", en: "Did you suggest a solution to Marie?" }
+          },
+          {
             infinitive: "chercher",
             infinitiveIpa: "/ʃɛʁʃe/",
             meaning: "to look for",
@@ -112,6 +125,19 @@
             statement: { fr: "Nous avons invité nos amis.", en: "We invited our friends." },
             negative: { fr: "Nous n’avons pas invité nos amis.", en: "We did not invite our friends." },
             question: { fr: "Avons-nous invité nos amis ?", en: "Did we invite our friends?" }
+          },
+          {
+            infinitive: "aimer",
+            infinitiveIpa: "/e.me/",
+            meaning: "to like / love",
+            auxiliary: "avoir",
+            pastParticiple: "aimé",
+            pastParticipleIpa: "/e.me/",
+            pattern: "aimer → aimé",
+            note: "Regular -er past participle. Aimer can mean liking something or loving someone; aimer + infinitive means liking to do something.",
+            statement: { fr: "J’ai aimé ce film.", en: "I liked this film." },
+            negative: { fr: "Je n’ai pas aimé ce film.", en: "I did not like this film." },
+            question: { fr: "As-tu aimé ce film ?", en: "Did you like this film?" }
           },
           {
             infinitive: "adorer",
@@ -541,6 +567,19 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            infinitive: "s’agir",
+            infinitiveIpa: "/sa.ʒiʁ/",
+            meaning: "to be about / be a matter of",
+            auxiliary: "être",
+            pastParticiple: "agi",
+            pastParticipleIpa: "/a.ʒi/",
+            pattern: "s’agir → il s’est agi",
+            note: "Regular -ir → -i participle, but this impersonal pronominal expression uses être. Keep the fixed subject il and the unchanged participle agi: il s’est agi de. The imparfait il s’agissait de is common for describing what something was about.",
+            statement: { fr: "Il s’est agi de trouver une solution.", en: "It was a matter of finding a solution." },
+            negative: { fr: "Il ne s’est pas agi de trouver une solution.", en: "It was not a matter of finding a solution." },
+            question: { fr: "De quoi s’est-il agi ?", en: "What was it about?" }
+          },
           {
             infinitive: "finir",
             infinitiveIpa: "/finiʁ/",

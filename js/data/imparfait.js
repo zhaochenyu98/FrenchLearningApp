@@ -144,6 +144,13 @@
   });
 
   const impersonalMappings = Object.freeze({
+    sAgir: Object.freeze({
+      persons: Object.freeze(["il"]),
+      stemOverride: "s’agiss",
+      formulaSource: "s’agir",
+      prefix: "il ",
+      note: "Keep the fixed subject il and the pronominal s’: il s’agissait de. This expression has no nous form."
+    }),
     falloir: Object.freeze({
       persons: Object.freeze(["il"]),
       stemOverride: "fall",
@@ -281,6 +288,7 @@
     naitre: "nɛs",
     mourir: "muʁ",
     falloir: "fal",
+    sAgir: "saʒis",
     pleuvoir: "pløv",
     ilYA: "av",
     impersonalFaire: "fəz",
@@ -331,6 +339,8 @@
     elles: Object.freeze({ consonant: "ɛl", vowel: "ɛlz‿" })
   });
 
+  // An optional third value gives the reviewed negative complement. Article changes
+  // depend on meaning, so keep definite articles and other complements by default.
   const exampleUsage = Object.freeze({
     etreVerb: Object.freeze(["souvent fatigués après le travail", "be tired after work"]),
     avoirVerb: Object.freeze(["peur des orages", "be afraid of storms"]),
@@ -340,7 +350,7 @@
     prendre: Object.freeze(["le bus chaque matin", "take the bus every morning"]),
     apprendre: Object.freeze(["le français ensemble", "learn French together"]),
     comprendre: Object.freeze(["mieux cette règle", "understand this rule better"]),
-    faire: Object.freeze(["du sport le samedi", "exercise on Saturdays"]),
+    faire: Object.freeze(["du sport le samedi", "exercise on Saturdays", "de sport le samedi"]),
     mettre: Object.freeze(["la table avant le dîner", "set the table before dinner"]),
     devoir: Object.freeze(["partir tôt", "have to leave early"]),
     pouvoir: Object.freeze(["jouer dehors après l’école", "be able to play outside after school"]),
@@ -367,16 +377,18 @@
     interesser: Object.freeze(["les élèves à l’histoire", "get the students interested in history"]),
     montrer: Object.freeze(["nos photos à nos amis", "show our photos to our friends"]),
     expliquer: Object.freeze(["la leçon aux élèves", "explain the lesson to the students"]),
+    proposer: Object.freeze(["de visiter le musée", "suggest visiting the museum"]),
     chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
     changer: Object.freeze(["souvent de train à Lyon", "often change trains in Lyon"]),
     manger: Object.freeze(["à la cantine", "eat in the cafeteria"]),
     inviter: Object.freeze(["nos voisins à dîner", "invite our neighbors to dinner"]),
+    aimer: Object.freeze(["apprendre le français", "enjoy learning French"]),
     adorer: Object.freeze(["ce petit café", "love this little café"]),
     detester: Object.freeze(["attendre dans les files", "hate waiting in lines"]),
     preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
     essayer: Object.freeze(["de parler français chaque jour", "try to speak French every day"]),
     payer: Object.freeze(["le loyer à temps", "pay the rent on time"]),
-    envoyer: Object.freeze(["des cartes à nos amis", "send cards to our friends"]),
+    envoyer: Object.freeze(["des cartes à nos amis", "send cards to our friends", "de cartes à nos amis"]),
     gagner: Object.freeze(["souvent le match", "often win the match"]),
     penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
     porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),
@@ -401,7 +413,7 @@
     dejeuner: Object.freeze(["ensemble à midi", "have lunch together at noon"]),
     acheter: Object.freeze(["le pain au marché", "buy bread at the market"]),
     rentrer: Object.freeze(["avant la nuit", "return home before nightfall"]),
-    demander: Object.freeze(["de l’aide au professeur", "ask the teacher for help"]),
+    demander: Object.freeze(["de l’aide au professeur", "ask the teacher for help", "d’aide au professeur"]),
     jouer: Object.freeze(["au tennis après l’école", "play tennis after school"]),
     nager: Object.freeze(["chaque matin", "swim every morning"]),
     tourner: Object.freeze(["à gauche à ce carrefour", "turn left at this intersection"]),
@@ -457,6 +469,14 @@
       "The plants did not die when we watered them.",
       "Pourquoi les plantes mouraient-elles ?",
       "Why were the plants dying?"
+    ),
+    sAgir: exampleSet(
+      "Il s’agissait du nouveau projet.",
+      "It was about the new project.",
+      "Il ne s’agissait pas du nouveau projet.",
+      "It was not about the new project.",
+      "De quoi s’agissait-il ?",
+      "What was it about?"
     ),
     falloir: exampleSet(
       "Il fallait réserver à l’avance.",
@@ -643,14 +663,14 @@
       "régulièrement",
       `${getFallbackEnglishBase(item)} regularly`
     ]);
-    const [frComplement, enPredicate] = usage;
+    const [frComplement, enPredicate, negativeFrComplement = frComplement] = usage;
     const questionFr = usesInversionQuestion(item)
       ? `${capitalizeFirst(row.form)}-nous ${frComplement} à cette époque ?`
       : `Est-ce que ${row.full} ${frComplement} à cette époque ?`;
     return exampleSet(
       `Autrefois, ${row.full} ${frComplement}.`,
       `We used to ${enPredicate}.`,
-      `${makeNegativeNous(row)} ${frComplement}.`,
+      `${makeNegativeNous(row)} ${negativeFrComplement}.`,
       `We did not use to ${enPredicate}.`,
       questionFr,
       `Did we use to ${enPredicate} at that time?`

@@ -290,7 +290,8 @@ function validateVerbTenseSync() {
       label: item.label,
       base,
       canonical: canonicalVerbName(base),
-      presentGroup: item.group
+      presentGroup: item.group,
+      syncTenseGroup: item.syncTenseGroup
     };
   });
 
@@ -331,6 +332,8 @@ function validateVerbTenseSync() {
   }
 
   const expectedTenseGroup = (entry) => {
+    // Impersonal usage and past-participle formation can belong to different groups.
+    if (entry.syncTenseGroup) return entry.syncTenseGroup;
     if (entry.presentGroup === "pronominal") return "pronominal";
     if (entry.presentGroup === "regularEr") return "er";
     if (entry.presentGroup === "regularIr") return "ir";
@@ -493,6 +496,41 @@ function validateImparfaitContent(data) {
     if (!row || row.full !== expected) {
       fail(`${key} imparfait ${pronoun}: expected ${expected}, found ${row ? row.full : "missing"}`);
     }
+  });
+
+  const expectedNegatives = {
+    faire: "Nous ne faisions pas de sport le samedi.",
+    envoyer: "Nous n’envoyions pas de cartes à nos amis.",
+    demander: "Nous ne demandions pas d’aide au professeur.",
+    porter: "Nous ne portions pas de manteaux en hiver.",
+    prendre: "Nous ne prenions pas le bus chaque matin.",
+    boire: "Nous ne buvions pas l’eau du robinet.",
+    avoirVerb: "Nous n’avions pas peur des orages.",
+    etreVerb: "Nous n’étions pas souvent fatigués après le travail."
+  };
+  Object.entries(expectedNegatives).forEach(([key, expected]) => {
+    const actual = imparfait.getItem(key)?.examples.negative.fr;
+    if (actual !== expected) fail(`${key} imparfait negative: expected ${expected}, found ${actual}`);
+  });
+}
+
+function validatePronominalLiaison(data) {
+  // Check both consumers of the shared IPA builder, including h muet and
+  // consonant-initial controls where adding a liaison would be incorrect.
+  const fixtures = [
+    ["sAppeler", "nous", "/nu nuz‿apɛlʁɔ̃/", "/nu nuz‿apɛlʁjɔ̃/"],
+    ["sAppeler", "vous", "/vu vuz‿apɛlʁe/", "/vu vuz‿apɛlʁje/"],
+    ["sHabiller", "nous", "/nu nuz‿abijəʁɔ̃/", "/nu nuz‿abijəʁjɔ̃/"],
+    ["sHabiller", "vous", "/vu vuz‿abijəʁe/", "/vu vuz‿abijəʁje/"],
+    ["seLever", "nous", "/nu nu lɛvʁɔ̃/", "/nu nu lɛvʁjɔ̃/"],
+    ["seLever", "vous", "/vu vu lɛvʁe/", "/vu vu lɛvʁje/"]
+  ];
+  fixtures.forEach(([key, pronoun, futureIpa, conditionalIpa]) => {
+    [["futurSimple", futureIpa], ["conditionnelPresent", conditionalIpa]].forEach(([tense, expected]) => {
+      const row = data[tense].getItem(key)?.rows.find(entry => entry.pronoun === pronoun);
+      const actual = row?.ipa.replace(/\./g, "");
+      if (actual !== expected) fail(`${key} ${tense} ${pronoun} IPA: expected ${expected}, found ${actual}`);
+    });
   });
 }
 
@@ -1136,6 +1174,63 @@ function validateVocabularyCorrections() {
   }
 }
 
+function validateListeningQuizPlayback() {
+  // Execute the real quiz and playback code with minimal DOM/audio doubles.
+  // This checks visible status and spoken content together, without a browser voice.
+  const elements = new Map();
+  const getElement = id => {
+    if (!elements.has(id)) elements.set(id, {
+      textContent: "", value: id === "rate" ? "0.75" : "", hidden: true,
+      parentElement: { hidden: true },
+      classList: { add() {}, remove() {}, toggle() {} }
+    });
+    return elements.get(id);
+  };
+  const utterances = [];
+  const context = {
+    console,
+    document: { getElementById: getElement, querySelectorAll: () => [] },
+    localStorage: { getItem: () => null },
+    speechSynthesis: { cancel() {}, speak: utterance => utterances.push(utterance) },
+    SpeechSynthesisUtterance: class { constructor(text) { this.text = text; } }
+  };
+  context.window = context;
+  vm.createContext(context);
+  const coreIndex = scriptPaths.indexOf("js/core/core.js");
+  [...scriptPaths.slice(0, coreIndex + 1), "js/renderers/numbers.js"].forEach(scriptPath => {
+    vm.runInContext(fs.readFileSync(path.join(root, scriptPath), "utf8"), context, { filename: scriptPath });
+  });
+
+  [
+    { prefix: "number", name: "Number", value: 1234, speech: "mille deux cent trente-quatre" },
+    { prefix: "year", name: "Year", value: 2010, speech: "en deux mille dix" }
+  ].forEach(({ prefix, name, value, speech }) => {
+    context[`show${name}Quiz`](value, true);
+    // New-item autoplay and manual replay must both conceal the transcript.
+    for (const replay of [false, true]) {
+      if (replay) context[`play${name}QuizAudio`]();
+      if (utterances.at(-1)?.text !== speech) fail(`${name} quiz must speak the complete French answer`);
+      if (getElement("playbackStatus").hidden || getElement("playbackStatusText").textContent !== `${name} listening quiz`) {
+        fail(`${name} quiz playback status must use a neutral label instead of revealing the answer`);
+      }
+      if (!getElement(`${prefix}QuizResult`).hidden || getElement(`${prefix}QuizAnswerFrench`).textContent) {
+        fail(`${name} quiz must conceal its answer until Reveal answer is used`);
+      }
+    }
+    context[`reveal${name}QuizAnswer`]();
+    if (getElement(`${prefix}QuizResult`).hidden || getElement(`${prefix}QuizAnswerFrench`).textContent !== speech ||
+        getElement(`${prefix}QuizAnswerDigits`).textContent !== String(value)) {
+      fail(`${name} quiz must still reveal the complete answer on request`);
+    }
+    utterances.at(-1).onend();
+    if (!getElement("playbackStatus").hidden) fail(`${name} quiz playback status must clear after audio ends`);
+  });
+  context.speak("Bonjour");
+  if (getElement("playbackStatusText").textContent !== "Bonjour" || utterances.at(-1)?.text !== "Bonjour") {
+    fail("ordinary study audio must preserve its spoken-text status label");
+  }
+}
+
 function validateInterfaceRegressions() {
   const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   const core = fs.readFileSync(path.join(root, "js/core/core.js"), "utf8");
@@ -1182,6 +1277,7 @@ try {
   validateImparfaitContent(extendedData);
   validateFuturSimpleContent(extendedData);
   validateConditionnelPresentContent(extendedData);
+  validatePronominalLiaison(extendedData);
   validateImperativeContent(extendedData);
   validatePronominalContent(extendedData);
   validateObjectPronounContent(extendedData);
@@ -1209,6 +1305,7 @@ try {
 
 try {
   validateVocabularyCorrections();
+  validateListeningQuizPlayback();
   validateInterfaceRegressions();
 } catch (error) {
   fail(`feedback regression validation crashed: ${error.message}`);

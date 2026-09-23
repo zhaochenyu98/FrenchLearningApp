@@ -234,6 +234,13 @@
       "Do not explain everything too quickly!",
       "Regular -er imperative: explique, expliquons, expliquez. The tu form drops its final -s."
     ),
+    proposer: command(
+      "Propose une autre solution !",
+      "Suggest another solution!",
+      "Ne propose pas une solution trop compliquée !",
+      "Do not suggest an overly complicated solution!",
+      "Regular -er imperative: propose, proposons, proposez. Use proposer de + infinitive to suggest an action."
+    ),
     chercher: command(
       "Cherche tes clés dans l’entrée !",
       "Look for your keys in the entryway!",
@@ -257,6 +264,13 @@
       "Invite Léa to dinner!",
       "N’invite pas trop de monde !",
       "Do not invite too many people!"
+    ),
+    aimer: command(
+      "Aime les autres comme ils sont !",
+      "Love others as they are!",
+      "N’aime pas quelqu’un seulement pour son argent !",
+      "Do not love someone only for their money!",
+      "Regular -er imperative: aime, aimons, aimez. Commands with aimer are most natural in advice or encouragement about love and attitudes."
     ),
     adorer: command(
       "Adore ce que tu fais !",
