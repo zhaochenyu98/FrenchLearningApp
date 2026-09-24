@@ -1231,6 +1231,50 @@ function validateListeningQuizPlayback() {
   }
 }
 
+function validateDeferredRendering() {
+  const context = { window: {} };
+  vm.createContext(context);
+  vm.runInContext(fs.readFileSync(path.join(root, "js/core/namespace.js"), "utf8"), context);
+  const { utils } = context.window.FR;
+  const group = { cards: [] };
+  const summary = { cards: [] };
+  const annotated = [];
+  utils.applyLanguageMetadata = target => {
+    if (!target.cards.length) fail("deferred content must exist before language metadata is applied");
+    annotated.push(target);
+  };
+
+  utils.deferRender(group, () => group.cards.push("verb"));
+  utils.deferRender(summary, () => summary.cards.push("conjugation"));
+  if (group.cards.length || summary.cards.length) fail("registering deferred content must not render it");
+
+  utils.ensureRendered(group);
+  if (group.cards.length !== 1 || summary.cards.length || annotated[0] !== group) {
+    fail("opening a group must synchronously render and annotate only that group");
+  }
+  utils.ensureRendered(group);
+  utils.ensureRendered(summary);
+  utils.ensureRendered(summary);
+  utils.ensureRendered({});
+  if (group.cards.length !== 1 || summary.cards.length !== 1 || annotated.length !== 2) {
+    fail("reopening deferred content must preserve it without duplicating cards or metadata work");
+  }
+
+  let attempts = 0;
+  const retry = { cards: [] };
+  utils.deferRender(retry, () => {
+    if (++attempts === 1) throw new Error("temporary rendering failure");
+    retry.cards.push("recovered");
+  });
+  let caught = false;
+  try { utils.ensureRendered(retry); } catch { caught = true; }
+  utils.ensureRendered(retry);
+  utils.ensureRendered(retry);
+  if (!caught || attempts !== 2 || retry.cards.length !== 1 || annotated.at(-1) !== retry) {
+    fail("a failed deferred render must remain retryable and stop retrying after success");
+  }
+}
+
 function validateInterfaceRegressions() {
   const css = fs.readFileSync(path.join(root, "styles.css"), "utf8");
   const core = fs.readFileSync(path.join(root, "js/core/core.js"), "utf8");
@@ -1306,6 +1350,7 @@ try {
 try {
   validateVocabularyCorrections();
   validateListeningQuizPlayback();
+  validateDeferredRendering();
   validateInterfaceRegressions();
 } catch (error) {
   fail(`feedback regression validation crashed: ${error.message}`);

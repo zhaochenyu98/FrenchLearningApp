@@ -236,9 +236,10 @@
   }
 
   function createExamplesSection(item, panelId) {
-    const section = document.createElement("section");
-    const heading = document.createElement("div");
+    const section = document.createElement("details");
+    const heading = document.createElement("summary");
     heading.className = "verb-subtable-heading";
+    section.className = "verb-examples-disclosure";
     const title = document.createElement("h4");
     title.id = `${panelId}-examples-title`;
     title.textContent = "Imparfait examples";
@@ -313,6 +314,7 @@
   }
 
   function setGroupCollapsed(group, collapsed) {
+    if (!collapsed) FR.utils.ensureRendered(group);
     const toggle = group.querySelector(".verb-group-toggle");
     group.classList.toggle("collapsed", collapsed);
     if (!toggle) return;
@@ -345,20 +347,24 @@
 
     const content = document.createElement("div");
     content.className = "verb-group-content";
-    groupData.items.forEach(item => {
-      try {
-        const card = createVerbCard(item);
-        cardTargets.set(item.key, { card, group });
-        content.appendChild(card);
-      } catch (error) {
-        errors.push({ key: item.key, error });
-        const errorCard = createErrorCard(`${item.label || item.key} failed to render`, error);
-        errorCard.id = `imparfait-${slugify(item.key)}`;
-        errorCard.tabIndex = -1;
-        cardTargets.set(item.key, { card: errorCard, group });
-        content.appendChild(errorCard);
-        console.error("Imparfait card failed to render", item, error);
-      }
+    // Index entries keep these targets even before their cards exist.
+    groupData.items.forEach(item => cardTargets.set(item.key, { card: null, group }));
+    FR.utils.deferRender(group, () => {
+      groupData.items.forEach(item => {
+        try {
+          const card = createVerbCard(item);
+          cardTargets.get(item.key).card = card;
+          content.appendChild(card);
+        } catch (error) {
+          errors.push({ key: item.key, error });
+          const errorCard = createErrorCard(`${item.label || item.key} failed to render`, error);
+          errorCard.id = `imparfait-${slugify(item.key)}`;
+          errorCard.tabIndex = -1;
+          cardTargets.get(item.key).card = errorCard;
+          content.appendChild(errorCard);
+          console.error("Imparfait card failed to render", item, error);
+        }
+      });
     });
 
     group.append(header, content);

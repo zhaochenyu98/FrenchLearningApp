@@ -76,6 +76,45 @@
       margin-bottom: 18px;
     }
 
+    .study-entry {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-bottom: 12px;
+    }
+
+    .study-entry .action-btn { padding: 11px 18px; font-weight: 700; }
+    .study-entry-label { color: var(--muted); font-size: 0.9rem; }
+    .study-settings { margin-bottom: 14px; }
+    .study-settings > summary { cursor: pointer; color: var(--muted); padding: 8px 0; }
+    .study-settings .controls { margin: 6px 0 0; }
+    .mobile-topic-picker { display: none; }
+    .global-search-dialog {
+      width: min(640px, calc(100% - 28px));
+      max-height: 85dvh;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+    .global-search-dialog::backdrop { background: rgb(0 0 0 / 55%); }
+    .global-search-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .global-search-heading h2 { margin: 0 0 12px; font-size: 1.25rem; }
+    .global-search-dialog .action-btn { padding: 8px 12px; }
+    .global-search-dialog label, #globalSearchStatus { color: var(--muted); font-size: 0.9rem; }
+    #globalSearchInput { width: 100%; margin-top: 6px; padding: 12px; font: inherit; color: var(--text); background: var(--input-bg); border: 1px solid var(--accent-border); border-radius: 10px; }
+    #globalSearchResults { list-style: none; padding: 0; margin: 12px 0; }
+    .global-search-result { display: grid; gap: 4px; width: 100%; text-align: left; padding: 12px; margin: 5px 0; border: 1px solid var(--border); border-radius: 10px; font: inherit; color: var(--text); background: var(--panel); cursor: pointer; }
+    .global-search-result:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .global-search-result span { color: var(--muted); font-size: 0.85rem; }
+    .verb-examples-disclosure { margin-top: 8px; }
+    .verb-examples-disclosure > summary { cursor: pointer; color: var(--accent); padding: 8px 2px; font-weight: 650; }
+    .verb-examples-disclosure > summary h4 { display: inline; }
+    .verb-examples-disclosure .verb-example-list { margin-top: 8px; }
+
     .control-group label {
       display: block;
       font-size: 0.92rem;
@@ -2933,6 +2972,14 @@
     }
 
     @media (max-width: 860px) {
+      .container { padding-top: 16px; }
+      .sub { margin-bottom: 12px; }
+      .section-shell > .tabs { display: none; }
+      .mobile-topic-picker { display: grid; gap: 5px; margin-bottom: 14px; }
+      .mobile-topic-picker label { color: var(--muted); font-size: 0.85rem; }
+      .study-entry-label { flex-basis: 100%; }
+      .verb-mode-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; max-width: 100%; }
+      .verb-mode-btn { flex: 0 0 auto; }
       .grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }

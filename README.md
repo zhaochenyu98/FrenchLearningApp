@@ -37,12 +37,37 @@ Run this after editing content or adding a tab:
 
 ```bash
 node scripts/validate.js
+node scripts/test-search.js
 ```
 
 It checks JavaScript syntax, referenced assets, duplicate IDs, missing DOM
 references, tab/section pairing, verb data integrity, verb/tense synchronization,
 and important number spelling and IPA edge cases. The deployment workflow runs
 the same validator before publishing.
+
+## Rendering
+
+Use **Start studying / Continue studying** to jump into the last lesson. On phones,
+the topic picker replaces the wrapped tab list; audio/display settings and verb
+examples expand when needed. **Search all topics** (or Ctrl/Cmd+K) searches verbs,
+tense forms, and grammar references, including content that has not rendered yet.
+Accents and apostrophe styles are optional. Select a result to open its topic and
+expand its destination. Search does not change URLs; bookmarks remain deferred.
+
+Search text for indexed sections is registered in `js/data/search-sections.js`.
+New indexed sections automatically contribute their title and introductory text;
+register their data there to make generated examples searchable too.
+
+Topic tabs and verb/tense modes initialize on first selection. Within verb modes,
+collapsed groups and compact tense summaries build their content on first opening
+and retain it for subsequent visits. Saved open groups still render on load.
+Indexes use the content registry so every verb stays searchable before its card
+exists; index navigation renders the destination before scrolling and focusing it.
+
+Use `FR.utils.deferRender(target, render)` and `FR.utils.ensureRendered(target)`
+for additional deferred sections. The callback is synchronous and runs once after
+a successful render; language metadata is then applied to the new content. Keep
+index labels and target metadata independent of rendered cards.
 
 ## Add Content
 

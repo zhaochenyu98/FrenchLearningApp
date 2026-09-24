@@ -494,7 +494,9 @@
             ${ipa ? `<div class="verb-ipa">${ipa}</div>` : ""}
             <div class="translation">${item.en}</div>
           </button>
-          <div class="verb-example-list">
+          <details class="verb-examples-disclosure">
+            <summary>Examples</summary>
+            <div class="verb-example-list">
             ${examples.map((example, index) => `
               <button class="verb-example-btn" type="button" data-example-index="${index}">
                 <div class="tiny-label">${example.meaning ? example.meaning : examples.length > 1 ? `Example ${index + 1}` : "Example"}</div>
@@ -504,7 +506,8 @@
                 ${example.question ? `<div class="verb-example-line"><strong>Question:</strong> ${example.question}</div>` : ""}
               </button>
             `).join("")}
-          </div>
+            </div>
+          </details>
         `;
         return card;
       }

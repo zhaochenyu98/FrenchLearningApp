@@ -232,16 +232,6 @@
       },
       verbs() {
         initializeVerbModeTabs();
-        renderVerbStudySections();
-        renderVerbTables("verbs");
-        initializeVerbGroups();
-        renderVerbIndex();
-        renderEtreAuxiliaryVerbs();
-        renderPasseComposeGroups();
-        initializeTenseIndex();
-        FR.renderers.imparfait.render();
-        FR.renderers.futurSimple.render();
-        FR.renderers.conditionnelPresent.render();
       },
       nouns() {
         renderNounPluralRules();
@@ -328,6 +318,20 @@
     };
 
     const initializedTabs = new Set();
+    const initializedVerbModes = new Set();
+    let activateVerbMode;
+    const verbGroupTargets = new Map();
+    const verbModeInitializers = {
+      verb() {
+        renderVerbStudySections();
+        initializeVerbGroups();
+        renderVerbIndex();
+      },
+      tense: initializeTenseIndex,
+      imparfait: () => FR.renderers.imparfait.render(),
+      "futur-simple": () => FR.renderers.futurSimple.render(),
+      "conditionnel-present": () => FR.renderers.conditionnelPresent.render()
+    };
     const studySectionStateKey = "frenchStudySectionState";
     const verbGroupStateKey = "frenchStudyVerbGroupState";
 
@@ -405,6 +409,30 @@
       return error && error.message ? error.message : String(error);
     }
 
+    FR.utils.applyLanguageMetadata = applyLanguageMetadata;
+
+    function deferStudyCard(card, render) {
+      FR.utils.deferRender(card, render);
+      on(card, "toggle", () => {
+        if (card.open) FR.utils.ensureRendered(card);
+      });
+      if (card.open) FR.utils.ensureRendered(card);
+    }
+
+    function initializeLazyTenseSummary(details, summary, renderBody) {
+      details.appendChild(summary);
+      deferStudyCard(details, () => {
+        const body = document.createElement("div");
+        body.className = "verb-tense-summary-body";
+        try {
+          renderBody(body);
+        } catch (error) {
+          renderInlineError(body, `${summary.textContent.trim()} failed to render`, error);
+        }
+        details.appendChild(body);
+      });
+    }
+
     function createInlineError(title, error) {
       const card = document.createElement("div");
       card.className = "inline-error-card";
@@ -441,6 +469,13 @@
           panel.hidden = !isActive;
         });
         FR.storage.set("frenchStudyVerbMode", mode);
+        if (!initializedVerbModes.has(mode)) {
+          const panel = panels.find(item => item.dataset.verbModePanel === mode);
+          verbModeInitializers[mode]();
+          applyLanguageMetadata(panel);
+          panel.querySelectorAll(".verb-index, .study-index").forEach(initializeMobileIndex);
+          initializedVerbModes.add(mode);
+        }
       }
 
       buttons.forEach((button, index) => {
@@ -466,6 +501,7 @@
       });
 
       const savedMode = FR.storage.get("frenchStudyVerbMode", "verb");
+      activateVerbMode = activateMode;
       const initialMode = buttons.some(button => button.dataset.verbMode === savedMode)
         ? savedMode
         : buttons[0].dataset.verbMode;
@@ -578,50 +614,47 @@
         </span>
       `;
 
-      const body = document.createElement("div");
-      body.className = "verb-tense-summary-body";
-
-      const formButton = document.createElement("button");
-      formButton.className = "verb-tense-form-btn";
-      formButton.type = "button";
-      formButton.innerHTML = `
-        <span class="noun-example-main">${primaryVerb.infinitive}</span>
-        ${primaryVerb.infinitiveIpa ? `<span class="tense-ipa">${primaryVerb.infinitiveIpa}</span>` : ""}
-        <span class="noun-example-main">→ ${primaryVerb.pastParticiple}</span>
-        ${primaryVerb.pastParticipleIpa ? `<span class="tense-ipa">${primaryVerb.pastParticipleIpa}</span>` : ""}
-      `;
-      formButton.addEventListener("click", () => {
-        speakSequence([
-          { text: primaryVerb.infinitive },
-          { text: getPastParticipleSpeech(primaryVerb), pauseBefore: examplePauseMs }
-        ], formButton);
-      });
-      body.appendChild(formButton);
-
-      if (tenseVerb) {
-        const usage = document.createElement("div");
-        usage.className = "verb-tense-usage";
-        usage.innerHTML = `
-          <div class="tiny-label">Core past form</div>
-          <div class="grammar-note">${tenseVerb.note || tenseVerb.pattern || ""}</div>
+      initializeLazyTenseSummary(details, summary, body => {
+        const formButton = document.createElement("button");
+        formButton.className = "verb-tense-form-btn";
+        formButton.type = "button";
+        formButton.innerHTML = `
+          <span class="noun-example-main">${primaryVerb.infinitive}</span>
+          ${primaryVerb.infinitiveIpa ? `<span class="tense-ipa">${primaryVerb.infinitiveIpa}</span>` : ""}
+          <span class="noun-example-main">→ ${primaryVerb.pastParticiple}</span>
+          ${primaryVerb.pastParticipleIpa ? `<span class="tense-ipa">${primaryVerb.pastParticipleIpa}</span>` : ""}
         `;
-        appendCompactTenseExampleList(usage, getPasseComposeSentenceForms(tenseVerb));
-        body.appendChild(usage);
-      }
+        formButton.addEventListener("click", () => {
+          speakSequence([
+            { text: primaryVerb.infinitive },
+            { text: getPastParticipleSpeech(primaryVerb), pauseBefore: examplePauseMs }
+          ], formButton);
+        });
+        body.appendChild(formButton);
 
-      if (etreVerb && tenseVerb && tenseVerb.auxiliary !== "être") {
-        appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
-      }
+        if (tenseVerb) {
+          const usage = document.createElement("div");
+          usage.className = "verb-tense-usage";
+          usage.innerHTML = `
+            <div class="tiny-label">Core past form</div>
+            <div class="grammar-note">${tenseVerb.note || tenseVerb.pattern || ""}</div>
+          `;
+          appendCompactTenseExampleList(usage, getPasseComposeSentenceForms(tenseVerb));
+          body.appendChild(usage);
+        }
 
-      if (etreVerb && etreVerb.avoirExamples && tenseVerb && tenseVerb.auxiliary === "être") {
-        appendCompactTenseSequence(body, "Avoir contrast", etreVerb.avoirNote, etreVerb.avoirExamples[0]);
-      }
+        if (etreVerb && tenseVerb && tenseVerb.auxiliary !== "être") {
+          appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
+        }
 
-      if (etreVerb && !tenseVerb) {
-        appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
-      }
+        if (etreVerb && etreVerb.avoirExamples && tenseVerb && tenseVerb.auxiliary === "être") {
+          appendCompactTenseSequence(body, "Avoir contrast", etreVerb.avoirNote, etreVerb.avoirExamples[0]);
+        }
 
-      details.append(summary, body);
+        if (etreVerb && !tenseVerb) {
+          appendCompactTenseSequence(body, "Être movement use", etreVerb.note, etreVerb.etreExamples[0]);
+        }
+      });
       return details;
     }
 
@@ -640,121 +673,118 @@
         <span class="verb-tense-summary-form">${sample.full}</span>
       `;
 
-      const body = document.createElement("div");
-      body.className = "verb-tense-summary-body";
+      initializeLazyTenseSummary(details, summary, body => {
+        const formula = document.createElement("div");
+        formula.className = "grammar-note";
+        formula.innerHTML = `<strong>Formula:</strong> ${imparfait.formula.text}`;
+        body.appendChild(formula);
 
-      const formula = document.createElement("div");
-      formula.className = "grammar-note";
-      formula.innerHTML = `<strong>Formula:</strong> ${imparfait.formula.text}`;
-      body.appendChild(formula);
-
-      const createImparfaitFormCard = row => {
-        const card = document.createElement("div");
-        card.className = "verb-cell-card";
-        const button = document.createElement("button");
-        button.className = "verb-tense-form-btn verb-imparfait-form-btn";
-        button.type = "button";
-        button.setAttribute("aria-label", `Play Imparfait: ${row.full}`);
-        button.innerHTML = `
-          <span class="tiny-label">${row.pronoun}</span>
-          <span class="noun-example-main">${row.full}</span>
-          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
-        `;
-        button.addEventListener("click", () => {
-          speakSequence([{ text: row.speech || row.full }], button);
-        });
-        card.appendChild(button);
-        return card;
-      };
-
-      if (imparfait.rows.length === 1) {
-        const fixedForm = document.createElement("div");
-        fixedForm.className = "verb-extra-column verb-tense-fixed-form";
-        const fixedTitle = document.createElement("div");
-        fixedTitle.className = "verb-column-title";
-        fixedTitle.textContent = "Fixed impersonal form";
-        fixedForm.append(fixedTitle, createImparfaitFormCard(imparfait.rows[0]));
-        body.appendChild(fixedForm);
-      } else {
-        const matrix = document.createElement("div");
-        matrix.className = "verb-matrix verb-tense-mini-matrix";
-        matrix.setAttribute("role", "table");
-        matrix.setAttribute("aria-label", `${item.label}: Imparfait conjugation`);
-
-        const matrixHeader = document.createElement("div");
-        matrixHeader.className = "verb-pair-header";
-        matrixHeader.setAttribute("role", "row");
-        ["Singular", "Plural"].forEach(label => {
-          const cell = document.createElement("div");
-          cell.setAttribute("role", "columnheader");
-          cell.textContent = label;
-          matrixHeader.appendChild(cell);
-        });
-        matrix.appendChild(matrixHeader);
-
-        FR.data.imparfait.alignedPairs.forEach(pair => {
-          const pairRow = document.createElement("div");
-          pairRow.className = "verb-pair-row";
-          pairRow.setAttribute("role", "row");
-          pair.forEach(pronoun => {
-            const row = imparfait.rows.find(entry => entry.pronoun === pronoun);
-            if (row) {
-              const card = createImparfaitFormCard(row);
-              card.setAttribute("role", "cell");
-              pairRow.appendChild(card);
-              return;
-            }
-            const placeholder = document.createElement("div");
-            placeholder.className = "verb-cell-placeholder";
-            placeholder.setAttribute("role", "cell");
-            placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
-            pairRow.appendChild(placeholder);
+        const createImparfaitFormCard = row => {
+          const card = document.createElement("div");
+          card.className = "verb-cell-card";
+          const button = document.createElement("button");
+          button.className = "verb-tense-form-btn verb-imparfait-form-btn";
+          button.type = "button";
+          button.setAttribute("aria-label", `Play Imparfait: ${row.full}`);
+          button.innerHTML = `
+            <span class="tiny-label">${row.pronoun}</span>
+            <span class="noun-example-main">${row.full}</span>
+            ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
+          `;
+          button.addEventListener("click", () => {
+            speakSequence([{ text: row.speech || row.full }], button);
           });
-          matrix.appendChild(pairRow);
-        });
-        body.appendChild(matrix);
+          card.appendChild(button);
+          return card;
+        };
 
-        [
-          { pronoun: "on", title: "On: spoken French" },
-          { pronoun: "ça", title: "Ça: impersonal expression" }
-        ].forEach(extra => {
-          const row = imparfait.rows.find(entry => entry.pronoun === extra.pronoun);
-          if (!row) return;
-          const column = document.createElement("div");
-          column.className = "verb-extra-column verb-tense-on-form";
-          const title = document.createElement("div");
-          title.className = "verb-column-title";
-          title.textContent = extra.title;
-          column.append(title, createImparfaitFormCard(row));
-          body.appendChild(column);
-        });
-      }
+        if (imparfait.rows.length === 1) {
+          const fixedForm = document.createElement("div");
+          fixedForm.className = "verb-extra-column verb-tense-fixed-form";
+          const fixedTitle = document.createElement("div");
+          fixedTitle.className = "verb-column-title";
+          fixedTitle.textContent = "Fixed impersonal form";
+          fixedForm.append(fixedTitle, createImparfaitFormCard(imparfait.rows[0]));
+          body.appendChild(fixedForm);
+        } else {
+          const matrix = document.createElement("div");
+          matrix.className = "verb-matrix verb-tense-mini-matrix";
+          matrix.setAttribute("role", "table");
+          matrix.setAttribute("aria-label", `${item.label}: Imparfait conjugation`);
 
-      if (imparfait.examples) {
-        const usage = document.createElement("div");
-        usage.className = "verb-tense-usage";
-        usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
-        appendCompactTenseExampleList(usage, [
-          { label: "Statement", ...imparfait.examples.statement },
-          { label: "Negative", ...imparfait.examples.negative },
-          { label: "Question", ...imparfait.examples.question }
-        ].filter(sentence => sentence.fr));
-        body.appendChild(usage);
-      }
+          const matrixHeader = document.createElement("div");
+          matrixHeader.className = "verb-pair-header";
+          matrixHeader.setAttribute("role", "row");
+          ["Singular", "Plural"].forEach(label => {
+            const cell = document.createElement("div");
+            cell.setAttribute("role", "columnheader");
+            cell.textContent = label;
+            matrixHeader.appendChild(cell);
+          });
+          matrix.appendChild(matrixHeader);
 
-      if (imparfait.specialRules.length) {
-        const noteList = document.createElement("div");
-        noteList.className = "verb-imparfait-notes";
-        imparfait.specialRules.forEach(rule => {
-          const note = document.createElement("div");
-          note.className = "verb-form-highlight";
-          note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
-          noteList.appendChild(note);
-        });
-        body.appendChild(noteList);
-      }
+          FR.data.imparfait.alignedPairs.forEach(pair => {
+            const pairRow = document.createElement("div");
+            pairRow.className = "verb-pair-row";
+            pairRow.setAttribute("role", "row");
+            pair.forEach(pronoun => {
+              const row = imparfait.rows.find(entry => entry.pronoun === pronoun);
+              if (row) {
+                const card = createImparfaitFormCard(row);
+                card.setAttribute("role", "cell");
+                pairRow.appendChild(card);
+                return;
+              }
+              const placeholder = document.createElement("div");
+              placeholder.className = "verb-cell-placeholder";
+              placeholder.setAttribute("role", "cell");
+              placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
+              pairRow.appendChild(placeholder);
+            });
+            matrix.appendChild(pairRow);
+          });
+          body.appendChild(matrix);
 
-      details.append(summary, body);
+          [
+            { pronoun: "on", title: "On: spoken French" },
+            { pronoun: "ça", title: "Ça: impersonal expression" }
+          ].forEach(extra => {
+            const row = imparfait.rows.find(entry => entry.pronoun === extra.pronoun);
+            if (!row) return;
+            const column = document.createElement("div");
+            column.className = "verb-extra-column verb-tense-on-form";
+            const title = document.createElement("div");
+            title.className = "verb-column-title";
+            title.textContent = extra.title;
+            column.append(title, createImparfaitFormCard(row));
+            body.appendChild(column);
+          });
+        }
+
+        if (imparfait.examples) {
+          const usage = document.createElement("div");
+          usage.className = "verb-tense-usage";
+          usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
+          appendCompactTenseExampleList(usage, [
+            { label: "Statement", ...imparfait.examples.statement },
+            { label: "Negative", ...imparfait.examples.negative },
+            { label: "Question", ...imparfait.examples.question }
+          ].filter(sentence => sentence.fr));
+          body.appendChild(usage);
+        }
+
+        if (imparfait.specialRules.length) {
+          const noteList = document.createElement("div");
+          noteList.className = "verb-imparfait-notes";
+          imparfait.specialRules.forEach(rule => {
+            const note = document.createElement("div");
+            note.className = "verb-form-highlight";
+            note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
+            noteList.appendChild(note);
+          });
+          body.appendChild(noteList);
+        }
+      });
       return details;
     }
 
@@ -774,121 +804,118 @@
         <span class="verb-tense-summary-form">${sample.full}</span>
       `;
 
-      const body = document.createElement("div");
-      body.className = "verb-tense-summary-body";
+      initializeLazyTenseSummary(details, summary, body => {
+        const formula = document.createElement("div");
+        formula.className = "grammar-note";
+        formula.innerHTML = `<strong>Build it:</strong> ${tense.formula.text}`;
+        body.appendChild(formula);
 
-      const formula = document.createElement("div");
-      formula.className = "grammar-note";
-      formula.innerHTML = `<strong>Build it:</strong> ${tense.formula.text}`;
-      body.appendChild(formula);
-
-      const createTenseFormCard = row => {
-        const card = document.createElement("div");
-        card.className = "verb-cell-card";
-        const button = document.createElement("button");
-        button.className = `verb-tense-form-btn verb-${slug}-form-btn`;
-        button.type = "button";
-        button.setAttribute("aria-label", `Play ${title}: ${row.full}`);
-        button.innerHTML = `
-          <span class="tiny-label">${row.pronoun}</span>
-          <span class="noun-example-main">${row.full}</span>
-          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
-        `;
-        button.addEventListener("click", () => {
-          speakSequence([{ text: row.speech || row.full }], button);
-        });
-        card.appendChild(button);
-        return card;
-      };
-
-      if (tense.rows.length === 1) {
-        const fixedForm = document.createElement("div");
-        fixedForm.className = "verb-extra-column verb-tense-fixed-form";
-        const fixedTitle = document.createElement("div");
-        fixedTitle.className = "verb-column-title";
-        fixedTitle.textContent = "Fixed impersonal form";
-        fixedForm.append(fixedTitle, createTenseFormCard(tense.rows[0]));
-        body.appendChild(fixedForm);
-      } else {
-        const matrix = document.createElement("div");
-        matrix.className = "verb-matrix verb-tense-mini-matrix";
-        matrix.setAttribute("role", "table");
-        matrix.setAttribute("aria-label", `${item.label}: ${title} conjugation`);
-
-        const matrixHeader = document.createElement("div");
-        matrixHeader.className = "verb-pair-header";
-        matrixHeader.setAttribute("role", "row");
-        ["Singular", "Plural"].forEach(label => {
-          const cell = document.createElement("div");
-          cell.setAttribute("role", "columnheader");
-          cell.textContent = label;
-          matrixHeader.appendChild(cell);
-        });
-        matrix.appendChild(matrixHeader);
-
-        tenseData.alignedPairs.forEach(pair => {
-          const pairRow = document.createElement("div");
-          pairRow.className = "verb-pair-row";
-          pairRow.setAttribute("role", "row");
-          pair.forEach(pronoun => {
-            const row = tense.rows.find(entry => entry.pronoun === pronoun);
-            if (row) {
-              const card = createTenseFormCard(row);
-              card.setAttribute("role", "cell");
-              pairRow.appendChild(card);
-              return;
-            }
-            const placeholder = document.createElement("div");
-            placeholder.className = "verb-cell-placeholder";
-            placeholder.setAttribute("role", "cell");
-            placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
-            pairRow.appendChild(placeholder);
+        const createTenseFormCard = row => {
+          const card = document.createElement("div");
+          card.className = "verb-cell-card";
+          const button = document.createElement("button");
+          button.className = `verb-tense-form-btn verb-${slug}-form-btn`;
+          button.type = "button";
+          button.setAttribute("aria-label", `Play ${title}: ${row.full}`);
+          button.innerHTML = `
+            <span class="tiny-label">${row.pronoun}</span>
+            <span class="noun-example-main">${row.full}</span>
+            ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
+          `;
+          button.addEventListener("click", () => {
+            speakSequence([{ text: row.speech || row.full }], button);
           });
-          matrix.appendChild(pairRow);
-        });
-        body.appendChild(matrix);
+          card.appendChild(button);
+          return card;
+        };
 
-        [
-          { pronoun: "on", title: "On: spoken French" },
-          { pronoun: "ça", title: "Ça: impersonal expression" }
-        ].forEach(extra => {
-          const row = tense.rows.find(entry => entry.pronoun === extra.pronoun);
-          if (!row) return;
-          const column = document.createElement("div");
-          column.className = "verb-extra-column verb-tense-on-form";
-          const title = document.createElement("div");
-          title.className = "verb-column-title";
-          title.textContent = extra.title;
-          column.append(title, createTenseFormCard(row));
-          body.appendChild(column);
-        });
-      }
+        if (tense.rows.length === 1) {
+          const fixedForm = document.createElement("div");
+          fixedForm.className = "verb-extra-column verb-tense-fixed-form";
+          const fixedTitle = document.createElement("div");
+          fixedTitle.className = "verb-column-title";
+          fixedTitle.textContent = "Fixed impersonal form";
+          fixedForm.append(fixedTitle, createTenseFormCard(tense.rows[0]));
+          body.appendChild(fixedForm);
+        } else {
+          const matrix = document.createElement("div");
+          matrix.className = "verb-matrix verb-tense-mini-matrix";
+          matrix.setAttribute("role", "table");
+          matrix.setAttribute("aria-label", `${item.label}: ${title} conjugation`);
 
-      if (tense.examples) {
-        const usage = document.createElement("div");
-        usage.className = "verb-tense-usage";
-        usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
-        appendCompactTenseExampleList(usage, [
-          { label: "Statement", ...tense.examples.statement },
-          { label: "Negative", ...tense.examples.negative },
-          { label: "Question", ...tense.examples.question }
-        ].filter(sentence => sentence.fr));
-        body.appendChild(usage);
-      }
+          const matrixHeader = document.createElement("div");
+          matrixHeader.className = "verb-pair-header";
+          matrixHeader.setAttribute("role", "row");
+          ["Singular", "Plural"].forEach(label => {
+            const cell = document.createElement("div");
+            cell.setAttribute("role", "columnheader");
+            cell.textContent = label;
+            matrixHeader.appendChild(cell);
+          });
+          matrix.appendChild(matrixHeader);
 
-      if (tense.specialRules.length) {
-        const noteList = document.createElement("div");
-        noteList.className = "verb-imparfait-notes";
-        tense.specialRules.forEach(rule => {
-          const note = document.createElement("div");
-          note.className = "verb-form-highlight";
-          note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
-          noteList.appendChild(note);
-        });
-        body.appendChild(noteList);
-      }
+          tenseData.alignedPairs.forEach(pair => {
+            const pairRow = document.createElement("div");
+            pairRow.className = "verb-pair-row";
+            pairRow.setAttribute("role", "row");
+            pair.forEach(pronoun => {
+              const row = tense.rows.find(entry => entry.pronoun === pronoun);
+              if (row) {
+                const card = createTenseFormCard(row);
+                card.setAttribute("role", "cell");
+                pairRow.appendChild(card);
+                return;
+              }
+              const placeholder = document.createElement("div");
+              placeholder.className = "verb-cell-placeholder";
+              placeholder.setAttribute("role", "cell");
+              placeholder.innerHTML = `<span class="tiny-label">${pronoun}</span><span>Not used for this verb</span>`;
+              pairRow.appendChild(placeholder);
+            });
+            matrix.appendChild(pairRow);
+          });
+          body.appendChild(matrix);
 
-      details.append(summary, body);
+          [
+            { pronoun: "on", title: "On: spoken French" },
+            { pronoun: "ça", title: "Ça: impersonal expression" }
+          ].forEach(extra => {
+            const row = tense.rows.find(entry => entry.pronoun === extra.pronoun);
+            if (!row) return;
+            const column = document.createElement("div");
+            column.className = "verb-extra-column verb-tense-on-form";
+            const title = document.createElement("div");
+            title.className = "verb-column-title";
+            title.textContent = extra.title;
+            column.append(title, createTenseFormCard(row));
+            body.appendChild(column);
+          });
+        }
+
+        if (tense.examples) {
+          const usage = document.createElement("div");
+          usage.className = "verb-tense-usage";
+          usage.innerHTML = `<div class="tiny-label">Sentence practice</div>`;
+          appendCompactTenseExampleList(usage, [
+            { label: "Statement", ...tense.examples.statement },
+            { label: "Negative", ...tense.examples.negative },
+            { label: "Question", ...tense.examples.question }
+          ].filter(sentence => sentence.fr));
+          body.appendChild(usage);
+        }
+
+        if (tense.specialRules.length) {
+          const noteList = document.createElement("div");
+          noteList.className = "verb-imparfait-notes";
+          tense.specialRules.forEach(rule => {
+            const note = document.createElement("div");
+            note.className = "verb-form-highlight";
+            note.innerHTML = `<strong>${rule.title}</strong><span>${rule.note}</span>`;
+            noteList.appendChild(note);
+          });
+          body.appendChild(noteList);
+        }
+      });
       return details;
     }
 
@@ -907,52 +934,49 @@
         <span class="verb-tense-summary-form">${sample.form}</span>
       `;
 
-      const body = document.createElement("div");
-      body.className = "verb-tense-summary-body";
+      initializeLazyTenseSummary(details, summary, body => {
+        const rule = document.createElement("div");
+        rule.className = "grammar-note";
+        rule.innerHTML = `<strong>Command forms:</strong> use tu, nous, or vous without saying the subject pronoun.`;
+        body.appendChild(rule);
 
-      const rule = document.createElement("div");
-      rule.className = "grammar-note";
-      rule.innerHTML = `<strong>Command forms:</strong> use tu, nous, or vous without saying the subject pronoun.`;
-      body.appendChild(rule);
-
-      const formGrid = document.createElement("div");
-      formGrid.className = "imperative-grid verb-imperative-form-grid";
-      imperative.rows.forEach(row => {
-        const button = document.createElement("button");
-        button.className = "verb-tense-form-btn verb-imperative-form-btn";
-        button.type = "button";
-        button.setAttribute("aria-label", `Play Imperative: ${row.form}`);
-        button.innerHTML = `
-          <span class="tiny-label">${row.person}</span>
-          <span class="noun-example-main">${row.form}</span>
-          ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
-        `;
-        button.addEventListener("click", () => {
-          speakSequence([{ text: row.speech || row.form }], button);
+        const formGrid = document.createElement("div");
+        formGrid.className = "imperative-grid verb-imperative-form-grid";
+        imperative.rows.forEach(row => {
+          const button = document.createElement("button");
+          button.className = "verb-tense-form-btn verb-imperative-form-btn";
+          button.type = "button";
+          button.setAttribute("aria-label", `Play Imperative: ${row.form}`);
+          button.innerHTML = `
+            <span class="tiny-label">${row.person}</span>
+            <span class="noun-example-main">${row.form}</span>
+            ${row.ipa ? `<span class="verb-ipa">${row.ipa}</span>` : ""}
+          `;
+          button.addEventListener("click", () => {
+            speakSequence([{ text: row.speech || row.form }], button);
+          });
+          formGrid.appendChild(button);
         });
-        formGrid.appendChild(button);
+        body.appendChild(formGrid);
+
+        if (imperative.note) {
+          const note = document.createElement("div");
+          note.className = "verb-form-highlight";
+          note.innerHTML = `<strong>Usage note</strong><span>${imperative.note}</span>`;
+          body.appendChild(note);
+        }
+
+        if (imperative.examples) {
+          const usage = document.createElement("div");
+          usage.className = "verb-tense-usage";
+          usage.innerHTML = `<div class="tiny-label">Command examples</div>`;
+          appendCompactTenseExampleList(usage, [
+            { label: "Affirmative", ...imperative.examples.affirmative },
+            { label: "Negative", ...imperative.examples.negative }
+          ].filter(sentence => sentence.fr));
+          body.appendChild(usage);
+        }
       });
-      body.appendChild(formGrid);
-
-      if (imperative.note) {
-        const note = document.createElement("div");
-        note.className = "verb-form-highlight";
-        note.innerHTML = `<strong>Usage note</strong><span>${imperative.note}</span>`;
-        body.appendChild(note);
-      }
-
-      if (imperative.examples) {
-        const usage = document.createElement("div");
-        usage.className = "verb-tense-usage";
-        usage.innerHTML = `<div class="tiny-label">Command examples</div>`;
-        appendCompactTenseExampleList(usage, [
-          { label: "Affirmative", ...imperative.examples.affirmative },
-          { label: "Negative", ...imperative.examples.negative }
-        ].filter(sentence => sentence.fr));
-        body.appendChild(usage);
-      }
-
-      details.append(summary, body);
       return details;
     }
 
@@ -1028,6 +1052,11 @@
       panel.append(header, description);
       if (highlights.children.length) panel.appendChild(highlights);
       panel.appendChild(table);
+      try {
+        renderVerbTable(table, item.rows);
+      } catch (error) {
+        renderInlineError(table, `${item.label} failed to render`, error);
+      }
 
       const imparfaitSummary = createVerbImparfaitSummary(item);
       if (imparfaitSummary) panel.appendChild(imparfaitSummary);
@@ -1054,6 +1083,7 @@
     function renderVerbStudySections() {
       if (!verbGroupStack) return;
       verbGroupStack.replaceChildren();
+      verbGroupTargets.clear();
 
       FR.data.verbs.groups
         .filter(group => group.key !== "pronominal")
@@ -1061,6 +1091,7 @@
         const groupPanel = document.createElement("div");
         groupPanel.className = "category-panel verb-group";
         groupPanel.dataset.verbGroup = group.key;
+        verbGroupTargets.set(group.key, groupPanel);
 
         const header = document.createElement("div");
         header.className = "verb-group-header";
@@ -1089,12 +1120,14 @@
           content.appendChild(createInlineError(`${group.title} has no verbs`, "Add at least one verbStudyItems entry for this group."));
         }
 
-        groupItems.forEach(item => {
-          try {
-            content.appendChild(createVerbStudyPanel(item));
-          } catch (error) {
-            content.appendChild(createInlineError(`${item && item.label ? item.label : "Verb"} failed to render`, error));
-          }
+        FR.utils.deferRender(groupPanel, () => {
+          groupItems.forEach(item => {
+            try {
+              content.appendChild(createVerbStudyPanel(item));
+            } catch (error) {
+              content.appendChild(createInlineError(`${item && item.label ? item.label : "Verb"} failed to render`, error));
+            }
+          });
         });
 
         groupPanel.append(header, content);
@@ -1131,6 +1164,7 @@
 
     function setVerbGroupCollapsed(group, collapsed, persist = true) {
       if (!group) return;
+      if (!collapsed) FR.utils.ensureRendered(group);
       const toggle = group.querySelector(".verb-group-toggle");
       group.classList.toggle("collapsed", collapsed);
       if (!toggle) return;
@@ -1211,8 +1245,8 @@
         [...groupConfigs]
           .sort((a, b) => a.label.localeCompare(b.label, "fr"))
           .forEach(config => {
-            const panel = getVerbPanel(config);
-            if (!panel) return;
+            const groupPanel = verbGroupTargets.get(config.group);
+            if (!groupPanel) return;
 
             const button = document.createElement("button");
             button.className = "verb-index-link";
@@ -1220,8 +1254,8 @@
             button.textContent = config.label;
             button.addEventListener("click", () => {
               stopPlayback();
-              setVerbGroupCollapsed(panel.closest(".verb-group"), false);
-              FR.utils.jumpToVerb(panel);
+              setVerbGroupCollapsed(groupPanel, false);
+              FR.utils.jumpToVerb(getVerbPanel(config));
             });
             links.appendChild(button);
           });
@@ -1309,6 +1343,7 @@
         body.appendChild(etreAuxiliarySection);
 
         etreCard.append(summary, body);
+        deferStudyCard(etreCard, () => renderEtreAuxiliaryVerbs());
         stack.appendChild(etreCard);
         cards.push(etreCard);
 
@@ -1331,6 +1366,7 @@
           button.addEventListener("click", () => {
             stopPlayback();
             etreCard.open = true;
+            FR.utils.ensureRendered(etreCard);
             const target = document.getElementById(getEtreAuxiliaryVerbId(verb));
             FR.utils.jumpToVerb(target || etreCard, target);
           });
@@ -1361,6 +1397,9 @@
         body.appendChild(element);
 
         card.append(summary, body);
+        deferStudyCard(card, () => {
+          renderPasseComposeGroup(element.querySelector(".noun-rules-table"), group);
+        });
         stack.appendChild(card);
         cards.push(card);
 
@@ -1385,6 +1424,7 @@
             button.addEventListener("click", () => {
               stopPlayback();
               card.open = true;
+              FR.utils.ensureRendered(card);
               const target = document.getElementById(getPasseComposeVerbId(group, verb));
               FR.utils.jumpToVerb(target || card, target);
             });
@@ -1400,6 +1440,7 @@
       expandAll.addEventListener("click", () => {
         cards.forEach(card => {
           card.open = true;
+          FR.utils.ensureRendered(card);
         });
       });
 
@@ -1596,6 +1637,157 @@
         section.setAttribute("aria-hidden", String(!isActive));
       });
       initializeTab(tabName);
+      document.getElementById("topicPicker").value = tabName;
+    }
+
+    function openStudyDestination(destination) {
+      if (!destination || !Array.from(tabButtons).some(button => button.dataset.tab === destination.tab)) return false;
+      stopPlayback();
+      activateTab(destination.tab);
+      if (destination.tab === "verbs" && Object.hasOwn(verbModeInitializers, destination.mode)) {
+        activateVerbMode(destination.mode);
+      }
+      const section = Array.from(sections).find(item => item.dataset.tab === destination.tab);
+      const scope = section.querySelector(".verb-mode-panel.active") || section;
+      const groups = Array.from(scope.querySelectorAll(".verb-group"));
+      const group = groups.find(item => (item.dataset.verbGroup || item.id) === destination.group);
+      if (group && group.classList.contains("collapsed")) group.querySelector(".verb-group-toggle").click();
+      const parentCard = destination.cardId && document.getElementById(destination.cardId);
+      if (parentCard && scope.contains(parentCard)) {
+        parentCard.open = true;
+        FR.utils.ensureRendered(parentCard);
+      }
+      let target = destination.targetId && document.getElementById(destination.targetId);
+      if (!target || !scope.contains(target)) {
+        if (!scope.querySelector(".verb-panel") && groups.length) {
+          const firstGroup = groups[0];
+          if (firstGroup.classList.contains("collapsed")) firstGroup.querySelector(".verb-group-toggle").click();
+        }
+        target = scope.querySelector(".verb-panel, .study-collapse-card, .panel, .category-panel") || scope;
+      }
+      const details = [];
+      for (let ancestor = target; ancestor && ancestor !== scope; ancestor = ancestor.parentElement) {
+        if (ancestor.tagName === "DETAILS") details.unshift(ancestor);
+      }
+      details.forEach(card => {
+        card.open = true;
+        FR.utils.ensureRendered(card);
+      });
+      target.tabIndex = -1;
+      FR.utils.jumpToVerb(target);
+      return true;
+    }
+
+    function initializeGlobalSearch() {
+      const entries = [];
+      const slug = value => String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+      const topicTitle = tab => Array.from(tabButtons).find(button => button.dataset.tab === tab).textContent.trim();
+      function add(id, title, tab, text, destination = {}) {
+        entries.push({ id, title, category: topicTitle(tab), text, destination: { tab, ...destination } });
+      }
+      tabButtons.forEach(button => {
+        const tab = button.dataset.tab;
+        const section = Array.from(sections).find(item => item.dataset.tab === tab);
+        add(`topic:${tab}`, button.textContent, tab, section.querySelector(".section-header").textContent);
+        const config = studyIndexConfigs[tab];
+        if (!config) return;
+        const sectionsData = typeof config.sections === "function" ? config.sections() : config.sections;
+        sectionsData.forEach(item => {
+          const text = item.elements.map(descriptor => resolveStudyElement(section, descriptor)?.textContent || "");
+          add(`section:${tab}:${item.id}`, item.title, tab, [text, FR.data.searchSections[`${tab}:${item.id}`]], {
+            targetId: `${tab}-${item.id}-study-card`
+          });
+        });
+      });
+      FR.data.verbs.items.filter(item => item.group !== "pronominal").forEach(item => {
+        add(`verb:${item.key}:present`, `${item.label} · Present`, "verbs", [item.title, item.descriptionHtml, item.rows], {
+          mode: "verb", group: item.group, targetId: item.panelId || `${item.key}VerbPanel`
+        });
+      });
+      [
+        ["imparfait", "imparfait", "Imparfait"],
+        ["futurSimple", "futur-simple", "Futur simple"],
+        ["conditionnelPresent", "conditionnel-present", "Conditionnel présent"]
+      ].forEach(([key, mode, title]) => {
+        add(`tense:${key}`, title, "verbs", FR.data[key].ruleCatalog, { mode });
+        FR.data[key].groups.forEach(group => group.items.forEach(item => {
+          add(`verb:${item.key}:${key}`, `${item.label} · ${title}`, "verbs", [item.rows, item.examples], {
+            mode, group: `${mode}-group-${slug(group.key)}`, targetId: `${mode}-${slug(item.key)}`
+          });
+        }));
+      });
+      add("tense:passe-compose", "Passé composé", "verbs", "past tense auxiliary agreement avoir être", { mode: "tense" });
+      passeComposeGroups.filter(group => group.key !== "pronominal").forEach(group => group.verbs.forEach(item => {
+        add(`past:${group.key}:${slug(item.infinitive)}`, `${item.infinitive} · Passé composé`, "verbs", item, {
+          mode: "tense", cardId: `tense-${group.key}-study-card`, targetId: getPasseComposeVerbId(group, item)
+        });
+      }));
+      FR.data.pronominalVerbs.items.forEach(item => {
+        add(`pronominal:${item.id}`, `${item.infinitive} · Pronominal verb`, "pronominal", item, {
+          targetId: `pronominal-verb-${slug(item.id)}`
+        });
+      });
+      [
+        ["Pronominal agreement", "pronominal", "pronominalAgreementGrid", ["accord", FR.data.pronominalVerbs.agreementModes, FR.data.pronominalVerbs.agreementContrasts]],
+        ["Pronominal verb types", "pronominal", "pronominalOverviewGrid", FR.data.pronominalVerbs.types],
+        ["Relative time and schedule words", "calendar", "relativeTimeGrid", relativeTimeWords],
+        ["An / année, jour / journée, soir / soirée", "calendar", "timeSpanComparisonGrid", timeSpanComparisons],
+        ["Days of the week", "calendar", "weekdaysGrid", weekdays],
+        ["Months", "calendar", "monthsGrid", [months, monthQuestionExamples]],
+        ["Seasons", "calendar", "seasonsGrid", seasons],
+        ["Numbers 1–100", "numbers", "grid", numberItems],
+        ["Time and ordinals", "numbers", "numbers-time-order-study-card", [timeExpressionItems, ordinalNumberItems]]
+      ].forEach(([title, tab, targetId, text]) => add(`reference:${targetId}`, title, tab, text, { targetId }));
+      FR.search.initializeDialog(entries, openStudyDestination);
+    }
+
+    function initializeStudyEntry() {
+      const picker = document.getElementById("topicPicker");
+      tabButtons.forEach(button => {
+        const option = document.createElement("option");
+        option.value = button.dataset.tab;
+        option.textContent = button.textContent;
+        picker.appendChild(option);
+      });
+      on(picker, "change", () => {
+        stopPlayback();
+        activateTab(picker.value);
+      });
+
+      const button = document.getElementById("continueStudy");
+      const label = document.getElementById("continueStudyLabel");
+      const saved = FR.storage.getJson("frenchStudyLastDestination", null);
+      let last = saved && typeof saved === "object" && Array.from(tabButtons).some(tab => tab.dataset.tab === saved.tab)
+        ? saved : null;
+      function updateEntry() {
+        button.textContent = last ? "Continue studying" : "Start studying";
+        label.textContent = last && typeof last.title === "string" ? last.title.slice(0, 100) : "Jump straight to your lesson";
+      }
+      on(button, "click", () => openStudyDestination(last || { tab: activeTab }));
+      function rememberLesson(event) {
+        const source = event.target;
+        if (!(source instanceof Element) || source.closest("aside, .verb-mode-tabs, .verb-group-header, .section-header")) return;
+        const section = source.closest(".section.active");
+        if (!section) return;
+        const target = source.closest(".verb-panel[id], .study-collapse-card[id], [data-study-section][id], .category-panel[id], .panel[id]")
+          || source.closest("[id]");
+        if (!target || !section.contains(target)) return;
+        const group = target.closest(".verb-group");
+        const heading = target.querySelector("h3, h4, summary") || target.closest(".panel, .category-panel")?.querySelector("h3, h4");
+        last = {
+          tab: section.dataset.tab,
+          mode: target.closest("[data-verb-mode-panel]")?.dataset.verbModePanel,
+          group: group && (group.dataset.verbGroup || group.id),
+          targetId: target.id,
+          title: (heading?.textContent || section.querySelector("h2").textContent).trim().slice(0, 100)
+        };
+        FR.storage.setJson("frenchStudyLastDestination", last);
+        updateEntry();
+      }
+      on(document, "click", rememberLesson);
+      on(document, "focusin", rememberLesson);
+      updateEntry();
     }
 
     function navigateStudyLink(trigger) {
@@ -1759,6 +1951,8 @@
     });
 
     initializeTabAccessibility();
+    initializeStudyEntry();
+    initializeGlobalSearch();
     initTheme();
     initStudyPreferences();
     loadVoices();

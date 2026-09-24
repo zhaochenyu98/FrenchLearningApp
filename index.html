@@ -10,10 +10,18 @@
   <div class="container">
     <h1>French Study App</h1>
     <p class="sub">
-      Learn French by clicking to hear pronunciation. This page includes pronunciation, pronouns, pronominal verbs, object replacement, present, past, future, and conditional study, numbers, time, nouns, adjectives, prepositions, articles, and determiners.
+      Listen, practise, and explore French, one topic at a time.
     </p>
 
-    <div class="controls">
+    <div class="study-entry">
+      <button id="continueStudy" class="action-btn" type="button">Start studying</button>
+      <button id="openGlobalSearch" class="action-btn" type="button" aria-haspopup="dialog">Search all topics</button>
+      <span id="continueStudyLabel" class="study-entry-label"></span>
+    </div>
+
+    <details class="study-settings">
+      <summary>Audio &amp; display settings</summary>
+      <div class="controls">
       <div class="control-group">
         <label for="voiceSelect">Voice</label>
         <select id="voiceSelect"></select>
@@ -37,7 +45,13 @@
       </div>
     </div>
 
+    </details>
+
     <div class="section-shell">
+      <div class="mobile-topic-picker">
+        <label for="topicPicker">Study topic</label>
+        <select id="topicPicker"></select>
+      </div>
       <div class="tabs" role="tablist" aria-label="French study topics">
         <button class="tab-btn" type="button" data-tab="pronunciation">Pronunciation Rules</button>
         <button class="tab-btn" type="button" data-tab="pronouns">Pronouns</button>
@@ -1462,6 +1476,18 @@
     </p>
   </div>
 
+  <dialog id="globalSearchDialog" class="global-search-dialog" aria-labelledby="globalSearchTitle">
+    <div class="global-search-heading">
+      <h2 id="globalSearchTitle">Search all topics</h2>
+      <button id="closeGlobalSearch" class="action-btn" type="button">Close</button>
+    </div>
+    <label for="globalSearchInput">Verb, form, or grammar concept</label>
+    <input id="globalSearchInput" type="search" placeholder="Try être, agreement, or depuis…" autocomplete="off" spellcheck="false" aria-controls="globalSearchResults" aria-describedby="globalSearchStatus" />
+    <p id="globalSearchStatus" role="status" aria-live="polite"></p>
+    <ul id="globalSearchResults" aria-label="Search results"></ul>
+    <button id="globalSearchMore" class="action-btn" type="button" hidden>Show more results</button>
+  </dialog>
+
   <div id="playbackStatus" class="playback-status" role="status" aria-live="polite" hidden>
     <span class="playback-status-pulse" aria-hidden="true"></span>
     <span class="playback-status-copy">
@@ -1488,6 +1514,8 @@
   <script defer src="js/data/conditionnel-present.js"></script>
   <script defer src="js/data/pronominal-verbs.js"></script>
   <script defer src="js/data/object-pronouns.js"></script>
+  <script defer src="js/data/search-sections.js"></script>
+  <script defer src="js/core/search.js"></script>
   <script defer src="js/core/core.js"></script>
   <script defer src="js/renderers/numbers.js"></script>
   <script defer src="js/renderers/pronunciation.js"></script>

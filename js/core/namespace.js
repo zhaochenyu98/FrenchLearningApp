@@ -6,6 +6,19 @@
   FR.runtime = FR.runtime || {};
   FR.utils = FR.utils || {};
 
+  const deferredRenderers = new WeakMap();
+  FR.utils.deferRender = function deferRender(target, render) {
+    deferredRenderers.set(target, render);
+  };
+  FR.utils.ensureRendered = function ensureRendered(target) {
+    const render = deferredRenderers.get(target);
+    if (!render) return;
+    render();
+    if (FR.utils.applyLanguageMetadata) FR.utils.applyLanguageMetadata(target);
+    // Keep the callback available if rendering throws, so opening can retry.
+    deferredRenderers.delete(target);
+  };
+
   FR.utils.jumpToVerb = function jumpToVerb(target, focusTarget = target) {
     if (!target) return;
     // Let the index finish closing on mobile before measuring the destination.
