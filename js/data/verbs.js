@@ -41,9 +41,9 @@
         full: "je parle",
         en: "I speak / talk",
         examples: [
-          { meaning: "parler + direct object", fr: "Je parle français.", en: "I speak French.", negative: "Je ne parle pas français.", negativeEn: "I do not speak French.", question: "Quelle langue est-ce que je parle ?" },
-          { meaning: "parler à quelqu’un", fr: "Je parle à mon professeur.", en: "I talk to my teacher.", negative: "Je ne parle pas à mon professeur.", negativeEn: "I do not talk to my teacher.", question: "À qui est-ce que je parle ?" },
-          { meaning: "parler de quelque chose", fr: "Je parle de mon travail.", en: "I talk about my work.", negative: "Je ne parle pas de mon travail.", negativeEn: "I do not talk about my work.", question: "De quoi est-ce que je parle ?" }
+          { id: "parler-direct-object", meaning: "parler + direct object", fr: "Je parle français.", en: "I speak French.", negative: "Je ne parle pas français.", negativeEn: "I do not speak French.", question: "Quelle langue est-ce que je parle ?" },
+          { id: "parler-a-quelqu-un", meaning: "parler à quelqu’un", fr: "Je parle à mon professeur.", en: "I talk to my teacher.", negative: "Je ne parle pas à mon professeur.", negativeEn: "I do not talk to my teacher.", question: "À qui est-ce que je parle ?" },
+          { id: "parler-de-quelque-chose", meaning: "parler de quelque chose", fr: "Je parle de mon travail.", en: "I talk about my work.", negative: "Je ne parle pas de mon travail.", negativeEn: "I do not talk about my work.", question: "De quoi est-ce que je parle ?" }
         ]
       },
       { pronoun: "tu", form: "parles", full: "tu parles", en: "you speak / talk", example: "Tu parles trop vite.", exampleEn: "You speak too fast.", negative: "Tu ne parles pas trop vite.", negativeEn: "You do not speak too fast.", question: "Parles-tu trop vite ?" },
@@ -282,8 +282,8 @@
         full: "je prends",
         en: "I take / have",
         examples: [
-          { meaning: "transport", fr: "Je prends le métro tous les matins.", en: "I take the subway every morning.", negative: "Je ne prends pas le métro tous les matins.", negativeEn: "I do not take the subway every morning." },
-          { meaning: "food / drink", fr: "Je prends un café sans sucre.", en: "I have a coffee without sugar.", negative: "Je ne prends pas de café.", negativeEn: "I do not have coffee." }
+          { id: "transport", meaning: "transport", fr: "Je prends le métro tous les matins.", en: "I take the subway every morning.", negative: "Je ne prends pas le métro tous les matins.", negativeEn: "I do not take the subway every morning." },
+          { id: "food-drink", meaning: "food / drink", fr: "Je prends un café sans sucre.", en: "I have a coffee without sugar.", negative: "Je ne prends pas de café.", negativeEn: "I do not have coffee." }
         ]
       },
       {
@@ -292,8 +292,8 @@
         full: "tu prends",
         en: "you take",
         examples: [
-          { meaning: "time", fr: "Tu prends ton temps.", en: "You take your time.", negative: "Tu ne prends pas ton temps.", negativeEn: "You do not take your time.", question: "Prends-tu ton temps ?" },
-          { meaning: "photo", fr: "Tu prends une photo du monument.", en: "You take a photo of the monument.", negative: "Tu ne prends pas de photo du monument.", negativeEn: "You do not take a photo of the monument.", question: "Que prends-tu en photo ?" }
+          { id: "time", meaning: "time", fr: "Tu prends ton temps.", en: "You take your time.", negative: "Tu ne prends pas ton temps.", negativeEn: "You do not take your time.", question: "Prends-tu ton temps ?" },
+          { id: "photo", meaning: "photo", fr: "Tu prends une photo du monument.", en: "You take a photo of the monument.", negative: "Tu ne prends pas de photo du monument.", negativeEn: "You do not take a photo of the monument.", question: "Que prends-tu en photo ?" }
         ]
       },
       {
@@ -302,8 +302,8 @@
         full: "il prend",
         en: "he takes / has",
         examples: [
-          { meaning: "meal", fr: "Il prend son petit-déjeuner à sept heures.", en: "He has breakfast at seven o’clock.", negative: "Il ne prend pas son petit-déjeuner à sept heures.", negativeEn: "He does not have breakfast at seven o’clock.", question: "À quelle heure prend-il son petit-déjeuner ?" },
-          { meaning: "notes", fr: "Il prend des notes en classe.", en: "He takes notes in class.", negative: "Il ne prend pas de notes en classe.", negativeEn: "He does not take notes in class." }
+          { id: "meal", meaning: "meal", fr: "Il prend son petit-déjeuner à sept heures.", en: "He has breakfast at seven o’clock.", negative: "Il ne prend pas son petit-déjeuner à sept heures.", negativeEn: "He does not have breakfast at seven o’clock.", question: "À quelle heure prend-il son petit-déjeuner ?" },
+          { id: "notes", meaning: "notes", fr: "Il prend des notes en classe.", en: "He takes notes in class.", negative: "Il ne prend pas de notes en classe.", negativeEn: "He does not take notes in class." }
         ]
       },
       {
@@ -312,8 +312,8 @@
         full: "elle prend",
         en: "she takes / has",
         examples: [
-          { meaning: "routine", fr: "Elle prend une douche le matin.", en: "She takes a shower in the morning.", negative: "Elle ne prend pas de douche le matin.", negativeEn: "She does not take a shower in the morning." },
-          { meaning: "medicine", fr: "Elle prend ce médicament avec de l’eau.", en: "She takes this medicine with water.", negative: "Elle ne prend pas ce médicament.", negativeEn: "She does not take this medicine." }
+          { id: "routine", meaning: "routine", fr: "Elle prend une douche le matin.", en: "She takes a shower in the morning.", negative: "Elle ne prend pas de douche le matin.", negativeEn: "She does not take a shower in the morning." },
+          { id: "medicine", meaning: "medicine", fr: "Elle prend ce médicament avec de l’eau.", en: "She takes this medicine with water.", negative: "Elle ne prend pas ce médicament.", negativeEn: "She does not take this medicine." }
         ]
       },
       {
@@ -322,8 +322,8 @@
         full: "nous prenons",
         en: "we take / make",
         examples: [
-          { meaning: "transport", fr: "Nous prenons le train pour Paris.", en: "We take the train to Paris.", negative: "Nous ne prenons pas le train pour Paris.", negativeEn: "We do not take the train to Paris." },
-          { meaning: "decision", fr: "Nous prenons une décision aujourd’hui.", en: "We make a decision today.", negative: "Nous ne prenons pas de décision aujourd’hui.", negativeEn: "We do not make a decision today.", question: "Quand prenons-nous une décision ?" }
+          { id: "transport", meaning: "transport", fr: "Nous prenons le train pour Paris.", en: "We take the train to Paris.", negative: "Nous ne prenons pas le train pour Paris.", negativeEn: "We do not take the train to Paris." },
+          { id: "decision", meaning: "decision", fr: "Nous prenons une décision aujourd’hui.", en: "We make a decision today.", negative: "Nous ne prenons pas de décision aujourd’hui.", negativeEn: "We do not make a decision today.", question: "Quand prenons-nous une décision ?" }
         ]
       },
       {
@@ -332,8 +332,8 @@
         full: "vous prenez",
         en: "you take / make",
         examples: [
-          { meaning: "transport", fr: "Vous prenez un taxi pour l’aéroport.", en: "You take a taxi to the airport.", negative: "Vous ne prenez pas de taxi pour l’aéroport.", negativeEn: "You do not take a taxi to the airport." },
-          { meaning: "appointment", fr: "Vous prenez rendez-vous chez le médecin.", en: "You make an appointment with the doctor.", negative: "Vous ne prenez pas rendez-vous chez le médecin.", negativeEn: "You do not make an appointment with the doctor.", question: "Où prenez-vous rendez-vous ?" }
+          { id: "transport", meaning: "transport", fr: "Vous prenez un taxi pour l’aéroport.", en: "You take a taxi to the airport.", negative: "Vous ne prenez pas de taxi pour l’aéroport.", negativeEn: "You do not take a taxi to the airport." },
+          { id: "appointment", meaning: "appointment", fr: "Vous prenez rendez-vous chez le médecin.", en: "You make an appointment with the doctor.", negative: "Vous ne prenez pas rendez-vous chez le médecin.", negativeEn: "You do not make an appointment with the doctor.", question: "Où prenez-vous rendez-vous ?" }
         ]
       },
       {
@@ -342,8 +342,8 @@
         full: "ils prennent",
         en: "they take / have",
         examples: [
-          { meaning: "transport", fr: "Ils prennent le bus à huit heures.", en: "They take the bus at eight o’clock.", negative: "Ils ne prennent pas le bus à huit heures.", negativeEn: "They do not take the bus at eight o’clock.", question: "Quand prennent-ils le bus ?" },
-          { meaning: "vacation", fr: "Ils prennent des vacances en août.", en: "They take a vacation in August.", negative: "Ils ne prennent pas de vacances en août.", negativeEn: "They do not take a vacation in August." }
+          { id: "transport", meaning: "transport", fr: "Ils prennent le bus à huit heures.", en: "They take the bus at eight o’clock.", negative: "Ils ne prennent pas le bus à huit heures.", negativeEn: "They do not take the bus at eight o’clock.", question: "Quand prennent-ils le bus ?" },
+          { id: "vacation", meaning: "vacation", fr: "Ils prennent des vacances en août.", en: "They take a vacation in August.", negative: "Ils ne prennent pas de vacances en août.", negativeEn: "They do not take a vacation in August." }
         ]
       },
       {
@@ -352,8 +352,8 @@
         full: "elles prennent",
         en: "they take / have",
         examples: [
-          { meaning: "food / drink", fr: "Elles prennent un café ensemble.", en: "They have a coffee together.", negative: "Elles ne prennent pas de café ensemble.", negativeEn: "They do not have coffee together." },
-          { meaning: "care", fr: "Elles prennent soin de leurs enfants.", en: "They take care of their children.", negative: "Elles ne prennent pas soin de leurs enfants.", negativeEn: "They do not take care of their children." }
+          { id: "food-drink", meaning: "food / drink", fr: "Elles prennent un café ensemble.", en: "They have a coffee together.", negative: "Elles ne prennent pas de café ensemble.", negativeEn: "They do not have coffee together." },
+          { id: "care", meaning: "care", fr: "Elles prennent soin de leurs enfants.", en: "They take care of their children.", negative: "Elles ne prennent pas soin de leurs enfants.", negativeEn: "They do not take care of their children." }
         ]
       }
     ];
@@ -398,8 +398,8 @@
         full: "je dois",
         en: "I must / have to / owe",
         examples: [
-          { meaning: "obligation", fr: "Je dois partir tôt.", en: "I have to leave early.", negative: "Je ne dois pas partir tôt.", negativeEn: "I must not leave early.", question: "Dois-je partir tôt ?" },
-          { meaning: "owe", fr: "Je dois dix euros à Paul.", en: "I owe Paul ten euros.", negative: "Je ne dois pas dix euros à Paul.", negativeEn: "I do not owe Paul ten euros.", question: "Combien est-ce que je dois à Paul ?" }
+          { id: "obligation", meaning: "obligation", fr: "Je dois partir tôt.", en: "I have to leave early.", negative: "Je ne dois pas partir tôt.", negativeEn: "I must not leave early.", question: "Dois-je partir tôt ?" },
+          { id: "owe", meaning: "owe", fr: "Je dois dix euros à Paul.", en: "I owe Paul ten euros.", negative: "Je ne dois pas dix euros à Paul.", negativeEn: "I do not owe Paul ten euros.", question: "Combien est-ce que je dois à Paul ?" }
         ]
       },
       { pronoun: "tu", form: "dois", full: "tu dois", en: "you must / have to / owe", example: "Tu dois finir tes devoirs.", exampleEn: "You have to finish your homework.", negative: "Tu ne dois pas finir tes devoirs maintenant.", negativeEn: "You must not finish your homework now.", question: "Dois-tu finir tes devoirs maintenant ?" },
@@ -418,8 +418,8 @@
         full: "je peux",
         en: "I can / may",
         examples: [
-          { meaning: "ability", fr: "Je peux venir demain.", en: "I can come tomorrow.", negative: "Je ne peux pas venir demain.", negativeEn: "I cannot come tomorrow.", question: "Puis-je venir demain ?" },
-          { meaning: "polite offer", fr: "Je peux vous aider.", en: "I can help you.", negative: "Je ne peux pas vous aider.", negativeEn: "I cannot help you.", question: "Puis-je vous aider ?" }
+          { id: "ability", meaning: "ability", fr: "Je peux venir demain.", en: "I can come tomorrow.", negative: "Je ne peux pas venir demain.", negativeEn: "I cannot come tomorrow.", question: "Puis-je venir demain ?" },
+          { id: "polite-offer", meaning: "polite offer", fr: "Je peux vous aider.", en: "I can help you.", negative: "Je ne peux pas vous aider.", negativeEn: "I cannot help you.", question: "Puis-je vous aider ?" }
         ]
       },
       { pronoun: "tu", form: "peux", full: "tu peux", en: "you can / may", example: "Tu peux ouvrir la fenêtre.", exampleEn: "You can open the window.", negative: "Tu ne peux pas ouvrir la fenêtre.", negativeEn: "You cannot open the window.", question: "Peux-tu ouvrir la fenêtre ?" },
@@ -449,8 +449,8 @@
         full: "je sais",
         en: "I know",
         examples: [
-          { meaning: "know the answer", fr: "Je sais la réponse.", en: "I know the answer.", negative: "Je ne sais pas la réponse.", negativeEn: "I do not know the answer.", question: "Est-ce que je sais la réponse ?" },
-          { meaning: "don’t know", fr: "Je ne sais pas où il habite.", en: "I do not know where he lives.", negative: "Je ne sais toujours pas où il habite.", negativeEn: "I still do not know where he lives.", question: "Sais-tu où il habite ?" }
+          { id: "know-the-answer", meaning: "know the answer", fr: "Je sais la réponse.", en: "I know the answer.", negative: "Je ne sais pas la réponse.", negativeEn: "I do not know the answer.", question: "Est-ce que je sais la réponse ?" },
+          { id: "don-t-know", meaning: "don’t know", fr: "Je ne sais pas où il habite.", en: "I do not know where he lives.", negative: "Je ne sais toujours pas où il habite.", negativeEn: "I still do not know where he lives.", question: "Sais-tu où il habite ?" }
         ]
       },
       {
@@ -459,8 +459,8 @@
         full: "tu sais",
         en: "you know",
         examples: [
-          { meaning: "savoir + que", fr: "Tu sais que le train part à huit heures.", en: "You know that the train leaves at eight.", negative: "Tu ne sais pas si le train part à huit heures.", negativeEn: "You do not know whether the train leaves at eight.", question: "Sais-tu que le train part à huit heures ?" },
-          { meaning: "know how to", fr: "Tu sais nager.", en: "You know how to swim.", negative: "Tu ne sais pas nager.", negativeEn: "You do not know how to swim.", question: "Sais-tu nager ?" }
+          { id: "savoir-que", meaning: "savoir + que", fr: "Tu sais que le train part à huit heures.", en: "You know that the train leaves at eight.", negative: "Tu ne sais pas si le train part à huit heures.", negativeEn: "You do not know whether the train leaves at eight.", question: "Sais-tu que le train part à huit heures ?" },
+          { id: "know-how-to", meaning: "know how to", fr: "Tu sais nager.", en: "You know how to swim.", negative: "Tu ne sais pas nager.", negativeEn: "You do not know how to swim.", question: "Sais-tu nager ?" }
         ]
       },
       { pronoun: "il", form: "sait", full: "il sait", en: "he knows", example: "Il sait conduire.", exampleEn: "He knows how to drive.", negative: "Il ne sait pas conduire.", negativeEn: "He does not know how to drive.", question: "Sait-il conduire ?" },
@@ -485,7 +485,7 @@
     const faireExpressionRows = [
       {
         expression: "faire un footing",
-        meaning: "to go for a jog",
+        id: "to-go-for-a-jog", meaning: "to go for a jog",
         note: "After negation, un becomes de.",
         example: "Je fais un footing ce matin.",
         exampleEn: "I am going for a jog this morning.",
@@ -494,7 +494,7 @@
       },
       {
         expression: "faire les courses",
-        meaning: "to do the grocery shopping",
+        id: "to-do-the-grocery-shopping", meaning: "to do the grocery shopping",
         note: "Les is definite, so it stays les after negation.",
         example: "Je fais les courses après le travail.",
         exampleEn: "I do the grocery shopping after work.",
@@ -503,7 +503,7 @@
       },
       {
         expression: "faire des courses",
-        meaning: "to run errands / do some shopping",
+        id: "to-run-errands-do-some-shopping", meaning: "to run errands / do some shopping",
         note: "After negation, des becomes de.",
         example: "Il fait des courses après le travail.",
         exampleEn: "He runs some errands after work.",
@@ -512,7 +512,7 @@
       },
       {
         expression: "faire mes courses",
-        meaning: "to do my grocery shopping",
+        id: "to-do-my-grocery-shopping", meaning: "to do my grocery shopping",
         note: "Mes is possessive, so it stays mes after negation.",
         example: "Je fais mes courses le samedi.",
         exampleEn: "I do my grocery shopping on Saturday.",
@@ -521,7 +521,7 @@
       },
       {
         expression: "faire de la natation",
-        meaning: "to go swimming / do swimming",
+        id: "to-go-swimming-do-swimming", meaning: "to go swimming / do swimming",
         note: "After negation, de la becomes de.",
         example: "Nous faisons de la natation.",
         exampleEn: "We go swimming.",
@@ -530,7 +530,7 @@
       },
       {
         expression: "faire le ménage",
-        meaning: "to clean the house",
+        id: "to-clean-the-house", meaning: "to clean the house",
         note: "Le is definite, so it stays le after negation.",
         example: "Elle fait le ménage.",
         exampleEn: "She is cleaning the house.",
@@ -539,7 +539,7 @@
       },
       {
         expression: "faire du ski",
-        meaning: "to ski / go skiing",
+        id: "to-ski-go-skiing", meaning: "to ski / go skiing",
         note: "After negation, du becomes de.",
         example: "Vous faites du ski en hiver.",
         exampleEn: "You ski in winter.",
@@ -548,7 +548,7 @@
       },
       {
         expression: "faire des travaux",
-        meaning: "to do / have renovation work done",
+        id: "to-do-have-renovation-work-done", meaning: "to do / have renovation work done",
         note: "Travaux is normally plural here. After negation, des becomes de.",
         example: "Nous faisons des travaux dans la cuisine.",
         exampleEn: "We are having renovation work done in the kitchen.",
@@ -586,8 +586,8 @@
         full: "je bois",
         en: "I drink",
         examples: [
-          { meaning: "drink water in general", fr: "Je bois de l’eau tous les jours.", en: "I drink water every day.", negative: "Je ne bois pas d’eau tous les jours.", negativeEn: "I do not drink water every day.", question: "Qu’est-ce que je bois tous les jours ?" },
-          { meaning: "drink one bottle of water", fr: "Je bois une bouteille d’eau après le sport.", en: "I drink a bottle of water after sports.", negative: "Je ne bois pas de bouteille d’eau après le sport.", negativeEn: "I do not drink a bottle of water after sports.", question: "Est-ce que je bois une bouteille d’eau après le sport ?" }
+          { id: "drink-water-in-general", meaning: "drink water in general", fr: "Je bois de l’eau tous les jours.", en: "I drink water every day.", negative: "Je ne bois pas d’eau tous les jours.", negativeEn: "I do not drink water every day.", question: "Qu’est-ce que je bois tous les jours ?" },
+          { id: "drink-one-bottle-of-water", meaning: "drink one bottle of water", fr: "Je bois une bouteille d’eau après le sport.", en: "I drink a bottle of water after sports.", negative: "Je ne bois pas de bouteille d’eau après le sport.", negativeEn: "I do not drink a bottle of water after sports.", question: "Est-ce que je bois une bouteille d’eau après le sport ?" }
         ]
       },
       { pronoun: "tu", form: "bois", full: "tu bois", en: "you drink", example: "Tu bois une bouteille d’eau après le cours.", exampleEn: "You drink a bottle of water after class.", negative: "Tu ne bois pas de bouteille d’eau après le cours.", negativeEn: "You do not drink a bottle of water after class.", question: "Bois-tu une bouteille d’eau après le cours ?" },
@@ -606,8 +606,8 @@
         full: "je dis",
         en: "I say / tell",
         examples: [
-          { meaning: "dire quelque chose à quelqu’un", fr: "Je dis la vérité à Marie.", en: "I tell Marie the truth.", negative: "Je ne dis pas la vérité à Marie.", negativeEn: "I do not tell Marie the truth.", question: "Qu’est-ce que je dis à Marie ?" },
-          { meaning: "say hello to someone", fr: "Je dis bonjour à mon voisin.", en: "I say hello to my neighbor.", negative: "Je ne dis pas bonjour à mon voisin.", negativeEn: "I do not say hello to my neighbor.", question: "À qui est-ce que je dis bonjour ?" }
+          { id: "dire-quelque-chose-a-quelqu-un", meaning: "dire quelque chose à quelqu’un", fr: "Je dis la vérité à Marie.", en: "I tell Marie the truth.", negative: "Je ne dis pas la vérité à Marie.", negativeEn: "I do not tell Marie the truth.", question: "Qu’est-ce que je dis à Marie ?" },
+          { id: "say-hello-to-someone", meaning: "say hello to someone", fr: "Je dis bonjour à mon voisin.", en: "I say hello to my neighbor.", negative: "Je ne dis pas bonjour à mon voisin.", negativeEn: "I do not say hello to my neighbor.", question: "À qui est-ce que je dis bonjour ?" }
         ]
       },
       { pronoun: "tu", form: "dis", full: "tu dis", en: "you say / tell", example: "Tu dis merci au professeur.", exampleEn: "You say thank you to the teacher.", negative: "Tu ne dis pas merci au professeur.", negativeEn: "You do not say thank you to the teacher.", question: "Dis-tu merci au professeur ?" },
@@ -738,8 +738,8 @@
         full: "il trouve",
         en: "he finds / he thinks",
         examples: [
-          { meaning: "find", fr: "Il trouve une solution.", en: "He finds a solution.", negative: "Il ne trouve pas de solution.", negativeEn: "He does not find a solution." },
-          { meaning: "se trouver = to be located", fr: "Le musée se trouve au coin de la rue.", en: "The museum is located at the corner of the street.", negative: "Le musée ne se trouve pas au coin de la rue.", negativeEn: "The museum is not located at the corner of the street." }
+          { id: "find", meaning: "find", fr: "Il trouve une solution.", en: "He finds a solution.", negative: "Il ne trouve pas de solution.", negativeEn: "He does not find a solution." },
+          { id: "se-trouver-to-be-located", meaning: "se trouver = to be located", fr: "Le musée se trouve au coin de la rue.", en: "The museum is located at the corner of the street.", negative: "Le musée ne se trouve pas au coin de la rue.", negativeEn: "The museum is not located at the corner of the street." }
         ]
       },
       { pronoun: "elle", form: "trouve", full: "elle trouve", en: "she finds / she thinks", example: "Elle trouve le film drôle.", exampleEn: "She finds the movie funny.", negative: "Elle ne trouve pas le film drôle.", negativeEn: "She does not find the movie funny." },
@@ -890,8 +890,8 @@
         full: "il demande",
         en: "he asks",
         examples: [
-          { meaning: "ask for", fr: "Il demande une information.", en: "He asks for information.", negative: "Il ne demande pas d’information.", negativeEn: "He does not ask for information." },
-          { meaning: "demander à ... de ...", fr: "Il demande à Marie de venir.", en: "He asks Marie to come.", negative: "Il ne demande pas à Marie de venir.", negativeEn: "He does not ask Marie to come." }
+          { id: "ask-for", meaning: "ask for", fr: "Il demande une information.", en: "He asks for information.", negative: "Il ne demande pas d’information.", negativeEn: "He does not ask for information." },
+          { id: "demander-a-de", meaning: "demander à ... de ...", fr: "Il demande à Marie de venir.", en: "He asks Marie to come.", negative: "Il ne demande pas à Marie de venir.", negativeEn: "He does not ask Marie to come." }
         ]
       },
       { pronoun: "elle", form: "demande", full: "elle demande", en: "she asks", example: "Elle demande à son ami de l’aider.", exampleEn: "She asks her friend to help her.", negative: "Elle ne demande pas à son ami de l’aider.", negativeEn: "She does not ask her friend to help her." },
@@ -908,8 +908,8 @@
         full: "je joue",
         en: "I play",
         examples: [
-          { meaning: "jouer à / au = play a sport or game", fr: "Je joue au tennis.", en: "I play tennis.", negative: "Je ne joue pas au tennis.", negativeEn: "I do not play tennis." },
-          { meaning: "jouer de = play an instrument", fr: "Je joue de la guitare.", en: "I play guitar.", negative: "Je ne joue pas de guitare.", negativeEn: "I do not play guitar." }
+          { id: "jouer-a-au-play-a-sport-or-game", meaning: "jouer à / au = play a sport or game", fr: "Je joue au tennis.", en: "I play tennis.", negative: "Je ne joue pas au tennis.", negativeEn: "I do not play tennis." },
+          { id: "jouer-de-play-an-instrument", meaning: "jouer de = play an instrument", fr: "Je joue de la guitare.", en: "I play guitar.", negative: "Je ne joue pas de guitare.", negativeEn: "I do not play guitar." }
         ]
       },
       { pronoun: "tu", form: "joues", full: "tu joues", en: "you play", example: "Tu joues aux cartes.", exampleEn: "You are playing cards.", negative: "Tu ne joues pas aux cartes.", negativeEn: "You are not playing cards.", question: "À quoi joues-tu ?" },
@@ -1369,8 +1369,8 @@
         ipa: "/ʒə ʃɑ̃ʒ/",
         en: "I change",
         examples: [
-          { meaning: "changer + direct object", fr: "Je change le mot dans cette phrase.", en: "I change the word in this sentence.", negative: "Je ne change pas le mot dans cette phrase.", negativeEn: "I do not change the word in this sentence.", question: "Quel mot est-ce que je change dans cette phrase ?" },
-          { meaning: "changer de + noun", fr: "Je change de train à Lyon.", en: "I change trains in Lyon.", negative: "Je ne change pas de train à Lyon.", negativeEn: "I do not change trains in Lyon.", question: "Où est-ce que je change de train ?" }
+          { id: "changer-direct-object", meaning: "changer + direct object", fr: "Je change le mot dans cette phrase.", en: "I change the word in this sentence.", negative: "Je ne change pas le mot dans cette phrase.", negativeEn: "I do not change the word in this sentence.", question: "Quel mot est-ce que je change dans cette phrase ?" },
+          { id: "changer-de-noun", meaning: "changer de + noun", fr: "Je change de train à Lyon.", en: "I change trains in Lyon.", negative: "Je ne change pas de train à Lyon.", negativeEn: "I do not change trains in Lyon.", question: "Où est-ce que je change de train ?" }
         ]
       },
       { pronoun: "tu", form: "changes", full: "tu changes", ipa: "/ty ʃɑ̃ʒ/", en: "you change", example: "Tu changes d’avis après la réunion.", exampleEn: "You change your mind after the meeting.", negative: "Tu ne changes pas d’avis après la réunion.", negativeEn: "You do not change your mind after the meeting.", question: "Pourquoi changes-tu d’avis ?" },
@@ -1411,14 +1411,14 @@
         en: "it has been / it makes / it feels",
         examples: [
           {
-            meaning: "elapsed duration: ça fait ... que",
+            id: "elapsed-duration-ca-fait-que", meaning: "elapsed duration: ça fait ... que",
             fr: "Ça fait deux ans que j’habite ici.",
             en: "I have lived here for two years.",
             negative: "Ça ne fait pas deux ans que j’habite ici.",
             question: "Ça fait combien de temps que vous habitez ici ?"
           },
           {
-            meaning: "effect or feeling: ça fait ...",
+            id: "effect-or-feeling-ca-fait", meaning: "effect or feeling: ça fait ...",
             fr: "Ça fait du bien de se reposer.",
             en: "Resting feels good.",
             negative: "Ça ne fait pas de bien de travailler sans pause.",
@@ -1440,9 +1440,9 @@
       {
         pronoun: "il", form: "s’agit", full: "il s’agit", ipa: "/il sa.ʒi/", en: "it is about / it is a matter of",
         examples: [
-          { meaning: "il s’agit de + noun — it is about", fr: "Il s’agit du nouveau projet.", en: "It is about the new project.", negative: "Il ne s’agit pas du nouveau projet.", negativeEn: "It is not about the new project.", question: "De quoi s’agit-il ?" },
-          { meaning: "de becomes d’ before a vowel", fr: "Il s’agit d’un problème technique.", en: "It is a technical problem.", negative: "Il ne s’agit pas d’un problème technique.", negativeEn: "It is not a technical problem.", question: "S’agit-il d’un problème technique ?" },
-          { meaning: "il s’agit de + infinitive — the aim is to", fr: "Il s’agit de trouver une solution.", en: "The aim is to find a solution.", negative: "Il ne s’agit pas de trouver une solution.", negativeEn: "The aim is not to find a solution.", question: "S’agit-il de trouver une solution ?" }
+          { id: "il-s-agit-de-noun-it-is-about", meaning: "il s’agit de + noun — it is about", fr: "Il s’agit du nouveau projet.", en: "It is about the new project.", negative: "Il ne s’agit pas du nouveau projet.", negativeEn: "It is not about the new project.", question: "De quoi s’agit-il ?" },
+          { id: "de-becomes-d-before-a-vowel", meaning: "de becomes d’ before a vowel", fr: "Il s’agit d’un problème technique.", en: "It is a technical problem.", negative: "Il ne s’agit pas d’un problème technique.", negativeEn: "It is not a technical problem.", question: "S’agit-il d’un problème technique ?" },
+          { id: "il-s-agit-de-infinitive-the-aim-is-to", meaning: "il s’agit de + infinitive — the aim is to", fr: "Il s’agit de trouver une solution.", en: "The aim is to find a solution.", negative: "Il ne s’agit pas de trouver une solution.", negativeEn: "The aim is not to find a solution.", question: "S’agit-il de trouver une solution ?" }
         ]
       }
     ];
@@ -1489,8 +1489,8 @@
         ipa: "/ty a.tɑ̃/",
         en: "you wait / expect",
         examples: [
-          { meaning: "Wait for someone", fr: "Tu attends ta sœur.", en: "You are waiting for your sister.", negative: "Tu n’attends pas ta sœur.", negativeEn: "You are not waiting for your sister.", question: "Qui attends-tu ?" },
-          { meaning: "Imperative + direct object", statementLabel: "Imperative", fr: "Attends-moi !", en: "Wait for me!", negative: "Ne m’attends pas !", negativeEn: "Do not wait for me!", question: "Peux-tu m’attendre ?" }
+          { id: "wait-for-someone", meaning: "Wait for someone", fr: "Tu attends ta sœur.", en: "You are waiting for your sister.", negative: "Tu n’attends pas ta sœur.", negativeEn: "You are not waiting for your sister.", question: "Qui attends-tu ?" },
+          { id: "imperative-direct-object", meaning: "Imperative + direct object", statementLabel: "Imperative", fr: "Attends-moi !", en: "Wait for me!", negative: "Ne m’attends pas !", negativeEn: "Do not wait for me!", question: "Peux-tu m’attendre ?" }
         ]
       },
       { pronoun: "il", form: "attend", full: "il attend", ipa: "/il a.tɑ̃/", en: "he waits / expects", example: "Il attend son ami devant le café.", exampleEn: "He is waiting for his friend in front of the café.", negative: "Il n’attend pas son ami devant le café.", negativeEn: "He is not waiting for his friend in front of the café.", question: "Qui attend-il devant le café ?" },
@@ -1510,9 +1510,9 @@
         ipa: "/ty pɑ̃s/",
         en: "you think",
         examples: [
-          { meaning: "penser de (have an opinion)", fr: "Tu penses du bien de ce film.", en: "You think highly of this movie.", negative: "Tu ne penses pas du bien de ce film.", negativeEn: "You do not think highly of this movie.", question: "Que penses-tu de ce film ?" },
-          { meaning: "penser que (think that)", fr: "Tu penses que c’est une bonne idée.", en: "You think that it is a good idea.", negative: "Tu ne penses pas que ce soit une bonne idée.", negativeEn: "You do not think that it is a good idea.", question: "Est-ce que tu penses que c’est une bonne idée ?" },
-          { meaning: "en penser (think of it)", fr: "Tu en penses du bien.", en: "You think highly of it.", negative: "Tu n’en penses pas beaucoup de bien.", negativeEn: "You do not think very highly of it.", question: "Qu’en penses-tu ?" }
+          { id: "penser-de-have-an-opinion", meaning: "penser de (have an opinion)", fr: "Tu penses du bien de ce film.", en: "You think highly of this movie.", negative: "Tu ne penses pas du bien de ce film.", negativeEn: "You do not think highly of this movie.", question: "Que penses-tu de ce film ?" },
+          { id: "penser-que-think-that", meaning: "penser que (think that)", fr: "Tu penses que c’est une bonne idée.", en: "You think that it is a good idea.", negative: "Tu ne penses pas que ce soit une bonne idée.", negativeEn: "You do not think that it is a good idea.", question: "Est-ce que tu penses que c’est une bonne idée ?" },
+          { id: "en-penser-think-of-it", meaning: "en penser (think of it)", fr: "Tu en penses du bien.", en: "You think highly of it.", negative: "Tu n’en penses pas beaucoup de bien.", negativeEn: "You do not think very highly of it.", question: "Qu’en penses-tu ?" }
         ]
       },
       { pronoun: "il", form: "pense", full: "il pense", ipa: "/il pɑ̃s/", en: "he thinks", example: "Il pense à son voyage.", exampleEn: "He is thinking about his trip.", negative: "Il ne pense pas à son voyage.", negativeEn: "He is not thinking about his trip.", question: "À quoi pense-t-il ?" },

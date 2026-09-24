@@ -10,6 +10,7 @@
         },
         verbs: [
           {
+            verbId: "montrer",
             infinitive: "montrer",
             infinitiveIpa: "/mɔ̃.tʁe/",
             meaning: "to show",
@@ -23,6 +24,7 @@
             question: { fr: "Avez-vous montré les photos à Marie ?", en: "Did you show the photos to Marie?" }
           },
           {
+            verbId: "interesser",
             infinitive: "intéresser",
             infinitiveIpa: "/ɛ̃.te.ʁe.se/",
             meaning: "to interest",
@@ -36,6 +38,7 @@
             question: { fr: "Ce cours a-t-il intéressé Marie ?", en: "Did this class interest Marie?" }
           },
           {
+            verbId: "parler",
             infinitive: "parler",
             infinitiveIpa: "/paʁle/",
             meaning: "to speak / talk",
@@ -49,6 +52,7 @@
             question: { fr: "Est-ce que j’ai bien parlé avec le professeur ?", en: "Did I speak well with the teacher?" }
           },
           {
+            verbId: "expliquer",
             infinitive: "expliquer",
             infinitiveIpa: "/ɛks.pli.ke/",
             meaning: "to explain",
@@ -62,6 +66,7 @@
             question: { fr: "As-tu expliqué la règle à Marie ?", en: "Did you explain the rule to Marie?" }
           },
           {
+            verbId: "proposer",
             infinitive: "proposer",
             infinitiveIpa: "/pʁɔ.po.ze/",
             meaning: "to propose / suggest / offer",
@@ -75,6 +80,7 @@
             question: { fr: "As-tu proposé une solution à Marie ?", en: "Did you suggest a solution to Marie?" }
           },
           {
+            verbId: "chercher",
             infinitive: "chercher",
             infinitiveIpa: "/ʃɛʁʃe/",
             meaning: "to look for",
@@ -88,6 +94,7 @@
             question: { fr: "As-tu cherché tes clés ?", en: "Did you look for your keys?" }
           },
           {
+            verbId: "changer",
             infinitive: "changer",
             infinitiveIpa: "/ʃɑ̃ʒe/",
             meaning: "to change / switch",
@@ -101,6 +108,7 @@
             question: { fr: "Où avons-nous changé de train ?", en: "Where did we change trains?" }
           },
           {
+            verbId: "manger",
             infinitive: "manger",
             infinitiveIpa: "/mɑ̃ʒe/",
             meaning: "to eat",
@@ -114,6 +122,7 @@
             question: { fr: "A-t-il beaucoup mangé au dîner ?", en: "Did he eat a lot at dinner?" }
           },
           {
+            verbId: "inviter",
             infinitive: "inviter",
             infinitiveIpa: "/ɛ̃vite/",
             meaning: "to invite",
@@ -127,6 +136,7 @@
             question: { fr: "Avons-nous invité nos amis ?", en: "Did we invite our friends?" }
           },
           {
+            verbId: "aimer",
             infinitive: "aimer",
             infinitiveIpa: "/e.me/",
             meaning: "to like / love",
@@ -140,6 +150,7 @@
             question: { fr: "As-tu aimé ce film ?", en: "Did you like this film?" }
           },
           {
+            verbId: "adorer",
             infinitive: "adorer",
             infinitiveIpa: "/a.dɔ.ʁe/",
             meaning: "to love / really like",
@@ -153,6 +164,7 @@
             question: { fr: "As-tu adoré ce concert ?", en: "Did you love this concert?" }
           },
           {
+            verbId: "detester",
             infinitive: "détester",
             infinitiveIpa: "/de.tɛs.te/",
             meaning: "to hate / really dislike",
@@ -166,6 +178,7 @@
             question: { fr: "A-t-elle détesté faire la queue ?", en: "Did she hate waiting in line?" }
           },
           {
+            verbId: "preferer",
             infinitive: "préférer",
             infinitiveIpa: "/pʁe.fe.ʁe/",
             meaning: "to prefer",
@@ -179,6 +192,7 @@
             question: { fr: "Avez-vous préféré le train à l’avion ?", en: "Did you prefer the train to the plane?" }
           },
           {
+            verbId: "envoyer",
             infinitive: "envoyer",
             infinitiveIpa: "/ɑ̃.vwa.je/",
             meaning: "to send",
@@ -192,6 +206,7 @@
             question: { fr: "As-tu envoyé un message à Marie ?", en: "Did you send a message to Marie?" }
           },
           {
+            verbId: "payer",
             infinitive: "payer",
             infinitiveIpa: "/pɛ.je/",
             meaning: "to pay",
@@ -205,6 +220,7 @@
             question: { fr: "As-tu payé l’addition par carte ?", en: "Did you pay the bill by card?" }
           },
           {
+            verbId: "essayer",
             infinitive: "essayer",
             infinitiveIpa: "/e.sɛ.je/",
             meaning: "to try / try on",
@@ -218,6 +234,7 @@
             question: { fr: "As-tu essayé de parler français ?", en: "Did you try to speak French?" }
           },
           {
+            verbId: "arriver",
             infinitive: "arriver",
             infinitiveIpa: "/aʁive/",
             meaning: "to arrive",
@@ -231,6 +248,7 @@
             question: { fr: "Sommes-nous arrivés à huit heures ?", en: "Did we arrive at eight o’clock?" }
           },
           {
+            verbId: "habiter",
             infinitive: "habiter",
             infinitiveIpa: "/abite/",
             meaning: "to live",
@@ -244,6 +262,7 @@
             question: { fr: "As-tu habité à Paris ?", en: "Did you live in Paris?" }
           },
           {
+            verbId: "trouver",
             infinitive: "trouver",
             infinitiveIpa: "/tʁuve/",
             meaning: "to find / think",
@@ -257,6 +276,7 @@
             question: { fr: "A-t-elle trouvé ses clés ?", en: "Did she find her keys?" }
           },
           {
+            verbId: "regarder",
             infinitive: "regarder",
             infinitiveIpa: "/ʁəɡaʁde/",
             meaning: "to watch / look at",
@@ -270,6 +290,7 @@
             question: { fr: "Qu’avons-nous regardé ?", en: "What did we watch?" }
           },
           {
+            verbId: "laisser",
             infinitive: "laisser",
             infinitiveIpa: "/lɛse/",
             meaning: "to let / leave",
@@ -283,6 +304,7 @@
             question: { fr: "As-tu laissé ton frère utiliser ton ordinateur ?", en: "Did you let your brother use your computer?" }
           },
           {
+            verbId: "reserver",
             infinitive: "réserver",
             infinitiveIpa: "/ʁezɛʁve/",
             meaning: "to reserve / book",
@@ -296,6 +318,7 @@
             question: { fr: "As-tu réservé une table ?", en: "Did you reserve a table?" }
           },
           {
+            verbId: "fermer",
             infinitive: "fermer",
             infinitiveIpa: "/fɛʁme/",
             meaning: "to close / shut",
@@ -309,6 +332,7 @@
             question: { fr: "A-t-elle fermé la fenêtre avant de partir ?", en: "Did she close the window before leaving?" }
           },
           {
+            verbId: "quitter",
             infinitive: "quitter",
             infinitiveIpa: "/kite/",
             meaning: "to leave / quit",
@@ -322,6 +346,7 @@
             question: { fr: "A-t-elle quitté la ville ?", en: "Did she leave town?" }
           },
           {
+            verbId: "passer",
             infinitive: "passer",
             infinitiveIpa: "/pase/",
             meaning: "to pass / spend / stop by",
@@ -335,6 +360,7 @@
             question: { fr: "Avez-vous passé une bonne journée ?", en: "Did you have a good day?" }
           },
           {
+            verbId: "commencer",
             infinitive: "commencer",
             infinitiveIpa: "/kɔmɑ̃se/",
             meaning: "to begin / start",
@@ -348,6 +374,7 @@
             question: { fr: "Ont-ils commencé le cours ?", en: "Did they start the class?" }
           },
           {
+            verbId: "voyager",
             infinitive: "voyager",
             infinitiveIpa: "/vwajaʒe/",
             meaning: "to travel",
@@ -361,6 +388,7 @@
             question: { fr: "Où ont-elles voyagé ?", en: "Where did they travel?" }
           },
           {
+            verbId: "travailler",
             infinitive: "travailler",
             infinitiveIpa: "/tʁavaje/",
             meaning: "to work",
@@ -374,6 +402,7 @@
             question: { fr: "As-tu beaucoup travaillé hier ?", en: "Did you work a lot yesterday?" }
           },
           {
+            verbId: "dejeuner",
             infinitive: "déjeuner",
             infinitiveIpa: "/deʒœne/",
             meaning: "to have lunch",
@@ -387,6 +416,7 @@
             question: { fr: "As-tu déjeuné à midi ?", en: "Did you have lunch at noon?" }
           },
           {
+            verbId: "acheter",
             infinitive: "acheter",
             infinitiveIpa: "/aʃte/",
             meaning: "to buy",
@@ -400,6 +430,7 @@
             question: { fr: "Qu’a-t-il acheté ?", en: "What did he buy?" }
           },
           {
+            verbId: "rentrer",
             infinitive: "rentrer",
             infinitiveIpa: "/ʁɑ̃tʁe/",
             meaning: "to return / go home",
@@ -413,6 +444,7 @@
             question: { fr: "Est-elle rentrée tard ?", en: "Did she come home late?" }
           },
           {
+            verbId: "demander",
             infinitive: "demander",
             infinitiveIpa: "/dəmɑ̃de/",
             meaning: "to ask",
@@ -426,6 +458,7 @@
             question: { fr: "Avons-nous demandé de l’aide ?", en: "Did we ask for help?" }
           },
           {
+            verbId: "jouer",
             infinitive: "jouer",
             infinitiveIpa: "/ʒwe/",
             meaning: "to play",
@@ -439,6 +472,7 @@
             question: { fr: "À quoi ont-ils joué ?", en: "What did they play?" }
           },
           {
+            verbId: "nager",
             infinitive: "nager",
             infinitiveIpa: "/naʒe/",
             meaning: "to swim",
@@ -452,6 +486,7 @@
             question: { fr: "Avez-vous nagé ce matin ?", en: "Did you swim this morning?" }
           },
           {
+            verbId: "tourner",
             infinitive: "tourner",
             infinitiveIpa: "/tuʁne/",
             meaning: "to turn",
@@ -465,6 +500,7 @@
             question: { fr: "As-tu tourné à gauche ?", en: "Did you turn left?" }
           },
           {
+            verbId: "couter",
             infinitive: "coûter",
             infinitiveIpa: "/kute/",
             meaning: "to cost",
@@ -478,6 +514,7 @@
             question: { fr: "Combien le billet a-t-il coûté ?", en: "How much did the ticket cost?" }
           },
           {
+            verbId: "gagner",
             infinitive: "gagner",
             infinitiveIpa: "/ɡaɲe/",
             meaning: "to win / earn",
@@ -491,6 +528,7 @@
             question: { fr: "A-t-elle gagné le match ?", en: "Did she win the match?" }
           },
           {
+            verbId: "penser",
             infinitive: "penser",
             infinitiveIpa: "/pɑ̃se/",
             meaning: "to think",
@@ -504,6 +542,7 @@
             question: { fr: "As-tu pensé à Marie ?", en: "Did you think about Marie?" }
           },
           {
+            verbId: "porter",
             infinitive: "porter",
             infinitiveIpa: "/pɔʁte/",
             meaning: "to wear / carry",
@@ -517,6 +556,7 @@
             question: { fr: "Qu’a-t-elle porté à la fête ?", en: "What did she wear to the party?" }
           },
           {
+            verbId: "supprimer",
             infinitive: "supprimer",
             infinitiveIpa: "/sy.pʁi.me/",
             meaning: "to delete / remove",
@@ -530,6 +570,7 @@
             question: { fr: "As-tu supprimé l’ancien fichier ?", en: "Did you delete the old file?" }
           },
           {
+            verbId: "rever",
             infinitive: "rêver",
             infinitiveIpa: "/ʁeve/",
             meaning: "to dream",
@@ -543,6 +584,7 @@
             question: { fr: "De quoi as-tu rêvé ?", en: "What did you dream of?" }
           },
           {
+            verbId: "arreter",
             infinitive: "arrêter",
             infinitiveIpa: "/aʁete/",
             meaning: "to stop",
@@ -568,6 +610,7 @@
         },
         verbs: [
           {
+            verbId: "sAgir",
             infinitive: "s’agir",
             infinitiveIpa: "/sa.ʒiʁ/",
             meaning: "to be about / be a matter of",
@@ -581,6 +624,7 @@
             question: { fr: "De quoi s’est-il agi ?", en: "What was it about?" }
           },
           {
+            verbId: "finir",
             infinitive: "finir",
             infinitiveIpa: "/finiʁ/",
             meaning: "to finish",
@@ -594,6 +638,7 @@
             question: { fr: "Est-ce que j’ai déjà fini mes devoirs ?", en: "Have I already finished my homework?" }
           },
           {
+            verbId: "choisir",
             infinitive: "choisir",
             infinitiveIpa: "/ʃwaziʁ/",
             meaning: "to choose",
@@ -607,6 +652,7 @@
             question: { fr: "As-tu bien choisi le restaurant ?", en: "Did you choose the restaurant well?" }
           },
           {
+            verbId: "reussir",
             infinitive: "réussir",
             infinitiveIpa: "/ʁeysiʁ/",
             meaning: "to succeed / pass",
@@ -620,6 +666,7 @@
             question: { fr: "A-t-elle réussi l’examen ?", en: "Did she pass the exam?" }
           },
           {
+            verbId: "unir",
             infinitive: "unir",
             infinitiveIpa: "/yniʁ/",
             meaning: "to unite",
@@ -645,6 +692,7 @@
         },
         verbs: [
           {
+            verbId: "attendre",
             infinitive: "attendre",
             infinitiveIpa: "/atɑ̃dʁ/",
             meaning: "to wait / expect",
@@ -670,6 +718,7 @@
         },
         verbs: [
           {
+            verbId: "avoirVerb",
             infinitive: "avoir",
             infinitiveIpa: "/avwaʁ/",
             meaning: "to have",
@@ -683,6 +732,7 @@
             question: { fr: "Est-ce que j’ai eu de la chance ?", en: "Was I lucky?" }
           },
           {
+            verbId: "etreVerb",
             infinitive: "être",
             infinitiveIpa: "/ɛtʁ/",
             meaning: "to be",
@@ -696,6 +746,7 @@
             question: { fr: "As-tu été très patient ?", en: "Were you very patient?" }
           },
           {
+            verbId: "aller",
             infinitive: "aller",
             infinitiveIpa: "/ale/",
             meaning: "to go",
@@ -709,6 +760,7 @@
             question: { fr: "Est-elle déjà allée au marché ?", en: "Has she already gone to the market?" }
           },
           {
+            verbId: "venir",
             infinitive: "venir",
             infinitiveIpa: "/vəniʁ/",
             meaning: "to come",
@@ -722,6 +774,7 @@
             question: { fr: "Sommes-nous venus en train ?", en: "Did we come by train?" }
           },
           {
+            verbId: "partir",
             infinitive: "partir",
             infinitiveIpa: "/paʁtiʁ/",
             meaning: "to leave",
@@ -735,6 +788,7 @@
             question: { fr: "Sommes-nous partis tôt ?", en: "Did we leave early?" }
           },
           {
+            verbId: "dormir",
             infinitive: "dormir",
             infinitiveIpa: "/dɔʁmiʁ/",
             meaning: "to sleep",
@@ -748,6 +802,7 @@
             question: { fr: "Ont-ils bien dormi ?", en: "Did they sleep well?" }
           },
           {
+            verbId: "sortir",
             infinitive: "sortir",
             infinitiveIpa: "/sɔʁtiʁ/",
             meaning: "to go out / leave",
@@ -761,6 +816,7 @@
             question: { fr: "Est-elle sortie après le dîner ?", en: "Did she go out after dinner?" }
           },
           {
+            verbId: "servir",
             infinitive: "servir",
             infinitiveIpa: "/sɛʁviʁ/",
             meaning: "to serve",
@@ -774,6 +830,7 @@
             question: { fr: "Avez-vous servi le dîner ?", en: "Did you serve dinner?" }
           },
           {
+            verbId: "sentir",
             infinitive: "sentir",
             infinitiveIpa: "/sɑ̃tiʁ/",
             meaning: "to smell / feel",
@@ -787,6 +844,7 @@
             question: { fr: "As-tu senti le parfum ?", en: "Did you smell the perfume?" }
           },
           {
+            verbId: "boire",
             infinitive: "boire",
             infinitiveIpa: "/bwaʁ/",
             meaning: "to drink",
@@ -800,6 +858,7 @@
             question: { fr: "Avez-vous bu du café ?", en: "Did you drink coffee?" }
           },
           {
+            verbId: "dire",
             infinitive: "dire",
             infinitiveIpa: "/diʁ/",
             meaning: "to say / tell",
@@ -813,6 +872,7 @@
             question: { fr: "Qu’a-t-elle dit à Marie ?", en: "What did she tell Marie?" }
           },
           {
+            verbId: "voir",
             infinitive: "voir",
             infinitiveIpa: "/vwaʁ/",
             meaning: "to see",
@@ -826,6 +886,7 @@
             question: { fr: "Est-ce que j’ai déjà vu ce film ?", en: "Have I already seen this movie?" }
           },
           {
+            verbId: "lire",
             infinitive: "lire",
             infinitiveIpa: "/liʁ/",
             meaning: "to read",
@@ -839,6 +900,7 @@
             question: { fr: "As-tu lu le message ?", en: "Did you read the message?" }
           },
           {
+            verbId: "suivre",
             infinitive: "suivre",
             infinitiveIpa: "/sɥivʁ/",
             meaning: "to follow / attend / keep up with",
@@ -852,6 +914,7 @@
             question: { fr: "Avez-vous suivi les instructions ?", en: "Did you follow the instructions?" }
           },
           {
+            verbId: "offrir",
             infinitive: "offrir",
             infinitiveIpa: "/ɔfʁiʁ/",
             meaning: "to offer / give",
@@ -865,6 +928,7 @@
             question: { fr: "Avons-nous offert un cadeau à notre professeur ?", en: "Did we give our teacher a gift?" }
           },
           {
+            verbId: "ouvrir",
             infinitive: "ouvrir",
             infinitiveIpa: "/uvʁiʁ/",
             meaning: "to open",
@@ -878,6 +942,7 @@
             question: { fr: "As-tu ouvert la fenêtre ?", en: "Did you open the window?" }
           },
           {
+            verbId: "eteindre",
             infinitive: "éteindre",
             infinitiveIpa: "/etɛ̃dʁ/",
             meaning: "to turn off / extinguish",
@@ -891,6 +956,7 @@
             question: { fr: "As-tu éteint la lumière avant de sortir ?", en: "Did you turn off the light before leaving?" }
           },
           {
+            verbId: "faire",
             infinitive: "faire",
             infinitiveIpa: "/fɛʁ/",
             meaning: "to do / make",
@@ -904,6 +970,7 @@
             question: { fr: "A-t-elle beaucoup fait de sport ?", en: "Did she exercise a lot?" }
           },
           {
+            verbId: "mettre",
             infinitive: "mettre",
             infinitiveIpa: "/mɛtʁ/",
             meaning: "to put / put on",
@@ -917,6 +984,7 @@
             question: { fr: "Où a-t-elle mis les clés ?", en: "Where did she put the keys?" }
           },
           {
+            verbId: "ecrire",
             infinitive: "écrire",
             infinitiveIpa: "/ekʁiʁ/",
             meaning: "to write",
@@ -930,6 +998,7 @@
             question: { fr: "Avons-nous écrit une lettre ?", en: "Did we write a letter?" }
           },
           {
+            verbId: "prendre",
             infinitive: "prendre",
             infinitiveIpa: "/pʁɑ̃dʁ/",
             meaning: "to take",
@@ -943,6 +1012,7 @@
             question: { fr: "Ont-ils pris le train ?", en: "Did they take the train?" }
           },
           {
+            verbId: "devoir",
             infinitive: "devoir",
             infinitiveIpa: "/dəvwaʁ/",
             meaning: "must / to have to / to owe",
@@ -956,6 +1026,7 @@
             question: { fr: "Ai-je dû travailler tard ?", en: "Did I have to work late?" }
           },
           {
+            verbId: "savoir",
             infinitive: "savoir",
             infinitiveIpa: "/savwaʁ/",
             meaning: "to know / to know how to",
@@ -969,6 +1040,7 @@
             question: { fr: "As-tu su la réponse ?", en: "Did you know / find out the answer?" }
           },
           {
+            verbId: "connaitre",
             infinitive: "connaître",
             infinitiveIpa: "/kɔnɛtʁ/",
             meaning: "to know / be familiar with",
@@ -982,6 +1054,7 @@
             question: { fr: "As-tu connu Marie à l’université ?", en: "Did you know / meet Marie at university?" }
           },
           {
+            verbId: "croire",
             infinitive: "croire",
             infinitiveIpa: "/kʁwaʁ/",
             meaning: "to believe / think",
@@ -995,6 +1068,7 @@
             question: { fr: "Avons-nous cru cette histoire ?", en: "Did we believe this story?" }
           },
           {
+            verbId: "pouvoir",
             infinitive: "pouvoir",
             infinitiveIpa: "/puvwaʁ/",
             meaning: "can / to be able to",
@@ -1008,6 +1082,7 @@
             question: { fr: "Ai-je pu venir hier ?", en: "Was I able to come yesterday?" }
           },
           {
+            verbId: "vouloir",
             infinitive: "vouloir",
             infinitiveIpa: "/vulwaʁ/",
             meaning: "to want",
@@ -1021,6 +1096,7 @@
             question: { fr: "A-t-elle voulu partir tôt ?", en: "Did she want to leave early?" }
           },
           {
+            verbId: "apprendre",
             infinitive: "apprendre",
             infinitiveIpa: "/apʁɑ̃dʁ/",
             meaning: "to learn / to teach",
@@ -1034,6 +1110,7 @@
             question: { fr: "As-tu appris une nouvelle règle ?", en: "Did you learn a new rule?" }
           },
           {
+            verbId: "tenir",
             infinitive: "tenir",
             infinitiveIpa: "/təniʁ/",
             meaning: "to hold / keep",
@@ -1047,6 +1124,7 @@
             question: { fr: "A-t-il tenu sa promesse ?", en: "Did he keep his promise?" }
           },
           {
+            verbId: "falloir",
             infinitive: "falloir",
             infinitiveIpa: "/falwaʁ/",
             meaning: "to be necessary",
@@ -1060,6 +1138,7 @@
             question: { fr: "A-t-il fallu réserver une table ?", en: "Was it necessary to reserve a table?" }
           },
           {
+            verbId: "pleuvoir",
             infinitive: "pleuvoir",
             infinitiveIpa: "/pløvwaʁ/",
             meaning: "to rain",
@@ -1073,6 +1152,7 @@
             question: { fr: "A-t-il plu hier ?", en: "Did it rain yesterday?" }
           },
           {
+            verbId: "comprendre",
             infinitive: "comprendre",
             infinitiveIpa: "/kɔ̃pʁɑ̃dʁ/",
             meaning: "to understand",
@@ -1086,6 +1166,7 @@
             question: { fr: "As-tu compris la consigne ?", en: "Did you understand the instruction?" }
           },
           {
+            verbId: "vivre",
             infinitive: "vivre",
             infinitiveIpa: "/vivʁ/",
             meaning: "to live / experience",
@@ -1111,6 +1192,7 @@
         },
         verbs: [
           {
+            verbId: "sInteresser",
             infinitive: "s’intéresser",
             infinitiveIpa: "/sɛ̃.te.ʁe.se/",
             meaning: "to be interested in / take an interest in",
@@ -1124,6 +1206,7 @@
             question: { fr: "À quoi se sont-elles intéressées ?", en: "What did they become interested in?" }
           },
           {
+            verbId: "seLaver",
             infinitive: "se laver",
             infinitiveIpa: "/sə lave/",
             meaning: "to wash oneself",
@@ -1137,6 +1220,7 @@
             question: { fr: "Est-ce que je me suis lavé les mains ?", en: "Did I wash my hands?" }
           },
           {
+            verbId: "seLever",
             infinitive: "se lever",
             infinitiveIpa: "/sə ləve/",
             meaning: "to get up",
@@ -1150,6 +1234,7 @@
             question: { fr: "T’es-tu levé tôt ?", en: "Did you get up early?" }
           },
           {
+            verbId: "seReposer",
             infinitive: "se reposer",
             infinitiveIpa: "/sə ʁəpoze/",
             meaning: "to rest",
@@ -1163,6 +1248,7 @@
             question: { fr: "S’est-il reposé après le travail ?", en: "Did he rest after work?" }
           },
           {
+            verbId: "sAppeler",
             infinitive: "s’appeler",
             infinitiveIpa: "/saple/",
             meaning: "to be called / call oneself",
@@ -1176,6 +1262,7 @@
             question: { fr: "Comment s’est-il appelé dans le jeu ?", en: "What did he call himself in the game?" }
           },
           {
+            verbId: "sHabiller",
             infinitive: "s’habiller",
             infinitiveIpa: "/sabije/",
             meaning: "to get dressed",
@@ -1189,6 +1276,7 @@
             question: { fr: "S’est-elle habillée vite ?", en: "Did she get dressed quickly?" }
           },
           {
+            verbId: "seTrouver",
             infinitive: "se trouver",
             infinitiveIpa: "/sə tʁuve/",
             meaning: "to be located / to find oneself",
@@ -1202,6 +1290,7 @@
             question: { fr: "Nous sommes-nous trouvés devant la gare ?", en: "Did we find ourselves in front of the train station?" }
           },
           {
+            verbId: "sePasser",
             infinitive: "se passer",
             infinitiveIpa: "/sə pa.se/",
             meaning: "to happen / go / do without",
@@ -1215,6 +1304,7 @@
             question: { fr: "Comment la réunion s’est-elle passée ?", en: "How did the meeting go?" }
           },
           {
+            verbId: "sePromener",
             infinitive: "se promener",
             infinitiveIpa: "/sə pʁɔmne/",
             meaning: "to take a walk / stroll",
@@ -1228,6 +1318,7 @@
             question: { fr: "Nous sommes-nous promenés dans le parc ?", en: "Did we take a walk in the park?" }
           },
           {
+            verbId: "seRappeler",
             infinitive: "se rappeler",
             infinitiveIpa: "/sə ʁa.pə.le/",
             meaning: "to remember",
@@ -1241,6 +1332,7 @@
             question: { fr: "Se sont-elles rappelé cette histoire ?", en: "Did they remember this story?" }
           },
           {
+            verbId: "sAimer",
             infinitive: "s’aimer",
             infinitiveIpa: "/s‿ɛme/",
             meaning: "to love oneself / each other",
@@ -1254,6 +1346,7 @@
             question: { fr: "Se sont-ils aimés ?", en: "Did they love each other?" }
           },
           {
+            verbId: "seConnaitre",
             infinitive: "se connaître",
             infinitiveIpa: "/sə kɔnɛtʁ/",
             meaning: "to know oneself / each other",
@@ -1267,6 +1360,7 @@
             question: { fr: "Est-ce que nous nous sommes connus à l’université ?", en: "Did we meet at university?" }
           },
           {
+            verbId: "seMarier",
             infinitive: "se marier",
             infinitiveIpa: "/sə maʁje/",
             meaning: "to get married",
@@ -1280,6 +1374,7 @@
             question: { fr: "S’est-elle mariée en juin ?", en: "Did she get married in June?" }
           },
           {
+            verbId: "seVoir",
             infinitive: "se voir",
             infinitiveIpa: "/sə vwaʁ/",
             meaning: "to see oneself / each other",
@@ -1293,6 +1388,7 @@
             question: { fr: "Nous sommes-nous vus hier ?", en: "Did we see each other yesterday?" }
           },
           {
+            verbId: "seRegarder",
             infinitive: "se regarder",
             infinitiveIpa: "/sə ʁəɡaʁde/",
             meaning: "to look at oneself / each other",
@@ -1306,6 +1402,7 @@
             question: { fr: "Se sont-elles regardées dans le miroir ?", en: "Did they look at themselves in the mirror?" }
           },
           {
+            verbId: "seDire",
             infinitive: "se dire",
             infinitiveIpa: "/sə diʁ/",
             meaning: "to say to oneself / each other",
@@ -1319,6 +1416,7 @@
             question: { fr: "Se sont-ils dit bonjour ?", en: "Did they say hello to each other?" }
           },
           {
+            verbId: "seVendre",
             infinitive: "se vendre",
             infinitiveIpa: "/sə vɑ̃dʁ/",
             meaning: "to market oneself / sell",
@@ -1332,6 +1430,7 @@
             question: { fr: "Ces billets se sont-ils bien vendus ?", en: "Did these tickets sell well?" }
           },
           {
+            verbId: "seSouvenir",
             infinitive: "se souvenir",
             infinitiveIpa: "/sə suvəniʁ/",
             meaning: "to remember",
@@ -1345,6 +1444,7 @@
             question: { fr: "De quoi s’est-elle souvenue ?", en: "What did she remember?" }
           },
           {
+            verbId: "sEnvoler",
             infinitive: "s’envoler",
             infinitiveIpa: "/sɑ̃vɔle/",
             meaning: "to fly away / take off",
@@ -1358,6 +1458,7 @@
             question: { fr: "L’avion s’est-il envolé à midi ?", en: "Did the plane take off at noon?" }
           },
           {
+            verbId: "sAssumer",
             infinitive: "s’assumer",
             infinitiveIpa: "/sa.sy.me/",
             meaning: "to accept / own oneself",
@@ -1371,6 +1472,7 @@
             question: { fr: "S’est-elle enfin assumée ?", en: "Did she finally accept herself?" }
           },
           {
+            verbId: "sEnnuyer",
             infinitive: "s’ennuyer",
             infinitiveIpa: "/sɑ̃nɥije/",
             meaning: "to be bored",
@@ -1384,6 +1486,7 @@
             question: { fr: "Se sont-ils ennuyés pendant le film ?", en: "Were they bored during the movie?" }
           },
           {
+            verbId: "seDetendre",
             infinitive: "se détendre",
             infinitiveIpa: "/sə detɑ̃dʁ/",
             meaning: "to relax",
@@ -1397,6 +1500,7 @@
             question: { fr: "Est-ce que nous nous sommes détendus après le travail ?", en: "Did we relax after work?" }
           },
           {
+            verbId: "seCalmer",
             infinitive: "se calmer",
             infinitiveIpa: "/sə kalme/",
             meaning: "to calm down",
@@ -1410,6 +1514,7 @@
             question: { fr: "S’est-elle calmée après quelques minutes ?", en: "Did she calm down after a few minutes?" }
           },
           {
+            verbId: "seBaigner",
             infinitive: "se baigner",
             infinitiveIpa: "/sə bɛɲe/",
             meaning: "to swim / bathe",
@@ -1423,6 +1528,7 @@
             question: { fr: "Se sont-ils baignés dans la mer ?", en: "Did they swim in the sea?" }
           },
           {
+            verbId: "sInquieter",
             infinitive: "s’inquiéter",
             infinitiveIpa: "/sɛ̃kjete/",
             meaning: "to worry / be worried",
@@ -1441,6 +1547,7 @@
 
     const etreAuxiliaryVerbs = [
       {
+        verbId: "aller",
         infinitive: "aller",
         infinitiveIpa: "/ale/",
         pastParticiple: "allé(e)(s)",
@@ -1452,6 +1559,7 @@
         ]
       },
       {
+        verbId: "venir",
         infinitive: "venir",
         infinitiveIpa: "/vəniʁ/",
         pastParticiple: "venu(e)(s)",
@@ -1463,6 +1571,7 @@
         ]
       },
       {
+        verbId: "arriver",
         infinitive: "arriver",
         infinitiveIpa: "/aʁive/",
         pastParticiple: "arrivé(e)(s)",
@@ -1474,6 +1583,7 @@
         ]
       },
       {
+        verbId: "partir",
         infinitive: "partir",
         infinitiveIpa: "/paʁtiʁ/",
         pastParticiple: "parti(e)(s)",
@@ -1485,6 +1595,7 @@
         ]
       },
       {
+        verbId: "entrer",
         infinitive: "entrer",
         infinitiveIpa: "/ɑ̃tʁe/",
         pastParticiple: "entré(e)(s)",
@@ -1500,6 +1611,7 @@
         ]
       },
       {
+        verbId: "sortir",
         infinitive: "sortir",
         infinitiveIpa: "/sɔʁtiʁ/",
         pastParticiple: "sorti(e)(s)",
@@ -1515,6 +1627,7 @@
         ]
       },
       {
+        verbId: "monter",
         infinitive: "monter",
         infinitiveIpa: "/mɔ̃te/",
         pastParticiple: "monté(e)(s)",
@@ -1530,6 +1643,7 @@
         ]
       },
       {
+        verbId: "descendre",
         infinitive: "descendre",
         infinitiveIpa: "/desɑ̃dʁ/",
         pastParticiple: "descendu(e)(s)",
@@ -1545,6 +1659,7 @@
         ]
       },
       {
+        verbId: "rentrer",
         infinitive: "rentrer",
         infinitiveIpa: "/ʁɑ̃tʁe/",
         pastParticiple: "rentré(e)(s)",
@@ -1560,6 +1675,7 @@
         ]
       },
       {
+        verbId: "revenir",
         infinitive: "revenir",
         infinitiveIpa: "/ʁəvəniʁ/",
         pastParticiple: "revenu(e)(s)",
@@ -1571,6 +1687,7 @@
         ]
       },
       {
+        verbId: "retourner",
         infinitive: "retourner",
         infinitiveIpa: "/ʁətuʁne/",
         pastParticiple: "retourné(e)(s)",
@@ -1586,6 +1703,7 @@
         ]
       },
       {
+        verbId: "rester",
         infinitive: "rester",
         infinitiveIpa: "/ʁɛste/",
         pastParticiple: "resté(e)(s)",
@@ -1597,6 +1715,7 @@
         ]
       },
       {
+        verbId: "passer",
         infinitive: "passer",
         infinitiveIpa: "/pase/",
         pastParticiple: "passé(e)(s)",
@@ -1613,6 +1732,7 @@
         ]
       },
       {
+        verbId: "tomber",
         infinitive: "tomber",
         infinitiveIpa: "/tɔ̃be/",
         pastParticiple: "tombé(e)(s)",
@@ -1624,6 +1744,7 @@
         ]
       },
       {
+        verbId: "naitre",
         infinitive: "naître",
         infinitiveIpa: "/nɛtʁ/",
         pastParticiple: "né(e)(s)",
@@ -1635,6 +1756,7 @@
         ]
       },
       {
+        verbId: "mourir",
         infinitive: "mourir",
         infinitiveIpa: "/muʁiʁ/",
         pastParticiple: "mort(e)(s)",
@@ -1646,6 +1768,7 @@
         ]
       },
       {
+        verbId: "devenir",
         infinitive: "devenir",
         infinitiveIpa: "/dəvəniʁ/",
         pastParticiple: "devenu(e)(s)",
@@ -1671,12 +1794,12 @@
     ]);
 
     function addEtreAuxiliaryVerbsToPasseComposeGroups() {
-      const knownInfinitives = new Set(
-        passeComposeGroups.flatMap(group => group.verbs.map(verb => verb.infinitive))
+      const knownVerbIds = new Set(
+        passeComposeGroups.flatMap(group => group.verbs.map(verb => verb.verbId))
       );
 
       etreAuxiliaryVerbs.forEach(verb => {
-        if (knownInfinitives.has(verb.infinitive)) return;
+        if (knownVerbIds.has(verb.verbId)) return;
         const example = verb.etreExamples && verb.etreExamples[0];
         if (!example) return;
         const groupKey = regularErEtreAuxiliaryVerbs.has(verb.infinitive)
@@ -1688,6 +1811,7 @@
         if (!group) return;
 
         group.verbs.push({
+          verbId: verb.verbId,
           infinitive: verb.infinitive,
           infinitiveIpa: verb.infinitiveIpa,
           meaning: verb.meaning,
@@ -1700,49 +1824,27 @@
           negative: { fr: example.negative, en: example.negativeEn },
           question: { fr: example.question, en: example.questionEn }
         });
-        knownInfinitives.add(verb.infinitive);
+        knownVerbIds.add(verb.verbId);
       });
     }
 
     addEtreAuxiliaryVerbsToPasseComposeGroups();
 
-    (function registerVerbRuntime(FR) {
-      const normalizeName = value => value
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[’‘]/g, "'")
-        .toLowerCase()
-        .replace(/^s'/, "se ")
-        .replace(/\s+/g, " ")
-        .trim();
-      const impersonalNames = new Map([
-        ["il faut", "falloir"],
-        ["il y a", "avoir"],
-        ["il fait", "faire"],
-        ["il est", "être"]
-      ]);
-      const tenseEntries = passeComposeGroups.flatMap(group =>
-        group.verbs.map(verb => ({ ...verb, groupKey: group.key }))
+    (function registerPastTense(FR) {
+      const entries = passeComposeGroups.flatMap(group =>
+        group.verbs.map(verb => Object.freeze({ ...verb, groupKey: group.key }))
       );
-      const tenseByName = new Map(tenseEntries.map(verb => [normalizeName(verb.infinitive), verb]));
-      const etreByName = new Map(etreAuxiliaryVerbs.map(verb => [normalizeName(verb.infinitive), verb]));
-
-      FR.data.tenses = {
+      const byId = new Map(entries.map(verb => [verb.verbId, verb]));
+      if (byId.size !== entries.length) throw new Error("Duplicate passé composé verb ID.");
+      const etreById = new Map(etreAuxiliaryVerbs.map(verb => [verb.verbId, verb]));
+      if (etreById.size !== etreAuxiliaryVerbs.length) throw new Error("Duplicate être-auxiliary verb ID.");
+      [...entries, ...etreAuxiliaryVerbs].forEach(verb => {
+        if (!FR.data.verbs.getById(verb.verbId)) throw new Error(`Unknown verb ID: ${verb.verbId}.`);
+      });
+      FR.data.tenses = Object.freeze({
         groups: passeComposeGroups,
-        etreAuxiliaryVerbs
-      };
-      FR.data.verbs = {
-        groups: verbStudyGroups,
-        configs: verbConfigs,
-        presentHighlightsByKey: presentVerbHighlights,
-        items: verbStudyItems.map(item => {
-          const lookupName = item.syncInfinitive || impersonalNames.get(item.label) || item.label;
-          const normalized = normalizeName(lookupName);
-          return {
-            ...item,
-            passeCompose: tenseByName.get(normalized) || null,
-            etreAuxiliary: etreByName.get(normalized) || null
-          };
-        })
-      };
+        etreAuxiliaryVerbs,
+        getByVerbId(id) { return byId.get(id) || null; },
+        getEtreByVerbId(id) { return etreById.get(id) || null; }
+      });
     })(window.FR);

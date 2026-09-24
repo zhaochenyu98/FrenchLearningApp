@@ -508,40 +508,12 @@
       activateMode(initialMode);
     }
 
-    const impersonalVerbSyncMap = new Map([
-      ["il faut", "falloir"],
-      ["il y a", "avoir"],
-      ["il fait", "faire"],
-      ["il est", "être"]
-    ]);
-
-    function canonicalStudyVerbName(value) {
-      return value
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[’‘]/g, "'")
-        .toLowerCase()
-        .replace(/^s'/, "se ")
-        .replace(/\s+/g, " ")
-        .trim();
-    }
-
-    function getVerbTenseInfinitive(item) {
-      return item.syncInfinitive || impersonalVerbSyncMap.get(item.label) || item.label;
-    }
-
     function findPasseComposeVerb(item) {
-      if (Object.prototype.hasOwnProperty.call(item, "passeCompose")) return item.passeCompose;
-      const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
-      return passeComposeGroups
-        .flatMap(group => group.verbs)
-        .find(verb => canonicalStudyVerbName(verb.infinitive) === target);
+      return FR.data.tenses.getByVerbId(item.pastVerbId || item.key);
     }
 
     function findEtreAuxiliaryVerb(item) {
-      if (Object.prototype.hasOwnProperty.call(item, "etreAuxiliary")) return item.etreAuxiliary;
-      const target = canonicalStudyVerbName(getVerbTenseInfinitive(item));
-      return etreAuxiliaryVerbs.find(verb => canonicalStudyVerbName(verb.infinitive) === target);
+      return FR.data.tenses.getEtreByVerbId(item.pastVerbId || item.key);
     }
 
     function appendCompactTenseExampleList(parent, sentences) {
@@ -1684,7 +1656,15 @@
         .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
       const topicTitle = tab => Array.from(tabButtons).find(button => button.dataset.tab === tab).textContent.trim();
       function add(id, title, tab, text, destination = {}) {
-        entries.push({ id, title, category: topicTitle(tab), text, destination: { tab, ...destination } });
+        const catalog = FR.content.catalog;
+        const record = catalog.get(id) || catalog.register({
+          id, kind: "reference", title, topicId: tab, body: FR.search.plainText(text)
+        });
+        const lessonText = record.kind === "lesson" ? [
+          record.forms.map(form => [form.fr, form.ipa, form.en]),
+          record.examples.map(example => [example.fr, example.en])
+        ] : record.body;
+        entries.push({ id, title, category: topicTitle(tab), text: [lessonText, text], destination: { tab, ...destination } });
       }
       tabButtons.forEach(button => {
         const tab = button.dataset.tab;
@@ -1701,7 +1681,7 @@
         });
       });
       FR.data.verbs.items.filter(item => item.group !== "pronominal").forEach(item => {
-        add(`verb:${item.key}:present`, `${item.label} · Present`, "verbs", [item.title, item.descriptionHtml, item.rows], {
+        add(`lesson:${item.id}:present`, `${item.label} · Present`, "verbs", [item.title, item.descriptionHtml], {
           mode: "verb", group: item.group, targetId: item.panelId || `${item.key}VerbPanel`
         });
       });
@@ -1710,16 +1690,16 @@
         ["futurSimple", "futur-simple", "Futur simple"],
         ["conditionnelPresent", "conditionnel-present", "Conditionnel présent"]
       ].forEach(([key, mode, title]) => {
-        add(`tense:${key}`, title, "verbs", FR.data[key].ruleCatalog, { mode });
+        add(`tense:${mode}`, title, "verbs", FR.data[key].ruleCatalog, { mode });
         FR.data[key].groups.forEach(group => group.items.forEach(item => {
-          add(`verb:${item.key}:${key}`, `${item.label} · ${title}`, "verbs", [item.rows, item.examples], {
+          add(`lesson:${item.key}:${mode}`, `${item.label} · ${title}`, "verbs", "", {
             mode, group: `${mode}-group-${slug(group.key)}`, targetId: `${mode}-${slug(item.key)}`
           });
         }));
       });
       add("tense:passe-compose", "Passé composé", "verbs", "past tense auxiliary agreement avoir être", { mode: "tense" });
       passeComposeGroups.filter(group => group.key !== "pronominal").forEach(group => group.verbs.forEach(item => {
-        add(`past:${group.key}:${slug(item.infinitive)}`, `${item.infinitive} · Passé composé`, "verbs", item, {
+        add(`lesson:${item.verbId}:passe-compose`, `${item.infinitive} · Passé composé`, "verbs", [item.pattern, item.note, item.auxiliary], {
           mode: "tense", cardId: `tense-${group.key}-study-card`, targetId: getPasseComposeVerbId(group, item)
         });
       }));
@@ -1770,7 +1750,7 @@
         if (!(source instanceof Element) || source.closest("aside, .verb-mode-tabs, .verb-group-header, .section-header")) return;
         const section = source.closest(".section.active");
         if (!section) return;
-        const target = source.closest(".verb-panel[id], .study-collapse-card[id], [data-study-section][id], .category-panel[id], .panel[id]")
+        const target = source.closest(".verb-panel[id], .tense-row-card[id], .study-collapse-card[id], [data-study-section][id], .category-panel[id], .panel[id]")
           || source.closest("[id]");
         if (!target || !section.contains(target)) return;
         const group = target.closest(".verb-group");
@@ -1779,8 +1759,9 @@
           tab: section.dataset.tab,
           mode: target.closest("[data-verb-mode-panel]")?.dataset.verbModePanel,
           group: group && (group.dataset.verbGroup || group.id),
+          cardId: target.closest(".study-collapse-card[id]")?.id,
           targetId: target.id,
-          title: (heading?.textContent || section.querySelector("h2").textContent).trim().slice(0, 100)
+          title: (target.dataset.tenseVerb || heading?.textContent || section.querySelector("h2").textContent).trim().slice(0, 100)
         };
         FR.storage.setJson("frenchStudyLastDestination", last);
         updateEntry();

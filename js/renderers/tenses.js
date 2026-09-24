@@ -90,6 +90,7 @@
         const row = document.createElement("div");
         row.className = "noun-rule-card tense-row-card";
         row.id = getEtreAuxiliaryVerbId(verb);
+        row.dataset.tenseVerb = verb.infinitive;
         row.tabIndex = -1;
         row.innerHTML = `
           <div>

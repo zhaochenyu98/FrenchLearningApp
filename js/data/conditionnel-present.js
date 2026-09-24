@@ -121,10 +121,10 @@
   function createExamples(source, rows, index) {
     if (customExamples[source.key]) return customExamples[source.key];
     const pronominal = source.group === "pronominal";
-    const usage = pronominal ? FR.data.futurSimple.pronominalUsage[source.key] : FR.data.imparfait.exampleUsage[source.key];
+    const usage = FR.data.verbUsage[source.key];
     const row = rows.find(entry => entry.pronoun === "nous");
     if (!usage || !row) throw new Error(`${source.label} is missing conditional example usage.`);
-    const [complement, englishPhrase] = usage;
+    const { frComplement: complement, enPredicate: englishPhrase } = usage;
     const negativeComplement = complement
       .replace(/^du\s+|^de la\s+|^des\s+/iu, "de ")
       .replace(/^de l[’']/iu, "d’")
@@ -143,19 +143,20 @@
 
   const items = [];
   const errors = [];
-  const future = FR.data.futurSimple;
+  const morphology = FR.data.simpleTenseMorphology;
   const registry = FR.data.verbs;
   (registry && registry.items || []).forEach((source, index) => {
     try {
-      const futureItem = future && future.getItem(source.key);
-      if (!futureItem) throw new Error(`${source.label} is missing its future stem.`);
-      const rows = future.deriveRows(source, { stem: futureItem.stem, ipa: futureItem.stemIpa }, endings, endingIpa);
-      const ruleIds = ["formation", ...futureItem.specialRules.map(rule => rule.id)];
+      const stemConfig = morphology.deriveStemConfig(source);
+      const rows = morphology.deriveRows(source, stemConfig, endings, endingIpa);
+      const ruleIds = ["formation", ...stemConfig.ruleIds];
+      if (morphology.isPronominal(source)) ruleIds.push("pronominal-order");
+      if (morphology.impersonalForms[source.key]) ruleIds.push("impersonal-only");
       items.push(Object.freeze({
         key: source.key, group: source.group, label: source.label,
         title: `${source.label} — conditionnel présent`,
-        infinitive: futureItem.infinitive, stem: futureItem.stem, stemIpa: futureItem.stemIpa,
-        formula: Object.freeze({ text: `${futureItem.infinitive} → ${futureItem.stem}- + ais / ais / ait / ions / iez / aient` }),
+        infinitive: stemConfig.infinitive, stem: stemConfig.stem, stemIpa: stemConfig.ipa,
+        formula: Object.freeze({ text: `${stemConfig.infinitive} → ${stemConfig.stem}- + ais / ais / ait / ions / iez / aient` }),
         rows: Object.freeze(rows), examples: createExamples(source, rows, index),
         specialRules: Object.freeze([...new Set(ruleIds)].map(id => ruleCatalog[id]).filter(Boolean))
       }));
@@ -171,7 +172,7 @@
     items: Object.freeze(items.filter(item => item.group === group.key).sort((a, b) => a.label.localeCompare(b.label, "fr")))
   })).filter(group => group.items.length);
   FR.data.conditionnelPresent = Object.freeze({
-    endings, endingIpa, ruleCatalog, alignedPairs: future ? future.alignedPairs : [],
+    endings, endingIpa, ruleCatalog, alignedPairs: morphology.alignedPairs,
     items: Object.freeze(items), groups: Object.freeze(groups), errors: Object.freeze(errors),
     getItem(key) { return itemByKey.get(key) || null; }
   });

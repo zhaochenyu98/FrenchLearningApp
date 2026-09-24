@@ -115,7 +115,7 @@ function loadGrammarAndTenseData() {
   const context = { FR: { data: {} }, window: {} };
   context.window.FR = context.FR;
   vm.createContext(context);
-  const grammarCode = ["pronouns.js", "verbs.js", "grammar.js"]
+  const grammarCode = ["pronouns.js", "verbs.js", "verb-registry.js", "grammar.js"]
     .map(fileName => fs.readFileSync(path.join(root, "js/data", fileName), "utf8"))
     .join("\n");
   const tenseCode = fs.readFileSync(path.join(root, "js/data/tenses.js"), "utf8");
@@ -391,6 +391,9 @@ function loadExtendedGrammarData() {
     "js/core/namespace.js",
     "js/data/pronouns.js",
     "js/data/verbs.js",
+    "js/data/verb-registry.js",
+    "js/data/verb-usage.js",
+    "js/data/simple-tense-morphology.js",
     "js/data/grammar.js",
     "js/data/tenses.js",
     "js/data/imperative.js",

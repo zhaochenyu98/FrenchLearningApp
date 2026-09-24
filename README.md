@@ -11,16 +11,21 @@ index.html                         Page structure and tab markup
 styles.css                         Shared visual styles
 js/app.js                          Tab registration, event wiring, and startup
 js/core/namespace.js               Shared FR registry and safe saved preferences
+js/core/content.js                 Stable-ID content schema and catalog API
 js/core/core.js                    DOM references, audio, theme, and shared state
 js/renderers/                      Reusable renderers grouped by study topic
 js/renderers/futur-simple.js        Shared future and conditional tense renderer
 js/data/numbers.js                 Number generation and IPA
 js/data/pronouns.js                COD, COI, tonic, reflexive, and possessive data
 js/data/verbs.js                   Present-tense verb paradigms, IPA, and registry data
+js/data/verb-registry.js            Independent verb identities and lexical metadata
+js/data/verb-usage.js               Shared sentence complements
+js/data/content-catalog.js          Normalized lessons, forms, examples, and objectives
 js/data/grammar.js                 Être/avoir examples and grammar flashcards
 js/data/tenses.js                  Passé composé forms and example sentences
 js/data/imparfait.js               Derived Imparfait forms, IPA, and examples
-js/data/futur-simple.js            Shared future stems and form builder; future examples
+js/data/simple-tense-morphology.js  Shared future/conditional stems and form builder
+js/data/futur-simple.js             Future forms and examples
 js/data/conditionnel-present.js    Conditional forms, IPA, and examples
 js/data/imperative.js              Imperative paradigms, IPA, and examples
 js/data/pronominal-verbs.js        Pronominal paradigms, agreement, IPA, and examples
@@ -36,14 +41,27 @@ scripts/validate.js                Structural and JavaScript validation
 Run this after editing content or adding a tab:
 
 ```bash
-node scripts/validate.js
-node scripts/test-search.js
+npm test
 ```
 
 It checks JavaScript syntax, referenced assets, duplicate IDs, missing DOM
 references, tab/section pairing, verb data integrity, verb/tense synchronization,
-and important number spelling and IPA edge cases. The deployment workflow runs
-the same validator before publishing.
+stable content IDs, search behavior, and linguistic fixtures. These Node tests
+need no installed dependencies. The deployment workflow runs them before publishing.
+
+For browser regressions, install the development-only test tools once:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run test:browser
+```
+
+The browser suite runs eight scenarios at desktop and 390 px mobile widths
+(16 tests), including direct `file://` opening. It starts and stops its own local
+server on port 8893. Pull requests and pushes to `main` run both suites; failed
+browser checks retain a trace artifact. See [the testing guide](docs/testing.md).
+The app itself still has no build step or runtime npm dependencies.
 
 ## Rendering
 
@@ -80,8 +98,9 @@ index labels and target metadata independent of rendered cards.
 
 ## Add a Verb
 
-1. Add its conjugation rows and `verbStudyItems` entry to `js/data/verbs.js`.
-2. Add its passé composé study entry to `js/data/tenses.js`. Movement verbs
+1. Add its conjugation rows and permanent `verbStudyItems` key to `js/data/verbs.js`,
+   and its lexical metadata to `js/data/verb-registry.js`.
+2. Add its passé composé study entry with an explicit `verbId` to `js/data/tenses.js`. Movement verbs
    already listed in `etreAuxiliaryVerbs` are derived automatically when possible.
 3. Add imperative metadata to `js/data/imperative.js` when the verb has a natural
    imperative. Imparfait and futur-simple rows are derived from the shared verb registry;
@@ -93,6 +112,9 @@ index labels and target metadata independent of rendered cards.
 
 Verb panels, tables, index buttons, and compact tense summaries are generated
 from the data. Do not add verb markup to `index.html`.
+
+See [the content model guide](docs/content-model.md) for stable IDs, shared
+morphology, schema validation, editorial fields, and adding a tense.
 
 ## Add a Tab
 

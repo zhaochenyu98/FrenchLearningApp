@@ -656,17 +656,6 @@
     }
   ];
 
-  function normalizeInfinitive(value) {
-    return String(value || "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[’‘]/g, "'")
-      .toLowerCase()
-      .replace(/^s'/, "se ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
   function cloneRows(rows) {
     return Array.isArray(rows) ? rows.map(row => ({ ...row })) : [];
   }
@@ -707,13 +696,11 @@
   }
 
   function findSourceItem(seed) {
-    const items = FR.data.verbs && Array.isArray(FR.data.verbs.items)
-      ? FR.data.verbs.items
-      : [];
-    const target = normalizeInfinitive(seed.sourceInfinitive || seed.infinitive);
-    return items.find(item => item.group === "pronominal" && (
-      item.key === seed.key || normalizeInfinitive(item.label) === target
-    )) || null;
+    return FR.data.verbs.getById(seed.key);
+  }
+
+  function getPastStudy(sourceItem) {
+    return sourceItem && FR.data.tenses.getByVerbId(sourceItem.pastVerbId);
   }
 
   function getPresentRows(seed, sourceItem) {
@@ -761,12 +748,12 @@
   }
 
   function getParticiple(seed, sourceItem) {
-    const sourceParticiple = sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.pastParticiple;
+    const sourceParticiple = getPastStudy(sourceItem)?.pastParticiple;
     return stripAgreementMarkers(sourceParticiple) || seed.participle;
   }
 
   function getParticipleIpa(seed, sourceItem) {
-    const sourceIpa = sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.pastParticipleIpa;
+    const sourceIpa = getPastStudy(sourceItem)?.pastParticipleIpa;
     const profile = imperfectIpaProfiles[seed.key];
     const ipa = sourceIpa || profile && profile.participle;
     if (!ipa) throw new Error(`${seed.infinitive} needs a past-participle IPA.`);
@@ -835,7 +822,7 @@
     const sourceItem = findSourceItem(seed);
     const sharedHighlights = FR.data.verbs && FR.data.verbs.presentHighlightsByKey;
     const presentRows = getPresentRows(seed, sourceItem);
-    const infinitiveIpa = seed.ipa || (sourceItem && sourceItem.passeCompose && sourceItem.passeCompose.infinitiveIpa) || "";
+    const infinitiveIpa = seed.ipa || (sourceItem && sourceItem.infinitiveIpa) || "";
     const participle = getParticiple(seed, sourceItem);
     const participleIpa = getParticipleIpa(seed, sourceItem);
     const item = {

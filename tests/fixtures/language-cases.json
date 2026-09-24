@@ -1,0 +1,36 @@
+{
+  "forms": [
+    { "verbId": "envoyer", "tenseId": "futur-simple", "person": "je", "fr": "j’enverrai", "reason": "Irregular future stem and subject elision." },
+    { "verbId": "venir", "tenseId": "conditionnel-present", "person": "nous", "fr": "nous viendrions", "reason": "Irregular stem takes conditional endings." },
+    { "verbId": "acheter", "tenseId": "futur-simple", "person": "nous", "fr": "nous achèterons", "reason": "The grave-accent stem persists in plural future forms." },
+    { "verbId": "seLever", "tenseId": "conditionnel-present", "person": "nous", "fr": "nous nous lèverions", "reason": "Keep the reflexive pronoun and the changed stem." },
+    { "verbId": "sHabiller", "tenseId": "futur-simple", "person": "je", "fr": "je m’habillerai", "reason": "Elide the reflexive pronoun before mute h." },
+    { "verbId": "manger", "tenseId": "imparfait", "person": "nous", "fr": "nous mangions", "reason": "No extra e before i in -ger imperfect plural forms." },
+    { "verbId": "commencer", "tenseId": "imparfait", "person": "nous", "fr": "nous commencions", "reason": "No cedilla before i in -cer imperfect plural forms." },
+    { "verbId": "aller", "tenseId": "imperative", "person": "tu", "fr": "va", "reason": "Bare imperative has no s; compare vas-y." },
+    { "verbId": "ouvrir", "tenseId": "imperative", "person": "tu", "fr": "ouvre", "reason": "This -ir verb follows the -er imperative pattern." },
+    { "verbId": "finir", "tenseId": "imperative", "person": "tu", "fr": "finis", "reason": "Regular -ir imperatives retain s." }
+  ],
+  "negativeComplements": [
+    { "verbId": "faire", "tenseId": "imparfait", "contains": "pas de sport", "excludes": "pas du sport", "reason": "Partitive under ordinary negation." },
+    { "verbId": "envoyer", "tenseId": "futur-simple", "contains": "pas de cartes", "excludes": "pas des cartes", "reason": "Indefinite plural under ordinary negation." },
+    { "verbId": "demander", "tenseId": "conditionnel-present", "contains": "pas d’aide", "excludes": "pas de l’aide", "reason": "Partitive reduction and elision." },
+    { "verbId": "boire", "tenseId": "imparfait", "contains": "pas l’eau du robinet", "excludes": "pas d’eau", "reason": "A definite article keeps its specific meaning under negation." },
+    { "verbId": "penser", "tenseId": "imparfait", "contains": "pas à nos prochaines vacances", "excludes": "pas de nos", "reason": "A governed preposition is not a partitive article." }
+  ],
+  "agreementContrasts": [
+    { "id": "se-laver-body-parts", "forms": ["Elle s’est lavée.", "Elle s’est lavé les mains.", "Les mains qu’elle s’est lavées."], "reason": "Direct se, following COD, and preceding COD require different agreement." },
+    { "id": "se-dire-objects", "forms": ["Elles se sont dit bonjour.", "Les histoires qu’elles se sont dites."], "reason": "Indirect se does not control agreement; a preceding COD does." }
+  ],
+  "imperativePronouns": [
+    { "label": "COD + person", "fr": "Donne-le-moi." },
+    { "label": "moi + en", "fr": "Donne-m'en." },
+    { "label": "aller + y", "fr": "Vas-y." },
+    { "label": "-er imperative + en", "fr": "Manges-en." }
+  ],
+  "sources": {
+    "agreement": "https://vitrinelinguistique.oqlf.gouv.qc.ca/22942/la-grammaire/le-verbe/accord-du-participe-passe/avec-lauxiliaire-etre/accord-du-participe-passe-des-verbes-occasionnellement-pronominaux",
+    "imperative": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24203/la-grammaire/le-verbe/conjugaison/formes-de-limperatif",
+    "negativeArticles": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23514/la-grammaire/les-determinants/determinants-indefinis/de-dans-une-phrase-negative"
+  }
+}

@@ -339,95 +339,7 @@
     elles: Object.freeze({ consonant: "ɛl", vowel: "ɛlz‿" })
   });
 
-  // An optional third value gives the reviewed negative complement. Article changes
-  // depend on meaning, so keep definite articles and other complements by default.
-  const exampleUsage = Object.freeze({
-    etreVerb: Object.freeze(["souvent fatigués après le travail", "be tired after work"]),
-    avoirVerb: Object.freeze(["peur des orages", "be afraid of storms"]),
-    aller: Object.freeze(["à l’école à pied", "go to school on foot"]),
-    venir: Object.freeze(["chez nos grands-parents le dimanche", "come to our grandparents’ house on Sundays"]),
-    tenir: Object.freeze(["la porte ouverte pour les autres", "hold the door open for others"]),
-    prendre: Object.freeze(["le bus chaque matin", "take the bus every morning"]),
-    apprendre: Object.freeze(["le français ensemble", "learn French together"]),
-    comprendre: Object.freeze(["mieux cette règle", "understand this rule better"]),
-    faire: Object.freeze(["du sport le samedi", "exercise on Saturdays", "de sport le samedi"]),
-    mettre: Object.freeze(["la table avant le dîner", "set the table before dinner"]),
-    devoir: Object.freeze(["partir tôt", "have to leave early"]),
-    pouvoir: Object.freeze(["jouer dehors après l’école", "be able to play outside after school"]),
-    vouloir: Object.freeze(["rester plus longtemps", "want to stay longer"]),
-    savoir: Object.freeze(["nager", "know how to swim"]),
-    connaitre: Object.freeze(["bien ce quartier", "know this neighborhood well"]),
-    croire: Object.freeze(["encore à cette histoire", "still believe this story"]),
-    voir: Object.freeze(["nos voisins chaque semaine", "see our neighbors every week"]),
-    boire: Object.freeze(["l’eau du robinet", "drink tap water"]),
-    dire: Object.freeze(["toujours la vérité", "always tell the truth"]),
-    offrir: Object.freeze(["ce livre à nos amis", "give this book to our friends"]),
-    ouvrir: Object.freeze(["la fenêtre chaque matin", "open the window every morning"]),
-    eteindre: Object.freeze(["la lumière avant de dormir", "turn off the light before going to sleep"]),
-    ecrire: Object.freeze(["à nos grands-parents chaque mois", "write to our grandparents every month"]),
-    lire: Object.freeze(["le journal au petit-déjeuner", "read the newspaper at breakfast"]),
-    suivre: Object.freeze(["les instructions avec attention", "follow the instructions carefully"]),
-    vivre: Object.freeze(["près de la mer", "live near the sea"]),
-    dormir: Object.freeze(["huit heures par nuit", "sleep eight hours a night"]),
-    partir: Object.freeze(["tôt le lundi", "leave early on Mondays"]),
-    sortir: Object.freeze(["ensemble le vendredi", "go out together on Fridays"]),
-    servir: Object.freeze(["le dîner à sept heures", "serve dinner at seven o’clock"]),
-    sentir: Object.freeze(["le parfum des fleurs", "smell the flowers’ fragrance"]),
-    parler: Object.freeze(["français à la maison", "speak French at home"]),
-    interesser: Object.freeze(["les élèves à l’histoire", "get the students interested in history"]),
-    montrer: Object.freeze(["nos photos à nos amis", "show our photos to our friends"]),
-    expliquer: Object.freeze(["la leçon aux élèves", "explain the lesson to the students"]),
-    proposer: Object.freeze(["de visiter le musée", "suggest visiting the museum"]),
-    chercher: Object.freeze(["nos clés partout", "look for our keys everywhere"]),
-    changer: Object.freeze(["souvent de train à Lyon", "often change trains in Lyon"]),
-    manger: Object.freeze(["à la cantine", "eat in the cafeteria"]),
-    inviter: Object.freeze(["nos voisins à dîner", "invite our neighbors to dinner"]),
-    aimer: Object.freeze(["apprendre le français", "enjoy learning French"]),
-    adorer: Object.freeze(["ce petit café", "love this little café"]),
-    detester: Object.freeze(["attendre dans les files", "hate waiting in lines"]),
-    preferer: Object.freeze(["le train à la voiture", "prefer the train to the car"]),
-    essayer: Object.freeze(["de parler français chaque jour", "try to speak French every day"]),
-    payer: Object.freeze(["le loyer à temps", "pay the rent on time"]),
-    envoyer: Object.freeze(["des cartes à nos amis", "send cards to our friends", "de cartes à nos amis"]),
-    gagner: Object.freeze(["souvent le match", "often win the match"]),
-    penser: Object.freeze(["à nos prochaines vacances", "think about our next vacation"]),
-    porter: Object.freeze(["des manteaux en hiver", "wear coats in winter"]),
-    supprimer: Object.freeze(["les anciens fichiers chaque mois", "delete the old files every month"]),
-    finir: Object.freeze(["le travail à cinq heures", "finish work at five o’clock"]),
-    choisir: Object.freeze(["toujours le même menu", "always choose the same menu"]),
-    reussir: Object.freeze(["tous nos examens", "pass all our exams"]),
-    unir: Object.freeze(["nos efforts", "join our efforts"]),
-    attendre: Object.freeze(["le bus devant l’école", "wait for the bus in front of the school"]),
-    arriver: Object.freeze(["toujours à l’heure", "always arrive on time"]),
-    habiter: Object.freeze(["près de la gare", "live near the train station"]),
-    trouver: Object.freeze(["facilement notre chemin", "find our way easily"]),
-    regarder: Object.freeze(["les informations le soir", "watch the news in the evening"]),
-    laisser: Object.freeze(["la porte ouverte", "leave the door open"]),
-    reserver: Object.freeze(["cette table le vendredi", "reserve this table on Fridays"]),
-    fermer: Object.freeze(["la boutique à dix-neuf heures", "close the shop at seven p.m."]),
-    quitter: Object.freeze(["le bureau à six heures", "leave the office at six o’clock"]),
-    passer: Object.freeze(["par Lyon chaque été", "go through Lyon every summer"]),
-    commencer: Object.freeze(["à huit heures", "start at eight o’clock"]),
-    voyager: Object.freeze(["en train", "travel by train"]),
-    travailler: Object.freeze(["le samedi", "work on Saturdays"]),
-    dejeuner: Object.freeze(["ensemble à midi", "have lunch together at noon"]),
-    acheter: Object.freeze(["le pain au marché", "buy bread at the market"]),
-    rentrer: Object.freeze(["avant la nuit", "return home before nightfall"]),
-    demander: Object.freeze(["de l’aide au professeur", "ask the teacher for help", "d’aide au professeur"]),
-    jouer: Object.freeze(["au tennis après l’école", "play tennis after school"]),
-    nager: Object.freeze(["chaque matin", "swim every morning"]),
-    tourner: Object.freeze(["à gauche à ce carrefour", "turn left at this intersection"]),
-    entrer: Object.freeze(["par cette porte", "enter through this door"]),
-    monter: Object.freeze(["à pied", "go upstairs on foot"]),
-    retourner: Object.freeze(["à Paris chaque hiver", "return to Paris every winter"]),
-    rester: Object.freeze(["chez nous le dimanche", "stay home on Sundays"]),
-    tomber: Object.freeze(["souvent en jouant", "often fall while playing"]),
-    descendre: Object.freeze(["à pied", "go downstairs on foot"]),
-    revenir: Object.freeze(["chaque été", "come back every summer"]),
-    devenir: Object.freeze(["plus patients avec le temps", "become more patient over time"]),
-    rever: Object.freeze(["de voyager autour du monde", "dream of traveling around the world"]),
-    arreter: Object.freeze(["de travailler à six heures", "stop working at six o’clock"])
-  });
+  const exampleUsage = FR.data.verbUsage;
 
   function exampleSet(statementFr, statementEn, negativeFr, negativeEn, questionFr, questionEn) {
     return Object.freeze({
@@ -529,8 +441,7 @@
   }
 
   function findItemByKey(key) {
-    const registry = FR.data.verbs && FR.data.verbs.items;
-    return Array.isArray(registry) ? registry.find(item => item.key === key) : null;
+    return FR.data.verbs.getById(key);
   }
 
   function findRow(item, pronoun) {
@@ -659,11 +570,8 @@
       throw new Error(`${item.label || item.key} needs a nous row or an Imparfait example override.`);
     }
 
-    const usage = exampleUsage[item.key] || Object.freeze([
-      "régulièrement",
-      `${getFallbackEnglishBase(item)} regularly`
-    ]);
-    const [frComplement, enPredicate, negativeFrComplement = frComplement] = usage;
+    const usage = exampleUsage[item.key] || Object.freeze({ frComplement: "régulièrement", enPredicate: `${getFallbackEnglishBase(item)} regularly` });
+    const { frComplement, enPredicate, negativeFrComplement = frComplement } = usage;
     const questionFr = usesInversionQuestion(item)
       ? `${capitalizeFirst(row.form)}-nous ${frComplement} à cette époque ?`
       : `Est-ce que ${row.full} ${frComplement} à cette époque ?`;

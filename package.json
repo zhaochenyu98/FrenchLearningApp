@@ -1,0 +1,11 @@
+{
+  "name": "french-learning-app",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/validate.js && node scripts/test-content.js && node scripts/test-search.js && node scripts/test-language.js",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

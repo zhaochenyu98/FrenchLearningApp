@@ -1,15 +1,7 @@
 const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
 const vm = require("node:vm");
-const root = path.resolve(__dirname, "..");
-const context = { console };
-context.window = context;
-vm.createContext(context);
-const scripts = Array.from(fs.readFileSync(path.join(root, "index.html"), "utf8")
-  .matchAll(/<script[^>]+src="([^"]+)"/g), match => match[1]);
-scripts.filter(file => file.startsWith("js/data/") || ["js/core/namespace.js", "js/core/search.js"].includes(file))
-  .forEach(file => vm.runInContext(fs.readFileSync(path.join(root, file), "utf8"), context, { filename: file }));
+const { loadData } = require("./load-data");
+const context = loadData();
 const { search, data } = context.window.FR;
 const entries = [
   { id: "etre", title: "Être · Present", category: "Verbs & Tenses", text: "je suis nous sommes", destination: { tab: "verbs" } },
