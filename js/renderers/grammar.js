@@ -286,6 +286,17 @@
       });
     }
 
+    function renderRelativePronouns(rules = relativePronounRules) {
+      renderCoiGuideTable(document.getElementById("relativePronounGrid"), rules, {
+        titleHeader: "关系代词 · Pronoun",
+        patternHeader: "How it works",
+        examplesHeader: "Joining sentences",
+        fromLabel: "Two sentences · 两个句子",
+        toLabel: "Relative clause · 合并后",
+        emptyMessage: "No relative pronoun examples available."
+      });
+    }
+
     function renderTonicPronounUsage(rules = tonicPronounUsageRules) {
       tonicPronounUsageGrid.innerHTML = "";
       if (!rules.length) {

@@ -26,6 +26,7 @@
           { id: "reflexive", title: "Reflexive pronouns", open: true, elements: ['[data-study-section="pronoun-reflexive"]'] },
           { id: "demonstrative", title: "Les pronoms démonstratifs", open: true, elements: ['[data-study-section="pronoun-demonstrative"]'] },
           { id: "interrogative", title: "疑问代词 · Interrogative pronouns", open: true, elements: ['[data-study-section="pronoun-interrogative"]'] },
+          { id: "relative", title: "关系代词 · Relative pronouns", open: true, elements: ['[data-study-section="pronoun-relative"]'] },
           { id: "possessive", title: "Possessives", elements: ['[data-study-section="pronoun-possessive"]'] },
           { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
         ]
@@ -197,6 +198,7 @@
         renderDemonstrativeTable(demonstrativePronounSimpleRows, document.getElementById("demonstrativePronounSimpleGrid"));
         renderDemonstrativeTable(demonstrativePronounCompoundRows, document.getElementById("demonstrativePronounCompoundGrid"));
         renderDemonstrativeTable(interrogativePronounRows, document.getElementById("interrogativePronounGrid"));
+        renderRelativePronouns();
         renderPossessives();
         renderPossessiveExceptions();
         renderTonicPronounUsage();

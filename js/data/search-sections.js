@@ -14,6 +14,7 @@
     "pronouns:reflexive": reflexivePronounRows,
     "pronouns:demonstrative": [demonstrativePronounSimpleRows, demonstrativePronounCompoundRows],
     "pronouns:interrogative": interrogativePronounRows,
+    "pronouns:relative": relativePronounRules,
     "pronouns:possessive": possessiveRows,
     "pronouns:possessive-exceptions": possessiveExceptions,
     "objects:start": FR.data.objectPronouns.decisionMatrix,
