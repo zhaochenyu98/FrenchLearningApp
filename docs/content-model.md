@@ -50,8 +50,8 @@ ready for editorial enrichment without inventing provenance for existing text.
 - `verb-usage.js` owns named sentence complements shared across tense generators.
 - `simple-tense-morphology.js` owns future/conditional stems and form generation.
   Future and conditional can each load without the other, imperfect, or past data.
-- `content-catalog.js` adapts the current authoring structures into 123 verb
-  records and 705 available verb/tense lessons. Unsupported imperatives are absent.
+- `content-catalog.js` adapts the current authoring structures into 125 verb
+  records and 716 available verb/tense lessons. Unsupported imperatives are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.
 - `app.js` registers topic references using stable section IDs and plain text.

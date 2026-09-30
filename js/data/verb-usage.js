@@ -41,6 +41,7 @@
     montrer: Object.freeze({"frComplement": "nos photos à nos amis", "enPredicate": "show our photos to our friends"}),
     expliquer: Object.freeze({"frComplement": "la leçon aux élèves", "enPredicate": "explain the lesson to the students"}),
     proposer: Object.freeze({"frComplement": "de visiter le musée", "enPredicate": "suggest visiting the museum"}),
+    deposer: Object.freeze({"frComplement": "les enfants à l’école", "enPredicate": "drop the children off at school"}),
     chercher: Object.freeze({"frComplement": "nos clés partout", "enPredicate": "look for our keys everywhere"}),
     changer: Object.freeze({"frComplement": "souvent de train à Lyon", "enPredicate": "often change trains in Lyon"}),
     manger: Object.freeze({"frComplement": "à la cantine", "enPredicate": "eat in the cafeteria"}),
@@ -94,6 +95,7 @@
   });
 
   const pronominalUsage = Object.freeze({
+    sAbonner: Object.freeze({"frComplement": "au journal local", "enPredicate": "subscribe to the local newspaper"}),
     sOccuper: Object.freeze({"frComplement": "de ce projet", "enPredicate": "handle this project"}),
     sInteresser: Object.freeze({"frComplement": "à l’histoire locale", "enPredicate": "take an interest in local history"}),
     seLaver: Object.freeze({"frComplement": "avant de dîner", "enPredicate": "wash before dinner"}),

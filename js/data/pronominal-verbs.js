@@ -8,6 +8,7 @@
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
   const imperfectIpaProfiles = Object.freeze({
+    sAbonner: Object.freeze({ common: "a.bɔ.nɛ", nous: "a.bɔ.njɔ̃", vous: "a.bɔ.nje" }),
     sOccuper: Object.freeze({ common: "ɔ.ky.pɛ", nous: "ɔ.ky.pjɔ̃", vous: "ɔ.ky.pje" }),
     seLaver: Object.freeze({ common: "la.vɛ", nous: "la.vjɔ̃", vous: "la.vje" }),
     seLever: Object.freeze({ common: "lə.vɛ", nous: "lə.vjɔ̃", vous: "lə.vje" }),
@@ -636,6 +637,24 @@
       imperfect: examples(sentence("Elles se baignaient dans la mer.", "They used to swim in the sea."), sentence("Elles ne s’y baignaient pas.", "They did not use to swim there."), sentence("Où se baignaient-elles ?", "Where did they use to swim?")),
       passeCompose: examples(sentence("Elles se sont baignées dans la mer.", "They swam in the sea."), sentence("Elles ne s’y sont pas baignées.", "They did not swim there."), sentence("Où se sont-elles baignées ?", "Where did they swim?")),
       imperative: imperativeExamples(sentence("Baignez-vous ici !", "Swim here!"), sentence("Ne vous baignez pas ici !", "Do not swim here!"))
+    },
+    {
+      key: "sAbonner",
+      infinitive: "s’abonner à",
+      sourceInfinitive: "s’abonner",
+      ipa: "/sa.bɔ.ne a/",
+      meaning: "to subscribe to",
+      type: "reflexive",
+      lexicalStatus: "occasional",
+      agreementMode: "direct-se",
+      agreementTitle: "Direct se: agreement",
+      agreementExplanation: "Abonner quelqu’un means to take out a subscription for someone; s’abonner means to subscribe oneself. Se is the preceding direct object, so the participle agrees with the subject it represents.",
+      participle: "abonné",
+      specialNote: "Keep à before the publication, service, or channel: s’abonner au journal, aux alertes, à une chaîne. Je m’y abonne means I subscribe to it. Before the vowel, me / te / se become m’ / t’ / s’.",
+      present: examples(sentence("Elles s’abonnent au journal local.", "They subscribe to the local newspaper."), sentence("Elles ne s’abonnent pas au journal local.", "They do not subscribe to the local newspaper."), sentence("À quel journal s’abonnent-elles ?", "Which newspaper do they subscribe to?")),
+      imperfect: examples(sentence("Elles s’abonnaient à cette revue chaque année.", "They used to subscribe to this magazine every year."), sentence("Elles ne s’abonnaient pas à cette revue.", "They did not use to subscribe to this magazine."), sentence("À quelle revue s’abonnaient-elles ?", "Which magazine did they use to subscribe to?")),
+      passeCompose: examples(sentence("Elles se sont abonnées au journal local.", "They subscribed to the local newspaper."), sentence("Elles ne se sont pas abonnées au journal local.", "They did not subscribe to the local newspaper."), sentence("À quel journal se sont-elles abonnées ?", "Which newspaper did they subscribe to?")),
+      imperative: imperativeExamples(sentence("Abonne-toi à cette chaîne !", "Subscribe to this channel!"), sentence("Ne t’abonne pas à ce service !", "Do not subscribe to this service!"), "Use abonne-toi, abonnons-nous, abonnez-vous. In negative commands, the reflexive pronoun goes before the verb: ne t’abonne pas.")
     },
     {
       key: "sOccuper",

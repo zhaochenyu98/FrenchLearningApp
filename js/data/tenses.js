@@ -94,6 +94,20 @@
             question: { fr: "As-tu proposé une solution à Marie ?", en: "Did you suggest a solution to Marie?" }
           },
           {
+            verbId: "deposer",
+            infinitive: "déposer",
+            infinitiveIpa: "/de.po.ze/",
+            meaning: "to put down / drop off / deposit / submit",
+            auxiliary: "avoir",
+            pastParticiple: "déposé",
+            pastParticipleIpa: "/de.po.ze/",
+            pattern: "déposer → déposé",
+            note: "Regular -er → -é past participle, used with avoir. Both written accents remain in déposé.",
+            statement: { fr: "Nous avons déposé le dossier à la mairie.", en: "We submitted the application at the town hall." },
+            negative: { fr: "Nous n’avons pas déposé le dossier à la mairie.", en: "We did not submit the application at the town hall." },
+            question: { fr: "Avez-vous déposé le dossier à la mairie ?", en: "Did you submit the application at the town hall?" }
+          },
+          {
             verbId: "chercher",
             infinitive: "chercher",
             infinitiveIpa: "/ʃɛʁʃe/",
@@ -1233,6 +1247,20 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            verbId: "sAbonner",
+            infinitive: "s’abonner",
+            infinitiveIpa: "/sa.bɔ.ne/",
+            meaning: "to subscribe",
+            auxiliary: "être",
+            pastParticiple: "abonné(e)(s)",
+            pastParticipleIpa: "/a.bɔ.ne/",
+            pattern: "s’abonner → abonné",
+            note: "Use s’abonner à. The pronominal verb takes être and the participle agrees with the subject: elle s’est abonnée; elles se sont abonnées.",
+            statement: { fr: "Elles se sont abonnées au journal local.", en: "They subscribed to the local newspaper." },
+            negative: { fr: "Elles ne se sont pas abonnées au journal local.", en: "They did not subscribe to the local newspaper." },
+            question: { fr: "À quel journal se sont-elles abonnées ?", en: "Which newspaper did they subscribe to?" }
+          },
           {
             verbId: "sOccuper",
             infinitive: "s’occuper",

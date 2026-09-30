@@ -255,6 +255,13 @@
       "Do not suggest an overly complicated solution!",
       "Regular -er imperative: propose, proposons, proposez. Use proposer de + infinitive to suggest an action."
     ),
+    deposer: command(
+      "Dépose le colis à la réception !",
+      "Leave the package at reception!",
+      "Ne dépose pas le colis devant la porte !",
+      "Do not leave the package in front of the door!",
+      "Regular -er imperative: dépose, déposons, déposez. The tu form drops its final -s."
+    ),
     chercher: command(
       "Cherche tes clés dans l’entrée !",
       "Look for your keys in the entryway!",

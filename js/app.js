@@ -76,7 +76,7 @@
           { id: "comparatives", title: "比较级 · Plus / moins / aussi / autant", open: true, elements: ['[data-study-section="adverb-comparatives"]'] },
           { id: "degree", title: "强度副词 · Intensity", open: true, elements: ['[data-study-section="adverb-degree"]'] },
           { id: "frequency", title: "频率副词 · Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
-          { id: "focus", title: "Focus & emphasis", open: true, elements: ['[data-study-section="adverb-focus"]'] },
+          { id: "focus", title: "Focus · Seulement / également", open: true, elements: ['[data-study-section="adverb-focus"]'] },
           { id: "transitions", title: "Transitions", open: true, elements: ['[data-study-section="adverb-transitions"]'] },
           { id: "comparison", title: "Bon / bien / beau", open: true, elements: ['[data-study-section="adverb-comparison"]'] },
           { id: "tout", title: "Tout: 3 roles", elements: ['[data-study-section="adverb-tout"]'] }

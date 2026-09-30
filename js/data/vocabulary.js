@@ -993,12 +993,24 @@
       {
         fr: "seulement",
         ipa: "/sœl.mɑ̃/",
-        en: "only / just",
+        en: "only / just · 只 / 仅仅",
         note: "A limiting adverb, not a frequency adverb. It restricts an amount, time, or action and usually sits close to what it limits.",
         examples: [
+          { label: "Only", fr: "Elle parle seulement français.", en: "She speaks only French." },
           { fr: "J’ai seulement dix minutes.", en: "I only have ten minutes." },
           { fr: "Elle travaille seulement le matin.", en: "She works only in the morning." },
           { fr: "Nous avons seulement acheté du pain.", en: "We only bought bread." }
+        ]
+      },
+      {
+        fr: "également",
+        ipa: "/e.ɡal.mɑ̃/",
+        en: "also / as well; equally · 也 / 同样 / 平均地",
+        note: "Often means also / as well, like aussi: it adds information. It commonly follows the conjugated verb or, in a compound tense, the auxiliary. It can also mean equally or in equal shares, depending on context. Également is invariable.",
+        examples: [
+          { label: "Also", fr: "Elle parle également français.", en: "She also speaks French." },
+          { label: "Compound tense", fr: "Nous avons également visité Lyon.", en: "We also visited Lyon." },
+          { label: "Equal shares", fr: "Répartissez les cartes également entre les joueurs.", en: "Distribute the cards equally among the players." }
         ]
       },
       {

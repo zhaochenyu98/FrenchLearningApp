@@ -77,6 +77,17 @@
       { pronoun: "elles", form: "proposent", full: "elles proposent", ipa: "/ɛl pʁɔ.poz/", en: "they suggest / offer", example: "Elles proposent une promenade.", exampleEn: "They suggest a walk.", negative: "Elles ne proposent pas de promenade.", negativeEn: "They do not suggest a walk.", question: "Proposent-elles une promenade ?" }
     ];
 
+    const deposerRows = [
+      { pronoun: "je", form: "dépose", full: "je dépose", ipa: "/ʒə de.poz/", en: "I put down / deposit", example: "Je dépose mon sac sur la chaise.", exampleEn: "I put my bag down on the chair.", negative: "Je ne dépose pas mon sac sur la chaise.", negativeEn: "I do not put my bag down on the chair.", question: "Où est-ce que je dépose mon sac ?" },
+      { pronoun: "tu", form: "déposes", full: "tu déposes", ipa: "/ty de.poz/", en: "you put down / deposit", example: "Tu déposes une lettre à la poste.", exampleEn: "You drop off a letter at the post office.", negative: "Tu ne déposes pas de lettre à la poste.", negativeEn: "You do not drop off a letter at the post office.", question: "Déposes-tu une lettre à la poste ?" },
+      { pronoun: "il", form: "dépose", full: "il dépose", ipa: "/il de.poz/", en: "he puts down / deposits", example: "Il dépose les enfants à l’école.", exampleEn: "He drops the children off at school.", negative: "Il ne dépose pas les enfants à l’école.", negativeEn: "He does not drop the children off at school.", question: "Où dépose-t-il les enfants ?" },
+      { pronoun: "elle", form: "dépose", full: "elle dépose", ipa: "/ɛl de.poz/", en: "she puts down / deposits", example: "Elle dépose de l’argent à la banque.", exampleEn: "She deposits money at the bank.", negative: "Elle ne dépose pas d’argent à la banque.", negativeEn: "She does not deposit money at the bank.", question: "Dépose-t-elle de l’argent à la banque ?" },
+      { pronoun: "nous", form: "déposons", full: "nous déposons", ipa: "/nu de.po.zɔ̃/", en: "we put down / deposit", example: "Nous déposons notre dossier à la mairie.", exampleEn: "We submit our application at the town hall.", negative: "Nous ne déposons pas notre dossier à la mairie.", negativeEn: "We do not submit our application at the town hall.", question: "Où déposons-nous notre dossier ?" },
+      { pronoun: "vous", form: "déposez", full: "vous déposez", ipa: "/vu de.po.ze/", en: "you put down / deposit", example: "Vous déposez les clés à la réception.", exampleEn: "You leave the keys at reception.", negative: "Vous ne déposez pas les clés à la réception.", negativeEn: "You do not leave the keys at reception.", question: "Déposez-vous les clés à la réception ?" },
+      { pronoun: "ils", form: "déposent", full: "ils déposent", ipa: "/il de.poz/", en: "they put down / deposit", example: "Ils déposent les colis devant la porte.", exampleEn: "They leave the packages in front of the door.", negative: "Ils ne déposent pas les colis devant la porte.", negativeEn: "They do not leave the packages in front of the door.", question: "Où déposent-ils les colis ?" },
+      { pronoun: "elles", form: "déposent", full: "elles déposent", ipa: "/ɛl de.poz/", en: "they put down / deposit", example: "Elles déposent une demande de visa.", exampleEn: "They submit a visa application.", negative: "Elles ne déposent pas de demande de visa.", negativeEn: "They do not submit a visa application.", question: "Quelle demande déposent-elles ?" }
+    ];
+
     const chercherRows = [
       { pronoun: "je", form: "cherche", full: "je cherche", en: "I look for", example: "Je cherche mes clés.", exampleEn: "I am looking for my keys.", negative: "Je ne cherche pas mes clés.", negativeEn: "I am not looking for my keys." },
       { pronoun: "tu", form: "cherches", full: "tu cherches", en: "you look for", example: "Tu cherches un café.", exampleEn: "You are looking for a café.", negative: "Tu ne cherches pas de café.", negativeEn: "You are not looking for a café.", question: "Que cherches-tu ?" },
@@ -1611,6 +1622,17 @@
       { pronoun: "elles", form: "occupent", full: "elles occupent", ipa: "/ɛl.zɔ.kyp/", en: "they occupy / keep busy", example: "Elles occupent les enfants pendant le trajet.", exampleEn: "They keep the children busy during the journey.", negative: "Elles n’occupent pas les enfants pendant le trajet.", negativeEn: "They do not keep the children busy during the journey.", question: "Qui occupent-elles pendant le trajet ?" }
     ];
 
+    const sAbonnerRows = [
+      { pronoun: "je", form: "m’abonne", full: "je m’abonne", ipa: "/ʒə ma.bɔn/", en: "I subscribe", example: "Je m’abonne à cette revue.", exampleEn: "I subscribe to this magazine.", negative: "Je ne m’abonne pas à cette revue.", negativeEn: "I do not subscribe to this magazine.", question: "À quelle revue est-ce que je m’abonne ?" },
+      { pronoun: "tu", form: "t’abonnes", full: "tu t’abonnes", ipa: "/ty ta.bɔn/", en: "you subscribe", example: "Tu t’abonnes à une chaîne de cuisine.", exampleEn: "You subscribe to a cooking channel.", negative: "Tu ne t’abonnes pas à une chaîne de cuisine.", negativeEn: "You do not subscribe to a cooking channel.", question: "À quelle chaîne t’abonnes-tu ?" },
+      { pronoun: "il", form: "s’abonne", full: "il s’abonne", ipa: "/il sa.bɔn/", en: "he subscribes", example: "Il s’abonne au journal local.", exampleEn: "He subscribes to the local newspaper.", negative: "Il ne s’abonne pas au journal local.", negativeEn: "He does not subscribe to the local newspaper.", question: "S’abonne-t-il au journal local ?" },
+      { pronoun: "elle", form: "s’abonne", full: "elle s’abonne", ipa: "/ɛl sa.bɔn/", en: "she subscribes", example: "Elle s’abonne à la newsletter.", exampleEn: "She subscribes to the newsletter.", negative: "Elle ne s’abonne pas à la newsletter.", negativeEn: "She does not subscribe to the newsletter.", question: "À quoi s’abonne-t-elle ?" },
+      { pronoun: "nous", form: "nous abonnons", full: "nous nous abonnons", ipa: "/nu nu.za.bɔ.nɔ̃/", en: "we subscribe", example: "Nous nous abonnons à ce service.", exampleEn: "We subscribe to this service.", negative: "Nous ne nous abonnons pas à ce service.", negativeEn: "We do not subscribe to this service.", question: "Nous abonnons-nous à ce service ?" },
+      { pronoun: "vous", form: "vous abonnez", full: "vous vous abonnez", ipa: "/vu vu.za.bɔ.ne/", en: "you subscribe", example: "Vous vous abonnez aux alertes.", exampleEn: "You subscribe to the alerts.", negative: "Vous ne vous abonnez pas aux alertes.", negativeEn: "You do not subscribe to the alerts.", question: "À quelles alertes vous abonnez-vous ?" },
+      { pronoun: "ils", form: "s’abonnent", full: "ils s’abonnent", ipa: "/il sa.bɔn/", en: "they subscribe", example: "Ils s’abonnent à un magazine de sport.", exampleEn: "They subscribe to a sports magazine.", negative: "Ils ne s’abonnent pas à un magazine de sport.", negativeEn: "They do not subscribe to a sports magazine.", question: "À quel magazine s’abonnent-ils ?" },
+      { pronoun: "elles", form: "s’abonnent", full: "elles s’abonnent", ipa: "/ɛl sa.bɔn/", en: "they subscribe", example: "Elles s’abonnent à cette chaîne.", exampleEn: "They subscribe to this channel.", negative: "Elles ne s’abonnent pas à cette chaîne.", negativeEn: "They do not subscribe to this channel.", question: "S’abonnent-elles à cette chaîne ?" }
+    ];
+
     const sOccuperRows = [
       { pronoun: "je", form: "m’occupe", full: "je m’occupe", ipa: "/ʒə mɔ.kyp/", en: "I take care of / deal with", example: "Je m’occupe de mon petit frère.", exampleEn: "I take care of my little brother.", negative: "Je ne m’occupe pas de mon petit frère.", negativeEn: "I do not take care of my little brother.", question: "De qui est-ce que je m’occupe ?" },
       { pronoun: "tu", form: "t’occupes", full: "tu t’occupes", ipa: "/ty tɔ.kyp/", en: "you take care of / deal with", example: "Tu t’occupes du jardin.", exampleEn: "You take care of the garden.", negative: "Tu ne t’occupes pas du jardin.", negativeEn: "You do not take care of the garden.", question: "De quoi t’occupes-tu ?" },
@@ -1687,6 +1709,14 @@
         tag: "regular -er / direct object",
         descriptionHtml: "<strong>Occuper + direct object</strong> means to occupy a place, hold a position, or keep someone busy: <strong>occuper une chambre</strong>, <strong>occuper un poste</strong>, <strong>occuper les enfants</strong>. Compare <strong>s’occuper de quelqu’un / quelque chose</strong> (“to take care of someone / something”). <strong>Être occupé(e)</strong> means “to be busy”; <strong>je m’occupe des enfants</strong> means “I take care of the children.”",
         rows: occuperRows
+      },
+      {
+        key: "sAbonner",
+        group: "pronominal",
+        label: "s’abonner",
+        title: "S’abonner à — to subscribe to",
+        descriptionHtml: "Use <strong>s’abonner à + publication / service / channel</strong>: <strong>Je m’abonne à cette revue.</strong> The verb follows the regular -er pattern with a reflexive pronoun: <strong>je m’abonne</strong>, <strong>nous nous abonnons</strong>. Keep <strong>à</strong>; <strong>à + le / les</strong> becomes <strong>au / aux</strong>. Replace <strong>à + thing</strong> with <strong>y</strong>: <strong>Je m’y abonne.</strong> (“I subscribe to it.”) Passé composé uses <strong>être</strong> and agreement: <strong>elle s’est abonnée</strong>, <strong>elles se sont abonnées</strong>.",
+        rows: sAbonnerRows
       },
       {
         key: "sOccuper",
@@ -2023,6 +2053,15 @@
         tag: "regular -er",
         descriptionHtml: "<strong>Proposer</strong> follows the regular -er pattern. Use <strong>proposer quelque chose à quelqu’un</strong> to suggest or offer something to someone, and <strong>proposer de + infinitive</strong> to suggest or offer to do something: <strong>Je propose de partir tôt.</strong> Use <strong>proposer à quelqu’un de + infinitive</strong> to suggest that someone do something: <strong>Je propose à Paul de venir.</strong>",
         rows: proposerRows
+      },
+      {
+        key: "deposer",
+        group: "regularEr",
+        label: "déposer",
+        title: "Déposer — to put down / drop off / deposit / submit",
+        tag: "regular -er / direct object",
+        descriptionHtml: "<strong>Déposer</strong> follows the regular -er pattern and keeps its accent: <strong>je dépose</strong>, <strong>nous déposons</strong>. Use it to put something down (<strong>déposer un sac</strong>), drop someone off (<strong>déposer les enfants à l’école</strong>), deposit money (<strong>déposer de l’argent</strong>), or submit documents (<strong>déposer un dossier / une demande</strong>). <strong>Mettre</strong> is the more general verb for “to put”; <strong>déposer</strong> often emphasizes leaving something or someone at a destination. The past uses <strong>avoir + déposé</strong>.",
+        rows: deposerRows
       },
       {
         key: "chercher",
