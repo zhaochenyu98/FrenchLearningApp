@@ -50,6 +50,7 @@
     savoir: Object.freeze({ stem: "saur", ipa: "soʁ" }),
     voir: Object.freeze({ stem: "verr", ipa: "vɛʁ" }),
     mourir: Object.freeze({ stem: "mourr", ipa: "muʁ" }),
+    courir: Object.freeze({ stem: "courr", ipa: "kuʁ.ʁ" }),
     falloir: Object.freeze({ stem: "faudr", ipa: "fodʁ" }),
     ilYA: Object.freeze({ stem: "aur", ipa: "oʁ" }),
     impersonalFaire: Object.freeze({ stem: "fer", ipa: "fəʁ" }),

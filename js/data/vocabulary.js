@@ -529,6 +529,113 @@
       }
     ];
 
+    const adjectiveComparisonRules = [
+      {
+        rule: "plus + adjectif + que",
+        pattern: "更…… / more … than. Put plus before the adjective and que before the comparison target. With a personal pronoun after que, use a tonic form: moi, toi, lui, elle, nous, vous, eux, elles.",
+        examples: [
+          { from: "Léa est grande.", to: "Léa est plus grande que moi.", en: "Léa is tall. → Léa is taller than me." },
+          { from: "Ces exercices sont difficiles.", to: "Ces exercices sont plus difficiles que les autres.", en: "These exercises are difficult. → These exercises are more difficult than the others." }
+        ]
+      },
+      {
+        rule: "moins + adjectif + que",
+        pattern: "不如…… / less … than. Use the same structure with moins to express a lower degree of a quality.",
+        examples: [
+          { from: "Cette robe est chère.", to: "Cette robe est moins chère que l’autre.", en: "This dress is expensive. → This dress is less expensive than the other one." },
+          { from: "Paul est patient.", to: "Paul est moins patient qu’elle.", en: "Paul is patient. → Paul is less patient than her." }
+        ]
+      },
+      {
+        rule: "aussi + adjectif + que",
+        pattern: "和……一样…… / as … as. Use aussi with an adjective to express equality. In a negative comparison, pas aussi … que or pas si … que means not as … as.",
+        examples: [
+          { from: "Cette maison est grande.", to: "Cette maison est aussi grande que la nôtre.", en: "This house is big. → This house is as big as ours." },
+          { from: "Ce sac est lourd.", to: "Ce sac n’est pas aussi lourd que le tien.", en: "This bag is heavy. → This bag is not as heavy as yours." }
+        ]
+      },
+      {
+        rule: "le / la / les + plus / moins + adjectif",
+        pattern: "最高级 / the most or least … in a group. When comparing different people or things, both the article and adjective agree with the noun. Use de to name the group. A superlative after the noun repeats the article: la robe la plus chère. There is no superlative with le aussi.",
+        examples: [
+          { from: "Léa est plus grande que Paul.", to: "Léa est la plus grande de la classe.", en: "Léa is taller than Paul. → Léa is the tallest in the class." },
+          { from: "Ces robes sont moins chères que les autres.", to: "Ce sont les robes les moins chères du magasin.", en: "These dresses are less expensive than the others. → These are the least expensive dresses in the shop." }
+        ]
+      }
+    ];
+
+    const adjectiveIrregularComparisons = [
+      {
+        rule: "bon → meilleur → le meilleur",
+        pattern: "好 → 更好 → 最好. For better quality, use meilleur instead of plus bon; best is le meilleur / la meilleure / les meilleurs / les meilleures. Equality and inferiority remain aussi bon and moins bon. Do not add plus to meilleur. Keep adjective bon → meilleur distinct from adverb bien → mieux.",
+        examples: [
+          { from: "Cette soupe est bonne.", to: "Cette soupe est meilleure que celle d’hier.", en: "This soup is good. → This soup is better than yesterday’s." },
+          { from: "Ces idées sont bonnes.", to: "Ce sont les meilleures idées du groupe.", en: "These ideas are good. → These are the best ideas in the group." },
+          { from: "Ce gâteau est aussi bon que l’autre.", to: "Ce gâteau est moins bon que l’autre.", en: "This cake is as good as the other one. → This cake is not as good as the other one." }
+        ]
+      },
+      {
+        rule: "mauvais → pire / plus mauvais",
+        pattern: "坏 → 更坏. Both pire and plus mauvais can mean worse; le pire / le plus mauvais mean worst. Pire is especially natural for harmful situations or consequences; the two forms are not interchangeable in every expression. For less bad / as bad, use moins mauvais / aussi mauvais. Avoid plus pire, moins pire, and aussi pire in standard French.",
+        examples: [
+          { from: "La situation est mauvaise.", to: "La situation est pire qu’hier.", en: "The situation is bad. → The situation is worse than yesterday." },
+          { from: "Ce café est mauvais.", to: "Ce café est plus mauvais que l’autre.", en: "This coffee is bad. → This coffee is worse than the other one." },
+          { from: "Cette solution est pire que l’autre.", to: "C’est la pire solution de toutes.", en: "This solution is worse than the other one. → This is the worst solution of all." }
+        ]
+      },
+      {
+        rule: "petit → plus petit / moindre",
+        pattern: "小 → 更小. For physical size, use plus petit / le plus petit. Moindre usually means lesser in importance, amount, or intensity; le moindre means the least or slightest. Use moindre / moindres directly, without plus. For ordinary equality or inferiority, keep aussi petit / moins petit.",
+        examples: [
+          { from: "Cette valise est petite.", to: "Cette valise est plus petite que la mienne.", en: "This suitcase is small. → This suitcase is smaller than mine." },
+          { from: "Le risque est faible.", to: "Le risque est moindre avec cette méthode.", en: "The risk is low. → The risk is lower with this method." },
+          { from: "C’est la plus petite valise du magasin.", to: "Il entend le moindre bruit.", en: "This is the smallest suitcase in the shop. → He hears the slightest noise." }
+        ]
+      }
+    ];
+
+    const adjectiveBuiltInComparisons = [
+      {
+        rule: "préféré / favori",
+        pattern: "最喜欢的 / favorite. Préféré already identifies a preferred choice; mon préféré often means the one I like best. Say mon livre préféré, not mon livre le plus préféré. Favori / favorite expresses a similar preference. Feminine forms: préférée, favorite.",
+        examples: [
+          { from: "C’est le livre que j’aime le plus.", to: "C’est mon livre préféré.", en: "This is the book I like best. → This is my favorite book." },
+          { from: "C’est ma chanson préférée.", to: "C’est ma chanson favorite.", en: "Two ways to say: This is my favorite song." }
+        ]
+      },
+      {
+        rule: "majeur / mineur",
+        pattern: "主要的、重大的 / 次要的、较小的. These come from Latin comparatives meaning greater / smaller. In modern French they often express importance or status, rather than a direct comparison with que. Avoid plus majeur; for an explicit comparison, use plus important / moins important. With people, they can mean of legal age / underage, not older / younger. Feminine: majeure / mineure.",
+        examples: [
+          { from: "C’est un problème très important.", to: "C’est un problème majeur.", en: "This is a very important problem. → This is a major problem." },
+          { from: "C’est une erreur de peu d’importance.", to: "C’est une erreur mineure.", en: "This is an error of little importance. → This is a minor error." }
+        ]
+      },
+      {
+        rule: "aîné / cadet",
+        pattern: "年长的 / 年幼的; eldest / younger, depending on context. These words already express age or birth order: no plus aîné or plus cadet. Cadet can mean a younger sibling, not necessarily the youngest. Feminine: aînée / cadette. For a direct age comparison, use plus âgé que / plus jeune que.",
+        examples: [
+          { from: "Ma sœur est plus âgée que moi.", to: "C’est ma sœur aînée.", en: "My sister is older than me. → She is my older sister." },
+          { from: "Mon frère est plus jeune que moi.", to: "C’est mon frère cadet.", en: "My brother is younger than me. → He is my younger brother." }
+        ]
+      },
+      {
+        rule: "supérieur à / inférieur à",
+        pattern: "高于、优于 / 低于、劣于. These already mean higher / superior or lower / inferior. Introduce the comparison with à, not que; do not add plus. To emphasize the difference, use nettement supérieur or bien inférieur. Feminine: supérieure / inférieure. À combines with le / les as au / aux.",
+        examples: [
+          { from: "Cette note est plus élevée que la moyenne.", to: "Cette note est supérieure à la moyenne.", en: "Two ways to say: This mark is above average." },
+          { from: "Ce prix est plus bas que le prix habituel.", to: "Ce prix est inférieur au prix habituel.", en: "Two ways to say: This price is lower than the usual price." }
+        ]
+      },
+      {
+        rule: "premier / dernier",
+        pattern: "第一 / 最后. These express position in an order, rather than a degree of quality. Say le premier or le dernier, not le plus premier or le plus dernier. Feminine: première / dernière. Context decides whether dernier means last in a sequence or most recent.",
+        examples: [
+          { from: "C’est la première page du livre.", to: "C’est la dernière page du livre.", en: "This is the first page of the book. → This is the last page of the book." }
+        ]
+      }
+    ];
+
     const specialAdjectiveForms = [
       {
         family: "bon",
@@ -1091,7 +1198,7 @@
       },
       {
         title: "Quantity before a noun: use de / d’",
-        note: "Before a noun, these quantity expressions use de / d’ even with plurals: des livres → beaucoup de livres / peu de livres. Trop and assez follow the same pattern: trop de livres / assez de livres. They replace du, de la, de l’, and ordinary plural des. Keep des only when it means de + les for a specific known group: beaucoup des livres que tu m’as prêtés.",
+        note: "重点：数量词 + de / d’ + 无冠词名词. For unspecified quantities, the noun follows de directly, without an article: du pain → beaucoup de pain / moins de pain; des livres → beaucoup de livres / moins de livres. Peu, trop, and assez follow the same pattern. They replace du, de la, de l’, and ordinary plural des. Keep des when it means de + les for a specific known group: beaucoup des livres que tu m’as prêtés.",
         forms: [
           {
             fr: "beaucoup de",
@@ -1129,6 +1236,145 @@
               { fr: "Nous n’avons presque pas de temps.", en: "We have almost no time." }
             ]
           }
+        ]
+      }
+    ];
+
+    const adverbComparativeRows = [
+      {
+        fr: "plus + adverbe + que",
+        meaning: "更…… / more … than",
+        type: "Supériorité",
+        note: "Put plus before the adverb to compare speed, frequency, or another degree. The adverb stays invariable: plus vite, plus souvent, plus rapidement.",
+        examples: [
+          { fr: "Elle court plus vite que moi.", en: "She runs faster than me." },
+          { fr: "Nous venons plus souvent qu’avant.", en: "We come more often than before." }
+        ]
+      },
+      {
+        fr: "moins + adverbe + que",
+        meaning: "不如…… / less … than",
+        type: "Infériorité",
+        note: "Use moins before the adverb for a lower degree: moins vite means less fast / more slowly; moins souvent means less often.",
+        examples: [
+          { fr: "Il court moins vite que toi.", en: "He runs less fast than you." },
+          { fr: "Je voyage moins souvent qu’elle.", en: "I travel less often than she does." }
+        ]
+      },
+      {
+        fr: "aussi + adverbe + que",
+        meaning: "和……一样…… / as … as",
+        type: "Égalité",
+        note: "Use aussi directly before the adverb: aussi vite, aussi souvent, aussi bien. Do not replace it with autant in this pattern: autant vite is incorrect.",
+        examples: [
+          { fr: "Elle court aussi vite que moi.", en: "She runs as fast as me." },
+          { fr: "Nous venons aussi souvent que vous.", en: "We come as often as you do." }
+        ]
+      }
+    ];
+
+    const adverbIrregularComparativeRows = [
+      {
+        fr: "bien → mieux",
+        meaning: "好 → 更好 / well → better",
+        type: "Irregular comparative · /bjɛ̃/ → /mjø/",
+        note: "Use mieux que for better, not plus bien or plus mieux. For equality or a lower degree, keep aussi bien que / moins bien que. Mieux does not agree. The superlative is le mieux, even with a feminine or plural subject; compare adjective bon → meilleur.",
+        examples: [
+          { fr: "Elle chante mieux que moi.", en: "She sings better than me." },
+          { fr: "Il chante aussi bien que toi.", en: "He sings as well as you." },
+          { fr: "Je chante moins bien qu’elle.", en: "I sing less well than she does." }
+        ]
+      },
+      {
+        fr: "beaucoup → plus",
+        meaning: "多 → 更多 / a lot → more",
+        type: "Quantity comparative · /boku/ → /plys/ in these examples",
+        note: "For a larger amount, replace beaucoup with plus; do not say plus beaucoup. Beaucoup de becomes plus de / plus d’ before a noun. Beaucoup plus is valid: it means much more, with beaucoup strengthening plus. Le plus means the most.",
+        examples: [
+          { subject: "More action", fr: "Je travaille plus que toi.", en: "I work more than you." },
+          { subject: "More + noun", fr: "J’ai plus de livres que toi.", en: "I have more books than you." },
+          { subject: "Much more", fr: "Je travaille beaucoup plus qu’avant.", en: "I work much more than before." }
+        ]
+      },
+      {
+        fr: "peu → moins",
+        meaning: "少 → 更少 / little → less",
+        type: "Quantity comparative · /pø/ → /mwɛ̃/",
+        note: "For a smaller amount, use moins; peu de becomes moins de / moins d’. Le moins means the least / fewest. Use autant for equal amounts in general. Aussi peu que / aussi peu de … que is also valid when emphasizing how little or how few there are: as little / as few as.",
+        examples: [
+          { fr: "Je dors moins qu’avant.", en: "I sleep less than before." },
+          { fr: "J’ai moins de livres que toi.", en: "I have fewer books than you." },
+          { fr: "Il dort aussi peu que moi.", en: "He sleeps as little as I do." }
+        ]
+      }
+    ];
+
+    const adverbQuantityComparativeRows = [
+      {
+        fr: "verbe + plus / moins / autant + que",
+        meaning: "做得更多 / 更少 / 一样多",
+        type: "Compare how much an action happens",
+        note: "The quantity word follows the conjugated verb. Autant que means as much as here; aussi alone usually means also. In a compound tense, the quantity word normally follows the auxiliary: j’ai autant travaillé que toi.",
+        examples: [
+          { subject: "More", fr: "Je travaille plus que toi.", en: "I work more than you." },
+          { subject: "Less", fr: "Je travaille moins que toi.", en: "I work less than you." },
+          { subject: "As much", fr: "Je travaille autant que toi.", en: "I work as much as you." }
+        ]
+      },
+      {
+        fr: "plus / moins / autant de + nom + que",
+        meaning: "更多 / 更少 / 一样多的……",
+        type: "Compare quantities of things",
+        note: "<strong>beaucoup de / moins de + 无冠词名词</strong>: for an unspecified quantity, put the noun directly after de / d’, with no article. The same applies to plus de / autant de: plus de temps, moins de livres, autant de livres. Before a vowel, use d’: autant d’eau. Do not add du, de la, de l’, or des. A specific subset can retain the definite article: beaucoup des livres que tu m’as prêtés (de + les).",
+        examples: [
+          { subject: "More", fr: "J’ai plus de temps que toi.", en: "I have more time than you." },
+          { subject: "Less", fr: "J’ai moins de temps que toi.", en: "I have less time than you." },
+          { subject: "As much", fr: "J’ai autant de temps que toi.", en: "I have as much time as you." },
+          { subject: "As many", fr: "J’ai autant de livres que toi.", en: "I have as many books as you." }
+        ]
+      }
+    ];
+
+    const adverbPlusPronunciationRows = [
+      {
+        fr: "plus de temps",
+        ipa: "/plys də tɑ̃/",
+        en: "more time · final s pronounced",
+        note: "Affirmative quantity: pronounce /plys/ in these practice examples, including plus que and plus at the end of a phrase. Plus de + noun commonly has /plys/; some speakers also use /ply/. Before a number, plus de often has /ply/: plus de deux heures.",
+        examples: [
+          { label: "More + noun · pronounced s", fr: "J’ai plus de temps que toi.", en: "I have more time than you." },
+          { label: "More action · pronounced s", fr: "Elle travaille plus que moi.", en: "She works more than me." },
+          { label: "At the end · pronounced s", fr: "J’en veux encore plus.", en: "I want even more of it." }
+        ]
+      },
+      {
+        fr: "plus vite",
+        ipa: "/ply vit/",
+        en: "faster · silent s",
+        note: "Before an adjective or adverb starting with a consonant sound or aspirated h, comparative plus normally has no audible s: plus vite, plus souvent, plus grand.",
+        examples: [
+          { label: "Adverb + consonant · silent s", fr: "Elle parle plus vite que moi.", en: "She speaks faster than me." },
+          { label: "Frequency · silent s", fr: "Il vient plus souvent.", en: "He comes more often." }
+        ]
+      },
+      {
+        fr: "plus efficacement",
+        ipa: "/plyz e.fi.kas.mɑ̃/",
+        en: "more efficiently · liaison z",
+        note: "Before an adjective or adverb starting with a vowel sound or mute h, link the final s as /z/: plus efficacement, plus agréablement, plus heureux.",
+        examples: [
+          { label: "Adverb + vowel · liaison z", fr: "Elle travaille plus efficacement que moi.", en: "She works more efficiently than me." }
+        ]
+      },
+      {
+        fr: "ne…plus",
+        speech: "Je n’en veux plus.",
+        ipa: "/ply/",
+        en: "no longer / not anymore",
+        note: "This is negation. Before a consonant or at the end of the sentence, the s is silent. Compare the final /ply/ here with /plys/ in J’en veux encore plus. In negative speech, liaison /z/ can occur before a vowel: je n’ai plus envie.",
+        examples: [
+          { label: "Not anymore · silent s", fr: "Je n’en veux plus.", en: "I do not want any more of it." },
+          { label: "No time left · silent s", fr: "Je n’ai plus de temps.", en: "I do not have any time left." }
         ]
       }
     ];

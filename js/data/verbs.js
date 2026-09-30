@@ -209,6 +209,17 @@
       { pronoun: "elles", form: "finissent", full: "elles finissent", en: "they finish", example: "Elles finissent avant midi.", exampleEn: "They finish before noon.", negative: "Elles ne finissent pas avant midi.", negativeEn: "They do not finish before noon." }
     ];
 
+    const agrandirRows = [
+      { pronoun: "j’", form: "agrandis", full: "j’agrandis", ipa: "/ʒa.ɡʁɑ̃.di/", en: "I enlarge / expand", example: "J’agrandis cette photo.", exampleEn: "I enlarge this photo.", negative: "Je n’agrandis pas cette photo.", negativeEn: "I do not enlarge this photo.", question: "Quelle photo est-ce que j’agrandis ?" },
+      { pronoun: "tu", form: "agrandis", full: "tu agrandis", ipa: "/ty a.ɡʁɑ̃.di/", en: "you enlarge / expand", example: "Tu agrandis la fenêtre sur l’écran.", exampleEn: "You enlarge the window on the screen.", negative: "Tu n’agrandis pas la fenêtre sur l’écran.", negativeEn: "You do not enlarge the window on the screen.", question: "Agrandis-tu la fenêtre sur l’écran ?" },
+      { pronoun: "il", form: "agrandit", full: "il agrandit", ipa: "/il a.ɡʁɑ̃.di/", en: "he enlarges / expands", example: "Il agrandit son bureau.", exampleEn: "He enlarges his office.", negative: "Il n’agrandit pas son bureau.", negativeEn: "He does not enlarge his office.", question: "Agrandit-il son bureau ?" },
+      { pronoun: "elle", form: "agrandit", full: "elle agrandit", ipa: "/ɛl a.ɡʁɑ̃.di/", en: "she enlarges / expands", example: "Elle agrandit le jardin.", exampleEn: "She enlarges the garden.", negative: "Elle n’agrandit pas le jardin.", negativeEn: "She does not enlarge the garden.", question: "Qu’agrandit-elle ?" },
+      { pronoun: "nous", form: "agrandissons", full: "nous agrandissons", ipa: "/nu.za.ɡʁɑ̃.di.sɔ̃/", en: "we enlarge / expand", example: "Nous agrandissons la maison.", exampleEn: "We enlarge the house.", negative: "Nous n’agrandissons pas la maison.", negativeEn: "We do not enlarge the house.", question: "Agrandissons-nous la maison ?" },
+      { pronoun: "vous", form: "agrandissez", full: "vous agrandissez", ipa: "/vu.za.ɡʁɑ̃.di.se/", en: "you enlarge / expand", example: "Vous agrandissez cette image.", exampleEn: "You enlarge this image.", negative: "Vous n’agrandissez pas cette image.", negativeEn: "You do not enlarge this image.", question: "Quelle image agrandissez-vous ?" },
+      { pronoun: "ils", form: "agrandissent", full: "ils agrandissent", ipa: "/il.za.ɡʁɑ̃.dis/", en: "they enlarge / expand", example: "Ils agrandissent le magasin.", exampleEn: "They expand the shop.", negative: "Ils n’agrandissent pas le magasin.", negativeEn: "They do not expand the shop.", question: "Quel magasin agrandissent-ils ?" },
+      { pronoun: "elles", form: "agrandissent", full: "elles agrandissent", ipa: "/ɛl.za.ɡʁɑ̃.dis/", en: "they enlarge / expand", example: "Elles agrandissent les plans.", exampleEn: "They enlarge the plans.", negative: "Elles n’agrandissent pas les plans.", negativeEn: "They do not enlarge the plans.", question: "Quels plans agrandissent-elles ?" }
+    ];
+
     const choisirRows = [
       { pronoun: "je", form: "choisis", full: "je choisis", en: "I choose", example: "Je choisis une table.", exampleEn: "I choose a table.", negative: "Je ne choisis pas de table.", negativeEn: "I do not choose a table." },
       { pronoun: "tu", form: "choisis", full: "tu choisis", en: "you choose", example: "Tu choisis le dessert.", exampleEn: "You choose dessert.", negative: "Tu ne choisis pas le dessert.", negativeEn: "You do not choose dessert.", question: "Que choisis-tu ?" },
@@ -683,6 +694,17 @@
       { pronoun: "vous", form: "partez", full: "vous partez", en: "you leave", example: "Vous partez ce soir.", exampleEn: "You are leaving tonight.", negative: "Vous ne partez pas ce soir.", negativeEn: "You are not leaving tonight.", question: "Partez-vous ce soir ?" },
       { pronoun: "ils", form: "partent", full: "ils partent", en: "they leave", example: "Ils partent tôt.", exampleEn: "They leave early.", negative: "Ils ne partent pas tôt.", negativeEn: "They do not leave early." },
       { pronoun: "elles", form: "partent", full: "elles partent", en: "they leave", example: "Elles partent ensemble.", exampleEn: "They leave together.", negative: "Elles ne partent pas ensemble.", negativeEn: "They do not leave together." }
+    ];
+
+    const courirRows = [
+      { pronoun: "je", form: "cours", full: "je cours", ipa: "/ʒə kuʁ/", en: "I run", example: "Je cours dans le parc.", exampleEn: "I run in the park.", negative: "Je ne cours pas dans le parc.", negativeEn: "I do not run in the park.", question: "Où est-ce que je cours ?" },
+      { pronoun: "tu", form: "cours", full: "tu cours", ipa: "/ty kuʁ/", en: "you run", example: "Tu cours tous les matins.", exampleEn: "You run every morning.", negative: "Tu ne cours pas tous les matins.", negativeEn: "You do not run every morning.", question: "Cours-tu tous les matins ?" },
+      { pronoun: "il", form: "court", full: "il court", ipa: "/il kuʁ/", en: "he runs", example: "Il court pour attraper le bus.", exampleEn: "He runs to catch the bus.", negative: "Il ne court pas pour attraper le bus.", negativeEn: "He does not run to catch the bus.", question: "Pourquoi court-il ?" },
+      { pronoun: "elle", form: "court", full: "elle court", ipa: "/ɛl kuʁ/", en: "she runs", example: "Elle court cinq kilomètres.", exampleEn: "She runs five kilometers.", negative: "Elle ne court pas cinq kilomètres.", negativeEn: "She does not run five kilometers.", question: "Combien de kilomètres court-elle ?" },
+      { pronoun: "nous", form: "courons", full: "nous courons", ipa: "/nu ku.ʁɔ̃/", en: "we run", example: "Nous courons ensemble.", exampleEn: "We run together.", negative: "Nous ne courons pas ensemble.", negativeEn: "We do not run together.", question: "Courons-nous ensemble ?" },
+      { pronoun: "vous", form: "courez", full: "vous courez", ipa: "/vu ku.ʁe/", en: "you run", example: "Vous courez très vite.", exampleEn: "You run very fast.", negative: "Vous ne courez pas très vite.", negativeEn: "You do not run very fast.", question: "Courez-vous très vite ?" },
+      { pronoun: "ils", form: "courent", full: "ils courent", ipa: "/il kuʁ/", en: "they run", example: "Ils courent sur la plage.", exampleEn: "They run on the beach.", negative: "Ils ne courent pas sur la plage.", negativeEn: "They do not run on the beach.", question: "Où courent-ils ?" },
+      { pronoun: "elles", form: "courent", full: "elles courent", ipa: "/ɛl kuʁ/", en: "they run", example: "Elles courent après leur chien.", exampleEn: "They run after their dog.", negative: "Elles ne courent pas après leur chien.", negativeEn: "They do not run after their dog.", question: "Pourquoi courent-elles après leur chien ?" }
     ];
 
     const dormirRows = [
@@ -1578,6 +1600,28 @@
       { pronoun: "elles", form: "s’intéressent", full: "elles s’intéressent", ipa: "/ɛl sɛ̃.te.ʁɛs/", en: "they are interested", example: "Elles s’intéressent à l’histoire.", exampleEn: "They are interested in history.", negative: "Elles ne s’intéressent pas à l’histoire.", negativeEn: "They are not interested in history.", question: "À quoi s’intéressent-elles ?" }
     ];
 
+    const occuperRows = [
+      { pronoun: "j’", form: "occupe", full: "j’occupe", ipa: "/ʒɔ.kyp/", en: "I occupy / keep busy", example: "J’occupe cette chambre.", exampleEn: "I occupy this room.", negative: "Je n’occupe pas cette chambre.", negativeEn: "I do not occupy this room.", question: "Quelle chambre est-ce que j’occupe ?" },
+      { pronoun: "tu", form: "occupes", full: "tu occupes", ipa: "/ty ɔ.kyp/", en: "you occupy / keep busy", example: "Tu occupes la première place.", exampleEn: "You hold first place.", negative: "Tu n’occupes pas la première place.", negativeEn: "You do not hold first place.", question: "Occupes-tu la première place ?" },
+      { pronoun: "il", form: "occupe", full: "il occupe", ipa: "/il ɔ.kyp/", en: "he occupies / keeps busy", example: "Il occupe les enfants avec un jeu.", exampleEn: "He keeps the children busy with a game.", negative: "Il n’occupe pas les enfants avec un jeu.", negativeEn: "He does not keep the children busy with a game.", question: "Comment occupe-t-il les enfants ?" },
+      { pronoun: "elle", form: "occupe", full: "elle occupe", ipa: "/ɛl ɔ.kyp/", en: "she occupies / keeps busy", example: "Elle occupe un poste important.", exampleEn: "She holds an important position.", negative: "Elle n’occupe pas de poste important.", negativeEn: "She does not hold an important position.", question: "Quel poste occupe-t-elle ?" },
+      { pronoun: "nous", form: "occupons", full: "nous occupons", ipa: "/nu.zɔ.ky.pɔ̃/", en: "we occupy / keep busy", example: "Nous occupons cet appartement.", exampleEn: "We occupy this apartment.", negative: "Nous n’occupons pas cet appartement.", negativeEn: "We do not occupy this apartment.", question: "Occupons-nous cet appartement ?" },
+      { pronoun: "vous", form: "occupez", full: "vous occupez", ipa: "/vu.zɔ.ky.pe/", en: "you occupy / keep busy", example: "Vous occupez toute la table.", exampleEn: "You take up the whole table.", negative: "Vous n’occupez pas toute la table.", negativeEn: "You do not take up the whole table.", question: "Occupez-vous toute la table ?" },
+      { pronoun: "ils", form: "occupent", full: "ils occupent", ipa: "/il.zɔ.kyp/", en: "they occupy / keep busy", example: "Ils occupent les bureaux du premier étage.", exampleEn: "They occupy the offices on the first floor.", negative: "Ils n’occupent pas les bureaux du premier étage.", negativeEn: "They do not occupy the offices on the first floor.", question: "Quels bureaux occupent-ils ?" },
+      { pronoun: "elles", form: "occupent", full: "elles occupent", ipa: "/ɛl.zɔ.kyp/", en: "they occupy / keep busy", example: "Elles occupent les enfants pendant le trajet.", exampleEn: "They keep the children busy during the journey.", negative: "Elles n’occupent pas les enfants pendant le trajet.", negativeEn: "They do not keep the children busy during the journey.", question: "Qui occupent-elles pendant le trajet ?" }
+    ];
+
+    const sOccuperRows = [
+      { pronoun: "je", form: "m’occupe", full: "je m’occupe", ipa: "/ʒə mɔ.kyp/", en: "I take care of / deal with", example: "Je m’occupe de mon petit frère.", exampleEn: "I take care of my little brother.", negative: "Je ne m’occupe pas de mon petit frère.", negativeEn: "I do not take care of my little brother.", question: "De qui est-ce que je m’occupe ?" },
+      { pronoun: "tu", form: "t’occupes", full: "tu t’occupes", ipa: "/ty tɔ.kyp/", en: "you take care of / deal with", example: "Tu t’occupes du jardin.", exampleEn: "You take care of the garden.", negative: "Tu ne t’occupes pas du jardin.", negativeEn: "You do not take care of the garden.", question: "De quoi t’occupes-tu ?" },
+      { pronoun: "il", form: "s’occupe", full: "il s’occupe", ipa: "/il sɔ.kyp/", en: "he takes care of / deals with", example: "Il s’occupe du dîner.", exampleEn: "He takes care of dinner.", negative: "Il ne s’occupe pas du dîner.", negativeEn: "He does not take care of dinner.", question: "S’occupe-t-il du dîner ?" },
+      { pronoun: "elle", form: "s’occupe", full: "elle s’occupe", ipa: "/ɛl sɔ.kyp/", en: "she takes care of / deals with", example: "Elle s’occupe des réservations.", exampleEn: "She handles the reservations.", negative: "Elle ne s’occupe pas des réservations.", negativeEn: "She does not handle the reservations.", question: "De quoi s’occupe-t-elle ?" },
+      { pronoun: "nous", form: "nous occupons", full: "nous nous occupons", ipa: "/nu nu.zɔ.ky.pɔ̃/", en: "we take care of / deal with", example: "Nous nous occupons de préparer le repas.", exampleEn: "We take care of preparing the meal.", negative: "Nous ne nous occupons pas de préparer le repas.", negativeEn: "We do not take care of preparing the meal.", question: "Nous occupons-nous de préparer le repas ?" },
+      { pronoun: "vous", form: "vous occupez", full: "vous vous occupez", ipa: "/vu vu.zɔ.ky.pe/", en: "you take care of / deal with", example: "Vous vous occupez d’un client.", exampleEn: "You take care of a customer.", negative: "Vous ne vous occupez pas d’un client.", negativeEn: "You are not taking care of a customer.", question: "De qui vous occupez-vous ?" },
+      { pronoun: "ils", form: "s’occupent", full: "ils s’occupent", ipa: "/il sɔ.kyp/", en: "they take care of / deal with", example: "Ils s’occupent des enfants.", exampleEn: "They take care of the children.", negative: "Ils ne s’occupent pas des enfants.", negativeEn: "They do not take care of the children.", question: "De qui s’occupent-ils ?" },
+      { pronoun: "elles", form: "s’occupent", full: "elles s’occupent", ipa: "/ɛl sɔ.kyp/", en: "they take care of / deal with", example: "Elles s’occupent de ce projet.", exampleEn: "They handle this project.", negative: "Elles ne s’occupent pas de ce projet.", negativeEn: "They do not handle this project.", question: "De quel projet s’occupent-elles ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
@@ -1635,6 +1679,23 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "occuper",
+        group: "regularEr",
+        label: "occuper",
+        title: "Occuper — to occupy / keep busy",
+        tag: "regular -er / direct object",
+        descriptionHtml: "<strong>Occuper + direct object</strong> means to occupy a place, hold a position, or keep someone busy: <strong>occuper une chambre</strong>, <strong>occuper un poste</strong>, <strong>occuper les enfants</strong>. Compare <strong>s’occuper de quelqu’un / quelque chose</strong> (“to take care of someone / something”). <strong>Être occupé(e)</strong> means “to be busy”; <strong>je m’occupe des enfants</strong> means “I take care of the children.”",
+        rows: occuperRows
+      },
+      {
+        key: "sOccuper",
+        group: "pronominal",
+        label: "s’occuper",
+        title: "S’occuper de — to take care of / deal with",
+        descriptionHtml: "Use <strong>s’occuper de + person / thing</strong> or <strong>de + infinitive</strong>: <strong>Je m’occupe des enfants.</strong> <strong>Nous nous occupons de préparer le repas.</strong> Before a vowel, <strong>se</strong> becomes <strong>s’</strong>, and <strong>me / te</strong> become <strong>m’ / t’</strong>. Replace <strong>de + thing</strong> with <strong>en</strong>: <strong>Je m’en occupe.</strong> (“I’ll take care of it.”) Passé composé uses <strong>être</strong> with subject agreement: <strong>elles se sont occupées du jardin</strong>.",
+        rows: sOccuperRows
+      },
       {
         key: "montrer",
         group: "regularEr",
@@ -1883,6 +1944,15 @@
         rows: vivreRows
       },
       {
+        key: "courir",
+        group: "irregular",
+        label: "courir",
+        title: "Courir — to run",
+        tag: "irregular -ir",
+        descriptionHtml: "<strong>Courir</strong> means “to run”: <strong>je cours</strong>, <strong>tu cours</strong>, <strong>il / elle court</strong>, <strong>nous courons</strong>, <strong>vous courez</strong>, <strong>ils / elles courent</strong>. It does not use the regular -ir ending <strong>-issons</strong>. Use <strong>courir après quelqu’un</strong> to run after someone. Passé composé uses <strong>avoir + couru</strong>: <strong>j’ai couru</strong>. The future and conditional use two written r’s: <strong>je courrai</strong>, <strong>je courrais</strong>.",
+        rows: courirRows
+      },
+      {
         key: "dormir",
         group: "similar",
         label: "dormir",
@@ -2097,6 +2167,15 @@
         tag: "regular -ir",
         descriptionHtml: "<strong>Finir</strong> follows the regular -ir pattern: <strong>finis, finis, finit, finissons, finissez, finissent</strong>.",
         rows: finirRows
+      },
+      {
+        key: "agrandir",
+        group: "regularIr",
+        label: "agrandir",
+        title: "Agrandir — to enlarge / expand",
+        tag: "regular -ir / direct object",
+        descriptionHtml: "<strong>Agrandir</strong> means “to enlarge / make bigger / expand” and takes a direct object: <strong>agrandir une photo</strong>, <strong>agrandir une maison</strong>. It follows the regular -ir pattern of <strong>finir</strong>: <strong>j’agrandis</strong>, <strong>nous agrandissons</strong>, <strong>ils agrandissent</strong>. Compare <strong>grandir</strong> (“to grow / grow up”). The past participle is <strong>agrandi</strong>, used with <strong>avoir</strong>.",
+        rows: agrandirRows
       },
       {
         key: "choisir",

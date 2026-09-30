@@ -27,7 +27,8 @@
           { id: "demonstrative", title: "Les pronoms démonstratifs", open: true, elements: ['[data-study-section="pronoun-demonstrative"]'] },
           { id: "interrogative", title: "疑问代词 · Interrogative pronouns", open: true, elements: ['[data-study-section="pronoun-interrogative"]'] },
           { id: "relative", title: "关系代词 · Relative pronouns", open: true, elements: ['[data-study-section="pronoun-relative"]'] },
-          { id: "possessive", title: "Possessives", elements: ['[data-study-section="pronoun-possessive"]'] },
+          { id: "possessive-pronouns", title: "主有代词 · Possessive pronouns", open: true, elements: ['[data-study-section="pronoun-possessive-pronouns"]'] },
+          { id: "possessive", title: "Possessive determiners", elements: ['[data-study-section="pronoun-possessive"]'] },
           { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
         ]
       },
@@ -63,7 +64,8 @@
           { id: "feminine", title: "Feminine rules", open: true, elements: [{ heading: "Adjective Feminine Rules" }] },
           { id: "plural", title: "Plural rules", elements: [{ heading: "Adjective Plural Rules" }] },
           { id: "preposed", title: "Before plural noun", elements: [{ heading: "Important: adjective before plural noun" }] },
-          { id: "special", title: "Special adjectives", elements: ['[data-study-section="adjective-special"]'] }
+          { id: "special", title: "Special adjectives", elements: ['[data-study-section="adjective-special"]'] },
+          { id: "comparison", title: "比较级 / 最高级 · Comparatives", open: true, elements: ['[data-study-section="adjective-comparison"]'] }
         ]
       },
       adverbs: {
@@ -71,6 +73,7 @@
         sections: [
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="adverb-quick-notes"]'] },
           { id: "amounts", title: "Amounts", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
+          { id: "comparatives", title: "比较级 · Plus / moins / aussi / autant", open: true, elements: ['[data-study-section="adverb-comparatives"]'] },
           { id: "degree", title: "强度副词 · Intensity", open: true, elements: ['[data-study-section="adverb-degree"]'] },
           { id: "frequency", title: "频率副词 · Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
           { id: "focus", title: "Focus & emphasis", open: true, elements: ['[data-study-section="adverb-focus"]'] },
@@ -199,6 +202,7 @@
         renderDemonstrativeTable(demonstrativePronounCompoundRows, document.getElementById("demonstrativePronounCompoundGrid"));
         renderDemonstrativeTable(interrogativePronounRows, document.getElementById("interrogativePronounGrid"));
         renderRelativePronouns();
+        renderPossessivePronouns();
         renderPossessives();
         renderPossessiveExceptions();
         renderTonicPronounUsage();
@@ -246,11 +250,13 @@
         renderAdjectivePluralRules();
         renderAdjectivePreposedPluralRules();
         renderSpecialAdjectiveForms();
+        renderAdjectiveComparisons();
         initializeStudyIndex("adjectives");
       },
       adverbs() {
         renderFocusWords();
         renderAdverbAmountComparison();
+        renderAdverbComparatives();
         renderDegreeWords();
         renderFrequencyWords();
         renderTransitionWords();

@@ -8,6 +8,7 @@
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
   const imperfectIpaProfiles = Object.freeze({
+    sOccuper: Object.freeze({ common: "ɔ.ky.pɛ", nous: "ɔ.ky.pjɔ̃", vous: "ɔ.ky.pje" }),
     seLaver: Object.freeze({ common: "la.vɛ", nous: "la.vjɔ̃", vous: "la.vje" }),
     seLever: Object.freeze({ common: "lə.vɛ", nous: "lə.vjɔ̃", vous: "lə.vje" }),
     seReposer: Object.freeze({ common: "ʁə.po.zɛ", nous: "ʁə.po.zjɔ̃", vous: "ʁə.po.zje" }),
@@ -635,6 +636,24 @@
       imperfect: examples(sentence("Elles se baignaient dans la mer.", "They used to swim in the sea."), sentence("Elles ne s’y baignaient pas.", "They did not use to swim there."), sentence("Où se baignaient-elles ?", "Where did they use to swim?")),
       passeCompose: examples(sentence("Elles se sont baignées dans la mer.", "They swam in the sea."), sentence("Elles ne s’y sont pas baignées.", "They did not swim there."), sentence("Où se sont-elles baignées ?", "Where did they swim?")),
       imperative: imperativeExamples(sentence("Baignez-vous ici !", "Swim here!"), sentence("Ne vous baignez pas ici !", "Do not swim here!"))
+    },
+    {
+      key: "sOccuper",
+      infinitive: "s’occuper de",
+      sourceInfinitive: "s’occuper",
+      ipa: "/sɔ.ky.pe də/",
+      meaning: "to take care of / deal with",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "subject",
+      agreementTitle: "Lexicalized meaning: agree with the subject",
+      agreementExplanation: "In s’occuper de, the pronominal form means to take care of or deal with. The participle agrees with the subject; de introduces the person or thing being looked after.",
+      participle: "occupé",
+      specialNote: "Compare occuper les enfants (keep the children busy) with s’occuper des enfants (take care of the children). Use de + infinitive for a task: Je m’occupe de préparer le repas. Je m’en occupe means I’ll take care of it. S’occuper à + infinitive can mean to keep oneself busy doing something.",
+      present: examples(sentence("Elles s’occupent des enfants.", "They take care of the children."), sentence("Elles ne s’occupent pas des enfants.", "They do not take care of the children."), sentence("De qui s’occupent-elles ?", "Who do they take care of?")),
+      imperfect: examples(sentence("Elles s’occupaient des enfants.", "They used to take care of the children."), sentence("Elles ne s’occupaient pas des enfants.", "They did not use to take care of the children."), sentence("De qui s’occupaient-elles ?", "Who did they use to take care of?")),
+      passeCompose: examples(sentence("Elles se sont occupées des enfants.", "They took care of the children."), sentence("Elles ne se sont pas occupées des enfants.", "They did not take care of the children."), sentence("De qui se sont-elles occupées ?", "Who did they take care of?")),
+      imperative: imperativeExamples(sentence("Occupe-toi des enfants !", "Take care of the children!"), sentence("Ne t’occupe pas de ce problème !", "Do not deal with this problem!"), "The affirmative uses -toi after the verb; the negative keeps t’ before it. With en: Occupe-t’en ! (Take care of it!).")
     },
     {
       key: "sInteresser",

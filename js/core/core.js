@@ -145,7 +145,14 @@
     const adjectivePreposedPluralGrid = document.getElementById("adjectivePreposedPluralGrid");
     const articlePreposedPluralGrid = document.getElementById("articlePreposedPluralGrid");
     const specialAdjectiveGrid = document.getElementById("specialAdjectiveGrid");
+    const adjectiveComparisonGrid = document.getElementById("adjectiveComparisonGrid");
+    const adjectiveIrregularComparisonGrid = document.getElementById("adjectiveIrregularComparisonGrid");
+    const adjectiveBuiltInComparisonGrid = document.getElementById("adjectiveBuiltInComparisonGrid");
     const adverbAmountComparisonGrid = document.getElementById("adverbAmountComparisonGrid");
+    const adverbComparativeGrid = document.getElementById("adverbComparativeGrid");
+    const adverbIrregularComparativeGrid = document.getElementById("adverbIrregularComparativeGrid");
+    const adverbQuantityComparativeGrid = document.getElementById("adverbQuantityComparativeGrid");
+    const adverbPlusPronunciationGrid = document.getElementById("adverbPlusPronunciationGrid");
     const degreeWordsGrid = document.getElementById("degreeWordsGrid");
     const frequencyWordsGrid = document.getElementById("frequencyWordsGrid");
     const transitionWordsGrid = document.getElementById("transitionWordsGrid");

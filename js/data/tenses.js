@@ -10,6 +10,20 @@
         },
         verbs: [
           {
+            verbId: "occuper",
+            infinitive: "occuper",
+            infinitiveIpa: "/ɔ.ky.pe/",
+            meaning: "to occupy / keep busy",
+            auxiliary: "avoir",
+            pastParticiple: "occupé",
+            pastParticipleIpa: "/ɔ.ky.pe/",
+            pattern: "occuper → occupé",
+            note: "Regular -er participle with avoir. Compare s’occuper de, which uses être and subject agreement.",
+            statement: { fr: "Nous avons occupé les enfants avec un jeu.", en: "We kept the children busy with a game." },
+            negative: { fr: "Nous n’avons pas occupé les enfants avec un jeu.", en: "We did not keep the children busy with a game." },
+            question: { fr: "Avez-vous occupé les enfants avec un jeu ?", en: "Did you keep the children busy with a game?" }
+          },
+          {
             verbId: "montrer",
             infinitive: "montrer",
             infinitiveIpa: "/mɔ̃.tʁe/",
@@ -638,6 +652,20 @@
             question: { fr: "Est-ce que j’ai déjà fini mes devoirs ?", en: "Have I already finished my homework?" }
           },
           {
+            verbId: "agrandir",
+            infinitive: "agrandir",
+            infinitiveIpa: "/a.ɡʁɑ̃.diʁ/",
+            meaning: "to enlarge / expand",
+            auxiliary: "avoir",
+            pastParticiple: "agrandi",
+            pastParticipleIpa: "/a.ɡʁɑ̃.di/",
+            pattern: "agrandir → agrandi",
+            note: "Regular -ir → -i past participle, used with avoir. Agrandir takes a direct object: agrandir la maison, agrandir une photo.",
+            statement: { fr: "Nous avons agrandi la maison.", en: "We enlarged the house." },
+            negative: { fr: "Nous n’avons pas agrandi la maison.", en: "We did not enlarge the house." },
+            question: { fr: "Avez-vous agrandi la maison ?", en: "Did you enlarge the house?" }
+          },
+          {
             verbId: "choisir",
             infinitive: "choisir",
             infinitiveIpa: "/ʃwaziʁ/",
@@ -786,6 +814,20 @@
             statement: { fr: "Nous sommes partis tôt.", en: "We left early." },
             negative: { fr: "Nous ne sommes pas partis tôt.", en: "We did not leave early." },
             question: { fr: "Sommes-nous partis tôt ?", en: "Did we leave early?" }
+          },
+          {
+            verbId: "courir",
+            infinitive: "courir",
+            infinitiveIpa: "/ku.ʁiʁ/",
+            meaning: "to run",
+            auxiliary: "avoir",
+            pastParticiple: "couru",
+            pastParticipleIpa: "/ku.ʁy/",
+            pattern: "courir → couru",
+            note: "The irregular past participle is couru. Courir uses avoir, including when running toward a destination: j’ai couru jusqu’à la gare.",
+            statement: { fr: "J’ai couru jusqu’à la gare.", en: "I ran to the station." },
+            negative: { fr: "Je n’ai pas couru jusqu’à la gare.", en: "I did not run to the station." },
+            question: { fr: "As-tu couru jusqu’à la gare ?", en: "Did you run to the station?" }
           },
           {
             verbId: "dormir",
@@ -1191,6 +1233,20 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            verbId: "sOccuper",
+            infinitive: "s’occuper",
+            infinitiveIpa: "/sɔ.ky.pe/",
+            meaning: "to take care of / deal with",
+            auxiliary: "être",
+            pastParticiple: "occupé(e)(s)",
+            pastParticipleIpa: "/ɔ.ky.pe/",
+            pattern: "s’occuper → occupé",
+            note: "Use s’occuper de + person, thing, or infinitive. The participle agrees with the subject: elle s’est occupée; elles se sont occupées.",
+            statement: { fr: "Elles se sont occupées des enfants.", en: "They took care of the children." },
+            negative: { fr: "Elles ne se sont pas occupées des enfants.", en: "They did not take care of the children." },
+            question: { fr: "De qui se sont-elles occupées ?", en: "Who did they take care of?" }
+          },
           {
             verbId: "sInteresser",
             infinitive: "s’intéresser",

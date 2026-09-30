@@ -286,6 +286,52 @@
       });
     }
 
+    function renderPossessivePronouns(rows = possessivePronounRows) {
+      const target = document.getElementById("possessivePronounGrid");
+      const examplesTarget = document.getElementById("possessivePronounExamples");
+      const columns = [
+        { key: "masculineSingular", label: "Masculine singular", zh: "阳性单数" },
+        { key: "feminineSingular", label: "Feminine singular", zh: "阴性单数" },
+        { key: "masculinePlural", label: "Masculine plural", zh: "阳性复数" },
+        { key: "femininePlural", label: "Feminine plural", zh: "阴性复数" }
+      ];
+      target.innerHTML = `
+        <table class="possessive-pronoun-table">
+          <caption>Gender and number of the thing possessed · 被代替名词的性数</caption>
+          <thead><tr>
+            <th scope="col">Owner<span lang="zh-Hans">所有者</span></th>
+            ${columns.map(column => `<th scope="col">${column.label}<span lang="zh-Hans">${column.zh}</span></th>`).join("")}
+          </tr></thead>
+          <tbody>${rows.map(row => `
+            <tr>
+              <th scope="row">
+                <span class="french-line">${row.owner}</span>
+                <span lang="zh-Hans">${row.ownerZh}</span>
+                <span class="translation">${row.en}</span>
+              </th>
+              ${columns.map(column => `
+                <td><button class="pronoun-card possessive-pronoun-form-btn" type="button" data-speech="${FR.utils.escapeAttribute(row[column.key])}">
+                  <span class="pronoun-main">${row[column.key]}</span>
+                </button></td>
+              `).join("")}
+            </tr>
+          `).join("")}</tbody>
+        </table>
+      `;
+      examplesTarget.innerHTML = rows.map(row => `
+        <button class="noun-example-btn" type="button" data-speech="${FR.utils.escapeAttribute(row.example)}">
+          <span class="tiny-label">${row.en}</span>
+          <span class="noun-example-main">${row.example}</span>
+          <span class="translation">${row.exampleEn}</span>
+        </button>
+      `).join("");
+      [target, examplesTarget].forEach(container => {
+        container.querySelectorAll("button[data-speech]").forEach(button => {
+          button.addEventListener("click", () => speak(button.dataset.speech, button));
+        });
+      });
+    }
+
     function renderRelativePronouns(rules = relativePronounRules) {
       renderCoiGuideTable(document.getElementById("relativePronounGrid"), rules, {
         titleHeader: "关系代词 · Pronoun",

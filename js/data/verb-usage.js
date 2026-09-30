@@ -3,6 +3,7 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    occuper: Object.freeze({"frComplement": "les enfants avec des jeux", "enPredicate": "keep the children busy with games"}),
     etreVerb: Object.freeze({"frComplement": "souvent fatigués après le travail", "enPredicate": "be tired after work"}),
     avoirVerb: Object.freeze({"frComplement": "peur des orages", "enPredicate": "be afraid of storms"}),
     aller: Object.freeze({"frComplement": "à l’école à pied", "enPredicate": "go to school on foot"}),
@@ -30,6 +31,7 @@
     suivre: Object.freeze({"frComplement": "les instructions avec attention", "enPredicate": "follow the instructions carefully"}),
     vivre: Object.freeze({"frComplement": "près de la mer", "enPredicate": "live near the sea"}),
     dormir: Object.freeze({"frComplement": "huit heures par nuit", "enPredicate": "sleep eight hours a night"}),
+    courir: Object.freeze({"frComplement": "dans le parc chaque matin", "enPredicate": "run in the park every morning"}),
     partir: Object.freeze({"frComplement": "tôt le lundi", "enPredicate": "leave early on Mondays"}),
     sortir: Object.freeze({"frComplement": "ensemble le vendredi", "enPredicate": "go out together on Fridays"}),
     servir: Object.freeze({"frComplement": "le dîner à sept heures", "enPredicate": "serve dinner at seven o’clock"}),
@@ -55,6 +57,7 @@
     porter: Object.freeze({"frComplement": "des manteaux en hiver", "enPredicate": "wear coats in winter"}),
     supprimer: Object.freeze({"frComplement": "les anciens fichiers chaque mois", "enPredicate": "delete the old files every month"}),
     finir: Object.freeze({"frComplement": "le travail à cinq heures", "enPredicate": "finish work at five o’clock"}),
+    agrandir: Object.freeze({"frComplement": "les photos avant de les imprimer", "enPredicate": "enlarge the photos before printing them"}),
     choisir: Object.freeze({"frComplement": "toujours le même menu", "enPredicate": "always choose the same menu"}),
     reussir: Object.freeze({"frComplement": "tous nos examens", "enPredicate": "pass all our exams"}),
     unir: Object.freeze({"frComplement": "nos efforts", "enPredicate": "join our efforts"}),
@@ -91,6 +94,7 @@
   });
 
   const pronominalUsage = Object.freeze({
+    sOccuper: Object.freeze({"frComplement": "de ce projet", "enPredicate": "handle this project"}),
     sInteresser: Object.freeze({"frComplement": "à l’histoire locale", "enPredicate": "take an interest in local history"}),
     seLaver: Object.freeze({"frComplement": "avant de dîner", "enPredicate": "wash before dinner"}),
     seLever: Object.freeze({"frComplement": "plus tôt", "enPredicate": "get up earlier"}),

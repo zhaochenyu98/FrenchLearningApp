@@ -3,7 +3,7 @@ const vm = require("node:vm");
 const { dataScripts, loadData } = require("./load-data");
 const { FR } = loadData();
 const catalog = FR.content.catalog;
-assert.equal(catalog.list("verb").length, 119);
+assert.equal(catalog.list("verb").length, 123);
 assert.equal(catalog.list("tense").length, 6);
 assert.equal(catalog.getLesson("ilYA", "passe-compose").verbId, "ilYA");
 assert.equal(FR.data.tenses.getByVerbId(FR.data.verbs.getById("ilYA").pastVerbId).verbId, "avoirVerb");

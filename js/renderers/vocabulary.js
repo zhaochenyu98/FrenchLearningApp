@@ -251,6 +251,21 @@
       );
     }
 
+    function renderAdjectiveComparisons() {
+      [
+        { container: adjectiveComparisonGrid, rows: adjectiveComparisonRules },
+        { container: adjectiveIrregularComparisonGrid, rows: adjectiveIrregularComparisons },
+        { container: adjectiveBuiltInComparisonGrid, rows: adjectiveBuiltInComparisons }
+      ].forEach(({ container, rows }) => {
+        renderAdjectiveRuleTable(
+          container,
+          rows,
+          "No adjective comparison rules available.",
+          { rule: "Form / expression", pattern: "Meaning & usage", examples: "Compare the phrases / sentences" }
+        );
+      });
+    }
+
     function renderAgreementMatrixRows(container, rows, emptyMessage) {
       container.innerHTML = "";
       if (!rows.length) {
@@ -636,6 +651,21 @@
           });
         });
         target.appendChild(row);
+      });
+    }
+
+    function renderAdverbComparatives() {
+      [
+        { container: adverbComparativeGrid, rows: adverbComparativeRows },
+        { container: adverbIrregularComparativeGrid, rows: adverbIrregularComparativeRows },
+        { container: adverbQuantityComparativeGrid, rows: adverbQuantityComparativeRows }
+      ].forEach(({ container, rows }) => {
+        renderModifierRuleTable(container, rows, "No adverb comparison examples available.");
+      });
+      renderAdverbWordTable(adverbPlusPronunciationGrid, adverbPlusPronunciationRows, {
+        emptyMessage: "No plus pronunciation examples available.",
+        wordLabel: "Phrase & pronunciation",
+        useLabel: "When to use this sound"
       });
     }
 

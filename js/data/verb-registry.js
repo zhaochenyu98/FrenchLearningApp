@@ -3,6 +3,8 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    occuper: Object.freeze({"infinitive": "occuper", "infinitiveIpa": "/ɔ.ky.pe/"}),
+    sOccuper: Object.freeze({"infinitive": "s’occuper", "infinitiveIpa": "/sɔ.ky.pe/"}),
     montrer: Object.freeze({"infinitive": "montrer", "infinitiveIpa": "/mɔ̃.tʁe/"}),
     interesser: Object.freeze({"infinitive": "intéresser", "infinitiveIpa": "/ɛ̃.te.ʁe.se/"}),
     sInteresser: Object.freeze({"infinitive": "s’intéresser", "infinitiveIpa": "/sɛ̃.te.ʁe.se/"}),
@@ -31,6 +33,7 @@
     suivre: Object.freeze({"infinitive": "suivre", "infinitiveIpa": "/sɥivʁ/"}),
     vivre: Object.freeze({"infinitive": "vivre", "infinitiveIpa": "/vivʁ/"}),
     dormir: Object.freeze({"infinitive": "dormir", "infinitiveIpa": "/dɔʁmiʁ/"}),
+    courir: Object.freeze({"infinitive": "courir", "infinitiveIpa": "/ku.ʁiʁ/"}),
     partir: Object.freeze({"infinitive": "partir", "infinitiveIpa": "/paʁtiʁ/"}),
     sortir: Object.freeze({"infinitive": "sortir", "infinitiveIpa": "/sɔʁtiʁ/"}),
     servir: Object.freeze({"infinitive": "servir", "infinitiveIpa": "/sɛʁviʁ/"}),
@@ -54,6 +57,7 @@
     porter: Object.freeze({"infinitive": "porter", "infinitiveIpa": "/pɔʁte/"}),
     supprimer: Object.freeze({"infinitive": "supprimer", "infinitiveIpa": "/sy.pʁi.me/"}),
     finir: Object.freeze({"infinitive": "finir", "infinitiveIpa": "/finiʁ/"}),
+    agrandir: Object.freeze({"infinitive": "agrandir", "infinitiveIpa": "/a.ɡʁɑ̃.diʁ/"}),
     choisir: Object.freeze({"infinitive": "choisir", "infinitiveIpa": "/ʃwaziʁ/"}),
     reussir: Object.freeze({"infinitive": "réussir", "infinitiveIpa": "/ʁeysiʁ/"}),
     unir: Object.freeze({"infinitive": "unir", "infinitiveIpa": "/yniʁ/"}),

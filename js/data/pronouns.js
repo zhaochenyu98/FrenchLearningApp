@@ -206,6 +206,45 @@
       }
     ];
 
+    const possessivePronounRows = [
+      {
+        owner: "je", ownerZh: "我的", en: "mine",
+        masculineSingular: "le mien", feminineSingular: "la mienne",
+        masculinePlural: "les miens", femininePlural: "les miennes",
+        example: "Ce livre est le mien.", exampleEn: "This book is mine."
+      },
+      {
+        owner: "tu", ownerZh: "你的", en: "yours (one person, informal)",
+        masculineSingular: "le tien", feminineSingular: "la tienne",
+        masculinePlural: "les tiens", femininePlural: "les tiennes",
+        example: "Cette maison est la tienne.", exampleEn: "This house is yours."
+      },
+      {
+        owner: "il / elle", ownerZh: "他 / 她的", en: "his / hers",
+        masculineSingular: "le sien", feminineSingular: "la sienne",
+        masculinePlural: "les siens", femininePlural: "les siennes",
+        example: "Ces livres sont les siens.", exampleEn: "These books are his / hers."
+      },
+      {
+        owner: "nous", ownerZh: "我们的", en: "ours",
+        masculineSingular: "le nôtre", feminineSingular: "la nôtre",
+        masculinePlural: "les nôtres", femininePlural: "les nôtres",
+        example: "Cette voiture est la nôtre.", exampleEn: "This car is ours."
+      },
+      {
+        owner: "vous", ownerZh: "您的 / 你们的", en: "yours (formal or plural)",
+        masculineSingular: "le vôtre", feminineSingular: "la vôtre",
+        masculinePlural: "les vôtres", femininePlural: "les vôtres",
+        example: "Ces clés sont les vôtres.", exampleEn: "These keys are yours."
+      },
+      {
+        owner: "ils / elles", ownerZh: "他们 / 她们的", en: "theirs",
+        masculineSingular: "le leur", feminineSingular: "la leur",
+        masculinePlural: "les leurs", femininePlural: "les leurs",
+        example: "Ce jardin est le leur.", exampleEn: "This garden is theirs."
+      }
+    ];
+
     const tonicPronounRows = [
       {
         singularZh: "我",

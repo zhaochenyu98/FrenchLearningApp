@@ -25,6 +25,13 @@
       "Do not show your ticket to everyone!",
       "Regular -er imperative: montre, montrons, montrez. Pronouns follow an affirmative command: montre-le-moi (show it to me)."
     ),
+    occuper: command(
+      "Occupe les enfants avec un jeu !",
+      "Keep the children busy with a game!",
+      "N’occupe pas toute la table !",
+      "Do not take up the whole table!",
+      "Regular -er imperative: occupe, occupons, occupez. Compare Occupe-toi des enfants ! (Take care of the children!)."
+    ),
     interesser: command(
       "Intéresse les élèves à l’histoire locale !",
       "Get the students interested in local history!",
@@ -191,6 +198,13 @@
       "Ne vis pas dans le passé !",
       "Do not live in the past!"
     ),
+    courir: command(
+      "Cours jusqu’au parc !",
+      "Run to the park!",
+      "Ne cours pas dans les escaliers !",
+      "Do not run on the stairs!",
+      "The imperative forms are cours, courons, courez. The tu form keeps its final -s."
+    ),
     dormir: command(
       "Dors bien cette nuit !",
       "Sleep well tonight!",
@@ -343,6 +357,13 @@
       "Finish your homework before going out!",
       "Ne finis pas tout le gâteau !",
       "Do not finish the entire cake!"
+    ),
+    agrandir: command(
+      "Agrandis cette image !",
+      "Enlarge this image!",
+      "N’agrandis pas trop cette image !",
+      "Do not enlarge this image too much!",
+      "Regular -ir imperative: agrandis, agrandissons, agrandissez. The tu form keeps its final -s."
     ),
     choisir: command(
       "Choisis une réponse !",
