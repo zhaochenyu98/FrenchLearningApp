@@ -65,7 +65,8 @@
           { id: "plural", title: "Plural rules", elements: [{ heading: "Adjective Plural Rules" }] },
           { id: "preposed", title: "Before plural noun", elements: [{ heading: "Important: adjective before plural noun" }] },
           { id: "special", title: "Special adjectives", elements: ['[data-study-section="adjective-special"]'] },
-          { id: "comparison", title: "比较级 / 最高级 · Comparatives", open: true, elements: ['[data-study-section="adjective-comparison"]'] }
+          { id: "comparison", title: "比较级 · Comparatives", open: true, elements: ['[data-study-section="adjective-comparison"]'] },
+          { id: "superlatives", title: "最高级 · Superlatives", open: true, elements: ['[data-study-section="adjective-superlatives"]'] }
         ]
       },
       adverbs: {
@@ -74,6 +75,7 @@
           { id: "quick-notes", title: "Quick notes", open: true, elements: ['[data-study-section="adverb-quick-notes"]'] },
           { id: "amounts", title: "Amounts", open: true, elements: ['[data-study-section="adverb-amounts"]'] },
           { id: "comparatives", title: "比较级 · Plus / moins / aussi / autant", open: true, elements: ['[data-study-section="adverb-comparatives"]'] },
+          { id: "superlatives", title: "最高级 · Le plus / le moins / le mieux", open: true, elements: ['[data-study-section="adverb-superlatives"]'] },
           { id: "degree", title: "强度副词 · Intensity", open: true, elements: ['[data-study-section="adverb-degree"]'] },
           { id: "frequency", title: "频率副词 · Frequency", open: true, elements: ['[data-study-section="adverb-frequency"]'] },
           { id: "focus", title: "Focus · Seulement / également", open: true, elements: ['[data-study-section="adverb-focus"]'] },
@@ -251,12 +253,14 @@
         renderAdjectivePreposedPluralRules();
         renderSpecialAdjectiveForms();
         renderAdjectiveComparisons();
+        renderAdjectiveSuperlatives();
         initializeStudyIndex("adjectives");
       },
       adverbs() {
         renderFocusWords();
         renderAdverbAmountComparison();
         renderAdverbComparatives();
+        renderAdverbSuperlatives();
         renderDegreeWords();
         renderFrequencyWords();
         renderTransitionWords();

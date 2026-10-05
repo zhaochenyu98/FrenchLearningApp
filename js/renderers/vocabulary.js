@@ -266,6 +266,17 @@
       });
     }
 
+    function renderAdjectiveSuperlatives() {
+      [
+        { container: adjectiveSuperlativeGrid, rows: adjectiveSuperlativeRules },
+        { container: adjectiveSuperlativeSpecialGrid, rows: adjectiveSuperlativeSpecialRows },
+        { container: adjectiveSuperlativePlacementGrid, rows: adjectiveSuperlativePlacementRows },
+        { container: adjectiveSuperlativeEmphasisGrid, rows: adjectiveSuperlativeEmphasisRows }
+      ].forEach(({ container, rows }) => {
+        renderModifierRuleTable(container, rows, "No adjective superlative examples available.");
+      });
+    }
+
     function renderAgreementMatrixRows(container, rows, emptyMessage) {
       container.innerHTML = "";
       if (!rows.length) {
@@ -666,6 +677,16 @@
         emptyMessage: "No plus pronunciation examples available.",
         wordLabel: "Phrase & pronunciation",
         useLabel: "When to use this sound"
+      });
+    }
+
+    function renderAdverbSuperlatives() {
+      [
+        { container: adverbSuperlativeGrid, rows: adverbSuperlativeRules },
+        { container: adverbSuperlativeSpecialGrid, rows: adverbSuperlativeSpecialRows },
+        { container: adverbSuperlativeEmphasisGrid, rows: adverbSuperlativeEmphasisRows }
+      ].forEach(({ container, rows }) => {
+        renderModifierRuleTable(container, rows, "No adverb superlative examples available.");
       });
     }
 

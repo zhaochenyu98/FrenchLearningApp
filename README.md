@@ -32,6 +32,8 @@ js/data/pronominal-verbs.js        Pronominal paradigms, agreement, IPA, and exa
 js/data/pronunciation.js           Pronunciation rules and practice words
 js/data/questions.js               Question-word learning content
 js/data/vocabulary.js              Calendar, nouns, and adjectives
+js/data/adjective-superlatives.js   Adjective superlatives, placement, and emphasis
+js/data/adverb-superlatives.js      Adverb and quantity superlatives
 js/data/determiners-prepositions.js Articles, determiners, and prepositions
 scripts/validate.js                Structural and JavaScript validation
 ```
