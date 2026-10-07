@@ -374,6 +374,14 @@
       renderAgreementMatrixRows(specialAdjectiveGrid, rows, "No special adjective forms available.");
     }
 
+    function renderIndefiniteAdjectives(rows = indefiniteAdjectiveRows) {
+      renderModifierWordTable(document.getElementById("indefiniteAdjectiveGrid"), rows, {
+        emptyMessage: "No indefinite adjectives available.",
+        wordLabel: "French · closest English meaning",
+        useLabel: "Forms & usage"
+      });
+    }
+
     function getAdverbialPronounForms(example, labels = {}) {
       return [
         { label: labels.statement || "Statement", ...example.statement },
@@ -446,7 +454,7 @@
       });
     }
 
-    function renderAdverbWordTable(targetGrid, rows, {
+    function renderModifierWordTable(targetGrid, rows, {
       emptyMessage,
       wordLabel,
       useLabel
@@ -509,7 +517,7 @@
     }
 
     function renderTransitionWords(rows = transitionWordRows) {
-      renderAdverbWordTable(transitionWordsGrid, rows, {
+      renderModifierWordTable(transitionWordsGrid, rows, {
         emptyMessage: "No transition words available.",
         wordLabel: "Transition word",
         useLabel: "Use"
@@ -517,7 +525,7 @@
     }
 
     function renderFrequencyWords(rows = frequencyWordRows) {
-      renderAdverbWordTable(frequencyWordsGrid, rows, {
+      renderModifierWordTable(frequencyWordsGrid, rows, {
         emptyMessage: "No frequency adverbs available.",
         wordLabel: "Adverb",
         useLabel: "Meaning & placement"
@@ -525,7 +533,7 @@
     }
 
     function renderFocusWords(rows = focusWordRows) {
-      renderAdverbWordTable(document.getElementById("focusWordsGrid"), rows, {
+      renderModifierWordTable(document.getElementById("focusWordsGrid"), rows, {
         emptyMessage: "No focus adverbs available.",
         wordLabel: "Focus adverb",
         useLabel: "Meaning & placement"
@@ -533,7 +541,7 @@
     }
 
     function renderDegreeWords(rows = degreeWordRows) {
-      renderAdverbWordTable(degreeWordsGrid, rows, {
+      renderModifierWordTable(degreeWordsGrid, rows, {
         emptyMessage: "No degree adverbs available.",
         wordLabel: "Adverb",
         useLabel: "Meaning & placement"
@@ -673,7 +681,7 @@
       ].forEach(({ container, rows }) => {
         renderModifierRuleTable(container, rows, "No adverb comparison examples available.");
       });
-      renderAdverbWordTable(adverbPlusPronunciationGrid, adverbPlusPronunciationRows, {
+      renderModifierWordTable(adverbPlusPronunciationGrid, adverbPlusPronunciationRows, {
         emptyMessage: "No plus pronunciation examples available.",
         wordLabel: "Phrase & pronunciation",
         useLabel: "When to use this sound"

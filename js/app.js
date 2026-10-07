@@ -64,6 +64,7 @@
           { id: "feminine", title: "Feminine rules", open: true, elements: [{ heading: "Adjective Feminine Rules" }] },
           { id: "plural", title: "Plural rules", elements: [{ heading: "Adjective Plural Rules" }] },
           { id: "preposed", title: "Before plural noun", elements: [{ heading: "Important: adjective before plural noun" }] },
+          { id: "indefinite", title: "泛指形容词 · Indefinite adjectives", open: true, elements: ['[data-study-section="adjective-indefinite"]'] },
           { id: "special", title: "Special adjectives", elements: ['[data-study-section="adjective-special"]'] },
           { id: "comparison", title: "比较级 · Comparatives", open: true, elements: ['[data-study-section="adjective-comparison"]'] },
           { id: "superlatives", title: "最高级 · Superlatives", open: true, elements: ['[data-study-section="adjective-superlatives"]'] }
@@ -251,6 +252,7 @@
         renderAdjectiveFeminineRules();
         renderAdjectivePluralRules();
         renderAdjectivePreposedPluralRules();
+        renderIndefiniteAdjectives();
         renderSpecialAdjectiveForms();
         renderAdjectiveComparisons();
         renderAdjectiveSuperlatives();

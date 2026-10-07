@@ -8,6 +8,7 @@
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
   const imperfectIpaProfiles = Object.freeze({
+    seControler: Object.freeze({ common: "kɔ̃.tʁo.lɛ", nous: "kɔ̃.tʁo.ljɔ̃", vous: "kɔ̃.tʁo.lje" }),
     sAbonner: Object.freeze({ common: "a.bɔ.nɛ", nous: "a.bɔ.njɔ̃", vous: "a.bɔ.nje" }),
     sOccuper: Object.freeze({ common: "ɔ.ky.pɛ", nous: "ɔ.ky.pjɔ̃", vous: "ɔ.ky.pje" }),
     seLaver: Object.freeze({ common: "la.vɛ", nous: "la.vjɔ̃", vous: "la.vje" }),
@@ -637,6 +638,23 @@
       imperfect: examples(sentence("Elles se baignaient dans la mer.", "They used to swim in the sea."), sentence("Elles ne s’y baignaient pas.", "They did not use to swim there."), sentence("Où se baignaient-elles ?", "Where did they use to swim?")),
       passeCompose: examples(sentence("Elles se sont baignées dans la mer.", "They swam in the sea."), sentence("Elles ne s’y sont pas baignées.", "They did not swim there."), sentence("Où se sont-elles baignées ?", "Where did they swim?")),
       imperative: imperativeExamples(sentence("Baignez-vous ici !", "Swim here!"), sentence("Ne vous baignez pas ici !", "Do not swim here!"))
+    },
+    {
+      key: "seControler",
+      infinitive: "se contrôler",
+      ipa: "/sə kɔ̃.tʁo.le/",
+      meaning: "to control oneself / keep one’s composure",
+      type: "reflexive",
+      lexicalStatus: "occasional",
+      agreementMode: "direct-se",
+      agreementTitle: "Direct se: agreement",
+      agreementExplanation: "In se contrôler, the subject controls itself. Se is the preceding direct object, so the participle agrees with the subject it represents.",
+      participle: "contrôlé",
+      specialNote: "Keep ô throughout the conjugation. Compare contrôler ses émotions (control one’s emotions) with se contrôler (control oneself).",
+      present: examples(sentence("Elles se contrôlent pendant le débat.", "They control themselves during the debate."), sentence("Elles ne se contrôlent pas pendant le débat.", "They do not control themselves during the debate."), sentence("Se contrôlent-elles pendant le débat ?", "Do they control themselves during the debate?")),
+      imperfect: examples(sentence("Elles se contrôlaient dans les situations difficiles.", "They used to control themselves in difficult situations."), sentence("Elles ne se contrôlaient pas dans les situations difficiles.", "They did not use to control themselves in difficult situations."), sentence("Se contrôlaient-elles dans les situations difficiles ?", "Did they use to control themselves in difficult situations?")),
+      passeCompose: examples(sentence("Elles se sont contrôlées pendant le débat.", "They controlled themselves during the debate."), sentence("Elles ne se sont pas contrôlées pendant le débat.", "They did not control themselves during the debate."), sentence("Se sont-elles contrôlées pendant le débat ?", "Did they control themselves during the debate?")),
+      imperative: imperativeExamples(sentence("Contrôle-toi avant de répondre !", "Control yourself before answering!"), sentence("Ne te contrôle pas au point de cacher toutes tes émotions !", "Do not control yourself to the point of hiding all your emotions!"), "Use contrôle-toi, contrôlons-nous, contrôlez-vous. In negative commands, put the reflexive pronoun before the verb: ne te contrôle pas.")
     },
     {
       key: "sAbonner",

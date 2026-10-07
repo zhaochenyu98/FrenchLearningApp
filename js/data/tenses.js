@@ -10,6 +10,20 @@
         },
         verbs: [
           {
+            verbId: "controler",
+            infinitive: "contrôler",
+            infinitiveIpa: "/kɔ̃.tʁo.le/",
+            meaning: "to check / monitor / control",
+            auxiliary: "avoir",
+            pastParticiple: "contrôlé",
+            pastParticipleIpa: "/kɔ̃.tʁo.le/",
+            pattern: "contrôler → contrôlé",
+            note: "Regular -er participle with avoir. Keep both accents in contrôlé. Compare se contrôler, which uses être and agreement.",
+            statement: { fr: "Nous avons contrôlé les billets à l’entrée.", en: "We checked the tickets at the entrance." },
+            negative: { fr: "Nous n’avons pas contrôlé les billets à l’entrée.", en: "We did not check the tickets at the entrance." },
+            question: { fr: "Avez-vous contrôlé les billets à l’entrée ?", en: "Did you check the tickets at the entrance?" }
+          },
+          {
             verbId: "occuper",
             infinitive: "occuper",
             infinitiveIpa: "/ɔ.ky.pe/",
@@ -106,6 +120,20 @@
             statement: { fr: "Nous avons déposé le dossier à la mairie.", en: "We submitted the application at the town hall." },
             negative: { fr: "Nous n’avons pas déposé le dossier à la mairie.", en: "We did not submit the application at the town hall." },
             question: { fr: "Avez-vous déposé le dossier à la mairie ?", en: "Did you submit the application at the town hall?" }
+          },
+          {
+            verbId: "depenser",
+            infinitive: "dépenser",
+            infinitiveIpa: "/de.pɑ̃.se/",
+            meaning: "to spend / expend",
+            auxiliary: "avoir",
+            pastParticiple: "dépensé",
+            pastParticipleIpa: "/de.pɑ̃.se/",
+            pattern: "dépenser → dépensé",
+            note: "Regular -er → -é participle with avoir. Keep both accents in dépensé. In negation, de l’argent becomes d’argent.",
+            statement: { fr: "Nous avons dépensé de l’argent au marché.", en: "We spent money at the market." },
+            negative: { fr: "Nous n’avons pas dépensé d’argent au marché.", en: "We did not spend money at the market." },
+            question: { fr: "Avez-vous dépensé de l’argent au marché ?", en: "Did you spend money at the market?" }
           },
           {
             verbId: "chercher",
@@ -1247,6 +1275,20 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            verbId: "seControler",
+            infinitive: "se contrôler",
+            infinitiveIpa: "/sə kɔ̃.tʁo.le/",
+            meaning: "to control oneself / keep one’s composure",
+            auxiliary: "être",
+            pastParticiple: "contrôlé(e)(s)",
+            pastParticipleIpa: "/kɔ̃.tʁo.le/",
+            pattern: "se contrôler → contrôlé",
+            note: "The reflexive pronoun is the preceding direct object. The participle agrees with the subject: elle s’est contrôlée; elles se sont contrôlées.",
+            statement: { fr: "Elles se sont contrôlées pendant le débat.", en: "They controlled themselves during the debate." },
+            negative: { fr: "Elles ne se sont pas contrôlées pendant le débat.", en: "They did not control themselves during the debate." },
+            question: { fr: "Se sont-elles contrôlées pendant le débat ?", en: "Did they control themselves during the debate?" }
+          },
           {
             verbId: "sAbonner",
             infinitive: "s’abonner",

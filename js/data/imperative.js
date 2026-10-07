@@ -18,6 +18,13 @@
   }
 
   const curated = Object.freeze({
+    controler: command(
+      "Contrôle la pression des pneus !",
+      "Check the tire pressure!",
+      "Ne contrôle pas les billets deux fois !",
+      "Do not check the tickets twice!",
+      "Regular -er imperative: contrôle, contrôlons, contrôlez. The tu form drops its final -s."
+    ),
     montrer: command(
       "Montre ton billet au contrôleur !",
       "Show your ticket to the ticket inspector!",
@@ -261,6 +268,13 @@
       "Ne dépose pas le colis devant la porte !",
       "Do not leave the package in front of the door!",
       "Regular -er imperative: dépose, déposons, déposez. The tu form drops its final -s."
+    ),
+    depenser: command(
+      "Dépense ton argent avec prudence !",
+      "Spend your money carefully!",
+      "Ne dépense pas toutes tes économies !",
+      "Do not spend all your savings!",
+      "Regular -er imperative: dépense, dépensons, dépensez. The tu form drops its final -s."
     ),
     chercher: command(
       "Cherche tes clés dans l’entrée !",

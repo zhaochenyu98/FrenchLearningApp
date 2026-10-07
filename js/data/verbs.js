@@ -88,6 +88,17 @@
       { pronoun: "elles", form: "déposent", full: "elles déposent", ipa: "/ɛl de.poz/", en: "they put down / deposit", example: "Elles déposent une demande de visa.", exampleEn: "They submit a visa application.", negative: "Elles ne déposent pas de demande de visa.", negativeEn: "They do not submit a visa application.", question: "Quelle demande déposent-elles ?" }
     ];
 
+    const depenserRows = [
+      { pronoun: "je", form: "dépense", full: "je dépense", ipa: "/ʒə de.pɑ̃s/", en: "I spend", example: "Je dépense de l’argent au marché.", exampleEn: "I spend money at the market.", negative: "Je ne dépense pas d’argent au marché.", negativeEn: "I do not spend money at the market.", question: "Où est-ce que je dépense de l’argent ?" },
+      { pronoun: "tu", form: "dépenses", full: "tu dépenses", ipa: "/ty de.pɑ̃s/", en: "you spend", example: "Tu dépenses vingt euros pour ce livre.", exampleEn: "You spend twenty euros on this book.", negative: "Tu ne dépenses pas vingt euros pour ce livre.", negativeEn: "You do not spend twenty euros on this book.", question: "Combien dépenses-tu pour ce livre ?" },
+      { pronoun: "il", form: "dépense", full: "il dépense", ipa: "/il de.pɑ̃s/", en: "he spends", example: "Il dépense trop d’argent en vêtements.", exampleEn: "He spends too much money on clothes.", negative: "Il ne dépense pas trop d’argent en vêtements.", negativeEn: "He does not spend too much money on clothes.", question: "Dépense-t-il trop d’argent en vêtements ?" },
+      { pronoun: "elle", form: "dépense", full: "elle dépense", ipa: "/ɛl de.pɑ̃s/", en: "she spends", example: "Elle dépense son énergie pour ce projet.", exampleEn: "She expends her energy on this project.", negative: "Elle ne dépense pas son énergie pour ce projet.", negativeEn: "She does not expend her energy on this project.", question: "Pour quel projet dépense-t-elle son énergie ?" },
+      { pronoun: "nous", form: "dépensons", full: "nous dépensons", ipa: "/nu de.pɑ̃.sɔ̃/", en: "we spend", example: "Nous dépensons moins d’argent cette semaine.", exampleEn: "We spend less money this week.", negative: "Nous ne dépensons pas moins d’argent cette semaine.", negativeEn: "We do not spend less money this week.", question: "Dépensons-nous moins d’argent cette semaine ?" },
+      { pronoun: "vous", form: "dépensez", full: "vous dépensez", ipa: "/vu de.pɑ̃.se/", en: "you spend", example: "Vous dépensez beaucoup pour les vacances.", exampleEn: "You spend a lot on vacations.", negative: "Vous ne dépensez pas beaucoup pour les vacances.", negativeEn: "You do not spend much on vacations.", question: "Combien dépensez-vous pour les vacances ?" },
+      { pronoun: "ils", form: "dépensent", full: "ils dépensent", ipa: "/il de.pɑ̃s/", en: "they spend", example: "Ils dépensent leurs économies pour une voiture.", exampleEn: "They spend their savings on a car.", negative: "Ils ne dépensent pas leurs économies pour une voiture.", negativeEn: "They do not spend their savings on a car.", question: "Pourquoi dépensent-ils leurs économies ?" },
+      { pronoun: "elles", form: "dépensent", full: "elles dépensent", ipa: "/ɛl de.pɑ̃s/", en: "they spend", example: "Elles dépensent dix euros chacune.", exampleEn: "They each spend ten euros.", negative: "Elles ne dépensent pas dix euros chacune.", negativeEn: "They do not each spend ten euros.", question: "Combien dépensent-elles chacune ?" }
+    ];
+
     const chercherRows = [
       { pronoun: "je", form: "cherche", full: "je cherche", en: "I look for", example: "Je cherche mes clés.", exampleEn: "I am looking for my keys.", negative: "Je ne cherche pas mes clés.", negativeEn: "I am not looking for my keys." },
       { pronoun: "tu", form: "cherches", full: "tu cherches", en: "you look for", example: "Tu cherches un café.", exampleEn: "You are looking for a café.", negative: "Tu ne cherches pas de café.", negativeEn: "You are not looking for a café.", question: "Que cherches-tu ?" },
@@ -1644,6 +1655,28 @@
       { pronoun: "elles", form: "s’occupent", full: "elles s’occupent", ipa: "/ɛl sɔ.kyp/", en: "they take care of / deal with", example: "Elles s’occupent de ce projet.", exampleEn: "They handle this project.", negative: "Elles ne s’occupent pas de ce projet.", negativeEn: "They do not handle this project.", question: "De quel projet s’occupent-elles ?" }
     ];
 
+    const controlerRows = [
+      { pronoun: "je", form: "contrôle", full: "je contrôle", ipa: "/ʒə kɔ̃.tʁol/", en: "I check / control", example: "Je contrôle les billets à l’entrée.", exampleEn: "I check the tickets at the entrance.", negative: "Je ne contrôle pas les billets à l’entrée.", negativeEn: "I do not check the tickets at the entrance.", question: "Où est-ce que je contrôle les billets ?" },
+      { pronoun: "tu", form: "contrôles", full: "tu contrôles", ipa: "/ty kɔ̃.tʁol/", en: "you check / control", example: "Tu contrôles la pression des pneus.", exampleEn: "You check the tire pressure.", negative: "Tu ne contrôles pas la pression des pneus.", negativeEn: "You do not check the tire pressure.", question: "Contrôles-tu la pression des pneus ?" },
+      { pronoun: "il", form: "contrôle", full: "il contrôle", ipa: "/il kɔ̃.tʁol/", en: "he checks / controls", example: "Il contrôle la qualité des produits.", exampleEn: "He checks the quality of the products.", negative: "Il ne contrôle pas la qualité des produits.", negativeEn: "He does not check the quality of the products.", question: "Que contrôle-t-il ?" },
+      { pronoun: "elle", form: "contrôle", full: "elle contrôle", ipa: "/ɛl kɔ̃.tʁol/", en: "she checks / controls", example: "Elle contrôle ses dépenses.", exampleEn: "She controls her spending.", negative: "Elle ne contrôle pas ses dépenses.", negativeEn: "She does not control her spending.", question: "Contrôle-t-elle ses dépenses ?" },
+      { pronoun: "nous", form: "contrôlons", full: "nous contrôlons", ipa: "/nu kɔ̃.tʁo.lɔ̃/", en: "we check / control", example: "Nous contrôlons les résultats.", exampleEn: "We check the results.", negative: "Nous ne contrôlons pas les résultats.", negativeEn: "We do not check the results.", question: "Quels résultats contrôlons-nous ?" },
+      { pronoun: "vous", form: "contrôlez", full: "vous contrôlez", ipa: "/vu kɔ̃.tʁo.le/", en: "you check / control", example: "Vous contrôlez la température.", exampleEn: "You monitor the temperature.", negative: "Vous ne contrôlez pas la température.", negativeEn: "You do not monitor the temperature.", question: "Contrôlez-vous la température ?" },
+      { pronoun: "ils", form: "contrôlent", full: "ils contrôlent", ipa: "/il kɔ̃.tʁol/", en: "they check / control", example: "Ils contrôlent les passeports.", exampleEn: "They check the passports.", negative: "Ils ne contrôlent pas les passeports.", negativeEn: "They do not check the passports.", question: "Quels documents contrôlent-ils ?" },
+      { pronoun: "elles", form: "contrôlent", full: "elles contrôlent", ipa: "/ɛl kɔ̃.tʁol/", en: "they check / control", example: "Elles contrôlent le bon fonctionnement des machines.", exampleEn: "They check that the machines work properly.", negative: "Elles ne contrôlent pas le bon fonctionnement des machines.", negativeEn: "They do not check that the machines work properly.", question: "Comment contrôlent-elles le bon fonctionnement des machines ?" }
+    ];
+
+    const seControlerRows = [
+      { pronoun: "je", form: "me contrôle", full: "je me contrôle", ipa: "/ʒə mə kɔ̃.tʁol/", en: "I control myself", example: "Je me contrôle quand je suis en colère.", exampleEn: "I control myself when I am angry.", negative: "Je ne me contrôle pas quand je suis en colère.", negativeEn: "I do not control myself when I am angry.", question: "Est-ce que je me contrôle quand je suis en colère ?" },
+      { pronoun: "tu", form: "te contrôles", full: "tu te contrôles", ipa: "/ty tə kɔ̃.tʁol/", en: "you control yourself", example: "Tu te contrôles pendant la discussion.", exampleEn: "You control yourself during the discussion.", negative: "Tu ne te contrôles pas pendant la discussion.", negativeEn: "You do not control yourself during the discussion.", question: "Te contrôles-tu pendant la discussion ?" },
+      { pronoun: "il", form: "se contrôle", full: "il se contrôle", ipa: "/il sə kɔ̃.tʁol/", en: "he controls himself", example: "Il se contrôle quand il est stressé.", exampleEn: "He controls himself when he is stressed.", negative: "Il ne se contrôle pas quand il est stressé.", negativeEn: "He does not control himself when he is stressed.", question: "Se contrôle-t-il quand il est stressé ?" },
+      { pronoun: "elle", form: "se contrôle", full: "elle se contrôle", ipa: "/ɛl sə kɔ̃.tʁol/", en: "she controls herself", example: "Elle se contrôle avant de répondre.", exampleEn: "She controls herself before answering.", negative: "Elle ne se contrôle pas avant de répondre.", negativeEn: "She does not control herself before answering.", question: "Se contrôle-t-elle avant de répondre ?" },
+      { pronoun: "nous", form: "nous contrôlons", full: "nous nous contrôlons", ipa: "/nu nu kɔ̃.tʁo.lɔ̃/", en: "we control ourselves", example: "Nous nous contrôlons dans les situations difficiles.", exampleEn: "We control ourselves in difficult situations.", negative: "Nous ne nous contrôlons pas dans les situations difficiles.", negativeEn: "We do not control ourselves in difficult situations.", question: "Nous contrôlons-nous dans les situations difficiles ?" },
+      { pronoun: "vous", form: "vous contrôlez", full: "vous vous contrôlez", ipa: "/vu vu kɔ̃.tʁo.le/", en: "you control yourself / yourselves", example: "Vous vous contrôlez même sous pression.", exampleEn: "You control yourself even under pressure.", negative: "Vous ne vous contrôlez pas sous pression.", negativeEn: "You do not control yourself under pressure.", question: "Vous contrôlez-vous même sous pression ?" },
+      { pronoun: "ils", form: "se contrôlent", full: "ils se contrôlent", ipa: "/il sə kɔ̃.tʁol/", en: "they control themselves", example: "Ils se contrôlent pour ne pas crier.", exampleEn: "They control themselves so they do not shout.", negative: "Ils ne se contrôlent pas et ils crient.", negativeEn: "They do not control themselves and they shout.", question: "Pourquoi se contrôlent-ils ?" },
+      { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
@@ -1701,6 +1734,23 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "controler",
+        group: "regularEr",
+        label: "contrôler",
+        title: "Contrôler — to check / monitor / control",
+        tag: "regular -er / direct object",
+        descriptionHtml: "<strong>Contrôler + direct object</strong> can mean to check or verify (<strong>contrôler les billets</strong>), monitor (<strong>contrôler la température</strong>), or control (<strong>contrôler ses dépenses</strong>). It follows the regular -er pattern and keeps <strong>ô</strong> in every form: <strong>je contrôle</strong>, <strong>nous contrôlons</strong>. Compare <strong>se contrôler</strong> (“to control oneself”). The past uses <strong>avoir + contrôlé</strong>.",
+        rows: controlerRows
+      },
+      {
+        key: "seControler",
+        group: "pronominal",
+        label: "se contrôler",
+        title: "Se contrôler — to control oneself / keep one’s composure",
+        descriptionHtml: "<strong>Se contrôler</strong> means to control oneself or keep one’s composure: <strong>Je me contrôle quand je suis en colère.</strong> Keep the reflexive pronoun before the verb: <strong>nous nous contrôlons</strong>, <strong>je ne me contrôle pas</strong>. Compare <strong>contrôler ses émotions</strong>, which takes a direct object. The past uses <strong>être</strong> with agreement: <strong>elle s’est contrôlée</strong>, <strong>elles se sont contrôlées</strong>.",
+        rows: seControlerRows
+      },
       {
         key: "occuper",
         group: "regularEr",
@@ -2062,6 +2112,15 @@
         tag: "regular -er / direct object",
         descriptionHtml: "<strong>Déposer</strong> follows the regular -er pattern and keeps its accent: <strong>je dépose</strong>, <strong>nous déposons</strong>. Use it to put something down (<strong>déposer un sac</strong>), drop someone off (<strong>déposer les enfants à l’école</strong>), deposit money (<strong>déposer de l’argent</strong>), or submit documents (<strong>déposer un dossier / une demande</strong>). <strong>Mettre</strong> is the more general verb for “to put”; <strong>déposer</strong> often emphasizes leaving something or someone at a destination. The past uses <strong>avoir + déposé</strong>.",
         rows: deposerRows
+      },
+      {
+        key: "depenser",
+        group: "regularEr",
+        label: "dépenser",
+        title: "Dépenser — to spend / expend",
+        tag: "regular -er / direct object",
+        descriptionHtml: "<strong>Dépenser</strong> means to spend money or expend energy: <strong>dépenser de l’argent</strong>, <strong>dépenser vingt euros pour un livre</strong>, <strong>dépenser son énergie</strong>. It follows the regular -er pattern and keeps <strong>é</strong>: <strong>je dépense</strong>, <strong>nous dépensons</strong>. In an ordinary negative, <strong>de l’argent</strong> becomes <strong>d’argent</strong>: <strong>Je ne dépense pas d’argent.</strong> For the everyday meaning “spend time,” use <strong>passer du temps</strong>. The past uses <strong>avoir + dépensé</strong>.",
+        rows: depenserRows
       },
       {
         key: "chercher",

@@ -3,6 +3,7 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    controler: Object.freeze({"frComplement": "les billets à l’entrée", "enPredicate": "check the tickets at the entrance"}),
     occuper: Object.freeze({"frComplement": "les enfants avec des jeux", "enPredicate": "keep the children busy with games"}),
     etreVerb: Object.freeze({"frComplement": "souvent fatigués après le travail", "enPredicate": "be tired after work"}),
     avoirVerb: Object.freeze({"frComplement": "peur des orages", "enPredicate": "be afraid of storms"}),
@@ -42,6 +43,7 @@
     expliquer: Object.freeze({"frComplement": "la leçon aux élèves", "enPredicate": "explain the lesson to the students"}),
     proposer: Object.freeze({"frComplement": "de visiter le musée", "enPredicate": "suggest visiting the museum"}),
     deposer: Object.freeze({"frComplement": "les enfants à l’école", "enPredicate": "drop the children off at school"}),
+    depenser: Object.freeze({"frComplement": "de l’argent au marché", "enPredicate": "spend money at the market", "negativeFrComplement": "d’argent au marché"}),
     chercher: Object.freeze({"frComplement": "nos clés partout", "enPredicate": "look for our keys everywhere"}),
     changer: Object.freeze({"frComplement": "souvent de train à Lyon", "enPredicate": "often change trains in Lyon"}),
     manger: Object.freeze({"frComplement": "à la cantine", "enPredicate": "eat in the cafeteria"}),
@@ -95,6 +97,7 @@
   });
 
   const pronominalUsage = Object.freeze({
+    seControler: Object.freeze({"frComplement": "sous pression", "enPredicate": "keep our composure under pressure"}),
     sAbonner: Object.freeze({"frComplement": "au journal local", "enPredicate": "subscribe to the local newspaper"}),
     sOccuper: Object.freeze({"frComplement": "de ce projet", "enPredicate": "handle this project"}),
     sInteresser: Object.freeze({"frComplement": "à l’histoire locale", "enPredicate": "take an interest in local history"}),

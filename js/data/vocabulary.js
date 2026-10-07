@@ -636,6 +636,66 @@
       }
     ];
 
+    const indefiniteAdjectiveRows = [
+      {
+        fr: "chaque",
+        ipa: "/ʃak/",
+        en: "each / every · 每个",
+        note: "Looks at members of a group one by one. Invariable: the same form for masculine and feminine. Use chaque + singular noun, without an article: chaque jour, chaque personne. As a subject, it takes a singular verb.",
+        examples: [
+          { fr: "Chaque élève a un livre.", en: "Each student has a book." },
+          { fr: "Je lis chaque jour.", en: "I read every day." }
+        ]
+      },
+      {
+        fr: "quelque / quelques",
+        speech: "quelque, quelques",
+        ipa: "/kɛlk/",
+        en: "some / a few · 一些、几个",
+        note: "Quelques + plural noun means a small, unspecified number: quelques livres, quelques idées. The form is the same for both genders. Singular quelque + singular noun can mean some / a certain / a little and is often more formal: quelque espoir = some hope. Neither form needs des before it.",
+        examples: [
+          { label: "Plural · a few", fr: "J’ai quelques questions.", en: "I have a few questions." },
+          { label: "Singular · some", fr: "Il reste quelque espoir.", en: "There is still some hope." }
+        ]
+      },
+      {
+        fr: "plusieurs",
+        ipa: "/ply.zjœʁ/",
+        en: "several · 好几个",
+        note: "An unspecified number greater than one, without giving an exact count. Always plural, with the same spelling for masculine and feminine: plusieurs livres, plusieurs personnes. Use it directly before the noun, without des.",
+        examples: [
+          { fr: "J’ai lu plusieurs livres.", en: "I have read several books." },
+          { fr: "Plusieurs personnes attendent.", en: "Several people are waiting." }
+        ]
+      },
+      {
+        fr: "certain / certaine",
+        speech: "certain, certaine",
+        ipa: "/sɛʁ.tɛ̃/ · /sɛʁ.tɛn/",
+        en: "some / certain; a certain · 某些、某个",
+        note: "Before a noun, it points to unspecified members of a group or something left unnamed. Agree in gender and number: certain, certaine, certains, certaines. Plural certains / certaines + noun = some / certain; singular usually uses un certain / une certaine = a certain. Compare être certain = to be sure, a different meaning.",
+        examples: [
+          { fr: "Certains élèves aiment lire.", en: "Some students like reading." },
+          { fr: "Certaines questions sont difficiles.", en: "Certain questions are difficult." },
+          { fr: "Elle parle d’un certain livre.", en: "She is talking about a certain book." }
+        ]
+      },
+      {
+        fr: "tout / toute / tous / toutes",
+        speech: "tout, toute, tous les jours, toutes",
+        ipa: "/tu/ · /tut/ · /tu/ · /tut/",
+        en: "all / every / whole · 所有、每个、整个",
+        note: "Agree with the noun: tout (masculine singular), toute (feminine singular), tous (masculine plural), toutes (feminine plural). Tout / toute + le / la / l’ + singular noun = the whole; tous / toutes + les + plural noun = all, or every with time periods. Tout / toute + singular noun without an article can mean every / any. Before a noun, tous is normally pronounced /tu/: tous les jours.",
+        examples: [
+          { label: "Masculine singular · whole", fr: "Je lis tout le livre.", en: "I read the whole book." },
+          { label: "Feminine singular · whole", fr: "Je travaille toute la journée.", en: "I work all day / the whole day." },
+          { label: "Masculine plural · every", fr: "Je lis tous les jours.", en: "I read every day." },
+          { label: "Feminine plural · all", fr: "Toutes les élèves sont ici.", en: "All the female students are here." },
+          { label: "No article · every / any", fr: "Tout problème a une solution.", en: "Every problem has a solution." }
+        ]
+      }
+    ];
+
     const specialAdjectiveForms = [
       {
         family: "bon",

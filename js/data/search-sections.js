@@ -33,6 +33,7 @@
     "adjectives:feminine": ["Agreement accord féminin", adjectiveFeminineRules],
     "adjectives:plural": ["Agreement accord pluriel", adjectivePluralRules],
     "adjectives:preposed": adjectivePreposedPluralRules,
+    "adjectives:indefinite": ["泛指形容词 Indefinite adjectives adjectifs indéfinis déterminants indéfinis", indefiniteAdjectiveRows],
     "adjectives:special": specialAdjectiveForms,
     "adjectives:comparison": ["Comparatif superlatif 比较级 最高级", adjectiveComparisonRules, adjectiveIrregularComparisons, adjectiveBuiltInComparisons],
     "adjectives:superlatives": ["Superlatif 最高级 adjective placement 前置 后置 de loin c’est qui", adjectiveSuperlativeRules, adjectiveSuperlativeSpecialRows, adjectiveSuperlativePlacementRows, adjectiveSuperlativeEmphasisRows],

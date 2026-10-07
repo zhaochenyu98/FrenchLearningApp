@@ -3,6 +3,8 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    controler: Object.freeze({"infinitive": "contrôler", "infinitiveIpa": "/kɔ̃.tʁo.le/"}),
+    seControler: Object.freeze({"infinitive": "se contrôler", "infinitiveIpa": "/sə kɔ̃.tʁo.le/"}),
     sAbonner: Object.freeze({"infinitive": "s’abonner", "infinitiveIpa": "/sa.bɔ.ne/"}),
     occuper: Object.freeze({"infinitive": "occuper", "infinitiveIpa": "/ɔ.ky.pe/"}),
     sOccuper: Object.freeze({"infinitive": "s’occuper", "infinitiveIpa": "/sɔ.ky.pe/"}),
@@ -43,6 +45,7 @@
     expliquer: Object.freeze({"infinitive": "expliquer", "infinitiveIpa": "/ɛks.pli.ke/"}),
     proposer: Object.freeze({"infinitive": "proposer", "infinitiveIpa": "/pʁɔ.po.ze/"}),
     deposer: Object.freeze({"infinitive": "déposer", "infinitiveIpa": "/de.po.ze/"}),
+    depenser: Object.freeze({"infinitive": "dépenser", "infinitiveIpa": "/de.pɑ̃.se/"}),
     chercher: Object.freeze({"infinitive": "chercher", "infinitiveIpa": "/ʃɛʁʃe/"}),
     changer: Object.freeze({"infinitive": "changer", "infinitiveIpa": "/ʃɑ̃ʒe/"}),
     manger: Object.freeze({"infinitive": "manger", "infinitiveIpa": "/mɑ̃ʒe/"}),
