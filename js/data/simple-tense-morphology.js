@@ -72,6 +72,8 @@
   });
 
   const ipaOnlyOverrides = Object.freeze({
+    souhaiter: "swɛtəʁ",
+    seSouhaiter: "swɛtəʁ",
     aimer: "ɛməʁ",
     jouer: "ʒuʁ",
     seMarier: "maʁiʁ"

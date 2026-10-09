@@ -3,13 +3,26 @@ const vm = require("node:vm");
 const { dataScripts, loadData } = require("./load-data");
 const { FR } = loadData();
 const catalog = FR.content.catalog;
-assert.equal(catalog.list("verb").length, 128);
+assert.equal(catalog.list("verb").length, 130);
 assert.equal(catalog.list("tense").length, 6);
 assert.equal(catalog.getLesson("ilYA", "passe-compose").verbId, "ilYA");
 assert.equal(FR.data.tenses.getByVerbId(FR.data.verbs.getById("ilYA").pastVerbId).verbId, "avoirVerb");
 assert.equal(catalog.getLesson("sHabiller", "imparfait").forms.length, 8);
 assert.equal(catalog.getLesson("falloir", "imperative"), null);
 assert.equal(catalog.getLesson("payer", "futur-simple").editorial.reviewStatus, "unreviewed");
+const prepositions = FR.data.verbPrepositions;
+const auditedIds = [...Object.keys(prepositions.byVerb), ...prepositions.withoutUsage];
+assert.equal(new Set(auditedIds).size, auditedIds.length, "Each verb has one preposition audit classification");
+assert.deepEqual(auditedIds.sort(), Array.from(catalog.list("verb"), verb => verb.verbId).sort(), "The preposition audit covers every catalog verb");
+Object.entries(prepositions.byVerb).forEach(([verbId, usages]) => {
+  assert.ok(usages.length, `${verbId}: a usage classification needs examples`);
+  usages.forEach(usage => {
+    ["id", "pattern", "meaning", "fr", "en"].forEach(field => assert.ok(usage[field]?.trim(), `${verbId}: ${field}`));
+    const example = catalog.getLesson(verbId, "present").examples.find(example =>
+      example.id === `lesson:${verbId}:present:examples:preposition:${usage.id}:statement`);
+    assert.equal(example?.fr, usage.fr, `${verbId}: supplemental examples reach the catalog, including pronominal verbs`);
+  });
+});
 const snapshot = model => model.list("lesson").map(lesson => [lesson.id,
   lesson.forms.map(form => form.id).sort(), lesson.examples.map(example => example.id).sort()
 ]).sort(([a], [b]) => a.localeCompare(b));
@@ -20,6 +33,13 @@ const renamed = loadData({ beforeScript(file, context) {
       verb.label += " (new display label)";
       verb.rows.forEach(row => { if (row.examples) row.examples.reverse(); });
     });
+  `, context);
+  if (file === "js/data/content-catalog.js") vm.runInContext(`
+    const originalPrepositions = FR.data.verbPrepositions;
+    FR.data.verbPrepositions = {
+      ...originalPrepositions,
+      getByVerbId(id) { return [...originalPrepositions.getByVerbId(id)].reverse(); }
+    };
   `, context);
 } });
 assert.equal(JSON.stringify(snapshot(renamed.FR.content.catalog)), JSON.stringify(snapshot(catalog)), "IDs survive labels and ordering changes");

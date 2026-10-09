@@ -10,6 +10,20 @@
         },
         verbs: [
           {
+            verbId: "souhaiter",
+            infinitive: "souhaiter",
+            infinitiveIpa: "/swe.te/",
+            meaning: "to wish / would like",
+            auxiliary: "avoir",
+            pastParticiple: "souhaité",
+            pastParticipleIpa: "/swe.te/",
+            pattern: "souhaiter → souhaité",
+            note: "Regular -er participle with avoir. In souhaiter quelque chose à quelqu’un, the thing wished is direct and the recipient is indirect.",
+            statement: { fr: "Nous avons souhaité bonne chance à Marie.", en: "We wished Marie good luck." },
+            negative: { fr: "Nous n’avons pas souhaité bonne chance à Marie.", en: "We did not wish Marie good luck." },
+            question: { fr: "À qui avez-vous souhaité bonne chance ?", en: "Who did you wish good luck?" }
+          },
+          {
             verbId: "controler",
             infinitive: "contrôler",
             infinitiveIpa: "/kɔ̃.tʁo.le/",
@@ -1275,6 +1289,20 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            verbId: "seSouhaiter",
+            infinitive: "se souhaiter",
+            infinitiveIpa: "/sə swe.te/",
+            meaning: "to wish each other / oneself",
+            auxiliary: "être",
+            pastParticiple: "souhaité",
+            pastParticipleIpa: "/swe.te/",
+            pattern: "se souhaiter → souhaité",
+            note: "Se is indirect: souhaiter quelque chose à quelqu’un. No agreement with se in elles se sont souhaité bonne chance. Agreement is possible with a separate preceding direct object: les bonnes choses qu’elles se sont souhaitées.",
+            statement: { fr: "Elles se sont souhaité bonne chance.", en: "They wished each other good luck." },
+            negative: { fr: "Elles ne se sont pas souhaité bonne chance.", en: "They did not wish each other good luck." },
+            question: { fr: "Se sont-elles souhaité bonne chance ?", en: "Did they wish each other good luck?" }
+          },
           {
             verbId: "seControler",
             infinitive: "se contrôler",

@@ -482,6 +482,8 @@
     }
 
     appendItemContrasts(body, item, data);
+    const prepositionUsage = FR.renderers.verbPrepositions.createSection(item.id);
+    if (prepositionUsage) body.appendChild(prepositionUsage);
     TENSES.forEach(tense => body.appendChild(createParadigmMatrix(item, tense)));
     body.appendChild(createExamplesTable(item));
     card.append(summary, body);

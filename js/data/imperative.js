@@ -18,6 +18,13 @@
   }
 
   const curated = Object.freeze({
+    souhaiter: command(
+      "Souhaite bonne chance à Marie !",
+      "Wish Marie good luck!",
+      "Ne souhaite de mal à personne !",
+      "Do not wish harm on anyone!",
+      "Regular -er imperative: souhaite, souhaitons, souhaitez. The recipient is indirect: souhaite-lui bonne chance."
+    ),
     controler: command(
       "Contrôle la pression des pneus !",
       "Check the tire pressure!",

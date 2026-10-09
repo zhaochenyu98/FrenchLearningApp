@@ -142,3 +142,32 @@ test("direct file opening still supports search and tense navigation", async ({ 
   await expect(page.locator("#imparfait-parler")).toBeFocused();
   await expect(page.locator("#imparfait-parler")).toContainText("nous parlions");
 });
+
+test("à/de examples are searchable, readable, and playable for ordinary and pronominal verbs", async ({ page }) => {
+  const spoken = [];
+  await page.exposeFunction("recordPrepositionSpeech", text => spoken.push(text));
+  await page.evaluate(() => {
+    window.speakSequence = items => window.recordPrepositionSpeech(items.map(item => item.text));
+  });
+
+  await search(page, "chercher à");
+  await page.locator("#globalSearchResults button").filter({ hasText: "chercher · Present" }).click();
+  const ordinary = page.locator('#chercherVerbPanel .verb-preposition-usage');
+  await ordinary.locator("summary").click();
+  await expect(ordinary).toContainText("Je cherche à comprendre cette règle.");
+  await expect(ordinary).toContainText("I am trying to understand this rule.");
+  await ordinary.locator(".noun-example-btn").click();
+  await expect.poll(() => spoken).toEqual([["Je cherche à comprendre cette règle."]]);
+
+  await search(page, "se passer de");
+  await page.locator("#globalSearchResults button").filter({ hasText: "se passer · Pronominal verb" }).click();
+  const pronominal = page.locator('#pronominal-verb-sepasser .verb-preposition-usage');
+  await pronominal.locator("summary").click();
+  await expect(pronominal).toContainText("Je me passe de sucre dans mon café.");
+  await expect(pronominal).toContainText("I do without sugar in my coffee.");
+  await pronominal.locator(".noun-example-btn").first().click();
+  await expect.poll(() => spoken).toEqual([
+    ["Je cherche à comprendre cette règle."], ["Je me passe de sucre dans mon café."]
+  ]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

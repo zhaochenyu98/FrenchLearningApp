@@ -114,6 +114,17 @@
     .verb-examples-disclosure > summary { cursor: pointer; color: var(--accent); padding: 8px 2px; font-weight: 650; }
     .verb-examples-disclosure > summary h4 { display: inline; }
     .verb-examples-disclosure .verb-example-list { margin-top: 8px; }
+    .verb-preposition-usage > .noun-example-list {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    }
+    .verb-preposition-card {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .verb-preposition-card p { margin: 0; }
 
     .control-group label {
       display: block;

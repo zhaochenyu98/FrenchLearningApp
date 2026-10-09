@@ -8,6 +8,7 @@
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
   const imperfectIpaProfiles = Object.freeze({
+    seSouhaiter: Object.freeze({ common: "swe.tɛ", nous: "swe.tjɔ̃", vous: "swe.tje" }),
     seControler: Object.freeze({ common: "kɔ̃.tʁo.lɛ", nous: "kɔ̃.tʁo.ljɔ̃", vous: "kɔ̃.tʁo.lje" }),
     sAbonner: Object.freeze({ common: "a.bɔ.nɛ", nous: "a.bɔ.njɔ̃", vous: "a.bɔ.nje" }),
     sOccuper: Object.freeze({ common: "ɔ.ky.pɛ", nous: "ɔ.ky.pjɔ̃", vous: "ɔ.ky.pje" }),
@@ -471,6 +472,24 @@
       imperfect: examples(sentence("Elles se regardaient en silence.", "They were looking at each other silently."), sentence("Elles ne se regardaient pas.", "They were not looking at each other."), sentence("Pourquoi se regardaient-elles ?", "Why were they looking at each other?")),
       passeCompose: examples(sentence("Elles se sont regardées en silence.", "They looked at each other silently."), sentence("Elles ne se sont pas regardées.", "They did not look at each other."), sentence("Pourquoi se sont-elles regardées ?", "Why did they look at each other?")),
       imperative: imperativeExamples(sentence("Regardez-vous dans le miroir !", "Look at yourselves in the mirror!"), sentence("Ne vous regardez pas pendant toute la réunion !", "Do not look at each other throughout the entire meeting!"))
+    },
+    {
+      key: "seSouhaiter",
+      infinitive: "se souhaiter",
+      ipa: "/sə swe.te/",
+      meaning: "to wish each other / oneself",
+      type: "reciprocal",
+      secondaryTypes: ["reflexive"],
+      lexicalStatus: "occasional",
+      agreementMode: "indirect-se",
+      agreementTitle: "Indirect se: no agreement with the subject",
+      agreementExplanation: "Souhaiter quelque chose à quelqu’un makes se an indirect object. Write elles se sont souhaité bonne chance, without -es. A separate preceding direct object can trigger agreement: les bonnes choses qu’elles se sont souhaitées.",
+      participle: "souhaité",
+      specialNote: "The plural commonly expresses mutual wishes: se souhaiter bonne nuit, bonne chance, or bonne année. Singular forms mean wishing something to oneself and are less common.",
+      present: examples(sentence("Elles se souhaitent bonne chance.", "They wish each other good luck."), sentence("Elles ne se souhaitent pas bonne chance.", "They do not wish each other good luck."), sentence("Que se souhaitent-elles ?", "What do they wish each other?")),
+      imperfect: examples(sentence("Elles se souhaitaient bonne nuit chaque soir.", "They used to wish each other good night every evening."), sentence("Elles ne se souhaitaient pas bonne nuit.", "They did not use to wish each other good night."), sentence("Quand se souhaitaient-elles bonne nuit ?", "When did they use to wish each other good night?")),
+      passeCompose: examples(sentence("Elles se sont souhaité bonne chance.", "They wished each other good luck."), sentence("Elles ne se sont pas souhaité bonne chance.", "They did not wish each other good luck."), sentence("Se sont-elles souhaité bonne chance ?", "Did they wish each other good luck?")),
+      imperative: imperativeExamples(sentence("Souhaitons-nous bonne chance !", "Let’s wish each other good luck!"), sentence("Ne vous souhaitez pas de mal !", "Do not wish each other harm!"), "Reciprocal commands naturally use nous or plural vous: souhaitons-nous, souhaitez-vous. The singular souhaite-toi means wish yourself.")
     },
     {
       key: "seDire",

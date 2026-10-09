@@ -22,6 +22,8 @@ Each scenario runs at 1280 × 900 and 390 × 844:
 - Listening answer concealment, explicit reveal, and clearing a new question.
 - Desktop keyboard tabs, mobile topic picker, quick entry, and no page overflow.
 - Direct local-file opening and navigation without a web server.
+- Search, translations, French audio, and mobile layout for ordinary and
+  pronominal à/de usage examples.
 
 Every case fails on uncaught application errors or rendered error cards. Browser
 tests use deterministic speech callbacks; they verify the UI flow, not audible

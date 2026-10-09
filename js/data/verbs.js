@@ -1677,6 +1677,28 @@
       { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
     ];
 
+    const souhaiterRows = [
+      { pronoun: "je", form: "souhaite", full: "je souhaite", ipa: "/ʒə swɛt/", en: "I wish / would like", example: "Je souhaite apprendre le français.", exampleEn: "I would like to learn French.", negative: "Je ne souhaite pas apprendre le français.", negativeEn: "I do not wish to learn French.", question: "Qu’est-ce que je souhaite apprendre ?" },
+      { pronoun: "tu", form: "souhaites", full: "tu souhaites", ipa: "/ty swɛt/", en: "you wish / would like", example: "Tu souhaites bonne chance à Marie.", exampleEn: "You wish Marie good luck.", negative: "Tu ne souhaites pas bonne chance à Marie.", negativeEn: "You do not wish Marie good luck.", question: "À qui souhaites-tu bonne chance ?" },
+      { pronoun: "il", form: "souhaite", full: "il souhaite", ipa: "/il swɛt/", en: "he wishes / would like", example: "Il souhaite partir tôt.", exampleEn: "He would like to leave early.", negative: "Il ne souhaite pas partir tôt.", negativeEn: "He does not wish to leave early.", question: "Souhaite-t-il partir tôt ?" },
+      { pronoun: "elle", form: "souhaite", full: "elle souhaite", ipa: "/ɛl swɛt/", en: "she wishes / would like", example: "Elle souhaite bon voyage à Paul.", exampleEn: "She wishes Paul a good trip.", negative: "Elle ne souhaite pas bon voyage à Paul.", negativeEn: "She does not wish Paul a good trip.", question: "À qui souhaite-t-elle bon voyage ?" },
+      { pronoun: "nous", form: "souhaitons", full: "nous souhaitons", ipa: "/nu swe.tɔ̃/", en: "we wish / would like", example: "Nous souhaitons la bienvenue aux invités.", exampleEn: "We welcome the guests.", negative: "Nous ne souhaitons pas la bienvenue aux invités.", negativeEn: "We do not welcome the guests.", question: "À qui souhaitons-nous la bienvenue ?" },
+      { pronoun: "vous", form: "souhaitez", full: "vous souhaitez", ipa: "/vu swe.te/", en: "you wish / would like", example: "Vous souhaitez recevoir plus d’informations.", exampleEn: "You would like to receive more information.", negative: "Vous ne souhaitez pas recevoir plus d’informations.", negativeEn: "You do not wish to receive more information.", question: "Souhaitez-vous recevoir plus d’informations ?" },
+      { pronoun: "ils", form: "souhaitent", full: "ils souhaitent", ipa: "/il swɛt/", en: "they wish / would like", example: "Ils souhaitent que tout se passe bien.", exampleEn: "They hope everything goes well.", negative: "Ils ne souhaitent pas que tout se passe bien.", negativeEn: "They do not wish for everything to go well.", question: "Que souhaitent-ils ?" },
+      { pronoun: "elles", form: "souhaitent", full: "elles souhaitent", ipa: "/ɛl swɛt/", en: "they wish / would like", example: "Elles souhaitent beaucoup de bonheur à leurs amis.", exampleEn: "They wish their friends much happiness.", negative: "Elles ne souhaitent pas beaucoup de bonheur à leurs amis.", negativeEn: "They do not wish their friends much happiness.", question: "Que souhaitent-elles à leurs amis ?" }
+    ];
+
+    const seSouhaiterRows = [
+      { pronoun: "je", form: "me souhaite", full: "je me souhaite", ipa: "/ʒə mə swɛt/", en: "I wish myself", example: "Je me souhaite bonne chance.", exampleEn: "I wish myself good luck.", negative: "Je ne me souhaite pas bonne chance.", negativeEn: "I do not wish myself good luck.", question: "Qu’est-ce que je me souhaite ?" },
+      { pronoun: "tu", form: "te souhaites", full: "tu te souhaites", ipa: "/ty tə swɛt/", en: "you wish yourself", example: "Tu te souhaites bonne année.", exampleEn: "You wish yourself a happy New Year.", negative: "Tu ne te souhaites pas bonne année.", negativeEn: "You do not wish yourself a happy New Year.", question: "Te souhaites-tu bonne année ?" },
+      { pronoun: "il", form: "se souhaite", full: "il se souhaite", ipa: "/il sə swɛt/", en: "he wishes himself", example: "Il se souhaite du succès.", exampleEn: "He wishes himself success.", negative: "Il ne se souhaite pas de succès.", negativeEn: "He does not wish himself success.", question: "Que se souhaite-t-il ?" },
+      { pronoun: "elle", form: "se souhaite", full: "elle se souhaite", ipa: "/ɛl sə swɛt/", en: "she wishes herself", example: "Elle se souhaite de belles vacances.", exampleEn: "She wishes herself a lovely vacation.", negative: "Elle ne se souhaite pas de belles vacances.", negativeEn: "She does not wish herself a lovely vacation.", question: "Que se souhaite-t-elle ?" },
+      { pronoun: "nous", form: "nous souhaitons", full: "nous nous souhaitons", ipa: "/nu nu swe.tɔ̃/", en: "we wish each other", example: "Nous nous souhaitons bonne chance avant le départ.", exampleEn: "We wish each other good luck before leaving.", negative: "Nous ne nous souhaitons pas bonne chance avant le départ.", negativeEn: "We do not wish each other good luck before leaving.", question: "Quand nous souhaitons-nous bonne chance ?" },
+      { pronoun: "vous", form: "vous souhaitez", full: "vous vous souhaitez", ipa: "/vu vu swe.te/", en: "you wish each other / yourself", example: "Vous vous souhaitez bonne journée.", exampleEn: "You wish each other a good day.", negative: "Vous ne vous souhaitez pas bonne journée.", negativeEn: "You do not wish each other a good day.", question: "Vous souhaitez-vous bonne journée ?" },
+      { pronoun: "ils", form: "se souhaitent", full: "ils se souhaitent", ipa: "/il sə swɛt/", en: "they wish each other", example: "Ils se souhaitent bonne nuit.", exampleEn: "They wish each other good night.", negative: "Ils ne se souhaitent pas bonne nuit.", negativeEn: "They do not wish each other good night.", question: "Se souhaitent-ils bonne nuit ?" },
+      { pronoun: "elles", form: "se souhaitent", full: "elles se souhaitent", ipa: "/ɛl sə swɛt/", en: "they wish each other", example: "Elles se souhaitent bonne année.", exampleEn: "They wish each other a happy New Year.", negative: "Elles ne se souhaitent pas bonne année.", negativeEn: "They do not wish each other a happy New Year.", question: "Que se souhaitent-elles ?" }
+    ];
+
     const grammarVerbConfigs = [
       { tab: "grammar", tableId: "etreTable", rows: etreRows },
       { tab: "grammar", tableId: "avoirTable", rows: avoirRows }
@@ -1734,6 +1756,23 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "souhaiter",
+        group: "regularEr",
+        label: "souhaiter",
+        title: "Souhaiter — to wish / would like",
+        tag: "regular -er",
+        descriptionHtml: "Use <strong>souhaiter + infinitive</strong> to express what you would like to do: <strong>Je souhaite partir.</strong> Use <strong>souhaiter quelque chose à quelqu’un</strong> to wish someone something: <strong>Je souhaite bonne chance à Marie</strong> → <strong>Je lui souhaite bonne chance.</strong> With a recipient and an infinitive, use <strong>de</strong>: <strong>Je lui souhaite de réussir.</strong> <strong>Souhaiter que</strong> takes the subjunctive: <strong>Je souhaite qu’il réussisse.</strong>",
+        rows: souhaiterRows
+      },
+      {
+        key: "seSouhaiter",
+        group: "pronominal",
+        label: "se souhaiter",
+        title: "Se souhaiter — to wish each other / oneself",
+        descriptionHtml: "<strong>Se souhaiter</strong> is commonly reciprocal: <strong>Ils se souhaitent bonne nuit.</strong> Singular forms can mean wishing something to oneself, but are less common. In <strong>souhaiter quelque chose à quelqu’un</strong>, the recipient is indirect, so <strong>se</strong> does not trigger agreement: <strong>elles se sont souhaité bonne chance</strong>. A separate preceding direct object can trigger agreement: <strong>les bonnes choses qu’elles se sont souhaitées</strong>.",
+        rows: seSouhaiterRows
+      },
       {
         key: "controler",
         group: "regularEr",

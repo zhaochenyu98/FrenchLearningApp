@@ -48,10 +48,16 @@ ready for editorial enrichment without inventing provenance for existing text.
 - `tenses.js` references `verbId` explicitly. Both ordinary and être-auxiliary
   lookups use IDs; display-name normalization is no longer a runtime join.
 - `verb-usage.js` owns named sentence complements shared across tense generators.
+- `verb-prepositions.js` owns the audited à/de constructions, bilingual examples,
+  and usage notes shared by ordinary and pronominal verb cards. Every verb is
+  classified in `byVerb` or `withoutUsage`. Examples join the present lesson with
+  permanent `preposition:<construction-id>:statement` IDs; existing sentence IDs
+  stay unchanged. Partitive articles and generic time adjuncts are not counted
+  as prepositional verb constructions.
 - `simple-tense-morphology.js` owns future/conditional stems and form generation.
   Future and conditional can each load without the other, imperfect, or past data.
-- `content-catalog.js` adapts the current authoring structures into 128 verb
-  records and 733 available verb/tense lessons. Unsupported imperatives are absent.
+- `content-catalog.js` adapts the current authoring structures into 130 verb
+  records and 744 available verb/tense lessons. Unsupported imperatives are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.
 - `app.js` registers topic references using stable section IDs and plain text.

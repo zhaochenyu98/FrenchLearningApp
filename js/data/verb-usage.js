@@ -3,6 +3,7 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    souhaiter: Object.freeze({"frComplement": "la bienvenue aux invités", "enPredicate": "welcome the guests"}),
     controler: Object.freeze({"frComplement": "les billets à l’entrée", "enPredicate": "check the tickets at the entrance"}),
     occuper: Object.freeze({"frComplement": "les enfants avec des jeux", "enPredicate": "keep the children busy with games"}),
     etreVerb: Object.freeze({"frComplement": "souvent fatigués après le travail", "enPredicate": "be tired after work"}),
@@ -97,6 +98,7 @@
   });
 
   const pronominalUsage = Object.freeze({
+    seSouhaiter: Object.freeze({"frComplement": "bonne chance avant le départ", "enPredicate": "wish each other good luck before leaving"}),
     seControler: Object.freeze({"frComplement": "sous pression", "enPredicate": "keep our composure under pressure"}),
     sAbonner: Object.freeze({"frComplement": "au journal local", "enPredicate": "subscribe to the local newspaper"}),
     sOccuper: Object.freeze({"frComplement": "de ce projet", "enPredicate": "handle this project"}),

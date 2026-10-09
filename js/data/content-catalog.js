@@ -50,6 +50,12 @@
 
   function registerLesson(verb, tenseId, rows, sentences) {
     const id = `lesson:${verb.id}:${tenseId}`;
+    const examples = sentences ? sentenceSet(`${id}:examples`, sentences) : presentExamples(rows, id);
+    if (tenseId === "present") {
+      data.verbPrepositions.getByVerbId(verb.id).forEach(usage => examples.push({
+        ...usage, id: `${id}:examples:preposition:${usage.id}:statement`, kind: "statement"
+      }));
+    }
     return catalog.register({
       id, kind: "lesson", verbId: verb.id, tenseId,
       title: `${verb.label} · ${catalog.get(`tense:${tenseId}`).title}`,
@@ -59,7 +65,7 @@
         form: row.form, fr: row.full || row.form,
         ipa: row.ipa || verbPhraseIpa[row.full], en: row.en || ""
       })),
-      examples: sentences ? sentenceSet(`${id}:examples`, sentences) : presentExamples(rows, id)
+      examples
     });
   }
 

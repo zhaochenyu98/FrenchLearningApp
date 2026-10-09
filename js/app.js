@@ -1037,6 +1037,8 @@
 
       panel.append(header, description);
       if (highlights.children.length) panel.appendChild(highlights);
+      const prepositionUsage = FR.renderers.verbPrepositions.createSection(item.key);
+      if (prepositionUsage) panel.appendChild(prepositionUsage);
       panel.appendChild(table);
       try {
         renderVerbTable(table, item.rows);
@@ -1676,7 +1678,7 @@
         });
         const lessonText = record.kind === "lesson" ? [
           record.forms.map(form => [form.fr, form.ipa, form.en]),
-          record.examples.map(example => [example.fr, example.en])
+          record.examples.map(example => [example.pattern, example.meaning, example.fr, example.en, example.note])
         ] : record.body;
         entries.push({ id, title, category: topicTitle(tab), text: [lessonText, text], destination: { tab, ...destination } });
       }
@@ -1718,7 +1720,7 @@
         });
       }));
       FR.data.pronominalVerbs.items.forEach(item => {
-        add(`pronominal:${item.id}`, `${item.infinitive} · Pronominal verb`, "pronominal", item, {
+        add(`pronominal:${item.id}`, `${item.infinitive} · Pronominal verb`, "pronominal", [item, FR.data.verbPrepositions.getByVerbId(item.id)], {
           targetId: `pronominal-verb-${slug(item.id)}`
         });
       });

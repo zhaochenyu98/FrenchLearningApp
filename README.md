@@ -59,7 +59,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-The browser suite runs eight scenarios at desktop and 390 px mobile widths
+The browser suite runs nine scenarios at desktop and 390 px mobile widths
 (16 tests), including direct `file://` opening. It starts and stops its own local
 server on port 8893. Pull requests and pushes to `main` run both suites; failed
 browser checks retain a trace artifact. See [the testing guide](docs/testing.md).
