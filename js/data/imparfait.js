@@ -86,6 +86,16 @@
   });
 
   const presentAlternations = Object.freeze({
+    recevoir: Object.freeze({
+      present: "je reçois",
+      nous: "nous recevons",
+      imparfait: "je recevais"
+    }),
+    completer: Object.freeze({
+      present: "je complète",
+      nous: "nous complétons",
+      imparfait: "je complétais"
+    }),
     payer: Object.freeze({
       present: "je paie",
       nous: "nous payons",
@@ -144,6 +154,13 @@
   });
 
   const impersonalMappings = Object.freeze({
+    impersonalValoir: Object.freeze({
+      persons: Object.freeze(["il"]),
+      stemOverride: "val",
+      formulaSource: "nous valons (valoir)",
+      prefix: "il ",
+      note: "This card focuses on the fixed expression il valait mieux. The stem val- comes from the personal form nous valons."
+    }),
     sAgir: Object.freeze({
       persons: Object.freeze(["il"]),
       stemOverride: "s’agiss",
@@ -206,6 +223,7 @@
   // Broad phonemic stems keep the derived paradigms compact while still
   // preserving pronunciation changes such as fais- /fəz/ and buv- /byv/.
   const ipaStems = Object.freeze({
+    impersonalValoir: "val",
     etreVerb: "et",
     avoirVerb: "av",
     aller: "al",
@@ -389,6 +407,14 @@
       "It was not about the new project.",
       "De quoi s’agissait-il ?",
       "What was it about?"
+    ),
+    impersonalValoir: exampleSet(
+      "Il valait mieux réserver à l’avance.",
+      "It was better to book in advance.",
+      "Il valait mieux ne pas attendre le dernier moment.",
+      "It was better not to wait until the last moment.",
+      "Valait-il mieux réserver à l’avance ?",
+      "Was it better to book in advance?"
     ),
     falloir: exampleSet(
       "Il fallait réserver à l’avance.",

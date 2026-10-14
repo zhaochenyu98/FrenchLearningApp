@@ -10,6 +10,48 @@
         },
         verbs: [
           {
+            verbId: "completer",
+            infinitive: "compléter",
+            infinitiveIpa: "/kɔ̃.ple.te/",
+            meaning: "to complete / supplement",
+            auxiliary: "avoir",
+            pastParticiple: "complété",
+            pastParticipleIpa: "/kɔ̃.ple.te/",
+            pattern: "compléter → complété",
+            note: "Regular -er participle with avoir. Keep both acute accents in complété; the present-tense è does not carry over.",
+            statement: { fr: "Nous avons complété le dossier avec les pièces manquantes.", en: "We completed the file with the missing documents." },
+            negative: { fr: "Nous n’avons pas complété le dossier avec les pièces manquantes.", en: "We did not complete the file with the missing documents." },
+            question: { fr: "Avez-vous complété le dossier avec les pièces manquantes ?", en: "Did you complete the file with the missing documents?" }
+          },
+          {
+            verbId: "donner",
+            infinitive: "donner",
+            infinitiveIpa: "/dɔ.ne/",
+            meaning: "to give",
+            auxiliary: "avoir",
+            pastParticiple: "donné",
+            pastParticipleIpa: "/dɔ.ne/",
+            pattern: "donner → donné",
+            note: "Regular -er past participle with avoir. The recipient introduced by à is indirect and does not trigger agreement.",
+            statement: { fr: "Nous avons donné un livre à Marie.", en: "We gave Marie a book." },
+            negative: { fr: "Nous n’avons pas donné de livre à Marie.", en: "We did not give Marie a book." },
+            question: { fr: "Avez-vous donné un livre à Marie ?", en: "Did you give Marie a book?" }
+          },
+          {
+            verbId: "bouger",
+            infinitive: "bouger",
+            infinitiveIpa: "/bu.ʒe/",
+            meaning: "to move / stir",
+            auxiliary: "avoir",
+            pastParticiple: "bougé",
+            pastParticipleIpa: "/bu.ʒe/",
+            pattern: "bouger → bougé",
+            note: "Regular -er participle with avoir, including when bouger means to move oneself: nous avons bougé.",
+            statement: { fr: "Nous avons bougé pendant la pause.", en: "We moved around during the break." },
+            negative: { fr: "Nous n’avons pas bougé pendant la pause.", en: "We did not move during the break." },
+            question: { fr: "Avez-vous bougé pendant la pause ?", en: "Did you move during the break?" }
+          },
+          {
             verbId: "souhaiter",
             infinitive: "souhaiter",
             infinitiveIpa: "/swe.te/",
@@ -708,6 +750,20 @@
             question: { fr: "Est-ce que j’ai déjà fini mes devoirs ?", en: "Have I already finished my homework?" }
           },
           {
+            verbId: "reflechir",
+            infinitive: "réfléchir",
+            infinitiveIpa: "/ʁe.fle.ʃiʁ/",
+            meaning: "to think / reflect / consider",
+            auxiliary: "avoir",
+            pastParticiple: "réfléchi",
+            pastParticipleIpa: "/ʁe.fle.ʃi/",
+            pattern: "réfléchir → réfléchi",
+            note: "Regular -ir → -i past participle with avoir. Keep both accents in réfléchi.",
+            statement: { fr: "Nous avons réfléchi à cette question.", en: "We thought about this question." },
+            negative: { fr: "Nous n’avons pas réfléchi à cette question.", en: "We did not think about this question." },
+            question: { fr: "Avez-vous réfléchi à cette question ?", en: "Did you think about this question?" }
+          },
+          {
             verbId: "agrandir",
             infinitive: "agrandir",
             infinitiveIpa: "/a.ɡʁɑ̃.diʁ/",
@@ -776,6 +832,20 @@
         },
         verbs: [
           {
+            verbId: "perdre",
+            infinitive: "perdre",
+            infinitiveIpa: "/pɛʁdʁ/",
+            meaning: "to lose",
+            auxiliary: "avoir",
+            pastParticiple: "perdu",
+            pastParticipleIpa: "/pɛʁ.dy/",
+            pattern: "perdre → perdu",
+            note: "Regular -re past participle with avoir. Drop -re and add -u: perdre → perdu.",
+            statement: { fr: "J’ai perdu mes clés.", en: "I lost my keys." },
+            negative: { fr: "Je n’ai pas perdu mes clés.", en: "I did not lose my keys." },
+            question: { fr: "As-tu perdu tes clés ?", en: "Did you lose your keys?" }
+          },
+          {
             verbId: "attendre",
             infinitive: "attendre",
             infinitiveIpa: "/atɑ̃dʁ/",
@@ -801,6 +871,34 @@
           examples: "Statement / negation / question"
         },
         verbs: [
+          {
+            verbId: "recevoir",
+            infinitive: "recevoir",
+            infinitiveIpa: "/ʁə.sə.vwaʁ/",
+            meaning: "to receive / welcome / host",
+            auxiliary: "avoir",
+            pastParticiple: "reçu",
+            pastParticipleIpa: "/ʁə.sy/",
+            pattern: "recevoir → reçu",
+            note: "Irregular past participle with avoir. Keep the cedilla in reçu to preserve /s/ before u.",
+            statement: { fr: "Nous avons reçu des nouvelles de nos amis.", en: "We received news from our friends." },
+            negative: { fr: "Nous n’avons pas reçu de nouvelles de nos amis.", en: "We did not receive news from our friends." },
+            question: { fr: "Avez-vous reçu des nouvelles de vos amis ?", en: "Did you receive news from your friends?" }
+          },
+          {
+            verbId: "impersonalValoir",
+            infinitive: "valoir",
+            infinitiveIpa: "/va.lwaʁ/",
+            meaning: "to be worth; il vaut mieux: it is better",
+            auxiliary: "avoir",
+            pastParticiple: "valu",
+            pastParticipleIpa: "/va.ly/",
+            pattern: "valoir → valu; il vaut mieux → il a mieux valu",
+            note: "Irregular participle with avoir. In the impersonal expression, place mieux before valu: il a mieux valu. Keep valu invariable here.",
+            statement: { fr: "Il a mieux valu attendre le lendemain.", en: "It was better to wait until the next day." },
+            negative: { fr: "Il a mieux valu ne pas partir seul.", en: "It was better not to leave alone." },
+            question: { fr: "A-t-il mieux valu attendre le lendemain ?", en: "Was it better to wait until the next day?" }
+          },
           {
             verbId: "avoirVerb",
             infinitive: "avoir",
@@ -1066,6 +1164,20 @@
             statement: { fr: "Elle a beaucoup fait de sport.", en: "She exercised a lot." },
             negative: { fr: "Elle n’a pas beaucoup fait de sport.", en: "She did not exercise a lot." },
             question: { fr: "A-t-elle beaucoup fait de sport ?", en: "Did she exercise a lot?" }
+          },
+          {
+            verbId: "permettre",
+            infinitive: "permettre",
+            infinitiveIpa: "/pɛʁ.mɛtʁ/",
+            meaning: "to allow / permit / enable",
+            auxiliary: "avoir",
+            pastParticiple: "permis",
+            pastParticipleIpa: "/pɛʁ.mi/",
+            pattern: "permettre → permis",
+            note: "Irregular participle in the mettre family: mettre → mis, permettre → permis. The person introduced by à is indirect.",
+            statement: { fr: "Nous avons permis aux élèves d’utiliser un dictionnaire.", en: "We allowed the students to use a dictionary." },
+            negative: { fr: "Nous n’avons pas permis aux élèves d’utiliser un dictionnaire.", en: "We did not allow the students to use a dictionary." },
+            question: { fr: "Avez-vous permis aux élèves d’utiliser un dictionnaire ?", en: "Did you allow the students to use a dictionary?" }
           },
           {
             verbId: "mettre",

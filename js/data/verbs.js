@@ -1437,6 +1437,17 @@
       { pronoun: "elles", form: "suppriment", full: "elles suppriment", ipa: "/ɛl sy.pʁim/", en: "they delete / remove", example: "Elles suppriment leurs anciens comptes.", exampleEn: "They delete their old accounts.", negative: "Elles ne suppriment pas leurs anciens comptes.", negativeEn: "They do not delete their old accounts.", question: "Quels comptes suppriment-elles ?" }
     ];
 
+    const impersonalValoirRows = [
+      {
+        pronoun: "il", form: "vaut", full: "il vaut", ipa: "/il vo/", en: "it is worth; with mieux: it is better",
+        examples: [
+          { id: "mieux-infinitive", meaning: "il vaut mieux + infinitive — it is better to", fr: "Il vaut mieux réserver à l’avance.", en: "It is better to book in advance.", negative: "Il vaut mieux ne pas attendre le dernier moment.", negativeEn: "It is better not to wait until the last moment.", question: "Vaut-il mieux réserver à l’avance ?" },
+          { id: "mieux-subjunctive", meaning: "il vaut mieux que + subjunctive", fr: "Il vaut mieux que tu partes tôt.", en: "It is better for you to leave early.", negative: "Il vaut mieux que tu ne partes pas seul.", negativeEn: "It is better for you not to leave alone.", question: "Vaut-il mieux que tu partes tôt ?" },
+          { id: "worth-referential-il", meaning: "il vaut — it is worth (il refers to an object)", fr: "Ce vélo est ancien, mais il vaut encore cent euros.", en: "This bicycle is old, but it is still worth one hundred euros.", negative: "Il ne vaut pas cent euros.", negativeEn: "It is not worth one hundred euros.", question: "Combien vaut ce vélo ?" }
+        ]
+      }
+    ];
+
     const falloirRows = [
       { pronoun: "il", form: "faut", full: "il faut", en: "one must / needs to", example: "Il faut réserver une table.", exampleEn: "We need to reserve a table.", negative: "Il ne faut pas réserver de table.", negativeEn: "We must not reserve a table.", question: "Faut-il réserver une table ?" }
     ];
@@ -1677,6 +1688,83 @@
       { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
     ];
 
+    const permettreRows = [
+      { pronoun: "je", form: "permets", full: "je permets", ipa: "/ʒə pɛʁ.mɛ/", en: "I allow / permit", example: "Je permets à Paul de sortir.", exampleEn: "I allow Paul to go out.", negative: "Je ne permets pas à Paul de sortir.", negativeEn: "I do not allow Paul to go out.", question: "À qui est-ce que je permets de sortir ?" },
+      { pronoun: "tu", form: "permets", full: "tu permets", ipa: "/ty pɛʁ.mɛ/", en: "you allow / permit", example: "Tu permets aux enfants de jouer dehors.", exampleEn: "You allow the children to play outside.", negative: "Tu ne permets pas aux enfants de jouer dehors.", negativeEn: "You do not allow the children to play outside.", question: "Permets-tu aux enfants de jouer dehors ?" },
+      { pronoun: "il", form: "permet", full: "il permet", ipa: "/il pɛʁ.mɛ/", en: "he allows / permits", example: "Il permet le stationnement devant sa maison.", exampleEn: "He allows parking in front of his house.", negative: "Il ne permet pas le stationnement devant sa maison.", negativeEn: "He does not allow parking in front of his house.", question: "Permet-il le stationnement devant sa maison ?" },
+      { pronoun: "elle", form: "permet", full: "elle permet", ipa: "/ɛl pɛʁ.mɛ/", en: "she allows / permits", example: "Elle permet à sa fille de rentrer plus tard.", exampleEn: "She allows her daughter to come home later.", negative: "Elle ne permet pas à sa fille de rentrer plus tard.", negativeEn: "She does not allow her daughter to come home later.", question: "Que permet-elle à sa fille de faire ?" },
+      { pronoun: "nous", form: "permettons", full: "nous permettons", ipa: "/nu pɛʁ.mɛ.tɔ̃/", en: "we allow / permit", example: "Nous permettons aux élèves d’utiliser un dictionnaire.", exampleEn: "We allow the students to use a dictionary.", negative: "Nous ne permettons pas aux élèves d’utiliser un dictionnaire.", negativeEn: "We do not allow the students to use a dictionary.", question: "Permettons-nous aux élèves d’utiliser un dictionnaire ?" },
+      { pronoun: "vous", form: "permettez", full: "vous permettez", ipa: "/vu pɛʁ.mɛ.te/", en: "you allow / permit", example: "Vous permettez aux visiteurs de prendre des photos.", exampleEn: "You allow the visitors to take photos.", negative: "Vous ne permettez pas aux visiteurs de prendre des photos.", negativeEn: "You do not allow the visitors to take photos.", question: "Que permettez-vous aux visiteurs de faire ?" },
+      { pronoun: "ils", form: "permettent", full: "ils permettent", ipa: "/il pɛʁ.mɛt/", en: "they allow / permit", example: "Ils permettent à leurs amis de rester.", exampleEn: "They allow their friends to stay.", negative: "Ils ne permettent pas à leurs amis de rester.", negativeEn: "They do not allow their friends to stay.", question: "À qui permettent-ils de rester ?" },
+      { pronoun: "elles", form: "permettent", full: "elles permettent", ipa: "/ɛl pɛʁ.mɛt/", en: "they allow / permit", example: "Elles permettent une pause après l’exercice.", exampleEn: "They allow a break after the exercise.", negative: "Elles ne permettent pas de pause après l’exercice.", negativeEn: "They do not allow a break after the exercise.", question: "Permettent-elles une pause après l’exercice ?" }
+    ];
+
+    const recevoirRows = [
+      { pronoun: "je", form: "reçois", full: "je reçois", ipa: "/ʒə ʁə.swa/", en: "I receive", example: "Je reçois une lettre de Marie.", exampleEn: "I receive a letter from Marie.", negative: "Je ne reçois pas de lettre de Marie.", negativeEn: "I do not receive a letter from Marie.", question: "De qui est-ce que je reçois une lettre ?" },
+      { pronoun: "tu", form: "reçois", full: "tu reçois", ipa: "/ty ʁə.swa/", en: "you receive", example: "Tu reçois une invitation.", exampleEn: "You receive an invitation.", negative: "Tu ne reçois pas d’invitation.", negativeEn: "You do not receive an invitation.", question: "Reçois-tu une invitation ?" },
+      { pronoun: "il", form: "reçoit", full: "il reçoit", ipa: "/il ʁə.swa/", en: "he receives", example: "Il reçoit un colis.", exampleEn: "He receives a package.", negative: "Il ne reçoit pas de colis.", negativeEn: "He does not receive a package.", question: "Reçoit-il un colis ?" },
+      { pronoun: "elle", form: "reçoit", full: "elle reçoit", ipa: "/ɛl ʁə.swa/", en: "she receives / hosts", example: "Elle reçoit ses amis ce soir.", exampleEn: "She hosts her friends this evening.", negative: "Elle ne reçoit pas ses amis ce soir.", negativeEn: "She does not host her friends this evening.", question: "Qui reçoit-elle ce soir ?" },
+      { pronoun: "nous", form: "recevons", full: "nous recevons", ipa: "/nu ʁə.sə.vɔ̃/", en: "we receive", example: "Nous recevons des nouvelles de nos amis.", exampleEn: "We receive news from our friends.", negative: "Nous ne recevons pas de nouvelles de nos amis.", negativeEn: "We do not receive news from our friends.", question: "De qui recevons-nous des nouvelles ?" },
+      { pronoun: "vous", form: "recevez", full: "vous recevez", ipa: "/vu ʁə.sə.ve/", en: "you receive", example: "Vous recevez un message important.", exampleEn: "You receive an important message.", negative: "Vous ne recevez pas de message important.", negativeEn: "You do not receive an important message.", question: "Quel message recevez-vous ?" },
+      { pronoun: "ils", form: "reçoivent", full: "ils reçoivent", ipa: "/il ʁə.swav/", en: "they receive", example: "Ils reçoivent des cadeaux.", exampleEn: "They receive gifts.", negative: "Ils ne reçoivent pas de cadeaux.", negativeEn: "They do not receive any gifts.", question: "Quels cadeaux reçoivent-ils ?" },
+      { pronoun: "elles", form: "reçoivent", full: "elles reçoivent", ipa: "/ɛl ʁə.swav/", en: "they receive / welcome", example: "Elles reçoivent les clients au bureau.", exampleEn: "They welcome the clients at the office.", negative: "Elles ne reçoivent pas les clients au bureau.", negativeEn: "They do not welcome the clients at the office.", question: "Où reçoivent-elles les clients ?" }
+    ];
+
+    const completerRows = [
+      { pronoun: "je", form: "complète", full: "je complète", ipa: "/ʒə kɔ̃.plɛt/", en: "I complete / supplement", example: "Je complète la série avec le dernier volume.", exampleEn: "I complete the series with the final volume.", negative: "Je ne complète pas la série avec le dernier volume.", negativeEn: "I do not complete the series with the final volume.", question: "Avec quel volume est-ce que je complète la série ?" },
+      { pronoun: "tu", form: "complètes", full: "tu complètes", ipa: "/ty kɔ̃.plɛt/", en: "you complete / supplement", example: "Tu complètes cette phrase avec un mot.", exampleEn: "You complete this sentence with a word.", negative: "Tu ne complètes pas cette phrase avec un mot.", negativeEn: "You do not complete this sentence with a word.", question: "Complètes-tu cette phrase avec un mot ?" },
+      { pronoun: "il", form: "complète", full: "il complète", ipa: "/il kɔ̃.plɛt/", en: "he completes / supplements", example: "Il complète sa collection.", exampleEn: "He completes his collection.", negative: "Il ne complète pas sa collection.", negativeEn: "He does not complete his collection.", question: "Quelle collection complète-t-il ?" },
+      { pronoun: "elle", form: "complète", full: "elle complète", ipa: "/ɛl kɔ̃.plɛt/", en: "she completes / supplements", example: "Elle complète la liste avec les noms manquants.", exampleEn: "She adds the missing names to the list.", negative: "Elle ne complète pas la liste avec les noms manquants.", negativeEn: "She does not add the missing names to the list.", question: "Complète-t-elle la liste avec les noms manquants ?" },
+      { pronoun: "nous", form: "complétons", full: "nous complétons", ipa: "/nu kɔ̃.ple.tɔ̃/", en: "we complete / supplement", example: "Nous complétons le dossier avec les pièces manquantes.", exampleEn: "We complete the file with the missing documents.", negative: "Nous ne complétons pas le dossier avec les pièces manquantes.", negativeEn: "We do not complete the file with the missing documents.", question: "Complétons-nous le dossier avec les pièces manquantes ?" },
+      { pronoun: "vous", form: "complétez", full: "vous complétez", ipa: "/vu kɔ̃.ple.te/", en: "you complete / supplement", example: "Vous complétez le tableau avec les données manquantes.", exampleEn: "You complete the table with the missing data.", negative: "Vous ne complétez pas le tableau avec les données manquantes.", negativeEn: "You do not complete the table with the missing data.", question: "Quel tableau complétez-vous ?" },
+      { pronoun: "ils", form: "complètent", full: "ils complètent", ipa: "/il kɔ̃.plɛt/", en: "they complete / supplement", example: "Ils complètent leur formation par un stage.", exampleEn: "They supplement their training with an internship.", negative: "Ils ne complètent pas leur formation par un stage.", negativeEn: "They do not supplement their training with an internship.", question: "Comment complètent-ils leur formation ?" },
+      { pronoun: "elles", form: "complètent", full: "elles complètent", ipa: "/ɛl kɔ̃.plɛt/", en: "they complete / supplement", example: "Elles complètent le texte par une conclusion.", exampleEn: "They complete the text by adding a conclusion.", negative: "Elles ne complètent pas le texte par une conclusion.", negativeEn: "They do not complete the text by adding a conclusion.", question: "Complètent-elles le texte par une conclusion ?" }
+    ];
+
+    const reflechirRows = [
+      { pronoun: "je", form: "réfléchis", full: "je réfléchis", ipa: "/ʒə ʁe.fle.ʃi/", en: "I think / reflect", example: "Je réfléchis à ce problème.", exampleEn: "I think about this problem.", negative: "Je ne réfléchis pas à ce problème.", negativeEn: "I do not think about this problem.", question: "À quoi est-ce que je réfléchis ?" },
+      { pronoun: "tu", form: "réfléchis", full: "tu réfléchis", ipa: "/ty ʁe.fle.ʃi/", en: "you think / reflect", example: "Tu réfléchis avant de répondre.", exampleEn: "You think before answering.", negative: "Tu ne réfléchis pas avant de répondre.", negativeEn: "You do not think before answering.", question: "Réfléchis-tu avant de répondre ?" },
+      { pronoun: "il", form: "réfléchit", full: "il réfléchit", ipa: "/il ʁe.fle.ʃi/", en: "he thinks / reflects", example: "Il réfléchit aux conséquences.", exampleEn: "He thinks about the consequences.", negative: "Il ne réfléchit pas aux conséquences.", negativeEn: "He does not think about the consequences.", question: "À quoi réfléchit-il ?" },
+      { pronoun: "elle", form: "réfléchit", full: "elle réfléchit", ipa: "/ɛl ʁe.fle.ʃi/", en: "she thinks / reflects", example: "Elle réfléchit à son avenir.", exampleEn: "She thinks about her future.", negative: "Elle ne réfléchit pas à son avenir.", negativeEn: "She does not think about her future.", question: "Réfléchit-elle à son avenir ?" },
+      { pronoun: "nous", form: "réfléchissons", full: "nous réfléchissons", ipa: "/nu ʁe.fle.ʃi.sɔ̃/", en: "we think / reflect", example: "Nous réfléchissons ensemble à une solution.", exampleEn: "We think about a solution together.", negative: "Nous ne réfléchissons pas ensemble à une solution.", negativeEn: "We do not think about a solution together.", question: "Réfléchissons-nous ensemble à une solution ?" },
+      { pronoun: "vous", form: "réfléchissez", full: "vous réfléchissez", ipa: "/vu ʁe.fle.ʃi.se/", en: "you think / reflect", example: "Vous réfléchissez sur cette question.", exampleEn: "You reflect on this question.", negative: "Vous ne réfléchissez pas sur cette question.", negativeEn: "You do not reflect on this question.", question: "Sur quelle question réfléchissez-vous ?" },
+      { pronoun: "ils", form: "réfléchissent", full: "ils réfléchissent", ipa: "/il ʁe.fle.ʃis/", en: "they think / reflect", example: "Ils réfléchissent avant d’agir.", exampleEn: "They think before acting.", negative: "Ils ne réfléchissent pas avant d’agir.", negativeEn: "They do not think before acting.", question: "Réfléchissent-ils avant d’agir ?" },
+      { pronoun: "elles", form: "réfléchissent", full: "elles réfléchissent", ipa: "/ɛl ʁe.fle.ʃis/", en: "they think / reflect", example: "Elles réfléchissent à la proposition.", exampleEn: "They think about the proposal.", negative: "Elles ne réfléchissent pas à la proposition.", negativeEn: "They do not think about the proposal.", question: "À quelle proposition réfléchissent-elles ?" }
+    ];
+
+    const donnerRows = [
+      { pronoun: "je", form: "donne", full: "je donne", ipa: "/ʒə dɔn/", en: "I give", example: "Je donne un livre à Marie.", exampleEn: "I give Marie a book.", negative: "Je ne donne pas de livre à Marie.", negativeEn: "I do not give Marie a book.", question: "À qui est-ce que je donne un livre ?" },
+      { pronoun: "tu", form: "donnes", full: "tu donnes", ipa: "/ty dɔn/", en: "you give", example: "Tu donnes ton adresse à Paul.", exampleEn: "You give Paul your address.", negative: "Tu ne donnes pas ton adresse à Paul.", negativeEn: "You do not give Paul your address.", question: "Donnes-tu ton adresse à Paul ?" },
+      { pronoun: "il", form: "donne", full: "il donne", ipa: "/il dɔn/", en: "he gives", example: "Il donne du pain aux oiseaux.", exampleEn: "He gives bread to the birds.", negative: "Il ne donne pas de pain aux oiseaux.", negativeEn: "He does not give bread to the birds.", question: "Que donne-t-il aux oiseaux ?" },
+      { pronoun: "elle", form: "donne", full: "elle donne", ipa: "/ɛl dɔn/", en: "she gives", example: "Elle donne un cours de français.", exampleEn: "She teaches a French class.", negative: "Elle ne donne pas de cours de français.", negativeEn: "She does not teach a French class.", question: "Quel cours donne-t-elle ?" },
+      { pronoun: "nous", form: "donnons", full: "nous donnons", ipa: "/nu dɔ.nɔ̃/", en: "we give", example: "Nous donnons des conseils aux enfants.", exampleEn: "We give advice to the children.", negative: "Nous ne donnons pas de conseils aux enfants.", negativeEn: "We do not give advice to the children.", question: "À qui donnons-nous des conseils ?" },
+      { pronoun: "vous", form: "donnez", full: "vous donnez", ipa: "/vu dɔ.ne/", en: "you give", example: "Vous donnez votre avis.", exampleEn: "You give your opinion.", negative: "Vous ne donnez pas votre avis.", negativeEn: "You do not give your opinion.", question: "Donnez-vous votre avis ?" },
+      { pronoun: "ils", form: "donnent", full: "ils donnent", ipa: "/il dɔn/", en: "they give", example: "Ils donnent leurs anciens vêtements à une association.", exampleEn: "They give their old clothes to a charity.", negative: "Ils ne donnent pas leurs anciens vêtements à une association.", negativeEn: "They do not give their old clothes to a charity.", question: "À qui donnent-ils leurs anciens vêtements ?" },
+      { pronoun: "elles", form: "donnent", full: "elles donnent", ipa: "/ɛl dɔn/", en: "they give", example: "Elles donnent à manger au chat.", exampleEn: "They feed the cat.", negative: "Elles ne donnent pas à manger au chat.", negativeEn: "They do not feed the cat.", question: "Donnent-elles à manger au chat ?" }
+    ];
+
+    const perdreRows = [
+      { pronoun: "je", form: "perds", full: "je perds", ipa: "/ʒə pɛʁ/", en: "I lose", example: "Je perds souvent mes clés.", exampleEn: "I often lose my keys.", negative: "Je ne perds pas souvent mes clés.", negativeEn: "I do not often lose my keys.", question: "Qu’est-ce que je perds souvent ?" },
+      { pronoun: "tu", form: "perds", full: "tu perds", ipa: "/ty pɛʁ/", en: "you lose", example: "Tu perds ton portefeuille.", exampleEn: "You lose your wallet.", negative: "Tu ne perds pas ton portefeuille.", negativeEn: "You do not lose your wallet.", question: "Perds-tu ton portefeuille ?" },
+      { pronoun: "il", form: "perd", full: "il perd", ipa: "/il pɛʁ/", en: "he loses", example: "Il perd le match.", exampleEn: "He loses the match.", negative: "Il ne perd pas le match.", negativeEn: "He does not lose the match.", question: "Perd-il le match ?" },
+      { pronoun: "elle", form: "perd", full: "elle perd", ipa: "/ɛl pɛʁ/", en: "she loses", example: "Elle perd du temps dans les embouteillages.", exampleEn: "She loses time in traffic.", negative: "Elle ne perd pas de temps dans les embouteillages.", negativeEn: "She does not lose time in traffic.", question: "Où perd-elle du temps ?" },
+      { pronoun: "nous", form: "perdons", full: "nous perdons", ipa: "/nu pɛʁ.dɔ̃/", en: "we lose", example: "Nous perdons notre chemin.", exampleEn: "We lose our way.", negative: "Nous ne perdons pas notre chemin.", negativeEn: "We do not lose our way.", question: "Perdons-nous notre chemin ?" },
+      { pronoun: "vous", form: "perdez", full: "vous perdez", ipa: "/vu pɛʁ.de/", en: "you lose", example: "Vous perdez patience.", exampleEn: "You lose patience.", negative: "Vous ne perdez pas patience.", negativeEn: "You do not lose patience.", question: "Perdez-vous patience ?" },
+      { pronoun: "ils", form: "perdent", full: "ils perdent", ipa: "/il pɛʁd/", en: "they lose", example: "Ils perdent des points.", exampleEn: "They lose points.", negative: "Ils ne perdent pas de points.", negativeEn: "They do not lose any points.", question: "Combien de points perdent-ils ?" },
+      { pronoun: "elles", form: "perdent", full: "elles perdent", ipa: "/ɛl pɛʁd/", en: "they lose", example: "Elles perdent leurs billets.", exampleEn: "They lose their tickets.", negative: "Elles ne perdent pas leurs billets.", negativeEn: "They do not lose their tickets.", question: "Quels billets perdent-elles ?" }
+    ];
+
+    const bougerRows = [
+      { pronoun: "je", form: "bouge", full: "je bouge", ipa: "/ʒə buʒ/", en: "I move", example: "Je bouge un peu chaque matin.", exampleEn: "I move around a little every morning.", negative: "Je ne bouge pas chaque matin.", negativeEn: "I do not move around every morning.", question: "Quand est-ce que je bouge un peu ?" },
+      { pronoun: "tu", form: "bouges", full: "tu bouges", ipa: "/ty buʒ/", en: "you move", example: "Tu bouges les bras pendant l’exercice.", exampleEn: "You move your arms during the exercise.", negative: "Tu ne bouges pas les bras pendant l’exercice.", negativeEn: "You do not move your arms during the exercise.", question: "Bouges-tu les bras pendant l’exercice ?" },
+      { pronoun: "il", form: "bouge", full: "il bouge", ipa: "/il buʒ/", en: "he moves", example: "Il bouge sur sa chaise.", exampleEn: "He fidgets in his chair.", negative: "Il ne bouge pas sur sa chaise.", negativeEn: "He does not fidget in his chair.", question: "Bouge-t-il sur sa chaise ?" },
+      { pronoun: "elle", form: "bouge", full: "elle bouge", ipa: "/ɛl buʒ/", en: "she moves", example: "Elle bouge la tête.", exampleEn: "She moves her head.", negative: "Elle ne bouge pas la tête.", negativeEn: "She does not move her head.", question: "Que bouge-t-elle ?" },
+      { pronoun: "nous", form: "bougeons", full: "nous bougeons", ipa: "/nu bu.ʒɔ̃/", en: "we move", example: "Nous bougeons un peu pendant la pause.", exampleEn: "We move around a little during the break.", negative: "Nous ne bougeons pas pendant la pause.", negativeEn: "We do not move during the break.", question: "Bougeons-nous pendant la pause ?" },
+      { pronoun: "vous", form: "bougez", full: "vous bougez", ipa: "/vu bu.ʒe/", en: "you move", example: "Vous bougez trop vite.", exampleEn: "You move too fast.", negative: "Vous ne bougez pas trop vite.", negativeEn: "You do not move too fast.", question: "Bougez-vous trop vite ?" },
+      { pronoun: "ils", form: "bougent", full: "ils bougent", ipa: "/il buʒ/", en: "they move", example: "Ils bougent les meubles.", exampleEn: "They move the furniture.", negative: "Ils ne bougent pas les meubles.", negativeEn: "They do not move the furniture.", question: "Quels meubles bougent-ils ?" },
+      { pronoun: "elles", form: "bougent", full: "elles bougent", ipa: "/ɛl buʒ/", en: "they move", example: "Elles bougent au rythme de la musique.", exampleEn: "They move to the rhythm of the music.", negative: "Elles ne bougent pas au rythme de la musique.", negativeEn: "They do not move to the rhythm of the music.", question: "Bougent-elles au rythme de la musique ?" }
+    ];
+
     const souhaiterRows = [
       { pronoun: "je", form: "souhaite", full: "je souhaite", ipa: "/ʒə swɛt/", en: "I wish / would like", example: "Je souhaite apprendre le français.", exampleEn: "I would like to learn French.", negative: "Je ne souhaite pas apprendre le français.", negativeEn: "I do not wish to learn French.", question: "Qu’est-ce que je souhaite apprendre ?" },
       { pronoun: "tu", form: "souhaites", full: "tu souhaites", ipa: "/ty swɛt/", en: "you wish / would like", example: "Tu souhaites bonne chance à Marie.", exampleEn: "You wish Marie good luck.", negative: "Tu ne souhaites pas bonne chance à Marie.", negativeEn: "You do not wish Marie good luck.", question: "À qui souhaites-tu bonne chance ?" },
@@ -1745,7 +1833,7 @@
         key: "impersonal",
         title: "Verbes impersonnels",
         indexTitle: "Impersonal",
-        descriptionHtml: "Most impersonal verbs keep the fixed subject <strong>il</strong>, which does not point to a person: <strong>il faut</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, <strong>il pleut</strong>, and <strong>il s’agit de</strong>. Spoken French also uses the fixed expression <strong>ça fait</strong> for elapsed time and effects. Learn these patterns as chunks."
+        descriptionHtml: "Most impersonal verbs keep the fixed subject <strong>il</strong>, which does not point to a person: <strong>il faut</strong>, <strong>il vaut mieux</strong>, <strong>il y a</strong>, <strong>il fait</strong>, <strong>il est</strong>, <strong>il pleut</strong>, and <strong>il s’agit de</strong>. Spoken French also uses the fixed expression <strong>ça fait</strong> for elapsed time and effects. Learn these patterns as chunks."
       },
       {
         key: "pronominal",
@@ -1756,6 +1844,69 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "permettre",
+        group: "irregular",
+        label: "permettre",
+        title: "Permettre — to allow / permit / enable",
+        tag: "irregular, mettre family",
+        descriptionHtml: "<strong>Permettre</strong> follows the <strong>mettre</strong> family: <strong>je permets</strong>, <strong>il permet</strong>, <strong>nous permettons</strong>, <strong>ils permettent</strong>. Use <strong>permettre à quelqu’un de + infinitive</strong> for allowing someone to do something: <strong>Je permets à Paul de sortir</strong> → <strong>Je lui permets de sortir.</strong> It also means to make something possible: <strong>Ce billet permet de visiter le musée.</strong> The passé composé uses <strong>avoir + permis</strong>; the future and conditional use <strong>permettr-</strong>: <strong>je permettrai</strong>, <strong>je permettrais</strong>.",
+        rows: permettreRows
+      },
+      {
+        key: "recevoir",
+        group: "irregular",
+        label: "recevoir",
+        title: "Recevoir — to receive / welcome / host",
+        tag: "irregular -oir",
+        descriptionHtml: "<strong>Recevoir</strong> means to receive something or welcome people: <strong>recevoir une lettre</strong>, <strong>recevoir des amis</strong>. Learn its three present stems: <strong>je reçois / il reçoit</strong>, <strong>nous recevons / vous recevez</strong>, and <strong>ils reçoivent</strong>. Use <strong>de</strong> for the sender: <strong>recevoir une lettre de Marie</strong>. The passé composé uses <strong>avoir + reçu</strong>: <strong>j’ai reçu</strong>. The future and conditional use <strong>recevr-</strong>: <strong>je recevrai</strong>, <strong>je recevrais</strong>.",
+        rows: recevoirRows
+      },
+      {
+        key: "completer",
+        group: "regularEr",
+        label: "compléter",
+        title: "Compléter — to complete / supplement",
+        tag: "-er, é → è",
+        descriptionHtml: "<strong>Compléter</strong> means to add what is missing or supplement something: <strong>compléter une collection</strong>, <strong>compléter un texte avec les mots manquants</strong>, <strong>compléter sa formation par un stage</strong>. It takes a direct object and changes <strong>é</strong> to <strong>è</strong> before silent present endings: <strong>je complète</strong>, <strong>ils complètent</strong>, but <strong>nous complétons</strong>, <strong>vous complétez</strong>. The passé composé uses <strong>avoir + complété</strong>. This app uses <strong>je compléterai / je compléterais</strong>; <strong>je complèterai / je complèterais</strong> are also accepted.",
+        rows: completerRows
+      },
+      {
+        key: "reflechir",
+        group: "regularIr",
+        label: "réfléchir",
+        title: "Réfléchir — to think / reflect / consider",
+        tag: "regular -ir",
+        descriptionHtml: "<strong>Réfléchir</strong> follows the regular -ir pattern: <strong>je réfléchis</strong>, <strong>nous réfléchissons</strong>, <strong>ils réfléchissent</strong>. For thinking about something, use <strong>réfléchir à quelque chose</strong>: <strong>réfléchir à ce problème</strong>, <strong>réfléchir aux conséquences</strong>. <strong>Réfléchir sur une question</strong> is also possible. In its optical sense, it takes a direct object: <strong>Un miroir réfléchit la lumière.</strong> The passé composé uses <strong>avoir + réfléchi</strong>: <strong>j’ai réfléchi</strong>.",
+        rows: reflechirRows
+      },
+      {
+        key: "donner",
+        group: "regularEr",
+        label: "donner",
+        title: "Donner — to give",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Donner</strong> follows the regular -er pattern. Use <strong>donner quelque chose à quelqu’un</strong> to give someone something: <strong>Je donne un livre à Marie</strong> → <strong>Je lui donne un livre.</strong> Learn common expressions such as <strong>donner un cours</strong> (teach a class), <strong>donner son avis</strong> (give one’s opinion), and <strong>donner à manger</strong> (feed). The passé composé uses <strong>avoir + donné</strong>: <strong>j’ai donné</strong>.",
+        rows: donnerRows
+      },
+      {
+        key: "perdre",
+        group: "regularRe",
+        label: "perdre",
+        title: "Perdre — to lose",
+        tag: "regular -re",
+        descriptionHtml: "<strong>Perdre</strong> follows the regular -re pattern: <strong>je perds, tu perds, il perd, nous perdons, vous perdez, ils perdent</strong>. It takes a direct object: <strong>perdre ses clés</strong>, <strong>perdre un match</strong>, <strong>perdre du temps</strong>. Use <strong>avoir + perdu</strong> in the passé composé: <strong>j’ai perdu mes clés</strong>. In the future and conditional, drop the final <strong>e</strong>: <strong>je perdrai</strong>, <strong>je perdrais</strong>.",
+        rows: perdreRows
+      },
+      {
+        key: "bouger",
+        group: "regularEr",
+        label: "bouger",
+        title: "Bouger — to move / stir",
+        tag: "regular -er, spelling change",
+        descriptionHtml: "<strong>Bouger</strong> means to move, stir, or shift position: <strong>Il bouge sur sa chaise.</strong> It can also take a direct object: <strong>bouger la tête</strong>, <strong>bouger les meubles</strong>. Like other <strong>-ger</strong> verbs, it keeps an extra <strong>e</strong> before <strong>-ons</strong>: <strong>nous bougeons</strong>. In the imparfait, write <strong>je bougeais</strong> but <strong>nous bougions</strong> and <strong>vous bougiez</strong>. The passé composé uses <strong>avoir</strong>: <strong>j’ai bougé</strong>.",
+        rows: bougerRows
+      },
       {
         key: "souhaiter",
         group: "regularEr",
@@ -2621,6 +2772,16 @@
         rows: falloirRows
       },
       {
+        key: "impersonalValoir",
+        group: "impersonal",
+        label: "il vaut / il vaut mieux",
+        syncInfinitive: "valoir",
+        title: "Il vaut / Il vaut mieux — valoir",
+        tag: "worth / impersonal recommendation",
+        descriptionHtml: "<strong>Il vaut</strong> means “it is worth” when <strong>il</strong> refers to a masculine object: <strong>Ce vélo ? Il vaut cent euros.</strong> The impersonal expression <strong>il vaut mieux</strong> means “it is better / preferable”: use an infinitive directly (<strong>il vaut mieux partir</strong>) or <strong>que + subjunctive</strong> (<strong>il vaut mieux que tu partes</strong>). <strong>Il vaut mieux ne pas partir seul</strong> means “It is better not to leave alone.” Compare <strong>il faut</strong> (necessity) with <strong>il vaut mieux</strong> (preference). This card focuses on the <strong>il</strong> expressions; <strong>valoir</strong> also has personal forms. Learn <strong>il valait mieux</strong>, <strong>il vaudra mieux</strong>, <strong>il vaudrait mieux</strong>, and <strong>il a mieux valu</strong>. No imperative is taught for this expression.",
+        rows: impersonalValoirRows
+      },
+      {
         key: "ilYA",
         group: "impersonal",
         label: "il y a",
@@ -2909,6 +3070,11 @@
     ];
 
     const presentVerbHighlights = {
+      permettre: ["The final <strong>t</strong> is silent in <strong>permets / permet /pɛʁ.mɛ/</strong>, but audible in <strong>permettons /pɛʁ.mɛ.tɔ̃/</strong> and <strong>permettent /pɛʁ.mɛt/</strong>. Keep <strong>tt</strong> in the plural present and in <strong>permettrai</strong>; the participle is <strong>permis /pɛʁ.mi/</strong>."],
+      recevoir: ["Hear three stems: <strong>reçois / reçoit /ʁə.swa/</strong>, <strong>recevons /ʁə.sə.vɔ̃/</strong>, and <strong>reçoivent /ʁə.swav/</strong>. The final <strong>v</strong> is audible in <strong>reçoivent</strong>. Use <strong>ç</strong> before <strong>o / u</strong>: <strong>reçois</strong>, <strong>reçu</strong>."],
+      completer: ["The vowel changes with the accent: <strong>complète / complètent /kɔ̃.plɛt/</strong>, but <strong>complétons /kɔ̃.ple.tɔ̃/</strong> and <strong>complétez /kɔ̃.ple.te/</strong>. The double written <strong>t</strong> is not needed: write <strong>complète</strong>."],
+      reflechir: ["Keep both accents in <strong>réfléchir</strong>. The singular <strong>réfléchis / réfléchit /ʁe.fle.ʃi/</strong> has silent endings; hear <strong>/s/</strong> in <strong>réfléchissons /ʁe.fle.ʃi.sɔ̃/</strong> and <strong>réfléchissent /ʁe.fle.ʃis/</strong>."],
+      perdre: ["The final <strong>d</strong> is silent in <strong>perds / perd /pɛʁ/</strong>, but pronounced in <strong>perdons /pɛʁ.dɔ̃/</strong>, <strong>perdez /pɛʁ.de/</strong>, and <strong>perdent /pɛʁd/</strong>."],
       etreVerb: ["The six forms use several sounds: <strong>suis /sɥi/</strong>, <strong>es / est /ɛ/</strong>, <strong>sommes /sɔm/</strong>, <strong>êtes /ɛt/</strong>, and <strong>sont /sɔ̃/</strong>. Learn each as a unit."],
       avoirVerb: ["The present changes sharply across <strong>j’ai /ʒe/</strong>, <strong>tu as /ty a/</strong>, <strong>nous avons /nu.za.vɔ̃/</strong>, and <strong>ils ont /il.zɔ̃/</strong>. Before these vowel-initial forms, the final consonant of <strong>nous, vous, ils,</strong> or <strong>elles</strong> links as <strong>/z/</strong>."],
       aller: ["Three sound patterns appear: <strong>vais /vɛ/</strong>, <strong>vas / va /va/</strong>, <strong>allons /a.lɔ̃/</strong>, <strong>allez /a.le/</strong>, and <strong>vont /vɔ̃/</strong>."],
@@ -2943,6 +3109,7 @@
       preferer: ["The second vowel changes with the accent: <strong>préfère /pʁe.fɛʁ/</strong> uses open <strong>/ɛ/</strong>, while <strong>préférons /pʁe.fe.ʁɔ̃/</strong> and <strong>préférez /pʁe.fe.ʁe/</strong> use closed <strong>/e/</strong>."],
       essayer: ["Before a silent ending, this app writes <strong>essaie / essaient /e.sɛ/</strong>; before pronounced endings, keep <strong>y</strong> and hear <strong>/j/</strong>: <strong>essayons /e.sɛ.jɔ̃/</strong>, <strong>essayez /e.sɛ.je/</strong>. The variants <strong>essaye / essayent</strong> are also accepted."],
       jouer: ["The vowel sequence contracts in singular and ils/elles forms: <strong>joue / jouent /ʒu/</strong>. Before pronounced endings, hear <strong>/w/</strong>: <strong>jouons /ʒwɔ̃/</strong>, <strong>jouez /ʒwe/</strong>."],
+      bouger: ["The added <strong>e</strong> in <strong>nous bougeons /bu.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable. Before <strong>-ions / -iez</strong>, use <strong>bougions / bougiez</strong>."],
       manger: ["The added <strong>e</strong> in <strong>nous mangeons /mɑ̃.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       changer: ["The added <strong>e</strong> in <strong>nous changeons /ʃɑ̃.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],
       voyager: ["The added <strong>e</strong> in <strong>nous voyageons /vwa.ja.ʒɔ̃/</strong> keeps <strong>g</strong> soft; it does not add another syllable."],

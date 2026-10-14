@@ -510,4 +510,5 @@
 
   FR.renderers.futurSimple = createRenderer("futurSimple", "futur-simple", "Futur simple");
   FR.renderers.conditionnelPresent = createRenderer("conditionnelPresent", "conditionnel-present", "Conditionnel présent");
+  FR.renderers.subjonctifPresent = createRenderer("subjonctifPresent", "subjonctif-present", "Subjonctif présent");
 })(window);

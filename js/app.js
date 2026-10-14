@@ -344,7 +344,8 @@
       tense: initializeTenseIndex,
       imparfait: () => FR.renderers.imparfait.render(),
       "futur-simple": () => FR.renderers.futurSimple.render(),
-      "conditionnel-present": () => FR.renderers.conditionnelPresent.render()
+      "conditionnel-present": () => FR.renderers.conditionnelPresent.render(),
+      "subjonctif-present": () => FR.renderers.subjonctifPresent.render()
     };
     const studySectionStateKey = "frenchStudySectionState";
     const verbGroupStateKey = "frenchStudyVerbGroupState";
@@ -1058,6 +1059,9 @@
       const conditionalSummary = createVerbSimpleTenseSummary(item, "conditionnelPresent", "conditionnel-present", "Conditionnel présent");
       if (conditionalSummary) panel.appendChild(conditionalSummary);
 
+      const subjunctiveSummary = createVerbSimpleTenseSummary(item, "subjonctifPresent", "subjonctif-present", "Subjonctif présent");
+      if (subjunctiveSummary) panel.appendChild(subjunctiveSummary);
+
       const imperativeSummary = createVerbImperativeSummary(item);
       if (imperativeSummary) panel.appendChild(imperativeSummary);
 
@@ -1704,11 +1708,12 @@
       [
         ["imparfait", "imparfait", "Imparfait"],
         ["futurSimple", "futur-simple", "Futur simple"],
-        ["conditionnelPresent", "conditionnel-present", "Conditionnel présent"]
+        ["conditionnelPresent", "conditionnel-present", "Conditionnel présent"],
+        ["subjonctifPresent", "subjonctif-present", "Subjonctif présent"]
       ].forEach(([key, mode, title]) => {
         add(`tense:${mode}`, title, "verbs", FR.data[key].ruleCatalog, { mode });
         FR.data[key].groups.forEach(group => group.items.forEach(item => {
-          add(`lesson:${item.key}:${mode}`, `${item.label} · ${title}`, "verbs", "", {
+          add(`lesson:${item.key}:${mode}`, `${item.label} · ${title}`, "verbs", item.infinitive, {
             mode, group: `${mode}-group-${slug(group.key)}`, targetId: `${mode}-${slug(item.key)}`
           });
         }));

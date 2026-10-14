@@ -38,4 +38,25 @@ assert.match(FR.data.futurSimple.ruleCatalog["ayer-optional"].note, /j’essaier
 assert.match(FR.data.futurSimple.ruleCatalog["ayer-optional"].note, /j’essayerai/);
 assert.match(FR.data.conditionnelPresent.ruleCatalog["ayer-optional"].note, /j’essaierais/);
 assert.match(FR.data.conditionnelPresent.ruleCatalog["ayer-optional"].note, /j’essayerais/i);
+assert.match(FR.data.subjonctifPresent.ruleCatalog["ayer-optional"].note, /que je paie/);
+assert.match(FR.data.subjonctifPresent.ruleCatalog["ayer-optional"].note, /que je paye/);
+
+// Protect the pronounced subordinator, liaison, and glides in the new mood.
+for (const [verbId, person, expected] of [
+  ["avoirVerb", "je", "/kə ʒɛ/"],
+  ["avoirVerb", "nous", "/kə nuz‿ɛjɔ̃/"],
+  ["aller", "je", "/kə ʒaj/"],
+  ["venir", "je", "/kə ʒə vjɛn/"],
+  ["venir", "nous", "/kə nu vənjɔ̃/"],
+  ["pleuvoir", "il", "/kil plœv/"],
+  ["sAgir", "il", "/kil saʒis/"],
+  ["sHabiller", "nous", "/kə nu nuz‿abijɔ̃/"],
+  ["seLever", "nous", "/kə nu nu ləvjɔ̃/"],
+  ["jouer", "nous", "/kə nu ʒujɔ̃/"],
+  ["seMarier", "nous", "/kə nu nu maʁijɔ̃/"],
+  ["voir", "vous", "/kə vu vwaje/"]
+]) {
+  const row = catalog.getLesson(verbId, "subjonctif-present").forms.find(form => form.person === person);
+  assert.equal(row.ipa.replace(/\./gu, ""), expected, `${verbId}: subjunctive ${person} pronunciation`);
+}
 console.log("Linguistic fixtures passed: conjugation, spelling, article-sensitive negation, agreement contrasts, imperative pronouns, liaison, and accepted variants.");

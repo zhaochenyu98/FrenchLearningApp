@@ -24,6 +24,10 @@ Each scenario runs at 1280 × 900 and 390 × 844:
 - Direct local-file opening and navigation without a web server.
 - Search, translations, French audio, and mobile layout for ordinary and
   pronominal à/de usage examples.
+- Subjunctive search, translated examples, matching French audio, fixed impersonal
+  forms, and Continue behavior after reload.
+- Subjunctive practice on ordinary and pronominal cards, including deferred compact
+  tables and complete reflexive forms on mobile.
 
 Every case fails on uncaught application errors or rendered error cards. Browser
 tests use deterministic speech callbacks; they verify the UI flow, not audible
@@ -44,6 +48,9 @@ from the generators, with short explanations of what each case protects.
 
 The article, imperative, and agreement expectations were checked against the
 linked OQLF rules in the fixture file. Example sentences come from the app.
+Subjunctive fixtures cover exceptional forms, two-stem patterns, -ger/-cer
+spelling, written i after i/y, reflexive pronouns, fixed impersonal subjects,
+and contextual negation. References are listed in the content model guide.
 IPA assertions protect the app's pronunciation convention while ignoring syllable
 separator differences; they do not require every French accent to sound identical.
 This is a regression sample, not linguistic certification of the full corpus.

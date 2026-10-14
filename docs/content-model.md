@@ -56,8 +56,13 @@ ready for editorial enrichment without inventing provenance for existing text.
   as prepositional verb constructions.
 - `simple-tense-morphology.js` owns future/conditional stems and form generation.
   Future and conditional can each load without the other, imperfect, or past data.
-- `content-catalog.js` adapts the current authoring structures into 130 verb
-  records and 744 available verb/tense lessons. Unsupported imperatives are absent.
+- `subjonctif-present.js` derives subjunctive stems and IPA from present nous/ils,
+  with explicit exceptional forms and spelling adjustments. It owns complete
+  bilingual examples with subjunctive triggers and preserves each entry's natural
+  subjects. Pronominal cards reuse these forms and examples. This module loads
+  independently of the other tenses.
+- `content-catalog.js` adapts the current authoring structures into 138 verb
+  records and 929 available verb/tense lessons. Unsupported imperatives are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.
 - `app.js` registers topic references using stable section IDs and plain text.
@@ -82,5 +87,21 @@ morphology only where appropriate. Register prerequisites before lessons, then
 add a renderer/navigation destination separately.
 
 Run `node scripts/test-content.js`, `node scripts/test-search.js`, and
-`node scripts/validate.js`. The content tests also load future and conditional in
-isolation and rename/reorder source records to detect accidental identity coupling.
+`node scripts/validate.js`. The content tests also load future, conditional, and
+subjunctive in isolation and rename/reorder source records to detect accidental
+identity coupling.
+
+## Subjonctif présent references
+
+The formation rules and selected linguistic fixtures were checked against the
+[OQLF conjugation guide](https://vitrinelinguistique.oqlf.gouv.qc.ca/24237/la-grammaire/le-verbe/conjugaison/formes-du-subjonctif).
+Usage notes follow OQLF's guidance on
+[verbs introducing the subjunctive](https://vitrinelinguistique.oqlf.gouv.qc.ca/24253/la-grammaire/le-verbe/modes/subjonctif/subjonctif-apres-certains-verbes)
+and [subordinators](https://vitrinelinguistique.oqlf.gouv.qc.ca/24238/la-grammaire/le-verbe/modes/subjonctif/subjonctif-ou-indicatif-apres-les-subordonnants-composes).
+Larousse provides the exceptional paradigms for
+[valoir](https://www.larousse.fr/conjugaison/francais/valoir/9253)
+and [pleuvoir](https://www.larousse.fr/conjugaison/francais/pleuvoir/9824).
+The affirmative espérer contrast follows the
+[Language Portal of Canada](https://nos-langues.canada.ca/fr/cles-de-la-redaction/esperer-de-que).
+Example sentences are authored for the app. These references do not change the
+catalog's default editorial review status.

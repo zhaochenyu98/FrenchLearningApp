@@ -14,7 +14,7 @@ js/core/namespace.js               Shared FR registry and safe saved preferences
 js/core/content.js                 Stable-ID content schema and catalog API
 js/core/core.js                    DOM references, audio, theme, and shared state
 js/renderers/                      Reusable renderers grouped by study topic
-js/renderers/futur-simple.js        Shared future and conditional tense renderer
+js/renderers/futur-simple.js        Shared future, conditional, and subjunctive renderer
 js/data/numbers.js                 Number generation and IPA
 js/data/pronouns.js                COD, COI, tonic, reflexive, and possessive data
 js/data/verbs.js                   Present-tense verb paradigms, IPA, and registry data
@@ -27,6 +27,7 @@ js/data/imparfait.js               Derived Imparfait forms, IPA, and examples
 js/data/simple-tense-morphology.js  Shared future/conditional stems and form builder
 js/data/futur-simple.js             Future forms and examples
 js/data/conditionnel-present.js    Conditional forms, IPA, and examples
+js/data/subjonctif-present.js       Present subjunctive forms, IPA, and contextual examples
 js/data/imperative.js              Imperative paradigms, IPA, and examples
 js/data/pronominal-verbs.js        Pronominal paradigms, agreement, IPA, and examples
 js/data/pronunciation.js           Pronunciation rules and practice words
@@ -59,8 +60,8 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-The browser suite runs nine scenarios at desktop and 390 px mobile widths
-(16 tests), including direct `file://` opening. It starts and stops its own local
+The browser suite runs eleven scenarios at desktop and 390 px mobile widths
+(22 tests), including direct `file://` opening. It starts and stops its own local
 server on port 8893. Pull requests and pushes to `main` run both suites; failed
 browser checks retain a trace artifact. See [the testing guide](docs/testing.md).
 The app itself still has no build step or runtime npm dependencies.
@@ -109,6 +110,8 @@ index labels and target metadata independent of rendered cards.
    add an explicit stem override only when the new verb needs one. Conditionnel présent
    shares the future stems and automatically covers the same verbs; add conditional
    examples for verbs that need custom sentence patterns.
+   Subjonctif présent uses the present nous/ils stems, with explicit exceptions;
+   add custom examples where the shared complement would sound unnatural.
 4. Run `node scripts/validate.js` to confirm all pronouns, examples, IPA, groups,
    and present/past/future/conditional entries stay synchronized.
 

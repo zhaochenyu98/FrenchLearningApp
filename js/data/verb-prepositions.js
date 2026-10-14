@@ -2,6 +2,14 @@
   "use strict";
 
   const sources = Object.freeze({
+    valoir: { title: "Larousse · Valoir", url: "https://www.larousse.fr/dictionnaires/francais/valoir/80995" },
+    peine: { title: "Larousse · Valoir la peine de", url: "https://www.larousse.fr/dictionnaires/francais/peine/59016" },
+    permettre: { title: "Larousse · Permettre", url: "https://www.larousse.fr/dictionnaires/francais/permettre/59689" },
+    recevoir: { title: "Larousse · Recevoir", url: "https://www.larousse.fr/dictionnaires/francais/recevoir/66978" },
+    reflechir: { title: "Larousse · Réfléchir", url: "https://www.larousse.fr/dictionnaires/francais/r%C3%A9fl%C3%A9chir/67460" },
+    donner: { title: "Larousse · Donner", url: "https://www.larousse.fr/dictionnaires/francais/donner/26437" },
+    perdre: { title: "Larousse · Perdre", url: "https://www.larousse.fr/dictionnaires/francais/perdre/59460" },
+    bouger: { title: "Larousse · Bouger", url: "https://www.larousse.fr/dictionnaires/francais/bouger/10472" },
     aimer: { title: "OQLF · Aimer suivi d’un infinitif", url: "https://vitrinelinguistique.oqlf.gouv.qc.ca/22165/la-syntaxe/le-complement-du-verbe/aimer-suivi-dun-infinitif" },
     commencer: { title: "OQLF · Commencer : à, de, par", url: "https://vitrinelinguistique.oqlf.gouv.qc.ca/22316/la-syntaxe/les-prepositions/preposition-apres-un-verbe/prepositions-a-employer-apres-le-verbe-commencer" },
     occuper: { title: "OQLF · S’occuper : à, de", url: "https://vitrinelinguistique.oqlf.gouv.qc.ca/22273/la-syntaxe/les-prepositions/preposition-apres-un-verbe/prepositions-a-employer-apres-le-verbe-soccuper" },
@@ -27,6 +35,41 @@
   // destination/origin complements. Partitive articles (boire du café), generic
   // time/manner adjuncts, and archaic constructions are not verb government.
   const byVerb = {
+    impersonalValoir: [
+      u("mieux-que-de", "il vaut mieux + infinitive + que (de) + infinitive", "it is better to do X than to do Y", "Il vaut mieux attendre que de prendre un risque.", "It is better to wait than to take a risk.", "De follows que in this comparison and can be omitted. After il vaut mieux alone, the infinitive follows directly: Il vaut mieux attendre.", "valoir"),
+      u("peine-de", "valoir la peine de + infinitive", "be worth doing", "Ce livre ? Il vaut la peine d’être lu.", "This book? It is worth reading.", "Here il refers to the book. De belongs to the expression valoir la peine de.", "peine")
+    ],
+    permettre: [
+      u("a-person-de-infinitive", "permettre à quelqu’un de + infinitive", "allow someone to do something", "Je permets à Paul de sortir.", "I allow Paul to go out.", "À introduces the person; de introduces the action. With a pronoun: Je lui permets de sortir.", "permettre"),
+      u("de-infinitive", "permettre de + infinitive", "make it possible to; enable", "Ce billet permet de visiter le musée.", "This ticket allows entry to the museum.", "The person doing the action can be left unstated.", "permettre"),
+      u("a-person", "permettre quelque chose à quelqu’un", "allow someone something", "Le professeur permet une pause aux élèves.", "The teacher allows the students a break.", "The thing allowed is direct; à introduces the recipient."),
+      u("etre-permis-de", "il est permis de + infinitive", "it is allowed to", "Il est permis de prendre des photos ici.", "Taking photos is allowed here.", "An impersonal passive construction; de introduces the permitted action.", "permettre")
+    ],
+    recevoir: [
+      u("de-sender", "recevoir quelque chose de quelqu’un", "receive something from someone", "Je reçois une lettre de ma sœur.", "I receive a letter from my sister.", "De introduces the sender; the item received is a direct object."),
+      u("a-diner", "recevoir quelqu’un à dîner", "have someone over for dinner", "Nous recevons nos amis à dîner.", "We have our friends over for dinner.", "Here recevoir means host, and à dîner states the occasion.", "recevoir"),
+      u("etre-recu-a", "être reçu(e) à + exam / competition", "pass an exam; be admitted after a competitive exam", "Elle est reçue au concours.", "She has passed the competitive exam.", "A passive construction. Reçu agrees with the subject: reçue, reçus, reçues. À + le = au.", "recevoir")
+    ],
+    reflechir: [
+      u("a-topic", "réfléchir à + noun", "think about; consider", "Je réfléchis à ce problème.", "I think about this problem.", "Sur is also possible: réfléchir sur une question. For this meaning, introduce the topic with a preposition.", "reflechir"),
+      u("a-contracted", "réfléchir au / aux", "à + le = au; à + les = aux", "Nous réfléchissons aux conséquences de cette décision.", "We think about the consequences of this decision.", "The de here connects conséquences to décision; it is not a réfléchir de construction.")
+    ],
+    donner: [
+      u("a-person", "donner quelque chose à quelqu’un", "give someone something", "Je donne ce livre à Paul.", "I give Paul this book.", "À introduces the recipient: à Paul → lui; aux enfants → leur."),
+      u("a-infinitive", "donner à + infinitive", "provide something to do", "Je donne à manger au chat.", "I feed the cat.", "Common with manger / boire; the recipient can also follow à.", "donner"),
+      u("a-penser", "donner à penser", "give food for thought", "Cette question donne à penser.", "This question gives food for thought.", "A fixed expression.", "donner"),
+      u("envie-de", "donner envie de + infinitive", "make someone want to", "Cette chanson me donne envie de danser.", "This song makes me want to dance.", "De belongs to the whole expression donner envie de."),
+      u("etre-donne-de", "il est donné à quelqu’un de + infinitive", "someone is given the opportunity to (formal)", "Il n’est pas donné à tout le monde de voyager autant.", "Not everyone has the opportunity to travel so much.", "A formal impersonal passive construction: à introduces the person, de the action.", "donner")
+    ],
+    perdre: [
+      u("a-game", "perdre à + game / sport", "lose at a game / sport", "Je perds souvent aux échecs.", "I often lose at chess.", "À + les = aux. Compare perdre un match, with a direct object.", "perdre"),
+      u("a-infinitive", "perdre à + infinitive", "lose something in quality / appeal by", "Ce film perd à être vu sur un petit écran.", "This film loses some of its appeal when watched on a small screen.", "À introduces an action that puts someone or something at a disadvantage; contrast gagner à.", "perdre"),
+      u("temps-a", "perdre du temps à + infinitive", "waste time doing something", "Il perd du temps à chercher ses clés.", "He wastes time looking for his keys.", "À belongs to the expression perdre du temps à; ordinary perdre takes a direct object."),
+      u("de-vue", "perdre quelqu’un / quelque chose de vue", "lose sight of", "Je perds mon ami de vue dans la foule.", "I lose sight of my friend in the crowd.", "A fixed expression; it can also mean lose touch with someone.", "perdre")
+    ],
+    bouger: [
+      u("de-place", "bouger de + place", "move / leave from a place", "Il ne bouge pas de sa chaise.", "He does not leave his chair.", "Often used in negatives: ne pas bouger de chez soi. De introduces the place left, not another infinitive.", "bouger")
+    ],
     souhaiter: [
       u("a-person", "souhaiter quelque chose à quelqu’un", "wish someone something", "Je souhaite un bon voyage à Léa.", "I wish Léa a good trip."),
       u("a-person-de-infinitive", "souhaiter à quelqu’un de + infinitive", "wish that someone does something", "Je souhaite à Léa de réussir son examen.", "I hope Léa passes her exam.", "De introduces the action wished for someone else; for your own wish, use souhaiter + infinitive directly.", "souhaiter")
@@ -415,6 +458,7 @@
   // A direct infinitive, partitive article, or generic time/place adjunct alone
   // does not warrant inventing a prepositional verb pattern.
   const withoutUsage = [
+    "completer",
     "seSouhaiter", "controler", "seControler", "pouvoir",
     "voir", "dormir", "sentir", "adorer", "detester", "regarder", "quitter",
     "devenir", "falloir", "pleuvoir", "sAppeler", "sAimer", "seVoir",

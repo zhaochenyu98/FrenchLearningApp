@@ -14,7 +14,8 @@
   const TENSES = Object.freeze([
     { key: "present", label: "Present" },
     { key: "imperfect", label: "Imparfait" },
-    { key: "passeCompose", label: "Passé composé" }
+    { key: "passeCompose", label: "Passé composé" },
+    { key: "subjonctifPresent", label: "Subjonctif présent" }
   ]);
 
   const EXAMPLE_ROWS = Object.freeze([
@@ -227,7 +228,7 @@
     target.append(modes, contrasts);
   }
 
-  function createFormCard(row, tenseLabel) {
+  function createFormCard(row, tenseLabel, displayFull = false) {
     if (!row || !row.pronoun || !row.full) {
       throw new Error(`${tenseLabel} has an incomplete conjugation row.`);
     }
@@ -239,7 +240,7 @@
 
     const pronoun = createElement("span", "tiny-label", row.pronoun);
     pronoun.lang = "fr";
-    const form = createElement("span", "conjugation-main", row.form || row.full);
+    const form = createElement("span", "conjugation-main", displayFull ? row.full : row.form || row.full);
     form.lang = "fr";
     button.append(pronoun, form);
 
@@ -289,7 +290,7 @@
       pair.forEach(pronoun => {
         const row = rows.find(entry => entry.pronoun === pronoun);
         try {
-          const card = createFormCard(row, tense.label);
+          const card = createFormCard(row, tense.label, tense.key === "subjonctifPresent");
           card.setAttribute("role", "cell");
           pairRow.appendChild(card);
         } catch (error) {

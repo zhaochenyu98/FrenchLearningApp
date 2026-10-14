@@ -12,6 +12,7 @@
     ["double-consonant", "Keep the doubled l", "Appeller- and rappeller- keep ll in every person: je m’appellerais, nous nous rappellerions."],
     ["ayer-optional", "Two accepted -ayer spellings", "This app uses essaier- and paier-: j’essaierais, je paierais. J’essayerais and je payerais are also accepted."],
     ["y-to-i", "-uyer changes y to i", "S’ennuyer uses ennuier- throughout: je m’ennuierais, nous nous ennuierions."],
+    ["completer-spelling", "Compléter: two accepted spellings", "This app uses traditional compléter-: je compléterais. Rectified complèter- is also accepted: je complèterais."],
     ["preferer-spelling", "Préférer: two accepted spellings", "This app uses traditional préférer-: je préférerais. Rectified préfèrer- is also accepted: je préfèrerais."],
     ["inquieter-spelling", "S’inquiéter: two accepted spellings", "This app uses traditional inquiéter-: je m’inquiéterais. Rectified inquièter- is also accepted: je m’inquièterais."],
     ["pronominal-order", "Keep the reflexive pronoun", "Place it before the conditional verb: je me laverais, nous nous verrions. In a negative: je ne me laverais pas. In inversion: nous verrions-nous ?"],
@@ -26,6 +27,11 @@
   }
 
   const customExamples = Object.freeze({
+    impersonalValoir: examples(
+      ["Il vaudrait mieux réserver à l’avance.", "It would be better to book in advance."],
+      ["Il vaudrait mieux ne pas attendre le dernier moment.", "It would be better not to wait until the last moment."],
+      ["Vaudrait-il mieux réserver à l’avance ?", "Would it be better to book in advance?"]
+    ),
     etreVerb: examples(
       ["Si nous avions le temps, nous serions à Lyon.", "If we had time, we would be in Lyon."],
       ["Dans ce cas, nous ne serions pas à Lyon.", "In that case, we would not be in Lyon."],

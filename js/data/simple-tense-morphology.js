@@ -35,6 +35,8 @@
   ]);
 
   const stemOverrides = Object.freeze({
+    impersonalValoir: Object.freeze({ stem: "vaudr", ipa: "vodʁ" }),
+    recevoir: Object.freeze({ stem: "recevr", ipa: "ʁəsəvʁ" }),
     envoyer: Object.freeze({ stem: "enverr", ipa: "ɑ̃vɛʁ" }),
     etreVerb: Object.freeze({ stem: "ser", ipa: "səʁ" }),
     avoirVerb: Object.freeze({ stem: "aur", ipa: "oʁ" }),
@@ -80,6 +82,7 @@
   });
 
   const impersonalForms = Object.freeze({
+    impersonalValoir: Object.freeze({ prefix: "il ", baseInfinitive: "valoir" }),
     sAgir: Object.freeze({ prefix: "il ", baseInfinitive: "s’agir" }),
     falloir: Object.freeze({ prefix: "il ", baseInfinitive: "falloir" }),
     ilYA: Object.freeze({ prefix: "il y ", baseInfinitive: "avoir" }),
@@ -208,6 +211,7 @@
     const dropsFinalE = infinitive.endsWith("e");
     const ruleIds = [dropsFinalE ? "drop-final-e" : "infinitive-stem"];
     if (source.key === "preferer") ruleIds.push("preferer-spelling");
+    if (source.key === "completer") ruleIds.push("completer-spelling");
     if (source.key === "sInquieter") ruleIds.push("inquieter-spelling");
     const config = {
       infinitive,

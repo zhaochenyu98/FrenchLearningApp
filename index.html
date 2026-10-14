@@ -335,7 +335,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Pronominal Verbs</h2>
-            <p class="section-desc">Compare present, imparfait, passé composé, and imperative examples while learning the four meanings of pronominal constructions and the real past-participle agreement rule.</p>
+            <p class="section-desc">Compare present, imparfait, passé composé, subjonctif présent, and imperative examples while learning the four meanings of pronominal constructions and the real past-participle agreement rule.</p>
           </div>
         </div>
 
@@ -449,7 +449,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Verbs &amp; Tenses</h2>
-            <p class="section-desc">Study verbs either by individual verb or by tense. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, conditionnel présent, and imperative references.</p>
+            <p class="section-desc">Study verbs by individual verb, tense, or mood. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, conditionnel présent, subjonctif présent, and imperative references.</p>
           </div>
         </div>
 
@@ -459,6 +459,7 @@
           <button id="verbModeTense" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="tenseSection" data-verb-mode="tense">Passé composé</button>
           <button id="verbModeFuturSimple" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="futurSimpleSection" data-verb-mode="futur-simple">Futur simple</button>
           <button id="verbModeConditionnelPresent" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="conditionnelPresentSection" data-verb-mode="conditionnel-present">Conditionnel présent</button>
+          <button id="verbModeSubjonctifPresent" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="subjonctifPresentSection" data-verb-mode="subjonctif-present">Subjonctif présent</button>
         </div>
 
         <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
@@ -679,6 +680,52 @@
               <div id="conditionnelPresentIndex" class="verb-index-groups"></div>
             </aside>
             <div id="conditionnelPresentGroupStack" class="verb-group-stack"></div>
+          </div>
+        </div>
+        <div id="subjonctifPresentSection" class="verb-mode-panel" data-verb-mode-panel="subjonctif-present" role="tabpanel" aria-labelledby="verbModeSubjonctifPresent" hidden>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Subjonctif présent</h2>
+              <p class="section-desc">Use this mood for necessity, wishes, feelings, doubt, and possibility. Study each verb with que/qu’, aligned conjugations, IPA, audio, and translated statement, negative, and question examples.</p>
+            </div>
+          </div>
+          <div class="category-panel">
+            <h3>Build and use the subjonctif présent</h3>
+            <div class="summary-chips">
+              <div class="summary-chip">
+                <strong>Usually two present stems</strong>
+                <span>Remove <strong>-ent</strong> from present <strong>ils</strong> and add <strong>-e, -es, -e, -ent</strong>. For <strong>nous/vous</strong>, remove <strong>-ons</strong> from present <strong>nous</strong> and add <strong>-ions/-iez</strong>: <strong>qu’il vienne</strong>, <strong>que nous venions</strong>. Learn exceptional verbs separately.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Necessity and wishes</strong>
+                <span><strong>Il faut que tu sois prêt.</strong> (“You need to be ready.”) <strong>Je veux que tu viennes.</strong> (“I want you to come.”) For the same subject, usually use an infinitive: <strong>Je veux venir.</strong></span>
+              </div>
+              <div class="summary-chip">
+                <strong>Feelings, doubt, and possibility</strong>
+                <span><strong>Je suis content que tu sois ici.</strong> (“I am glad you are here.”) <strong>Je doute qu’il puisse venir.</strong> (“I doubt he can come.”) <strong>Il est possible qu’il pleuve.</strong> (“It might rain.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Pour que, avant que, bien que</strong>
+                <span><strong>Je parle lentement pour que tu comprennes.</strong> (“I speak slowly so you understand.”) <strong>Pars avant qu’il soit trop tard.</strong> (“Leave before it is too late.”) <strong>Bien qu’il soit fatigué, il travaille.</strong> (“Although he is tired, he is working.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Que alone does not select this mood</strong>
+                <span><strong>Je sais qu’il est ici.</strong> (“I know he is here.”) uses the indicative. An affirmative <strong>J’espère que tu viendras.</strong> (“I hope you will come.”) normally takes the indicative too. Learn the expression that introduces the clause.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Ask the question in the main clause</strong>
+                <span><strong>Veux-tu que je vienne ?</strong> (“Do you want me to come?”) Keep the subjunctive subject before its verb after <strong>que</strong>. The present subjunctive can refer to the present or future: <strong>Il faut que tu viennes demain.</strong></span>
+              </div>
+            </div>
+            <h4>Stem, spelling, and pronunciation watch</h4>
+            <div id="subjonctifPresentSpecialRules" class="imparfait-special-grid"></div>
+          </div>
+          <div class="verb-study-layout imparfait-study-layout">
+            <aside class="verb-index" aria-label="Subjonctif présent verb index">
+              <div class="verb-index-title">Subjonctif présent index</div>
+              <div id="subjonctifPresentIndex" class="verb-index-groups"></div>
+            </aside>
+            <div id="subjonctifPresentGroupStack" class="verb-group-stack"></div>
           </div>
         </div>
       </section>
@@ -1692,6 +1739,7 @@
   <script defer src="js/data/imparfait.js"></script>
   <script defer src="js/data/futur-simple.js"></script>
   <script defer src="js/data/conditionnel-present.js"></script>
+  <script defer src="js/data/subjonctif-present.js"></script>
   <script defer src="js/data/pronominal-verbs.js"></script>
   <script defer src="js/data/object-pronouns.js"></script>
   <script defer src="js/data/search-sections.js"></script>

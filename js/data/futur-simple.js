@@ -45,6 +45,11 @@
       title: "-uyer changes y to i",
       note: "S’ennuyer uses ennuier- before every future ending: je m’ennuierai, nous nous ennuierons."
     }),
+    "completer-spelling": Object.freeze({
+      id: "completer-spelling",
+      title: "Compléter has two accepted spellings",
+      note: "This app uses traditional compléter-: je compléterai. Rectified complèter- is also accepted: je complèterai."
+    }),
     "preferer-spelling": Object.freeze({
       id: "preferer-spelling",
       title: "Préférer has two accepted spellings",
@@ -73,6 +78,11 @@
   });
 
   const customExamples = Object.freeze({
+    impersonalValoir: Object.freeze({
+      statement: Object.freeze({ fr: "Il vaudra mieux réserver à l’avance.", en: "It will be better to book in advance." }),
+      negative: Object.freeze({ fr: "Il vaudra mieux ne pas attendre le dernier moment.", en: "It will be better not to wait until the last moment." }),
+      question: Object.freeze({ fr: "Vaudra-t-il mieux réserver à l’avance ?", en: "Will it be better to book in advance?" })
+    }),
     etreVerb: Object.freeze({
       statement: Object.freeze({ fr: "Demain, nous serons à Lyon.", en: "Tomorrow, we will be in Lyon." }),
       negative: Object.freeze({ fr: "Demain, nous ne serons pas à Lyon.", en: "Tomorrow, we will not be in Lyon." }),

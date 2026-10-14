@@ -18,6 +18,55 @@
   }
 
   const curated = Object.freeze({
+    permettre: command(
+      "Permettez-moi de vous aider !",
+      "Allow me to help you!",
+      "Ne permets pas aux enfants de jouer sur la route !",
+      "Do not allow the children to play on the road!",
+      "Imperative: permets, permettons, permettez. Keep -s in the tu form. Permettez-moi de is a polite way to introduce an offer or remark."
+    ),
+    recevoir: command(
+      "Reçois tes invités avec le sourire !",
+      "Welcome your guests with a smile!",
+      "Ne reçois pas de visiteurs pendant la réunion !",
+      "Do not receive visitors during the meeting!",
+      "Imperative: reçois, recevons, recevez. Keep the final -s and the ç in the tu form."
+    ),
+    completer: command(
+      "Complète la phrase avec le mot manquant !",
+      "Complete the sentence with the missing word!",
+      "Ne complète pas le dossier avec des informations inventées !",
+      "Do not add made-up information to the file!",
+      "Imperative: complète, complétons, complétez. The tu form drops -s and uses è; nous and vous keep é."
+    ),
+    reflechir: command(
+      "Réfléchis avant de répondre !",
+      "Think before answering!",
+      "Ne réfléchis pas seulement à toi !",
+      "Do not think only about yourself!",
+      "Regular -ir imperative: réfléchis, réfléchissons, réfléchissez. Keep the final -s in the tu form."
+    ),
+    donner: command(
+      "Donne ce livre à Marie !",
+      "Give this book to Marie!",
+      "Ne donne pas ton mot de passe !",
+      "Do not give out your password!",
+      "Regular -er imperative: donne, donnons, donnez. Drop -s in the tu form. With an indirect object pronoun: donne-lui ce livre."
+    ),
+    perdre: command(
+      "Perds le moins de temps possible !",
+      "Waste as little time as possible!",
+      "Ne perds pas tes clés !",
+      "Do not lose your keys!",
+      "Regular -re imperative: perds, perdons, perdez. Keep the final -s in the tu form."
+    ),
+    bouger: command(
+      "Bouge un peu pendant la pause !",
+      "Move around a little during the break!",
+      "Ne bouge pas pendant la photo !",
+      "Do not move while the photo is being taken!",
+      "Regular -er imperative: bouge, bougeons, bougez. The tu form drops -s; nous keeps e before -ons to preserve /ʒ/."
+    ),
     souhaiter: command(
       "Souhaite bonne chance à Marie !",
       "Wish Marie good luck!",

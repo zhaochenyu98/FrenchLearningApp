@@ -3,6 +3,14 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    impersonalValoir: Object.freeze({"infinitive": "valoir", "infinitiveIpa": "/va.lwaʁ/"}),
+    permettre: Object.freeze({"infinitive": "permettre", "infinitiveIpa": "/pɛʁ.mɛtʁ/"}),
+    recevoir: Object.freeze({"infinitive": "recevoir", "infinitiveIpa": "/ʁə.sə.vwaʁ/"}),
+    completer: Object.freeze({"infinitive": "compléter", "infinitiveIpa": "/kɔ̃.ple.te/"}),
+    reflechir: Object.freeze({"infinitive": "réfléchir", "infinitiveIpa": "/ʁe.fle.ʃiʁ/"}),
+    donner: Object.freeze({"infinitive": "donner", "infinitiveIpa": "/dɔ.ne/"}),
+    perdre: Object.freeze({"infinitive": "perdre", "infinitiveIpa": "/pɛʁdʁ/"}),
+    bouger: Object.freeze({"infinitive": "bouger", "infinitiveIpa": "/bu.ʒe/"}),
     souhaiter: Object.freeze({"infinitive": "souhaiter", "infinitiveIpa": "/swe.te/"}),
     seSouhaiter: Object.freeze({"infinitive": "se souhaiter", "infinitiveIpa": "/sə swe.te/"}),
     controler: Object.freeze({"infinitive": "contrôler", "infinitiveIpa": "/kɔ̃.tʁo.le/"}),

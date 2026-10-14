@@ -900,6 +900,8 @@
     const infinitiveIpa = seed.ipa || (sourceItem && sourceItem.infinitiveIpa) || "";
     const participle = getParticiple(seed, sourceItem);
     const participleIpa = getParticipleIpa(seed, sourceItem);
+    const subjunctive = FR.data.subjonctifPresent.getItem(seed.key);
+    if (!subjunctive) throw new Error(`${seed.key} is missing its subjonctif présent lesson.`);
     const item = {
       id: seed.key,
       key: seed.key,
@@ -925,12 +927,14 @@
         present: seed.present,
         imperfect: seed.imperfect,
         passeCompose: seed.passeCompose,
+        subjonctifPresent: subjunctive.examples,
         imperative: seed.imperative
       },
       paradigms: {
         present: orderPresentRows(presentRows),
         imperfect: buildImparfaitRows(seed, presentRows),
-        passeCompose: buildPasseComposeRows(seed, sourceItem, participleIpa)
+        passeCompose: buildPasseComposeRows(seed, sourceItem, participleIpa),
+        subjonctifPresent: subjunctive.rows
       },
       source: sourceItem ? "FR.data.verbs" : "promoted"
     };

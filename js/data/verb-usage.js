@@ -3,6 +3,14 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    impersonalValoir: Object.freeze({"frComplement": "mieux réserver à l’avance", "enPredicate": "be better to book in advance"}),
+    permettre: Object.freeze({"frComplement": "aux élèves d’utiliser un dictionnaire", "enPredicate": "allow the students to use a dictionary"}),
+    recevoir: Object.freeze({"frComplement": "des nouvelles de nos amis", "enPredicate": "receive news from our friends", "negativeFrComplement": "de nouvelles de nos amis"}),
+    completer: Object.freeze({"frComplement": "le dossier avec les pièces manquantes", "enPredicate": "complete the file with the missing documents"}),
+    reflechir: Object.freeze({"frComplement": "à cette question avant de répondre", "enPredicate": "think about this question before answering"}),
+    donner: Object.freeze({"frComplement": "des conseils aux enfants", "enPredicate": "give advice to the children", "negativeFrComplement": "de conseils aux enfants"}),
+    perdre: Object.freeze({"frComplement": "du temps dans les embouteillages", "enPredicate": "lose time in traffic", "negativeFrComplement": "de temps dans les embouteillages"}),
+    bouger: Object.freeze({"frComplement": "un peu pendant la pause", "enPredicate": "move around a little during the break"}),
     souhaiter: Object.freeze({"frComplement": "la bienvenue aux invités", "enPredicate": "welcome the guests"}),
     controler: Object.freeze({"frComplement": "les billets à l’entrée", "enPredicate": "check the tickets at the entrance"}),
     occuper: Object.freeze({"frComplement": "les enfants avec des jeux", "enPredicate": "keep the children busy with games"}),

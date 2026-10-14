@@ -141,6 +141,68 @@ test("direct file opening still supports search and tense navigation", async ({ 
   await page.locator("#globalSearchInput").press("Enter");
   await expect(page.locator("#imparfait-parler")).toBeFocused();
   await expect(page.locator("#imparfait-parler")).toContainText("nous parlions");
+  await search(page, "aller subjonctif");
+  await page.locator("#globalSearchInput").press("Enter");
+  await expect(page.locator("#subjonctif-present-aller")).toBeFocused();
+  await expect(page.locator("#subjonctif-present-aller")).toContainText("que j’aille");
+});
+
+test("subjunctive search opens forms, contextual examples, audio, and restricted impersonal verbs", async ({ page }) => {
+  const spoken = [];
+  await page.exposeFunction("recordSubjunctiveSpeech", text => spoken.push(text));
+  await page.evaluate(() => {
+    window.speakSequence = items => window.recordSubjunctiveSpeech(items.map(item => item.text));
+  });
+
+  await expect(page.locator("#subjonctif-present-pouvoir")).toHaveCount(0);
+  await search(page, "puisse");
+  await page.locator("#globalSearchResults button").filter({ hasText: "pouvoir · Subjonctif présent" }).click();
+  const card = page.locator("#subjonctif-present-pouvoir");
+  await expect(card).toBeFocused();
+  await expect(page.locator("#verbModeSubjonctifPresent")).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#subjonctifPresentIndex .verb-index-link")).toHaveCount(138);
+  await expect(card).toContainText("que nous puissions");
+  await card.locator(".verb-form-btn").filter({ hasText: "que je puisse" }).click();
+  await card.locator(".verb-examples-disclosure > summary").click();
+  await expect(card).toContainText("Je souhaite que tu puisses venir.");
+  await expect(card).toContainText("I hope you can come.");
+  await card.locator(".verb-example-btn").first().click();
+  await expect.poll(() => spoken).toEqual([["que je puisse"], ["Je souhaite que tu puisses venir."]]);
+
+  await search(page, "pleuvoir subjonctif");
+  await page.locator("#globalSearchInput").press("Enter");
+  const rain = page.locator("#subjonctif-present-pleuvoir");
+  await expect(rain).toBeFocused();
+  await expect(rain.locator(".verb-form-btn")).toHaveCount(1);
+  await expect(rain.locator(".conjugation-main")).toHaveText("qu’il pleuve");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.reload();
+  await page.locator("#continueStudy").click();
+  await expect(page.locator("#subjonctif-present-pleuvoir")).toBeFocused();
+});
+
+test("subjunctive forms and translations appear on ordinary and pronominal verb cards", async ({ page }) => {
+  await search(page, "parler present");
+  await page.locator("#globalSearchResults button").filter({ hasText: "parler · Present" }).click();
+  const compact = page.locator("#parlerVerbPanel .verb-subjonctif-present-summary");
+  await expect(compact.locator(".verb-tense-summary-body")).toHaveCount(0);
+  await compact.locator("summary").click();
+  await expect(compact.locator(".verb-subjonctif-present-form-btn")).toHaveCount(8);
+  await expect(compact).toContainText("que nous parlions");
+  await expect(compact).toContainText("Je veux que tu parles français avec moi.");
+  await expect(compact).toContainText("I want you to speak French with me.");
+
+  await search(page, "s'habiller pronominal");
+  await page.locator("#globalSearchResults button").filter({ hasText: "s’habiller · Pronominal verb" }).click();
+  const reflexive = page.locator("#pronominal-verb-shabiller");
+  const table = reflexive.locator(".pronominal-tense-section").filter({ hasText: "Subjonctif présent" });
+  await expect(table.locator(".pronominal-form-button")).toHaveCount(8);
+  await expect(table).toContainText("que je m’habille");
+  await expect(table).toContainText("que nous nous habillions");
+  const practice = reflexive.locator(".pronominal-examples-row").filter({ hasText: "Subjonctif présent" });
+  await expect(practice).toContainText("Il est possible que nous ne nous habillions pas avant le dîner.");
+  await expect(practice).toContainText("It is possible that we might not get dressed before dinner.");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
 test("à/de examples are searchable, readable, and playable for ordinary and pronominal verbs", async ({ page }) => {

@@ -8,6 +8,7 @@
     ["imparfait", "Imparfait", "Describe past habits, background, and ongoing situations."],
     ["futur-simple", "Futur simple", "Express future events using the appropriate stem and ending."],
     ["conditionnel-present", "Conditionnel présent", "Express hypothetical outcomes and polite requests."],
+    ["subjonctif-present", "Subjonctif présent", "Use subjunctive forms after expressions of necessity, wishes, emotion, and doubt."],
     ["imperative", "Imperative", "Give instructions with affirmative and negative imperatives."]
   ];
   data.verbs.items.forEach(verb => catalog.register({
@@ -80,7 +81,8 @@
     }], pronominal?.examples.passeCompose || { statement: past.statement, negative: past.negative, question: past.question });
     const imperfect = data.imparfait.getItem(verb.id);
     registerLesson(verb, "imparfait", pronominal?.paradigms.imperfect || imperfect.rows, pronominal?.examples.imperfect || imperfect.examples);
-    [["futur-simple", data.futurSimple], ["conditionnel-present", data.conditionnelPresent], ["imperative", data.imperative]]
+    [["futur-simple", data.futurSimple], ["conditionnel-present", data.conditionnelPresent],
+      ["subjonctif-present", data.subjonctifPresent], ["imperative", data.imperative]]
       .forEach(([tenseId, tense]) => {
         const item = tense.getItem(verb.id);
         if (item) registerLesson(verb, tenseId, item.rows, item.examples);

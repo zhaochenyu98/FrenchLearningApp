@@ -400,6 +400,7 @@ function loadExtendedGrammarData() {
     "js/data/imparfait.js",
     "js/data/futur-simple.js",
     "js/data/conditionnel-present.js",
+    "js/data/subjonctif-present.js",
     "js/data/pronominal-verbs.js",
     "js/data/object-pronouns.js"
   ].forEach(scriptPath => {
@@ -849,7 +850,7 @@ function validatePronominalContent(data) {
     if (!validAgreementModes.has(item.agreementMode)) {
       fail(`${item.infinitive} has an unknown agreement mode: ${item.agreementMode}`);
     }
-    ["present", "imperfect", "passeCompose"].forEach(tense => {
+    ["present", "imperfect", "passeCompose", "subjonctifPresent"].forEach(tense => {
       const rows = item.paradigms[tense] || [];
       if (rows.length !== 8 || rows.some(row =>
         !row.full || !row.pronoun || !/^\/[^/]+\/$/u.test(row.ipa || "")
