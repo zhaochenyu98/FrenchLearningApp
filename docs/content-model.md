@@ -61,8 +61,8 @@ ready for editorial enrichment without inventing provenance for existing text.
   bilingual examples with subjunctive triggers and preserves each entry's natural
   subjects. Pronominal cards reuse these forms and examples. This module loads
   independently of the other tenses.
-- `content-catalog.js` adapts the current authoring structures into 138 verb
-  records and 929 available verb/tense lessons. Unsupported imperatives are absent.
+- `content-catalog.js` adapts the current authoring structures into 149 verb
+  records and 1006 available verb/tense lessons. Unsupported imperatives are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.
 - `app.js` registers topic references using stable section IDs and plain text.

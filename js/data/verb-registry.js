@@ -3,6 +3,17 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    dessiner: Object.freeze({"infinitive": "dessiner", "infinitiveIpa": "/de.si.ne/"}),
+    paraitre: Object.freeze({"infinitive": "paraître", "infinitiveIpa": "/pa.ʁɛtʁ/"}),
+    plaire: Object.freeze({"infinitive": "plaire", "infinitiveIpa": "/plɛʁ/"}),
+    rire: Object.freeze({"infinitive": "rire", "infinitiveIpa": "/ʁiʁ/"}),
+    reagir: Object.freeze({"infinitive": "réagir", "infinitiveIpa": "/ʁe.a.ʒiʁ/"}),
+    accueillir: Object.freeze({"infinitive": "accueillir", "infinitiveIpa": "/a.kœ.jiʁ/"}),
+    creer: Object.freeze({"infinitive": "créer", "infinitiveIpa": "/kʁe.e/"}),
+    allumer: Object.freeze({"infinitive": "allumer", "infinitiveIpa": "/a.ly.me/"}),
+    aider: Object.freeze({"infinitive": "aider", "infinitiveIpa": "/e.de/"}),
+    tuer: Object.freeze({"infinitive": "tuer", "infinitiveIpa": "/tɥe/"}),
+    eviter: Object.freeze({"infinitive": "éviter", "infinitiveIpa": "/e.vi.te/"}),
     impersonalValoir: Object.freeze({"infinitive": "valoir", "infinitiveIpa": "/va.lwaʁ/"}),
     permettre: Object.freeze({"infinitive": "permettre", "infinitiveIpa": "/pɛʁ.mɛtʁ/"}),
     recevoir: Object.freeze({"infinitive": "recevoir", "infinitiveIpa": "/ʁə.sə.vwaʁ/"}),

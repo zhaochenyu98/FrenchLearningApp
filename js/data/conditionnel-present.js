@@ -131,7 +131,7 @@
     const row = rows.find(entry => entry.pronoun === "nous");
     if (!usage || !row) throw new Error(`${source.label} is missing conditional example usage.`);
     const { frComplement: complement, enPredicate: englishPhrase } = usage;
-    const negativeComplement = complement
+    const negativeComplement = usage.negativeFrComplement || complement
       .replace(/^du\s+|^de la\s+|^des\s+/iu, "de ")
       .replace(/^de l[’']/iu, "d’")
       .replace(/^(?:un|une)\s+([aeiouyhàâäéèêëîïôöùûüœ])/iu, "d’$1")

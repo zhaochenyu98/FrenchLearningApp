@@ -316,6 +316,7 @@
   });
 
   const ipaVerbFormOverrides = Object.freeze({
+    tuer: Object.freeze({ nous: "tyjɔ̃", vous: "tyje" }),
     essayer: Object.freeze({
       je: "esɛjɛ",
       tu: "esɛjɛ",

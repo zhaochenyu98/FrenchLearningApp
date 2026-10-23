@@ -35,6 +35,7 @@
   ]);
 
   const stemOverrides = Object.freeze({
+    accueillir: Object.freeze({ stem: "accueiller", ipa: "akœjəʁ" }),
     impersonalValoir: Object.freeze({ stem: "vaudr", ipa: "vodʁ" }),
     recevoir: Object.freeze({ stem: "recevr", ipa: "ʁəsəvʁ" }),
     envoyer: Object.freeze({ stem: "enverr", ipa: "ɑ̃vɛʁ" }),
@@ -74,6 +75,8 @@
   });
 
   const ipaOnlyOverrides = Object.freeze({
+    creer: "kʁeʁ",
+    tuer: "tyʁ",
     souhaiter: "swɛtəʁ",
     seSouhaiter: "swɛtəʁ",
     aimer: "ɛməʁ",

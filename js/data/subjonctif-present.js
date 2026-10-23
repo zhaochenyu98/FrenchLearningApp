@@ -57,8 +57,8 @@
     }
 
     // Present IPA already records the short/plural vowel and consonant changes.
-    // Two glides must return to vowels before the subjunctive plural /j/.
-    const ipaOverrides = { adorer: "adɔʁ", jouer: "ʒu", seMarier: "maʁi" };
+    // Glides must return to vowels before the subjunctive plural /j/.
+    const ipaOverrides = { adorer: "adɔʁ", jouer: "ʒu", seMarier: "maʁi", tuer: "ty" };
     let ipa = ipaOverrides[source.key];
     if (!ipa) {
       const raw = (row.ipa || verbPhraseIpa[row.full] || "").replace(/[/.\s‿]/gu, "");
@@ -125,8 +125,9 @@
       const plural = ["nous", "vous"].includes(pronoun);
       const stem = plural ? stems.plural : stems.short;
       const form = override ? override.forms[personIndex[pronoun]] : stem.stem + endings[pronoun];
+      // Retain the lexical /j/ before the plural ending in cueillir verbs and rire.
       const core = override ? override.ipa[personIndex[pronoun]]
-        : (stem.ipa + (plural ? pronoun === "nous" ? "jɔ̃" : "je" : "")).replace(/jj/gu, "j");
+        : (stem.ipa + (plural ? pronoun === "nous" ? "jɔ̃" : "je" : "")).replace(/jj/gu, stem.stem.endsWith("cueill") || source.key === "rire" ? "jj" : "j");
       const full = withQue(clauseFor(source, pronoun, form));
       return Object.freeze({ pronoun, form, full, speech: full, ipa: rowIpa(source, pronoun, core) });
     });

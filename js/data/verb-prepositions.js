@@ -2,6 +2,16 @@
   "use strict";
 
   const sources = Object.freeze({
+    dessiner: { title: "Larousse · Dessiner", url: "https://www.larousse.fr/dictionnaires/francais-anglais/dessiner/24539" },
+    paraitre: { title: "Académie française · Paraître", url: "https://www.dictionnaire-academie.fr/article/A9P0487" },
+    plaire: { title: "Académie française · Plaire", url: "https://www.dictionnaire-academie.fr/article/A9P2680" },
+    rire: { title: "Académie française · Rire", url: "https://www.dictionnaire-academie.fr/article/A9R2696" },
+    reagir: { title: "Académie française · Réagir", url: "https://www.dictionnaire-academie.fr/article/A9R0708" },
+    accueillir: { title: "Académie française · Accueillir", url: "https://www.dictionnaire-academie.fr/article/A9A0333" },
+    creer: { title: "Académie française · Créer", url: "https://www.dictionnaire-academie.fr/article/A9C4870" },
+    aider: { title: "Larousse · Aider", url: "https://www.larousse.fr/dictionnaires/francais/aider/1846" },
+    tuerFatigue: { title: "Larousse · Tuer de fatigue (under crever)", url: "https://www.larousse.fr/dictionnaires/francais/crever/20458" },
+    eviter: { title: "Larousse · Éviter", url: "https://www.larousse.fr/dictionnaires/francais/%C3%A9viter/31886" },
     valoir: { title: "Larousse · Valoir", url: "https://www.larousse.fr/dictionnaires/francais/valoir/80995" },
     peine: { title: "Larousse · Valoir la peine de", url: "https://www.larousse.fr/dictionnaires/francais/peine/59016" },
     permettre: { title: "Larousse · Permettre", url: "https://www.larousse.fr/dictionnaires/francais/permettre/59689" },
@@ -35,6 +45,45 @@
   // destination/origin complements. Partitive articles (boire du café), generic
   // time/manner adjuncts, and archaic constructions are not verb government.
   const byVerb = {
+    dessiner: [
+      u("a-medium", "dessiner au crayon / à la plume / au fusain", "draw in pencil / pen and ink / charcoal", "Je dessine un paysage au crayon.", "I draw a landscape in pencil.", "À introduces the medium; au is the contraction of à + le. The thing drawn is a direct object.", "dessiner"),
+      u("de-memoire", "dessiner de mémoire", "draw from memory", "Elle dessine un visage de mémoire.", "She draws a face from memory.", "De mémoire is a fixed expression describing how you draw; it does not introduce the object.")
+    ],
+    paraitre: [
+      u("a-person", "paraître + adjective + à quelqu’un", "seem a certain way to someone", "Cette solution paraît simple à Paul.", "This solution seems simple to Paul.", "The person can be replaced by an indirect object pronoun: Cette solution lui paraît simple.", "paraitre"),
+      u("adjective-de-infinitive", "il paraît + adjective + de + infinitive", "it seems ... to do something", "Il paraît inutile de recommencer.", "It seems pointless to start again.", "De belongs to the adjective construction here. With paraître alone, an infinitive follows directly: Il paraît comprendre.", "paraitre")
+    ],
+    plaire: [
+      u("a-person", "plaire à quelqu’un", "appeal to someone; be liked by someone", "Ce livre plaît à Paul.", "Paul likes this book.", "The book is the subject. À Paul becomes lui: Ce livre lui plaît. Ça me plaît means I like it.", "plaire"),
+      u("impersonal-de-infinitive", "il plaît à quelqu’un de + infinitive", "it pleases someone to do something (formal)", "Il me plaît de travailler ici.", "I am pleased to work here.", "Formal impersonal construction: il is a dummy subject, me is an indirect object, and de introduces the action. This is different from se plaire à + infinitive.", "plaire")
+    ],
+    rire: [
+      u("de-person-thing", "rire de quelqu’un / quelque chose", "laugh at someone / something", "Nous rions de nos erreurs.", "We laugh at our mistakes.", "With a person, this often means making fun of them. Compare rire avec quelqu’un, laughing with someone.", "rire"),
+      u("aux-eclats", "rire aux éclats", "laugh out loud; laugh heartily", "Elle rit aux éclats.", "She laughs out loud.", "A fixed expression; aux is the contraction of à + les.", "rire")
+    ],
+    reagir: [
+      u("a-stimulus", "réagir à + noun", "react / respond to something", "Je réagis à cette nouvelle.", "I react to this news.", "À introduces the event, comment, or stimulus. Use au and aux with masculine singular and plural definite nouns: réagir au traitement, réagir aux critiques.", "reagir"),
+      u("contre-noun", "réagir contre + noun", "push back against; actively oppose", "Nous réagissons contre cette injustice.", "We push back against this injustice.", "Contre emphasizes opposition or resistance.", "reagir")
+    ],
+    accueillir: [
+      u("a-bras-ouverts", "accueillir quelqu’un à bras ouverts", "welcome someone with open arms", "Nous accueillons nos invités à bras ouverts.", "We welcome our guests with open arms.", "À bras ouverts is a fixed expression. The person welcomed is a direct object.", "accueillir")
+    ],
+    creer: [
+      u("de-toutes-pieces", "créer quelque chose de toutes pièces", "create something from scratch", "Elle crée un personnage de toutes pièces.", "She creates a character from scratch.", "De toutes pièces is a fixed expression. The thing created is a direct object.", "creer")
+    ],
+    aider: [
+      u("person-a-infinitive", "aider quelqu’un à + infinitive", "help someone do something", "J’aide Paul à porter sa valise.", "I help Paul carry his suitcase.", "The person is a direct object; à introduces the action. With an object pronoun: Je l’aide à porter sa valise.", "aider"),
+      u("a-infinitive", "aider à + infinitive", "help to do something", "Nous aidons à préparer le repas.", "We help prepare the meal.", "No person needs to be named before à.", "aider"),
+      u("a-noun", "aider à + noun", "contribute to; facilitate", "La marche aide à la digestion.", "Walking helps digestion.", "Here à introduces the process being facilitated; aider quelqu’un uses a direct object.", "aider")
+    ],
+    tuer: [
+      u("de-fatigue", "tuer quelqu’un de fatigue", "wear someone out; exhaust (figurative)", "Cette longue journée me tue de fatigue.", "This long day wears me out.", "De introduces the cause of exhaustion. The ordinary verb takes a direct object: tuer un moustique.", "tuerFatigue")
+    ],
+    eviter: [
+      u("de-infinitive", "éviter de + infinitive", "avoid doing something; try not to", "J’évite de conduire la nuit.", "I avoid driving at night.", "Keep de before the action; use a direct object with a noun: éviter les embouteillages.", "eviter"),
+      u("a-person", "éviter quelque chose à quelqu’un", "spare someone something", "Ce raccourci évite un long détour à Paul.", "This shortcut saves Paul a long detour.", "À introduces the person spared the inconvenience.", "eviter"),
+      u("a-person-de-infinitive", "éviter à quelqu’un de + infinitive", "save someone from having to do something", "Ce service évite aux clients de se déplacer.", "This service saves the customers from having to make the trip.", "À introduces the person; de introduces the action they no longer need to do.", "eviter")
+    ],
     impersonalValoir: [
       u("mieux-que-de", "il vaut mieux + infinitive + que (de) + infinitive", "it is better to do X than to do Y", "Il vaut mieux attendre que de prendre un risque.", "It is better to wait than to take a risk.", "De follows que in this comparison and can be omitted. After il vaut mieux alone, the infinitive follows directly: Il vaut mieux attendre.", "valoir"),
       u("peine-de", "valoir la peine de + infinitive", "be worth doing", "Ce livre ? Il vaut la peine d’être lu.", "This book? It is worth reading.", "Here il refers to the book. De belongs to the expression valoir la peine de.", "peine")
@@ -458,6 +507,7 @@
   // A direct infinitive, partitive article, or generic time/place adjunct alone
   // does not warrant inventing a prepositional verb pattern.
   const withoutUsage = [
+    "allumer",
     "completer",
     "seSouhaiter", "controler", "seControler", "pouvoir",
     "voir", "dormir", "sentir", "adorer", "detester", "regarder", "quitter",

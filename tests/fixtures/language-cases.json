@@ -61,6 +61,8 @@
     { "verbId": "sAgir", "tenseId": "subjonctif-present", "person": "il", "fr": "qu’il s’agisse", "reason": "Keep s’ and the fixed subject." }
   ],
   "negativeComplements": [
+    { "verbId": "creer", "tenseId": "futur-simple", "contains": "d’exercices", "excludes": "de exercices", "reason": "Negative des becomes de, elided before the vowel in exercices." },
+    { "verbId": "creer", "tenseId": "conditionnel-present", "contains": "d’exercices", "excludes": "de exercices", "reason": "Conditional examples preserve the authored vowel-sensitive negative complement." },
     { "verbId": "faire", "tenseId": "imparfait", "contains": "pas de sport", "excludes": "pas du sport", "reason": "Partitive under ordinary negation." },
     { "verbId": "envoyer", "tenseId": "futur-simple", "contains": "pas de cartes", "excludes": "pas des cartes", "reason": "Indefinite plural under ordinary negation." },
     { "verbId": "demander", "tenseId": "conditionnel-present", "contains": "pas d’aide", "excludes": "pas de l’aide", "reason": "Partitive reduction and elision." },

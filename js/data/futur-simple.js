@@ -212,7 +212,7 @@
     const negativeCore = pronominal
       ? `nous ne nous ${row.form} pas`
       : `nous ${negativeVerb} pas`;
-    const negativeUsage = negateComplement(complement);
+    const negativeUsage = usage.negativeFrComplement || negateComplement(complement);
     const useInversion = index % 2 === 0;
     const questionCore = useInversion
       ? pronominal

@@ -18,6 +18,83 @@
   }
 
   const curated = Object.freeze({
+    dessiner: command(
+      "Dessine un paysage au crayon !",
+      "Draw a landscape in pencil!",
+      "Ne dessine pas sur la table !",
+      "Do not draw on the table!",
+      "Regular -er imperative: dessine, dessinons, dessinez. Drop -s in the tu form and keep ss in every form."
+    ),
+    paraitre: command(
+      "Parais sur scène au bon moment !",
+      "Appear on stage at the right moment!",
+      "Ne parais pas sur scène avant le signal !",
+      "Do not appear on stage before the signal!",
+      "Parais, paraissons, paraissez. The imperative is uncommon; these commands use the meaning appear on stage. Keep -s in the tu form."
+    ),
+    plaire: command(
+      "Plaisez à votre public !",
+      "Appeal to your audience!",
+      "Ne plaisez pas aux autres au prix de votre liberté !",
+      "Do not please others at the cost of your freedom!",
+      "Plais, plaisons, plaisez. Direct commands with plaire are uncommon. S’il vous plaît means please, but plaît in that expression is an indicative form, not an imperative."
+    ),
+    rire: command(
+      "Ris de tes erreurs !",
+      "Laugh at your mistakes!",
+      "Ne ris pas des autres !",
+      "Do not laugh at others!",
+      "Ris, rions, riez. Keep -s in the tu form. Compare rire de quelque chose with rire avec quelqu’un."
+    ),
+    reagir: command(
+      "Réagis calmement à la critique !",
+      "Respond calmly to criticism!",
+      "Ne réagis pas sans réfléchir !",
+      "Do not react without thinking!",
+      "Regular -ir imperative: réagis, réagissons, réagissez. Keep -s in the tu form; use à to introduce what you react to."
+    ),
+    accueillir: command(
+      "Accueille tes invités avec le sourire !",
+      "Welcome your guests with a smile!",
+      "N’accueille pas tes invités froidement !",
+      "Do not give your guests a cold welcome!",
+      "Although accueillir ends in -ir, its imperative follows the -er pattern: accueille, accueillons, accueillez. Drop -s in the tu form."
+    ),
+    creer: command(
+      "Crée un nouveau document !",
+      "Create a new document!",
+      "Ne crée pas de compte en double !",
+      "Do not create a duplicate account!",
+      "Regular -er imperative: crée, créons, créez. Drop -s in the tu form and keep the acute accent."
+    ),
+    allumer: command(
+      "Allume la lumière, s’il te plaît !",
+      "Turn on the light, please!",
+      "N’allume pas la télévision pendant le cours !",
+      "Do not turn on the television during the lesson!",
+      "Regular -er imperative: allume, allumons, allumez. Compare allume la lumière (turn on) with éteins la lumière (turn off)."
+    ),
+    aider: command(
+      "Aide ta sœur à porter sa valise !",
+      "Help your sister carry her suitcase!",
+      "N’aide pas ton ami à tricher !",
+      "Do not help your friend cheat!",
+      "Regular -er imperative: aide, aidons, aidez. Drop -s in the tu form. The person is direct: aide-le / aide-la. Use à before the action."
+    ),
+    tuer: command(
+      "Tue le temps avec un livre !",
+      "Kill time with a book!",
+      "Ne tue pas cette plante !",
+      "Do not kill this plant!",
+      "Regular -er imperative: tue, tuons, tuez. Drop -s in the tu form. Tuer le temps is figurative: occupy yourself while waiting."
+    ),
+    eviter: command(
+      "Évite de parler trop vite !",
+      "Avoid speaking too fast!",
+      "N’évite pas cette question !",
+      "Do not avoid this question!",
+      "Regular -er imperative: évite, évitons, évitez. The tu form drops -s. Use de before an infinitive and no preposition before a noun object."
+    ),
     permettre: command(
       "Permettez-moi de vous aider !",
       "Allow me to help you!",
@@ -697,7 +774,7 @@
     ])
   });
 
-  const erLikeTuKeys = new Set(["offrir", "ouvrir"]);
+  const erLikeTuKeys = new Set(["offrir", "ouvrir", "accueillir"]);
 
   function recordError(key, error) {
     errors.push(Object.freeze({

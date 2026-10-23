@@ -1688,6 +1688,127 @@
       { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
     ];
 
+    const dessinerRows = [
+      { pronoun: "je", form: "dessine", full: "je dessine", ipa: "/ʒə de.sin/", en: "I draw", example: "Je dessine un paysage au crayon.", exampleEn: "I draw a landscape in pencil.", negative: "Je ne dessine pas de paysage au crayon.", negativeEn: "I do not draw a landscape in pencil.", question: "Qu’est-ce que je dessine au crayon ?" },
+      { pronoun: "tu", form: "dessines", full: "tu dessines", ipa: "/ty de.sin/", en: "you draw", example: "Tu dessines ton chat.", exampleEn: "You draw your cat.", negative: "Tu ne dessines pas ton chat.", negativeEn: "You do not draw your cat.", question: "Dessines-tu ton chat ?" },
+      { pronoun: "il", form: "dessine", full: "il dessine", ipa: "/il de.sin/", en: "he draws", example: "Il dessine à la plume.", exampleEn: "He draws in pen and ink.", negative: "Il ne dessine pas à la plume.", negativeEn: "He does not draw in pen and ink.", question: "Dessine-t-il à la plume ?" },
+      { pronoun: "elle", form: "dessine", full: "elle dessine", ipa: "/ɛl de.sin/", en: "she draws", example: "Elle dessine un visage de mémoire.", exampleEn: "She draws a face from memory.", negative: "Elle ne dessine pas de visage de mémoire.", negativeEn: "She does not draw a face from memory.", question: "Que dessine-t-elle de mémoire ?" },
+      { pronoun: "nous", form: "dessinons", full: "nous dessinons", ipa: "/nu de.si.nɔ̃/", en: "we draw", example: "Nous dessinons les plans de la maison.", exampleEn: "We draw the plans for the house.", negative: "Nous ne dessinons pas les plans de la maison.", negativeEn: "We do not draw the plans for the house.", question: "Quels plans dessinons-nous ?" },
+      { pronoun: "vous", form: "dessinez", full: "vous dessinez", ipa: "/vu de.si.ne/", en: "you draw", example: "Vous dessinez dans votre carnet.", exampleEn: "You draw in your sketchbook.", negative: "Vous ne dessinez pas dans votre carnet.", negativeEn: "You do not draw in your sketchbook.", question: "Où dessinez-vous ?" },
+      { pronoun: "ils", form: "dessinent", full: "ils dessinent", ipa: "/il de.sin/", en: "they draw", example: "Ils dessinent des animaux.", exampleEn: "They draw animals.", negative: "Ils ne dessinent pas d’animaux.", negativeEn: "They do not draw animals.", question: "Quels animaux dessinent-ils ?" },
+      { pronoun: "elles", form: "dessinent", full: "elles dessinent", ipa: "/ɛl de.sin/", en: "they draw", example: "Elles dessinent au fusain.", exampleEn: "They draw in charcoal.", negative: "Elles ne dessinent pas au fusain.", negativeEn: "They do not draw in charcoal.", question: "Dessinent-elles au fusain ?" }
+    ];
+
+    const paraitreRows = [
+      { pronoun: "je", form: "parais", full: "je parais", ipa: "/ʒə pa.ʁɛ/", en: "I seem / appear", example: "Je parais plus jeune que mon âge.", exampleEn: "I look younger than my age.", negative: "Je ne parais pas plus jeune que mon âge.", negativeEn: "I do not look younger than my age.", question: "Est-ce que je parais plus jeune que mon âge ?" },
+      { pronoun: "tu", form: "parais", full: "tu parais", ipa: "/ty pa.ʁɛ/", en: "you seem / appear", example: "Tu parais en forme aujourd’hui.", exampleEn: "You look well today.", negative: "Tu ne parais pas en forme aujourd’hui.", negativeEn: "You do not look well today.", question: "Parais-tu en forme aujourd’hui ?" },
+      { pronoun: "il", form: "paraît", full: "il paraît", ipa: "/il pa.ʁɛ/", en: "he seems / appears", example: "Il paraît connaître le quartier.", exampleEn: "He seems to know the neighborhood.", negative: "Il ne paraît pas connaître le quartier.", negativeEn: "He does not seem to know the neighborhood.", question: "Paraît-il connaître le quartier ?" },
+      { pronoun: "elle", form: "paraît", full: "elle paraît", ipa: "/ɛl pa.ʁɛ/", en: "she seems / appears", example: "Elle paraît sûre de sa réponse.", exampleEn: "She seems sure of her answer.", negative: "Elle ne paraît pas sûre de sa réponse.", negativeEn: "She does not seem sure of her answer.", question: "Paraît-elle sûre de sa réponse ?" },
+      { pronoun: "nous", form: "paraissons", full: "nous paraissons", ipa: "/nu pa.ʁɛ.sɔ̃/", en: "we seem / appear", example: "Nous paraissons à l’écran pendant le générique.", exampleEn: "We appear on screen during the credits.", negative: "Nous ne paraissons pas à l’écran pendant le générique.", negativeEn: "We do not appear on screen during the credits.", question: "Quand paraissons-nous à l’écran ?" },
+      { pronoun: "vous", form: "paraissez", full: "vous paraissez", ipa: "/vu pa.ʁɛ.se/", en: "you seem / appear", example: "Vous paraissez très calmes.", exampleEn: "You seem very calm.", negative: "Vous ne paraissez pas très calmes.", negativeEn: "You do not seem very calm.", question: "Paraissez-vous très calmes ?" },
+      { pronoun: "ils", form: "paraissent", full: "ils paraissent", ipa: "/il pa.ʁɛs/", en: "they seem / appear", example: "Ils paraissent contents du résultat.", exampleEn: "They seem happy with the result.", negative: "Ils ne paraissent pas contents du résultat.", negativeEn: "They do not seem happy with the result.", question: "Paraissent-ils contents du résultat ?" },
+      { pronoun: "elles", form: "paraissent", full: "elles paraissent", ipa: "/ɛl pa.ʁɛs/", en: "they seem / appear", example: "Elles paraissent avoir compris.", exampleEn: "They seem to have understood.", negative: "Elles ne paraissent pas avoir compris.", negativeEn: "They do not seem to have understood.", question: "Paraissent-elles avoir compris ?" }
+    ];
+
+    const plaireRows = [
+      { pronoun: "je", form: "plais", full: "je plais", ipa: "/ʒə plɛ/", en: "I please / appeal to", example: "Je plais à ce public.", exampleEn: "This audience likes me.", negative: "Je ne plais pas à ce public.", negativeEn: "This audience does not like me.", question: "À quel public est-ce que je plais ?" },
+      { pronoun: "tu", form: "plais", full: "tu plais", ipa: "/ty plɛ/", en: "you please / appeal to", example: "Tu plais à mes amis.", exampleEn: "My friends like you.", negative: "Tu ne plais pas à mes amis.", negativeEn: "My friends do not like you.", question: "Plais-tu à mes amis ?" },
+      { pronoun: "il", form: "plaît", full: "il plaît", ipa: "/il plɛ/", en: "he / it pleases; appeals to", example: "Ce livre ? Il me plaît beaucoup.", exampleEn: "This book? I like it a lot.", negative: "Ce livre ? Il ne me plaît pas beaucoup.", negativeEn: "This book? I do not like it much.", question: "Ce livre te plaît-il ?" },
+      { pronoun: "elle", form: "plaît", full: "elle plaît", ipa: "/ɛl plɛ/", en: "she / it pleases; appeals to", example: "Cette chanson ? Elle plaît aux enfants.", exampleEn: "This song? The children like it.", negative: "Cette chanson ? Elle ne plaît pas aux enfants.", negativeEn: "This song? The children do not like it.", question: "Cette chanson plaît-elle aux enfants ?" },
+      { pronoun: "nous", form: "plaisons", full: "nous plaisons", ipa: "/nu plɛ.zɔ̃/", en: "we please / appeal to", example: "Nous plaisons au public.", exampleEn: "The audience likes us.", negative: "Nous ne plaisons pas au public.", negativeEn: "The audience does not like us.", question: "À qui plaisons-nous ?" },
+      { pronoun: "vous", form: "plaisez", full: "vous plaisez", ipa: "/vu plɛ.ze/", en: "you please / appeal to", example: "Vous plaisez aux spectateurs.", exampleEn: "The spectators like you.", negative: "Vous ne plaisez pas aux spectateurs.", negativeEn: "The spectators do not like you.", question: "Plaisez-vous aux spectateurs ?" },
+      { pronoun: "ils", form: "plaisent", full: "ils plaisent", ipa: "/il plɛz/", en: "they please / appeal to", example: "Ces romans ? Ils plaisent à ma sœur.", exampleEn: "These novels? My sister likes them.", negative: "Ces romans ? Ils ne plaisent pas à ma sœur.", negativeEn: "These novels? My sister does not like them.", question: "Ces romans plaisent-ils à ta sœur ?" },
+      { pronoun: "elles", form: "plaisent", full: "elles plaisent", ipa: "/ɛl plɛz/", en: "they please / appeal to", example: "Ces couleurs ? Elles nous plaisent.", exampleEn: "These colors? We like them.", negative: "Ces couleurs ? Elles ne nous plaisent pas.", negativeEn: "These colors? We do not like them.", question: "Ces couleurs vous plaisent-elles ?" }
+    ];
+
+    const rireRows = [
+      { pronoun: "je", form: "ris", full: "je ris", ipa: "/ʒə ʁi/", en: "I laugh", example: "Je ris de cette blague.", exampleEn: "I laugh at this joke.", negative: "Je ne ris pas de cette blague.", negativeEn: "I do not laugh at this joke.", question: "De quoi est-ce que je ris ?" },
+      { pronoun: "tu", form: "ris", full: "tu ris", ipa: "/ty ʁi/", en: "you laugh", example: "Tu ris avec tes amis.", exampleEn: "You laugh with your friends.", negative: "Tu ne ris pas avec tes amis.", negativeEn: "You do not laugh with your friends.", question: "Avec qui ris-tu ?" },
+      { pronoun: "il", form: "rit", full: "il rit", ipa: "/il ʁi/", en: "he laughs", example: "Il rit aux éclats.", exampleEn: "He laughs out loud.", negative: "Il ne rit pas aux éclats.", negativeEn: "He does not laugh out loud.", question: "Rit-il aux éclats ?" },
+      { pronoun: "elle", form: "rit", full: "elle rit", ipa: "/ɛl ʁi/", en: "she laughs", example: "Elle rit en regardant cette comédie.", exampleEn: "She laughs while watching this comedy.", negative: "Elle ne rit pas en regardant cette comédie.", negativeEn: "She does not laugh while watching this comedy.", question: "Rit-elle en regardant cette comédie ?" },
+      { pronoun: "nous", form: "rions", full: "nous rions", ipa: "/nu ʁi.jɔ̃/", en: "we laugh", example: "Nous rions de nos erreurs.", exampleEn: "We laugh at our mistakes.", negative: "Nous ne rions pas de nos erreurs.", negativeEn: "We do not laugh at our mistakes.", question: "De quoi rions-nous ?" },
+      { pronoun: "vous", form: "riez", full: "vous riez", ipa: "/vu ʁi.je/", en: "you laugh", example: "Vous riez de bon cœur.", exampleEn: "You laugh heartily.", negative: "Vous ne riez pas de bon cœur.", negativeEn: "You do not laugh heartily.", question: "Riez-vous de bon cœur ?" },
+      { pronoun: "ils", form: "rient", full: "ils rient", ipa: "/il ʁi/", en: "they laugh", example: "Ils rient ensemble pendant la pause.", exampleEn: "They laugh together during the break.", negative: "Ils ne rient pas ensemble pendant la pause.", negativeEn: "They do not laugh together during the break.", question: "Quand rient-ils ensemble ?" },
+      { pronoun: "elles", form: "rient", full: "elles rient", ipa: "/ɛl ʁi/", en: "they laugh", example: "Elles rient sans se moquer de personne.", exampleEn: "They laugh without making fun of anyone.", negative: "Elles ne rient pas pendant la réunion.", negativeEn: "They do not laugh during the meeting.", question: "Rient-elles sans se moquer de personne ?" }
+    ];
+
+    const reagirRows = [
+      { pronoun: "je", form: "réagis", full: "je réagis", ipa: "/ʒə ʁe.a.ʒi/", en: "I react / respond", example: "Je réagis à cette nouvelle.", exampleEn: "I react to this news.", negative: "Je ne réagis pas à cette nouvelle.", negativeEn: "I do not react to this news.", question: "Comment est-ce que je réagis à cette nouvelle ?" },
+      { pronoun: "tu", form: "réagis", full: "tu réagis", ipa: "/ty ʁe.a.ʒi/", en: "you react / respond", example: "Tu réagis vite en cas de problème.", exampleEn: "You react quickly when there is a problem.", negative: "Tu ne réagis pas vite en cas de problème.", negativeEn: "You do not react quickly when there is a problem.", question: "Réagis-tu vite en cas de problème ?" },
+      { pronoun: "il", form: "réagit", full: "il réagit", ipa: "/il ʁe.a.ʒi/", en: "he reacts / responds", example: "Il réagit calmement à la critique.", exampleEn: "He responds calmly to criticism.", negative: "Il ne réagit pas calmement à la critique.", negativeEn: "He does not respond calmly to criticism.", question: "Comment réagit-il à la critique ?" },
+      { pronoun: "elle", form: "réagit", full: "elle réagit", ipa: "/ɛl ʁe.a.ʒi/", en: "she reacts / responds", example: "Elle réagit avec humour.", exampleEn: "She responds with humor.", negative: "Elle ne réagit pas avec humour.", negativeEn: "She does not respond with humor.", question: "Réagit-elle avec humour ?" },
+      { pronoun: "nous", form: "réagissons", full: "nous réagissons", ipa: "/nu ʁe.a.ʒi.sɔ̃/", en: "we react / respond", example: "Nous réagissons contre cette injustice.", exampleEn: "We push back against this injustice.", negative: "Nous ne réagissons pas contre cette injustice.", negativeEn: "We do not push back against this injustice.", question: "Contre quoi réagissons-nous ?" },
+      { pronoun: "vous", form: "réagissez", full: "vous réagissez", ipa: "/vu ʁe.a.ʒi.se/", en: "you react / respond", example: "Vous réagissez aux commentaires des clients.", exampleEn: "You respond to the customers’ comments.", negative: "Vous ne réagissez pas aux commentaires des clients.", negativeEn: "You do not respond to the customers’ comments.", question: "À quels commentaires réagissez-vous ?" },
+      { pronoun: "ils", form: "réagissent", full: "ils réagissent", ipa: "/il ʁe.a.ʒis/", en: "they react / respond", example: "Ils réagissent bien au traitement.", exampleEn: "They respond well to the treatment.", negative: "Ils ne réagissent pas bien au traitement.", negativeEn: "They do not respond well to the treatment.", question: "Comment réagissent-ils au traitement ?" },
+      { pronoun: "elles", form: "réagissent", full: "elles réagissent", ipa: "/ɛl ʁe.a.ʒis/", en: "they react / respond", example: "Elles réagissent immédiatement à l’alarme.", exampleEn: "They react immediately to the alarm.", negative: "Elles ne réagissent pas immédiatement à l’alarme.", negativeEn: "They do not react immediately to the alarm.", question: "Réagissent-elles immédiatement à l’alarme ?" }
+    ];
+
+    const accueillirRows = [
+      { pronoun: "j’", form: "accueille", full: "j’accueille", ipa: "/ʒa.kœj/", en: "I welcome / receive", example: "J’accueille les visiteurs à l’entrée.", exampleEn: "I welcome the visitors at the entrance.", negative: "Je n’accueille pas les visiteurs à l’entrée.", negativeEn: "I do not welcome the visitors at the entrance.", question: "Où est-ce que j’accueille les visiteurs ?" },
+      { pronoun: "tu", form: "accueilles", full: "tu accueilles", ipa: "/ty a.kœj/", en: "you welcome / receive", example: "Tu accueilles ta famille chez toi.", exampleEn: "You welcome your family into your home.", negative: "Tu n’accueilles pas ta famille chez toi.", negativeEn: "You do not welcome your family into your home.", question: "Accueilles-tu ta famille chez toi ?" },
+      { pronoun: "il", form: "accueille", full: "il accueille", ipa: "/il a.kœj/", en: "he welcomes / receives", example: "Il accueille les clients avec le sourire.", exampleEn: "He welcomes the customers with a smile.", negative: "Il n’accueille pas les clients avec le sourire.", negativeEn: "He does not welcome the customers with a smile.", question: "Comment accueille-t-il les clients ?" },
+      { pronoun: "elle", form: "accueille", full: "elle accueille", ipa: "/ɛl a.kœj/", en: "she welcomes / receives", example: "Elle accueille une nouvelle collègue.", exampleEn: "She welcomes a new colleague.", negative: "Elle n’accueille pas de nouvelle collègue.", negativeEn: "She does not welcome a new colleague.", question: "Accueille-t-elle une nouvelle collègue ?" },
+      { pronoun: "nous", form: "accueillons", full: "nous accueillons", ipa: "/nu.z‿a.kœ.jɔ̃/", en: "we welcome / receive", example: "Nous accueillons nos invités à bras ouverts.", exampleEn: "We welcome our guests with open arms.", negative: "Nous n’accueillons pas nos invités à bras ouverts.", negativeEn: "We do not welcome our guests with open arms.", question: "Comment accueillons-nous nos invités ?" },
+      { pronoun: "vous", form: "accueillez", full: "vous accueillez", ipa: "/vu.z‿a.kœ.je/", en: "you welcome / receive", example: "Vous accueillez les élèves chaque matin.", exampleEn: "You welcome the students every morning.", negative: "Vous n’accueillez pas les élèves chaque matin.", negativeEn: "You do not welcome the students every morning.", question: "Quand accueillez-vous les élèves ?" },
+      { pronoun: "ils", form: "accueillent", full: "ils accueillent", ipa: "/il.z‿a.kœj/", en: "they welcome / receive", example: "Ils accueillent cette nouvelle avec joie.", exampleEn: "They welcome this news with joy.", negative: "Ils n’accueillent pas cette nouvelle avec joie.", negativeEn: "They do not welcome this news with joy.", question: "Comment accueillent-ils cette nouvelle ?" },
+      { pronoun: "elles", form: "accueillent", full: "elles accueillent", ipa: "/ɛl.z‿a.kœj/", en: "they welcome / receive", example: "Elles accueillent les nouveaux voisins.", exampleEn: "They welcome the new neighbors.", negative: "Elles n’accueillent pas les nouveaux voisins.", negativeEn: "They do not welcome the new neighbors.", question: "Qui accueillent-elles ?" }
+    ];
+
+    const creerRows = [
+      { pronoun: "je", form: "crée", full: "je crée", ipa: "/ʒə kʁe/", en: "I create", example: "Je crée un nouveau dossier.", exampleEn: "I create a new folder.", negative: "Je ne crée pas de nouveau dossier.", negativeEn: "I do not create a new folder.", question: "Quel dossier est-ce que je crée ?" },
+      { pronoun: "tu", form: "crées", full: "tu crées", ipa: "/ty kʁe/", en: "you create", example: "Tu crées un compte.", exampleEn: "You create an account.", negative: "Tu ne crées pas de compte.", negativeEn: "You do not create an account.", question: "Crées-tu un compte ?" },
+      { pronoun: "il", form: "crée", full: "il crée", ipa: "/il kʁe/", en: "he creates", example: "Il crée un personnage pour son roman.", exampleEn: "He creates a character for his novel.", negative: "Il ne crée pas de personnage pour son roman.", negativeEn: "He does not create a character for his novel.", question: "Quel personnage crée-t-il pour son roman ?" },
+      { pronoun: "elle", form: "crée", full: "elle crée", ipa: "/ɛl kʁe/", en: "she creates", example: "Elle crée une entreprise.", exampleEn: "She starts a business.", negative: "Elle ne crée pas d’entreprise.", negativeEn: "She does not start a business.", question: "Crée-t-elle une entreprise ?" },
+      { pronoun: "nous", form: "créons", full: "nous créons", ipa: "/nu kʁe.ɔ̃/", en: "we create", example: "Nous créons des exercices pour les élèves.", exampleEn: "We create exercises for the students.", negative: "Nous ne créons pas d’exercices pour les élèves.", negativeEn: "We do not create exercises for the students.", question: "Pour qui créons-nous des exercices ?" },
+      { pronoun: "vous", form: "créez", full: "vous créez", ipa: "/vu kʁe.e/", en: "you create", example: "Vous créez un document.", exampleEn: "You create a document.", negative: "Vous ne créez pas de document.", negativeEn: "You do not create a document.", question: "Quel document créez-vous ?" },
+      { pronoun: "ils", form: "créent", full: "ils créent", ipa: "/il kʁe/", en: "they create", example: "Ils créent des emplois.", exampleEn: "They create jobs.", negative: "Ils ne créent pas d’emplois.", negativeEn: "They do not create jobs.", question: "Combien d’emplois créent-ils ?" },
+      { pronoun: "elles", form: "créent", full: "elles créent", ipa: "/ɛl kʁe/", en: "they create", example: "Elles créent des bijoux.", exampleEn: "They create jewelry.", negative: "Elles ne créent pas de bijoux.", negativeEn: "They do not create jewelry.", question: "Quels bijoux créent-elles ?" }
+    ];
+
+    const allumerRows = [
+      { pronoun: "j’", form: "allume", full: "j’allume", ipa: "/ʒa.lym/", en: "I turn on / light", example: "J’allume la lumière.", exampleEn: "I turn on the light.", negative: "Je n’allume pas la lumière.", negativeEn: "I do not turn on the light.", question: "Quelle lumière est-ce que j’allume ?" },
+      { pronoun: "tu", form: "allumes", full: "tu allumes", ipa: "/ty a.lym/", en: "you turn on / light", example: "Tu allumes une bougie.", exampleEn: "You light a candle.", negative: "Tu n’allumes pas de bougie.", negativeEn: "You do not light a candle.", question: "Allumes-tu une bougie ?" },
+      { pronoun: "il", form: "allume", full: "il allume", ipa: "/il a.lym/", en: "he turns on / lights", example: "Il allume son ordinateur.", exampleEn: "He turns on his computer.", negative: "Il n’allume pas son ordinateur.", negativeEn: "He does not turn on his computer.", question: "Quel ordinateur allume-t-il ?" },
+      { pronoun: "elle", form: "allume", full: "elle allume", ipa: "/ɛl a.lym/", en: "she turns on / lights", example: "Elle allume la lampe.", exampleEn: "She turns on the lamp.", negative: "Elle n’allume pas la lampe.", negativeEn: "She does not turn on the lamp.", question: "Allume-t-elle la lampe ?" },
+      { pronoun: "nous", form: "allumons", full: "nous allumons", ipa: "/nu.z‿a.ly.mɔ̃/", en: "we turn on / light", example: "Nous allumons le chauffage.", exampleEn: "We turn on the heating.", negative: "Nous n’allumons pas le chauffage.", negativeEn: "We do not turn on the heating.", question: "Quand allumons-nous le chauffage ?" },
+      { pronoun: "vous", form: "allumez", full: "vous allumez", ipa: "/vu.z‿a.ly.me/", en: "you turn on / light", example: "Vous allumez la télévision.", exampleEn: "You turn on the television.", negative: "Vous n’allumez pas la télévision.", negativeEn: "You do not turn on the television.", question: "Allumez-vous la télévision ?" },
+      { pronoun: "ils", form: "allument", full: "ils allument", ipa: "/il.z‿a.lym/", en: "they turn on / light", example: "Ils allument les phares.", exampleEn: "They turn on the headlights.", negative: "Ils n’allument pas les phares.", negativeEn: "They do not turn on the headlights.", question: "Quels phares allument-ils ?" },
+      { pronoun: "elles", form: "allument", full: "elles allument", ipa: "/ɛl.z‿a.lym/", en: "they turn on / light", example: "Elles allument la radio.", exampleEn: "They turn on the radio.", negative: "Elles n’allument pas la radio.", negativeEn: "They do not turn on the radio.", question: "Allument-elles la radio ?" }
+    ];
+
+    const aiderRows = [
+      { pronoun: "j’", form: "aide", full: "j’aide", ipa: "/ʒɛd/", en: "I help", example: "J’aide Paul à porter sa valise.", exampleEn: "I help Paul carry his suitcase.", negative: "Je n’aide pas Paul à porter sa valise.", negativeEn: "I do not help Paul carry his suitcase.", question: "Qui est-ce que j’aide à porter sa valise ?" },
+      { pronoun: "tu", form: "aides", full: "tu aides", ipa: "/ty ɛd/", en: "you help", example: "Tu aides ta sœur à faire ses devoirs.", exampleEn: "You help your sister do her homework.", negative: "Tu n’aides pas ta sœur à faire ses devoirs.", negativeEn: "You do not help your sister do her homework.", question: "Aides-tu ta sœur à faire ses devoirs ?" },
+      { pronoun: "il", form: "aide", full: "il aide", ipa: "/il ɛd/", en: "he helps", example: "Il aide son voisin.", exampleEn: "He helps his neighbor.", negative: "Il n’aide pas son voisin.", negativeEn: "He does not help his neighbor.", question: "Qui aide-t-il ?" },
+      { pronoun: "elle", form: "aide", full: "elle aide", ipa: "/ɛl ɛd/", en: "she helps", example: "Elle aide les enfants à lire.", exampleEn: "She helps the children read.", negative: "Elle n’aide pas les enfants à lire.", negativeEn: "She does not help the children read.", question: "Aide-t-elle les enfants à lire ?" },
+      { pronoun: "nous", form: "aidons", full: "nous aidons", ipa: "/nu.z‿e.dɔ̃/", en: "we help", example: "Nous aidons nos amis à déménager.", exampleEn: "We help our friends move.", negative: "Nous n’aidons pas nos amis à déménager.", negativeEn: "We do not help our friends move.", question: "Qui aidons-nous à déménager ?" },
+      { pronoun: "vous", form: "aidez", full: "vous aidez", ipa: "/vu.z‿e.de/", en: "you help", example: "Vous aidez les élèves à comprendre cette règle.", exampleEn: "You help the students understand this rule.", negative: "Vous n’aidez pas les élèves à comprendre cette règle.", negativeEn: "You do not help the students understand this rule.", question: "Quelle règle aidez-vous les élèves à comprendre ?" },
+      { pronoun: "ils", form: "aident", full: "ils aident", ipa: "/il.z‿ɛd/", en: "they help", example: "Ils aident leurs parents dans le jardin.", exampleEn: "They help their parents in the garden.", negative: "Ils n’aident pas leurs parents dans le jardin.", negativeEn: "They do not help their parents in the garden.", question: "Où aident-ils leurs parents ?" },
+      { pronoun: "elles", form: "aident", full: "elles aident", ipa: "/ɛl.z‿ɛd/", en: "they help", example: "Elles aident à préparer le repas.", exampleEn: "They help prepare the meal.", negative: "Elles n’aident pas à préparer le repas.", negativeEn: "They do not help prepare the meal.", question: "Aident-elles à préparer le repas ?" }
+    ];
+
+    const tuerRows = [
+      { pronoun: "je", form: "tue", full: "je tue", ipa: "/ʒə ty/", en: "I kill", example: "Je tue le temps en attendant le train.", exampleEn: "I kill time while waiting for the train.", negative: "Je ne tue pas le temps en attendant le train.", negativeEn: "I do not kill time while waiting for the train.", question: "Comment est-ce que je tue le temps ?" },
+      { pronoun: "tu", form: "tues", full: "tu tues", ipa: "/ty ty/", en: "you kill", example: "Tu tues cette plante en oubliant de l’arroser.", exampleEn: "You kill this plant by forgetting to water it.", negative: "Tu ne tues pas cette plante en oubliant de l’arroser.", negativeEn: "You do not kill this plant by forgetting to water it.", question: "Tues-tu cette plante en oubliant de l’arroser ?" },
+      { pronoun: "il", form: "tue", full: "il tue", ipa: "/il ty/", en: "he kills", example: "Il tue le monstre dans le jeu.", exampleEn: "He kills the monster in the game.", negative: "Il ne tue pas le monstre dans le jeu.", negativeEn: "He does not kill the monster in the game.", question: "Quel monstre tue-t-il dans le jeu ?" },
+      { pronoun: "elle", form: "tue", full: "elle tue", ipa: "/ɛl ty/", en: "she kills", example: "Elle tue un moustique.", exampleEn: "She kills a mosquito.", negative: "Elle ne tue pas de moustique.", negativeEn: "She does not kill a mosquito.", question: "Tue-t-elle un moustique ?" },
+      { pronoun: "nous", form: "tuons", full: "nous tuons", ipa: "/nu tɥɔ̃/", en: "we kill", example: "Nous tuons le temps en jouant aux cartes.", exampleEn: "We kill time by playing cards.", negative: "Nous ne tuons pas le temps en jouant aux cartes.", negativeEn: "We do not kill time by playing cards.", question: "Comment tuons-nous le temps ?" },
+      { pronoun: "vous", form: "tuez", full: "vous tuez", ipa: "/vu tɥe/", en: "you kill", example: "Vous tuez les bactéries avec ce produit.", exampleEn: "You kill bacteria with this product.", negative: "Vous ne tuez pas les bactéries avec ce produit.", negativeEn: "You do not kill bacteria with this product.", question: "Avec quel produit tuez-vous les bactéries ?" },
+      { pronoun: "ils", form: "tuent", full: "ils tuent", ipa: "/il ty/", en: "they kill", example: "Ils tuent le suspense en racontant la fin.", exampleEn: "They kill the suspense by telling the ending.", negative: "Ils ne tuent pas le suspense en racontant la fin.", negativeEn: "They do not kill the suspense by telling the ending.", question: "Comment tuent-ils le suspense ?" },
+      { pronoun: "elles", form: "tuent", full: "elles tuent", ipa: "/ɛl ty/", en: "they kill", example: "Elles tuent les mauvaises herbes dans le jardin.", exampleEn: "They kill the weeds in the garden.", negative: "Elles ne tuent pas les mauvaises herbes dans le jardin.", negativeEn: "They do not kill the weeds in the garden.", question: "Tuent-elles les mauvaises herbes dans le jardin ?" }
+    ];
+
+    const eviterRows = [
+      { pronoun: "j’", form: "évite", full: "j’évite", ipa: "/ʒe.vit/", en: "I avoid", example: "J’évite de conduire la nuit.", exampleEn: "I avoid driving at night.", negative: "Je n’évite pas de conduire la nuit.", negativeEn: "I do not avoid driving at night.", question: "Qu’est-ce que j’évite de faire ?" },
+      { pronoun: "tu", form: "évites", full: "tu évites", ipa: "/ty e.vit/", en: "you avoid", example: "Tu évites les embouteillages.", exampleEn: "You avoid traffic jams.", negative: "Tu n’évites pas les embouteillages.", negativeEn: "You do not avoid traffic jams.", question: "Évites-tu les embouteillages ?" },
+      { pronoun: "il", form: "évite", full: "il évite", ipa: "/il e.vit/", en: "he avoids", example: "Il évite de parler trop vite.", exampleEn: "He avoids speaking too fast.", negative: "Il n’évite pas de parler trop vite.", negativeEn: "He does not avoid speaking too fast.", question: "Évite-t-il de parler trop vite ?" },
+      { pronoun: "elle", form: "évite", full: "elle évite", ipa: "/ɛl e.vit/", en: "she avoids", example: "Elle évite de faire du bruit.", exampleEn: "She avoids making noise.", negative: "Elle n’évite pas de faire du bruit.", negativeEn: "She does not avoid making noise.", question: "Évite-t-elle de faire du bruit ?" },
+      { pronoun: "nous", form: "évitons", full: "nous évitons", ipa: "/nu.z‿e.vi.tɔ̃/", en: "we avoid", example: "Nous évitons de faire les mêmes erreurs.", exampleEn: "We avoid making the same mistakes.", negative: "Nous n’évitons pas de faire les mêmes erreurs.", negativeEn: "We do not avoid making the same mistakes.", question: "Évitons-nous de faire les mêmes erreurs ?" },
+      { pronoun: "vous", form: "évitez", full: "vous évitez", ipa: "/vu.z‿e.vi.te/", en: "you avoid", example: "Vous évitez ce quartier le soir.", exampleEn: "You avoid this neighborhood in the evening.", negative: "Vous n’évitez pas ce quartier le soir.", negativeEn: "You do not avoid this neighborhood in the evening.", question: "Quel quartier évitez-vous le soir ?" },
+      { pronoun: "ils", form: "évitent", full: "ils évitent", ipa: "/il.z‿e.vit/", en: "they avoid", example: "Ils évitent de répondre tout de suite.", exampleEn: "They avoid answering right away.", negative: "Ils n’évitent pas de répondre tout de suite.", negativeEn: "They do not avoid answering right away.", question: "Évitent-ils de répondre tout de suite ?" },
+      { pronoun: "elles", form: "évitent", full: "elles évitent", ipa: "/ɛl.z‿e.vit/", en: "they avoid", example: "Elles évitent les disputes.", exampleEn: "They avoid arguments.", negative: "Elles n’évitent pas les disputes.", negativeEn: "They do not avoid arguments.", question: "Qu’évitent-elles ?" }
+    ];
+
     const permettreRows = [
       { pronoun: "je", form: "permets", full: "je permets", ipa: "/ʒə pɛʁ.mɛ/", en: "I allow / permit", example: "Je permets à Paul de sortir.", exampleEn: "I allow Paul to go out.", negative: "Je ne permets pas à Paul de sortir.", negativeEn: "I do not allow Paul to go out.", question: "À qui est-ce que je permets de sortir ?" },
       { pronoun: "tu", form: "permets", full: "tu permets", ipa: "/ty pɛʁ.mɛ/", en: "you allow / permit", example: "Tu permets aux enfants de jouer dehors.", exampleEn: "You allow the children to play outside.", negative: "Tu ne permets pas aux enfants de jouer dehors.", negativeEn: "You do not allow the children to play outside.", question: "Permets-tu aux enfants de jouer dehors ?" },
@@ -1844,6 +1965,105 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "dessiner",
+        group: "regularEr",
+        label: "dessiner",
+        title: "Dessiner — to draw / design",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Dessiner</strong> means to draw or design something: <strong>dessiner un paysage</strong>, <strong>dessiner les plans d’une maison</strong>. It takes a direct object and can also stand alone: <strong>J’aime dessiner.</strong> It follows the regular -er pattern: <strong>je dessine</strong>, <strong>nous dessinons</strong>. Use <strong>au crayon</strong>, <strong>à la plume</strong>, or <strong>au fusain</strong> for the medium; <strong>dessiner de mémoire</strong> means to draw from memory. The passé composé uses <strong>avoir + dessiné</strong>. The imperative is <strong>dessine</strong>, without -s.",
+        rows: dessinerRows
+      },
+      {
+        key: "paraitre",
+        group: "irregular",
+        label: "paraître",
+        title: "Paraître — to seem / appear / be published",
+        tag: "irregular -aître",
+        descriptionHtml: "<strong>Paraître</strong> follows the connaître pattern: <strong>je parais</strong>, <strong>il paraît</strong>, <strong>nous paraissons</strong>. It means to seem (<strong>elle paraît calme</strong>), appear, or be published (<strong>ce roman paraît demain</strong>). An infinitive follows directly: <strong>il paraît comprendre</strong>. <strong>Il paraît que…</strong> means “apparently…” or “people say that…”. The future is <strong>je paraîtrai</strong>; the past uses <strong>avoir + paru</strong>. In the publication sense, <strong>être</strong> can emphasize the result: <strong>le livre est paru</strong>. The app uses traditional spelling; <strong>paraitre</strong>, <strong>il parait</strong>, and <strong>je paraitrai</strong> are also accepted under the 1990 spelling reform.",
+        rows: paraitreRows
+      },
+      {
+        key: "plaire",
+        group: "irregular",
+        label: "plaire",
+        title: "Plaire — to please / appeal to",
+        tag: "irregular -re / à + person",
+        descriptionHtml: "Use <strong>plaire à quelqu’un</strong>: the thing or person liked is the subject, and the person who likes it is introduced by <strong>à</strong> or an indirect object pronoun. <strong>Ce livre plaît à Paul</strong> → <strong>Ce livre lui plaît</strong> (“Paul likes this book”). <strong>Ça me plaît</strong> means “I like it.” Compare <strong>je plais / il plaît</strong> with <strong>nous plaisons / ils plaisent</strong>. The future is <strong>je plairai</strong>; the past uses <strong>avoir + plu</strong>, with <strong>plu</strong> invariable. <strong>S’il vous plaît / s’il te plaît</strong> means “please.” The traditional <strong>il plaît</strong> and rectified <strong>il plait</strong> are both accepted.",
+        rows: plaireRows
+      },
+      {
+        key: "rire",
+        group: "irregular",
+        label: "rire",
+        title: "Rire — to laugh",
+        tag: "irregular -re",
+        descriptionHtml: "<strong>Rire</strong> changes from <strong>je ris / il rit</strong> to <strong>nous rions / vous riez / ils rient</strong>. Use <strong>rire de quelque chose</strong> for laughing at something; with a person, it can mean making fun of them. <strong>Rire aux éclats</strong> means to laugh out loud. The passé composé uses <strong>avoir + ri</strong>, with <strong>ri</strong> invariable: <strong>nous avons ri</strong>. Keep both written i letters in the imparfait and subjunctive plural: <strong>nous riions</strong>, <strong>que vous riiez</strong>. The future is <strong>je rirai</strong>; the imperative keeps -s: <strong>ris</strong>.",
+        rows: rireRows
+      },
+      {
+        key: "reagir",
+        group: "regularIr",
+        label: "réagir",
+        title: "Réagir — to react / respond",
+        tag: "regular -ir / à + noun",
+        descriptionHtml: "<strong>Réagir</strong> follows the regular -ir pattern: <strong>je réagis</strong>, <strong>nous réagissons</strong>, <strong>ils réagissent</strong>. Use <strong>réagir à quelque chose</strong> for responding to an event, comment, or treatment: <strong>réagir à une nouvelle</strong>, <strong>réagir aux critiques</strong>. Use <strong>réagir contre quelque chose</strong> for actively opposing it: <strong>réagir contre une injustice</strong>. It can also stand alone: <strong>Il faut réagir !</strong> The passé composé uses <strong>avoir + réagi</strong>; the imperative keeps -s: <strong>réagis</strong>.",
+        rows: reagirRows
+      },
+      {
+        key: "accueillir",
+        group: "irregular",
+        label: "accueillir",
+        title: "Accueillir — to welcome / receive",
+        tag: "irregular -ir / -er-like present",
+        descriptionHtml: "<strong>Accueillir</strong> means to welcome or receive someone, or to react to news: <strong>accueillir des invités</strong>, <strong>accueillir une nouvelle avec joie</strong>. The person welcomed is a direct object: <strong>accueillir quelqu’un</strong>. This third-group verb takes -er-like present endings: <strong>j’accueille</strong>, <strong>tu accueilles</strong>, <strong>nous accueillons</strong>. The future stem is <strong>accueiller-</strong>: <strong>j’accueillerai</strong>. Use <strong>avoir + accueilli</strong> in the passé composé. The imperative is <strong>accueille</strong>, without -s. <strong>Accueillir quelqu’un à bras ouverts</strong> means to welcome someone with open arms.",
+        rows: accueillirRows
+      },
+      {
+        key: "creer",
+        group: "regularEr",
+        label: "créer",
+        title: "Créer — to create / establish",
+        tag: "regular -er / -éer spelling",
+        descriptionHtml: "<strong>Créer</strong> means to create, invent, or establish something: <strong>créer un personnage</strong>, <strong>créer une entreprise</strong>. Keep <strong>é</strong> in every form: <strong>je crée</strong>, <strong>nous créons</strong>, <strong>vous créez</strong>. The imparfait and subjunctive plural add <strong>i</strong>: <strong>nous créions</strong>, <strong>vous créiez</strong>. The future is <strong>je créerai</strong>, with the written <strong>e</strong> retained. The passé composé uses <strong>avoir + créé</strong>; the feminine participle, when agreement applies, is <strong>créée</strong>.",
+        rows: creerRows
+      },
+      {
+        key: "allumer",
+        group: "regularEr",
+        label: "allumer",
+        title: "Allumer — to turn on / light",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Allumer</strong> means to turn on a light or appliance (<strong>allumer la lumière</strong>, <strong>allumer un ordinateur</strong>) or to light something (<strong>allumer une bougie</strong>). It takes a direct object and follows the regular -er pattern: <strong>j’allume</strong>, <strong>nous allumons</strong>. Its opposite is <strong>éteindre</strong> (turn off / put out). For a door or window, use <strong>ouvrir / fermer</strong>. The passé composé uses <strong>avoir + allumé</strong>.",
+        rows: allumerRows
+      },
+      {
+        key: "aider",
+        group: "regularEr",
+        label: "aider",
+        title: "Aider — to help / assist",
+        tag: "regular -er / à + infinitive",
+        descriptionHtml: "<strong>Aider</strong> follows the regular -er pattern. The person helped is a direct object: <strong>aider quelqu’un</strong>, <strong>J’aide Paul</strong> → <strong>Je l’aide.</strong> Use <strong>à + infinitive</strong> for the action: <strong>aider quelqu’un à porter une valise</strong>. Without naming a person, <strong>aider à préparer le repas</strong> means “help prepare the meal.” Elide <strong>je</strong> before the vowel: <strong>j’aide</strong>. The passé composé uses <strong>avoir + aidé</strong>: <strong>j’ai aidé</strong>.",
+        rows: aiderRows
+      },
+      {
+        key: "tuer",
+        group: "regularEr",
+        label: "tuer",
+        title: "Tuer — to kill",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Tuer</strong> takes a direct object: <strong>tuer un moustique</strong>, <strong>tuer les bactéries</strong>. It also appears in figurative expressions: <strong>tuer le temps</strong> (kill time), <strong>tuer le suspense</strong> (kill the suspense). Its written endings are regular, but listen to <strong>je tue /ty/</strong>, <strong>nous tuons /tɥɔ̃/</strong>, and <strong>vous tuez /tɥe/</strong>. Keep the written <strong>i</strong> in the imparfait and subjunctive plural: <strong>nous tuions</strong>, <strong>vous tuiez</strong>. The past uses <strong>avoir + tué</strong>.",
+        rows: tuerRows
+      },
+      {
+        key: "eviter",
+        group: "regularEr",
+        label: "éviter",
+        title: "Éviter — to avoid / spare",
+        tag: "regular -er / de + infinitive",
+        descriptionHtml: "Use <strong>éviter de + infinitive</strong> for avoiding an action: <strong>J’évite de conduire la nuit.</strong> With a noun, use a direct object: <strong>éviter les embouteillages</strong>, <strong>éviter un accident</strong>. <strong>Éviter quelque chose à quelqu’un</strong> means to spare someone something: <strong>Ce raccourci évite un détour à Paul.</strong> Compare <strong>arrêter de parler</strong> (stop talking) with <strong>éviter de parler</strong> (avoid talking). Keep the initial <strong>é</strong> throughout the regular -er conjugation: <strong>j’évite</strong>, <strong>nous évitons</strong>, <strong>j’ai évité</strong>.",
+        rows: eviterRows
+      },
       {
         key: "permettre",
         group: "irregular",
@@ -3070,6 +3290,17 @@
     ];
 
     const presentVerbHighlights = {
+      dessiner: ["The written <strong>ss</strong> keeps the sound <strong>/s/</strong> between vowels. The short forms <strong>dessine / dessines / dessinent</strong> all sound like <strong>/de.sin/</strong>. Contrast <strong>dessinons /de.si.nɔ̃/</strong> with <strong>dessinez /de.si.ne/</strong>."],
+      paraitre: ["The short forms <strong>parais / paraît /pa.ʁɛ/</strong> have silent endings. Hear <strong>/s/</strong> in <strong>paraissons /pa.ʁɛ.sɔ̃/</strong> and <strong>paraissent /pa.ʁɛs/</strong>. The future <strong>paraîtrai /pa.ʁɛ.tʁe/</strong> includes <strong>/t/</strong>; <strong>paru /pa.ʁy/</strong> has a different vowel."],
+      plaire: ["Compare <strong>plais / plaît /plɛ/</strong> with <strong>plaisons /plɛ.zɔ̃/</strong> and <strong>plaisent /plɛz/</strong>: the s between vowels is pronounced <strong>/z/</strong>. The participle is <strong>plu /ply/</strong>; the future is <strong>plairai /plɛ.ʁe/</strong>."],
+      rire: ["The short forms <strong>ris / rit / rient</strong> all sound like <strong>/ʁi/</strong>, with silent final letters. The plural forms are <strong>rions /ʁi.jɔ̃/</strong> and <strong>riez /ʁi.je/</strong>. The participle <strong>ri /ʁi/</strong> has no final s or t."],
+      reagir: ["Keep the acute accent in <strong>réagir</strong> and pronounce <strong>é</strong> and <strong>a</strong> separately: <strong>/ʁe.a.ʒiʁ/</strong>. The singular <strong>réagis / réagit</strong> has silent endings; hear <strong>/s/</strong> in <strong>réagissons /ʁe.a.ʒi.sɔ̃/</strong> and <strong>réagissent /ʁe.a.ʒis/</strong>."],
+      accueillir: ["The short forms <strong>accueille / accueilles / accueillent</strong> sound like <strong>/a.kœj/</strong>. Hear <strong>/j/</strong> in <strong>accueillons /a.kœ.jɔ̃/</strong> and <strong>accueillez /a.kœ.je/</strong>, with <strong>/z/</strong> liaison after nous and vous. Keep the spelling <strong>accueil-</strong>; compare <strong>accueilli /a.kœ.ji/</strong>."],
+      creer: ["The silent endings in <strong>crée / crées / créent /kʁe/</strong> leave <strong>/e/</strong> audible. Contrast <strong>créons /kʁe.ɔ̃/</strong> with <strong>créions /kʁe.jɔ̃/</strong>. Keep both acute accents in <strong>créé</strong>; in <strong>créerai /kʁe.ʁe/</strong>, the unaccented <strong>e</strong> is silent."],
+      allumer: ["Elide <strong>je</strong>: <strong>j’allume /ʒa.lym/</strong>. Pronounce the liaison <strong>/z/</strong> in <strong>nous allumons /nu.z‿a.ly.mɔ̃/</strong> and <strong>vous allumez /vu.z‿a.ly.me/</strong>. The written <strong>ll</strong> represents a single <strong>/l/</strong>."],
+      aider: ["The short forms <strong>aide / aides / aident</strong> sound like <strong>/ɛd/</strong>. Hear <strong>/z/</strong> liaison in <strong>nous aidons /nu.z‿e.dɔ̃/</strong> and <strong>vous aidez /vu.z‿e.de/</strong>. The first vowel of the longer forms can also be pronounced <strong>/ɛ/</strong>."],
+      tuer: ["The singular and <strong>ils / elles</strong> forms sound like <strong>/ty/</strong>. Before pronounced endings, <strong>u</strong> becomes the glide <strong>/ɥ/</strong>: <strong>tuons /tɥɔ̃/</strong>, <strong>tuez /tɥe/</strong>. Compare <strong>tuions /ty.jɔ̃/</strong> and <strong>tuerai /ty.ʁe/</strong>; the future’s written <strong>e</strong> is silent."],
+      eviter: ["Elide <strong>je</strong> before the vowel: <strong>j’évite /ʒe.vit/</strong>. Hear the <strong>/z/</strong> liaison in <strong>nous évitons /nu.z‿e.vi.tɔ̃/</strong> and <strong>vous évitez /vu.z‿e.vi.te/</strong>. The written <strong>é</strong> stays unchanged."],
       permettre: ["The final <strong>t</strong> is silent in <strong>permets / permet /pɛʁ.mɛ/</strong>, but audible in <strong>permettons /pɛʁ.mɛ.tɔ̃/</strong> and <strong>permettent /pɛʁ.mɛt/</strong>. Keep <strong>tt</strong> in the plural present and in <strong>permettrai</strong>; the participle is <strong>permis /pɛʁ.mi/</strong>."],
       recevoir: ["Hear three stems: <strong>reçois / reçoit /ʁə.swa/</strong>, <strong>recevons /ʁə.sə.vɔ̃/</strong>, and <strong>reçoivent /ʁə.swav/</strong>. The final <strong>v</strong> is audible in <strong>reçoivent</strong>. Use <strong>ç</strong> before <strong>o / u</strong>: <strong>reçois</strong>, <strong>reçu</strong>."],
       completer: ["The vowel changes with the accent: <strong>complète / complètent /kɔ̃.plɛt/</strong>, but <strong>complétons /kɔ̃.ple.tɔ̃/</strong> and <strong>complétez /kɔ̃.ple.te/</strong>. The double written <strong>t</strong> is not needed: write <strong>complète</strong>."],
