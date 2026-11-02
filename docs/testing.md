@@ -28,6 +28,10 @@ Each scenario runs at 1280 × 900 and 390 × 844:
   forms, and Continue behavior after reload.
 - Subjunctive practice on ordinary and pronominal cards, including deferred compact
   tables and complete reflexive forms on mobile.
+- Gérondif search, audio and translations, invariant ordinary forms, reflexive
+  pronouns, lesson resume, Chinese topic search, and direct local-file navigation.
+- Gérondif references on ordinary and pronominal cards, plus explicit notes for
+  excluded impersonal expressions.
 
 Every case fails on uncaught application errors or rendered error cards. Browser
 tests use deterministic speech callbacks; they verify the UI flow, not audible

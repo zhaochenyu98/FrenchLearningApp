@@ -345,7 +345,8 @@
       imparfait: () => FR.renderers.imparfait.render(),
       "futur-simple": () => FR.renderers.futurSimple.render(),
       "conditionnel-present": () => FR.renderers.conditionnelPresent.render(),
-      "subjonctif-present": () => FR.renderers.subjonctifPresent.render()
+      "subjonctif-present": () => FR.renderers.subjonctifPresent.render(),
+      gerondif: () => FR.renderers.gerondif.render()
     };
     const studySectionStateKey = "frenchStudySectionState";
     const verbGroupStateKey = "frenchStudyVerbGroupState";
@@ -821,7 +822,7 @@
           fixedForm.className = "verb-extra-column verb-tense-fixed-form";
           const fixedTitle = document.createElement("div");
           fixedTitle.className = "verb-column-title";
-          fixedTitle.textContent = "Fixed impersonal form";
+          fixedTitle.textContent = tense.singleFormLabel || "Fixed impersonal form";
           fixedForm.append(fixedTitle, createTenseFormCard(tense.rows[0]));
           body.appendChild(fixedForm);
         } else {
@@ -1061,6 +1062,18 @@
 
       const subjunctiveSummary = createVerbSimpleTenseSummary(item, "subjonctifPresent", "subjonctif-present", "Subjonctif présent");
       if (subjunctiveSummary) panel.appendChild(subjunctiveSummary);
+
+      const gerondifSummary = createVerbSimpleTenseSummary(item, "gerondif", "gerondif", "Gérondif · 副动词");
+      if (gerondifSummary) panel.appendChild(gerondifSummary);
+      else {
+        const explanation = FR.data.gerondif.getExclusion(item.key);
+        if (explanation) {
+          const note = document.createElement("div");
+          note.className = "grammar-note verb-gerondif-note";
+          note.textContent = `Gérondif: ${explanation}`;
+          panel.appendChild(note);
+        }
+      }
 
       const imperativeSummary = createVerbImperativeSummary(item);
       if (imperativeSummary) panel.appendChild(imperativeSummary);
@@ -1709,9 +1722,10 @@
         ["imparfait", "imparfait", "Imparfait"],
         ["futurSimple", "futur-simple", "Futur simple"],
         ["conditionnelPresent", "conditionnel-present", "Conditionnel présent"],
-        ["subjonctifPresent", "subjonctif-present", "Subjonctif présent"]
+        ["subjonctifPresent", "subjonctif-present", "Subjonctif présent"],
+        ["gerondif", "gerondif", "Gérondif"]
       ].forEach(([key, mode, title]) => {
-        add(`tense:${mode}`, title, "verbs", FR.data[key].ruleCatalog, { mode });
+        add(`tense:${mode}`, title, "verbs", [FR.data[key].ruleCatalog, key === "gerondif" ? "le gérondif gerund 副动词" : ""], { mode });
         FR.data[key].groups.forEach(group => group.items.forEach(item => {
           add(`lesson:${item.key}:${mode}`, `${item.label} · ${title}`, "verbs", item.infinitive, {
             mode, group: `${mode}-group-${slug(group.key)}`, targetId: `${mode}-${slug(item.key)}`

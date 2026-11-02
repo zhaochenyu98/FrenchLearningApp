@@ -4,10 +4,10 @@
   const FR = global.FR = global.FR || {};
   FR.renderers = FR.renderers || {};
 
-  function createRenderer(key, slug, tenseTitle) {
+  function createRenderer(key, slug, tenseTitle, exampleTypes) {
     const tenseLabel = tenseTitle.toLocaleLowerCase("fr");
 
-    const EXAMPLE_TYPES = Object.freeze([
+    const EXAMPLE_TYPES = Object.freeze(exampleTypes || [
       Object.freeze({ key: "statement", label: "Statement" }),
       Object.freeze({ key: "negative", label: "Negative" }),
       Object.freeze({ key: "question", label: "Question" })
@@ -129,14 +129,14 @@
       column.className = "verb-extra-column";
       const title = document.createElement("div");
       title.className = "verb-column-title";
-      title.textContent = "Fixed impersonal form";
+      title.textContent = item.singleFormLabel || "Fixed impersonal form";
       column.append(title, createFormCard(item.rows[0]));
       matrix.appendChild(column);
       return matrix;
     }
 
     function createMatrix(item, data) {
-      if (item.rows.length === 1 && item.rows[0].pronoun === "il") {
+      if (item.rows.length === 1) {
         return createSingleFormMatrix(item);
       }
 
@@ -511,4 +511,7 @@
   FR.renderers.futurSimple = createRenderer("futurSimple", "futur-simple", "Futur simple");
   FR.renderers.conditionnelPresent = createRenderer("conditionnelPresent", "conditionnel-present", "Conditionnel présent");
   FR.renderers.subjonctifPresent = createRenderer("subjonctifPresent", "subjonctif-present", "Subjonctif présent");
+  FR.renderers.gerondif = createRenderer("gerondif", "gerondif", "Gérondif", [
+    Object.freeze({ key: "statement", label: "In context" })
+  ]);
 })(window);

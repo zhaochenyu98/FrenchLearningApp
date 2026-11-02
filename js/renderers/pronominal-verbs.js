@@ -269,6 +269,9 @@
           : "Parentheses show the gender and number endings that depend on the subject or preceding direct object."
       ));
     }
+    if (tense.key === "gerondif") {
+      copy.appendChild(createElement("p", "grammar-note", "En + reflexive pronoun + present participle. The participle is invariable; the reflexive pronoun follows the subject of the main verb."));
+    }
     heading.appendChild(copy);
 
     const matrix = createElement("div", "verb-matrix pronominal-tense-matrix");
@@ -290,7 +293,7 @@
       pair.forEach(pronoun => {
         const row = rows.find(entry => entry.pronoun === pronoun);
         try {
-          const card = createFormCard(row, tense.label, tense.key === "subjonctifPresent");
+          const card = createFormCard(row, tense.label, ["subjonctifPresent", "gerondif"].includes(tense.key));
           card.setAttribute("role", "cell");
           pairRow.appendChild(card);
         } catch (error) {
@@ -486,6 +489,10 @@
     const prepositionUsage = FR.renderers.verbPrepositions.createSection(item.id);
     if (prepositionUsage) body.appendChild(prepositionUsage);
     TENSES.forEach(tense => body.appendChild(createParadigmMatrix(item, tense)));
+    const gerondifSection = createParadigmMatrix(item, { key: "gerondif", label: "Gérondif · 副动词" });
+    gerondifSection.classList.add("pronominal-gerondif-section");
+    gerondifSection.appendChild(createAudioSentence(item.examples.gerondif.statement, "in context"));
+    body.appendChild(gerondifSection);
     body.appendChild(createExamplesTable(item));
     card.append(summary, body);
     return card;

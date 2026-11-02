@@ -145,6 +145,10 @@ test("direct file opening still supports search and tense navigation", async ({ 
   await page.locator("#globalSearchInput").press("Enter");
   await expect(page.locator("#subjonctif-present-aller")).toBeFocused();
   await expect(page.locator("#subjonctif-present-aller")).toContainText("que j’aille");
+  await search(page, "savoir gerondif");
+  await page.locator("#globalSearchInput").press("Enter");
+  await expect(page.locator("#gerondif-savoir")).toBeFocused();
+  await expect(page.locator("#gerondif-savoir .conjugation-main")).toHaveText("en sachant");
 });
 
 test("subjunctive search opens forms, contextual examples, audio, and restricted impersonal verbs", async ({ page }) => {
@@ -160,7 +164,8 @@ test("subjunctive search opens forms, contextual examples, audio, and restricted
   const card = page.locator("#subjonctif-present-pouvoir");
   await expect(card).toBeFocused();
   await expect(page.locator("#verbModeSubjonctifPresent")).toHaveAttribute("aria-selected", "true");
-  await expect(page.locator("#subjonctifPresentIndex .verb-index-link")).toHaveCount(138);
+  const verbCount = await page.evaluate(() => window.FR.data.verbs.items.length);
+  await expect(page.locator("#subjonctifPresentIndex .verb-index-link")).toHaveCount(verbCount);
   await expect(card).toContainText("que nous puissions");
   await card.locator(".verb-form-btn").filter({ hasText: "que je puisse" }).click();
   await card.locator(".verb-examples-disclosure > summary").click();
@@ -231,5 +236,70 @@ test("à/de examples are searchable, readable, and playable for ordinary and pro
   await expect.poll(() => spoken).toEqual([
     ["Je cherche à comprendre cette règle."], ["Je me passe de sucre dans mon café."]
   ]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("gérondif search opens invariant and reflexive forms, translated audio, and resumes the lesson", async ({ page }) => {
+  const spoken = [];
+  await page.exposeFunction("recordGerondifSpeech", text => spoken.push(text));
+  await page.evaluate(() => {
+    window.speakSequence = items => window.recordGerondifSpeech(items.map(item => item.text));
+  });
+  await expect(page.locator("#gerondif-manger")).toHaveCount(0);
+  await search(page, "manger gerondif");
+  await page.locator("#globalSearchInput").press("Enter");
+  const card = page.locator("#gerondif-manger");
+  await expect(card).toBeFocused();
+  await expect(page.locator("#verbModeGerondif")).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#gerondifIndex .verb-index-link")).toHaveCount(142);
+  await expect(card.locator(".verb-form-btn")).toHaveCount(1);
+  await expect(card).toContainText("Invariable participle · all subjects");
+  await expect(card).not.toContainText("Fixed impersonal form");
+  await card.locator(".verb-form-btn").click();
+  await card.locator(".verb-examples-disclosure > summary").click();
+  await expect(card).toContainText("Nous discutons en mangeant à la cantine.");
+  await expect(card).toContainText("We chat while eating in the cafeteria.");
+  await card.locator(".verb-example-btn").click();
+  await expect.poll(() => spoken).toEqual([["en mangeant"], ["Nous discutons en mangeant à la cantine."]]);
+
+  await search(page, "s'habiller gerondif");
+  await page.locator("#globalSearchInput").press("Enter");
+  const reflexive = page.locator("#gerondif-shabiller");
+  await expect(reflexive).toBeFocused();
+  await expect(reflexive.locator(".verb-form-btn")).toHaveCount(8);
+  await expect(reflexive).toContainText("en m’habillant");
+  await expect(reflexive).toContainText("en nous habillant");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.reload();
+  await page.locator("#continueStudy").click();
+  await expect(page.locator("#gerondif-shabiller")).toBeFocused();
+
+  await search(page, "副动词");
+  await expect(page.locator("#globalSearchResults strong").first()).toHaveText("Gérondif");
+});
+
+test("gérondif appears on lazy verb references and pronominal cards, with exclusions explained", async ({ page }) => {
+  await search(page, "parler present");
+  await page.locator("#globalSearchResults button").filter({ hasText: "parler · Present" }).click();
+  const compact = page.locator("#parlerVerbPanel .verb-gerondif-summary");
+  await expect(compact.locator(".verb-tense-summary-body")).toHaveCount(0);
+  await compact.locator("summary").click();
+  await expect(compact.locator(".verb-gerondif-form-btn")).toHaveCount(1);
+  await expect(compact).toContainText("en parlant");
+  await expect(compact).toContainText("We improve by speaking French every day.");
+
+  await search(page, "s'habiller pronominal");
+  await page.locator("#globalSearchResults button").filter({ hasText: "s’habiller · Pronominal verb" }).click();
+  const reflexive = page.locator("#pronominal-verb-shabiller .pronominal-gerondif-section");
+  await expect(reflexive.locator(".pronominal-form-button")).toHaveCount(8);
+  await expect(reflexive).toContainText("en m’habillant");
+  await expect(reflexive).toContainText("en vous habillant");
+  await expect(reflexive).toContainText("Nous écoutons la radio en nous habillant.");
+  await expect(reflexive).toContainText("We listen to the radio while getting dressed.");
+
+  await search(page, "falloir present");
+  await page.locator("#globalSearchResults button").filter({ hasText: "il faut · Present" }).click();
+  await expect(page.locator("#falloirVerbPanel .verb-gerondif-summary")).toHaveCount(0);
+  await expect(page.locator("#falloirVerbPanel .verb-gerondif-note")).toContainText("no present participle");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

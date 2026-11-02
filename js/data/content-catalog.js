@@ -9,6 +9,7 @@
     ["futur-simple", "Futur simple", "Express future events using the appropriate stem and ending."],
     ["conditionnel-present", "Conditionnel présent", "Express hypothetical outcomes and polite requests."],
     ["subjonctif-present", "Subjonctif présent", "Use subjunctive forms after expressions of necessity, wishes, emotion, and doubt."],
+    ["gerondif", "Gérondif", "Use en + present participle (副动词 / gerund) for simultaneous actions, means, and conditions with a shared subject."],
     ["imperative", "Imperative", "Give instructions with affirmative and negative imperatives."]
   ];
   data.verbs.items.forEach(verb => catalog.register({
@@ -88,5 +89,8 @@
         if (item) registerLesson(verb, tenseId, item.rows, item.examples);
         else if (tenseId !== "imperative") throw new Error(`Missing ${tenseId} for ${verb.id}.`);
       });
+    const gerondif = data.gerondif.getItem(verb.id);
+    if (gerondif) registerLesson(verb, "gerondif", gerondif.rows, gerondif.examples);
+    else if (!data.gerondif.getExclusion(verb.id)) throw new Error(`Missing gérondif classification for ${verb.id}.`);
   });
 })(window);

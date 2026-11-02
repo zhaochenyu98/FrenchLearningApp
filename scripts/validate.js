@@ -401,6 +401,7 @@ function loadExtendedGrammarData() {
     "js/data/futur-simple.js",
     "js/data/conditionnel-present.js",
     "js/data/subjonctif-present.js",
+    "js/data/gerondif.js",
     "js/data/pronominal-verbs.js",
     "js/data/object-pronouns.js"
   ].forEach(scriptPath => {

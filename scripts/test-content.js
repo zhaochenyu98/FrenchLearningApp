@@ -4,7 +4,7 @@ const { dataScripts, loadData } = require("./load-data");
 const { FR } = loadData();
 const catalog = FR.content.catalog;
 assert.equal(catalog.list("verb").length, 149);
-assert.equal(catalog.list("tense").length, 7);
+assert.equal(catalog.list("tense").length, 8);
 assert.equal(catalog.getLesson("ilYA", "passe-compose").verbId, "ilYA");
 assert.equal(FR.data.tenses.getByVerbId(FR.data.verbs.getById("ilYA").pastVerbId).verbId, "avoirVerb");
 assert.equal(catalog.getLesson("sHabiller", "imparfait").forms.length, 8);
@@ -40,6 +40,35 @@ FR.data.verbs.items.forEach(verb => {
   }
 });
 const prepositions = FR.data.verbPrepositions;
+const gerondif = FR.data.gerondif;
+assert.equal(gerondif.errors.length, 0);
+assert.equal(gerondif.items.length, 142);
+FR.data.verbs.items.forEach(verb => {
+  const item = gerondif.getItem(verb.id);
+  const exclusion = gerondif.getExclusion(verb.id);
+  assert.ok(Boolean(item) !== Boolean(exclusion), `${verb.id}: exactly one gérondif applicability classification`);
+  const lesson = catalog.getLesson(verb.id, "gerondif");
+  if (exclusion) {
+    assert.equal(lesson, null, `${verb.id}: no invented gérondif lesson for an excluded expression`);
+    return;
+  }
+  assert.ok(lesson, `${verb.id}: gérondif is registered in the catalog`);
+  assert.equal(item.rows.length, verb.group === "pronominal" ? 8 : 1);
+  item.rows.forEach(row => {
+    assert.match(row.full, /^en /u);
+    assert.ok(row.form.endsWith(item.participle), `${verb.id}: the participle stays invariable`);
+    assert.equal(row.speech, row.full);
+    assert.match(row.ipa, /^\/ɑ̃ [^/]+\/$/u);
+  });
+  assert.ok(item.rows.some(row => lesson.examples[0].fr.includes(row.full)), `${verb.id}: the context uses a taught form`);
+  assert.ok(lesson.examples[0].en);
+  assert.ok(!lesson.examples[0].fr.includes("{g}"), `${verb.id}: context placeholders are resolved`);
+  const pronominal = FR.data.pronominalVerbs.getById(verb.id);
+  if (pronominal) {
+    assert.equal(pronominal.paradigms.gerondif, item.rows);
+    assert.equal(pronominal.examples.gerondif, item.examples);
+  }
+});
 const auditedIds = [...Object.keys(prepositions.byVerb), ...prepositions.withoutUsage];
 assert.equal(new Set(auditedIds).size, auditedIds.length, "Each verb has one preposition audit classification");
 assert.deepEqual(auditedIds.sort(), Array.from(catalog.list("verb"), verb => verb.verbId).sort(), "The preposition audit covers every catalog verb");
@@ -84,6 +113,9 @@ for (const [file, key] of [["conditionnel-present", "conditionnelPresent"], ["fu
   assert.equal(independent[key].errors.length, 0);
   assert.equal(JSON.stringify(independent[key].items), JSON.stringify(FR.data[key].items));
 }
+const independentGerondif = loadData({ scripts: [...base, "js/data/gerondif.js"] }).FR.data.gerondif;
+assert.equal(JSON.stringify(independentGerondif.items), JSON.stringify(gerondif.items), "Gérondif loads independently of other tenses");
+assert.equal(independentGerondif.errors.length, 0);
 
 const sandbox = FR.content.createCatalog();
 const verb = catalog.get("verb:parler");

@@ -61,8 +61,15 @@ ready for editorial enrichment without inventing provenance for existing text.
   bilingual examples with subjunctive triggers and preserves each entry's natural
   subjects. Pronominal cards reuse these forms and examples. This module loads
   independently of the other tenses.
+- `gerondif.js` derives en + present participle from present nous, with exceptions
+  for être, avoir, and savoir. It covers 142 entries with invariant forms, IPA,
+  and authored bilingual contexts. Pronominal entries expose eight subject-linked
+  reflexive forms without adding a finite subject to the gérondif. Seven
+  impersonal entries have explicit exclusion notes; missing classifications fail
+  catalog registration. Pronominal cards reuse the shared forms and examples.
 - `content-catalog.js` adapts the current authoring structures into 149 verb
-  records and 1006 available verb/tense lessons. Unsupported imperatives are absent.
+  records and 1148 available verb/tense lessons. Unsupported imperatives and
+  excluded gérondif constructions are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.
 - `app.js` registers topic references using stable section IDs and plain text.
@@ -105,3 +112,19 @@ The affirmative espérer contrast follows the
 [Language Portal of Canada](https://nos-langues.canada.ca/fr/cles-de-la-redaction/esperer-de-que).
 Example sentences are authored for the app. These references do not change the
 catalog's default editorial review status.
+
+## Gérondif references
+
+Formation, the three exceptional participles, and meanings follow the
+[Universitat Oberta de Catalunya grammar guide](https://aprenentatge.recursos.uoc.edu/continguts/PID_00221043/def39.html).
+The shared-subject teaching rule follows
+[OQLF's subject guidance](https://vitrinelinguistique.oqlf.gouv.qc.ca/24712/la-syntaxe/constructions-syntaxiques-boiteuses/logique-syntaxique-sujet-sous-entendu-du-participe-present),
+which also documents exceptions outside this introductory lesson.
+The Académie française paradigms for
+[falloir](https://www.dictionnaire-academie.fr/conjuguer/A9F0145) and
+[pleuvoir](https://www.dictionnaire-academie.fr/conjuguer/A9P2886) distinguish the
+missing present participle of falloir from the existing pleuvant. The app excludes
+its weather use of pleuvoir because it does not supply a natural shared personal
+subject, not because pleuvant is missing. Duplicate impersonal être/avoir/faire
+entries point learners to the personal entries or a full clause.
+Context sentences are authored for the app; editorial status remains unreviewed.

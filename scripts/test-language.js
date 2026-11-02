@@ -63,4 +63,36 @@ for (const [verbId, person, expected] of [
   const row = catalog.getLesson(verbId, "subjonctif-present").forms.find(form => form.person === person);
   assert.equal(row.ipa.replace(/\./gu, ""), expected, `${verbId}: subjunctive ${person} pronunciation`);
 }
-console.log("Linguistic fixtures passed: conjugation, spelling, article-sensitive negation, agreement contrasts, imperative pronouns, liaison, and accepted variants.");
+// Authored contrasts protect the nous stem, the three exceptions, invariant
+// endings, reflexive elision, and liaison after en (rather than subject liaison).
+for (const [verbId, person, expected, ipa] of [
+  ["parler", "invariable", "en parlant", "/ɑ̃ paʁlɑ̃/"],
+  ["finir", "invariable", "en finissant", "/ɑ̃ finisɑ̃/"],
+  ["prendre", "invariable", "en prenant", "/ɑ̃ pʁənɑ̃/"],
+  ["etreVerb", "invariable", "en étant", "/ɑ̃ n‿etɑ̃/"],
+  ["avoirVerb", "invariable", "en ayant", "/ɑ̃ n‿ɛjɑ̃/"],
+  ["savoir", "invariable", "en sachant", "/ɑ̃ saʃɑ̃/"],
+  ["faire", "invariable", "en faisant", "/ɑ̃ fəzɑ̃/"],
+  ["aller", "invariable", "en allant", "/ɑ̃ n‿alɑ̃/"],
+  ["manger", "invariable", "en mangeant", "/ɑ̃ mɑ̃ʒɑ̃/"],
+  ["commencer", "invariable", "en commençant", "/ɑ̃ kɔmɑ̃sɑ̃/"],
+  ["bouger", "invariable", "en bougeant", "/ɑ̃ buʒɑ̃/"],
+  ["payer", "invariable", "en payant", "/ɑ̃ pɛjɑ̃/"],
+  ["seLever", "je", "en me levant", "/ɑ̃ mə ləvɑ̃/"],
+  ["seLever", "nous", "en nous levant", "/ɑ̃ nu ləvɑ̃/"],
+  ["sHabiller", "je", "en m’habillant", "/ɑ̃ mabijɑ̃/"],
+  ["sHabiller", "il", "en s’habillant", "/ɑ̃ sabijɑ̃/"],
+  ["sHabiller", "nous", "en nous habillant", "/ɑ̃ nuz‿abijɑ̃/"],
+  ["sHabiller", "vous", "en vous habillant", "/ɑ̃ vuz‿abijɑ̃/"],
+  ["sEnnuyer", "tu", "en t’ennuyant", "/ɑ̃ tɑ̃nɥijɑ̃/"],
+  ["seSouvenir", "elles", "en se souvenant", "/ɑ̃ sə suvənɑ̃/"]
+]) {
+  const row = catalog.getLesson(verbId, "gerondif").forms.find(form => form.person === person);
+  assert.equal(row.fr, expected, `${verbId}: gérondif ${person} spelling`);
+  assert.equal(row.ipa.replace(/\./gu, ""), ipa, `${verbId}: gérondif ${person} pronunciation`);
+}
+assert.ok(FR.data.gerondif.getItem("sAimer").examples.statement.fr.includes("en s’aimant"));
+assert.ok(FR.data.gerondif.getItem("sAppeler").examples.statement.fr.includes("en s’appelant"));
+assert.ok(FR.data.gerondif.getItem("sEnvoler").examples.statement.fr.includes("en s’envolant"));
+assert.ok(FR.data.gerondif.getItem("seVendre").examples.statement.fr.includes("en se vendant"));
+console.log("Linguistic fixtures passed: conjugation, spelling, article-sensitive negation, agreement contrasts, imperative pronouns, gérondif, liaison, and accepted variants.");

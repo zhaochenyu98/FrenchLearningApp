@@ -335,7 +335,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Pronominal Verbs</h2>
-            <p class="section-desc">Compare present, imparfait, passé composé, subjonctif présent, and imperative examples while learning the four meanings of pronominal constructions and the real past-participle agreement rule.</p>
+            <p class="section-desc">Compare present, imparfait, passé composé, subjonctif présent, gérondif, and imperative examples while learning the four meanings of pronominal constructions and the real past-participle agreement rule.</p>
           </div>
         </div>
 
@@ -449,7 +449,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">Verbs &amp; Tenses</h2>
-            <p class="section-desc">Study verbs by individual verb, tense, or mood. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, conditionnel présent, subjonctif présent, and imperative references.</p>
+            <p class="section-desc">Study verbs by individual verb, tense, or mood. Each verb card keeps the present first, then offers compact imparfait, passé composé, futur simple, conditionnel présent, subjonctif présent, gérondif, and imperative references.</p>
           </div>
         </div>
 
@@ -460,6 +460,7 @@
           <button id="verbModeFuturSimple" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="futurSimpleSection" data-verb-mode="futur-simple">Futur simple</button>
           <button id="verbModeConditionnelPresent" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="conditionnelPresentSection" data-verb-mode="conditionnel-present">Conditionnel présent</button>
           <button id="verbModeSubjonctifPresent" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="subjonctifPresentSection" data-verb-mode="subjonctif-present">Subjonctif présent</button>
+          <button id="verbModeGerondif" class="verb-mode-btn" type="button" role="tab" aria-selected="false" aria-controls="gerondifSection" data-verb-mode="gerondif">Gérondif</button>
         </div>
 
         <div id="verbByVerbMode" class="verb-mode-panel active" data-verb-mode-panel="verb" role="tabpanel" aria-labelledby="verbModeVerb">
@@ -726,6 +727,52 @@
               <div id="subjonctifPresentIndex" class="verb-index-groups"></div>
             </aside>
             <div id="subjonctifPresentGroupStack" class="verb-group-stack"></div>
+          </div>
+        </div>
+        <div id="gerondifSection" class="verb-mode-panel" data-verb-mode-panel="gerondif" role="tabpanel" aria-labelledby="verbModeGerondif" hidden>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Le gérondif · 副动词</h2>
+              <p class="section-desc">Use en + present participle to say “while doing” or “by doing.” Study every applicable verb with IPA, French audio, and a translated example. The participle stays the same for every subject.</p>
+            </div>
+          </div>
+          <div class="category-panel">
+            <h3>Build and use the gérondif présent</h3>
+            <div class="summary-chips">
+              <div class="summary-chip">
+                <strong>Present nous stem + -ant</strong>
+                <span><strong>Nous parlons → en parlant</strong>, <strong>nous finissons → en finissant</strong>, <strong>nous prenons → en prenant</strong>. Three exceptions: <strong>en étant</strong>, <strong>en ayant</strong>, <strong>en sachant</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>While doing · simultaneous actions</strong>
+                <span><strong>Je lis en mangeant.</strong> (“I read while eating.”) The same person reads and eats. With different subjects, use <strong>pendant que</strong>: <strong>Je lis pendant qu’elle mange.</strong></span>
+              </div>
+              <div class="summary-chip">
+                <strong>By doing · means or condition</strong>
+                <span><strong>On apprend en pratiquant.</strong> (“We learn by practicing.”) <strong>En partant tôt, tu arriveras à l’heure.</strong> (“If you leave early, you will arrive on time.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Invariable, with reflexive pronouns when needed</strong>
+                <span><strong>Elle chante en travaillant</strong> and <strong>ils chantent en travaillant</strong>: no feminine or plural ending. Keep the reflexive pronoun: <strong>je chante en me lavant</strong>, <strong>nous chantons en nous lavant</strong>.</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Negation and tout en</strong>
+                <span><strong>En ne parlant pas, tu peux mieux écouter.</strong> (“By not speaking, you can listen better.”) <strong>Tout en étant fatiguée, elle continue.</strong> (“Although she is tired, she carries on.”)</span>
+              </div>
+              <div class="summary-chip">
+                <strong>Applicability depends on the expression</strong>
+                <span><strong>Falloir</strong> has no present participle. The app’s impersonal entries <strong>il vaut mieux, il y a, il fait beau, il est huit heures, il pleut, il s’agit de</strong> are explained on their verb cards. Use a full clause for these meanings, such as <strong>pendant qu’il pleut</strong>. Personal <strong>être, avoir, faire</strong> are included here.</span>
+              </div>
+            </div>
+            <h4>Formation, spelling, and pronunciation watch</h4>
+            <div id="gerondifSpecialRules" class="imparfait-special-grid"></div>
+          </div>
+          <div class="verb-study-layout imparfait-study-layout">
+            <aside class="verb-index" aria-label="Gérondif verb index">
+              <div class="verb-index-title">Gérondif index</div>
+              <div id="gerondifIndex" class="verb-index-groups"></div>
+            </aside>
+            <div id="gerondifGroupStack" class="verb-group-stack"></div>
           </div>
         </div>
       </section>
@@ -1740,6 +1787,7 @@
   <script defer src="js/data/futur-simple.js"></script>
   <script defer src="js/data/conditionnel-present.js"></script>
   <script defer src="js/data/subjonctif-present.js"></script>
+  <script defer src="js/data/gerondif.js"></script>
   <script defer src="js/data/pronominal-verbs.js"></script>
   <script defer src="js/data/object-pronouns.js"></script>
   <script defer src="js/data/search-sections.js"></script>

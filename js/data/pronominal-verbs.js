@@ -902,6 +902,8 @@
     const participleIpa = getParticipleIpa(seed, sourceItem);
     const subjunctive = FR.data.subjonctifPresent.getItem(seed.key);
     if (!subjunctive) throw new Error(`${seed.key} is missing its subjonctif présent lesson.`);
+    const gerondif = FR.data.gerondif.getItem(seed.key);
+    if (!gerondif) throw new Error(`${seed.key} is missing its gérondif lesson.`);
     const item = {
       id: seed.key,
       key: seed.key,
@@ -928,13 +930,15 @@
         imperfect: seed.imperfect,
         passeCompose: seed.passeCompose,
         subjonctifPresent: subjunctive.examples,
+        gerondif: gerondif.examples,
         imperative: seed.imperative
       },
       paradigms: {
         present: orderPresentRows(presentRows),
         imperfect: buildImparfaitRows(seed, presentRows),
         passeCompose: buildPasseComposeRows(seed, sourceItem, participleIpa),
-        subjonctifPresent: subjunctive.rows
+        subjonctifPresent: subjunctive.rows,
+        gerondif: gerondif.rows
       },
       source: sourceItem ? "FR.data.verbs" : "promoted"
     };
