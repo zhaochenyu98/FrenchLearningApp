@@ -18,6 +18,48 @@
   }
 
   const curated = Object.freeze({
+    reduire: command(
+      "Réduis le volume de la radio !",
+      "Turn down the volume of the radio!",
+      "Ne réduis pas tes heures de sommeil !",
+      "Do not cut down your hours of sleep!",
+      "Réduis, réduisons, réduisez. Keep -s in the tu form. De introduces the amount of a reduction; à introduces the resulting amount."
+    ),
+    conduire: command(
+      "Conduis prudemment !",
+      "Drive carefully!",
+      "Ne conduis pas trop vite !",
+      "Do not drive too fast!",
+      "Conduis, conduisons, conduisez. Keep -s in the tu form. Conduire can stand alone for driving or take a direct object: conduire une voiture, conduire quelqu’un à la gare."
+    ),
+    decrocher: command(
+      "Décroche le téléphone, s’il te plaît !",
+      "Answer the phone, please!",
+      "Ne décroche pas ce tableau !",
+      "Do not take down this picture!",
+      "Regular -er imperative: décroche, décrochons, décrochez. Drop -s in the tu form. Décroche ! can mean answer the phone; compare raccroche !, hang up."
+    ),
+    raccrocher: command(
+      "Raccroche et rappelle-moi !",
+      "Hang up and call me back!",
+      "Ne raccroche pas tout de suite !",
+      "Do not hang up right away!",
+      "Regular -er imperative: raccroche, raccrochons, raccrochez. Drop -s in the tu form and keep cc. Ne quittez pas is another common way to ask a caller to hold on."
+    ),
+    manquer: command(
+      "Manquons ce train et prenons le suivant !",
+      "Let’s miss this train and take the next one!",
+      "Ne manque pas de me prévenir !",
+      "Be sure to let me know!",
+      "Regular -er imperative: manque, manquons, manquez. An affirmative command to miss something needs a deliberate-choice context. Ne manque pas le train means do not miss the train; ne manque pas de m’appeler means be sure to call me."
+    ),
+    adapter: command(
+      "Adapte ton discours au public !",
+      "Adapt your speech to the audience!",
+      "N’adapte pas la recette sans la goûter !",
+      "Do not adjust the recipe without tasting it!",
+      "Regular -er imperative: adapte, adaptons, adaptez. Drop -s in the tu form. Compare adapte ton discours with adapte-toi au public."
+    ),
     dessiner: command(
       "Dessine un paysage au crayon !",
       "Draw a landscape in pencil!",

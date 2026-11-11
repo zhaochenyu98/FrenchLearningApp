@@ -38,6 +38,15 @@
   // One authored, translated context per verb. {g} is a complete gérondif;
   // no finite subject is inserted into it. Both actions always share a subject.
   const contexts = Object.freeze({
+    seConcentrer: ["Nous progressons {g} sur la prononciation.", "We make progress by focusing on pronunciation."],
+    reduire: ["Nous économisons de l’argent {g} notre consommation d’énergie.", "We save money by reducing our energy consumption."],
+    conduire: ["Nous discutons {g} nos amis à la gare.", "We chat while driving our friends to the station."],
+    decrocher: ["Je réponds à ma sœur {g} le téléphone.", "I answer my sister by picking up the phone."],
+    raccrocher: ["Je termine l’appel {g}.", "I end the call by hanging up."],
+    sArreter: ["Nous admirons le paysage {g} au bord du lac.", "We admire the scenery while stopping by the lake."],
+    manquer: ["Nous risquons de perdre ce client {g} à nos engagements.", "We risk losing this client by failing to honor our commitments."],
+    adapter: ["Nous aidons les élèves {g} les exercices à leur niveau.", "We help the students by adapting the exercises to their level."],
+    sAdapter: ["Nous progressons {g} aux nouvelles méthodes.", "We make progress by adapting to the new methods."],
     dessiner: ["Nous écoutons de la musique {g} les plans de la maison.", "We listen to music while drawing the plans for the house."],
     paraitre: ["Elle gagne en notoriété {g} à la télévision.", "She becomes better known by appearing on television."],
     plaire: ["Le spectacle attire des visiteurs {g} à un large public.", "The show attracts visitors by appealing to a wide audience."],

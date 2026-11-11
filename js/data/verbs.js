@@ -1688,6 +1688,111 @@
       { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
     ];
 
+    const seConcentrerRows = [
+      { pronoun: "je", form: "me concentre", full: "je me concentre", ipa: "/ʒə mə kɔ̃.sɑ̃tʁ/", en: "I concentrate / focus", example: "Je me concentre sur mon travail.", exampleEn: "I focus on my work.", negative: "Je ne me concentre pas sur mon travail.", negativeEn: "I do not focus on my work.", question: "Sur quoi est-ce que je me concentre ?" },
+      { pronoun: "tu", form: "te concentres", full: "tu te concentres", ipa: "/ty tə kɔ̃.sɑ̃tʁ/", en: "you concentrate / focus", example: "Tu te concentres sur ta respiration.", exampleEn: "You focus on your breathing.", negative: "Tu ne te concentres pas sur ta respiration.", negativeEn: "You do not focus on your breathing.", question: "Te concentres-tu sur ta respiration ?" },
+      { pronoun: "il", form: "se concentre", full: "il se concentre", ipa: "/il sə kɔ̃.sɑ̃tʁ/", en: "he concentrates / focuses", example: "Il se concentre avant de répondre.", exampleEn: "He concentrates before answering.", negative: "Il ne se concentre pas avant de répondre.", negativeEn: "He does not concentrate before answering.", question: "Quand se concentre-t-il ?" },
+      { pronoun: "elle", form: "se concentre", full: "elle se concentre", ipa: "/ɛl sə kɔ̃.sɑ̃tʁ/", en: "she concentrates / focuses", example: "Elle se concentre sur un problème difficile.", exampleEn: "She concentrates on a difficult problem.", negative: "Elle ne se concentre pas sur ce problème.", negativeEn: "She does not concentrate on this problem.", question: "Sur quel problème se concentre-t-elle ?" },
+      { pronoun: "nous", form: "nous concentrons", full: "nous nous concentrons", ipa: "/nu nu kɔ̃.sɑ̃.tʁɔ̃/", en: "we concentrate / focus", example: "Nous nous concentrons sur les points essentiels.", exampleEn: "We focus on the essential points.", negative: "Nous ne nous concentrons pas sur les points essentiels.", negativeEn: "We do not focus on the essential points.", question: "Sur quels points nous concentrons-nous ?" },
+      { pronoun: "vous", form: "vous concentrez", full: "vous vous concentrez", ipa: "/vu vu kɔ̃.sɑ̃.tʁe/", en: "you concentrate / focus", example: "Vous vous concentrez sur la prononciation.", exampleEn: "You focus on pronunciation.", negative: "Vous ne vous concentrez pas sur la prononciation.", negativeEn: "You do not focus on pronunciation.", question: "Vous concentrez-vous sur la prononciation ?" },
+      { pronoun: "ils", form: "se concentrent", full: "ils se concentrent", ipa: "/il sə kɔ̃.sɑ̃tʁ/", en: "they concentrate / focus", example: "Ils se concentrent pour terminer le projet.", exampleEn: "They concentrate in order to finish the project.", negative: "Ils ne se concentrent pas sur le projet.", negativeEn: "They do not focus on the project.", question: "Pourquoi se concentrent-ils ?" },
+      { pronoun: "elles", form: "se concentrent", full: "elles se concentrent", ipa: "/ɛl sə kɔ̃.sɑ̃tʁ/", en: "they concentrate / focus", example: "Elles se concentrent sur les consignes.", exampleEn: "They focus on the instructions.", negative: "Elles ne se concentrent pas sur les consignes.", negativeEn: "They do not focus on the instructions.", question: "Sur quoi se concentrent-elles ?" }
+    ];
+
+    const reduireRows = [
+      { pronoun: "je", form: "réduis", full: "je réduis", ipa: "/ʒə ʁe.dɥi/", en: "I reduce / cut down", example: "Je réduis mes dépenses.", exampleEn: "I reduce my spending.", negative: "Je ne réduis pas mes dépenses.", negativeEn: "I do not reduce my spending.", question: "Quelles dépenses est-ce que je réduis ?" },
+      { pronoun: "tu", form: "réduis", full: "tu réduis", ipa: "/ty ʁe.dɥi/", en: "you reduce / cut down", example: "Tu réduis le volume de la radio.", exampleEn: "You turn down the volume of the radio.", negative: "Tu ne réduis pas le volume de la radio.", negativeEn: "You do not turn down the volume of the radio.", question: "Réduis-tu le volume de la radio ?" },
+      { pronoun: "il", form: "réduit", full: "il réduit", ipa: "/il ʁe.dɥi/", en: "he reduces / cuts down", example: "Il réduit les prix de dix pour cent.", exampleEn: "He reduces the prices by ten percent.", negative: "Il ne réduit pas les prix de dix pour cent.", negativeEn: "He does not reduce the prices by ten percent.", question: "De combien réduit-il les prix ?" },
+      { pronoun: "elle", form: "réduit", full: "elle réduit", ipa: "/ɛl ʁe.dɥi/", en: "she reduces / cuts down", example: "Elle réduit la sauce à feu doux.", exampleEn: "She reduces the sauce over low heat.", negative: "Elle ne réduit pas la sauce à feu doux.", negativeEn: "She does not reduce the sauce over low heat.", question: "Comment réduit-elle la sauce ?" },
+      { pronoun: "nous", form: "réduisons", full: "nous réduisons", ipa: "/nu ʁe.dɥi.zɔ̃/", en: "we reduce / cut down", example: "Nous réduisons notre consommation d’énergie.", exampleEn: "We reduce our energy consumption.", negative: "Nous ne réduisons pas notre consommation d’énergie.", negativeEn: "We do not reduce our energy consumption.", question: "Que réduisons-nous ?" },
+      { pronoun: "vous", form: "réduisez", full: "vous réduisez", ipa: "/vu ʁe.dɥi.ze/", en: "you reduce / cut down", example: "Vous réduisez le texte à cent mots.", exampleEn: "You shorten the text to one hundred words.", negative: "Vous ne réduisez pas le texte à cent mots.", negativeEn: "You do not shorten the text to one hundred words.", question: "À combien de mots réduisez-vous le texte ?" },
+      { pronoun: "ils", form: "réduisent", full: "ils réduisent", ipa: "/il ʁe.dɥiz/", en: "they reduce / cut down", example: "Ils réduisent les déchets dans leur quartier.", exampleEn: "They reduce waste in their neighborhood.", negative: "Ils ne réduisent pas les déchets dans leur quartier.", negativeEn: "They do not reduce waste in their neighborhood.", question: "Où réduisent-ils les déchets ?" },
+      { pronoun: "elles", form: "réduisent", full: "elles réduisent", ipa: "/ɛl ʁe.dɥiz/", en: "they reduce / cut down", example: "Elles réduisent le temps de trajet.", exampleEn: "They reduce the travel time.", negative: "Elles ne réduisent pas le temps de trajet.", negativeEn: "They do not reduce the travel time.", question: "Réduisent-elles le temps de trajet ?" }
+    ];
+
+    const conduireRows = [
+      { pronoun: "je", form: "conduis", full: "je conduis", ipa: "/ʒə kɔ̃.dɥi/", en: "I drive / lead", example: "Je conduis une voiture électrique.", exampleEn: "I drive an electric car.", negative: "Je ne conduis pas de voiture électrique.", negativeEn: "I do not drive an electric car.", question: "Quelle voiture est-ce que je conduis ?" },
+      { pronoun: "tu", form: "conduis", full: "tu conduis", ipa: "/ty kɔ̃.dɥi/", en: "you drive / lead", example: "Tu conduis tes enfants à l’école.", exampleEn: "You drive your children to school.", negative: "Tu ne conduis pas tes enfants à l’école.", negativeEn: "You do not drive your children to school.", question: "Où conduis-tu tes enfants ?" },
+      { pronoun: "il", form: "conduit", full: "il conduit", ipa: "/il kɔ̃.dɥi/", en: "he drives / leads", example: "Il conduit un projet important.", exampleEn: "He leads an important project.", negative: "Il ne conduit pas de projet important.", negativeEn: "He does not lead an important project.", question: "Quel projet conduit-il ?" },
+      { pronoun: "elle", form: "conduit", full: "elle conduit", ipa: "/ɛl kɔ̃.dɥi/", en: "she drives / leads", example: "Elle conduit prudemment sous la pluie.", exampleEn: "She drives carefully in the rain.", negative: "Elle ne conduit pas sous la pluie.", negativeEn: "She does not drive in the rain.", question: "Comment conduit-elle sous la pluie ?" },
+      { pronoun: "nous", form: "conduisons", full: "nous conduisons", ipa: "/nu kɔ̃.dɥi.zɔ̃/", en: "we drive / lead", example: "Nous conduisons nos amis à la gare.", exampleEn: "We drive our friends to the station.", negative: "Nous ne conduisons pas nos amis à la gare.", negativeEn: "We do not drive our friends to the station.", question: "Qui conduisons-nous à la gare ?" },
+      { pronoun: "vous", form: "conduisez", full: "vous conduisez", ipa: "/vu kɔ̃.dɥi.ze/", en: "you drive / lead", example: "Vous conduisez ce groupe au musée.", exampleEn: "You lead this group to the museum.", negative: "Vous ne conduisez pas ce groupe au musée.", negativeEn: "You do not lead this group to the museum.", question: "Quel groupe conduisez-vous au musée ?" },
+      { pronoun: "ils", form: "conduisent", full: "ils conduisent", ipa: "/il kɔ̃.dɥiz/", en: "they drive / lead", example: "Ils conduisent les visiteurs vers la sortie.", exampleEn: "They lead the visitors toward the exit.", negative: "Ils ne conduisent pas les visiteurs vers la sortie.", negativeEn: "They do not lead the visitors toward the exit.", question: "Vers où conduisent-ils les visiteurs ?" },
+      { pronoun: "elles", form: "conduisent", full: "elles conduisent", ipa: "/ɛl kɔ̃.dɥiz/", en: "they drive / lead", example: "Elles conduisent une enquête.", exampleEn: "They conduct an investigation.", negative: "Elles ne conduisent pas d’enquête.", negativeEn: "They do not conduct an investigation.", question: "Quelle enquête conduisent-elles ?" }
+    ];
+
+    const decrocherRows = [
+      { pronoun: "je", form: "décroche", full: "je décroche", ipa: "/ʒə de.kʁɔʃ/", en: "I answer / take down / obtain", example: "Je décroche quand le téléphone sonne.", exampleEn: "I answer when the phone rings.", negative: "Je ne décroche pas quand le téléphone sonne.", negativeEn: "I do not answer when the phone rings.", question: "Quand est-ce que je décroche ?" },
+      { pronoun: "tu", form: "décroches", full: "tu décroches", ipa: "/ty de.kʁɔʃ/", en: "you answer / take down / obtain", example: "Tu décroches le tableau du mur.", exampleEn: "You take the picture down from the wall.", negative: "Tu ne décroches pas le tableau du mur.", negativeEn: "You do not take the picture down from the wall.", question: "Quel tableau décroches-tu du mur ?" },
+      { pronoun: "il", form: "décroche", full: "il décroche", ipa: "/il de.kʁɔʃ/", en: "he answers / takes down / obtains", example: "Il décroche un emploi après ses études.", exampleEn: "He lands a job after his studies.", negative: "Il ne décroche pas d’emploi après ses études.", negativeEn: "He does not land a job after his studies.", question: "Quel emploi décroche-t-il ?" },
+      { pronoun: "elle", form: "décroche", full: "elle décroche", ipa: "/ɛl de.kʁɔʃ/", en: "she answers / takes down / obtains", example: "Elle décroche une médaille.", exampleEn: "She wins a medal.", negative: "Elle ne décroche pas de médaille.", negativeEn: "She does not win a medal.", question: "Quelle médaille décroche-t-elle ?" },
+      { pronoun: "nous", form: "décrochons", full: "nous décrochons", ipa: "/nu de.kʁɔ.ʃɔ̃/", en: "we answer / take down / obtain", example: "Nous décrochons le téléphone dès qu’il sonne.", exampleEn: "We answer the phone as soon as it rings.", negative: "Nous ne décrochons pas le téléphone pendant la réunion.", negativeEn: "We do not answer the phone during the meeting.", question: "Quand décrochons-nous le téléphone ?" },
+      { pronoun: "vous", form: "décrochez", full: "vous décrochez", ipa: "/vu de.kʁɔ.ʃe/", en: "you answer / take down / obtain", example: "Vous décrochez les rideaux pour les laver.", exampleEn: "You take down the curtains to wash them.", negative: "Vous ne décrochez pas les rideaux pour les laver.", negativeEn: "You do not take down the curtains to wash them.", question: "Pourquoi décrochez-vous les rideaux ?" },
+      { pronoun: "ils", form: "décrochent", full: "ils décrochent", ipa: "/il de.kʁɔʃ/", en: "they answer / take down / lose focus", example: "Ils décrochent après une heure de cours.", exampleEn: "They lose focus after an hour of class.", negative: "Ils ne décrochent pas pendant le cours.", negativeEn: "They do not lose focus during class.", question: "Quand décrochent-ils pendant le cours ?" },
+      { pronoun: "elles", form: "décrochent", full: "elles décrochent", ipa: "/ɛl de.kʁɔʃ/", en: "they answer / take down / obtain", example: "Elles décrochent un nouveau contrat.", exampleEn: "They land a new contract.", negative: "Elles ne décrochent pas de nouveau contrat.", negativeEn: "They do not land a new contract.", question: "Quel contrat décrochent-elles ?" }
+    ];
+
+    const raccrocherRows = [
+      { pronoun: "je", form: "raccroche", full: "je raccroche", ipa: "/ʒə ʁa.kʁɔʃ/", en: "I hang up / hang back up", example: "Je raccroche après avoir dit au revoir.", exampleEn: "I hang up after saying goodbye.", negative: "Je ne raccroche pas avant de dire au revoir.", negativeEn: "I do not hang up before saying goodbye.", question: "Quand est-ce que je raccroche ?" },
+      { pronoun: "tu", form: "raccroches", full: "tu raccroches", ipa: "/ty ʁa.kʁɔʃ/", en: "you hang up / hang back up", example: "Tu raccroches le tableau au mur.", exampleEn: "You hang the picture back on the wall.", negative: "Tu ne raccroches pas le tableau au mur.", negativeEn: "You do not hang the picture back on the wall.", question: "Où raccroches-tu le tableau ?" },
+      { pronoun: "il", form: "raccroche", full: "il raccroche", ipa: "/il ʁa.kʁɔʃ/", en: "he hangs up / hangs back up", example: "Il raccroche le téléphone.", exampleEn: "He hangs up the phone.", negative: "Il ne raccroche pas le téléphone.", negativeEn: "He does not hang up the phone.", question: "Raccroche-t-il le téléphone ?" },
+      { pronoun: "elle", form: "raccroche", full: "elle raccroche", ipa: "/ɛl ʁa.kʁɔʃ/", en: "she hangs up / hangs back up", example: "Elle raccroche sa veste au portemanteau.", exampleEn: "She hangs her jacket back on the coat rack.", negative: "Elle ne raccroche pas sa veste au portemanteau.", negativeEn: "She does not hang her jacket back on the coat rack.", question: "Où raccroche-t-elle sa veste ?" },
+      { pronoun: "nous", form: "raccrochons", full: "nous raccrochons", ipa: "/nu ʁa.kʁɔ.ʃɔ̃/", en: "we hang up / hang back up", example: "Nous raccrochons après la conversation.", exampleEn: "We hang up after the conversation.", negative: "Nous ne raccrochons pas pendant que notre ami parle.", negativeEn: "We do not hang up while our friend is speaking.", question: "Quand raccrochons-nous ?" },
+      { pronoun: "vous", form: "raccrochez", full: "vous raccrochez", ipa: "/vu ʁa.kʁɔ.ʃe/", en: "you hang up / hang back up", example: "Vous raccrochez les clés au crochet.", exampleEn: "You hang the keys back on the hook.", negative: "Vous ne raccrochez pas les clés au crochet.", negativeEn: "You do not hang the keys back on the hook.", question: "Où raccrochez-vous les clés ?" },
+      { pronoun: "ils", form: "raccrochent", full: "ils raccrochent", ipa: "/il ʁa.kʁɔʃ/", en: "they hang up / hang back up", example: "Ils raccrochent les décorations après les travaux.", exampleEn: "They hang the decorations back up after the renovation.", negative: "Ils ne raccrochent pas les décorations après les travaux.", negativeEn: "They do not hang the decorations back up after the renovation.", question: "Quand raccrochent-ils les décorations ?" },
+      { pronoun: "elles", form: "raccrochent", full: "elles raccrochent", ipa: "/ɛl ʁa.kʁɔʃ/", en: "they hang up / hang back up", example: "Elles raccrochent sans laisser de message.", exampleEn: "They hang up without leaving a message.", negative: "Elles ne raccrochent pas sans laisser de message.", negativeEn: "They do not hang up without leaving a message.", question: "Raccrochent-elles sans laisser de message ?" }
+    ];
+
+    const sArreterRows = [
+      { pronoun: "je", form: "m’arrête", full: "je m’arrête", ipa: "/ʒə ma.ʁɛt/", en: "I stop / pause", example: "Je m’arrête au feu rouge.", exampleEn: "I stop at the red light.", negative: "Je ne m’arrête pas au feu vert.", negativeEn: "I do not stop at the green light.", question: "Où est-ce que je m’arrête ?" },
+      { pronoun: "tu", form: "t’arrêtes", full: "tu t’arrêtes", ipa: "/ty ta.ʁɛt/", en: "you stop / pause", example: "Tu t’arrêtes de parler pour écouter.", exampleEn: "You stop talking to listen.", negative: "Tu ne t’arrêtes pas de parler.", negativeEn: "You do not stop talking.", question: "Pourquoi t’arrêtes-tu de parler ?" },
+      { pronoun: "il", form: "s’arrête", full: "il s’arrête", ipa: "/il sa.ʁɛt/", en: "he / it stops", example: "Le train ? Il s’arrête à chaque gare.", exampleEn: "The train? It stops at every station.", negative: "Le train ? Il ne s’arrête pas à chaque gare.", negativeEn: "The train? It does not stop at every station.", question: "Ce train s’arrête-t-il à chaque gare ?" },
+      { pronoun: "elle", form: "s’arrête", full: "elle s’arrête", ipa: "/ɛl sa.ʁɛt/", en: "she stops / pauses", example: "Elle s’arrête pour reprendre son souffle.", exampleEn: "She stops to catch her breath.", negative: "Elle ne s’arrête pas pour reprendre son souffle.", negativeEn: "She does not stop to catch her breath.", question: "Pourquoi s’arrête-t-elle ?" },
+      { pronoun: "nous", form: "nous arrêtons", full: "nous nous arrêtons", ipa: "/nu nu.z‿a.ʁɛ.tɔ̃/", en: "we stop / pause", example: "Nous nous arrêtons à la boulangerie.", exampleEn: "We stop at the bakery.", negative: "Nous ne nous arrêtons pas à la boulangerie.", negativeEn: "We do not stop at the bakery.", question: "Où nous arrêtons-nous ?" },
+      { pronoun: "vous", form: "vous arrêtez", full: "vous vous arrêtez", ipa: "/vu vu.z‿a.ʁɛ.te/", en: "you stop / pause", example: "Vous vous arrêtez sur ce détail.", exampleEn: "You dwell on this detail.", negative: "Vous ne vous arrêtez pas sur ce détail.", negativeEn: "You do not dwell on this detail.", question: "Sur quel détail vous arrêtez-vous ?" },
+      { pronoun: "ils", form: "s’arrêtent", full: "ils s’arrêtent", ipa: "/il sa.ʁɛt/", en: "they stop / pause", example: "Ils s’arrêtent de courir après dix minutes.", exampleEn: "They stop running after ten minutes.", negative: "Ils ne s’arrêtent pas de courir après dix minutes.", negativeEn: "They do not stop running after ten minutes.", question: "Quand s’arrêtent-ils de courir ?" },
+      { pronoun: "elles", form: "s’arrêtent", full: "elles s’arrêtent", ipa: "/ɛl sa.ʁɛt/", en: "they stop / pause", example: "Elles s’arrêtent avant le passage piéton.", exampleEn: "They stop before the pedestrian crossing.", negative: "Elles ne s’arrêtent pas sur le passage piéton.", negativeEn: "They do not stop on the pedestrian crossing.", question: "Où s’arrêtent-elles ?" }
+    ];
+
+    const manquerRows = [
+      { pronoun: "je", form: "manque", full: "je manque", ipa: "/ʒə mɑ̃k/", en: "I miss / lack; I am missed", example: "Je manque le train quand je pars trop tard.", exampleEn: "I miss the train when I leave too late.", negative: "Je ne manque pas le train quand je pars à l’heure.", negativeEn: "I do not miss the train when I leave on time.", question: "Quel train est-ce que je manque ?" },
+      { pronoun: "tu", form: "manques", full: "tu manques", ipa: "/ty mɑ̃k/", en: "you miss / lack; you are missed", example: "Tu me manques quand tu es loin.", exampleEn: "I miss you when you are far away.", negative: "Tu ne me manques pas quand nous nous voyons chaque jour.", negativeEn: "I do not miss you when we see each other every day.", question: "Est-ce que tu me manques quand tu es loin ?" },
+      { pronoun: "il", form: "manque", full: "il manque", ipa: "/il mɑ̃k/", en: "he / it misses or lacks; is missing", example: "Il manque de patience avec les enfants.", exampleEn: "He lacks patience with the children.", negative: "Il ne manque pas de patience avec les enfants.", negativeEn: "He does not lack patience with the children.", question: "De quoi manque-t-il ?" },
+      { pronoun: "elle", form: "manque", full: "elle manque", ipa: "/ɛl mɑ̃k/", en: "she misses / lacks; she is missed", example: "Elle manque à sa parole.", exampleEn: "She breaks her word.", negative: "Elle ne manque pas à sa parole.", negativeEn: "She does not break her word.", question: "Manque-t-elle à sa parole ?" },
+      { pronoun: "nous", form: "manquons", full: "nous manquons", ipa: "/nu mɑ̃.kɔ̃/", en: "we miss / lack; we are missed", example: "Nous manquons d’eau pendant le trajet.", exampleEn: "We are short of water during the journey.", negative: "Nous ne manquons pas d’eau pendant le trajet.", negativeEn: "We are not short of water during the journey.", question: "De quoi manquons-nous pendant le trajet ?" },
+      { pronoun: "vous", form: "manquez", full: "vous manquez", ipa: "/vu mɑ̃.ke/", en: "you miss / lack; you are missed", example: "Vous manquez une occasion de pratiquer le français.", exampleEn: "You miss an opportunity to practice French.", negative: "Vous ne manquez aucune occasion de pratiquer le français.", negativeEn: "You miss no opportunity to practice French.", question: "Quelle occasion manquez-vous ?" },
+      {
+        pronoun: "ils", form: "manquent", full: "ils manquent", ipa: "/il mɑ̃k/", en: "they miss / lack; they are missed",
+        examples: [
+          { id: "default", fr: "Ils manquent la cible pendant l’entraînement.", en: "They miss the target during practice.", negative: "Ils ne manquent pas la cible pendant l’entraînement.", negativeEn: "They do not miss the target during practice.", question: "Manquent-ils la cible pendant l’entraînement ?" },
+          { id: "unsuccessful-result", fr: "Ils manquent leurs photos quand la lumière est mauvaise.", en: "Their photos turn out badly when the light is poor.", negative: "Ils ne manquent pas leurs photos quand la lumière est bonne.", negativeEn: "Their photos do not turn out badly when the light is good.", question: "Pourquoi manquent-ils leurs photos ?" }
+        ]
+      },
+      { pronoun: "elles", form: "manquent", full: "elles manquent", ipa: "/ɛl mɑ̃k/", en: "they miss / lack; they are missed", example: "Elles manquent souvent le début du cours.", exampleEn: "They often miss the beginning of class.", negative: "Elles ne manquent jamais le début du cours.", negativeEn: "They never miss the beginning of class.", question: "Quelle partie du cours manquent-elles ?" }
+    ];
+
+    const adapterRows = [
+      { pronoun: "j’", form: "adapte", full: "j’adapte", ipa: "/ʒa.dapt/", en: "I adapt / adjust", example: "J’adapte mon discours au public.", exampleEn: "I adapt my speech to the audience.", negative: "Je n’adapte pas mon discours au public.", negativeEn: "I do not adapt my speech to the audience.", question: "À quel public est-ce que j’adapte mon discours ?" },
+      { pronoun: "tu", form: "adaptes", full: "tu adaptes", ipa: "/ty a.dapt/", en: "you adapt / adjust", example: "Tu adaptes la recette à tes goûts.", exampleEn: "You adapt the recipe to your tastes.", negative: "Tu n’adaptes pas la recette à tes goûts.", negativeEn: "You do not adapt the recipe to your tastes.", question: "Adaptes-tu la recette à tes goûts ?" },
+      { pronoun: "il", form: "adapte", full: "il adapte", ipa: "/il a.dapt/", en: "he adapts / adjusts", example: "Il adapte un roman pour le cinéma.", exampleEn: "He adapts a novel for the cinema.", negative: "Il n’adapte pas de roman pour le cinéma.", negativeEn: "He does not adapt a novel for the cinema.", question: "Quel roman adapte-t-il pour le cinéma ?" },
+      { pronoun: "elle", form: "adapte", full: "elle adapte", ipa: "/ɛl a.dapt/", en: "she adapts / adjusts", example: "Elle adapte les exercices au niveau des élèves.", exampleEn: "She adapts the exercises to the students’ level.", negative: "Elle n’adapte pas les exercices au niveau des élèves.", negativeEn: "She does not adapt the exercises to the students’ level.", question: "À quel niveau adapte-t-elle les exercices ?" },
+      { pronoun: "nous", form: "adaptons", full: "nous adaptons", ipa: "/nu.z‿a.dap.tɔ̃/", en: "we adapt / adjust", example: "Nous adaptons nos horaires aux besoins des clients.", exampleEn: "We adjust our hours to the customers’ needs.", negative: "Nous n’adaptons pas nos horaires aux besoins des clients.", negativeEn: "We do not adjust our hours to the customers’ needs.", question: "À quels besoins adaptons-nous nos horaires ?" },
+      { pronoun: "vous", form: "adaptez", full: "vous adaptez", ipa: "/vu.z‿a.dap.te/", en: "you adapt / adjust", example: "Vous adaptez votre méthode à chaque élève.", exampleEn: "You adapt your method to each student.", negative: "Vous n’adaptez pas votre méthode à chaque élève.", negativeEn: "You do not adapt your method to each student.", question: "Adaptez-vous votre méthode à chaque élève ?" },
+      { pronoun: "ils", form: "adaptent", full: "ils adaptent", ipa: "/il.z‿a.dapt/", en: "they adapt / adjust", example: "Ils adaptent le logiciel aux besoins de l’équipe.", exampleEn: "They adapt the software to the team’s needs.", negative: "Ils n’adaptent pas le logiciel aux besoins de l’équipe.", negativeEn: "They do not adapt the software to the team’s needs.", question: "Comment adaptent-ils le logiciel ?" },
+      { pronoun: "elles", form: "adaptent", full: "elles adaptent", ipa: "/ɛl.z‿a.dapt/", en: "they adapt / adjust", example: "Elles adaptent les activités aux enfants.", exampleEn: "They adapt the activities to the children.", negative: "Elles n’adaptent pas les activités aux enfants.", negativeEn: "They do not adapt the activities to the children.", question: "Quelles activités adaptent-elles aux enfants ?" }
+    ];
+
+    const sAdapterRows = [
+      { pronoun: "je", form: "m’adapte", full: "je m’adapte", ipa: "/ʒə ma.dapt/", en: "I adapt / adjust", example: "Je m’adapte à mon nouvel emploi.", exampleEn: "I adjust to my new job.", negative: "Je ne m’adapte pas à mon nouvel emploi.", negativeEn: "I do not adjust to my new job.", question: "À quoi est-ce que je m’adapte ?" },
+      { pronoun: "tu", form: "t’adaptes", full: "tu t’adaptes", ipa: "/ty ta.dapt/", en: "you adapt / adjust", example: "Tu t’adaptes au rythme de la ville.", exampleEn: "You adjust to the pace of the city.", negative: "Tu ne t’adaptes pas au rythme de la ville.", negativeEn: "You do not adjust to the pace of the city.", question: "T’adaptes-tu au rythme de la ville ?" },
+      { pronoun: "il", form: "s’adapte", full: "il s’adapte", ipa: "/il sa.dapt/", en: "he adapts / adjusts", example: "Il s’adapte aux changements.", exampleEn: "He adapts to changes.", negative: "Il ne s’adapte pas aux changements.", negativeEn: "He does not adapt to changes.", question: "Comment s’adapte-t-il aux changements ?" },
+      { pronoun: "elle", form: "s’adapte", full: "elle s’adapte", ipa: "/ɛl sa.dapt/", en: "she adapts / adjusts", example: "Elle s’adapte à sa nouvelle équipe.", exampleEn: "She adjusts to her new team.", negative: "Elle ne s’adapte pas à sa nouvelle équipe.", negativeEn: "She does not adjust to her new team.", question: "S’adapte-t-elle à sa nouvelle équipe ?" },
+      { pronoun: "nous", form: "nous adaptons", full: "nous nous adaptons", ipa: "/nu nu.z‿a.dap.tɔ̃/", en: "we adapt / adjust", example: "Nous nous adaptons à cette situation.", exampleEn: "We adapt to this situation.", negative: "Nous ne nous adaptons pas à cette situation.", negativeEn: "We do not adapt to this situation.", question: "À quelle situation nous adaptons-nous ?" },
+      { pronoun: "vous", form: "vous adaptez", full: "vous vous adaptez", ipa: "/vu vu.z‿a.dap.te/", en: "you adapt / adjust", example: "Vous vous adaptez aux nouvelles règles.", exampleEn: "You adjust to the new rules.", negative: "Vous ne vous adaptez pas aux nouvelles règles.", negativeEn: "You do not adjust to the new rules.", question: "Vous adaptez-vous aux nouvelles règles ?" },
+      { pronoun: "ils", form: "s’adaptent", full: "ils s’adaptent", ipa: "/il sa.dapt/", en: "they adapt / adjust", example: "Ils s’adaptent au climat.", exampleEn: "They adjust to the climate.", negative: "Ils ne s’adaptent pas au climat.", negativeEn: "They do not adjust to the climate.", question: "S’adaptent-ils au climat ?" },
+      { pronoun: "elles", form: "s’adaptent", full: "elles s’adaptent", ipa: "/ɛl sa.dapt/", en: "they adapt / adjust", example: "Elles s’adaptent à leur nouvel environnement.", exampleEn: "They adjust to their new surroundings.", negative: "Elles ne s’adaptent pas à leur nouvel environnement.", negativeEn: "They do not adjust to their new surroundings.", question: "Comment s’adaptent-elles à leur nouvel environnement ?" }
+    ];
+
     const dessinerRows = [
       { pronoun: "je", form: "dessine", full: "je dessine", ipa: "/ʒə de.sin/", en: "I draw", example: "Je dessine un paysage au crayon.", exampleEn: "I draw a landscape in pencil.", negative: "Je ne dessine pas de paysage au crayon.", negativeEn: "I do not draw a landscape in pencil.", question: "Qu’est-ce que je dessine au crayon ?" },
       { pronoun: "tu", form: "dessines", full: "tu dessines", ipa: "/ty de.sin/", en: "you draw", example: "Tu dessines ton chat.", exampleEn: "You draw your cat.", negative: "Tu ne dessines pas ton chat.", negativeEn: "You do not draw your cat.", question: "Dessines-tu ton chat ?" },
@@ -1965,6 +2070,84 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "seConcentrer",
+        group: "pronominal",
+        label: "se concentrer",
+        title: "Se concentrer — to concentrate / focus",
+        descriptionHtml: "<strong>Se concentrer</strong> follows the regular -er pattern with a reflexive pronoun: <strong>je me concentre</strong>, <strong>nous nous concentrons</strong>. Use <strong>sur + topic / task</strong> to say what you focus on: <strong>se concentrer sur son travail</strong>, <strong>sur la prononciation</strong>. It can also stand alone: <strong>J’ai besoin de me concentrer.</strong> <strong>Pour + infinitive</strong> gives a purpose: <strong>se concentrer pour réussir</strong>. Compare <strong>concentrer son attention sur quelque chose</strong> with <strong>se concentrer sur quelque chose</strong>. The passé composé uses <strong>être</strong> with subject agreement: <strong>elle s’est concentrée</strong>, <strong>elles se sont concentrées</strong>. The imperative is <strong>concentre-toi</strong>; the negative is <strong>ne te concentre pas</strong>.",
+        rows: seConcentrerRows
+      },
+      {
+        key: "reduire",
+        group: "irregular",
+        label: "réduire",
+        title: "Réduire — to reduce / cut down",
+        tag: "irregular -uire",
+        descriptionHtml: "<strong>Réduire</strong> follows the conduire pattern: <strong>je réduis</strong>, <strong>il réduit</strong>, <strong>nous réduisons</strong>, <strong>ils réduisent</strong>. It takes a direct object: <strong>réduire les dépenses</strong>. Distinguish <strong>réduire de dix pour cent</strong> (reduce by ten percent) from <strong>réduire à cent euros</strong> (reduce to one hundred euros). <strong>Réduire en poudre</strong> means to grind into powder. Use <strong>avoir + réduit</strong> in the passé composé; the feminine participle, when agreement applies, is <strong>réduite</strong>. The future is <strong>je réduirai</strong> and the imperative is <strong>réduis</strong>.",
+        rows: reduireRows
+      },
+      {
+        key: "conduire",
+        group: "irregular",
+        label: "conduire",
+        title: "Conduire — to drive / lead / conduct",
+        tag: "irregular -uire",
+        descriptionHtml: "<strong>Conduire</strong> means to drive a vehicle, take someone somewhere, lead a group, or conduct an investigation. Compare <strong>je conduis</strong>, <strong>il conduit</strong>, <strong>nous conduisons</strong>, and <strong>ils conduisent</strong>. Use <strong>conduire quelqu’un à la gare</strong> for a destination. Figuratively, <strong>conduire quelqu’un à + infinitive</strong> means to lead someone to do something. The passé composé uses <strong>avoir + conduit</strong>; with agreement, the feminine is <strong>conduite</strong>. The future is <strong>je conduirai</strong>; the imperative keeps -s: <strong>conduis</strong>.",
+        rows: conduireRows
+      },
+      {
+        key: "decrocher",
+        group: "regularEr",
+        label: "décrocher",
+        title: "Décrocher — to answer the phone / take down / land",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Décrocher</strong> follows the regular -er pattern: <strong>je décroche</strong>, <strong>nous décrochons</strong>. It means to answer or pick up the phone (<strong>décrocher le téléphone</strong>, or simply <strong>décrocher</strong>), take down something hanging (<strong>décrocher un tableau du mur</strong>), or obtain something sought (<strong>décrocher un emploi / un contrat</strong>). Informally, <strong>décrocher pendant un cours</strong> means to lose focus. Compare <strong>raccrocher</strong> for hanging up the phone or hanging something back up. Use <strong>avoir + décroché</strong>; the imperative is <strong>décroche</strong>, without -s.",
+        rows: decrocherRows
+      },
+      {
+        key: "raccrocher",
+        group: "regularEr",
+        label: "raccrocher",
+        title: "Raccrocher — to hang up / hang back up",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Raccrocher</strong> means to end a phone call (<strong>raccrocher le téléphone</strong>, or simply <strong>raccrocher</strong>) or hang something back up (<strong>raccrocher un tableau au mur</strong>). It follows the regular -er pattern: <strong>je raccroche</strong>, <strong>nous raccrochons</strong>. Keep both written c letters. <strong>Raccrocher au nez de quelqu’un</strong> means to hang up on someone abruptly. Informally, it can also mean to retire or give up a career. Its opposite in phone use is <strong>décrocher</strong>. The passé composé uses <strong>avoir + raccroché</strong>; the imperative is <strong>raccroche</strong>.",
+        rows: raccrocherRows
+      },
+      {
+        key: "sArreter",
+        group: "pronominal",
+        label: "s’arrêter",
+        title: "S’arrêter — to stop / pause",
+        descriptionHtml: "<strong>S’arrêter</strong> describes stopping oneself or coming to a stop: <strong>je m’arrête</strong>, <strong>le train s’arrête</strong>. Compare <strong>arrêter la voiture</strong> (stop the car) with <strong>la voiture s’arrête</strong> (the car stops). Use <strong>s’arrêter de + infinitive</strong> for ceasing an activity, <strong>s’arrêter à + place</strong> for a stopping place, and <strong>s’arrêter pour + infinitive</strong> for the purpose of the pause. Contrast <strong>je m’arrête de parler</strong> (I stop talking) with <strong>je m’arrête pour parler</strong> (I stop to talk). Keep ê in every form. The passé composé uses <strong>être</strong> with subject agreement: <strong>elle s’est arrêtée</strong>. The imperative is <strong>arrête-toi</strong>; the negative is <strong>ne t’arrête pas</strong>.",
+        rows: sArreterRows
+      },
+      {
+        key: "manquer",
+        group: "regularEr",
+        label: "manquer",
+        title: "Manquer — to miss / lack / be missing / nearly do",
+        tag: "regular -er / meaning changes with à and de",
+        descriptionHtml: "<strong>Manquer</strong> is regular: <strong>je manque</strong>, <strong>nous manquons</strong>, <strong>j’ai manqué</strong>. With a direct object, it means to miss: <strong>manquer le train</strong>, <strong>manquer un cours</strong>, <strong>manquer une occasion</strong>, <strong>manquer la cible</strong>. <strong>Manquer de + noun</strong> means to lack: <strong>manquer de temps</strong>. For missing someone emotionally, reverse the English roles: <strong>Tu me manques</strong> = “I miss you”; <strong>Je te manque</strong> = “You miss me.” The absent person is the subject. <strong>Manquer à sa parole</strong> means to break one’s word. <strong>J’ai manqué de tomber</strong> means “I nearly fell”; <strong>Je ne manquerai pas de t’appeler</strong> means “I’ll be sure to call you.” <strong>Il manque une page</strong> means “A page is missing.” The examples below distinguish these constructions, including <strong>manquer de respect à quelqu’un</strong> and <strong>ne manquer de rien</strong>.",
+        rows: manquerRows
+      },
+      {
+        key: "adapter",
+        group: "regularEr",
+        label: "adapter",
+        title: "Adapter — to adapt / adjust",
+        tag: "regular -er / à + target",
+        descriptionHtml: "<strong>Adapter</strong> follows the regular -er pattern: <strong>j’adapte</strong>, <strong>nous adaptons</strong>. Use <strong>adapter quelque chose à quelque chose / quelqu’un</strong>: <strong>adapter les exercices au niveau des élèves</strong>. The thing changed is a direct object; <strong>à</strong> introduces what it is made suitable for. It can also mean adapting a work: <strong>adapter un roman pour le cinéma</strong>. Compare <strong>adapter ses horaires</strong> (adjust one’s hours) with <strong>s’adapter aux horaires</strong> (adjust to the hours). The passé composé uses <strong>avoir + adapté</strong>; the imperative is <strong>adapte</strong>, without -s.",
+        rows: adapterRows
+      },
+      {
+        key: "sAdapter",
+        group: "pronominal",
+        label: "s’adapter",
+        title: "S’adapter — to adapt / adjust to",
+        descriptionHtml: "Use <strong>s’adapter à quelqu’un / quelque chose</strong> for adjusting to a person or situation: <strong>Je m’adapte à mon nouvel emploi.</strong> Keep <strong>à</strong>, with contractions <strong>au</strong> and <strong>aux</strong>: <strong>s’adapter au climat</strong>, <strong>s’adapter aux changements</strong>. Replace à + thing with <strong>y</strong>: <strong>Je m’y adapte.</strong> Elide me / te / se before the vowel: <strong>m’adapte</strong>, <strong>t’adaptes</strong>, <strong>s’adapte</strong>. The passé composé uses <strong>être</strong> with subject agreement: <strong>elle s’est adaptée</strong>, <strong>elles se sont adaptées</strong>. The imperative is <strong>adapte-toi</strong>; the negative is <strong>ne t’adapte pas</strong>.",
+        rows: sAdapterRows
+      },
       {
         key: "dessiner",
         group: "regularEr",
@@ -3290,6 +3473,15 @@
     ];
 
     const presentVerbHighlights = {
+      seConcentrer: ["Hear two nasal vowels in <strong>concentre /kɔ̃.sɑ̃tʁ/</strong>: the written n letters are not separate consonants. The short forms <strong>concentre / concentres / concentrent</strong> sound alike. Keep both pronouns in <strong>nous nous concentrons /nu nu kɔ̃.sɑ̃.tʁɔ̃/</strong>."],
+      reduire: ["Hear <strong>/ɥi/</strong> in <strong>réduis / réduit /ʁe.dɥi/</strong>. The singular endings are silent; <strong>/z/</strong> appears in <strong>réduisons /ʁe.dɥi.zɔ̃/</strong> and <strong>réduisent /ʁe.dɥiz/</strong>. The participle <strong>réduit</strong> sounds like the present singular; feminine <strong>réduite</strong> adds <strong>/t/</strong>."],
+      conduire: ["The singular <strong>conduis / conduit /kɔ̃.dɥi/</strong> has silent endings. Hear <strong>/z/</strong> in <strong>conduisons /kɔ̃.dɥi.zɔ̃/</strong> and <strong>conduisent /kɔ̃.dɥiz/</strong>. The vowel <strong>/ɔ̃/</strong> is nasal; the n is not a separate consonant. The participle is <strong>conduit /kɔ̃.dɥi/</strong>."],
+      decrocher: ["Keep the acute accent in <strong>décrocher</strong>. The short forms <strong>décroche / décroches / décrochent</strong> sound like <strong>/de.kʁɔʃ/</strong>; ch is <strong>/ʃ/</strong>. Compare <strong>décrochons /de.kʁɔ.ʃɔ̃/</strong> and <strong>décrochez /de.kʁɔ.ʃe/</strong>."],
+      raccrocher: ["The written <strong>cc</strong> is pronounced as a single <strong>/k/</strong>, and ch is <strong>/ʃ/</strong>: <strong>raccroche /ʁa.kʁɔʃ/</strong>. Keep both c letters in every form: <strong>raccrochons</strong>, <strong>raccroché</strong>."],
+      sArreter: ["Keep <strong>ê</strong> and pronounce <strong>/ɛ/</strong> in <strong>arrête /a.ʁɛt/</strong>. Elide the reflexive pronoun: <strong>je m’arrête /ʒə ma.ʁɛt/</strong>. In <strong>nous nous arrêtons /nu nu.z‿a.ʁɛ.tɔ̃/</strong>, only the second nous links to the verb with <strong>/z/</strong>."],
+      manquer: ["The short forms <strong>manque / manques / manquent</strong> all sound like <strong>/mɑ̃k/</strong>. Keep the nasal vowel <strong>/ɑ̃/</strong> and pronounce <strong>qu</strong> as <strong>/k/</strong>: <strong>manquons /mɑ̃.kɔ̃/</strong>, <strong>manquez /mɑ̃.ke/</strong>. The final <strong>é</strong> is audible in <strong>manqué /mɑ̃.ke/</strong>."],
+      adapter: ["Elide je: <strong>j’adapte /ʒa.dapt/</strong>. Pronounce both <strong>/p/</strong> and <strong>/t/</strong> in <strong>adapte /a.dapt/</strong>. Hear <strong>/z/</strong> liaison in <strong>nous adaptons /nu.z‿a.dap.tɔ̃/</strong> and <strong>vous adaptez /vu.z‿a.dap.te/</strong>."],
+      sAdapter: ["The reflexive pronoun elides before the vowel: <strong>je m’adapte /ʒə ma.dapt/</strong>, <strong>il s’adapte /il sa.dapt/</strong>. In <strong>nous nous adaptons /nu nu.z‿a.dap.tɔ̃/</strong>, only the second nous links to the verb with <strong>/z/</strong>."],
       dessiner: ["The written <strong>ss</strong> keeps the sound <strong>/s/</strong> between vowels. The short forms <strong>dessine / dessines / dessinent</strong> all sound like <strong>/de.sin/</strong>. Contrast <strong>dessinons /de.si.nɔ̃/</strong> with <strong>dessinez /de.si.ne/</strong>."],
       paraitre: ["The short forms <strong>parais / paraît /pa.ʁɛ/</strong> have silent endings. Hear <strong>/s/</strong> in <strong>paraissons /pa.ʁɛ.sɔ̃/</strong> and <strong>paraissent /pa.ʁɛs/</strong>. The future <strong>paraîtrai /pa.ʁɛ.tʁe/</strong> includes <strong>/t/</strong>; <strong>paru /pa.ʁy/</strong> has a different vowel."],
       plaire: ["Compare <strong>plais / plaît /plɛ/</strong> with <strong>plaisons /plɛ.zɔ̃/</strong> and <strong>plaisent /plɛz/</strong>: the s between vowels is pronounced <strong>/z/</strong>. The participle is <strong>plu /ply/</strong>; the future is <strong>plairai /plɛ.ʁe/</strong>."],

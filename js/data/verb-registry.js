@@ -3,6 +3,15 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    seConcentrer: Object.freeze({"infinitive": "se concentrer", "infinitiveIpa": "/sə kɔ̃.sɑ̃.tʁe/"}),
+    reduire: Object.freeze({"infinitive": "réduire", "infinitiveIpa": "/ʁe.dɥiʁ/"}),
+    conduire: Object.freeze({"infinitive": "conduire", "infinitiveIpa": "/kɔ̃.dɥiʁ/"}),
+    decrocher: Object.freeze({"infinitive": "décrocher", "infinitiveIpa": "/de.kʁɔ.ʃe/"}),
+    raccrocher: Object.freeze({"infinitive": "raccrocher", "infinitiveIpa": "/ʁa.kʁɔ.ʃe/"}),
+    sArreter: Object.freeze({"infinitive": "s’arrêter", "infinitiveIpa": "/sa.ʁɛ.te/"}),
+    manquer: Object.freeze({"infinitive": "manquer", "infinitiveIpa": "/mɑ̃.ke/"}),
+    adapter: Object.freeze({"infinitive": "adapter", "infinitiveIpa": "/a.dap.te/"}),
+    sAdapter: Object.freeze({"infinitive": "s’adapter", "infinitiveIpa": "/sa.dap.te/"}),
     dessiner: Object.freeze({"infinitive": "dessiner", "infinitiveIpa": "/de.si.ne/"}),
     paraitre: Object.freeze({"infinitive": "paraître", "infinitiveIpa": "/pa.ʁɛtʁ/"}),
     plaire: Object.freeze({"infinitive": "plaire", "infinitiveIpa": "/plɛʁ/"}),

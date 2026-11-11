@@ -3,6 +3,15 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    seConcentrer: Object.freeze({"frComplement": "sur les points essentiels", "enPredicate": "focus on the essential points"}),
+    reduire: Object.freeze({"frComplement": "notre consommation d’énergie", "enPredicate": "reduce our energy consumption"}),
+    conduire: Object.freeze({"frComplement": "nos amis à la gare", "enPredicate": "drive our friends to the station"}),
+    decrocher: Object.freeze({"frComplement": "le téléphone à tour de rôle", "enPredicate": "answer the phone in turn"}),
+    raccrocher: Object.freeze({"frComplement": "après la conversation", "enPredicate": "hang up after the conversation"}),
+    sArreter: Object.freeze({"frComplement": "à la boulangerie", "enPredicate": "stop at the bakery"}),
+    manquer: Object.freeze({"frComplement": "de temps pour finir", "enPredicate": "lack time to finish"}),
+    adapter: Object.freeze({"frComplement": "nos horaires aux besoins des clients", "enPredicate": "adjust our hours to the customers’ needs"}),
+    sAdapter: Object.freeze({"frComplement": "à cette situation", "enPredicate": "adapt to this situation"}),
     dessiner: Object.freeze({"frComplement": "les plans de la maison", "enPredicate": "draw the plans for the house"}),
     paraitre: Object.freeze({"frComplement": "à l’écran pendant le générique", "enPredicate": "appear on screen during the credits"}),
     plaire: Object.freeze({"frComplement": "au public", "enPredicate": "appeal to the audience"}),

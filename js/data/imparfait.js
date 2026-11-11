@@ -316,6 +316,7 @@
   });
 
   const ipaVerbFormOverrides = Object.freeze({
+    seConcentrer: Object.freeze({ nous: "kɔ̃sɑ̃tʁijɔ̃", vous: "kɔ̃sɑ̃tʁije" }),
     tuer: Object.freeze({ nous: "tyjɔ̃", vous: "tyje" }),
     essayer: Object.freeze({
       je: "esɛjɛ",
@@ -369,6 +370,14 @@
   }
 
   const exampleOverrides = Object.freeze({
+    manquer: exampleSet(
+      "Un bouton manquait à ma veste.",
+      "A button was missing from my jacket.",
+      "Nous ne manquions pas d’idées.",
+      "We had plenty of ideas.",
+      "Est-ce que je te manquais quand j’étais loin ?",
+      "Did you miss me when I was far away?"
+    ),
     couter: exampleSet(
       "Le trajet coûtait vingt euros.",
       "The trip used to cost twenty euros.",

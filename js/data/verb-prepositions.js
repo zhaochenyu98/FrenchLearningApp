@@ -2,6 +2,15 @@
   "use strict";
 
   const sources = Object.freeze({
+    seConcentrer: { title: "Larousse · Se concentrer sur", url: "https://www.larousse.fr/dictionnaires/francais-anglais/concentrer/17743" },
+    reduire: { title: "Académie française · Réduire", url: "https://www.dictionnaire-academie.fr/article/A9R1135" },
+    conduire: { title: "Académie française · Conduire", url: "https://www.dictionnaire-academie.fr/article/A9C3472" },
+    decrocher: { title: "Larousse · Décrocher", url: "https://www.larousse.fr/dictionnaires/francais/d%C3%A9crocher/22465" },
+    raccrocher: { title: "Larousse · Raccrocher", url: "https://www.larousse.fr/dictionnaires/francais/raccrocher/65893" },
+    sArreter: { title: "Larousse · Arrêter / S’arrêter", url: "https://www.larousse.fr/dictionnaires/francais/arr%C3%AAter/5383" },
+    manquer: { title: "Académie française · Manquer", url: "https://www.dictionnaire-academie.fr/article/A9M0575" },
+    manquerLarousse: { title: "Larousse · Manquer: meanings and constructions", url: "https://www.larousse.fr/dictionnaires/francais/manquer/49234" },
+    adapter: { title: "Académie française · Adapter", url: "https://www.dictionnaire-academie.fr/article/A9A0506" },
     dessiner: { title: "Larousse · Dessiner", url: "https://www.larousse.fr/dictionnaires/francais-anglais/dessiner/24539" },
     paraitre: { title: "Académie française · Paraître", url: "https://www.dictionnaire-academie.fr/article/A9P0487" },
     plaire: { title: "Académie française · Plaire", url: "https://www.dictionnaire-academie.fr/article/A9P2680" },
@@ -45,6 +54,56 @@
   // destination/origin complements. Partitive articles (boire du café), generic
   // time/manner adjuncts, and archaic constructions are not verb government.
   const byVerb = {
+    seConcentrer: [
+      u("sur-topic", "se concentrer sur + topic / task", "concentrate / focus on something", "Je me concentre sur mon travail.", "I focus on my work.", "Sur introduces what you focus on. The reflexive pronoun changes with the subject: je me concentre, nous nous concentrons. The verb can also stand alone: Je me concentre.", "seConcentrer")
+    ],
+    reduire: [
+      u("de-amount", "réduire quelque chose de + amount", "reduce something by an amount", "Nous réduisons le prix de vingt euros.", "We reduce the price by twenty euros.", "De gives the size of the reduction, not the final price.", "reduire"),
+      u("a-result", "réduire quelque chose à + result / amount", "reduce something to a result or amount", "Nous réduisons le prix à quatre-vingts euros.", "We reduce the price to eighty euros.", "À gives the resulting price. Compare réduire de vingt euros, by twenty euros.", "reduire"),
+      u("a-infinitive", "réduire quelqu’un à + infinitive", "leave someone with no option but to do something", "Cette panne nous réduit à attendre.", "This breakdown leaves us with no option but to wait.", "A more formal use: à introduces the action someone is forced to resort to.", "reduire"),
+      u("en-result", "réduire quelque chose en + result", "reduce something to a different form", "Elle réduit les amandes en poudre.", "She grinds the almonds into powder.", "En introduces the resulting form, as in en poudre or en miettes.", "reduire")
+    ],
+    conduire: [
+      u("a-destination", "conduire quelqu’un à + place", "drive / take someone to a place", "Je conduis mes amis à la gare.", "I drive my friends to the station.", "The person is a direct object; à introduces the destination. Other destinations use chez, dans, or vers as appropriate.", "conduire"),
+      u("de-a-route", "conduire quelqu’un de + origin + à + destination", "drive / take someone from one place to another", "Elle nous conduit de l’hôtel à l’aéroport.", "She drives us from the hotel to the airport.", "De introduces the starting point; à introduces the destination.", "conduire"),
+      u("a-infinitive", "conduire quelqu’un à + infinitive", "lead someone to do something", "Cette expérience nous conduit à changer de méthode.", "This experience leads us to change our approach.", "Figurative use: the subject causes someone to take an action.", "conduire")
+    ],
+    decrocher: [
+      u("de-source", "décrocher quelque chose de + support", "take something down from a support", "Tu décroches le tableau du mur.", "You take the picture down from the wall.", "The item is a direct object; de introduces where it was hanging. Du = de + le. Compare décrocher le téléphone, answer the phone.", "decrocher")
+    ],
+    raccrocher: [
+      u("a-support", "raccrocher quelque chose à + support", "hang something back up on a support", "Je raccroche les clés au crochet.", "I hang the keys back on the hook.", "À introduces where the item is hung again. Au = à + le.", "raccrocher"),
+      u("au-nez-de-person", "raccrocher au nez de quelqu’un", "hang up on someone", "Il me raccroche au nez.", "He hangs up on me.", "This means ending the call abruptly and rudely. The person can be expressed with an indirect object pronoun: me, te, lui, nous, vous, leur.", "raccrocher")
+    ],
+    sArreter: [
+      u("de-infinitive", "s’arrêter de + infinitive", "stop doing something", "Je m’arrête de parler.", "I stop talking.", "De introduces the activity that stops. Arrêter de parler, without se, is also common.", "sArreter"),
+      u("a-place", "s’arrêter à + place", "stop at a place", "Nous nous arrêtons à la boulangerie.", "We stop at the bakery.", "À introduces a stopping place: au feu rouge, à la gare, aux feux.", "sArreter"),
+      u("pour-infinitive", "s’arrêter pour + infinitive", "stop in order to do something", "Je m’arrête pour parler à ma voisine.", "I stop to talk to my neighbor.", "Pour gives the purpose of the pause. Compare je m’arrête de parler, I stop talking.", "sArreter"),
+      u("sur-topic", "s’arrêter sur + topic / detail", "dwell on; examine more closely", "Le professeur s’arrête sur un détail du texte.", "The teacher dwells on a detail in the text.", "Figurative use: give a point particular attention.", "sArreter")
+    ],
+    manquer: [
+      u("de-noun", "manquer de + noun", "lack; be short of", "Nous manquons de temps pour terminer ce travail.", "We do not have enough time to finish this work.", "The subject is the person or group lacking something. De elides before a vowel: manquer d’eau.", "manquer"),
+      u("a-person-longing", "quelqu’un manque à quelqu’un", "someone is missed by someone", "Tu me manques. Je te manque aussi.", "I miss you. You miss me too.", "The absent person is the subject. Me / te / lui / nous / vous / leur names the person who feels the absence. Paul manque à Marie means Marie misses Paul.", "manquer"),
+      u("a-person-resource", "quelque chose manque à quelqu’un", "someone lacks something; something is unavailable to someone", "Le courage lui manque pour parler en public.", "He lacks the courage to speak in public.", "The missing resource is the subject, and lui names the person who lacks it. Compare Il manque de courage, where that person is the subject.", "manquerLarousse"),
+      u("a-obligation", "manquer à + obligation", "fail to honor; break", "Elle manque à sa promesse.", "She breaks her promise.", "Use à for an obligation: manquer à sa parole, à ses engagements, à son devoir.", "manquerLarousse"),
+      u("de-respect-a-person", "manquer de respect à quelqu’un", "show disrespect to someone", "Il manque de respect à sa collègue.", "He is disrespectful to his colleague.", "De introduces respect; à introduces the person treated disrespectfully.", "manquer"),
+      u("de-infinitive-nearly", "manquer (de) + infinitive", "nearly do something; almost", "J’ai manqué de tomber dans l’escalier.", "I nearly fell on the stairs.", "De can be omitted: J’ai manqué tomber. The accident almost happened; this does not mean I forgot to fall.", "manquer"),
+      u("ne-pas-de-infinitive", "ne pas manquer de + infinitive", "be sure to; not fail to", "Je ne manquerai pas de vous envoyer le document.", "I will be sure to send you the document.", "With an infinitive, negation changes the usual interpretation: this promises the action, rather than saying it nearly happened. Imperative: Ne manquez pas de nous appeler !", "manquerLarousse"),
+      u("ne-pas-de-quality", "ne pas manquer de + noun", "have plenty of; certainly have", "Cette artiste ne manque pas de talent.", "This artist certainly has talent.", "Unlike ne pas manquer de + infinitive, this negates a shortage. Here the complement is a noun.", "manquer"),
+      u("ne-de-rien", "ne manquer de rien", "have everything one needs", "Les enfants ne manquent de rien.", "The children have everything they need.", "Rien replaces the thing that could be lacking; do not add pas in this expression.", "manquerLarousse"),
+      u("impersonal-missing", "il manque + noun / quantity", "something is missing; there is a shortage of", "Il manque deux chaises dans cette salle.", "Two chairs are missing from this room.", "Impersonal il stays singular, even before a plural quantity. Compare Deux chaises manquent, where the chairs are the grammatical subject.", "manquer"),
+      u("impersonal-person-amount", "il manque à quelqu’un + amount", "someone is short by an amount", "Il me manque dix euros pour acheter ce livre.", "I am ten euros short of being able to buy this book.", "Me is an indirect object. This identifies the amount still needed, rather than saying I miss money emotionally.", "manquerLarousse"),
+      u("a-appel", "manquer à l’appel", "be absent; be unaccounted for", "Deux élèves manquent à l’appel.", "Two students are absent at roll call.", "This fixed expression can also describe items that are unaccounted for.", "manquer"),
+      u("de-peu", "manquer quelque chose de peu", "miss something narrowly", "J’ai manqué le bus de peu.", "I just missed the bus.", "The bus is a direct object; de peu expresses how narrowly it was missed. Compare J’ai manqué de tomber, where de introduces an infinitive.", "manquerLarousse"),
+      u("person-de-interval", "manquer quelqu’un de + time interval", "miss meeting someone by a time interval", "J’ai manqué Paul de cinq minutes.", "I missed Paul by five minutes.", "Paul is a direct object: we failed to meet. This differs from Paul m’a manqué, meaning I missed Paul emotionally.", "manquerLarousse"),
+      u("ne-plus-que-subjunctive", "il ne manquerait plus que + subjunctive", "that would be the last straw", "Il ne manquerait plus que le train soit annulé !", "Having the train cancelled would be the last straw!", "An idiomatic complaint about an additional unwelcome event. Que introduces a subjunctive clause; the phrase is not about lacking an object.", "manquerLarousse")
+    ],
+    adapter: [
+      u("object-a-target", "adapter quelque chose à quelqu’un / quelque chose", "adapt something to someone / something", "J’adapte mon discours au public.", "I adapt my speech to the audience.", "The thing adapted is direct; à introduces the target. Au = à + le, aux = à + les.", "adapter")
+    ],
+    sAdapter: [
+      u("a-person-thing", "s’adapter à quelqu’un / quelque chose", "adjust to someone / something", "Je m’adapte à mon nouvel emploi.", "I adjust to my new job.", "Keep à before the person or situation. À + thing can become y: Je m’y adapte. Compare adapter quelque chose, which takes a direct object.", "adapter")
+    ],
     dessiner: [
       u("a-medium", "dessiner au crayon / à la plume / au fusain", "draw in pencil / pen and ink / charcoal", "Je dessine un paysage au crayon.", "I draw a landscape in pencil.", "À introduces the medium; au is the contraction of à + le. The thing drawn is a direct object.", "dessiner"),
       u("de-memoire", "dessiner de mémoire", "draw from memory", "Elle dessine un visage de mémoire.", "She draws a face from memory.", "De mémoire is a fixed expression describing how you draw; it does not introduce the object.")

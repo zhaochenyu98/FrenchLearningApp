@@ -8,6 +8,9 @@
   const MATRIX_PRONOUNS = ["je", "nous", "tu", "vous", "il", "ils", "elle", "elles"];
 
   const imperfectIpaProfiles = Object.freeze({
+    seConcentrer: Object.freeze({ common: "kɔ̃.sɑ̃.tʁɛ", nous: "kɔ̃.sɑ̃.tʁi.jɔ̃", vous: "kɔ̃.sɑ̃.tʁi.je" }),
+    sArreter: Object.freeze({ common: "a.ʁɛ.tɛ", nous: "a.ʁɛ.tjɔ̃", vous: "a.ʁɛ.tje" }),
+    sAdapter: Object.freeze({ common: "a.dap.tɛ", nous: "a.dap.tjɔ̃", vous: "a.dap.tje" }),
     seSouhaiter: Object.freeze({ common: "swe.tɛ", nous: "swe.tjɔ̃", vous: "swe.tje" }),
     seControler: Object.freeze({ common: "kɔ̃.tʁo.lɛ", nous: "kɔ̃.tʁo.ljɔ̃", vous: "kɔ̃.tʁo.lje" }),
     sAbonner: Object.freeze({ common: "a.bɔ.nɛ", nous: "a.bɔ.njɔ̃", vous: "a.bɔ.nje" }),
@@ -230,6 +233,59 @@
   }
 
   const seeds = [
+    {
+      key: "seConcentrer",
+      infinitive: "se concentrer sur",
+      sourceInfinitive: "se concentrer",
+      ipa: "/sə kɔ̃.sɑ̃.tʁe syʁ/",
+      meaning: "to concentrate / focus on",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "subject",
+      agreementTitle: "Focus meaning: agree with the subject",
+      agreementExplanation: "In the ordinary meaning to focus one’s attention, the participle agrees with the subject: elles se sont concentrées. Sur introduces the topic, not a direct object.",
+      participle: "concentré",
+      specialNote: "Use sur for the topic: se concentrer sur son travail. The verb can stand alone: J’ai besoin de me concentrer. Compare concentrer son attention sur quelque chose with se concentrer sur quelque chose.",
+      present: examples(sentence("Elles se concentrent sur les consignes.", "They focus on the instructions."), sentence("Elles ne se concentrent pas sur les consignes.", "They do not focus on the instructions."), sentence("Sur quoi se concentrent-elles ?", "What do they focus on?")),
+      imperfect: examples(sentence("Elles se concentraient sur les consignes.", "They were focusing on the instructions."), sentence("Elles ne se concentraient pas sur les consignes.", "They were not focusing on the instructions."), sentence("Sur quoi se concentraient-elles ?", "What were they focusing on?")),
+      passeCompose: examples(sentence("Elles se sont concentrées sur les consignes.", "They focused on the instructions."), sentence("Elles ne se sont pas concentrées sur les consignes.", "They did not focus on the instructions."), sentence("Sur quoi se sont-elles concentrées ?", "What did they focus on?")),
+      imperative: imperativeExamples(sentence("Concentre-toi sur ta respiration !", "Focus on your breathing!"), sentence("Ne te concentre pas uniquement sur tes erreurs !", "Do not focus only on your mistakes!"), "Concentre-toi, concentrons-nous, concentrez-vous. In a negative command, the pronoun precedes the verb: ne te concentre pas.")
+    },
+    {
+      key: "sArreter",
+      infinitive: "s’arrêter",
+      ipa: "/sa.ʁɛ.te/",
+      meaning: "to stop / pause",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "subject",
+      agreementTitle: "Come-to-a-stop meaning: agree with the subject",
+      agreementExplanation: "In the ordinary meaning to come to a stop or pause, the participle agrees with the subject: elles se sont arrêtées. Compare arrêter la voiture, which uses avoir.",
+      participle: "arrêté",
+      specialNote: "Keep ê in every form. S’arrêter de parler means stop talking; s’arrêter pour parler means stop to talk. Use à for a stopping place: s’arrêter au feu rouge.",
+      present: examples(sentence("Elles s’arrêtent à la boulangerie.", "They stop at the bakery."), sentence("Elles ne s’arrêtent pas à la boulangerie.", "They do not stop at the bakery."), sentence("Où s’arrêtent-elles ?", "Where do they stop?")),
+      imperfect: examples(sentence("Elles s’arrêtaient à la boulangerie chaque matin.", "They used to stop at the bakery every morning."), sentence("Elles ne s’arrêtaient pas à la boulangerie.", "They did not use to stop at the bakery."), sentence("Où s’arrêtaient-elles ?", "Where did they use to stop?")),
+      passeCompose: examples(sentence("Elles se sont arrêtées à la boulangerie.", "They stopped at the bakery."), sentence("Elles ne se sont pas arrêtées à la boulangerie.", "They did not stop at the bakery."), sentence("Où se sont-elles arrêtées ?", "Where did they stop?")),
+      imperative: imperativeExamples(sentence("Arrête-toi avant le passage piéton !", "Stop before the pedestrian crossing!"), sentence("Ne t’arrête pas sur le passage piéton !", "Do not stop on the pedestrian crossing!"), "Arrête-toi, arrêtons-nous, arrêtez-vous. In a negative command, the pronoun precedes the verb: ne t’arrête pas.")
+    },
+    {
+      key: "sAdapter",
+      infinitive: "s’adapter à",
+      sourceInfinitive: "s’adapter",
+      ipa: "/sa.dap.te a/",
+      meaning: "to adapt / adjust to",
+      type: "essential",
+      lexicalStatus: "lexicalized",
+      agreementMode: "subject",
+      agreementTitle: "Adjust-to meaning: agree with the subject",
+      agreementExplanation: "In the ordinary meaning to adjust to a situation, the pronominal participle agrees with the subject: elles se sont adaptées. À introduces the situation, not a direct object.",
+      participle: "adapté",
+      specialNote: "Compare adapter ses horaires (adjust one’s hours) with s’adapter aux horaires (adjust to the hours). Use au / aux where needed. Je m’y adapte replaces à + thing with y.",
+      present: examples(sentence("Elles s’adaptent à leur nouvel environnement.", "They adjust to their new surroundings."), sentence("Elles ne s’adaptent pas à leur nouvel environnement.", "They do not adjust to their new surroundings."), sentence("Comment s’adaptent-elles à leur nouvel environnement ?", "How do they adjust to their new surroundings?")),
+      imperfect: examples(sentence("Elles s’adaptaient à leur nouvel environnement.", "They were adjusting to their new surroundings."), sentence("Elles ne s’adaptaient pas à leur nouvel environnement.", "They were not adjusting to their new surroundings."), sentence("Comment s’adaptaient-elles à leur nouvel environnement ?", "How were they adjusting to their new surroundings?")),
+      passeCompose: examples(sentence("Elles se sont adaptées à leur nouvel environnement.", "They adjusted to their new surroundings."), sentence("Elles ne se sont pas adaptées à leur nouvel environnement.", "They did not adjust to their new surroundings."), sentence("Se sont-elles adaptées à leur nouvel environnement ?", "Did they adjust to their new surroundings?")),
+      imperative: imperativeExamples(sentence("Adapte-toi au rythme de l’équipe !", "Adjust to the team’s pace!"), sentence("Ne t’adapte pas à une situation dangereuse !", "Do not adjust to a dangerous situation!"), "Adapte-toi, adaptons-nous, adaptez-vous. Negative commands place the pronoun before the verb: ne t’adapte pas.")
+    },
     {
       key: "seLaver",
       infinitive: "se laver",

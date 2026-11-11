@@ -50,6 +50,8 @@ for (const [verbId, person, expected] of [
   ["accueillir", "vous", "/kə vuz‿akœjje/"],
   ["rire", "nous", "/kə nu ʁijjɔ̃/"],
   ["rire", "vous", "/kə vu ʁijje/"],
+  ["seConcentrer", "nous", "/kə nu nu kɔ̃sɑ̃tʁijɔ̃/"],
+  ["seConcentrer", "vous", "/kə vu vu kɔ̃sɑ̃tʁije/"],
   ["venir", "je", "/kə ʒə vjɛn/"],
   ["venir", "nous", "/kə nu vənjɔ̃/"],
   ["pleuvoir", "il", "/kil plœv/"],

@@ -78,6 +78,11 @@
   });
 
   const customExamples = Object.freeze({
+    manquer: Object.freeze({
+      statement: Object.freeze({ fr: "Tu me manqueras pendant ton voyage.", en: "I will miss you during your trip." }),
+      negative: Object.freeze({ fr: "Je ne manquerai pas de t’écrire.", en: "I will be sure to write to you." }),
+      question: Object.freeze({ fr: "Manquerons-nous de temps pour finir ?", en: "Will we lack time to finish?" })
+    }),
     impersonalValoir: Object.freeze({
       statement: Object.freeze({ fr: "Il vaudra mieux réserver à l’avance.", en: "It will be better to book in advance." }),
       negative: Object.freeze({ fr: "Il vaudra mieux ne pas attendre le dernier moment.", en: "It will be better not to wait until the last moment." }),

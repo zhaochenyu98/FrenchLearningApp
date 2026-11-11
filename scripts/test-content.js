@@ -3,7 +3,7 @@ const vm = require("node:vm");
 const { dataScripts, loadData } = require("./load-data");
 const { FR } = loadData();
 const catalog = FR.content.catalog;
-assert.equal(catalog.list("verb").length, 149);
+assert.equal(catalog.list("verb").length, 158);
 assert.equal(catalog.list("tense").length, 8);
 assert.equal(catalog.getLesson("ilYA", "passe-compose").verbId, "ilYA");
 assert.equal(FR.data.tenses.getByVerbId(FR.data.verbs.getById("ilYA").pastVerbId).verbId, "avoirVerb");
@@ -42,7 +42,7 @@ FR.data.verbs.items.forEach(verb => {
 const prepositions = FR.data.verbPrepositions;
 const gerondif = FR.data.gerondif;
 assert.equal(gerondif.errors.length, 0);
-assert.equal(gerondif.items.length, 142);
+assert.equal(gerondif.items.length, 151);
 FR.data.verbs.items.forEach(verb => {
   const item = gerondif.getItem(verb.id);
   const exclusion = gerondif.getExclusion(verb.id);

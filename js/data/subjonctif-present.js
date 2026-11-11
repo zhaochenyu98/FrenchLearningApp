@@ -59,7 +59,8 @@
     // Present IPA already records the short/plural vowel and consonant changes.
     // Glides must return to vowels before the subjunctive plural /j/.
     const ipaOverrides = { adorer: "adɔʁ", jouer: "ʒu", seMarier: "maʁi", tuer: "ty" };
-    let ipa = ipaOverrides[source.key];
+    // Keep /i/ after the stop-plus-r cluster before the plural /j/ in concentrions.
+    let ipa = source.key === "seConcentrer" && person === "nous" ? "kɔ̃sɑ̃tʁi" : ipaOverrides[source.key];
     if (!ipa) {
       const raw = (row.ipa || verbPhraseIpa[row.full] || "").replace(/[/.\s‿]/gu, "");
       const vowel = vowelSpelling(baseInfinitive(source));
@@ -140,6 +141,11 @@
   }
 
   const customExamples = Object.freeze({
+    manquer: examples(
+      ["J’ai peur que nous manquions le train.", "I am afraid we might miss the train."],
+      ["Il faut que nous ne manquions de rien.", "We need to have everything we need."],
+      ["Est-il possible qu’il manque une page ?", "Could a page be missing?"]
+    ),
     etreVerb: examples(
       ["Il faut que tu sois prêt.", "You need to be ready."],
       ["Je préfère que tu ne sois pas en retard.", "I would prefer you not to be late."],

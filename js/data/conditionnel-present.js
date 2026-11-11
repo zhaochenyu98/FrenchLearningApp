@@ -27,6 +27,11 @@
   }
 
   const customExamples = Object.freeze({
+    manquer: examples(
+      ["Sans ton aide, nous manquerions de temps.", "Without your help, we would not have enough time."],
+      ["Je ne manquerais pas cette occasion.", "I would not miss this opportunity."],
+      ["Est-ce que je te manquerais si je partais ?", "Would you miss me if I left?"]
+    ),
     impersonalValoir: examples(
       ["Il vaudrait mieux réserver à l’avance.", "It would be better to book in advance."],
       ["Il vaudrait mieux ne pas attendre le dernier moment.", "It would be better not to wait until the last moment."],
