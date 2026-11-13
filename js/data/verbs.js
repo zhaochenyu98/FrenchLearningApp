@@ -1688,6 +1688,28 @@
       { pronoun: "elles", form: "se contrôlent", full: "elles se contrôlent", ipa: "/ɛl sə kɔ̃.tʁol/", en: "they control themselves", example: "Elles se contrôlent pendant le débat.", exampleEn: "They control themselves during the debate.", negative: "Elles ne se contrôlent pas pendant le débat.", negativeEn: "They do not control themselves during the debate.", question: "Se contrôlent-elles pendant le débat ?" }
     ];
 
+    const baisserRows = [
+      { pronoun: "je", form: "baisse", full: "je baisse", ipa: "/ʒə bɛs/", en: "I lower / turn down", example: "Je baisse le volume de la radio.", exampleEn: "I turn down the volume of the radio.", negative: "Je ne baisse pas le volume de la radio.", negativeEn: "I do not turn down the volume of the radio.", question: "Quel volume est-ce que je baisse ?" },
+      { pronoun: "tu", form: "baisses", full: "tu baisses", ipa: "/ty bɛs/", en: "you lower / turn down", example: "Tu baisses les yeux.", exampleEn: "You lower your eyes.", negative: "Tu ne baisses pas les yeux.", negativeEn: "You do not lower your eyes.", question: "Baisses-tu les yeux ?" },
+      { pronoun: "il", form: "baisse", full: "il baisse", ipa: "/il bɛs/", en: "he lowers / turns down", example: "Il baisse le prix du billet de cinq euros.", exampleEn: "He lowers the ticket price by five euros.", negative: "Il ne baisse pas le prix du billet de cinq euros.", negativeEn: "He does not lower the ticket price by five euros.", question: "De combien baisse-t-il le prix du billet ?" },
+      { pronoun: "elle", form: "baisse", full: "elle baisse", ipa: "/ɛl bɛs/", en: "she lowers / turns down", example: "Elle baisse les stores avant de dormir.", exampleEn: "She lowers the blinds before going to sleep.", negative: "Elle ne baisse pas les stores avant de dormir.", negativeEn: "She does not lower the blinds before going to sleep.", question: "Quand baisse-t-elle les stores ?" },
+      { pronoun: "nous", form: "baissons", full: "nous baissons", ipa: "/nu be.sɔ̃/", en: "we lower / turn down", example: "Nous baissons le chauffage la nuit.", exampleEn: "We turn down the heating at night.", negative: "Nous ne baissons pas le chauffage la nuit.", negativeEn: "We do not turn down the heating at night.", question: "Quand baissons-nous le chauffage ?" },
+      { pronoun: "vous", form: "baissez", full: "vous baissez", ipa: "/vu be.se/", en: "you lower / turn down", example: "Vous baissez la tête pour passer sous la branche.", exampleEn: "You lower your head to pass under the branch.", negative: "Vous ne baissez pas la tête.", negativeEn: "You do not lower your head.", question: "Pourquoi baissez-vous la tête ?" },
+      { pronoun: "ils", form: "baissent", full: "ils baissent", ipa: "/il bɛs/", en: "they lower / go down", example: "Ils baissent les bras devant la difficulté.", exampleEn: "They give up in the face of difficulty.", negative: "Ils ne baissent pas les bras devant la difficulté.", negativeEn: "They do not give up in the face of difficulty.", question: "Baissent-ils les bras devant la difficulté ?" },
+      { pronoun: "elles", form: "baissent", full: "elles baissent", ipa: "/ɛl bɛs/", en: "they lower / go down", example: "Les températures ? Elles baissent en hiver.", exampleEn: "Temperatures? They fall in winter.", negative: "Les températures ? Elles ne baissent pas aujourd’hui.", negativeEn: "Temperatures? They are not falling today.", question: "Les températures baissent-elles en hiver ?" }
+    ];
+
+    const compterRows = [
+      { pronoun: "je", form: "compte", full: "je compte", ipa: "/ʒə kɔ̃t/", en: "I count / plan", example: "Je compte les invités.", exampleEn: "I count the guests.", negative: "Je ne compte pas les invités.", negativeEn: "I do not count the guests.", question: "Qui est-ce que je compte ?" },
+      { pronoun: "tu", form: "comptes", full: "tu comptes", ipa: "/ty kɔ̃t/", en: "you count / plan", example: "Tu comptes jusqu’à dix.", exampleEn: "You count to ten.", negative: "Tu ne comptes pas jusqu’à dix.", negativeEn: "You do not count to ten.", question: "Jusqu’à combien comptes-tu ?" },
+      { pronoun: "il", form: "compte", full: "il compte", ipa: "/il kɔ̃t/", en: "he counts / plans", example: "Il compte sur ses amis.", exampleEn: "He relies on his friends.", negative: "Il ne compte pas sur ses amis.", negativeEn: "He does not rely on his friends.", question: "Sur qui compte-t-il ?" },
+      { pronoun: "elle", form: "compte", full: "elle compte", ipa: "/ɛl kɔ̃t/", en: "she counts / plans", example: "Elle compte partir demain.", exampleEn: "She plans to leave tomorrow.", negative: "Elle ne compte pas partir demain.", negativeEn: "She does not plan to leave tomorrow.", question: "Quand compte-t-elle partir ?" },
+      { pronoun: "nous", form: "comptons", full: "nous comptons", ipa: "/nu kɔ̃.tɔ̃/", en: "we count / plan", example: "Nous comptons les pièces dans la caisse.", exampleEn: "We count the coins in the till.", negative: "Nous ne comptons pas les pièces dans la caisse.", negativeEn: "We do not count the coins in the till.", question: "Que comptons-nous ?" },
+      { pronoun: "vous", form: "comptez", full: "vous comptez", ipa: "/vu kɔ̃.te/", en: "you count / plan", example: "Vous comptez deux heures pour le trajet.", exampleEn: "You allow two hours for the journey.", negative: "Vous ne comptez pas deux heures pour le trajet.", negativeEn: "You do not allow two hours for the journey.", question: "Combien de temps comptez-vous pour le trajet ?" },
+      { pronoun: "ils", form: "comptent", full: "ils comptent", ipa: "/il kɔ̃t/", en: "they count / plan", example: "Ils comptent les frais de livraison dans le total.", exampleEn: "They include the delivery charges in the total.", negative: "Ils ne comptent pas les frais de livraison dans le total.", negativeEn: "They do not include the delivery charges in the total.", question: "Quels frais comptent-ils dans le total ?" },
+      { pronoun: "elles", form: "comptent", full: "elles comptent", ipa: "/ɛl kɔ̃t/", en: "they count / matter", example: "Elles comptent beaucoup pour leur famille.", exampleEn: "They mean a lot to their family.", negative: "Elles ne comptent pas pour lui.", negativeEn: "They do not matter to him.", question: "Pour qui comptent-elles ?" }
+    ];
+
     const seConcentrerRows = [
       { pronoun: "je", form: "me concentre", full: "je me concentre", ipa: "/ʒə mə kɔ̃.sɑ̃tʁ/", en: "I concentrate / focus", example: "Je me concentre sur mon travail.", exampleEn: "I focus on my work.", negative: "Je ne me concentre pas sur mon travail.", negativeEn: "I do not focus on my work.", question: "Sur quoi est-ce que je me concentre ?" },
       { pronoun: "tu", form: "te concentres", full: "tu te concentres", ipa: "/ty tə kɔ̃.sɑ̃tʁ/", en: "you concentrate / focus", example: "Tu te concentres sur ta respiration.", exampleEn: "You focus on your breathing.", negative: "Tu ne te concentres pas sur ta respiration.", negativeEn: "You do not focus on your breathing.", question: "Te concentres-tu sur ta respiration ?" },
@@ -2070,6 +2092,24 @@
     ];
 
     const verbStudyItems = [
+      {
+        key: "baisser",
+        group: "regularEr",
+        label: "baisser",
+        title: "Baisser — to lower / turn down / decrease",
+        tag: "regular -er",
+        descriptionHtml: "<strong>Baisser</strong> follows the regular -er pattern: <strong>je baisse</strong>, <strong>nous baissons</strong>. With a direct object, it means to lower or turn down something: <strong>baisser le volume</strong>, <strong>baisser les prix</strong>, <strong>baisser les yeux</strong>. Without an object, it means to fall or decrease: <strong>les températures baissent</strong>. Distinguish <strong>baisser de cinq euros</strong> (decrease by five euros) from <strong>baisser à dix euros</strong> (decrease to ten euros). <strong>Baisser les bras</strong> means to give up, especially in <strong>Ne baisse pas les bras !</strong> The passé composé uses <strong>avoir + baissé</strong>, including the intransitive meaning: <strong>les prix ont baissé</strong>.",
+        rows: baisserRows
+      },
+      {
+        key: "compter",
+        group: "regularEr",
+        label: "compter",
+        title: "Compter — to count / rely on / intend / matter",
+        tag: "regular -er / silent p",
+        descriptionHtml: "<strong>Compter</strong> is regular: <strong>je compte</strong>, <strong>nous comptons</strong>. It means to count (<strong>compter les invités</strong>), allow or estimate an amount (<strong>compter deux heures</strong>), or include something in a total. <strong>Compter sur quelqu’un / quelque chose</strong> means to rely on someone or something: <strong>Je compte sur toi.</strong> For an intention, an infinitive follows directly: <strong>Je compte partir demain.</strong> <strong>Compter pour quelqu’un</strong> means to matter to someone: <strong>Tu comptes pour moi.</strong> It can stand alone: <strong>Chaque minute compte.</strong> The passé composé uses <strong>avoir + compté</strong>. The written p is silent in every form.",
+        rows: compterRows
+      },
       {
         key: "seConcentrer",
         group: "pronominal",
@@ -3473,6 +3513,8 @@
     ];
 
     const presentVerbHighlights = {
+      baisser: ["The short forms <strong>baisse / baisses / baissent</strong> sound like <strong>/bɛs/</strong>. The written <strong>ss</strong> keeps the sound <strong>/s/</strong> between vowels. Longer forms can use <strong>/e/</strong>: <strong>baissons /be.sɔ̃/</strong>, <strong>baissez /be.se/</strong>; <strong>/ɛ/</strong> is also heard in these forms."],
+      compter: ["The written <strong>p</strong> is silent; the t is audible: <strong>compte / comptes / comptent /kɔ̃t/</strong>. Compare <strong>comptons /kɔ̃.tɔ̃/</strong>, <strong>comptez /kɔ̃.te/</strong>, and <strong>compté /kɔ̃.te/</strong>. The vowel <strong>/ɔ̃/</strong> is nasal."],
       seConcentrer: ["Hear two nasal vowels in <strong>concentre /kɔ̃.sɑ̃tʁ/</strong>: the written n letters are not separate consonants. The short forms <strong>concentre / concentres / concentrent</strong> sound alike. Keep both pronouns in <strong>nous nous concentrons /nu nu kɔ̃.sɑ̃.tʁɔ̃/</strong>."],
       reduire: ["Hear <strong>/ɥi/</strong> in <strong>réduis / réduit /ʁe.dɥi/</strong>. The singular endings are silent; <strong>/z/</strong> appears in <strong>réduisons /ʁe.dɥi.zɔ̃/</strong> and <strong>réduisent /ʁe.dɥiz/</strong>. The participle <strong>réduit</strong> sounds like the present singular; feminine <strong>réduite</strong> adds <strong>/t/</strong>."],
       conduire: ["The singular <strong>conduis / conduit /kɔ̃.dɥi/</strong> has silent endings. Hear <strong>/z/</strong> in <strong>conduisons /kɔ̃.dɥi.zɔ̃/</strong> and <strong>conduisent /kɔ̃.dɥiz/</strong>. The vowel <strong>/ɔ̃/</strong> is nasal; the n is not a separate consonant. The participle is <strong>conduit /kɔ̃.dɥi/</strong>."],

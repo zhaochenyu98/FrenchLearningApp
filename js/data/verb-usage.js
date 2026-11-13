@@ -3,6 +3,8 @@
   // Shared sentence complements, independent of any tense module.
   // Negative complements are explicit when article choice depends on meaning.
   const exampleUsage = Object.freeze({
+    baisser: Object.freeze({"frComplement": "le chauffage la nuit", "enPredicate": "turn down the heating at night"}),
+    compter: Object.freeze({"frComplement": "sur nos amis pour nous aider", "enPredicate": "count on our friends to help us"}),
     seConcentrer: Object.freeze({"frComplement": "sur les points essentiels", "enPredicate": "focus on the essential points"}),
     reduire: Object.freeze({"frComplement": "notre consommation d’énergie", "enPredicate": "reduce our energy consumption"}),
     conduire: Object.freeze({"frComplement": "nos amis à la gare", "enPredicate": "drive our friends to the station"}),

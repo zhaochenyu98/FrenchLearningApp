@@ -2,6 +2,8 @@
   "use strict";
 
   const sources = Object.freeze({
+    baisser: { title: "Larousse · Baisser", url: "https://www.larousse.fr/dictionnaires/francais/baisser/7556" },
+    compter: { title: "Larousse · Compter", url: "https://www.larousse.fr/dictionnaires/francais/compter/17814" },
     seConcentrer: { title: "Larousse · Se concentrer sur", url: "https://www.larousse.fr/dictionnaires/francais-anglais/concentrer/17743" },
     reduire: { title: "Académie française · Réduire", url: "https://www.dictionnaire-academie.fr/article/A9R1135" },
     conduire: { title: "Académie française · Conduire", url: "https://www.dictionnaire-academie.fr/article/A9C3472" },
@@ -54,6 +56,16 @@
   // destination/origin complements. Partitive articles (boire du café), generic
   // time/manner adjuncts, and archaic constructions are not verb government.
   const byVerb = {
+    baisser: [
+      u("de-amount", "baisser de + amount", "decrease by an amount", "Le prix baisse de cinq euros.", "The price goes down by five euros.", "De gives the size of the decrease. With a direct object: Le magasin baisse le prix de cinq euros.", "baisser"),
+      u("a-result", "baisser à + amount / level", "decrease to an amount or level", "Le prix baisse à dix euros.", "The price goes down to ten euros.", "À gives the resulting price; compare baisser de cinq euros, decrease by five euros.", "baisser")
+    ],
+    compter: [
+      u("sur-person-thing", "compter sur quelqu’un / quelque chose", "count / rely on someone or something", "Je compte sur toi pour m’aider.", "I count on you to help me.", "Sur introduces the person or resource relied on. Pour + infinitive can specify the help expected.", "compter"),
+      u("de-a-numbers", "compter de + starting number + à + ending number", "count from one number to another", "Les enfants comptent de un à dix.", "The children count from one to ten.", "De gives the starting number; à gives the ending number. Jusqu’à dix means up to ten.", "compter"),
+      u("pour-person", "compter pour quelqu’un", "matter to someone", "Tu comptes beaucoup pour moi.", "You mean a lot to me.", "Compare Je compte sur toi, I rely on you. Without a complement: Chaque minute compte, every minute matters.", "compter"),
+      u("dans-total", "compter quelque chose dans + total / calculation", "include something in a total or calculation", "Nous comptons les frais de livraison dans le total.", "We include the delivery charges in the total.", "The included item is a direct object; dans introduces the total or calculation.", "compter")
+    ],
     seConcentrer: [
       u("sur-topic", "se concentrer sur + topic / task", "concentrate / focus on something", "Je me concentre sur mon travail.", "I focus on my work.", "Sur introduces what you focus on. The reflexive pronoun changes with the subject: je me concentre, nous nous concentrons. The verb can also stand alone: Je me concentre.", "seConcentrer")
     ],

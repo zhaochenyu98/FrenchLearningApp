@@ -38,6 +38,8 @@
   // One authored, translated context per verb. {g} is a complete gérondif;
   // no finite subject is inserted into it. Both actions always share a subject.
   const contexts = Object.freeze({
+    baisser: ["Nous économisons de l’énergie {g} le chauffage la nuit.", "We save energy by turning down the heating at night."],
+    compter: ["Nous vérifions le total {g} les pièces.", "We check the total by counting the coins."],
     seConcentrer: ["Nous progressons {g} sur la prononciation.", "We make progress by focusing on pronunciation."],
     reduire: ["Nous économisons de l’argent {g} notre consommation d’énergie.", "We save money by reducing our energy consumption."],
     conduire: ["Nous discutons {g} nos amis à la gare.", "We chat while driving our friends to the station."],

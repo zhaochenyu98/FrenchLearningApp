@@ -1820,6 +1820,22 @@
       margin-top: 12px;
     }
 
+    .relative-pronoun-quick-guide {
+      margin-bottom: 18px;
+    }
+
+    .relative-pronoun-form-btn {
+      display: grid;
+      align-content: start;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .relative-pronoun-form-btn .pronoun-main {
+      color: var(--accent);
+      font-size: 1.65rem;
+    }
+
     .noun-rule-header,
     .noun-rule-card {
       display: grid;
@@ -2876,6 +2892,42 @@
       min-height: 112px;
     }
 
+    .conjunction-expression-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .conjunction-expression-card {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      overflow-wrap: anywhere;
+    }
+
+    .conjunction-expression-card > .grammar-note {
+      margin: 0;
+    }
+
+    .conjunction-expression-card .conjunction-word-btn {
+      min-height: 150px;
+    }
+
+    .conjunction-group-panel .conjunction-word-main {
+      font-size: 1.65rem;
+      overflow-wrap: anywhere;
+    }
+
+    .conjunction-group-panel .conjunction-word-btn > span {
+      max-width: 100%;
+    }
+
     .conjunction-elision-table {
       display: grid;
       gap: 8px;
@@ -3216,6 +3268,7 @@
       .conjunction-overview-grid,
       .conjunction-lesson-intro,
       .conjunction-example-grid,
+      .conjunction-expression-grid,
       .conjunction-elision-row {
         grid-template-columns: 1fr;
       }

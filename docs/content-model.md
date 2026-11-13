@@ -67,8 +67,8 @@ ready for editorial enrichment without inventing provenance for existing text.
   reflexive forms without adding a finite subject to the gérondif. Seven
   impersonal entries have explicit exclusion notes; missing classifications fail
   catalog registration. Pronominal cards reuse the shared forms and examples.
-- `content-catalog.js` adapts the current authoring structures into 158 verb
-  records and 1217 available verb/tense lessons. Unsupported imperatives and
+- `content-catalog.js` adapts the current authoring structures into 160 verb
+  records and 1233 available verb/tense lessons. Unsupported imperatives and
   excluded gérondif constructions are absent.
   Ordinary passé composé lessons expose the taught participle and sentences;
   pronominal lessons expose their full specialized paradigms.

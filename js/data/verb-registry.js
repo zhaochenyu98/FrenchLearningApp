@@ -3,6 +3,8 @@
   const FR = global.FR;
   // Authored lexical metadata. IDs are permanent; labels may change independently.
   const metadata = Object.freeze({
+    baisser: Object.freeze({"infinitive": "baisser", "infinitiveIpa": "/be.se/"}),
+    compter: Object.freeze({"infinitive": "compter", "infinitiveIpa": "/kɔ̃.te/"}),
     seConcentrer: Object.freeze({"infinitive": "se concentrer", "infinitiveIpa": "/sə kɔ̃.sɑ̃.tʁe/"}),
     reduire: Object.freeze({"infinitive": "réduire", "infinitiveIpa": "/ʁe.dɥiʁ/"}),
     conduire: Object.freeze({"infinitive": "conduire", "infinitiveIpa": "/kɔ̃.dɥiʁ/"}),

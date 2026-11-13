@@ -18,6 +18,20 @@
   }
 
   const curated = Object.freeze({
+    baisser: command(
+      "Baisse le volume, s’il te plaît !",
+      "Turn down the volume, please!",
+      "Ne baisse pas les bras !",
+      "Do not give up!",
+      "Regular -er imperative: baisse, baissons, baissez. Drop -s in the tu form. Baisser les bras can mean give up as well as literally lower one’s arms."
+    ),
+    compter: command(
+      "Compte sur moi !",
+      "Count on me!",
+      "Ne compte pas uniquement sur la chance !",
+      "Do not rely only on luck!",
+      "Regular -er imperative: compte, comptons, comptez. Drop -s in the tu form. Keep the silent p in the spelling."
+    ),
     reduire: command(
       "Réduis le volume de la radio !",
       "Turn down the volume of the radio!",

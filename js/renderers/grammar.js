@@ -333,6 +333,20 @@
     }
 
     function renderRelativePronouns(rules = relativePronounRules) {
+      const guide = document.getElementById("relativePronounQuickGuide");
+      if (guide) {
+        guide.innerHTML = rules.map(rule => `
+          <button class="pronoun-card relative-pronoun-form-btn" type="button" data-speech="${FR.utils.escapeAttribute(rule.term)}" aria-label="Play French relative pronoun: ${FR.utils.escapeAttribute(rule.term)}">
+            <span class="pronoun-main" lang="fr">${rule.term}</span>
+            <span class="pronoun-ipa">${rule.ipa}</span>
+            <span class="translation" lang="en">${rule.english}</span>
+            <span class="grammar-note">${rule.guide}</span>
+          </button>
+        `).join("");
+        guide.querySelectorAll(".relative-pronoun-form-btn").forEach(button => {
+          button.addEventListener("click", () => speak(button.dataset.speech, button));
+        });
+      }
       renderCoiGuideTable(document.getElementById("relativePronounGrid"), rules, {
         titleHeader: "关系代词 · Pronoun",
         patternHeader: "How it works",

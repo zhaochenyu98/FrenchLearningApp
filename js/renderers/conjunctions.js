@@ -177,19 +177,32 @@
     return row;
   }
 
+  function createExpressionCard(expression) {
+    const card = createElement("article", "conjunction-expression-card");
+    card.setAttribute("aria-label", expression.term);
+    card.append(
+      createWordButton(expression),
+      createElement("p", "grammar-note", expression.description),
+      createNoteCard({ title: "Pattern · 结构", text: expression.pattern })
+    );
+    (expression.examples || []).forEach(example => card.appendChild(createExampleButton(example)));
+    return card;
+  }
+
   function createLessonPanel(item) {
     if (!item || !item.id || !item.term || !item.ipa || !item.english) {
       throw new Error("A conjunction entry is missing its id, word, IPA, or English equivalent.");
     }
 
     const panel = createElement("div", "category-panel conjunction-panel");
+    if (item.expressions) panel.classList.add("conjunction-group-panel");
     panel.id = `conjunction-${item.id}Section`;
     panel.dataset.studySection = `conjunction-${item.id}`;
 
     const intro = createElement("div", "conjunction-lesson-intro");
     const copy = createElement("div", "conjunction-lesson-copy");
     copy.append(
-      createElement("h3", "", `${item.term}: ${item.english}`),
+      createElement("h3", "", item.title || `${item.term}: ${item.english}`),
       createElement("p", "grammar-note", item.description)
     );
 
@@ -208,6 +221,14 @@
     if (item.crossLink) copy.appendChild(createCrossLink(item.crossLink));
     intro.append(createWordButton(item), copy);
     panel.appendChild(intro);
+
+    if (item.expressions) {
+      const hint = createElement("p", "grammar-note", "Click an expression or sentence for French audio.");
+      const expressions = createElement("div", "conjunction-expression-grid");
+      item.expressions.forEach(expression => expressions.appendChild(createExpressionCard(expression)));
+      panel.append(hint, expressions);
+      return panel;
+    }
 
     if (item.elisionRows) {
       const heading = createElement("div", "verb-subtable-heading");

@@ -141,22 +141,10 @@
 
     const relativePronounRules = [
       {
-        title: "que / qu’ — 直接宾语 · direct object",
-        pattern: "Que replaces the direct object of the relative clause: noun + que + subject + verb. Que becomes qu’ before a vowel or mute h, as in qu’il invite. Do not repeat the object with le / la / les.",
-        examples: [
-          {
-            from: "Voici le livre. Tu cherches ce livre.",
-            to: "Voici le livre que tu cherches.",
-            en: "Here is the book that you are looking for."
-          },
-          {
-            from: "Voici la femme. Il invite cette femme.",
-            to: "Voici la femme qu’il invite.",
-            en: "Here is the woman whom he is inviting."
-          }
-        ]
-      },
-      {
+        term: "qui",
+        ipa: "/ki/",
+        english: "who / that / which",
+        guide: "主语 · The noun does the action: noun + qui + verb.",
         title: "qui — 主语 · subject",
         pattern: "Qui is the subject of the relative clause: noun + qui + verb. The verb agrees with the preceding noun: la femme qui parle / les femmes qui parlent. Do not add another subject for that noun. Qui does not elide before a vowel: qui aime.",
         examples: [
@@ -169,10 +157,44 @@
             from: "J’ai un livre. Ce livre explique la grammaire.",
             to: "J’ai un livre qui explique la grammaire.",
             en: "I have a book that explains grammar."
+          },
+          {
+            from: "Voici les enfants. Ces enfants jouent dans le jardin.",
+            to: "Voici les enfants qui jouent dans le jardin.",
+            en: "Here are the children who are playing in the garden."
           }
         ]
       },
       {
+        term: "que",
+        ipa: "/kə/",
+        english: "whom / that / which",
+        guide: "直接宾语 · The noun receives the action: noun + que + subject + verb.",
+        title: "que / qu’ — 直接宾语 · direct object",
+        pattern: "Que replaces the direct object of the relative clause: noun + que + subject + verb. Que becomes qu’ before a vowel or mute h, as in qu’il invite. Do not repeat the object with le / la / les. With avoir in the passé composé, the past participle agrees with this preceding direct object: les chansons que tu as écrites.",
+        examples: [
+          {
+            from: "Voici le livre. Tu cherches ce livre.",
+            to: "Voici le livre que tu cherches.",
+            en: "Here is the book that you are looking for."
+          },
+          {
+            from: "Voici la femme. Il invite cette femme.",
+            to: "Voici la femme qu’il invite.",
+            en: "Here is the woman whom he is inviting."
+          },
+          {
+            from: "J’aime les chansons. Tu as écrit ces chansons.",
+            to: "J’aime les chansons que tu as écrites.",
+            en: "I like the songs that you wrote."
+          }
+        ]
+      },
+      {
+        term: "où",
+        ipa: "/u/",
+        english: "where / when",
+        guide: "地点 / 时间 · The noun names a place or time: noun + où + clause.",
         title: "où — 地点 / 时间 · place / time",
         pattern: "Où refers back to a place (where) or a time (when): la ville où… / le jour où…. Keep the accent: où means where / when; ou without an accent means or.",
         examples: [
@@ -185,10 +207,19 @@
             from: "Je me souviens du jour. Nous nous sommes rencontrés ce jour-là.",
             to: "Je me souviens du jour où nous nous sommes rencontrés.",
             en: "I remember the day when we met."
+          },
+          {
+            from: "C’est le café. Nous nous retrouvons dans ce café.",
+            to: "C’est le café où nous nous retrouvons.",
+            en: "This is the café where we meet up."
           }
         ]
       },
       {
+        term: "dont",
+        ipa: "/dɔ̃/",
+        english: "whose / of whom / of which",
+        guide: "de + 补语 · Replaces de + noun, including possession: noun + dont + clause.",
         title: "dont — de + 补语 · complement with de",
         pattern: "Dont replaces a complement introduced by de: parler de → dont je parle; avoir besoin de → dont j’ai besoin. It can also express possession (whose): le fils de cette femme → cette femme dont le fils…. Do not repeat de or en for the same complement; use dont le fils, not dont son fils.",
         examples: [
@@ -201,6 +232,11 @@
             from: "Je connais une femme. Le fils de cette femme est médecin.",
             to: "Je connais une femme dont le fils est médecin.",
             en: "I know a woman whose son is a doctor."
+          },
+          {
+            from: "Voici les documents. J’ai besoin de ces documents.",
+            to: "Voici les documents dont j’ai besoin.",
+            en: "Here are the documents that I need."
           }
         ]
       }

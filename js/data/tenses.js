@@ -10,6 +10,34 @@
         },
         verbs: [
           {
+            verbId: "baisser",
+            infinitive: "baisser",
+            infinitiveIpa: "/be.se/",
+            meaning: "to lower / turn down / decrease",
+            auxiliary: "avoir",
+            pastParticiple: "baissé",
+            pastParticipleIpa: "/be.se/",
+            pattern: "baisser → baissé",
+            note: "Regular -er participle with avoir. Use avoir both with an object (j’ai baissé le volume) and without one (les prix ont baissé).",
+            statement: { fr: "Nous avons baissé le chauffage la nuit.", en: "We turned down the heating at night." },
+            negative: { fr: "Nous n’avons pas baissé le chauffage la nuit.", en: "We did not turn down the heating at night." },
+            question: { fr: "Les prix ont-ils baissé ?", en: "Did the prices go down?" }
+          },
+          {
+            verbId: "compter",
+            infinitive: "compter",
+            infinitiveIpa: "/kɔ̃.te/",
+            meaning: "to count / rely on / intend / matter",
+            auxiliary: "avoir",
+            pastParticiple: "compté",
+            pastParticipleIpa: "/kɔ̃.te/",
+            pattern: "compter → compté",
+            note: "Regular -er participle with avoir. Keep the silent p in compté. Compare counting objects with compter sur quelqu’un, relying on someone.",
+            statement: { fr: "Nous avons compté les pièces dans la caisse.", en: "We counted the coins in the till." },
+            negative: { fr: "Nous n’avons pas compté sur la chance.", en: "We did not rely on luck." },
+            question: { fr: "Avez-vous compté les frais de livraison dans le total ?", en: "Did you include the delivery charges in the total?" }
+          },
+          {
             verbId: "decrocher",
             infinitive: "décrocher",
             infinitiveIpa: "/de.kʁɔ.ʃe/",

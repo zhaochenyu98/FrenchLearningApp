@@ -26,7 +26,7 @@
           { id: "reflexive", title: "Reflexive pronouns", open: true, elements: ['[data-study-section="pronoun-reflexive"]'] },
           { id: "demonstrative", title: "Les pronoms démonstratifs", open: true, elements: ['[data-study-section="pronoun-demonstrative"]'] },
           { id: "interrogative", title: "疑问代词 · Interrogative pronouns", open: true, elements: ['[data-study-section="pronoun-interrogative"]'] },
-          { id: "relative", title: "关系代词 · Relative pronouns", open: true, elements: ['[data-study-section="pronoun-relative"]'] },
+          { id: "relative", title: "关系代词 · Qui / que / où / dont", open: true, elements: ['[data-study-section="pronoun-relative"]'] },
           { id: "possessive-pronouns", title: "主有代词 · Possessive pronouns", open: true, elements: ['[data-study-section="pronoun-possessive-pronouns"]'] },
           { id: "possessive", title: "Possessive determiners", elements: ['[data-study-section="pronoun-possessive"]'] },
           { id: "possessive-exceptions", title: "Possessive exceptions", elements: ['[data-study-section="pronoun-possessive-exceptions"]'] }
@@ -100,7 +100,7 @@
             },
             ...items.map(item => ({
               id: item.id,
-              title: item.term,
+              title: item.title || item.term,
               open: item.id === "si",
               elements: [`[data-study-section="conjunction-${item.id}"]`]
             }))
