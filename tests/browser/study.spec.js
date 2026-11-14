@@ -251,7 +251,13 @@ test("gérondif search opens invariant and reflexive forms, translated audio, an
   const card = page.locator("#gerondif-manger");
   await expect(card).toBeFocused();
   await expect(page.locator("#verbModeGerondif")).toHaveAttribute("aria-selected", "true");
-  await expect(page.locator("#gerondifIndex .verb-index-link")).toHaveCount(142);
+  // Cover every eligible verb as the catalog grows, including missing or duplicate links.
+  const expectedIndexLabels = await page.evaluate(() => window.FR.data.verbs.items
+    .filter(verb => !window.FR.data.gerondif.getExclusion(verb.id))
+    .map(verb => verb.label).sort());
+  await expect.poll(async () => (
+    await page.locator("#gerondifIndex .verb-index-link").allTextContents()
+  ).sort()).toEqual(expectedIndexLabels);
   await expect(card.locator(".verb-form-btn")).toHaveCount(1);
   await expect(card).toContainText("Invariable participle · all subjects");
   await expect(card).not.toContainText("Fixed impersonal form");
